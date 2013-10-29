@@ -1859,148 +1859,101 @@ class BP_Embed extends WP_Embed {
  * @since BuddyPress (1.7)
  */
 class BP_Walker_Nav_Menu extends Walker_Nav_Menu {
-	/**
-	 * @since BuddyPress (1.7)
-	 * @var array
-	 */
-	var $db_fields = array( 'id' => 'css_id', 'parent' => 'parent' );
-
-	/**
-	 * @since BuddyPress (1.7)
-	 * @var string
-	 */
-	var $tree_type = array();
-
-	/**
-	 * Display array of elements hierarchically.
-	 *
-	 * This method is almost identical to the version in {@link Walker::walk()}. The only change is on one line
-	 * which has been commented. An IF was comparing 0 to a non-empty string which was preventing child elements
-	 * being grouped under their parent menu element.
-	 *
-	 * This caused a problem for BuddyPress because our primary/secondary navigations doesn't have a unique numerical
-	 * ID that describes a hierarchy (we use a slug). Obviously, WordPress Menus use Posts, and those have ID/post_parent.
-	 *
-	 * @param array $elements
-	 * @param int $max_depth
-	 * @return string
-	 * @see Walker::walk()
-	 * @since BuddyPress (1.7)
-	 */
-	function walk( $elements, $max_depth ) {
-		$args   = array_slice( func_get_args(), 2 );
-		$output = '';
-
-		if ( $max_depth < -1 ) // invalid parameter
-			return $output;
-
-		if ( empty( $elements ) ) // nothing to walk
-			return $output;
-
-		$id_field     = $this->db_fields['id'];
-		$parent_field = $this->db_fields['parent'];
-
-		// flat display
-		if ( -1 == $max_depth ) {
-
-			$empty_array = array();
-			foreach ( $elements as $e )
-				$this->display_element( $e, $empty_array, 1, 0, $args, $output );
-
-			return $output;
-		}
-
-		/*
-		 * need to display in hierarchical order
-		 * separate elements into two buckets: top level and children elements
-		 * children_elements is two dimensional array, eg.
-		 * children_elements[10][] contains all sub-elements whose parent is 10.
-		 */
-		$top_level_elements = array();
-		$children_elements  = array();
-
-		foreach ( $elements as $e ) {
-			// BuddyPress: changed '==' to '==='. This is the only change from version in Walker::walk().
-			if ( 0 === $e->$parent_field )
-				$top_level_elements[] = $e;
-			else
-				$children_elements[$e->$parent_field][] = $e;
-		}
-
-		/*
-		 * when none of the elements is top level
-		 * assume the first one must be root of the sub elements
-		 */
-		if ( empty( $top_level_elements ) ) {
-
-			$first              = array_slice( $elements, 0, 1 );
-			$root               = $first[0];
-			$top_level_elements = array();
-			$children_elements  = array();
-
-			foreach ( $elements as $e ) {
-				if ( $root->$parent_field == $e->$parent_field )
-					$top_level_elements[] = $e;
-				else
-					$children_elements[$e->$parent_field][] = $e;
-			}
-		}
-
-		foreach ( $top_level_elements as $e )
-			$this->display_element( $e, $children_elements, $max_depth, 0, $args, $output );
-
-		/*
-		 * if we are displaying all levels, and remaining children_elements is not empty,
-		 * then we got orphans, which should be displayed regardless
-		 */
-		if ( ( $max_depth == 0 ) && count( $children_elements ) > 0 ) {
-			$empty_array = array();
-
-			foreach ( $children_elements as $orphans )
-				foreach ( $orphans as $op )
-					$this->display_element( $op, $empty_array, 1, 0, $args, $output );
-		 }
-
-		 return $output;
+	function start_lvl( &$output, $depth ) {
+		
+		//In a child UL, add the 'dropdown-menu' class
+		$indent = str_repeat( "\t", $depth );
+		$output	   .= "\n$indent<ul class=\"dropdown-menu\">\n";
+		
 	}
 
-	/**
-	 * Displays the current <li> that we are on.
-	 *
-	 * @param string $output Passed by reference. Used to append additional content.
-	 * @param object $item Menu item data object.
-	 * @param int $depth Depth of menu item. Used for padding. Optional, defaults to 0.
-	 * @param array $args Optional
-	 * @param int $current_page Menu item ID. Optional.
-	 * @since BuddyPress (1.7)
-	 */
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-		// If we're someway down the tree, indent the HTML with the appropriate number of tabs
-		$indent = $depth ? str_repeat( "\t", $depth ) : '';
+		
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
-		// Add HTML classes
-		$class_names = join( ' ', apply_filters( 'bp_nav_menu_css_class', array_filter( $item->class ), $item, $args ) );
-		$class_names = ! empty( $class_names ) ? ' class="' . esc_attr( $class_names ) . '"' : '';
+		$li_attributes = '';
+		$class_names = $value = '';
 
-		// Add HTML ID
-		$id = sanitize_html_class( $item->css_id . '-personal-li' );  // Backpat with BP pre-1.7
-		$id = apply_filters( 'bp_nav_menu_item_id', $id, $item, $args );
-		$id = ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		
+		//Add class and attribute to LI element that contains a submenu UL.
+		if ($args->has_children){
+			$classes[] 		= 'dropdown';
+			$li_attributes .= 'data-dropdown="dropdown"';
+		}
+		$classes[] = 'menu-item-' . $item->ID;
+		//If we are on the current page, add the active class to that menu item.
+		$classes[] = ($item->current) ? 'active' : '';
 
-		// Opening tag; closing tag is handled in Walker_Nav_Menu::end_el().
-		$output .= $indent . '<li' . $id . $class_names . '>';
+		//Make sure you still add all of the WordPress classes.
+		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+		$class_names = ' class="' . esc_attr( $class_names ) . '"';
 
-		// Add href attribute
-		$attributes = ! empty( $item->link ) ? ' href="' . esc_attr( esc_url( $item->link ) ) . '"' : '';
+		$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+		$id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
 
-		// Construct the link
+		$output .= $indent . '<li' . $id . $value . $class_names . $li_attributes . '>';
+
+		//Add attributes to link element.
+		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+		$attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+		$attributes .= ! empty( $item->xfn ) ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+		$attributes .= ! empty( $item->url ) ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+		$attributes .= ($args->has_children) ? ' class="dropdown-toggle" data-toggle="dropdown"' : ''; 
+
 		$item_output = $args->before;
-		$item_output .= '<a' . $attributes . '>';
-		$item_output .= $args->link_before . apply_filters( 'the_title', $item->name, 0 ) . $args->link_after;
+		$item_output .= '<a'. $attributes .'>';
+		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+		$item_output .= ($args->has_children) ? ' <b class="caret"></b> ' : ''; 
 		$item_output .= '</a>';
 		$item_output .= $args->after;
 
-		// $output is byref
-		$output .= apply_filters( 'bp_walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+	}
+
+	//Overwrite display_element function to add has_children attribute. Not needed in >= Wordpress 3.4
+	function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
+		
+		if ( !$element )
+			return;
+		
+		$id_field = $this->db_fields['id'];
+
+		//display this element
+		if ( is_array( $args[0] ) ) 
+			$args[0]['has_children'] = ! empty( $children_elements[$element->$id_field] );
+		else if ( is_object( $args[0] ) ) 
+			$args[0]->has_children = ! empty( $children_elements[$element->$id_field] ); 
+		$cb_args = array_merge( array(&$output, $element, $depth), $args);
+		call_user_func_array(array(&$this, 'start_el'), $cb_args);
+
+		$id = $element->$id_field;
+
+		// descend only when the depth is right and there are childrens for this element
+		if ( ($max_depth == 0 || $max_depth > $depth+1 ) && isset( $children_elements[$id]) ) {
+
+			foreach( $children_elements[ $id ] as $child ){
+
+				if ( !isset($newlevel) ) {
+					$newlevel = true;
+					//start the child delimiter
+					$cb_args = array_merge( array(&$output, $depth), $args);
+					call_user_func_array(array(&$this, 'start_lvl'), $cb_args);
+				}
+				$this->display_element( $child, $children_elements, $max_depth, $depth + 1, $args, $output );
+			}
+				unset( $children_elements[ $id ] );
+		}
+
+		if ( isset($newlevel) && $newlevel ){
+			//end the child delimiter
+			$cb_args = array_merge( array(&$output, $depth), $args);
+			call_user_func_array(array(&$this, 'end_lvl'), $cb_args);
+		}
+
+		//end this element
+		$cb_args = array_merge( array(&$output, $element, $depth), $args);
+		call_user_func_array(array(&$this, 'end_el'), $cb_args);
+		
 	}
 }

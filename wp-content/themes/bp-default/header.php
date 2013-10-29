@@ -9,7 +9,7 @@
 
 		<?php bp_head(); ?>
 		<?php wp_head(); ?>
-
+                <?php header("HTTP/1.1 200 OK");?>
 	</head>
 
 	<body <?php body_class(); ?> id="bp-default">

@@ -599,6 +599,7 @@ if ( !function_exists( 'bp_dtheme_main_nav' ) ) :
  * @since BuddyPress (1.5)
  */
 function bp_dtheme_main_nav( $args ) {
+    
 	$pages_args = array(
 		'depth'      => 0,
 		'echo'       => false,
