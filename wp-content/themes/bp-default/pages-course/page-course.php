@@ -13,8 +13,12 @@ get_header();
 
 
 <?php 
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
 $args= array(
         'post_type'=>'course',
+    	'paged' => $paged
+
     
 //'tax_query' => array(
 //         array(
@@ -46,7 +50,7 @@ query_posts( $args); ?>
 
 					<div class="entry">
 
-						<?php the_content( __( '<p class="serif">Read the rest of this page &rarr;</p>', 'buddypress' ) ); ?>
+						<?php the_excerpt( __( '<p class="serif">Read the rest of this page &rarr;</p>', 'buddypress' ) ); ?>
 
 						<?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) ); ?>
 						
@@ -56,8 +60,8 @@ $linked_company= get_field('Company') ;
 $linked_co = $linked_company[0];
 if ($linked_co)
 echo 'Institution: <a href="'. $linked_co->guid.'">'. $linked_co->post_title.'</a> ';
-
 ?>
+                                         
 <?php //addition: course type field
  
 $course_type = types_render_field("course-type", array("output"=>"normal"));
@@ -65,7 +69,15 @@ $course_type = types_render_field("course-type", array("output"=>"normal"));
 //Output the trainer email
  if($course_type)
 printf("| Course Type: %s",$course_type);
-?>
+ 
+ 
+ $pic = types_render_field("post-image", array("output"=>"raw"));
+ 
+//Output the trainer email
+ if($pic){
+   printf('<br><img style="float:left position:relative; max-height:150px" src="%s"/>', $pic);
+ }
+ ?>
                                             <hr>                                       
                                                     <?php // edit_post_link( __( 'Edit this page.', 'buddypress' ), '<p class="edit-link">', '</p>'); ?>
 
@@ -78,9 +90,8 @@ printf("| Course Type: %s",$course_type);
 			<?php endwhile; endif; ?>
 
 		</div><!-- .page -->
-
 		<?php do_action( 'bp_after_blog_page' ); ?>
-
+<?php wp_pagenavi( array( 'type' => 'course' ) ); ?>
 		</div><!-- .padder -->
 	</div><!-- #content -->
 

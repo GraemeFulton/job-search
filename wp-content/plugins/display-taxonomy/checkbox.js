@@ -125,16 +125,22 @@ $.each(data, function() {
   
  var course_type= getCourseType(this);
  var body_name= getBodyName(this);
- var content= this.post_content.replace(/\n/g, "<br />")
+ 
+    var content= this.post_content;        
+    content= jQuery.trim(content).substring(0, 310).split(" ").slice(0, -1).join(" ") + " [...]";
+    content= content.replace(/\n/g, "<br />");
+            content=  content.replace(/<img[^>]*>/g,"");
+
     
     var post= 
         '<div id="'+this.post_id+'" class="'+this.post_id+' '+this.post_type+' type-'+this.post_type+' status-publish hentry">'
         +'<h2 class="posttitle"><a href="'+this.guid+'" rel="bookmark" title="Permanent Link to '+this.post_title+'">'+this.post_title+'</a></h2>'
         +'<div class="entry">'
         +content+"</div></div>"
-        +course_type+" "+body_name+"<hr>";
+        +"</a><br><p>"+course_type+" "+body_name+"</p><hr>";
    
   $("#blog-page").append(post);
+  $('.entry a').contents().unwrap(); //remove hyperlinks in descriptions
 
 });
  
@@ -165,10 +171,10 @@ function getCourseType(data){
     
      var course_type= "";
     if(data.key1['wpcf-fields-checkboxes-option-b7c3ac2ba41562b7ea3cfbcdd3587bf0-1'])
-         course_type= 'Paid';
+         course_type= 'Course Type: Paid';
     
         if(data.key1['wpcf-fields-checkboxes-option-60039c1cd5b3cf7f3d424671ae5ccc3a-2'])
-         course_type= 'Free';
+         course_type= 'Course Type: Free';
      
      return course_type;
     
@@ -184,7 +190,7 @@ function getBodyName(data){
     
      var body= "";
     if(data.key2.post_title)
-         body= data.key2.post_title;
+         body= "| Institution: "+data.key2.post_title;
     
      return body;
     
