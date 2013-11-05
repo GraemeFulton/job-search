@@ -41,30 +41,12 @@ public function updateCourseDetails
         $this->submitPost($wpdb, $courseURL, $courseTitle, $courseContent, $coursePhoto, $tags,
                                          $this->urlToScrape, $this->currentCategory, $course);
         
-        
-        $lastInsertID= $wpdb->insert_id;
-        
-   if ($lastInsertID)
-    {  
-   
-            $course_type = array(
-                'post_id' => $lastInsertID,
-                'meta_value'=>'a:1:{s:64:"wpcf-fields-checkboxes-option-60039c1cd5b3cf7f3d424671ae5ccc3a-2";s:1:"1";}',
-                'meta_key'=>'wpcf-course-type'
-            );//meta_value = free course
-
-            $wpdb->insert(
-                'wp_postmeta', 
-                $course_type,
-                array( '%d', '%s', '%s' )
-            );
-
-         
-     }
-        
-        
-    
+        $course->addCourse($wpdb, $this->last_insert_id); 
+          
+       
 //  }
+//        else
+//        echo "CourseID ".$course->initiativeCourseID." already exists, check if it has been updated.<hr>";
   }
    
     

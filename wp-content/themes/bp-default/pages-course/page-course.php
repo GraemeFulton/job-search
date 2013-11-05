@@ -18,15 +18,6 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $args= array(
         'post_type'=>'course',
     	'paged' => $paged
-
-    
-//'tax_query' => array(
-//         array(
-//        'taxonomy' => 'subject',
-//        'field' => 'slug',
-//        'terms' => array('art', 'biology')
-//    )
-//    )
 );
 
 
@@ -55,6 +46,7 @@ query_posts( $args); ?>
 						<?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) ); ?>
 						
 <?php //addition: company name
+
 $linked_company= get_field('Company') ;
 //var_dump($linked_company);
 $linked_co = $linked_company[0];
@@ -65,12 +57,54 @@ echo 'Institution: <a href="'. $linked_co->guid.'">'. $linked_co->post_title.'</
 <?php //addition: course type field
  
 $course_type = types_render_field("course-type", array("output"=>"normal"));
- 
+
 //Output the trainer email
  if($course_type)
 printf("| Course Type: %s",$course_type);
- 
- 
+  
+ ////////////////NEW ADDITION 
+ $uni = wp_get_post_terms($post->ID, 'uni', array("fields" => "ids"));
+ if($uni){
+echo "| Offered by: ";
+
+
+   $sql="SELECT $wpdb->term_relationships.term_taxonomy_id
+                from $wpdb->term_relationships 
+                WHERE $wpdb->term_relationships.object_id ='$uni[0]'";
+        
+        $safe_sql= $wpdb->prepare($sql);
+        $results=$wpdb->get_results($sql);
+        
+           // $results = $wpdb->get_results ( "SELECT * FROM $wpdb->terms" );
+              $tags_from_group=array();
+
+//    foreach($results as $group)
+//    {       
+
+       $tags_from_group= array_merge($tags_from_group,xtt_tags_from_group(29,'',"xili_tidy_tags_uni", "uni"));
+
+    //   echo $group->term_taxonomy_id; 
+       
+     //  echo "<br> tfg ".$tags_from_group[0];
+       
+       
+//    }
+    			$list = implode ( ',', $tags_from_group );
+
+    
+   // echo add_query_arg($arr_params);
+    $url = get_bloginfo('url');
+
+ echo '<a href="'.$url.'/?uni='.$list.'">'.$tags_from_group[0].'</a>';
+    
+ //echo '<a href="'.link_for_posts_of_xili_tags_group ('trademark').'">'.$tags_from_group[1].'</a>';
+
+
+
+ }     
+
+else echo " none";
+ //////////////////////////
  $pic = types_render_field("post-image", array("output"=>"raw"));
  
 //Output the trainer email

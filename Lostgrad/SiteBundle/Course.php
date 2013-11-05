@@ -29,27 +29,24 @@ class Course
     }
 
                
-   public function addCourse($h)
+   public function addCourse($wpdb, $last_insert_id)
   {
-    $sql = "INSERT INTO lostgrad_course SET initiative_category_id= %d, initiative_course_id = %d,initiative_id = %d,"
-            ." course_start_date= %s, course_length = %s, institution_id=%d, post_id=%d, initiative_category_name= %s,"
-            ." youtube_video=%s";
-		
-    $h->db->query($h->db->prepare
-            ($sql, 
-            $this->initiativeCategoryID, 
-            $this->initiativeCourseID, 
-            $this->initiativeID, 
-            $this->startDate, 
-            $this->courseLength, 
-            $this->institutionID, 
-            $this->postID, 
-            $this->categoryName,
-            $this->youtube
-            ));
+   
+            $course_type = array(
+                'post_id' => $last_insert_id,
+                'meta_value'=>'a:1:{s:64:"wpcf-fields-checkboxes-option-60039c1cd5b3cf7f3d424671ae5ccc3a-2";s:1:"1";}',
+                'meta_key'=>'wpcf-course-type'
+            );//meta_value = free course
+
+            $wpdb->insert(
+                'wp_postmeta', 
+                $course_type,
+                array( '%d', '%s', '%s' )
+            );
+
   }
     
-  public function isCourseRecorded($h)
+  public function isCourseRecorded($wpdb)
   {
        $sql = "SELECT initiative_course_id FROM lostgrad_course WHERE initiative_course_id =%d";
         $query = $h->db->prepare($sql, $this->initiativeCourseID);
@@ -58,24 +55,7 @@ class Course
       
       
   }
-  
 
-  public function getLatestPostID($h)
-  {
-      
-       $sql = "SELECT post_id FROM " . TABLE_POSTS . " ORDER BY post_id DESC LIMIT 1";
-      
-       return $h->db->get_var($h->db->prepare($sql));     
-      
-  }
-  
-  
-  public function categorizeCourses($h)
-  {
-      
-      
-      
-  }
     
 }
 ?>

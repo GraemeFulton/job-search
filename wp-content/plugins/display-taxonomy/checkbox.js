@@ -69,7 +69,7 @@ function checked($,arg, true_false){
     {
             selected_array.push(name);
                 ajaxLoad($,selected_array);
-                //console.log(selected_array);
+                console.log(selected_array);
                 
     }      
     else { 

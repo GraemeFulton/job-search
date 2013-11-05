@@ -8,6 +8,7 @@ protected $initiativeURL;
 protected $photoURL;
 protected $category_type;
 protected $provider_id;
+protected $last_insert_id;
 
 public function Setup($API, $defaultCatID, $initiativeURL, $category_type, $provider_id){
     
@@ -54,6 +55,8 @@ $wpdb->insert(
     $post,
     array( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )
 );
+
+$this->last_insert_id = $wpdb->insert_id;
     
     
 //    
@@ -84,8 +87,8 @@ $wpdb->insert(
     
     
 public function insertPostImage($wpdb, $image_title, $photoUrl, $entity){
-             $LOCALPATH= "/var/www/LGWP/";
-
+             $LOCALPATH= "/var/www/LGWP/wp-content/uploads/post_images/";
+             $URLPATH ="http://localhost/LGWP/wp-content/uploads/post_images/";
     
       $image_prefix= $image_title;
       
@@ -97,12 +100,13 @@ public function insertPostImage($wpdb, $image_title, $photoUrl, $entity){
       $string = preg_replace('/[^a-z0-9]+/i', '_', $image_prefix);
      $image_name ="Logo_".$string;
      $image_path= $LOCALPATH.$image_name;
+     $image_path_url=$URLPATH.$image_name;
      
 //////INSERT/////////////
      $lastInsertID= $wpdb->insert_id;
      $post_image = array(
     'post_id' => $lastInsertID,
-    'meta_value'=>$image_path,
+    'meta_value'=>$image_path_url,
     'meta_key'=>'wpcf-post-image'
 );//meta_value = free course
 
@@ -127,7 +131,7 @@ echo "<br><b>Meta Inserted :)</b>";
     
     //if no image is present, use the dummy one
     if($image === FALSE) {
-        $photoUrl=LOCALPATH."content/images/post_images/dummy_orange.jpg";
+        $photoUrl=$LOCALPATH."dummy_orange.jpg";
         $image = file_get_contents($photoUrl);
     }
         
@@ -137,13 +141,13 @@ echo "<br><b>Meta Inserted :)</b>";
     
     //create thumbnail from original image
   
-    if (file_exists($image_path)){
-        $img = new SimpleImage();
-        $img->load($image_path);
-        $img->resize(180,180);
-        $img->save($image_path);
-    }
-      else {return false;}
+//    if (file_exists($image_path)){
+//        $img = new SimpleImage();
+//        $img->load($image_path);
+//        $img->resize(180,180);
+//        $img->save($image_path);
+//    }
+//      else {return false;}
   
     echo "<br><h4 style='color:green'>Image: ".$h->post->image." saved.</h4>";
     
@@ -152,7 +156,7 @@ echo "<br><b>Meta Inserted :)</b>";
     
     
 
-function sluggify($url)
+private function sluggify($url)
 {
     # Prep string with some basic normalization
     $url = strtolower($url);
