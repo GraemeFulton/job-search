@@ -68,20 +68,27 @@ printf("| Course Type: %s",$course_type);
 echo "| Offered by: ";
 
 
-   $sql="SELECT $wpdb->term_relationships.term_taxonomy_id
-                from $wpdb->term_relationships 
+//   $sql="SELECT $wpdb->term_relationships.term_taxonomy_id
+//                from $wpdb->term_relationships 
+//                WHERE $wpdb->term_relationships.object_id ='$uni[0]'";
+        
+    $sql="SELECT $wpdb->term_taxonomy.term_id 
+            FROM $wpdb->term_relationships INNER JOIN $wpdb->term_taxonomy
+                ON $wpdb->term_taxonomy.term_taxonomy_id=$wpdb->term_relationships.term_taxonomy_id
                 WHERE $wpdb->term_relationships.object_id ='$uni[0]'";
         
+   
+   
         $safe_sql= $wpdb->prepare($sql);
         $results=$wpdb->get_results($sql);
-        
            // $results = $wpdb->get_results ( "SELECT * FROM $wpdb->terms" );
               $tags_from_group=array();
 
-//    foreach($results as $group)
+
+////    foreach($results as $group)
 //    {       
 
-       $tags_from_group= array_merge($tags_from_group,xtt_tags_from_group(29,'',"xili_tidy_tags_uni", "uni"));
+       $tags_from_group= array_merge($tags_from_group,xtt_tags_from_group(intval($results[0]->term_id),'',"xili_tidy_tags_uni", "uni"));
 
     //   echo $group->term_taxonomy_id; 
        
