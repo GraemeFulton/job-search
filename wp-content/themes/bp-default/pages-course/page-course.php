@@ -129,11 +129,11 @@ else echo " none";
 			<?php comments_template(); ?>
 
 			<?php endwhile; endif; ?>
-
-		</div><!-- .page -->
-		<?php do_action( 'bp_after_blog_page' ); ?>
+<?php do_action( 'bp_after_blog_page' ); ?>
 <?php wp_pagenavi( array( 'type' => 'course' ) ); ?>
 		</div><!-- .padder -->
+		</div><!-- .page -->
+		
 	</div><!-- #content -->
 
 	<?php get_sidebar(); ?>

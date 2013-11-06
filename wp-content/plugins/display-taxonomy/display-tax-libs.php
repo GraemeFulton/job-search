@@ -29,20 +29,37 @@ class Display_Taxonomy{
         
     }
     
+    
+    /*
+     * display_tag_groups
+     * registers the subject taxonomy, and then prints out a hierarchical list based on xili tag groups
+     */
     public function display_tag_groups()
     {
         register_taxonomy( 'xili_tidy_tags_subject', 'term', array( 'hierarchical' => true, 'label'=>false, 'rewrite' => false, 'update_count_callback' => '', 'show_ui' => false ) );
-               //  echo  xili_tags_group_list ( $separator = ', ', array ( 'tidy-languages-group' ), '', 'xili_tidy_tags_subject' ); 
+                   
         $jobsTerms = get_terms('xili_tidy_tags_subject'); 
 
-        foreach($jobsTerms as $term){
-            $checked = (has_term($term->slug, 'xili_tidy_tags_subject', $post->ID)) ? 'checked="checked"' : '';
-            echo "<input type='checkbox' name='" . $term->slug . "' value='" . $term->name . "' obj_id=".$term->term_id." $checked />";
-            echo "<label for='" . $term->slug . "'>" . $term->name . "</label><br>";
+        foreach($jobsTerms as $term)
+        {
+            if($term->parent==0)//if there is no parent, it is a top-level category
+            {
+                $checked = (has_term($term->slug, 'xili_tidy_tags_subject', $post->ID)) ? 'checked="checked"' : '';
+
+                echo '<input type="checkbox" name="' . $term->slug . '" value="' . $term->name . '" obj_id='.$term->term_id.$checked.' />';
+                echo '<label  style="font-weight:bold;" for="' . $term->slug . '">' . $term->name . '</label><br>';
+
+                //get term children
+                 $termchildren= get_term_children( $term->term_id,'xili_tidy_tags_subject' );
+                 foreach($termchildren as $child)
+                 {
+                    $term = get_term_by( 'id', $child, 'xili_tidy_tags_subject' );
+                    echo '<input type="checkbox" name="' . $term->slug . '" value="' . $term->name . '" obj_id='.$term->term_id.$checked.' />';
+                    echo '<label for="' . $term->slug . '">' . $term->name . '</label><br>';
+                 }
+
+            }
         }
-        
-     
-            $this->get_tag_group_parent();
     }
     
     public function get_tag_group_parent(){
@@ -56,44 +73,15 @@ class Display_Taxonomy{
         
         $safe_sql= $wpdb->prepare($sql);
         $results=$wpdb->get_results($sql);
-        
-           // $results = $wpdb->get_results ( "SELECT * FROM $wpdb->terms" );
-
-        var_dump($results);
-        
-        
-        
-         
-    foreach($results as $group)
+    //    var_dump($results);
+        foreach($results as $group)
     {       
 
        echo $group->term_taxonomy_id; 
        
     }
     
-//    $args= array
-//    (
-//     'post_type'=>'course',
-//      'tax_query' => array(
-//         array(
-//        'taxonomy' => 'subject',
-//        'field' => 'slug',
-//        'terms' => $tags_from_group
-//        )
-//        )
-//    
-//    );
-
-        
-        
-        
-//    
-//        $sql="SELECT $wpdb->term_relationships.term_taxonomy_id, 
-//                $wpdb->terms.term_id, $wpdb->terms.name 
-//                from $wpdb->terms 
-//                INNER JOIN  $wpdb->term_relationships 
-//                ON $wpdb->terms.term_id = $wpdb->term_relationships.object_id WHERE name='Biology'";
-    }
+ }
     
 //public function dump_tags(){
 //     //    register_taxonomy( 'xili_tidy_tags_subject', 'term', array( 'hierarchical' => true, 'label'=>false, 'rewrite' => false, 'update_count_callback' => '', 'show_ui' => false ) );

@@ -26,64 +26,59 @@ public abstract function getArray();
 public abstract function scrape($h);    
     
   
-public function submitPost($wpdb, $url, $post_title, $content,$photo, $tags, $post_domain, $post_cat, $entity)
-{
- $slug = $this->sluggify($post_title);
-  echo $slug;
-    
-    
-    $post = array(
-    'post_author' => 1,
-    'post_date' => date('Y-m-d H:i:s'),
-    'post_date_gmt' => date('Y-m-d H:i:s'),
-    'post_content' => $content,
-    'post_title' => $post_title,
-    'post_name' => $slug,
-    'post_excerpt' => '',
-    'post_status' => 'publish',
-    'comment_status' => 'open',
-    'ping_status' => 'open',
-    'post_modified' => date('Y-m-d H:i:s'),
-    'post_modified_gmt' => date('Y-m-d H:i:s'),
-    'post_parent' => 0,
-    'post_type' => 'course',
-    'comment_count' => 0
-);
+public function submitPost($wpdb, $post_title, $content,$excerpt,$photo, $tags, $post_type, $entity)
+{        
+  //only insert the post if it does not already exist (based on the title)
+  $exists= $this->checkPostExists($wpdb,$post_title );
+        
+  if (!$exists)
+  {
+          $slug = $this->sluggify($post_title);
+        
+           $post = array(
+           'post_author' => 1,
+           'post_date' => date('Y-m-d H:i:s'),
+           'post_date_gmt' => date('Y-m-d H:i:s'),
+           'post_content' => $content,
+           'post_title' => $post_title,
+           'post_name' => $slug,
+           'post_excerpt' => $excerpt,
+           'post_status' => 'publish',
+           'comment_status' => 'open',
+           'ping_status' => 'open',
+           'post_modified' => date('Y-m-d H:i:s'),
+           'post_modified_gmt' => date('Y-m-d H:i:s'),
+           'post_parent' => 0,
+           'post_type' => $post_type,
+           'comment_count' => 0
+       );
 
-$wpdb->insert(
-    'wp_posts', 
-    $post,
-    array( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )
-);
+       $wpdb->insert(
+           'wp_posts', 
+           $post,
+           array( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )
+       );
 
-$this->last_insert_id = $wpdb->insert_id;
+     $this->last_insert_id = $wpdb->insert_id;
     
-    
-//    
-//      $h->post->origUrl = $url;
-//      $h->post->domain =  $post_domain;
-//      $h->post->status= 'new';
-//      $h->post->author="1";
-//      $h->post->title = $post_title;
-//      $title = html_entity_decode($h->post->title, ENT_QUOTES, 'UTF-8');
-//      $h->post->url = make_url_friendly($title);
-//      $h->post->content = $content;
-//      $h->post->type = 'news';
-//      $h->post->tags= $tags;
-//      $h->post->category= $post_cat;
-//      $h->post->category_type=$this->category_type;
-//      $h->post->provider_id=$this->provider_id;
      $this->photoURL=$photo;
-//
-//  
-//      $this->insertPostImage($h, $post_title, $this->photoURL, $entity);
-//      return $h->addPost();   
     
   
-      $this->insertPostImage($wpdb, $post_title, $this->photoURL, $entity);    
+     $this->insertPostImage($wpdb, $post_title, $this->photoURL, $entity);  
+   }
+   else echo '<p style="color:red">Course Not Submitted - a course with this title ('.$post_title.') already exists';
 }
 
 
+public function checkPostExists($wpdb,$post_title){
+        
+                $sql = "SELECT post_title FROM wp_posts WHERE post_title=%s";
+                $query = $wpdb->prepare($sql, $post_title);
+                
+                $recorded = $wpdb->get_var($query); 
+        
+                return $recorded;
+}
     
     
 public function insertPostImage($wpdb, $image_title, $photoUrl, $entity){

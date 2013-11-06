@@ -5,48 +5,52 @@ abstract class CourseScraperAbstract extends ScraperAbstract{
 public function updateCourseDetails
            (
             $wpdb, 
-            $initiativeCategoryID, 
             $initiativeCourseID, 
-            $initiativeID, 
             $startDate, 
             $courseLength, 
-            $institutionID, 
+            $universityName, 
             $courseURL, 
             $courseTitle, 
             $courseContent, 
+            $courseExcerpt,
             $coursePhoto,
-            $categoryName,
+            $courseSubject,
             $youtube,
-            $tags
+            $tags,
+            $provider
            )
   {
          $course = new Course();
         $course->initiativeCourseID=$initiativeCourseID;
         
+        if($startDate!=='TBC'){
+        $course->startDate=$startDate;
+        }
+        
         //if the course already exists, just break here
-//        $exists= $course->isCourseRecorded($wpdb);					
-//                if (!$exists) {
+        $exists= $course->isCourseRecorded($wpdb);
+        
+        if (!($exists==$course->initiativeCourseID))
+             {
        
         //otherwise carry on, and populate database:
                 
-        $course->initiativeCategoryID=$initiativeCategoryID;
-        $course->initiativeID=$initiativeID;
-        $course->startDate=$startDate;
         $course->courseLength=$courseLength;
-        $course->institutionID=$institutionID;
-        $course->categoryName = $categoryName;
+        $course->courseUniversity=$universityName;
+        $course->courseSubject = $courseSubject;
         $course->youtube= $youtube;
+        $course->courseProvider=$provider;
+        $course->courseUrl= $courseURL;
        
         //add to database:
-        $this->submitPost($wpdb, $courseURL, $courseTitle, $courseContent, $coursePhoto, $tags,
-                                         $this->urlToScrape, $this->currentCategory, $course);
+        $this->submitPost($wpdb, $courseTitle, $courseContent,$courseExcerpt, $coursePhoto, $tags, 'course',$course);
         
         $course->addCourse($wpdb, $this->last_insert_id); 
           
        
-//  }
-//        else
-//        echo "CourseID ".$course->initiativeCourseID." already exists, check if it has been updated.<hr>";
+  }
+        else
+       echo "CourseID ".$course->initiativeCourseID." already exists, check if it has been updated.<hr>";
   }
    
     

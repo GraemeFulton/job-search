@@ -792,4 +792,7 @@ function bp_dtheme_remove_nojs_body_class() {
 <?php
 }
 add_action( 'bp_before_header', 'bp_dtheme_remove_nojs_body_class' );
+
+
+
 ?>

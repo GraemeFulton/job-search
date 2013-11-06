@@ -98,7 +98,7 @@ class Tag_Sticky_Post {
 			'post_is_tag_sticky',
 			__( 'Tag Sticky', 'tag-sticky-post' ),
 			array( $this, 'tag_sticky_post_display' ),
-			'university',
+			'university-page',
 			'side',
 			'low'
 		);
@@ -262,7 +262,7 @@ class Tag_Sticky_Post {
 			 	$sticky_query = new WP_Query(
 			 		array(
 				 		'fields'			=>	'ids',
-				 		'post_type'			=>	'university',
+				 		'post_type'			=>	'university-page',
 				 		'posts_per_page'	=>	'1',
 				 		'tax_query'			=> array(
 				 			'terms'				=> 	null,
