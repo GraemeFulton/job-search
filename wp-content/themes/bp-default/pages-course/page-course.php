@@ -129,12 +129,22 @@ else echo " none";
 			<?php comments_template(); ?>
 
 			<?php endwhile; endif; ?>
+                                
+ <div class="navigation">
+     <div style="width:100px; height:100px; background:blue;"id="blog-more"></div>
+  <div class="alignleft"><?php previous_posts_link('&laquo; Previous') ?></div>
+  <div class="alignright"><?php next_posts_link('More &raquo;') ?></div>
+</div>
+                                
 <?php do_action( 'bp_after_blog_page' ); ?>
-<?php wp_pagenavi( array( 'type' => 'course' ) ); ?>
-		</div><!-- .padder -->
-		</div><!-- .page -->
+
+    
+		
 		
 	</div><!-- #content -->
+        </div><!-- .padder -->
+
+   </div><!-- .page -->
 
 	<?php get_sidebar(); ?>
 

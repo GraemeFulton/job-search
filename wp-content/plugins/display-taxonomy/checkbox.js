@@ -1,4 +1,10 @@
 jQuery(document).ready(function ($) {
+  
+
+// $('#blog-more').click(function(){
+//     
+//        loadMore($);
+// });  
    
 //make sure all checkboxes are unchecked
 $('input:checkbox').prop('checked', false);
@@ -6,6 +12,10 @@ $('input:checkbox').prop('checked', false);
 
     
 });
+
+//jQuery( document ).ajaxComplete(function() {
+//        
+//});
 
 /*
  * var url_string
@@ -77,8 +87,9 @@ function checked($,arg, true_false){
         selected_array.splice(index,1);
            ajaxLoad($,selected_array);
               //             console.log(selected_array);
-   
+                 
     }
+    
 
     //filterPage(url_string);   
     
@@ -86,8 +97,23 @@ function checked($,arg, true_false){
     
 }
 
+function loadMore($){
+    $('#blog-more').unbind('click');
+    
+    $('#blog-more').click(function(){
+
+  var postoffset = $('.hentry').length;
+  console.log("offset: "+postoffset);
+
+  ajaxLoadMore($,selected_array,postoffset);
+
+ });  
+
+    
+}
 
 function ajaxLoad($, tax){
+    
     $.ajax({
      url: '/LGWP/wp-admin/admin-ajax.php', //This is the current doc
      type: "POST",
@@ -96,10 +122,42 @@ function ajaxLoad($, tax){
             'fn':'get_latest_posts',
             'tax':tax
            },
-   dataType:'JSON', // add json datatype to get json
+   dataType:'HTML', // add json datatype to get json
    success: function(data){
          console.log(data);
-         printResults($,data);
+         //printResults($,data);
+         $("#blog-page").empty(); $(".navigation").remove();
+
+         $('#blog-page').append(data);
+         
+         loadMore($);
+         return false;
+     },
+     error: function(errorThrown){
+               alert('error');
+               console.log(errorThrown);
+          }
+});  
+
+}
+
+function ajaxLoadMore($, tax, postoffset){
+    
+    $.ajax({
+     url: '/LGWP/wp-admin/admin-ajax.php', //This is the current doc
+     type: "POST",
+     data: {
+            'action': 'check_box',
+            'fn':'get_latest_posts',
+            'tax':tax,
+            'offset':postoffset
+           },
+   dataType:'HTML', // add json datatype to get json
+   success: function(data){
+          // console.log(data);
+          $(".navigation").remove();
+            $('#blog-page').append(data);
+            loadMore($);
             return false;
      },
      error: function(errorThrown){
@@ -116,35 +174,42 @@ function ajaxLoad($, tax){
  * @returns {unresolved} 
  */
  
-function printResults($,data){
- 
- $("#blog-page").empty();
-  
-$.each(data, function() {
- //   console.log(this.ID);
-  
- var course_type= getCourseType(this);
- var body_name= getBodyName(this);
- 
-    var content= this.post_content;        
-    content= jQuery.trim(content).substring(0, 310).split(" ").slice(0, -1).join(" ") + " [...]";
-    content= content.replace(/\n/g, "<br />");
-            content=  content.replace(/<img[^>]*>/g,"");
-
-    
-    var post= 
-        '<div id="'+this.post_id+'" class="'+this.post_id+' '+this.post_type+' type-'+this.post_type+' status-publish hentry">'
-        +'<h2 class="posttitle"><a href="'+this.guid+'" rel="bookmark" title="Permanent Link to '+this.post_title+'">'+this.post_title+'</a></h2>'
-        +'<div class="entry">'
-        +content+"</div></div>"
-        +"</a><br><p>"+course_type+" "+body_name+"</p><hr>";
-   
-  $("#blog-page").append(post);
-  $('.entry a').contents().unwrap(); //remove hyperlinks in descriptions
-
-});
- 
-}
+//function printResults($,data){
+// console.log(data);
+// 
+// $("#blog-page").empty();
+// $('#blog-page').append(data);
+////  $.each(data['pagination'],function(){
+////     
+////  //    consoloe.log(this);
+////      
+////  });
+//////////////////////OLD:
+////$.each(data['posts'], function() {
+//// //   console.log(this.ID);
+////  
+//// var course_type= getCourseType(this);
+//// var body_name= getBodyName(this);
+//// 
+////    var content= this.post_content;        
+////    content= jQuery.trim(content).substring(0, 310).split(" ").slice(0, -1).join(" ") + " [...]";
+////    content= content.replace(/\n/g, "<br />");
+////            content=  content.replace(/<img[^>]*>/g,"");
+////
+////    
+////    var post= 
+////        '<div id="'+this.post_id+'" class="'+this.post_id+' '+this.post_type+' type-'+this.post_type+' status-publish hentry">'
+////        +'<h2 class="posttitle"><a href="'+this.guid+'" rel="bookmark" title="Permanent Link to '+this.post_title+'">'+this.post_title+'</a></h2>'
+////        +'<div class="entry">'
+////        +content+"</div></div>"
+////        +"</a><br><p>"+course_type+" "+body_name+"</p><hr>";
+////   
+////  $("#blog-page").append(post);
+////  $('.entry a').contents().unwrap(); //remove hyperlinks in descriptions
+////
+////});
+// 
+//}
 
 
 
