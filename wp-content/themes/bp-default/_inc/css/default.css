@@ -2448,3 +2448,5 @@ body.register div.page ul {
 .field-visibility-settings-toggle {
 	font-style: italic;
 }
+
+br + br { display: none; }
