@@ -1490,8 +1490,11 @@ $result_array = array();
 if ( $thetags ) {
 foreach ( $thetags as $onetag ) {
 if ( $mode == 'array' ) {
-$result_array[] = array('tag_name' => $onetag->name, 'tag_id' => $onetag->term_id);
-} else {
+$result_array[] = array('tag_name' => $onetag->name, 'tag_id' => $onetag->term_id, 'tag_slug'=>$onetag->slug);
+}elseif($mode=='name'){
+$result_array[]=$onetag->name;    
+} 
+else {
 $result_array[] = $onetag->slug ;
 }
 

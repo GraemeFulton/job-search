@@ -1,10 +1,13 @@
 jQuery(document).ready(function ($) {
   
 
-// $('#blog-more').click(function(){
-//     
-//        loadMore($);
-// });  
+ $('#blog-more').click(function(){
+     
+        var postoffset = $('.hentry').length;
+  console.log("offset: "+postoffset);
+
+  ajaxLoadMore($,selected_array,postoffset);
+ });  
    
 //make sure all checkboxes are unchecked
 $('input:checkbox').prop('checked', false);
@@ -12,10 +15,6 @@ $('input:checkbox').prop('checked', false);
 
     
 });
-
-//jQuery( document ).ajaxComplete(function() {
-//        
-//});
 
 /*
  * var url_string
@@ -97,7 +96,7 @@ function checked($,arg, true_false){
     
 }
 
-function loadMore($){
+function loadMore($, ajax){
     $('#blog-more').unbind('click');
     
     $('#blog-more').click(function(){
@@ -124,7 +123,7 @@ function ajaxLoad($, tax){
            },
    dataType:'HTML', // add json datatype to get json
    success: function(data){
-         console.log(data);
+  //       console.log(data);
          //printResults($,data);
          $("#blog-page").empty(); $(".navigation").remove();
 

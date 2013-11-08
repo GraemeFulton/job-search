@@ -13,32 +13,49 @@
 	</head>
 
 	<body <?php body_class(); ?> id="bp-default">
+      <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+<a class="navbar-brand" href="<?php bloginfo('url')?>"><?php bloginfo('name')?></a>        </div>
+        <div class="navbar-collapse collapse">
+         <?php /* Primary navigation */
+   wp_nav_menu( array(
+        'menu'              => 'top_menu',
+        'theme_location'    => 'primary',
+        'depth'             => 2,
+        'container'         => false,
+        'container_class'   => 'collapse navbar-collapse navbar-ex1-collapse',
+        'menu_class'        => 'nav navbar-nav',
+        'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+        'walker'            => new wp_bootstrap_navwalker())
+    );
 
+?>
+   
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
 		<?php do_action( 'bp_before_header' ); ?>
 
 		<div id="header">
+                    <div id="header_bg">
+                    
+                    
 			<div id="search-bar" role="search">
-				<div class="padder">
-					<h1 id="logo" role="banner"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"><?php bp_site_name(); ?></a></h1>
-
-						<form action="<?php echo bp_search_form_action(); ?>" method="post" id="search-form">
-							<label for="search-terms" class="accessibly-hidden"><?php _e( 'Search for:', 'buddypress' ); ?></label>
-							<input type="text" id="search-terms" name="search-terms" value="<?php echo isset( $_REQUEST['s'] ) ? esc_attr( $_REQUEST['s'] ) : ''; ?>" />
-
-							<?php echo bp_search_form_type_select(); ?>
-
-							<input type="submit" name="search-submit" id="search-submit" value="<?php _e( 'Search', 'buddypress' ); ?>" />
-
-							<?php wp_nonce_field( 'bp_search_form' ); ?>
-
-						</form><!-- #search-form -->
-
-				<?php do_action( 'bp_search_login_bar' ); ?>
-
-				</div><!-- .padder -->
+                            <div id="main_search">
+                            <?php get_search_form(); ?>
+                            </div>
 			</div><!-- #search-bar -->
-
-			<div id="navigation" role="navigation">
+                   
+			<?php do_action( 'bp_header' ); ?>
+                        <div id="navigation" role="navigation">
 				<?php wp_nav_menu( array( 'container' => false, 'menu_id' => 'nav', 'theme_location' => 'primary', 'fallback_cb' => 'bp_dtheme_main_nav' ) ); ?>
 
                             <div id="second-nav">
@@ -47,14 +64,8 @@
                             </div>
                             
                         </div>
-                        
-                        
-                  
-
-                
-
-			<?php do_action( 'bp_header' ); ?>
-
+                   </div>
+                    
 		</div><!-- #header -->
 
 		<?php do_action( 'bp_after_header'     ); ?>

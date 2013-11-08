@@ -63,54 +63,40 @@ $course_type = types_render_field("course-type", array("output"=>"normal"));
 printf("| Course Type: %s",$course_type);
   
  ////////////////NEW ADDITION 
- $uni = wp_get_post_terms($post->ID, 'uni', array("fields" => "ids"));
- if($uni){
-echo "| Offered by: ";
-
-
-//   $sql="SELECT $wpdb->term_relationships.term_taxonomy_id
-//                from $wpdb->term_relationships 
-//                WHERE $wpdb->term_relationships.object_id ='$uni[0]'";
-        
-    $sql="SELECT $wpdb->term_taxonomy.term_id 
-            FROM $wpdb->term_relationships INNER JOIN $wpdb->term_taxonomy
-                ON $wpdb->term_taxonomy.term_taxonomy_id=$wpdb->term_relationships.term_taxonomy_id
-                WHERE $wpdb->term_relationships.object_id ='$uni[0]'";
-        
-   
-   
-        $safe_sql= $wpdb->prepare($sql);
-        $results=$wpdb->get_results($sql);
-           // $results = $wpdb->get_results ( "SELECT * FROM $wpdb->terms" );
-              $tags_from_group=array();
-
-
-////    foreach($results as $group)
-//    {       
-
-       $tags_from_group= array_merge($tags_from_group,xtt_tags_from_group(intval($results[0]->term_id),'',"xili_tidy_tags_uni", "uni"));
-
-    //   echo $group->term_taxonomy_id; 
-       
-     //  echo "<br> tfg ".$tags_from_group[0];
-       
-       
-//    }
-    			$list = implode ( ',', $tags_from_group );
-
-    
-   // echo add_query_arg($arr_params);
+    $uniID = wp_get_post_terms($post->ID, 'uni', array("fields" => "ids"));
+    $uniName = wp_get_post_terms($post->ID, 'uni', array("fields" => "names"));
+    $uniSlug = wp_get_post_terms($post->ID, 'uni', array("fields" => "slugs"));
     $url = get_bloginfo('url');
 
- echo '<a href="'.$url.'/?uni='.$list.'">'.$tags_from_group[0].'</a>';
-    
- //echo '<a href="'.link_for_posts_of_xili_tags_group ('trademark').'">'.$tags_from_group[1].'</a>';
-
-
+ if($uniID)
+{
+   $sql="SELECT $wpdb->term_taxonomy.term_id 
+          FROM $wpdb->term_relationships INNER JOIN $wpdb->term_taxonomy
+          ON $wpdb->term_taxonomy.term_taxonomy_id=$wpdb->term_relationships.term_taxonomy_id
+          WHERE $wpdb->term_relationships.object_id ='$uniID[0]'";
+        
+    $safe_sql= $wpdb->prepare($sql);
+    $results=$wpdb->get_results($safe_sql);
+        
+    if($results)
+    {
+      $tags_from_group= xtt_tags_from_group(intval($results[0]->term_id),'array',"xili_tidy_tags_uni", "uni");
+      
+      $slugs=array();
+      $names=array();
+      foreach($tags_from_group as $tags){
+          array_push($slugs, $tags['tag_slug']);
+          array_push($names, $tags['tag_name']);
+       }
+      
+       $list = implode ( ',', $slugs );
+       // echo add_query_arg($arr_params);
+       if($names[0])
+       echo '|Offered by: <a href="'.$url.'/?uni='.$list.'">'.$names[0].'</a>';
+    }
+     else if($uniName[0])echo '|Offered by: <a href="'.$url.'/?uni='.$uniSlug[0].'">'.$uniName[0].'</a>';
 
  }     
-
-else echo " none";
  //////////////////////////
  $pic = types_render_field("post-image", array("output"=>"raw"));
  

@@ -72,8 +72,7 @@ class Display_Taxonomy{
                 WHERE $wpdb->term_relationships.object_id ='2'";
         
         $safe_sql= $wpdb->prepare($sql);
-        $results=$wpdb->get_results($sql);
-    //    var_dump($results);
+        $results=$wpdb->get_results($safe_sql);
         foreach($results as $group)
     {       
 
@@ -82,17 +81,6 @@ class Display_Taxonomy{
     }
     
  }
-    
-//public function dump_tags(){
-//     //    register_taxonomy( 'xili_tidy_tags_subject', 'term', array( 'hierarchical' => true, 'label'=>false, 'rewrite' => false, 'update_count_callback' => '', 'show_ui' => false ) );
-//    
-//      $tax='art';
-//    
-//    $tags_from_group=xtt_tags_from_group($tax);
-//    $list = implode ('","',$tags_from_group);
-//    var_dump($list);
-//  //  our_ajax_function($list);
-//}
      
 }
 ?>

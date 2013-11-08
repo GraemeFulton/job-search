@@ -74,9 +74,8 @@ body {
 	font-size: 12px;
 	font-family: Arial, Tahoma, Verdana, sans-serif;
 	line-height: 170%;
-	max-width: 1250px;
 	margin: 0 auto;
-	width: 95%;
+	width: 100%;
 }
 .padder {
 	padding: 19px;
@@ -91,7 +90,12 @@ div#container {
 	overflow: hidden;
 	position: relative;
 	width: 100%;
+        max-width: 1250px;
+        margin: 0 auto;
+
+
 }
+
 body.activity-permalink div#container {
 	background: none;
 	border: none;
@@ -136,7 +140,64 @@ div#content .main-column {
 textarea {
 	overflow: auto;
 }
+/*--------------------------------
+ADMIN BAR - BOOTSTRAP/WP MERGE
+----------------------------------*/
+.navbar-fixed-top { top: 0px; }
+.container {
+width: 100%;
+color:#fff;
+}
 
+#wpadminbar {
+direction: ltr;
+color: #ccc;
+font: 400 13px/28px sans-serif;
+height: 28px;
+position: fixed;
+top: 0;
+left: 78%!important;
+right: 0 !important;
+
+width: 18%;
+min-width: 450px;
+z-index: 99999;
+background: #222;
+background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0,#222),color-stop(18%,#222));
+background-image: -webkit-linear-gradient(bottom,#222 0,#333 5px);
+background-image: -moz-linear-gradient(bottom,#222 0,#222 5px);
+background-image: -o-linear-gradient(bottom,#222 0,#222 5px);
+background-image: linear-gradient(to top,#222 0,#222 5px);
+}
+#wp-admin-bar-wp-logo{display:none}
+#wp-admin-bar-site-name{display:none}
+
+#main_search{margin-top:4%; margin-left:-12.8%;}
+#main_search .sf_search span.sf_block{width:500px; height:50px;-webkit-box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);
+-moz-box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);
+box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);}
+#main_search .screen-reader-text{display:none;}
+#main_search .sf_search .sf_input {height:50px !important; font-size:18px}
+#main_search .sf_search .sf_button, .sf_search .searchsubmit {
+background-repeat: no-repeat !important;
+background-size: 50px 50px;
+background-position: 0px 0 !important;
+background-color: white !important;
+border: 0 none !important;
+cursor: pointer !important;
+display: block !important;
+height: 45px !important;
+padding: 0 !important;
+position: absolute !important;
+right: 1px !important;
+top: 1px !important;
+width: 45px !important;
+margin: 1px 1% 1px 2px !important;
+font-size: 11px !important;
+-webkit-box-shadow: 0 0 0 0 !important;
+-moz-box-shadow: 0 0 0 0 !important;
+box-shadow: 0 0 0 0 !important;
+}
 
 /*--------------------------------------------------------------
 2.2 - Header
@@ -158,14 +219,43 @@ textarea {
 	color: #fff;
 	height: auto;
 	margin-bottom: 20px;
-	padding-top: 25px;
 	position: relative;
 	z-index: 1000;
 }
+#header_bg{
+      /*  
+ background-image:url('http://www.sfc.com/sites/default/files/header_1600_karriere_1.jpg');
+ background-image:url('http://www.nilai.edu.my/sites/default/files/styles/banner-inner_1600x300/public/department/banner/banner-graduate_0.jpg');
+      background-image:url('http://mythicafashion.com/images/about.jpg');
+            background-image:url('http://amitusexports.com/slid-images/101.jpg');
+            background-image:url('http://jeditrainers.com/jetr/wp-content/uploads/2013/05/JeTrCropMore.png');
+            background-image:url('http://jeditrainers.com/jetr/wp-content/uploads/2013/05/JeTrCropMore.png');
+                  background-image:url('http://jeffpiersall.com/wp-content/uploads/2013/01/hero_sunset.jpg');
+                  background-image:url('http://www.nodavare.com/wp-content/themes/nodavare/images/banner_leadership.jpg');
+                  background-image:url('http://www.nilai.edu.my/sites/default/files/banner-admission.jpg');
+                  background-image:url('http://www.nilai.edu.my/sites/default/files/banner-corporate-inform.jpg');
+
+                        background-image:url('http://www.interbrand.com/app/controls/BGGB/BGGB2013/images/articles/images/participation.jpg');
+                  background-image:url('http://www.olympus.co.uk/site/rmt/media/consumer/stages/oly_inspiration-flickr_300x1600.jpg');
+                  background-image:url('http://www.olympus.co.uk/site/rmt/media/consumer/stages/oly_inspiration-start_300x1600_2.jpg');
+
+      */
+                  background-image:url('http://www.olympus.co.uk/site/rmt/media/consumer/stages/oly_inspiration-flickr_300x1600.jpg');
+
+       background-repeat:no-repeat;
+        background-size: 100% 100%;
+        background-position:left;
+	height: 300px;
+	margin-bottom: 20px;
+	padding-top: 25px;
+	position: relative;
+	z-index: 1001;
+    
+}
+
 #header #search-bar {
-	margin-top: 5px;
-	text-align: right;
-	width: 100%;
+text-align: center;
+
 }
 #header #search-bar .padder {
 	padding: 10px 15px 0 20px;
@@ -526,8 +616,22 @@ a:focus {
 	outline: 1px dotted #ccc;
 }
 #navigation {
-	position: relative;
-	width: 100%;
+    position:relative;
+    max-width:1250px;
+    margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+  #navigation {
+    
+    position: absolute;
+max-width: 1250px;
+margin: 0 auto;
+bottom: 0;
+margin-left: 16%;
+width: 68%;
+margin-left: 16%;
+}
 }
 #navigation:after {
 	content: ".";
