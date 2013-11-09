@@ -1,10 +1,9 @@
 <!--course post loop template-->
-<div class="page" id="blog-page" role="main">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                     
     <?php $id= get_the_ID(); $ID=  settype($id, "integer");; ?>
-				<div id="post-<?php echo $ID; ?>" <?php post_class(); ?>>
+				<div id="post-<?php echo get_the_ID(); ?>" <?php post_class(); ?>>
 				<h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
                                 
@@ -82,11 +81,9 @@ printf("| Course Type: %s",$course_type);
 
 
 <?php endwhile; endif; ?>
-                                
- <div class="navigation">
-     <div style="width:100px; height:100px; background:blue;"id="blog-more"></div>
-</div>
-                                
+                                                                
 <?php do_action( 'bp_after_blog_page' ); ?>
 
+<div class="nav-more">
+     <div style="width:100px; height:100px; background:blue;float:right;"id="blog-more"></div>
 </div>

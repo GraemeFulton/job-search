@@ -125,7 +125,7 @@ function ajaxLoad($, tax){
    success: function(data){
   //       console.log(data);
          //printResults($,data);
-         $("#blog-page").empty(); $(".navigation").remove();
+         $("#blog-page").empty(); $(".nav-more").remove();
 
          $('#blog-page').append(data);
          
@@ -154,7 +154,7 @@ function ajaxLoadMore($, tax, postoffset){
    dataType:'HTML', // add json datatype to get json
    success: function(data){
           // console.log(data);
-          $(".navigation").remove();
+          $(".nav-more").remove();
             $('#blog-page').append(data);
             loadMore($);
             return false;

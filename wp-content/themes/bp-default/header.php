@@ -38,7 +38,7 @@
     );
 
 ?>
-   
+   <input id="toggle-button" type="button" value="Toggle Style">
         </div><!--/.nav-collapse -->
       </div>
     </div>

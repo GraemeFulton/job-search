@@ -1171,7 +1171,6 @@ span.sticky-post {
 	font-style: normal;
 }
 
-
 /*--------------------------------------------------------------
 6.0 - BuddyPress
 --------------------------------------------------------------*/
@@ -2559,4 +2558,19 @@ br + br { display: none; }
     margin-top:13px;
     margin-left:5px;
     
+}
+/*
+GRID VIEW
+*/
+
+.hentry
+{
+   width: 30%;
+float: left;
+padding: 2px 2px 2px 2px;
+margin: 1px 13px 1px 14px;
+
+}
+.nav-more{
+    float:left;
 }

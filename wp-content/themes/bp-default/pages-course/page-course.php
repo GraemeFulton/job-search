@@ -115,19 +115,17 @@ printf("| Course Type: %s",$course_type);
 			<?php comments_template(); ?>
 
 			<?php endwhile; endif; ?>
+                                                        
+
                                 
- <div class="navigation">
+<?php do_action( 'bp_after_blog_page' ); ?>
+	
+	</div><!-- #content -->
+         <div class="nav-more">
      <div style="width:100px; height:100px; background:blue;"id="blog-more"></div>
   <div class="alignleft"><?php previous_posts_link('&laquo; Previous') ?></div>
   <div class="alignright"><?php next_posts_link('More &raquo;') ?></div>
 </div>
-                                
-<?php do_action( 'bp_after_blog_page' ); ?>
-
-    
-		
-		
-	</div><!-- #content -->
         </div><!-- .padder -->
 
    </div><!-- .page -->

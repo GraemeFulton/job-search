@@ -1271,6 +1271,33 @@ jq(document).ready( function() {
 			} );
 		});
 	});
+        
+        /**
+         * TOGGLE CSS
+         * @returns {undefined}
+         */
+        function init() 
+        {
+            document.getElementById('toggle-button').addEventListener('click', toggle_style, false);
+        }
+
+        function toggle_style() 
+        {
+            var css_base= window.location.origin+"/LGWP/wp-content/themes/bp-default/_inc/css/";
+            if(document.getElementById('bp-default-main-css').href == css_base+'gridview.css') 
+            {
+                    document.getElementById('bp-default-main-css').href = ''+css_base+'default.css';
+            } 
+            else 
+            {             
+                    document.getElementById('bp-default-main-css').href = ''+css_base+'gridview.css';
+            }
+        }
+    window.addEventListener('load', init, false);
+        
+        
+        
+        
 });
 
 /* Setup activity scope and filter based on the current cookie settings. */
