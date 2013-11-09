@@ -11,7 +11,7 @@ class Display_Taxonomy{
     //use constructor to kickstart things
     public function __construct() 
     {
-        wp_enqueue_script('checkbox');
+       // wp_enqueue_script('checkbox');
         // $this->display_tree();
         $this->display_tag_groups();
     }
@@ -81,6 +81,7 @@ class Display_Taxonomy{
     }
     
  }
+ 
      
 }
 ?>

@@ -1,42 +1,12 @@
-<?php 
-/*
- * Template Name: Courses (All)
- * 
- * A Page for courses
-*/
-
-get_header(); 
-
-	 get_sidebar('left');
-
-?>
-
-
-<?php 
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
-$args= array(
-        'post_type'=>'course',
-    	'paged' => $paged
-);
-
-
-
-
-query_posts( $args); ?>
-	<div id="content">
-
-		<div class="padder">
-
-		<?php do_action( 'bp_before_blog_page' ); ?>
-
-		<div class="page" id="blog-page" role="main">
+<!--course post loop template-->
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                     
-				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <?php $id= get_the_ID(); $ID=  settype($id, "integer");; ?>
+				<div id="post-<?php echo get_the_ID(); ?>" <?php post_class(); ?>>
 				<h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
+                                
 					<div class="entry">
 
 						<?php the_excerpt( __( '<p class="serif">Read the rest of this page &rarr;</p>', 'buddypress' ) ); ?>
@@ -61,13 +31,14 @@ $course_type = types_render_field("course-type", array("output"=>"normal"));
 printf("| Course Type: %s",$course_type);
   
  ////////////////NEW ADDITION 
-    $uniID = wp_get_post_terms($post->ID, 'uni', array("fields" => "ids"));
-    $uniName = wp_get_post_terms($post->ID, 'uni', array("fields" => "names"));
-    $uniSlug = wp_get_post_terms($post->ID, 'uni', array("fields" => "slugs"));
+    $uniID = wp_get_post_terms(get_the_ID(), 'uni', array("fields" => "ids"));
+    $uniName = wp_get_post_terms(get_the_ID(), 'uni', array("fields" => "names"));
+    $uniSlug = wp_get_post_terms(get_the_ID(), 'uni', array("fields" => "slugs"));
     $url = get_bloginfo('url');
 
  if($uniID)
 {
+     global $wpdb;
    $sql="SELECT $wpdb->term_taxonomy.term_id 
           FROM $wpdb->term_relationships INNER JOIN $wpdb->term_taxonomy
           ON $wpdb->term_taxonomy.term_taxonomy_id=$wpdb->term_relationships.term_taxonomy_id
@@ -92,7 +63,7 @@ printf("| Course Type: %s",$course_type);
        if($names[0])
        echo '|Offered by: <a href="'.$url.'/?uni='.$list.'">'.$names[0].'</a>';
     }
-     else if($uniName[0])echo '|Offered by: <a href="'.$url.'/?uni='.$uniSlug[0].'">'.$uniName[0].'</a>';
+     else echo '|Offered by: <a href="'.$url.'/?uni='.$uniSlug[0].'">'.$uniName[0].'</a>';
 
  }     
  //////////////////////////
@@ -103,29 +74,16 @@ printf("| Course Type: %s",$course_type);
    printf('<br><img style="float:left position:relative; max-height:150px" src="%s"/>', $pic);
  }
  ?>
-                                            <hr>                                       
-                                                    <?php // edit_post_link( __( 'Edit this page.', 'buddypress' ), '<p class="edit-link">', '</p>'); ?>
+  <hr>                                       
+</div>
 
-					</div>
+</div>
 
-				</div>
 
-			<?php comments_template(); ?>
-
-			<?php endwhile; endif; ?>
-                                                        
-
-                                
+<?php endwhile; endif; ?>
+                                                                
 <?php do_action( 'bp_after_blog_page' ); ?>
-	
-	</div><!-- #content -->
-       
-        </div><!-- .padder -->
-  <div class="nav-more">
-             <a href="#" id="blog-more" style="height:100px;"><h4>Load More</h4></a>
-        </div>
-   </div><!-- .page -->
 
-	<?php get_sidebar(); ?>
-
-<?php get_footer(); ?>
+<div class="nav-more">
+     <div style="width:100px; height:100px; background:blue;float:right;"id="blog-more"></div>
+</div>

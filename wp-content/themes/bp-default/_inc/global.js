@@ -1284,13 +1284,13 @@ jq(document).ready( function() {
         function toggle_style() 
         {
             var css_base= window.location.origin+"/LGWP/wp-content/themes/bp-default/_inc/css/";
-            if(document.getElementById('bp-default-main-css').href == css_base+'gridview.css') 
+            if(document.getElementById('bp-default-main-css').href == css_base+'default.css?ver=1.8.1') 
             {
-                    document.getElementById('bp-default-main-css').href = ''+css_base+'default.css';
+                    document.getElementById('bp-default-main-css').href = ''+css_base+'tabular.css';
             } 
             else 
-            {             
-                    document.getElementById('bp-default-main-css').href = ''+css_base+'gridview.css';
+            {        
+                    document.getElementById('bp-default-main-css').href = ''+css_base+'default.css?ver=1.8.1';
             }
         }
     window.addEventListener('load', init, false);

@@ -1,8 +1,8 @@
 jQuery(document).ready(function ($) {
   
 
- $('#blog-more').click(function(){
-     
+ $('#blog-more').click(function(event){
+       event.preventDefault();
         var postoffset = $('.hentry').length;
   console.log("offset: "+postoffset);
 
@@ -99,10 +99,10 @@ function checked($,arg, true_false){
 function loadMore($, ajax){
     $('#blog-more').unbind('click');
     
-    $('#blog-more').click(function(){
-
+    $('#blog-more').click(function(e){
+        e.preventDefault();
   var postoffset = $('.hentry').length;
-  console.log("offset: "+postoffset);
+ // console.log("offset: "+postoffset);
 
   ajaxLoadMore($,selected_array,postoffset);
 
@@ -125,13 +125,26 @@ function ajaxLoad($, tax){
    success: function(data){
   //       console.log(data);
          //printResults($,data);
-         $("#blog-page").empty(); $(".nav-more").remove();
+                  $(".hentry").remove(); //$(".nav-more").remove();
 
-         $('#blog-page').append(data);
-         
+           var $container = $('#blog-page');
+                  $container.isotope('destroy');
+
+                // initialize isotope
+                $container.isotope({
+                 // options...
+                    masonry: {
+                       columnWidth: 0
+                    }
+             });
+             
+   
+   
+         $('#blog-page').isotope( 'insert', $(data) );
          loadMore($);
          return false;
      },
+             
      error: function(errorThrown){
                alert('error');
                console.log(errorThrown);
@@ -154,8 +167,21 @@ function ajaxLoadMore($, tax, postoffset){
    dataType:'HTML', // add json datatype to get json
    success: function(data){
           // console.log(data);
-          $(".nav-more").remove();
-            $('#blog-page').append(data);
+         // $(".nav-more").remove();
+   
+  var $container = $('#blog-page');
+  
+                // initialize isotope
+                $container.isotope({
+                 // options...
+                    masonry: {
+                       columnWidth: 0
+                    }
+             });
+             
+   
+   
+         $('#blog-page').isotope( 'insert', $(data) );
             loadMore($);
             return false;
      },

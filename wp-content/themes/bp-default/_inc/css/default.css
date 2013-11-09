@@ -115,6 +115,7 @@ border-top-right-radius: 6px;
 float: left;
 width: 69%;
 position: relative;
+margin-bottom:100px;
 }
 div#content .padder {
 	border-right: 1px solid #ddd;
@@ -2559,4 +2560,23 @@ br + br { display: none; }
     margin-top:13px;
     margin-left:5px;
     
+}
+/*
+GRID VIEW
+*/
+@media (min-width: 600px) {
+
+#blog-page .hentry
+{
+   width: 30%;
+float: left;
+padding: 2px 2px 2px 2px;
+margin: 1px 13px 1px 14px;
+
+}
+.nav-more{
+position:fixed;
+bottom:0;
+left:20%;
+}
 }

@@ -83,7 +83,3 @@ printf("| Course Type: %s",$course_type);
 <?php endwhile; endif; ?>
                                                                 
 <?php do_action( 'bp_after_blog_page' ); ?>
-
-<div class="nav-more">
-     <div style="width:100px; height:100px; background:blue;float:right;"id="blog-more"></div>
-</div>
