@@ -1,20 +1,48 @@
 jQuery(document).ready(function ($) {
   
+    load_more_button_listener($);
+   
+    check_box_listener($);
 
+    graylien_infinite_scroll($);
+});
+
+/*
+ * load_more_button
+ * @param {type} $
+ * @returns {undefined}
+ * listens for click of load more button, and loads more posts
+ */
+function load_more_button_listener($){
  $('#blog-more').click(function(event){
        event.preventDefault();
         var postoffset = $('.hentry').length;
-  console.log("offset: "+postoffset);
+ // console.log("offset: "+postoffset);
 
   ajaxLoadMore($,selected_array,postoffset);
  });  
-   
-//make sure all checkboxes are unchecked
-$('input:checkbox').prop('checked', false);
-  checkBoxChange($);
+}
 
+
+/*
+ * graylien_infinite_scroll
+ * @param {type} $
+ * @returns {undefined}
+ * triggers the call to load more when user scrolls to bottom
+ */
+function graylien_infinite_scroll($){
     
+    $(window).scroll(function () {
+   if ($(window).scrollTop() >= $(document).height() - $(window).height() - 1) {
+              
+            var postoffset = $('.hentry').length;
+            
+            ajaxLoadMore($,selected_array,postoffset);
+   }
 });
+    
+}
+
 
 /*
  * var url_string
@@ -27,13 +55,16 @@ var selected_array =[];
 var category_names_selected= "Selected: ";
 var pageURL=getPageName(document.URL);
 /*
- * checkBoxChange
+ * check_box_listener
  * @returns {undefined}
  * Listener for changes in checkboxes
  * Triggers checked() & unchecked() functions
  */
-function checkBoxChange($){
-    
+function check_box_listener($){
+  
+  //uncheck all boxes on page load
+    $('input:checkbox').prop('checked', false);
+
      $('input:checkbox').change(
     
     function()
