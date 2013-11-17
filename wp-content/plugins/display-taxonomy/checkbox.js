@@ -8,6 +8,17 @@ jQuery(document).ready(function ($) {
 });
 
 /*
+ * var url_string
+ * 
+ * Newly checked categories are appended to the url
+ * Unchecked categories are removed from the url_string
+ */
+var url_string=document.URL;
+var selected_array =[];
+var category_names_selected= "Selected: ";
+var pageURL=getPageName(document.URL);
+
+/*
  * load_more_button
  * @param {type} $
  * @returns {undefined}
@@ -17,9 +28,12 @@ function load_more_button_listener($){
  $('#blog-more').click(function(event){
        event.preventDefault();
         var postoffset = $('.hentry').length;
+        var category_type= $('#content').attr('category_type');
+        var tag_type= $('#content').attr('tag_type');
+
  // console.log("offset: "+postoffset);
 
-  ajaxLoadMore($,selected_array,postoffset);
+  ajaxLoadMore($,selected_array,postoffset, category_type, tag_type);
  });  
 }
 
@@ -36,24 +50,23 @@ function graylien_infinite_scroll($){
    if ($(window).scrollTop() >= $(document).height() - $(window).height()) {
               
             var postoffset = $('.hentry').length;
+            var category_type= $('#content').attr('category_type');
+            var tag_type= $('#content').attr('tag_type');
+
+      
+            ajaxLoadMore($,selected_array,postoffset, category_type, tag_type);
+        
+            closeActiveBox($);
+            disableClickMe($);
+            setTimeout(function(){isotopes_modal($);}, 500);
             
-            ajaxLoadMore($,selected_array,postoffset);
+
    }
 });
     
 }
 
 
-/*
- * var url_string
- * 
- * Newly checked categories are appended to the url
- * Unchecked categories are removed from the url_string
- */
-var url_string=document.URL;
-var selected_array =[];
-var category_names_selected= "Selected: ";
-var pageURL=getPageName(document.URL);
 /*
  * check_box_listener
  * @returns {undefined}
@@ -96,6 +109,9 @@ function checked($,arg, true_false){
     //filter for the url_string
     var cat_id=$(arg).val();
     var filter= "&category="+cat_id;
+    var category_type= $('#content').attr('category_type');
+    var tag_type= $('#content').attr('tag_type');
+
     
     //name for breadcrumbs
     var name = $(arg).attr('name');
@@ -108,71 +124,57 @@ function checked($,arg, true_false){
     if (true_false===true)
     {
             selected_array.push(name);
-                ajaxLoad($,selected_array);
+                ajaxLoad($,selected_array, category_type, tag_type);
                 console.log(selected_array);
                 
     }      
     else { 
         var index = selected_array.indexOf(name);
         selected_array.splice(index,1);
-           ajaxLoad($,selected_array);
-              //             console.log(selected_array);
-                 
+           ajaxLoad($,selected_array, category_type, tag_type);                
     }
-    
-
-    //filterPage(url_string);   
-    
-  //  alert(filter_string);
-    
+        
 }
 
-function loadMore($, ajax){
-    $('#blog-more').unbind('click');
-    
-    $('#blog-more').click(function(e){
-        e.preventDefault();
-  var postoffset = $('.hentry').length;
- // console.log("offset: "+postoffset);
 
-  ajaxLoadMore($,selected_array,postoffset);
-
- });  
-
-    
-}
-
-function ajaxLoad($, tax){
+/*
+ *ajaxLoad 
+ * @param {type} $
+ * @param {type} tax
+ * @returns {undefined}
+ */
+function ajaxLoad($, tax, category_type, tag_type){
     
     $.ajax({
-     url: '/LGWP/wp-admin/admin-ajax.php', //This is the current doc
+     url: '/LGWP/wp-admin/admin-ajax.php', 
      type: "POST",
      data: {
             'action': 'check_box',
             'fn':'get_latest_posts',
-            'tax':tax
+            'tax':tax,
+            'cat':category_type,
+            'type':tag_type
            },
-   dataType:'HTML', // add json datatype to get json
+   dataType:'HTML', 
    success: function(data){
-  //       console.log(data);
-         //printResults($,data);
-                  $(".hentry").remove(); //$(".nav-more").remove();
+ 
+        //remove all boxes
+        $(".hentry").remove(); 
+       
+       //destroy isotopes
+       var $container = $('#blog-page');
+        $container.isotope('destroy');
 
-           var $container = $('#blog-page');
-                  $container.isotope('destroy');
-
-                // initialize isotope
-                $container.isotope({
-                 // options...
-                    masonry: {
-                       columnWidth: 0
-                    }
-             });
-             
-   
-   
+        // initialize isotope
+        $container.isotope({
+         masonry: {
+                    columnWidth: 0
+                  }
+         });
+               
          $('#blog-page').isotope( 'insert', $(data) );
-         loadMore($);
+         resetCurrentActiveBox($);
+         
          return false;
      },
              
@@ -184,40 +186,46 @@ function ajaxLoad($, tax){
 
 }
 
-function ajaxLoadMore($, tax, postoffset){
-    
+/*
+* ajaxLoadMore
+
+ * @param {type} $
+ * @param {type} tax
+ * @param {type} postoffset
+ * @returns {undefined} */
+function ajaxLoadMore($, tax, postoffset, category_type, tag_type){
     $.ajax({
-     url: '/LGWP/wp-admin/admin-ajax.php', //This is the current doc
+     url: '/LGWP/wp-admin/admin-ajax.php', 
      type: "POST",
      data: {
             'action': 'check_box',
             'fn':'get_latest_posts',
             'tax':tax,
-            'offset':postoffset
+            'offset':postoffset,
+            'cat':category_type,
+            'type':tag_type
            },
-   dataType:'HTML', // add json datatype to get json
-   success: function(data){
-          // console.log(data);
-         // $(".nav-more").remove();
+   dataType:'HTML', 
    
-  var $container = $('#blog-page');
+    success: function(data){
+         
+          var $container = $('#blog-page');
   
-                // initialize isotope
-                $container.isotope({
-                 // options...
-                    masonry: {
-                       columnWidth: 0,
-                       rowHeight:0
+          // initialize isotope
+          $container.isotope({
+            // options...
+            masonry: 
+                    {
+                     columnWidth: 0,
+                     rowHeight:0
                     }
              });
              
-   
+         //append new isotopes    
          $('#blog-page').isotope( 'insert', $(data) );
+         setTimeout(function(){ $('#blog-page').isotope( 'reLayout');}, 200); //prevent overlap
         
-   setTimeout(function(){ $('#blog-page').isotope( 'reLayout');}, 750); //prevent overlap
-
-          //  loadMore($);
-         //   return false;
+         return false;
      },
      error: function(errorThrown){
                alert('error');

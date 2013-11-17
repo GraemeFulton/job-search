@@ -17,19 +17,21 @@ include("display-tax-libs.php");
      * plugin hook called from sidebar
      * 
      */
-    function display_taxonomy_tree()
+     
+
+    function display_taxonomy_tree($tag_type)
     {
-        $dp= new Display_Taxonomy();
+        $dp= new Display_Taxonomy('xili_tidy_tags_'.$tag_type);
     }
     
     /*
      * Action: load checkbox.js script
      */
-    add_action('wp_head','load_js');
     function load_js()
     {
         wp_enqueue_script('the_js', plugins_url('/checkbox.js',__FILE__) );
     }
+    add_action('wp_head','load_js');
 
 
     /*
@@ -50,7 +52,7 @@ include("display-tax-libs.php");
          switch($_REQUEST['fn'])
         {
              case 'get_latest_posts':
-                  $output = ajax_get_latest_posts($_POST['tax'], $_POST['offset']);
+                  $output = ajax_get_latest_posts($_POST['tax'], $_POST['offset'], $_POST['cat'], $_POST['type']);
              break;
              default:
                  $output = 'No function specified, check your jQuery.ajax() call';
@@ -72,15 +74,15 @@ include("display-tax-libs.php");
  * args: taxonomy (checkbox selections), offset(number of courses already loaded)
  * returns: html template 
  */
-function ajax_get_latest_posts($tax, $offset)
+function ajax_get_latest_posts($tax, $offset, $category_type, $tag_type)
 {
-         
+    
    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
     $args= array
     (
         'offset'=>$offset,
-     'post_type'=>'course',
+        'post_type'=>$category_type,
         'paged'=>$paged,
         'posts_per_page'=>9
     );
@@ -91,9 +93,9 @@ function ajax_get_latest_posts($tax, $offset)
         
         foreach($tax as $term)
         {       
-            $tags_from_group= array_merge($tags_from_group,xtt_tags_from_group($term, '',"xili_tidy_tags_subject", "subject"));
+            $tags_from_group= array_merge($tags_from_group,xtt_tags_from_group($term, '',"xili_tidy_tags_".$tag_type, $tag_type));
             $args['tax_query'][0]['terms']=$tags_from_group;
-            $args['tax_query'][0]['taxonomy']='subject';
+            $args['tax_query'][0]['taxonomy']=$tag_type;
             $args['tax_query'][0]['field']='slug';
         }      
     } 

@@ -1,6 +1,6 @@
 <?php 
 /*
- * Template Name: Courses (
+ * Template Name: Courses (Free)
  * 
  * A Page for courses
 */

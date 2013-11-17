@@ -1,15 +1,30 @@
 <?php
 #include hotaru
-require "../../SiteBundle/Job.php";
-require_once('../../../config/settings.php');
-require_once('../../../Hotaru.php');
-$h = new Hotaru();
-$h->vars['submitted_data']['submit_media'] ='text';  //prevents undefined index in media_select line 93
+require "../../SiteBundle/Job.php";;
 
 # create and load the HTML
 require "../ScraperAbstract.class.php"; 
 require "../JobScraperAbstract.class.php";
 require "./IndeedScraper.class.php";
+?>
+<html>
+<body>
+<h2>Indeed Graduate Job Generator</h2>
+<form action="?action=generatePosts" method="post">
+    
+<input type="submit" value="Generate Posts">
+</form>
+
+</body>
+</html>
+
+<?php
+require_once "../../../wp-load.php";
+$DB_USER= 'root';
+$DB_NAME='LGWP';
+$DB_PASS='jinkster2312';
+$DB_HOST='localhost';
+$wpdb = new wpdb( $DB_USER, $DB_PASS, $DB_NAME, $DB_HOST);
 
 ////////////////////////////////////////////////////////////
 //Just set the following variables, then run the script:////

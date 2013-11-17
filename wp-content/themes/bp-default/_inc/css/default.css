@@ -2593,6 +2593,7 @@ left:20%;
 
 box-shadow: 1px 1px 10px 5000px rgba(20,20,20,0.78);
     z-index:2 !important;
+    background:#fff;
 }
 
 .close_box{
@@ -2610,9 +2611,7 @@ right: 0px;
 .fixed {
     position: fixed;
     top: 50%;   
-    width:100px;
-        height:100px;
-        background:blue;
+    
 }
 
 .activepost_edge{

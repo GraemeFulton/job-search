@@ -3,6 +3,8 @@ jQuery(document).ready(function ($) {
 //$(".item").addClass("isotope-item");
 
    isotopes_pre_init($);
+   
+   scrollHandler($);
 });
 
 
@@ -98,38 +100,26 @@ function isotopes_modal($){
            $(this).closest(".clickme").append("<div class='close_box'>X</div>");
 
 	   closeBoxHandler($, this);
-             
-       
-//           //get center of content box
-//           var pageCenter= ($("#content").offset().left)*2;
-//           //get position of box clicked
-//          var leftOffset = ($(this).closest(".isotope-item").offset().left)+($(this).closest(".isotope-item").width())-50; 
-//            //work out the movement to the middle
-//          var movementAmount = (pageCenter-leftOffset);
 
-//get center of content box
-           var pageCenter= ($("#content").width()/2);
+            //get center of content box
+             var pageCenter= ($("#content").width()/2);
            //get position of box clicked
-          var leftOffset = ($(this).closest(".isotope-item").offset().left); 
+              var leftOffset = ($(this).closest(".isotope-item").offset().left); 
             //work out the movement to the middle
-          var movementAmount = (pageCenter-leftOffset);
+              var movementAmount = (pageCenter-leftOffset)-100;
           
-  
-      
-            var arrowOffset=  $(".slider-button").offset().top;
-            
-             var tp2=$(this).offset().top;
+           var arrowOffset=  $(".slider-button").offset().top;
+           var tp2=$(this).offset().top;
            topOffset= tp2-(arrowOffset);
              
-               $(this).closest(".item").addClass("activepost_edge");//make it an active post
-                $(this).closest(".isotope-item").css("z-index", "6");
-
+           $(this).closest(".item").addClass("activepost_edge");//make it an active post
+           $(this).closest(".isotope-item").css("z-index", "6");
              
            $(this).closest(".isotope-item").animate(
                        {
                           left:  movementAmount+350,
                           position:"absolute",
-                          top: -topOffset
+                          top: -topOffset-150
                
                         },200,function()
                         {
@@ -138,21 +128,13 @@ function isotopes_modal($){
                        $(this).closest(".isotope-item").css("z-index", "6");
                         });
   
-
        }
        
        else
        {
            $(this).closest(".item").removeClass("activepost").removeClass("activepost_edge");
            $(this).closest(".isotope-item").removeClass("activepost_edger").removeClass("activepost_edge");
-           $(this).siblings(".view_more_btn").hide();
-           $(this).siblings(".post-list-text").hide();
-           $(this).siblings(".facebook_twitter_buttons").hide();
-           $(this).siblings(".show_vote_button").hide();
-           $(this).siblings(".post_image_wrapper").css("margin-left", "0px");//reset post_image_wrapper
-           $(this).siblings(".show_post_title").css("margin-left", "6px").css("margin-right", "0px");//reset post_image_wrapper
-       
-       
+                
               $(this).closest(".isotope-item").animate(
                 {
                  'left':'0',
@@ -178,19 +160,21 @@ function isotopes_modal($){
 
 }
 
-function disableClickMe($, item){
-	
-             $(" .clickme").unbind('click');
-             $(".close_box").bind('click');
+function disableClickMe($){
+     $(".close_box").remove();
+
+     $(" .clickme").unbind('click');
+     $(".close_box").bind('click');
+     
 
 }
 
 function enableClickMe($){
 	
-	$(".clickme").bind('click', function(){
+    $(".clickme").bind('click', function(){
 		
-isotopes_modal($)		
-		});
+            isotopes_modal($);	
+    });
 		
 }
 
@@ -198,14 +182,16 @@ isotopes_modal($)
  * closeActiveBox
  * When you scroll past an open box, and infinite scroll adds new boxes, this closes the open one
  */
-function closeActiveBox(){
+function closeActiveBox($){
+    
+    //if there's already an active box, don't need to run this
+     if(!$(".activepost").length > 0)return;       
+    
            $(".clickme").closest(".isotope-item").removeClass("activepost_edger").removeClass("activepost_edge");
-           $(".clickme").siblings(".view_more_btn").hide();
-           $(".clickme").siblings(".post-list-text").hide();
-           $(".clickme").siblings(".facebook_twitter_buttons").hide();
-           $(".clickme").siblings(".show_vote_button").hide();
-           $(".clickme").siblings(".post_image_wrapper").css("margin-left", "0px");//reset post_image_wrapper
-           $(".clickme").siblings(".show_post_title").css("margin-left", "6px").css("margin-right", "0px");//reset post_image_wrapper
+                      $(".clickme").closest(".activepost").children('.entry').children('p').hide();
+                                      $(".close_box").remove();   
+
+
      $(".activepost").closest(".isotope-item").animate(
                 {
                  'left':'0',
@@ -217,9 +203,14 @@ function closeActiveBox(){
                     $("#blog-page").isotope( 'reLayout' ); 
                     
                 });
-                $("#blog-page").closest(".isotope-item").removeClass("activepost").removeClass("activepost_edge");
-    $(".close_box").remove();     
+                $(".clickme").closest(".item").removeClass("activepost").removeClass("activepost_edge");
+               
+            //re-enable isotope modal
+           closeActiveBox($);
+            disableClickMe($);
+            setTimeout(function(){isotopes_modal($);}, 500);
 }
+
 
 
 function closeBoxHandler($){
@@ -254,4 +245,48 @@ $('.close_box').click(function(){
 	});
 
 	
+}
+
+
+/*
+ * scrollHandler
+ * 
+ * after the page scrolls down a bit, the left bar, and breadcrumbs
+ * are positioned at the top.
+ */
+var lastFixPos = 0;
+var threshold = 800;
+
+function scrollHandler($){
+    
+        $(document).scroll(function () {
+
+ var diff = Math.abs($(window).scrollTop() - lastFixPos);
+  if(diff > threshold){
+
+            resetCurrentActiveBox($);            
+
+    lastFixPos = $(window).scrollTop();
+  }
+ 
+
+});
+    
+    
+}
+
+
+
+/*
+ * resetCurrentActiveBox
+ * if there is an open box, it gets closed
+ */
+function resetCurrentActiveBox($){
+  
+    closeActiveBox($);
+    disableClickMe($);
+    setTimeout(function(){reset_isotopes($);isotopes_modal($);}, 100);
+    
+    
+   
 }

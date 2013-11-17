@@ -1,22 +1,26 @@
 <?php 
 /*
- * Template Name: Courses (All)
+ * Template Name: Graduate Jobs (All)
  * 
  * A Page for courses
 */
 
 get_header(); 
 
-	 get_sidebar('left');
-
 ?>
+<div id="sidebar-left">
+    <h1> <?php echo get_the_title(); ?> </h1>
+    
+    
+    <?php if ( function_exists( 'display_taxonomy_tree' ) ) { echo display_taxonomy_tree('job'); } ?>
+</div>
 
 
 <?php 
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 $args= array(
-        'post_type'=>'course',
+        'post_type'=>'graduate-job',
     	'paged' => $paged
 );
 
@@ -24,7 +28,7 @@ $args= array(
 
 
 query_posts( $args); ?>
-	<div id="content">
+	<div id="content"  category_type='graduate-job' tag_type='job'>
 
 		<div class="padder">
 

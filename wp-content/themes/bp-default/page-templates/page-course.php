@@ -1,8 +1,44 @@
-<!--course post loop template-->
-	
-		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+<?php 
+/*
+ * Template Name: Courses (All)
+ * 
+ * A Page for courses
+*/
+
+get_header(); 
+
+?>
+<div id="sidebar-left">
+    <h1> <?php echo get_the_title(); ?> </h1>
+    
+    
+    <?php if ( function_exists( 'display_taxonomy_tree' ) ) { echo display_taxonomy_tree('subject'); } ?>
+</div>
+
+
+<?php 
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+$args= array(
+        'post_type'=>'course',
+    	'paged' => $paged
+);
+
+
+
+
+query_posts( $args); ?>
+	<div id="content"  category_type='course' tag_type='subject'>
+                        
+		<div class="padder">
+
+		<?php do_action( 'bp_before_blog_page' ); ?>
+
+		<div class="page" id="blog-page" role="main">
+
+			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                     
-				<div id="post-<?php echo get_the_ID(); ?>" <?php post_class(); ?>>
+				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                                     <div class="item">
 
 				<h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
@@ -31,14 +67,13 @@ $course_type = types_render_field("course-type", array("output"=>"normal"));
 printf("| Course Type: %s",$course_type);
   
  ////////////////NEW ADDITION 
-    $uniID = wp_get_post_terms(get_the_ID(), 'uni', array("fields" => "ids"));
-    $uniName = wp_get_post_terms(get_the_ID(), 'uni', array("fields" => "names"));
-    $uniSlug = wp_get_post_terms(get_the_ID(), 'uni', array("fields" => "slugs"));
+    $uniID = wp_get_post_terms($post->ID, 'uni', array("fields" => "ids"));
+    $uniName = wp_get_post_terms($post->ID, 'uni', array("fields" => "names"));
+    $uniSlug = wp_get_post_terms($post->ID, 'uni', array("fields" => "slugs"));
     $url = get_bloginfo('url');
 
  if($uniID)
-{ 
-     global $wpdb;
+{
    $sql="SELECT $wpdb->term_taxonomy.term_id 
           FROM $wpdb->term_relationships INNER JOIN $wpdb->term_taxonomy
           ON $wpdb->term_taxonomy.term_taxonomy_id=$wpdb->term_relationships.term_taxonomy_id
@@ -90,3 +125,15 @@ printf("| Course Type: %s",$course_type);
 
                                 
 <?php do_action( 'bp_after_blog_page' ); ?>
+	
+	</div><!-- #content -->
+       
+        </div><!-- .padder -->
+  <div class="nav-more">
+             <a href="#" id="blog-more" style="height:100px;"><h4>Load More</h4></a>
+        </div>
+   </div><!-- .page -->
+
+	<?php get_sidebar(); ?>
+
+<?php get_footer(); ?>

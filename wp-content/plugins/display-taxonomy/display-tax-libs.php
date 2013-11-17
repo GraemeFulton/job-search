@@ -9,11 +9,11 @@ class Display_Taxonomy{
     }
 
     //use constructor to kickstart things
-    public function __construct() 
+    public function __construct($category_type) 
     {
        // wp_enqueue_script('checkbox');
         // $this->display_tree();
-        $this->display_tag_groups();
+        $this->display_tag_groups($category_type);
     }
     
     //not using atm
@@ -34,23 +34,23 @@ class Display_Taxonomy{
      * display_tag_groups
      * registers the subject taxonomy, and then prints out a hierarchical list based on xili tag groups
      */
-    public function display_tag_groups()
+    public function display_tag_groups($category_type)
     {
-        register_taxonomy( 'xili_tidy_tags_subject', 'term', array( 'hierarchical' => true, 'label'=>false, 'rewrite' => false, 'update_count_callback' => '', 'show_ui' => false ) );
+        register_taxonomy( $category_type, 'term', array( 'hierarchical' => true, 'label'=>false, 'rewrite' => false, 'update_count_callback' => '', 'show_ui' => false ) );
                    
-        $jobsTerms = get_terms('xili_tidy_tags_subject'); 
+        $tag_groups = get_terms($category_type); 
 
-        foreach($jobsTerms as $term)
+        foreach($tag_groups as $group)
         {
-            if($term->parent==0)//if there is no parent, it is a top-level category
+            if($group->parent==0)//if there is no parent, it is a top-level category
             {
-                $checked = (has_term($term->slug, 'xili_tidy_tags_subject', $post->ID)) ? 'checked="checked"' : '';
+                $checked = (has_term($group->slug, 'xili_tidy_tags_subject', $post->ID)) ? 'checked="checked"' : '';
 
-                echo '<input type="checkbox" name="' . $term->slug . '" value="' . $term->name . '" obj_id='.$term->term_id.$checked.' />';
-                echo '<label  style="font-weight:bold;" for="' . $term->slug . '">' . $term->name . '</label><br>';
+                echo '<input type="checkbox" name="' . $group->slug . '" value="' . $group->name . '" obj_id='.$group->term_id.$checked.' />';
+                echo '<label  style="font-weight:bold;" for="' . $group->slug . '">' . $group->name . '</label><br>';
 
                 //get term children
-                 $termchildren= get_term_children( $term->term_id,'xili_tidy_tags_subject' );
+                 $termchildren= get_term_children( $group->term_id,'xili_tidy_tags_subject' );
                  foreach($termchildren as $child)
                  {
                     $term = get_term_by( 'id', $child, 'xili_tidy_tags_subject' );
