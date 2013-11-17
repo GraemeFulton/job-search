@@ -33,7 +33,7 @@ function load_more_button_listener($){
 function graylien_infinite_scroll($){
     
     $(window).scroll(function () {
-   if ($(window).scrollTop() >= $(document).height() - $(window).height() - 1) {
+   if ($(window).scrollTop() >= $(document).height() - $(window).height()) {
               
             var postoffset = $('.hentry').length;
             
@@ -206,15 +206,18 @@ function ajaxLoadMore($, tax, postoffset){
                 $container.isotope({
                  // options...
                     masonry: {
-                       columnWidth: 0
+                       columnWidth: 0,
+                       rowHeight:0
                     }
              });
              
    
-   
          $('#blog-page').isotope( 'insert', $(data) );
-            loadMore($);
-            return false;
+        
+   setTimeout(function(){ $('#blog-page').isotope( 'reLayout');}, 750); //prevent overlap
+
+          //  loadMore($);
+         //   return false;
      },
      error: function(errorThrown){
                alert('error');

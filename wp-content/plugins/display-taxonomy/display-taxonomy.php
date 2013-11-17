@@ -82,7 +82,7 @@ function ajax_get_latest_posts($tax, $offset)
         'offset'=>$offset,
      'post_type'=>'course',
         'paged'=>$paged,
-        'posts_per_page'=>3
+        'posts_per_page'=>9
     );
     
     if($tax!=""){//if a box has been checked, we add a taxnomoy query

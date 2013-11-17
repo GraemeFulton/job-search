@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
 
-
+//$(".item").addClass("isotope-item");
 
    isotopes_pre_init($);
 });
@@ -74,63 +74,71 @@ function isotopes_init($,colWidth,offset,topOffset)
   
     });
     
+    isotopes_modal($);
+}
+
+function isotopes_modal($){
     
-   $('.click_to_post').click(function(e) { //this prevents title going to post-box
+    
+   $('.posttitle').click(function(e) { //this prevents title going to post-box
     
        e.preventDefault(); 
    });
 
    $('.clickme').click(function(){ 
 	        
-        disableClickMe();
+        disableClickMe($);
 
-       if(! $(this).closest(".item").hasClass("activepost"))
+       if(! $(this).closest(".isotope-item").hasClass("activepost"))
        {//if it isnt the active post
            //$(".item").removeClass("activepost").removeClass("activepost_edge");
-           $(this).siblings(".post_image_wrapper").css("float", "left").css("margin-left", "10px");//move the image a bit
-           $(this).siblings(".show_post_title").css("margin-left", "10px").css("margin-right", "10px");//move title to the right a bit
 
-           $(this).siblings(".view_more_btn").show();
-           $(this).siblings(".post-list-text").show();
-           $(this).siblings(".facebook_twitter_buttons").show();//show facebook/twitter
-           $(this).siblings(".show_vote_button").show();
-           $(this).closest(".item").addClass("activepost");//make it an active post
-           $(this).closest(".clickme").append("<div class='close_box'>X</div>")
+           $(this).siblings(".entry").children('p').show();
+          $(this).closest(".item").addClass("activepost");//make it an active post
+           $(this).closest(".clickme").append("<div class='close_box'>X</div>");
 
-	   closeBoxHandler();
+	   closeBoxHandler($, this);
              
        
-           //get center of content box
-           var pageCenter= ($("#main-content-left").width()/2);
+//           //get center of content box
+//           var pageCenter= ($("#content").offset().left)*2;
+//           //get position of box clicked
+//          var leftOffset = ($(this).closest(".isotope-item").offset().left)+($(this).closest(".isotope-item").width())-50; 
+//            //work out the movement to the middle
+//          var movementAmount = (pageCenter-leftOffset);
+
+//get center of content box
+           var pageCenter= ($("#content").width()/2);
            //get position of box clicked
           var leftOffset = ($(this).closest(".isotope-item").offset().left); 
             //work out the movement to the middle
-          var movementAmount = (pageCenter-leftOffset)+offset;
+          var movementAmount = (pageCenter-leftOffset);
           
   
       
+            var arrowOffset=  $(".slider-button").offset().top;
             
-            var arrowOffset= $(".slider-button").offset().top;
-            
-             var tp2=$(this).closest(".isotope-item").offset().top;
-           topOffset= tp2-(arrowOffset)+250;
+             var tp2=$(this).offset().top;
+           topOffset= tp2-(arrowOffset);
              
                $(this).closest(".item").addClass("activepost_edge");//make it an active post
                 $(this).closest(".isotope-item").css("z-index", "6");
 
              
-           $(this).closest(".box").animate(
+           $(this).closest(".isotope-item").animate(
                        {
-                          left:  movementAmount,
+                          left:  movementAmount+350,
                           position:"absolute",
                           top: -topOffset
                
-                        },300,function()
+                        },200,function()
                         {
-                          $(".content").isotope( 'reLayout' ); 
+                  //      
+                          $("#blog-page").isotope( 'reLayout' ); 
                        $(this).closest(".isotope-item").css("z-index", "6");
                         });
   
+
        }
        
        else
@@ -153,11 +161,11 @@ function isotopes_init($,colWidth,offset,topOffset)
                  "top":"0"
                 },300,"linear",function()
                 {
-                   $(".content").isotope( 'reLayout' ); 
+                   $("#blog-page").isotope( 'reLayout' ); 
                 });
              
-         $(".content").isotope( 'reLayout' ); 
-         enableClickMe();
+         $("#blog-page").isotope( 'reLayout' ); 
+         enableClickMe($);
        };
 
       
@@ -170,19 +178,18 @@ function isotopes_init($,colWidth,offset,topOffset)
 
 }
 
-function disableClickMe(){
+function disableClickMe($, item){
 	
-             $(".clickme").unbind('click');
+             $(" .clickme").unbind('click');
              $(".close_box").bind('click');
 
 }
 
-function enableClickMe(){
+function enableClickMe($){
 	
 	$(".clickme").bind('click', function(){
 		
-		clickMeHandler();
-		
+isotopes_modal($)		
 		});
 		
 }
@@ -207,26 +214,24 @@ function closeActiveBox(){
                  "top":"0"
                 },300,"linear",function()
                 {
-                    $(".content").isotope( 'reLayout' ); 
+                    $("#blog-page").isotope( 'reLayout' ); 
                     
                 });
-                $(".clickme").closest(".item").removeClass("activepost").removeClass("activepost_edge");
+                $("#blog-page").closest(".isotope-item").removeClass("activepost").removeClass("activepost_edge");
     $(".close_box").remove();     
 }
 
 
-function closeBoxHandler(){
+function closeBoxHandler($){
 
 $('.close_box').click(function(){ 
 	
-			$(this).closest(".item").removeClass("activepost").removeClass("activepost_edge");
-           $(this).closest(".isotope-item").removeClass("activepost_edger").removeClass("activepost_edge");
-           $(this).parent().siblings(".view_more_btn").hide();
-           $(this).parent().siblings(".post-list-text").hide();
-           $(this).parent().siblings(".facebook_twitter_buttons").hide();
-           $(this).parent().siblings(".show_vote_button").hide();
-           $(this).parent().siblings(".post_image_wrapper").css("margin-left", "0px");//reset post_image_wrapper
-           $(this).parent().siblings(".show_post_title").css("margin-left", "6px").css("margin-right", "0px");//reset post_image_wrapper
+	   $(this).closest(".item").removeClass("activepost").removeClass("activepost_edge");
+           $(this).closest(".item").removeClass("activepost_edger").removeClass("activepost_edge");
+
+            $(this).parent().siblings(".entry").children('p').hide();
+                
+
 		   $(this).removeClass("close_box");
 		   
        
@@ -238,173 +243,15 @@ $('.close_box').click(function(){
                  "top":"0"
                 },300,"linear",function()
                 {
-                    $(".content").isotope( 'reLayout' ); 
+           //         $("#blog-page").isotope( 'reLayout' ); 
                     
                 });
               
-         $(".content").isotope( 'reLayout' ); 
          $(this).remove();
-         enableClickMe();	
+         enableClickMe($);	
+                          $("#blog-page").isotope( 'reLayout' ); 
+
 	});
-	
-}
 
-
-
-function clickMeHandler(){
-	    $(".box").show();
-
-	 $('.click_to_post').click(function(e) { //this prevents title going to post-box
-    
-       e.preventDefault(); 
-   });
-
-   $('.clickme').click(function(){ 
-	           $(this).closest(".clickme").append("<div class='close_box'>X</div>")
-
-	   closeBoxHandler();
-	   
-	   	   disableClickMe();
-                   
-
-       if(! $(this).closest(".item").hasClass("activepost"))
-       {//if it isnt the active post
-           //$(".item").removeClass("activepost").removeClass("activepost_edge");
-           $(this).siblings(".post_image_wrapper").css("float", "left").css("margin-left", "10px");//move the image a bit
-           $(this).siblings(".show_post_title").css("margin-left", "10px").css("margin-right", "10px");//move title to the right a bit
-
-           $(this).siblings(".view_more_btn").show();
-           $(this).siblings(".post-list-text").show();
-           $(this).siblings(".facebook_twitter_buttons").show();//show facebook/twitter
-           $(this).siblings(".show_vote_button").show();
-           $(this).closest(".item").addClass("activepost");//make it an active post
-           
-                          $('.activepost_edger').css({"z-index": "4"});
-             
-          ///////////////////
-          //Left offset///////
-          /////////////////// 
-           //get center of content box
-           var pageCenter= ($("#main-content-left").width()/2);
-           //get position of box clicked
-          var leftOffset = ($(this).closest(".isotope-item").offset().left); 
-            //work out the movement to the middle
-          var movementAmount = (pageCenter-leftOffset)+offset;
-          
-           ///////////////////
-          //Right offset///////
-          ///////////////////
-        
-          var rt = ($(window).width() - ($("#main-content-left").offset().left + $("#main-content-left").outerWidth()));
-          var rt2 = ($(window).width() - ($(this).closest(".isotope-item").offset().left + $(this).closest(".isotope-item").outerWidth()));   
-          var rightOffset= rt-rt2;
-          var rightOffset= -rightOffset;
-  
-         
-           if (topOffset!==0){
-            
-            var arrowOffset= $(".slider-button").offset().top;
-            
-            var tp=Math.floor(window.innerHeight/2);
-             var tp2=$(this).closest(".isotope-item").offset().top;
-             console.log("middle: "+arrowOffset);
-                          console.log("ofset top: "+tp2);
-
-             topOffset= tp2-(arrowOffset)+250;
-             console.log("topOFfset: "+topOffset);
-             
-            
-         }
-         
-    var width = $(window).width(); 
-    if(!((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)))){     
-          
-           //right end
-           if( rightOffset<80)
-           { 
-               $('.activepost_edgerLeft').css("z-index", "5");
-                $(this).closest(".isotope-item").addClass("activepost_edger");//make it an active post
-            
-           }
-        
-          //right middle
-                else  if( rightOffset>150 && rightOffset<600)
-           {
-                  $('.activepost_edgerLeft').css({"z-index": "5"});
-                   $(this).closest(".isotope-item").addClass("activepost_edger");//make it an active post
-
-          
-           }
-           //left middle
-            else  if( rightOffset>700 && rightOffset<1300)
-           {
-                $('.activepost_edger').css({"z-index": "4"});
-               $(this).closest(".isotope-item").addClass("activepost_edgerLeft");//make it an active post
-               $(this).closest(".item").addClass("activepost_edge");//make it an active post
-               $(this).closest(".isotope-item").addClass("activepost_edger");//make it an active post
-                $(this).closest(".isotope-item").css("z-index", "6");
-
-              
-           }
-
-               $(this).closest(".item").addClass("activepost_edge");//make it an active post
-                $(this).closest(".isotope-item").css("z-index", "6");
-
-               $(this).closest(".isotope-item").animate(
-                       {
-                          left:  movementAmount,
-                          position:"absolute",
-                          top: -topOffset
-               
-                        },300,function()
-                        {
-                           $(".content").isotope( 'reLayout' ); 
-                      
-                        });
-         }
-         else{
-                $(this).closest(".isotope-item").css("z-index", "6");
-
-           
-                            $(".content").isotope( 'reLayout' ); 
-                        
-			 
-			 }  
-       }
-       
-       else
-       {
-           $(this).closest(".item").removeClass("activepost").removeClass("activepost_edge");
-           $(this).closest(".isotope-item").removeClass("activepost_edger").removeClass("activepost_edge");
-           $(this).siblings(".view_more_btn").hide();
-           $(this).siblings(".post-list-text").hide();
-           $(this).siblings(".facebook_twitter_buttons").hide();
-           $(this).siblings(".show_vote_button").hide();
-           $(this).siblings(".post_image_wrapper").css("margin-left", "0px");//reset post_image_wrapper
-           $(this).siblings(".show_post_title").css("margin-left", "6px").css("margin-right", "0px");//reset post_image_wrapper
-       
-       
-              $(this).closest(".isotope-item").animate(
-                {
-                 'left':'0',
-                 "z-index":"0",
-                 position:"relative",
-                 "top":"0"
-                },300,"linear",function()
-                {
-                    $(".content").isotope( 'reLayout' ); 
-                });
-              
-         $(".content").isotope( 'reLayout' ); 
-         enableClickMe();
-       };
-
-      
-
-    });
-    
-    //add click event to post_image - simply trigger the clickme click event
-     $('.click_to_post').click(function(){ $(this).parent().siblings(".clickme").click(); });
-	
 	
 }

@@ -70,5 +70,6 @@
 
 		<?php do_action( 'bp_after_header'     ); ?>
 		<?php do_action( 'bp_before_container' ); ?>
+                  <div class="slider-button fixed"></div>
 
 		<div id="container">

@@ -2568,10 +2568,11 @@ GRID VIEW
 
 #blog-page .hentry
 {
-   width: 30%;
-float: left;
+   width: 225px;
 padding: 2px 2px 2px 2px;
-margin: 1px 13px 1px 14px;
+margin: 10px 13px 10px 14px;
+
+
 
 }
 .nav-more{
@@ -2579,4 +2580,56 @@ position:fixed;
 bottom:0;
 left:20%;
 }
+
+
+/**********Box animation*****************/
+.entry p{display:none;}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+
+.activepost{
+    width:500px !important;height:500px!important;
+
+box-shadow: 1px 1px 10px 5000px rgba(20,20,20,0.78);
+    z-index:2 !important;
+}
+
+.close_box{
+	float:right;
+	padding:8px;
+	z-index:999;
+	background: #5A6163;
+	position: absolute;
+right: 0px;
+
+}
+.close_box:hover{color: #3B5998; cursor: hand; cursor: pointer;}
+
+
+.fixed {
+    position: fixed;
+    top: 50%;   
+    width:100px;
+        height:100px;
+        background:blue;
+}
+
+.activepost_edge{
+    position:absolute;
+    z-index:50;
+    
+}
+.item{
+    width: 100%;
+height: 100%;
+margin: 0px 0px 4px 0px;
+color: #222;
+}
+
+
+inactivepost{position:relative;}
+
+.clickme{width:100%; height:100%; position: absolute; top: 1px;  }
+
 }

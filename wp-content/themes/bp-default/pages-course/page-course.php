@@ -35,6 +35,8 @@ query_posts( $args); ?>
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                     
 				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                                    <div class="item">
+
 				<h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
 					<div class="entry">
@@ -103,10 +105,12 @@ printf("| Course Type: %s",$course_type);
    printf('<br><img style="float:left position:relative; max-height:150px" src="%s"/>', $pic);
  }
  ?>
-                                            <hr>                                       
+                                            <hr>                                     
                                                     <?php // edit_post_link( __( 'Edit this page.', 'buddypress' ), '<p class="edit-link">', '</p>'); ?>
 
 					</div>
+                                            <div class="clickme"></div><!--overlay -->
+				</div><!--item-->
 
 				</div>
 
