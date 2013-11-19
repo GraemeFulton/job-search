@@ -2,11 +2,11 @@
 class Job
 {
     protected $initiative_job_id = 0;        //initiative category identifier
-    protected $initiative_id = 0;          //initiative's course ID (stored to check if unique)
     protected $employer_name = "";                //e.g. 1= coursera
-    protected $post_id=0;
-    protected $location= "";                 //name of the category
-    protected $initiative_employer_id="";                  //course intro video
+    protected $job_location= "";                 //name of the category
+    protected $job_url = "";
+    protected $job_provider="";
+    protected $job_profession="";
     
     /**
      * Access modifier to set protected properties
@@ -44,6 +44,7 @@ class Job
     
   public function isJobRecorded($h)
   {
+      
        $sql = "SELECT initiative_job_id FROM lostgrad_job WHERE initiative_job_id =%d";
         $query = $h->db->prepare($sql, $this->initiative_job_id);
                 
@@ -52,12 +53,17 @@ class Job
       
   }
   
-    public function alternateJobRecordedCheck($h, $url)
+    public function alternateJobRecordedCheck($wpdb, $url)
   {
-       $sql = "SELECT post_id FROM hotaru_posts WHERE post_content LIKE '%s'";
-        $query = $h->db->prepare($sql, $url);echo "<hr>";
-              echo"<h4>Query:</h4> ".$query."<br>";
-	return $recorded = $h->db->get_var($query);;     
+       $sql = "SELECT ID FROM wp_posts WHERE post_content LIKE '%s'";
+       $query = $wpdb->prepare($sql, $url);
+                
+	$recorded = $wpdb->get_var($query); 
+        
+        if($recorded)
+        {
+            return $recorded;
+        }  
       
       
   }

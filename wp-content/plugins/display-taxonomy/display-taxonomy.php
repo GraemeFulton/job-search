@@ -19,9 +19,11 @@ include("display-tax-libs.php");
      */
      
 
-    function display_taxonomy_tree($tag_type)
+    function display_taxonomy_tree($tag_type, $grouped_taxonomy)
     {
-        $dp= new Display_Taxonomy('xili_tidy_tags_'.$tag_type);
+        $dp= new Display_Taxonomy($tag_type, $grouped_taxonomy);
+        
+        return $dp;
     }
     
     /*

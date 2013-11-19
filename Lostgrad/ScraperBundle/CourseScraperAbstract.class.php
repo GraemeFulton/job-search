@@ -40,7 +40,7 @@ public function updateCourseDetails
         $course->courseSubject = $courseSubject;
         $course->youtube= $youtube;
         $course->courseProvider=$provider;
-        $course->courseUrl= $courseURL;
+        $course->courseURL= $courseURL;
        
         //add to database:
         $this->submitPost($wpdb, $courseTitle, $courseContent,$courseExcerpt, $coursePhoto, $tags, 'course',$course);

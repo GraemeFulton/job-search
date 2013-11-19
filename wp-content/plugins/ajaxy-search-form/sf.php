@@ -200,6 +200,10 @@ class AjaxyLiveSearch {
 	function get_image_from_content($content, $width_max, $height_max){
 		//return false;
 		$theImageSrc = false;
+                
+                //if there is a custom post image, we can use that - graeme 
+                $theImageSrc= types_render_field("post-image", array("output"=>"raw"));
+                
 		preg_match_all ('/<img[^>]+>/i', $content, $matches);
 		$imageCount = count ($matches);
 		if ($imageCount >= 1) {

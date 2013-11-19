@@ -6,6 +6,9 @@ require "../../SiteBundle/Job.php";;
 require "../ScraperAbstract.class.php"; 
 require "../JobScraperAbstract.class.php";
 require "./IndeedScraper.class.php";
+
+define( 'SHORTINIT', true );
+require_once('../../../wp-load.php' );
 ?>
 <html>
 <body>
@@ -19,100 +22,74 @@ require "./IndeedScraper.class.php";
 </html>
 
 <?php
-require_once "../../../wp-load.php";
+
+if(isset($_GET['action'])=='generatePosts') {
+    generatePosts();
+}
+
+
+function generatePosts(){
+    
+    
 $DB_USER= 'root';
-$DB_NAME='LGWP';
+$DB_NAME='lgwp';
 $DB_PASS='jinkster2312';
 $DB_HOST='localhost';
 $wpdb = new wpdb( $DB_USER, $DB_PASS, $DB_NAME, $DB_HOST);
 
-////////////////////////////////////////////////////////////
-//Just set the following variables, then run the script:////
-///////////////////////////////////////////////////////////
-//http://www.indeed.co.uk/jobs?q=Auditor+Audit+or+Auditor+or+Auditing+-intake+title%3A(junior+or+graduate+or+trainee+or+-programme+or+-scheme)+(auditor+or+auditing+or+audit+or+tax)
-//http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q=medicine+-intake+title%3A((medicine)(junior+or+graduate+or+trainee+or+-programme+or+-scheme+-2014+-2013+-charge))&v=2
-    $categories = $h->getCatChildren(205);
-    $category_type=11;//set this 
-    
-    foreach($categories as $category)
-    {
-        //print out the category name we are in
-        $id=$category->category_id;
-        $name=$h->getCatName($category->category_id);
-        echo "<h1>".$name."</h1>";
-
-        //INDEED SEARCH TERMS
-        $searchTerms = $h->getCatMeta($category->category_id);
-
-        //With all of these words:
-    //    $withAllTerms = str_replace("%2C", "", $searchTerms->category_query);
-        //with at least one of these words:
-        $atLeastOneTerms = str_replace("%2C", "+or", $searchTerms->category_keywords);
-        //with these words in the title:
-        $withAllTermsOr = str_replace("%2C","+or", $searchTerms->category_query);
-         
-        $noneOfTerms= "-intake";
-
-                
-        $withTitle="title%3A((".$withAllTermsOr.")(junior+or+graduate+or+trainee+or+-programme+or+-scheme+-2014+-2013+-charge))";
-        $API= 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q='.$atLeastOneTerms."+".$noneOfTerms."+".$withTitle.'&co=gb&userip=1.2.3.4&v=2';//&st=employer'; 
-
-        /////////////////////////////////////////////
-        //category specific changes may be necessary:
-//        $category=204;
-//        if($category==204){
-//                    $withTitle="title%3A((".$withAllTermsOr.")(engineer+or+engineering)(junior+or+graduate+or+trainee+or+-programme+or+-scheme+-2014+-2013))";
-//
-//        }
-//        if($category==205||$category==209) //allow posts from recruiters
-//        {
-//            
-//        $API= 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q='.$atLeastOneTerms."+".$noneOfTerms."+".$withTitle.'&co=gb&userip=1.2.3.4&v=2'; 
-//
-//        }
-        ///////////////////////////////
+  $sql="SELECT term_tax.description, term_tax.term_taxonomy_id, t.name
+                from wp_term_taxonomy as term_tax
+                INNER JOIN wp_terms as t
+                ON term_tax.term_id=t.term_id
+                WHERE term_tax.taxonomy= 'xili_tidy_tags_profession'
+                ";
         
-        //with none of these words:
-
-
-        //default category for this scrape
-        $catID=$id;//equals $name
-
-        echo "<strong>QUERY: </strong>".$API."<br>";
-
-       $initiativeURL='http://www.indeed.com';  
-        //  
+        $safe_sql= $wpdb->prepare($sql);
+        $results=$wpdb->get_results($safe_sql);
+                
+     foreach($results as $group)
+    {       
+         echo '<b>'.$group->name.'</b><br>';
+            
+         $sql="SELECT r.object_id, t.name
+               from wp_term_relationships as r
+               INNER JOIN wp_terms as t
+               ON r.object_id=t.term_id
+               WHERE r.term_taxonomy_id= $group->term_taxonomy_id";
+        
+         $safe_sql= $wpdb->prepare($sql);
+         $results=$wpdb->get_results($safe_sql);
+        
+         $with_all_terms_or='';
+         
+         foreach($results as $group)
+         {  
+            echo '<li>'.$group->name.'<br>';//indeed search terms
+            $with_all_terms_or.=$group->name."+or+";            
+         }
+            
+         if ($with_all_terms_or!=''){
+         echo '<br>Search String: '.$with_all_terms=  substr((str_replace(' ', '%20', $with_all_terms_or)),0,-4);
+         $noneOfTerms= "-intake";
+          
+         $withTitle="title%3A((".$with_all_terms.")+(junior+or+graduate+or+trainee+or+-programme+or+-scheme+-2014+-2013+-charge))";
+         $API= 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q='."+".$withTitle.'&co=gb&userip=1.2.3.4&v=2';//&st=employer'; 
+       
+         echo '<p style="background:#FDFFC2;">API Search: '.$API.'</p><hr>';
+         
+        //if we have a valid API string, we can perform the search: 
+        $initiativeURL='http://www.indeed.com';  
+          
         $scraper = new IndeedScraper();
-        $scraper->Setup($API, $catID, $initiativeURL, $category_type);
-        $scraper->scrape($h);
+        $scraper->Setup($API, $initiativeURL, $profession);
+        $scraper->scrape($wpdb);
+         
+         }
+         //otherwise we can't:
+         else  echo '<p style="background:#eaeaea;">No tags to search for.</p><hr>'; 
+
+            
     }
-
-
-
-
-
-
-////url you will target
-//$API= 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q=xbox+sales&st=employer&l=&start=0&end=0sort=&radius=&st=&jt=&start=&limit=25&fromage=&filter=&latlong=1&co=gb&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2'; 
-//
-////default category for this scrape
-//$catID=202;//equals $name
-//
-//$subtag="Entry Level".$catID;
-//
-////can leave the next one for udemy
-//$initiativeURL='http://www.indeed.com';        
-///////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////
-// $scraper = new IndeedScraper();
-// $scraper->Setup($API, $catID, $initiativeURL, $subtag);
-// $scraper->scrape($h);
-
-
-
-
-
-    //$category_tags = $h->getCatMeta($category->category_id);
-    // $categorytags = str_replace("%2C", "", $category_tags->category_keywords);
-    // print_r($categorytags);
+}
+    
 ?>

@@ -1,20 +1,21 @@
  <?php
  
 abstract class JobScraperAbstract extends ScraperAbstract{
-
+    
 public function updateJobDetails
            (
-            $h, 
+            $wpdb, 
+            $profession,
             $initiative_job_id, 
-            $initiative_id, 
             $employer_name, 
             $location, 
-            $initiative_employer_id,
             $job_url, 
             $job_title, 
             $job_desc, 
+            $job_exerpt,
             $jobimage, 
-            $tags            
+            $tags,
+            $provider
            )
   {
     
@@ -22,33 +23,27 @@ public function updateJobDetails
         $job->initiative_job_id=$initiative_job_id;
         
         //if the course already exists, just break here
-       $exists= $job->isJobRecorded($h);					
-               if (!$exists) {
+  //     $exists= $job->isJobRecorded($h);					
+  //             if (!$exists) {
        
         //otherwise carry on, and populate database:
                 
-        $job->initiative_id=$initiative_id;
         $job->employer_name=$employer_name;
-        $job->location=$location;
-        $job->initiative_employer_id=$initiative_employer_id;
+        $job->job_location=$location;
+        $job->job_url= $job_url;
+        $job->job_provider=$provider;
+        $job->job_profession=$profession;
         
         $imageURL= $this->getImageURL($jobimage);
         
         //add to database:
-        $lastInsertID=$this->submitPost($h, $job_url, $job_title, $job_desc, $imageURL, $tags,
-                                          $this->urlToScrape, $this->currentCategory, $job);
+        $this->submitPost($wpdb, $job_title, $job_desc,$job_exerpt, $imageURL, $tags,'graduate-job', $job);
         
-        if ($lastInsertID){
-           $job->post_id= $lastInsertID;
-        }
-        else{           		
-           $job->post_id= $job->getLatestPostID($h);         
-        }
-         $job->addJob($h); 
+        $job->addJob($wpdb,$this->last_insert_id); 
                 
-        }
-        else
-        echo "JobID ".$job->initiative_job_id." already exists, check if it has been updated.<hr>";
+ //       }
+ //       else
+ //       echo "JobID ".$job->initiative_job_id." already exists, check if it has been updated.<hr>";
     
     
   }

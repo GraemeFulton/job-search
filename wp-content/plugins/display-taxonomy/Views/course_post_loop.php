@@ -60,9 +60,11 @@ printf("| Course Type: %s",$course_type);
       
        $list = implode ( ',', $slugs );
        // echo add_query_arg($arr_params);
+       //if we've got a list, we provide a link showing all tags
        if($names[0])
        echo '|Offered by: <a href="'.$url.'/?uni='.$list.'">'.$names[0].'</a>';
     }
+    //ortherwise, there is only one tag, and no group of tags, so just use that tag.
      else if($uniName[0])echo '|Offered by: <a href="'.$url.'/?uni='.$uniSlug[0].'">'.$uniName[0].'</a>';
 
  }     

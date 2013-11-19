@@ -127,11 +127,19 @@ function checked($,arg, true_false){
                 ajaxLoad($,selected_array, category_type, tag_type);
                 console.log(selected_array);
                 
+                closeActiveBox($);
+            disableClickMe($);
+            setTimeout(function(){isotopes_modal($);}, 500);
+                
     }      
     else { 
         var index = selected_array.indexOf(name);
         selected_array.splice(index,1);
-           ajaxLoad($,selected_array, category_type, tag_type);                
+           ajaxLoad($,selected_array, category_type, tag_type);           
+           
+           closeActiveBox($);
+            disableClickMe($);
+            setTimeout(function(){isotopes_modal($);}, 500);
     }
         
 }

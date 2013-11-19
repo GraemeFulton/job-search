@@ -12,7 +12,12 @@ get_header();
     <h1> <?php echo get_the_title(); ?> </h1>
     
     
-    <?php if ( function_exists( 'display_taxonomy_tree' ) ) { echo display_taxonomy_tree('job'); } ?>
+    <?php if ( function_exists( 'display_taxonomy_tree' ) ) 
+        { $tree= display_taxonomy_tree('profession', 'company');
+          $tree->display_tag_groups();
+        }
+    
+    ?>
 </div>
 
 
@@ -28,7 +33,7 @@ $args= array(
 
 
 query_posts( $args); ?>
-	<div id="content"  category_type='graduate-job' tag_type='job'>
+	<div id="content"  category_type='graduate-job' tag_type='profession'>
 
 		<div class="padder">
 

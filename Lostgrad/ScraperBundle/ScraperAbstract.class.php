@@ -3,20 +3,16 @@
 abstract Class ScraperAbstract{
 
 protected $urlToScrape;
-protected $currentCategory; //current job category we'll bescraping
 protected $initiativeURL;   
 protected $photoURL;
-protected $category_type;
-protected $provider_id;
 protected $last_insert_id;
+protected $category;
 
-public function Setup($API, $defaultCatID, $initiativeURL, $category_type, $provider_id){
+public function Setup($API, $initiativeURL, $category){
     
     $this->urlToScrape = $API;
-    $this->currentCategory = $defaultCatID;
-    $this->initiativeURL = $initiativeURL;    
-    $this->category_type = $category_type;
-    $this->provider_id = $provider_id;
+    $this->initiativeURL = $initiativeURL;  
+    $this->category= $category;
 
 }
 
