@@ -65,16 +65,16 @@ class Display_Taxonomy{
         {
             if($group->parent==0)//if there is no parent, it is a top-level category
             {
-                $checked = (has_term($group->slug, 'xili_tidy_tags_subject', $post->ID)) ? 'checked="checked"' : '';
+                $checked = (has_term($group->slug, $this->category_type, $post->ID)) ? 'checked="checked"' : '';
 
                 echo '<input type="checkbox" name="' . $group->slug . '" value="' . $group->name . '" obj_id='.$group->term_id.$checked.' />';
                 echo '<label  style="font-weight:bold;" for="' . $group->slug . '">' . $group->name . '</label><br>';
 
                 //get term children
-                 $termchildren= get_term_children( $group->term_id,'xili_tidy_tags_subject' );
+                 $termchildren= get_term_children( $group->term_id,$this->category_type );
                  foreach($termchildren as $child)
                  {
-                    $term = get_term_by( 'id', $child, 'xili_tidy_tags_subject' );
+                    $term = get_term_by( 'id', $child, $this->category_type );
                     echo '<input type="checkbox" name="' . $term->slug . '" value="' . $term->name . '" obj_id='.$term->term_id.$checked.' />';
                     echo '<label for="' . $term->slug . '">' . $term->name . '</label><br>';
                  }

@@ -1,4 +1,4 @@
-jQuery(document).ready(function ($) {
+jQuery(window).ready(function ($) {
 
 //$(".item").addClass("isotope-item");
 
@@ -68,12 +68,15 @@ function isotopes_init($,colWidth,offset,topOffset)
     var $container = $('#blog-page');
 
     // initialize isotope
+    $container.imagesLoaded(function(){
     $container.isotope({
      // options...
         masonry: {
            columnWidth: 0
         }
+    
   
+    });
     });
     
     isotopes_modal($);

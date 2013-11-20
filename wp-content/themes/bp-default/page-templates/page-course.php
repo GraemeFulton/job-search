@@ -26,7 +26,9 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 $args= array(
         'post_type'=>'course',
-    	'paged' => $paged
+    	'paged' => $paged,
+        'orderby' => 'title',
+        'order' => 'ASC'
 );
 
 query_posts( $args); ?>

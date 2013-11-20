@@ -4,7 +4,6 @@ abstract Class ScraperAbstract{
 
 protected $urlToScrape;
 protected $initiativeURL;   
-protected $photoURL;
 protected $last_insert_id;
 protected $category;
 
@@ -25,10 +24,10 @@ public abstract function scrape($h);
 public function submitPost($wpdb, $post_title, $content,$excerpt,$photo, $tags, $post_type, $entity)
 {        
   //only insert the post if it does not already exist (based on the title)
-  $exists= $this->checkPostExists($wpdb,$post_title );
+ // $exists= $this->checkPostExists($wpdb,$post_title );
         
-  if (!$exists)
-  {
+ // if (!$exists)
+ // {
           $slug = $this->sluggify($post_title);
         
            $post = array(
@@ -55,17 +54,22 @@ public function submitPost($wpdb, $post_title, $content,$excerpt,$photo, $tags, 
            array( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )
        );
 
+     //set the last insert id!
      $this->last_insert_id = $wpdb->insert_id;
     
-     $this->photoURL=$photo;
-    
-  
-     $this->insertPostImage($wpdb, $post_title, $this->photoURL, $entity);  
-   }
-   else echo '<p style="color:red">Course Not Submitted - a course with this title ('.$post_title.') already exists';
+        //insert the image
+        if($photo=='dummy')
+            $this->insert_dummy_image($wpdb, $entity);
+        else
+            $this->insert_post_image($wpdb, $post_title, $photo, $entity);  
+  // }
+  // else echo '<p style="color:red">Course Not Submitted - a course with this title ('.$post_title.') already exists';
 }
 
-
+/*
+ * checkPostExists
+ * Check if post exists from title
+ */
 public function checkPostExists($wpdb,$post_title){
         
                 $sql = "SELECT post_title FROM wp_posts WHERE post_title=%s";
@@ -77,76 +81,100 @@ public function checkPostExists($wpdb,$post_title){
 }
     
     
-public function insertPostImage($wpdb, $image_title, $photoUrl, $entity){
-             $LOCALPATH= "/var/www/LGWP/wp-content/uploads/post_images/";
-             $URLPATH ="http://localhost/LGWP/wp-content/uploads/post_images/";
+/*
+ * insertPostImage
+ * inserts an image for the post
+ */
+public function insert_post_image($wpdb, $image_title, $photoUrl, $entity){
+      $LOCALPATH= "/var/www/LGWP/wp-content/uploads/post_images/";
+      $URLPATH ="http://localhost/LGWP/wp-content/uploads/post_images/";
     
       $image_prefix= $image_title;
       
-      if($entity->employer_name){
-          $image_prefix= $entity->employer_name;
-          
-      }
+      if($entity->employer_name)
+        $image_prefix= $entity->employer_name;
+    
       
-      $string = preg_replace('/[^a-z0-9]+/i', '_', $image_prefix);
+     $string = preg_replace('/[^a-z0-9]+/i', '_', $image_prefix);
      $image_name ="Logo_".$string;
      $image_path= $LOCALPATH.$image_name;
      $image_path_url=$URLPATH.$image_name;
+    
+     //insert image
+     $this->insert_image($wpdb, $image_path_url);
      
-//////INSERT/////////////
-     $lastInsertID= $wpdb->insert_id;
-     $post_image = array(
-    'post_id' => $lastInsertID,
-    'meta_value'=>$image_path_url,
-    'meta_key'=>'wpcf-post-image'
-);//meta_value = free course
-
-
-$wpdb->insert(
-    'wp_postmeta', 
-    $post_image,
-    array( '%d', '%s', '%s' )
-);
-
-echo "<br><b>Meta Inserted :)</b>";
-////////////////////
-
      if(file_exists($image_path)){
-         echo "<h5 style='color:red'>Image: $image_name already exists.</h5>";
-         
-         return false;
+        echo "<h5 style='color:red'>Image: $image_name already exists.</h5>";
+        return false;
      }
           
-     // Assumes a correctly encoded URL
+    // Assumes a correctly encoded URL
     $image = file_get_contents($photoUrl);
     
     //if no image is present, use the dummy one
     if($image === FALSE) {
-        $photoUrl=$LOCALPATH."dummy_orange.jpg";
+        $photoUrl=$LOCALPATH."dummy-job.png";
         $image = file_get_contents($photoUrl);
     }
-        
-
-
-    file_put_contents($image_path, $image); 
     
-    //create thumbnail from original image
-  
-//    if (file_exists($image_path)){
-//        $img = new SimpleImage();
-//        $img->load($image_path);
-//        $img->resize(180,180);
-//        $img->save($image_path);
-//    }
-//      else {return false;}
+    file_put_contents($image_path, $image); 
   
     echo "<br><h4 style='color:green'>Image: ".$h->post->image." saved.</h4>";
-    
-    
 }
-    
-    
 
+
+/*
+ * insert_dummy_image
+ * inserts a dummy image
+ */
+private function insert_dummy_image($wpdb, $entity)
+{
+     $lastInsertID= $wpdb->insert_id;
+
+     if ($entity->employer_name){
+         $dummy_image= "http://localhost/LGWP/wp-content/uploads/post_images/dummy-job.png";
+     }
+     
+     $post_image = array(
+    'post_id' => $lastInsertID,
+    'meta_value'=>$dummy_image,
+    'meta_key'=>'wpcf-post-image'
+     );
+    $wpdb->insert(
+    'wp_postmeta', 
+    $post_image,
+    array( '%d', '%s', '%s' )
+    );
+
+    echo "<br><b>Dummy Image Inserted :)</b>";    
+}
+
+
+/*
+ * insert_image
+ * inserts an image
+ */
+private function insert_image($wpdb,$image_path_url){
+    
+    $lastInsertID= $wpdb->insert_id;
+    $post_image = array(
+    'post_id' => $lastInsertID,
+    'meta_value'=>$image_path_url,
+    'meta_key'=>'wpcf-post-image'
+    );
+    $wpdb->insert(
+    'wp_postmeta', 
+    $post_image,
+    array( '%d', '%s', '%s' )
+    );
+}
+
+
+/*
+ * sluggift
+ * @param: url
+ * creates a slug from an url
+ */
 private function sluggify($url)
 {
     # Prep string with some basic normalization
@@ -163,7 +191,7 @@ private function sluggify($url)
     $replace = '-';
     $url = preg_replace($match, $replace, $url);
 
-    $url = trim($url, '-');
+    $url = trim($url, '-').'-'.date("Y-m-d");
 
     return $url;
 }

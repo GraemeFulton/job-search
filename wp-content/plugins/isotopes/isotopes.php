@@ -27,11 +27,11 @@ Author URI: http://gfulton.me.uk
     /*
      * add isotope class to post items
      */
-    function additional_classes($class) {
-       $class[] = 'isotope-item';
-       return $class;
-    }   
-    add_filter('post_class', 'additional_classes');
+//    function additional_classes($class) {
+//       $class[] = 'isotope-item';
+//       return $class;
+//    }   
+//    add_filter('post_class', 'additional_classes');
 
    
 ?>

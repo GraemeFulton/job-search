@@ -26,7 +26,9 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 $args= array(
         'post_type'=>'graduate-job',
-    	'paged' => $paged
+    	'paged' => $paged,
+        'orderby'=>'title',
+        'order' => 'ASC'
 );
 
 
@@ -111,7 +113,7 @@ printf("| Course Type: %s",$course_type);
  
 //Output the trainer email
  if($pic){
-   printf('<br><img style="float:left position:relative; max-height:150px" src="%s"/>', $pic);
+   printf('<br><img style="float:left position:relative; max-height:200px" src="%s"/>', $pic);
  }
  ?>
                                             <hr>                                     

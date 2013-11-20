@@ -20,30 +20,30 @@ public function updateJobDetails
   {
     
         $job = new Job();
-        $job->initiative_job_id=$initiative_job_id;
-        
-        //if the course already exists, just break here
-  //     $exists= $job->isJobRecorded($h);					
-  //             if (!$exists) {
-       
-        //otherwise carry on, and populate database:
-                
+        $job->job_url= $job_url;
+        $job->job_desc=$job_desc;
+        $job->initiative_job_id=$initiative_job_id;         
         $job->employer_name=$employer_name;
         $job->job_location=$location;
-        $job->job_url= $job_url;
         $job->job_provider=$provider;
         $job->job_profession=$profession;
         
-        $imageURL= $this->getImageURL($jobimage);
+        //if the course already exists, just break here
+       $exists= $job->isJobRecorded($wpdb);					
         
-        //add to database:
-        $this->submitPost($wpdb, $job_title, $job_desc,$job_exerpt, $imageURL, $tags,'graduate-job', $job);
-        
-        $job->addJob($wpdb,$this->last_insert_id); 
-                
- //       }
- //       else
- //       echo "JobID ".$job->initiative_job_id." already exists, check if it has been updated.<hr>";
+       if (!$exists) 
+       {
+        //otherwise carry on, and populate database:
+            $imageURL= $this->getImageURL($jobimage);
+
+            //add to database:
+            $this->submitPost($wpdb, $job_title, $job_desc,$job_exerpt, $imageURL, $tags,'graduate-job', $job);
+
+            $job->addJob($wpdb,$this->last_insert_id); 
+             echo "<h4 style='color:green;'> Job Inserted</h4>";       
+       }
+       else
+       echo "<p style='color:red;'>Job: '".$job_title." | ".$employer_name."' already exists!</p><hr>";
     
     
   }
@@ -51,13 +51,13 @@ public function updateJobDetails
     public function getImageURL($nameForSearch){
         
         
-        $search_term = preg_replace('/[^a-z0-9]+/i', '_', $nameForSearch);
+        $search_term = preg_replace('/[^a-z0-9]+/i', '%20', $nameForSearch);
         //$search= preg_replace("_", "%20", $search_term);
         
         $url = "https://ajax.googleapis.com/ajax/services/search/images?" .
-       "v=1.0&q=".$search_term."%20logo&userip=INSERT-USER-IP&as_filetype=jpg";
+       "v=1.0&q=".$search_term."%20site:http://www.brandprofiles.com/&userip=INSERT-USER-IP";
         
-        
+        echo "<br>Image search: ".$url."<br>";
         // sendRequest
         // note how referer is set manually
         $ch = curl_init();
@@ -72,24 +72,32 @@ public function updateJobDetails
         // now have some fun with the results...
              
       if($json["responseData"]["results"][0]["url"]){
+     //   echo '<br>Image Url: '.$json["responseData"]["results"][0]["url"].'<br>';
       return $json["responseData"]["results"][0]["url"];
       }
       
       else if($json["responseData"]["results"][1]["url"]){
+        //    echo '<br>Image Url: '.$json["responseData"]["results"][1]["url"].'<br>';
               return $json["responseData"]["results"][1]["url"];
 
       }
         else if($json["responseData"]["results"][2]["url"]){
+         //   echo '<br>Image Url: '.$json["responseData"]["results"][2]["url"].'<br>';
            return $json["responseData"]["results"][2]["url"];
 
       }
         else if($json["responseData"]["results"][3]["url"]){
-              return $json["responseData"]["results"][3]["url"];
+         //   echo '<br>Image Url: '.$json["responseData"]["results"][3]["url"].'<br>';
+            return $json["responseData"]["results"][3]["url"];
 
       }
       
-       else   return LOCALPATH."content/images/post_images/dummy_orange.jpg";
-    }
+       else{
+           echo "<br>Image: dummy image used<br>";
+           return 'dummy';
+       }
+           
+       }
   
    
     

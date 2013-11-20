@@ -86,7 +86,10 @@ function ajax_get_latest_posts($tax, $offset, $category_type, $tag_type)
         'offset'=>$offset,
         'post_type'=>$category_type,
         'paged'=>$paged,
-        'posts_per_page'=>9
+        'posts_per_page'=>9,
+        'orderby' => 'title',
+        'order' => 'ASC'
+
     );
     
     if($tax!=""){//if a box has been checked, we add a taxnomoy query

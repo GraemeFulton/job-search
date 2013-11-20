@@ -49,7 +49,9 @@ $wpdb = new wpdb( $DB_USER, $DB_PASS, $DB_NAME, $DB_HOST);
                 
      foreach($results as $group)
     {       
-         echo '<b>'.$group->name.'</b><br>';
+         $profession=$group->name;
+         
+         echo '<b>'.$profession.'</b><br>';
             
          $sql="SELECT r.object_id, t.name
                from wp_term_relationships as r
@@ -59,37 +61,36 @@ $wpdb = new wpdb( $DB_USER, $DB_PASS, $DB_NAME, $DB_HOST);
         
          $safe_sql= $wpdb->prepare($sql);
          $results=$wpdb->get_results($safe_sql);
-        
-         $with_all_terms_or='';
-         
-         foreach($results as $group)
-         {  
-            echo '<li>'.$group->name.'<br>';//indeed search terms
-            $with_all_terms_or.=$group->name."+or+";            
-         }
-            
-         if ($with_all_terms_or!=''){
-         echo '<br>Search String: '.$with_all_terms=  substr((str_replace(' ', '%20', $with_all_terms_or)),0,-4);
-         $noneOfTerms= "-intake";
-          
-         $withTitle="title%3A((".$with_all_terms.")+(junior+or+graduate+or+trainee+or+-programme+or+-scheme+-2014+-2013+-charge))";
-         $API= 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q='."+".$withTitle.'&co=gb&userip=1.2.3.4&v=2';//&st=employer'; 
-       
-         echo '<p style="background:#FDFFC2;">API Search: '.$API.'</p><hr>';
-         
-        //if we have a valid API string, we can perform the search: 
-        $initiativeURL='http://www.indeed.com';  
-          
-        $scraper = new IndeedScraper();
-        $scraper->Setup($API, $initiativeURL, $profession);
-        $scraper->scrape($wpdb);
-         
-         }
-         //otherwise we can't:
-         else  echo '<p style="background:#eaeaea;">No tags to search for.</p><hr>'; 
-
-            
+                          
+         perform_scrape($wpdb,$results);
+              
     }
 }
+
+
+   function perform_scrape($wpdb,$categories){
+             
+         if (!$categories){echo '<p style="background:#eaeaea;">No tags to search for.</p><hr>'; return;}
+         
+         foreach($categories as $category)
+         {  
+            echo '<li>'.$category->name.'<br>';//indeed search terms
+            echo '<br>Search String: '.$search_term=  (str_replace(' ', '%20', $category->name));          
+            
+            $withTitle="title%3A((".$search_term.")+(junior+or+graduate+or+trainee+or+-programme+or+-scheme+-2014+-2013+-charge))";
+            $API= 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q='."+".$withTitle.'&co=gb&userip=1.2.3.4&v=2&st=employer'; 
+       
+            echo '<p style="background:#FDFFC2;">API Search: '.$API.'</p><hr>';
+         
+            //do the api search!
+            $initiativeURL='http://www.indeed.com';  
+
+            $scraper = new IndeedScraper();
+            $scraper->Setup($API, $initiativeURL, $category->name);
+            $scraper->scrape($wpdb);            
+
+         }   
+             
+   }
     
 ?>

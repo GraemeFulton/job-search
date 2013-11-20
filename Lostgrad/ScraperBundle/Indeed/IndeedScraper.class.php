@@ -8,27 +8,13 @@ Class IndeedScraper extends JobScraperAbstract{
         
     foreach($resp->results->result as $result)
     {
-        
-    //check if job exists, if so break here
-    $job = new Job();
-    $unique_snippet=urlencode($result->snippet);
-    $unique_snippetQ = rtrim($unique_snippet, "+");
-        echo $unique_snippetQ."<br>";
-
-    
-    $exists= $job->alternateJobRecordedCheck($wpdb,$unique_snippetQ);
-    //echo urlencode($result->snippet);
        
-    
-                if (!$exists) {
-       
-        //otherwise carry on, and populate database:
       $this->updateJobDetails(
               $wpdb, 
               $this->category,//profession
               "id_indeed", 
               $result->company, 
-              $result->city,
+              $result->formattedLocation." ".$result->country,
               $result->url, 
               $result->jobtitle,  
               $result->snippet,  //description
@@ -37,9 +23,7 @@ Class IndeedScraper extends JobScraperAbstract{
               "indeed",//tags
               "indeed"//provider
                );
-         echo "<h4 style='color:green;'> Job Inserted</h4>";
-        }
-        else echo "<h4 style='color:red;'> Job already exists </h4>";
+  
     }
    }
     

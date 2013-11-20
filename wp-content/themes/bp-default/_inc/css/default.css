@@ -2575,6 +2575,19 @@ margin: 10px 13px 10px 14px;
 
 
 }
+/*#blog-page .hentry:hover,#blog-page .hentry:focus{
+  -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+  box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -o-transform: scale(1.25);
+  position:relative;
+  z-index:5;
+  
+}*/
+
+
 .nav-more{
 position:fixed;
 bottom:0;
@@ -2585,7 +2598,7 @@ left:20%;
 /**********Box animation*****************/
 .entry p{display:none;}
 
-/**** disabling Isotope CSS3 transitions ****/
+
 
 
 .activepost{
@@ -2595,6 +2608,17 @@ box-shadow: 1px 1px 10px 5000px rgba(20,20,20,0.78);
     z-index:2 !important;
     background:#fff;
 }
+/*.activepost:hover{
+    -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+  box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -webkit-transform: scale(1) !important;
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  position: absolute;
+  z-index:9;
+    
+}*/
 
 .close_box{
 	float:right;
@@ -2631,4 +2655,6 @@ inactivepost{position:relative;}
 
 .clickme{width:100%; height:100%; position: absolute; top: 1px;  }
 
+
 }
+
