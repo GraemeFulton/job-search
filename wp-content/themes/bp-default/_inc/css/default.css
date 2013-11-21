@@ -2573,26 +2573,53 @@ padding: 2px 2px 2px 2px;
 margin: 10px 13px 10px 14px;
 
 
-
 }
-/*#blog-page .hentry:hover,#blog-page .hentry:focus{
-  -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
-  -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
-  box-shadow:10px 10px 7px rgba(0,0,0,.7);
-  -webkit-transform: scale(1.25);
-  -moz-transform: scale(1.25);
-  -o-transform: scale(1.25);
-  position:relative;
-  z-index:5;
-  
-}*/
 
+.entry{overflow:hidden; }
 
 .nav-more{
 position:fixed;
 bottom:0;
 left:20%;
 }
+
+#blog-page .hentry:hover,#blog-page .hentry:focus{
+  -moz-box-shadow:6px 6px 7px rgba(0,0,0,.7);
+  -webkit-box-shadow: 6px 6px 7px rgba(0,0,0,.7);
+  box-shadow:6px 6px 7px rgba(0,0,0,.7);
+  z-index:5;
+}
+
+.type-graduate-job  hr{color: orange;
+background-color: orange;
+height: 1px;
+margin-bottom: 0px;
+}
+.type-course hr{color: cornflowerblue;
+background-color: cornflowerblue;
+height: 1px;
+margin-bottom: 0px;
+
+}
+
+.item {
+    background:#edeff4;
+    margin-bottom:0px !important;
+    padding: 0 0 0 0 !important;
+}
+
+
+.post_image{
+    width:100%;
+    top:0px;
+    overflow:hidden;
+    margin-bottom:10px;
+    line-height: 0;
+    background:#fff;
+    text-align: center;
+    border:1px solid #e0e0e0;
+}
+
 
 
 /**********Box animation*****************/
@@ -2603,7 +2630,6 @@ left:20%;
 
 .activepost{
     width:500px !important;height:500px!important;
-
 box-shadow: 1px 1px 10px 5000px rgba(20,20,20,0.78);
     z-index:2 !important;
     background:#fff;

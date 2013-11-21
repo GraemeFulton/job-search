@@ -44,6 +44,12 @@ query_posts( $args); ?>
                     
 				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                                     <div class="item">
+    
+                                         <div class="post_image">
+                                            <?php //print the image
+                                            $tree->print_post_image($group_parent_id, $post->ID);
+                                            ?>
+                                         </div>
 
 				<h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
@@ -53,40 +59,21 @@ query_posts( $args); ?>
 
 						<?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) ); ?>
 						
-<?php //addition: company name
-
-$linked_company= get_field('Company') ;
-//var_dump($linked_company);
-$linked_co = $linked_company[0];
-if ($linked_co)
-echo 'Institution: <a href="'. $linked_co->guid.'">'. $linked_co->post_title.'</a> ';
-?>
-                                         
 <?php //addition: course type field
- 
 $course_type = types_render_field("course-type", array("output"=>"normal"));
 
 //Output the trainer email
  if($course_type)
-printf("| Course Type: %s",$course_type);
+printf("Course Type: %s ",$course_type);
   
  ////////////////NEW ADDITION 
   $object_id = wp_get_post_terms($post->ID, 'uni', array("fields" => "ids"));
-  $group_parent_id= $tree->get_tag_group_leader($object_id);
+  
+  $group_parent_id= $tree->get_tag_group_leader($object_id[0]);
   
   //print the group
   $tree->print_linked_taggroup_or_tag($post->ID, $object_id, $group_parent_id);
-  
-  //print the group image
-  echo $image_html = s8_get_taxonomy_image(get_term_by('id', $group_parent_id, 'xili_tidy_tags_uni'), 'thumbnail'); 
-     
-
- //////////////////////////
- $pic = types_render_field("post-image", array("output"=>"raw"));
-
- if($pic){
-   printf('<br><img style="float:left position:relative; max-height:150px" src="%s"/>', $pic);
- }
+ 
  ?>
                                             <hr>                                     
                                                     <?php // edit_post_link( __( 'Edit this page.', 'buddypress' ), '<p class="edit-link">', '</p>'); ?>

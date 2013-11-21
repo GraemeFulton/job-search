@@ -36,7 +36,6 @@ $args= array(
 
 query_posts( $args); ?>
 	<div id="content"  category_type='graduate-job' tag_type='profession'>
-
 		<div class="padder">
 
 		<?php do_action( 'bp_before_blog_page' ); ?>
@@ -46,8 +45,15 @@ query_posts( $args); ?>
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                     
 				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                                    
                                     <div class="item">
-
+                                        
+                                        <div class="post_image">
+                                            <?php //print the image
+                                            $tree->print_post_image($group_parent_id, $post->ID);
+                                            ?>
+                                         </div>
+                                        
 				<h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
 					<div class="entry">
@@ -55,66 +61,21 @@ query_posts( $args); ?>
 						<?php the_excerpt( __( '<p class="serif">Read the rest of this page &rarr;</p>', 'buddypress' ) ); ?>
 
 						<?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) ); ?>
-						
-<?php //addition: company name
+                   
+<?php 
 
-$linked_company= get_field('Company') ;
-//var_dump($linked_company);
-$linked_co = $linked_company[0];
-if ($linked_co)
-echo 'Institution: <a href="'. $linked_co->guid.'">'. $linked_co->post_title.'</a> ';
-?>
-                                         
-<?php //addition: course type field
+// print advert type
+printf("Job Type: %s ", types_render_field("graduate-job-type", array("output"=>"normal")));
  
-$course_type = types_render_field("course-type", array("output"=>"normal"));
-
-//Output the trainer email
- if($course_type)
-printf("| Course Type: %s",$course_type);
+//print company name, and image
+$post_object_id = wp_get_post_terms($post->ID, 'company', array("fields" => "ids"));
+$group_parent_id= $tree->get_tag_group_leader($post_object_id[0]);
   
- ////////////////NEW ADDITION 
-    $uniID = wp_get_post_terms($post->ID, 'uni', array("fields" => "ids"));
-    $uniName = wp_get_post_terms($post->ID, 'uni', array("fields" => "names"));
-    $uniSlug = wp_get_post_terms($post->ID, 'uni', array("fields" => "slugs"));
-    $url = get_bloginfo('url');
+//print the name
+$tree->print_linked_taggroup_or_tag($post->ID, $post_object_id, $group_parent_id);
+  
 
- if($uniID)
-{
-   $sql="SELECT $wpdb->term_taxonomy.term_id 
-          FROM $wpdb->term_relationships INNER JOIN $wpdb->term_taxonomy
-          ON $wpdb->term_taxonomy.term_taxonomy_id=$wpdb->term_relationships.term_taxonomy_id
-          WHERE $wpdb->term_relationships.object_id ='$uniID[0]'";
-        
-    $safe_sql= $wpdb->prepare($sql);
-    $results=$wpdb->get_results($safe_sql);
-        
-    if($results)
-    {
-      $tags_from_group= xtt_tags_from_group(intval($results[0]->term_id),'array',"xili_tidy_tags_uni", "uni");
-      
-      $slugs=array();
-      $names=array();
-      foreach($tags_from_group as $tags){
-          array_push($slugs, $tags['tag_slug']);
-          array_push($names, $tags['tag_name']);
-       }
-      
-       $list = implode ( ',', $slugs );
-       // echo add_query_arg($arr_params);
-       if($names[0])
-       echo '|Offered by: <a href="'.$url.'/?uni='.$list.'">'.$names[0].'</a>';
-    }
-     else if($uniName[0])echo '|Offered by: <a href="'.$url.'/?uni='.$uniSlug[0].'">'.$uniName[0].'</a>';
 
- }     
- //////////////////////////
- $pic = types_render_field("post-image", array("output"=>"raw"));
- 
-//Output the trainer email
- if($pic){
-   printf('<br><img style="float:left position:relative; max-height:200px" src="%s"/>', $pic);
- }
  ?>
                                             <hr>                                     
                                                     <?php // edit_post_link( __( 'Edit this page.', 'buddypress' ), '<p class="edit-link">', '</p>'); ?>

@@ -47,10 +47,13 @@ class Display_Taxonomy{
         register_taxonomy( $this->grouped_taxonomy, 'term', array( 'hierarchical' => true, 'label'=>false, 'rewrite' => false, 'update_count_callback' => '', 'show_ui' => false ) );
         
         register_taxonomy( $this->category_type, 'term', array( 'hierarchical' => true, 'label'=>false, 'rewrite' => false, 'update_count_callback' => '', 'show_ui' => false ) );
+        
 
     }
-    
-    
+         function the_action_callback()
+{
+echo '<p>WordPress is nice!</p>';
+}
     /*
      * display_tag_groups
      * prints out a hierarchical list based on xili tag groups
@@ -120,7 +123,7 @@ class Display_Taxonomy{
     $sql="SELECT $wpdb->term_taxonomy.term_id 
           FROM $wpdb->term_relationships INNER JOIN $wpdb->term_taxonomy
           ON $wpdb->term_taxonomy.term_taxonomy_id=$wpdb->term_relationships.term_taxonomy_id
-          WHERE $wpdb->term_relationships.object_id ='$object_id[0]'";
+          WHERE $wpdb->term_relationships.object_id ='$object_id'";
         
     $safe_sql= $wpdb->prepare($sql);
     $results=$wpdb->get_results($safe_sql);
@@ -166,19 +169,82 @@ class Display_Taxonomy{
                $list = implode ( ',', $slugs );
 
                if($names[0])
-               echo '|Offered by: <a href="'.$url.'/?uni='.$list.'">'.$names[0].'</a>';
+               echo '| Offered by: <a href="'.$url.'/?uni='.$list.'">'.$names[0].'</a>';
             }
      }
      else{
          
-         $uniName = wp_get_post_terms($post_id, 'uni', array("fields" => "names"));
-         $uniSlug = wp_get_post_terms($post_id, 'uni', array("fields" => "slugs"));
+         $term_name = wp_get_post_terms($post_id, $this->grouped_taxonomy_short, array("fields" => "names"));
+         $term_slug = wp_get_post_terms($post_id, $this->grouped_taxonomy_short, array("fields" => "slugs"));
         
-         if($uniName[0])echo '|Offered by: <a href="'.$url.'/?uni='.$uniSlug[0].'">'.$uniName[0].'</a>';
+         if($term_name[0])echo '| Offered by: <a href="'.$url.'/?uni='.$term_slug[0].'">'.$term_name[0].'</a>';
          
      }
  }
  
+ 
+ /*
+  * print_post_image
+  * @params:
+  * prints ONE image from optional images the post may have- priority for images:
+  * 1. Image attached to the institution (group parent)
+  * 2. Image attached to the post (from google images)
+  * 3. Image attached to the category (e.g. accounting/programmer)
+  * 4. Fall back on default image
+  */
+ public function print_post_image($group_parent_id, $post_id){
+     
+    //1. Image attached to the institution (group parent)
+     
+     if ($this->grouped_taxonomy_short!='uni'){
+     
+    $institution_image = s8_get_taxonomy_image_src(get_term_by('id', $group_parent_id, $this->grouped_taxonomy), 'thumbnail');
+    if ($institution_image!=false)
+    {
+        printf('<br><img style="float:left position:relative; max-height:150px; " src="%s"/>', $institution_image['src']);
+         
+         return;
+    }
+   }
+//else use anything associated to the tag:
+             
+         $term_id = wp_get_post_terms($post_id, $this->grouped_taxonomy_short, array("fields" => "ids"));
+        $company_tag_image = s8_get_taxonomy_image_src(get_term_by('id', $term_id[0], $this->grouped_taxonomy_short), 'thumbnail');
+
+        if ($company_tag_image!=false){
+        printf('<br><img style="float:left position:relative; max-height:150px; " src="%s"/>', $company_tag_image['src']);
+            return;
+        }
+        
+ 
+//else use the google image:
+        $pic = types_render_field("post-image", array("output"=>"raw"));
+    
+        if($pic){
+          printf('<br><img style="float:left position:relative; max-height:150px;" src="%s"/>', $pic);
+          
+          return;
+        }
+    
+ //else use the category (accounting image):
+        
+        $cat_term_id = wp_get_post_terms($post_id, 'profession', array("fields" => "ids"));    
+        $group_leader=$this->get_tag_group_leader($cat_term_id[0]);
+       $category_image = s8_get_taxonomy_image_src(get_term_by('id', $group_leader, $this->category_type), 'medium');
+     //  var_dump($category_image);
+       if ($category_image!=false){
+        printf('<br><img style="float:left position:relative; max-height:150px; " src="%s"/>', $category_image['src']);
+           return;
+        }
+        
+        
+    
+   //or finally use the dummy
+     
+        $dummy="http://localhost/LGWP/wp-content/uploads/post_images/dummy-job.png";
+        printf('<br><img style="float:left position:relative; max-height:150px;" src="%s"/>', $dummy);
+        return;
+    }
      
 }
 ?>

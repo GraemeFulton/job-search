@@ -58,9 +58,10 @@ public function submitPost($wpdb, $post_title, $content,$excerpt,$photo, $tags, 
      $this->last_insert_id = $wpdb->insert_id;
     
         //insert the image
-        if($photo=='dummy')
-            $this->insert_dummy_image($wpdb, $entity);
-        else
+        if($photo=='dummy'){
+            //commented out as we're not inserting dummy image urls to the database, no point 
+           // $this->insert_dummy_image($wpdb, $entity);
+        }else
             $this->insert_post_image($wpdb, $post_title, $photo, $entity);  
   // }
   // else echo '<p style="color:red">Course Not Submitted - a course with this title ('.$post_title.') already exists';
