@@ -108,8 +108,8 @@ left: 100px;
 position: relative;
 color: #fff;
 padding: 10px;
-background: rgba(0,0,0,0.4);
-text-shadow: 4px 2px 5px rgba(0, 0, 0, 1);
+/*background: rgba(0,0,0,0.4);
+text-shadow: 4px 2px 5px rgba(0, 0, 0, 1);*/
 }
 #header-quote p{font-size:27px;line-height:27px;}
 
@@ -221,6 +221,12 @@ box-shadow: 0 0 0 0 !important;
 	/*margin-bottom: 20px;*/
 	padding-top: 25px;
 	position: relative;    
+        
+        opacity:0.94;
+    margin: 0 auto;
+    width:67.5%;
+    margin-top:80px;
+    background:rgba(10,10,10,0.9);
 }
 #header_bg{
       /*  
@@ -255,7 +261,7 @@ box-shadow: 0 0 0 0 !important;
 
 #header #search-bar {
 text-align: center;
-
+opacity:1;
 }
 #header #search-bar .padder {
 	padding: 10px 15px 0 20px;
