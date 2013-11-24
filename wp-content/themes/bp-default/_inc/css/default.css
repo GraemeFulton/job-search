@@ -81,20 +81,37 @@ body {
 	padding: 19px;
 }
 div#container {
-	background: #fff;
-	border-right: 1px solid #e0e0e0;
-	border-bottom: 1px solid #e0e0e0;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-	border-radius: 6px;
-	overflow: hidden;
+	overflow: visible;
 	position: relative;
 	width: 100%;
         max-width: 1250px;
         margin: 0 auto;
-
+        border-radius: 10px;
 
 }
+
+div#page-container{
+
+        min-height:100%;
+        width:100%;
+        position:relative;
+        background-color: #fff;
+        display:inline-block;
+        border-radius:3px;
+    
+}
+
+div#header-quote {
+max-width: 879px;
+margin: 15px auto;
+left: 100px;
+position: relative;
+color: #fff;
+padding: 10px;
+background: rgba(0,0,0,0.4);
+text-shadow: 4px 2px 5px rgba(0, 0, 0, 1);
+}
+#header-quote p{font-size:27px;line-height:27px;}
 
 body.activity-permalink div#container {
 	background: none;
@@ -118,14 +135,7 @@ position: relative;
 margin-bottom:100px;
 }
 div#content .padder {
-	border-right: 1px solid #ddd;
-	-moz-border-radius-topleft: 6px;
-	-webkit-border-top-left-radius: 6px;
-	-moz-border-radius-bottomleft: 6px;
-	-webkit-border-bottom-left-radius: 6px;
-	border-top-left-radius: 6px;
-	border-bottom-left-radius: 6px;
-	
+
 }
 div#content .one-column {
 	border-right: 0 none;
@@ -204,24 +214,13 @@ box-shadow: 0 0 0 0 !important;
 2.2 - Header
 --------------------------------------------------------------*/
 #header {
-	background: #1fb3dd; /* Old browsers */
-	background: -moz-linear-gradient(top, #1fb3dd 0%, #1fb3dd 15%, #394c79 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1fb3dd), color-stop(15%,#1fb3dd), color-stop(100%,#394c79)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #1fb3dd 0%,#1fb3dd 15%,#394c79 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #1fb3dd 0%,#1fb3dd 15%,#394c79 100%); /* Opera11.10+ */
-	background: -ms-linear-gradient(top, #1fb3dd 0%,#1fb3dd 15%,#394c79 100%); /* IE10+ */
-	background: linear-gradient(top, #1fb3dd 0%,#1fb3dd 15%,#394c79 100%); /* W3C */
-	-moz-border-radius-bottomleft: 6px;
-	-webkit-border-bottom-left-radius: 6px;
-	border-bottom-left-radius: 6px;
-	-moz-border-radius-bottomright: 6px;
-	-webkit-border-bottom-right-radius: 6px;
-	border-bottom-right-radius: 6px;
-	color: #fff;
-	height: auto;
-	margin-bottom: 20px;
-	position: relative;
-	z-index: 1000;
+         background-repeat:no-repeat;
+        background-size: 100% 100%;
+        background-position:left;
+	height: 300px;
+	/*margin-bottom: 20px;*/
+	padding-top: 25px;
+	position: relative;    
 }
 #header_bg{
       /*  
@@ -239,9 +238,9 @@ box-shadow: 0 0 0 0 !important;
                         background-image:url('http://www.interbrand.com/app/controls/BGGB/BGGB2013/images/articles/images/participation.jpg');
                   background-image:url('http://www.olympus.co.uk/site/rmt/media/consumer/stages/oly_inspiration-flickr_300x1600.jpg');
                   background-image:url('http://www.olympus.co.uk/site/rmt/media/consumer/stages/oly_inspiration-start_300x1600_2.jpg');
+                  background-image:url('http://www.olympus.co.uk/site/rmt/media/consumer/stages/oly_inspiration-flickr_300x1600.jpg');
 
       */
-                  background-image:url('http://www.olympus.co.uk/site/rmt/media/consumer/stages/oly_inspiration-flickr_300x1600.jpg');
 
        background-repeat:no-repeat;
         background-size: 100% 100%;
@@ -341,10 +340,9 @@ div#fourth ul.xoxo { margin-right: 0; }
 2.4 - Sidebar
 --------------------------------------------------------------*/
 div#sidebar {
-border-left: 1px solid #ddd;
--moz-border-radius-topright: 3px;
--webkit-border-top-right-radius: 3px;
-border-top-right-radius: 3px;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
 float: right;
 position: relative;
 width:15%;
@@ -433,11 +431,17 @@ div#sidebar div.tags div#tag-text {
 --------------------------------------------------------------*/
 #sidebar-left{
     position: relative;
-float: left;
-    width:15%;
+    float: left;
+    width:14%;
+    margin-right:1%;
     height:100%;
+    border-radius:3px;
+    background:#fff;
+    border:none;
+    padding:10px;
     
 }
+
 
 /*--------------------------------------------------------------
 3.0 - Non-structural
@@ -629,9 +633,12 @@ a:focus {
 max-width: 1250px;
 margin: 0 auto;
 bottom: 0;
-margin-left: 16%;
+margin-left: 16.2%;
 width: 68%;
-margin-left: 16%;
+/*height:50px;*/
+}
+.quotescollection_nextquote{
+    text-align:right;
 }
 }
 #navigation:after {
@@ -2566,7 +2573,7 @@ GRID VIEW
 */
 @media (min-width: 600px) {
 
-#blog-page .hentry
+#blog-page .hentry, #loaded_content .hentry
 {
 width:225px;
 padding: 2px 2px 2px 2px;
@@ -2583,7 +2590,8 @@ bottom:0;
 left:20%;
 }
 
-#blog-page .hentry:hover,#blog-page .hentry:focus{
+#blog-page .hentry:hover,#blog-page .hentry:focus,
+#loaded_content .hentry:hover,#loaded_content .hentry:focus{
   -moz-box-shadow:6px 6px 7px rgba(0,0,0,.7);
   -webkit-box-shadow: 6px 6px 7px rgba(0,0,0,.7);
   box-shadow:6px 6px 7px rgba(0,0,0,.7);
@@ -2630,8 +2638,8 @@ margin-bottom: 0px;
 
 .activepost{
     width:500px !important;height:500px!important;
-box-shadow: 1px 1px 10px 5000px rgba(20,20,20,0.78);
-    z-index:2 !important;
+box-shadow: 1px 1px 10px 5000px rgba(12,12,12,0.78);
+    z-index:99999 !important;
     background:#fff;
 }
 /*.activepost:hover{
@@ -2682,5 +2690,6 @@ inactivepost{position:relative;}
 .clickme{width:100%; height:100%; position: absolute; top: 1px;  }
 
 
+#blog-page{display:none;}
 }
 

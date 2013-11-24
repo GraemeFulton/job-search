@@ -22,8 +22,18 @@ class Display_Taxonomy{
         $this->grouped_taxonomy_short= $grouped_taxonomy; 
 
         $this->register_taxonomies();
+        
+     //   $this->add_action_hooks();
  
     }
+    
+//    private function add_action_hooks(){
+//        
+//            add_action('the_action_hook', array($this,'the_action_callback' ));
+//            add_action('display_category_filters', array($this,'display_tree' ));
+//
+//    }
+
     
     //not using atm
     public function display_tree()
@@ -50,10 +60,7 @@ class Display_Taxonomy{
         
 
     }
-         function the_action_callback()
-{
-echo '<p>WordPress is nice!</p>';
-}
+
     /*
      * display_tag_groups
      * prints out a hierarchical list based on xili tag groups

@@ -49,7 +49,7 @@ function isotopes_pre_init($)
 
 function reset_isotopes($){
     
-    $("#blog-page").isotope( 'reLayout' );    
+    $("#loaded_content").isotope( 'reLayout' );    
      
 }
 
@@ -64,27 +64,29 @@ function reset_isotopes($){
  */
 function isotopes_init($,colWidth,offset,topOffset)
 {
-    // cache container
-    var $container = $('#blog-page');
+    // cache container    
+     var $blogpage = $('#blog-page');
+  var $container = $('#loaded_content');
 
     // initialize isotope
     $container.imagesLoaded(function(){
     $container.isotope({
      // options...
+      itemSelector: '.hentry',
         masonry: {
            columnWidth: 0
         }
     
   
     });
-    });
+    }).isotope( 'insert', $blogpage.find('.hentry') );
     
     isotopes_modal($);
 }
 
 function isotopes_modal($){
     
-    
+
    $('.posttitle').click(function(e) { //this prevents title going to post-box
     
        e.preventDefault(); 
@@ -127,7 +129,7 @@ function isotopes_modal($){
                         },200,function()
                         {
                   //      
-                          $("#blog-page").isotope( 'reLayout' ); 
+                          $("#loaded_content").isotope( 'reLayout' ); 
                        $(this).closest(".isotope-item").css("z-index", "6");
                         });
   
@@ -146,10 +148,10 @@ function isotopes_modal($){
                  "top":"0"
                 },300,"linear",function()
                 {
-                   $("#blog-page").isotope( 'reLayout' ); 
+                   $("#loaded_content").isotope( 'reLayout' ); 
                 });
              
-         $("#blog-page").isotope( 'reLayout' ); 
+         $("#loaded_content").isotope( 'reLayout' ); 
          enableClickMe($);
        };
 
@@ -203,7 +205,7 @@ function closeActiveBox($){
                  "top":"0"
                 },300,"linear",function()
                 {
-                    $("#blog-page").isotope( 'reLayout' ); 
+                    $("#loaded_content").isotope( 'reLayout' ); 
                     
                 });
                 $(".clickme").closest(".item").removeClass("activepost").removeClass("activepost_edge");
@@ -243,7 +245,7 @@ $('.close_box').click(function(){
               
          $(this).remove();
          enableClickMe($);	
-                          $("#blog-page").isotope( 'reLayout' ); 
+                          $("#loaded_content").isotope( 'reLayout' ); 
 
 	});
 

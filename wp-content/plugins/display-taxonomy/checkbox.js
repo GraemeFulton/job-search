@@ -44,18 +44,21 @@ function load_more_button_listener($){
  * @returns {undefined}
  * triggers the call to load more when user scrolls to bottom
  */
+var isLoadingData;
 function graylien_infinite_scroll($){
     
     $(window).scroll(function () {
-   if ($(window).scrollTop() >= $(document).height() - $(window).height()) {
-              
+                
+   if (($(window).scrollTop() >= $(document).height() - $(window).height())) {
+                     
             var postoffset = $('.hentry').length;
             var category_type= $('#content').attr('category_type');
             var tag_type= $('#content').attr('tag_type');
 
       
             ajaxLoadMore($,selected_array,postoffset, category_type, tag_type);
-        
+            isLoadingData=true;
+
             closeActiveBox($);
             disableClickMe($);
             setTimeout(function(){isotopes_modal($);}, 500);
@@ -170,7 +173,7 @@ function ajaxLoad($, tax, category_type, tag_type){
         $(".hentry").remove(); 
        
        //destroy isotopes
-       var $container = $('#blog-page');
+       var $container = $('#loaded_content');
         $container.isotope('destroy');
 
         // initialize isotope
@@ -180,7 +183,7 @@ function ajaxLoad($, tax, category_type, tag_type){
                   }
          });
                
-         $('#blog-page').isotope( 'insert', $(data) );
+         $('#loaded_content').isotope( 'insert', $(data) );
          resetCurrentActiveBox($);
          
          return false;
@@ -202,6 +205,9 @@ function ajaxLoad($, tax, category_type, tag_type){
  * @param {type} postoffset
  * @returns {undefined} */
 function ajaxLoadMore($, tax, postoffset, category_type, tag_type){
+ 
+ if(isLoadingData==true) return;
+ 
     $.ajax({
      url: '/LGWP/wp-admin/admin-ajax.php', 
      type: "POST",
@@ -217,7 +223,7 @@ function ajaxLoadMore($, tax, postoffset, category_type, tag_type){
    
     success: function(data){
          
-          var $container = $('#blog-page');
+          var $container = $('#loaded_content');
   
           // initialize isotope
           $container.isotope({
@@ -230,9 +236,10 @@ function ajaxLoadMore($, tax, postoffset, category_type, tag_type){
              });
              
          //append new isotopes    
-         $('#blog-page').isotope( 'insert', $(data) );
-         setTimeout(function(){ $('#blog-page').isotope( 'reLayout');}, 200); //prevent overlap
+         $('#loaded_content').isotope( 'insert', $(data) );
+         setTimeout(function(){ $('#loaded_content').isotope( 'reLayout');}, 200); //prevent overlap
         
+         isLoadingData=false;
          return false;
      },
      error: function(errorThrown){

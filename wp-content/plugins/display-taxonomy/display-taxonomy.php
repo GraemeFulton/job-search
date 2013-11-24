@@ -21,11 +21,15 @@ include("display-tax-libs.php");
 
     function display_taxonomy_tree($tag_type, $grouped_taxonomy)
     {
+        global $dp;
         $dp= new Display_Taxonomy($tag_type, $grouped_taxonomy);
 
         return $dp;
     }
- 
+   // add_action( 'plugins_loaded', array( 'Display_Taxonomy', 'init' ));
+
+
+
     /*
      * Action: load checkbox.js script
      */
@@ -106,16 +110,24 @@ function ajax_get_latest_posts($tax, $offset, $category_type, $tag_type)
     } 
     query_posts($args);
     
-   return loadMore();
+   return load_post_loop_view($category_type);
 }
 
 
-function loadMore() {
+function load_post_loop_view($category_type) {
 
+    if ($category_type=='course'){
     // the Loop
       include("Views/course_post_loop.php");  
-      wp_reset_query();
-      exit;
+    }
+    else if($category_type=='graduate-job'){
+        
+        include("Views/graduatejob_post_loop.php");  
+        
+    }
+    
+    wp_reset_query();
+    exit;
 }
 ?>
 

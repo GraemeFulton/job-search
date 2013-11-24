@@ -1,0 +1,47 @@
+{#
+    Copyright (c) 2011-2012 Mike Green <myatus@gmail.com>
+
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+#}
+
+{% import 'macros_edit.html.twig' as me %}
+
+<table class="form-table">
+    <tbody>
+        <tr valign="top">
+            <th scope="row">
+                <label for="active_gallery">{{ __('Image Set') }}</label>
+            </th>
+            <td>
+                <select id="active_gallery" class="postform" name="active_gallery">
+                    {% for gallery in galleries %}
+                    <option {% if gallery.selected %}selected="selected"{% endif %} value="{{ gallery.id }}">{{ gallery.name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr valign="top">
+            <th scope="row">
+                <label for="active_overlay">{{ __('Overlay') }}</label>
+            </th>
+            <td>
+                <select id="active_overlay" class="postform" name="active_overlay">
+                    {% for overlay in overlays %}
+                    <option {% if overlay.selected %}selected="selected"{% endif %} value="{{ overlay.value }}">{{ overlay.desc }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr valign="top">
+            <th scope="row">
+                <label for="background_color">{{ __('Background Color') }}</label>
+            </th>
+            <td>
+                {{ me.farbtastic_input('', background_color) }}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{{ me.farbtastic_script('') }}

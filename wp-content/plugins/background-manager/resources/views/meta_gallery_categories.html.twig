@@ -1,0 +1,47 @@
+{#
+    Copyright (c) 2011-2012 Mike Green <myatus@gmail.com>
+
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+#}
+
+{% import 'macros_edit.html.twig' as me %}
+
+<div id="catdiv" style="border-bottom:1px solid #dfdfdf;padding-bottom:10px;">
+    <p>
+        {{ __('Override the default Image Set with this one, if a post belongs to one or more of the selected categories:') }}
+    </p>
+
+    <div id="taxonomy-category" class="categorydiv">
+        <ul id="category-tabs" class="category-tabs">
+            {% for category_key,category in categories %}
+            <li class="{% if loop.first %}tabs{% else %}hide-if-no-js{% endif %}"><a href="#category-{{ category_key }}">{{ category.label }}</a></li>
+            {% endfor %}
+        </ul>
+        {% for category_key,category in categories %}
+        <div id="category-{{ category_key }}" class="tabs-panel" {% if not loop.first %}style="display: none;"{% endif %}>
+            <ul id="categorychecklist-{{ category_key }}" class="categorychecklist form-no-clear">
+                {{ category.checklist | raw }}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div id="overlaycatdiv" style="border-top:1px solid #fff;">
+    <p>
+        {{ __('Optionally override the overlay and color:') }}
+    </p>
+    <div>
+        {{ me.farbtastic_input('cat', background_color) }}
+    </div>
+    <p> 
+        <select id="overlay_cat_override" class="postform" name="overlay_cat_override">
+            {% for overlay in overlays %}
+            <option {% if overlay.selected %}selected="selected"{% endif %} value="{{ overlay.value }}">{{ overlay.desc }}</option>
+            {% endfor %}
+        </select>
+    </p>
+</div>
+
+{{ me.farbtastic_script('cat') }}

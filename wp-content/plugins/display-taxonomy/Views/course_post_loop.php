@@ -1,9 +1,22 @@
 <!--course post loop template-->
 	
-		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+<?php  
+$tree= display_taxonomy_tree('subject', 'uni');
+?>
+
+			<?php if (have_posts()) : while (have_posts()) : the_post();
+                            $post_id=get_the_ID();
+                        ?>
                     
-				<div id="post-<?php echo get_the_ID(); ?>" <?php post_class(); ?>>
+				<div id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
                                     <div class="item">
+    
+                                         <div class="post_image">
+                                            <?php //print the image
+                                            $tree->print_post_image($group_parent_id,$post_id);
+                                            ?>
+                                         </div>
+
 				<h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
 					<div class="entry">
@@ -12,68 +25,21 @@
 
 						<?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) ); ?>
 						
-<?php //addition: company name
-
-$linked_company= get_field('Company') ;
-//var_dump($linked_company);
-$linked_co = $linked_company[0];
-if ($linked_co)
-echo 'Institution: <a href="'. $linked_co->guid.'">'. $linked_co->post_title.'</a> ';
-?>
-                                         
 <?php //addition: course type field
- 
 $course_type = types_render_field("course-type", array("output"=>"normal"));
 
 //Output the trainer email
  if($course_type)
-printf("| Course Type: %s",$course_type);
+printf("Course Type: %s ",$course_type);
   
  ////////////////NEW ADDITION 
-    $uniID = wp_get_post_terms(get_the_ID(), 'uni', array("fields" => "ids"));
-    $uniName = wp_get_post_terms(get_the_ID(), 'uni', array("fields" => "names"));
-    $uniSlug = wp_get_post_terms(get_the_ID(), 'uni', array("fields" => "slugs"));
-    $url = get_bloginfo('url');
-
- if($uniID)
-{ 
-     global $wpdb;
-   $sql="SELECT $wpdb->term_taxonomy.term_id 
-          FROM $wpdb->term_relationships INNER JOIN $wpdb->term_taxonomy
-          ON $wpdb->term_taxonomy.term_taxonomy_id=$wpdb->term_relationships.term_taxonomy_id
-          WHERE $wpdb->term_relationships.object_id ='$uniID[0]'";
-        
-    $safe_sql= $wpdb->prepare($sql);
-    $results=$wpdb->get_results($safe_sql);
-        
-    if($results)
-    {
-      $tags_from_group= xtt_tags_from_group(intval($results[0]->term_id),'array',"xili_tidy_tags_uni", "uni");
-      
-      $slugs=array();
-      $names=array();
-      foreach($tags_from_group as $tags){
-          array_push($slugs, $tags['tag_slug']);
-          array_push($names, $tags['tag_name']);
-       }
-      
-       $list = implode ( ',', $slugs );
-       // echo add_query_arg($arr_params);
-       //if we've got a list, we provide a link showing all tags
-       if($names[0])
-       echo '|Offered by: <a href="'.$url.'/?uni='.$list.'">'.$names[0].'</a>';
-    }
-    //ortherwise, there is only one tag, and no group of tags, so just use that tag.
-     else if($uniName[0])echo '|Offered by: <a href="'.$url.'/?uni='.$uniSlug[0].'">'.$uniName[0].'</a>';
-
- }     
- //////////////////////////
- $pic = types_render_field("post-image", array("output"=>"raw"));
+  $object_id = wp_get_post_terms($post_id, 'uni', array("fields" => "ids"));
+  
+  $group_parent_id= $tree->get_tag_group_leader($object_id[0]);
+  
+  //print the group
+  $tree->print_linked_taggroup_or_tag($post_id, $object_id, $group_parent_id);
  
-//Output the trainer email
- if($pic){
-   printf('<br><img style="float:left position:relative; max-height:150px" src="%s"/>', $pic);
- }
  ?>
                                             <hr>                                     
                                                     <?php // edit_post_link( __( 'Edit this page.', 'buddypress' ), '<p class="edit-link">', '</p>'); ?>
