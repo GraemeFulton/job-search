@@ -14,7 +14,8 @@ jQuery(document).ready(function ($) {
  * Unchecked categories are removed from the url_string
  */
 var url_string=document.URL;
-var selected_array =[];
+var selected_subjects =[]; //array to hold checked subjects
+var selected_institutions=[]; //array to hold checked institutions
 var category_names_selected= "Selected: ";
 var pageURL=getPageName(document.URL);
 
@@ -33,7 +34,7 @@ function load_more_button_listener($){
 
  // console.log("offset: "+postoffset);
 
-  ajaxLoadMore($,selected_array,postoffset, category_type, tag_type);
+  ajaxLoadMore($,selected_subjects,postoffset, category_type, tag_type);
  });  
 }
 
@@ -54,9 +55,10 @@ function graylien_infinite_scroll($){
             var postoffset = $('.hentry').length;
             var category_type= $('#content').attr('category_type');
             var tag_type= $('#content').attr('tag_type');
+            var body_type= $('#content').attr('body_type');
 
       
-            ajaxLoadMore($,selected_array,postoffset, category_type, tag_type);
+            process_filter_scroll($,selected_subjects,postoffset, category_type, tag_type, selected_institutions,body_type);
             isLoadingData=true;
 
             closeActiveBox($);
@@ -79,22 +81,55 @@ function graylien_infinite_scroll($){
 function check_box_listener($){
   
   //uncheck all boxes on page load
-    $('input:checkbox').prop('checked', false);
+    $('#input:checkbox').prop('checked', false);
 
-     $('input:checkbox').change(
+   subject_listener($);
+   institution_listener($);
+    
+}
+
+/*
+ *subject_listener 
+ * @param {type} $
+ * @returns {undefined}
+ * listens for changes in the subject filter checkboxes
+ */
+function subject_listener($){
+  $('#subject-filter input:checkbox').change(
     
     function()
     {
        if ($(this).is(':checked')) {
-            checked($,this, true);
+            checked($,this, true, 'subject');
       
         }
         else{
 
-            checked($,this, false);
+            checked($,this, false, 'subject');
         }
     }); 
+}
+
+/*
+ *institution_listener 
+ * @param {type} $
+ * @returns {undefined}
+ * listens for changes in the institution filter checkboxes
+ */
+function institution_listener($){
+  $('#institution-filter input:checkbox').change(
     
+    function()
+    {
+       if ($(this).is(':checked')) {
+            checked($,this, true, 'institution');
+      
+        }
+        else{
+
+            checked($,this, false, 'institution');
+        }
+    }); 
 }
 
 /*
@@ -107,13 +142,16 @@ function check_box_listener($){
  * or removes unchecked value from url_string
  * 
  */
-function checked($,arg, true_false){
+function checked($,arg, true_false, filter_type){
+    
     $("html, body").animate({ scrollTop: 0 }, 500);
     //filter for the url_string
     var cat_id=$(arg).val();
     var filter= "&category="+cat_id;
     var category_type= $('#content').attr('category_type');
     var tag_type= $('#content').attr('tag_type');
+    var body_type= $('#content').attr('body_type');
+
 
     
     //name for breadcrumbs
@@ -126,19 +164,33 @@ function checked($,arg, true_false){
        
     if (true_false===true)
     {
-            selected_array.push(name);
-                ajaxLoad($,selected_array, category_type, tag_type);
-                console.log(selected_array);
-                
+        if(filter_type==='subject'){
+            selected_subjects.push(name);
+        }
+        if (filter_type==='institution'){
+               selected_institutions.push(name);
+        }
+        
+        process_filter($,selected_subjects, category_type, tag_type, selected_institutions, body_type);
+        
                 closeActiveBox($);
             disableClickMe($);
             setTimeout(function(){isotopes_modal($);}, 500);
                 
     }      
     else { 
-        var index = selected_array.indexOf(name);
-        selected_array.splice(index,1);
-           ajaxLoad($,selected_array, category_type, tag_type);           
+        
+        if(filter_type==='subject'){
+        var index = selected_subjects.indexOf(name);
+        selected_subjects.splice(index,1);
+        }
+         if(filter_type==='institution'){
+        var index = selected_institutions.indexOf(name);
+        selected_institutions.splice(index,1);
+        }
+           
+           
+           process_filter($,selected_subjects, category_type, tag_type, selected_institutions, body_type);           
            
            closeActiveBox($);
             disableClickMe($);
@@ -149,22 +201,24 @@ function checked($,arg, true_false){
 
 
 /*
- *ajaxLoad 
+ *process_subject 
  * @param {type} $
  * @param {type} tax
  * @returns {undefined}
+ * ajax filter for subject box
  */
-function ajaxLoad($, tax, category_type, tag_type){
-    
+function process_filter($, selected_subjects, category_type, tag_type, selected_institutions, body_type){
     $.ajax({
      url: '/LGWP/wp-admin/admin-ajax.php', 
      type: "POST",
      data: {
-            'action': 'check_box',
-            'fn':'get_latest_posts',
-            'tax':tax,
+            'action': 'check_box_filters',
+            'fn':'process_filter',
+            'selected_subjects':selected_subjects,
             'cat':category_type,
-            'type':tag_type
+            'type':tag_type,
+            'selected_institutions': selected_institutions,
+            'body_type': body_type
            },
    dataType:'HTML', 
    success: function(data){
@@ -204,7 +258,7 @@ function ajaxLoad($, tax, category_type, tag_type){
  * @param {type} tax
  * @param {type} postoffset
  * @returns {undefined} */
-function ajaxLoadMore($, tax, postoffset, category_type, tag_type){
+function process_filter_scroll($, selected_subjects, postoffset, category_type, tag_type, selected_institutions, body_type){
  
  if(isLoadingData==true) return;
  
@@ -212,12 +266,14 @@ function ajaxLoadMore($, tax, postoffset, category_type, tag_type){
      url: '/LGWP/wp-admin/admin-ajax.php', 
      type: "POST",
      data: {
-            'action': 'check_box',
-            'fn':'get_latest_posts',
-            'tax':tax,
+            'action': 'check_box_filters',
+            'fn':'process_filter',
+            'selected_subjects':selected_subjects,
             'offset':postoffset,
             'cat':category_type,
-            'type':tag_type
+            'type':tag_type,
+            'selected_institutions': selected_institutions,
+            'body_type': body_type
            },
    dataType:'HTML', 
    

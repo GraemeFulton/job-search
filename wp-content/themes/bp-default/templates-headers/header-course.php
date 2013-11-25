@@ -44,7 +44,7 @@
     </div>
 		<?php do_action( 'bp_before_header' ); ?>
 
-		<div id="header">                  
+		<div id="header" class="header-course">                  
                     <div id="search-bar" role="search">
                             <div id="main_search">
                             <?php get_search_form(); ?>
