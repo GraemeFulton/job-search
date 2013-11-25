@@ -17,6 +17,8 @@ include (TEMPLATEPATH . '/templates-headers/header-graduate-job.php');
     <?php if ( function_exists( 'display_taxonomy_tree' ) ) 
         { $tree= display_taxonomy_tree('profession', 'company');
           $tree->display_tag_groups();
+                    echo "<hr>"; $tree->display_tag_groups_b();
+
         }
     
     ?>
@@ -37,7 +39,7 @@ $args= array(
 
 
 query_posts( $args); ?>
-	<div id="content"  category_type='graduate-job' tag_type='profession'>
+	<div id="content"  category_type='graduate-job' tag_type='profession' body_type="company">
 		<div class="padder">
 
 		<?php do_action( 'bp_before_blog_page' ); ?>

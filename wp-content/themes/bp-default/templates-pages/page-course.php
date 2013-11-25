@@ -19,8 +19,10 @@ include (TEMPLATEPATH . '/templates-headers/header-course.php');
         global $tree;
           $tree= display_taxonomy_tree('subject', 'uni');
           $tree->display_tag_groups();
+          
+          echo "<hr>"; $tree->display_tag_groups_b();
         }
-       // display_tree();
+       // 
     
     ?>
     <?php do_action('the_action_hook'); ?>
@@ -39,7 +41,7 @@ $args= array(
 );
 
 query_posts( $args); ?>
-	<div id="content"  category_type='course' tag_type='subject'>
+	<div id="content"  category_type='course' tag_type='subject' body_type="uni">
                         
 		<div class="padder">
 
