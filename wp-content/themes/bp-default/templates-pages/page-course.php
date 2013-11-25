@@ -48,9 +48,9 @@ query_posts( $args); ?>
 		<?php do_action( 'bp_before_blog_page' ); ?>
 
 		<div class="page" id="blog-page" role="main">
-
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-                    
+                   
+
 				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                                     <div class="item">
     
@@ -83,11 +83,14 @@ printf("Course Type: %s ",$course_type);
   //print the group
   $tree->print_linked_taggroup_or_tag($post->ID, $object_id, $group_parent_id);
  
- ?>
+ ?> 
+     <?php echo "<br> ";if(function_exists("kk_star_ratings")) : echo kk_star_ratings($pid); endif; ?>
+
                                             <hr>                                     
                                                     <?php // edit_post_link( __( 'Edit this page.', 'buddypress' ), '<p class="edit-link">', '</p>'); ?>
 
 					</div>
+                                
                                             <div class="clickme"></div><!--overlay -->
 				</div><!--item-->
 

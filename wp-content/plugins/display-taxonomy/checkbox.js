@@ -64,7 +64,7 @@ function graylien_infinite_scroll($){
             closeActiveBox($);
             disableClickMe($);
             setTimeout(function(){isotopes_modal($);}, 500);
-            
+
 
    }
 });
@@ -239,7 +239,8 @@ function process_filter($, selected_subjects, category_type, tag_type, selected_
                
          $('#loaded_content').isotope( 'insert', $(data) );
          resetCurrentActiveBox($);
-         
+            //reinitiate ratings plugin
+         $('.kk-star-ratings').kkstarratings();
          return false;
      },
              
@@ -296,6 +297,9 @@ function process_filter_scroll($, selected_subjects, postoffset, category_type, 
          setTimeout(function(){ $('#loaded_content').isotope( 'reLayout');}, 200); //prevent overlap
         
          isLoadingData=false;
+         //reinitiate ratings plugin
+         $('.kk-star-ratings').kkstarratings();
+
          return false;
      },
      error: function(errorThrown){
