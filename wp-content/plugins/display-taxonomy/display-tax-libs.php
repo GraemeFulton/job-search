@@ -131,7 +131,31 @@ class Display_Taxonomy{
         echo '</div>';
 
     }
+    
+    
+    /*
+     * diplay_meta_group 
+     * queries a piece of tag meta, such as location
+     */
+    public function display_meta_group_list($meta_key){
+        
+        global $wpdb;
+           
+        $sql="SELECT DISTINCT $wpdb->postmeta.meta_value
+                from $wpdb->postmeta 
+                WHERE $wpdb->postmeta.meta_key ='$meta_key'";
+        
+        $safe_sql= $wpdb->prepare($sql);
+        $results=$wpdb->get_results($safe_sql);
+        foreach($results as $group)
+    {       
 
+       echo '<p>'.$group->meta_value.'</p>'; 
+       
+    }
+        
+        
+    }
     
 /****************************************************
 * Page template body functions (central region)

@@ -39,8 +39,9 @@ printf("Course Type: %s ",$course_type);
   
   //print the group
   $tree->print_linked_taggroup_or_tag($post_id, $object_id, $group_parent_id);
- 
- ?>     <?php echo "<br> ";if(function_exists("kk_star_ratings")) : echo kk_star_ratings($post_id); endif; ?>
+   show_ratings($post_id);
+
+ ?>     <?php// echo "<br> ";if(function_exists("kk_star_ratings")) : echo kk_star_ratings($post_id); endif; ?>
 
                                             <hr>                                     
                                                     <?php // edit_post_link( __( 'Edit this page.', 'buddypress' ), '<p class="edit-link">', '</p>'); ?>
