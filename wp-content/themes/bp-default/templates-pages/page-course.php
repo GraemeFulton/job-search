@@ -11,8 +11,9 @@ include (TEMPLATEPATH . '/templates-headers/header-course.php');
 <div id="page-container">
     
 <div id="sidebar-left">
-    <h1> <?php echo get_the_title(); ?> </h1>
-    
+    <h2>Sort Courses:</h2>
+    <hr>
+    <h2>Subject</h2>
     
     <?php if ( function_exists( 'display_taxonomy_tree' ) ) 
         {
@@ -20,8 +21,8 @@ include (TEMPLATEPATH . '/templates-headers/header-course.php');
           $tree= display_taxonomy_tree('subject', 'uni');
           $tree->display_tag_groups();
           
-          echo "<hr>"; $tree->display_tag_groups_b();
-        }
+          echo '<hr><h2>University</h2>'; $tree->display_tag_groups_b();
+       }
        // 
     
     ?>
@@ -57,6 +58,9 @@ query_posts( $args); ?>
                                          <div class="post_image">
                                             <?php //print the image
                                             $tree->print_post_image($group_parent_id, $post->ID);
+                                            
+                                       
+
                                             ?>
                                          </div>
 
@@ -82,10 +86,12 @@ printf("Course Type: %s ",$course_type);
   
   //print the group
   $tree->print_linked_taggroup_or_tag($post->ID, $object_id, $group_parent_id);
- 
- ?> 
-     <?php echo "<br> ";if(function_exists("kk_star_ratings")) : echo kk_star_ratings($pid); endif; ?>
 
+  show_ratings($post->ID);
+ ?> 
+<?php echo do_shortcode('[WPCR_INSERT]'); ?>
+
+     <?php echo "<br> ";if(function_exists("kk_star_ratings")) : echo kk_star_ratings($pid); endif; ?>
                                             <hr>                                     
                                                     <?php // edit_post_link( __( 'Edit this page.', 'buddypress' ), '<p class="edit-link">', '</p>'); ?>
 
@@ -103,6 +109,7 @@ printf("Course Type: %s ",$course_type);
 
                                 
 <?php do_action( 'bp_after_blog_page' ); ?>
+                    
 	
 	</div><!-- #content -->
         

@@ -794,10 +794,9 @@ function bp_dtheme_remove_nojs_body_class() {
 add_action( 'bp_before_header', 'bp_dtheme_remove_nojs_body_class' );
 
 
-/*
- * BOOSTRAP NAV
- */
-/* Theme setup */
+/*****************
+BOOTSTRAP NAVIGATION
+********************/
 add_action( 'after_setup_theme', 'wpt_setup' );
     if ( ! function_exists( 'wpt_setup' ) ):
         function wpt_setup() {  
@@ -817,4 +816,22 @@ add_action( 'wp_enqueue_scripts', 'wpt_register_css' );
 <?php // Register custom navigation walker
     require_once('wp_bootstrap_navwalker.php');
     
+?>
+
+<?php
+/*****************
+SHOW RATINGS
+******************/
+function show_ratings($postID){
+global $wpdb;
+$pId = $postID; //if using in another page, use the ID of the post/page you want to show ratings for.
+$row = $wpdb->get_results("SELECT COUNT(*) AS `total`,AVG(review_rating) AS `aggregate_rating`,MAX(review_rating) AS `max_rating` FROM wp_wpcreviews WHERE `page_id`= $pId AND `status`=1");
+$max_rating = $row[0]->max_rating;
+$aggregate_rating = $row[0]->aggregate_rating; 
+$total_reviews = $row[0]->total;
+$totl = $aggregate_rating * 20;
+$wpdb->flush();
+
+echo '<br><div class="sp_rating" id="wpcr_respond_1"><div class="base"><div style="width:'.$totl.'%" class="average"></div></div>&nbsp'.$total_reviews.' Reviews</div>';
+}
 ?>

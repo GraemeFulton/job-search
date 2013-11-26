@@ -11,13 +11,16 @@ include (TEMPLATEPATH . '/templates-headers/header-graduate-job.php');
 <div id="page-container">
 
 <div id="sidebar-left">
-    <h1> <?php echo get_the_title(); ?> </h1>
-    
-    
+     <h2>Sort Jobs:</h2>
+    <hr>
+    <h2>Profession</h2>        
     <?php if ( function_exists( 'display_taxonomy_tree' ) ) 
         { $tree= display_taxonomy_tree('profession', 'company');
           $tree->display_tag_groups();
-                    echo "<hr>"; $tree->display_tag_groups_b();
+                    echo '<hr><h2>Company</h2>'; 
+                    $tree->display_tag_groups_b();
+          echo '<hr><h2>Location</h2>';
+          $tree->display_meta_group_list('location');
 
         }
     

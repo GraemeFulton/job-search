@@ -240,7 +240,7 @@ function process_filter($, selected_subjects, category_type, tag_type, selected_
          $('#loaded_content').isotope( 'insert', $(data) );
          resetCurrentActiveBox($);
             //reinitiate ratings plugin
-         $('.kk-star-ratings').kkstarratings();
+     //    $('.kk-star-ratings').kkstarratings();
          return false;
      },
              
@@ -298,7 +298,7 @@ function process_filter_scroll($, selected_subjects, postoffset, category_type, 
         
          isLoadingData=false;
          //reinitiate ratings plugin
-         $('.kk-star-ratings').kkstarratings();
+    //     $('.kk-star-ratings').kkstarratings();
 
          return false;
      },
