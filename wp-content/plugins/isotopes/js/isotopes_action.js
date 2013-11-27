@@ -86,23 +86,17 @@ function isotopes_init($,colWidth,offset,topOffset)
 
 function isotopes_modal($){
     
-
-   $('.posttitle').click(function(e) { //this prevents title going to post-box
-    
-       e.preventDefault(); 
-   });
-
    $('.clickme').click(function(){ 
-	        
         disableClickMe($);
 
        if(! $(this).closest(".isotope-item").hasClass("activepost"))
        {//if it isnt the active post
            //$(".item").removeClass("activepost").removeClass("activepost_edge");
+            $(this).css("z-index", "-1");
 
            $(this).siblings(".entry").children('p').show();
           $(this).closest(".item").addClass("activepost");//make it an active post
-           $(this).closest(".clickme").append("<div class='close_box'>X</div>");
+           $(this).closest(".item").prepend("<div class='close_box'>X</div>");
 
 	   closeBoxHandler($, this);
 
@@ -159,9 +153,6 @@ function isotopes_modal($){
 
     });
     
-    //add click event to post_image - simply trigger the clickme click event
-     $('.click_to_post').click(function(){ $(this).parent().siblings(".clickme").click(); });
-    
 
 }
 
@@ -175,12 +166,9 @@ function disableClickMe($){
 }
 
 function enableClickMe($){
-	
-    $(".clickme").bind('click', function(){
-		
+   
             isotopes_modal($);	
-    });
-		
+    
 }
 
 /*
@@ -222,13 +210,14 @@ function closeBoxHandler($){
 
 $('.close_box').click(function(){ 
 	
-	   $(this).closest(".item").removeClass("activepost").removeClass("activepost_edge");
-           $(this).closest(".item").removeClass("activepost_edger").removeClass("activepost_edge");
+	   $(this).parent(".item").removeClass("activepost").removeClass("activepost_edge");
+           $(this).parent(".item").removeClass("activepost_edger").removeClass("activepost_edge");
+            $(this).siblings(".clickme").css("z-index", "1");
 
-            $(this).parent().siblings(".entry").children('p').hide();
+            $(this).siblings(".entry").children('p').hide();
                 
 
-		   $(this).removeClass("close_box");
+		//   $(this).removeClass("close_box");
 		   
        
                $(this).closest(".isotope-item").animate(
@@ -239,7 +228,6 @@ $('.close_box').click(function(){
                  "top":"0"
                 },300,"linear",function()
                 {
-           //         $("#blog-page").isotope( 'reLayout' ); 
                     
                 });
               

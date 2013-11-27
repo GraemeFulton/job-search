@@ -1,0 +1,10 @@
+array(4) {
+  ["relation"]=>
+  string(2) "OR"
+  ["key"]=>
+  string(8) "location"
+  ["value"]=>
+  string(9) "Edinburgh"
+  ["compare"]=>
+  string(4) "LIKE"
+}

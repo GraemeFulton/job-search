@@ -69,24 +69,22 @@ query_posts( $args); ?>
 
 						<?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) ); ?>
                    
-<?php 
+                                                <?php 
 
-// print advert type
-printf("Job Type: %s ", types_render_field("graduate-job-type", array("output"=>"normal")));
- 
-//print company name, and image
-$post_object_id = wp_get_post_terms($post->ID, 'company', array("fields" => "ids"));
-$group_parent_id= $tree->get_tag_group_leader($post_object_id[0]);
-  
-//print the name
-$tree->print_linked_taggroup_or_tag($post->ID, $post_object_id, $group_parent_id);
-  
+                                                // print advert type
+                                                printf("Job Type: %s ", types_render_field("graduate-job-type", array("output"=>"normal")));
+
+                                                //print company name, and image
+                                                $post_object_id = wp_get_post_terms($post->ID, 'company', array("fields" => "ids"));
+                                                $group_parent_id= $tree->get_tag_group_leader($post_object_id[0]);
+
+                                                //print the name
+                                                $tree->print_linked_taggroup_or_tag($post->ID, $post_object_id, $group_parent_id);
 
 
- ?>
+
+                                                 ?>
                                             <hr>                                     
-                                                    <?php // edit_post_link( __( 'Edit this page.', 'buddypress' ), '<p class="edit-link">', '</p>'); ?>
-
 					</div>
                                             <div class="clickme"></div><!--overlay -->
 				</div><!--item-->
