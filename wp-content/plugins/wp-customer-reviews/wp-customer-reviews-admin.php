@@ -731,7 +731,7 @@ class WPCustomerReviewsAdmin
             $wpdb->query( "INSERT INTO $wpdb->postmeta 
                             SELECT 0,$wpdb->posts.ID,'wpcr_enable',1
                             FROM $wpdb->posts
-                            WHERE $wpdb->posts.post_type = 'post' " ); 
+                            WHERE $wpdb->posts.post_type = 'post' " ); //course
         }
         elseif ($this->p->Submit == 'Disable Plugin for all Existing Posts') {
             global $wpdb;

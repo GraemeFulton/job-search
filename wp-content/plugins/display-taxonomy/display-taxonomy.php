@@ -64,7 +64,8 @@ include("display-tax-libs.php");
                           $_POST['cat'], 
                           $_POST['type'], 
                           $_POST['selected_institutions'],
-                          $_POST['body_type']
+                          $_POST['body_type'],
+                          $_POST['location']
                           );
              break;
              default:
@@ -86,8 +87,9 @@ include("display-tax-libs.php");
  * ajax_get_latest_posts
  * args: taxonomy (checkbox selections), offset(number of courses already loaded)
  * returns: html template 
+ * note:change location to meta value
  */
-function create_post_filter($selected_subjects, $offset, $category_type, $tag_type, $selected_institutions, $body_type)
+function create_post_filter($selected_subjects, $offset, $category_type, $tag_type, $selected_institutions, $body_type, $location)
 {
     
    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -100,7 +102,6 @@ function create_post_filter($selected_subjects, $offset, $category_type, $tag_ty
         'posts_per_page'=>9,
         'orderby' => 'title',
         'order' => 'ASC'
-
     );
     
     //QUERY CHECKED SUBJECTS
@@ -131,6 +132,25 @@ function create_post_filter($selected_subjects, $offset, $category_type, $tag_ty
             $args['tax_query'][0]['field']='slug';
         }      
     } //QUERY CHECKED INSTITUTIONS
+    
+    //QUERY META VALUE (LOCATION)
+       if($location!=" "){//if a box has been checked, we add a taxnomoy query
+                
+           $new_meta= 
+                array(
+                    'key' => 'location',
+                    'value' => $location,
+                    'compare' => 'LIKE',
+                );
+           $args['meta_query'][0]=$new_meta;
+                            
+            
+    }
+    
+    
+    
+    //QUERY META VALUE (LOCATION)
+
     
     query_posts($args);
     

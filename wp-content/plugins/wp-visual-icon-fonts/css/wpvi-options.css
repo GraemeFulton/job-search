@@ -1,0 +1,40 @@
+div.available-theme {
+    padding-top: 0;
+    padding-bottom: 40px;
+}
+.available-theme em {
+	color: #555;
+	font-size: 10px;
+	font-style: italic;
+	line-height: 1.2em;
+	margin-top: 9px;
+	margin-bottom: 16px;
+	display: block;
+}
+
+.available-theme input[type=radio] {
+	float: right;
+	margin-top: 4px;
+	position: relative;
+	z-index: 5;
+	margin-right: 10px;
+}
+
+.available-theme label {
+	margin-left: 0;
+	font-size: 15px;
+	line-height: 1.5em;
+	color: #515151;
+	font-weight: bold;
+	display: block;
+	padding: 5px;
+	background: #f0f0f0;
+	position: relative;
+	top: -4px;
+}
+
+p.submit input#submit {
+    margin-left: 230px;
+}
+
+
