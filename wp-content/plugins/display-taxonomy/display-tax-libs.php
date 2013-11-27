@@ -136,9 +136,20 @@ class Display_Taxonomy{
     /*
      * diplay_meta_group 
      * queries a piece of tag meta, such as location
+     *     <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
      */
     public function display_meta_group_list($meta_key){
         
+        ?>
+    <div class="control-group">
+        <label for="multi-append" class="control-label">Select Location(s): </label>
+        <div class="controls">
+          <div class="input-append">
+                
+            <select id="multi-append" class="select2" multiple="multiple" style="width:110px;">
+              <option></option>
+    <?php
         global $wpdb;
            
         $sql="SELECT DISTINCT $wpdb->postmeta.meta_value
@@ -149,11 +160,30 @@ class Display_Taxonomy{
         $results=$wpdb->get_results($safe_sql);
         foreach($results as $group)
     {       
-
-       echo '<p>'.$group->meta_value.'</p>'; 
+            
+       echo '<option value="'.$group->meta_value.'">'.$group->meta_value.'</option>'; 
        
     }
-        
+        ?>
+            </select>
+          <button class="btn" id="location_search" type="button">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </div>
+        </div>
+      </div> 
+   <script>
+      $('.select2').select2({ placeholder : '' });
+      
+      $('.select2-remote').select2({ data: [{id:'A', text:'A'}]});
+
+      $('button[data-select2-open]').click(function(){
+        $('#' + $(this).data('select2-open')).select2('open');
+      });
+    </script>
+    
+    <?php
+    
         
     }
     

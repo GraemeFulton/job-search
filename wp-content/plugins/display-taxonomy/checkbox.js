@@ -2,9 +2,9 @@ jQuery(document).ready(function ($) {
   
     load_more_button_listener($);
    
-    check_box_listener($);
+    activate_listeners($);
 
-    graylien_infinite_scroll($);
+    graylien_infinite_scroll($);         
 });
 
 /*
@@ -13,11 +13,9 @@ jQuery(document).ready(function ($) {
  * Newly checked categories are appended to the url
  * Unchecked categories are removed from the url_string
  */
-var url_string=document.URL;
 var selected_subjects =[]; //array to hold checked subjects
 var selected_institutions=[]; //array to hold checked institutions
-var category_names_selected= "Selected: ";
-var pageURL=getPageName(document.URL);
+var meta_filter= "";
 
 /*
  * load_more_button
@@ -78,13 +76,16 @@ function graylien_infinite_scroll($){
  * Listener for changes in checkboxes
  * Triggers checked() & unchecked() functions
  */
-function check_box_listener($){
+function activate_listeners($){
   
   //uncheck all boxes on page load
     $('#input:checkbox').prop('checked', false);
 
    subject_listener($);
    institution_listener($);
+    
+   location_search($);
+
     
 }
 
@@ -100,12 +101,12 @@ function subject_listener($){
     function()
     {
        if ($(this).is(':checked')) {
-            checked($,this, true, 'subject');
+            apply_filter($,this, true, 'subject');
       
         }
         else{
 
-            checked($,this, false, 'subject');
+            apply_filter($,this, false, 'subject');
         }
     }); 
 }
@@ -122,14 +123,53 @@ function institution_listener($){
     function()
     {
        if ($(this).is(':checked')) {
-            checked($,this, true, 'institution');
+            apply_filter($,this, true, 'institution');
       
         }
         else{
 
-            checked($,this, false, 'institution');
+            apply_filter($,this, false, 'institution');
         }
     }); 
+}
+
+/*
+ * location_search
+ * @param {type} $
+ * @param {type} arg
+ * @param {type} true_false
+ * @param {type} filter_type
+ * @returns {undefined}
+ */
+function location_search($){
+    
+    //listen for if the box is empty
+     $("#multi-append").on("change", function(){
+       
+       if($("#multi-append").val()==null){
+           meta_filter="";
+        apply_filter($,'#multi-append', true, '');
+       }
+       
+   }) 
+    
+    //all on click!
+    $('#location_search').click(function(){
+    
+       //assign value of meta box to meta_filter variable
+        meta_filter= $("#multi-append").val();//$("#multi-append").select2("val");
+
+        //if there IS something in the box, meta_filter=box value
+        if(meta_filter!=null){
+            meta_filter=meta_filter.toString();
+            meta_filter= meta_filter.split('|', 1)[0];    
+        }
+        else meta_filter="";//else meta_filter is blank
+
+        apply_filter($,'#multi-append', true, '');
+
+    })
+    
 }
 
 /*
@@ -142,26 +182,16 @@ function institution_listener($){
  * or removes unchecked value from url_string
  * 
  */
-function checked($,arg, true_false, filter_type){
+function apply_filter($,arg, true_false, filter_type){
     
     $("html, body").animate({ scrollTop: 0 }, 500);
     //filter for the url_string
-    var cat_id=$(arg).val();
-    var filter= "&category="+cat_id;
     var category_type= $('#content').attr('category_type');
     var tag_type= $('#content').attr('tag_type');
     var body_type= $('#content').attr('body_type');
-
-
-    
-    //name for breadcrumbs
+    //name for filtering
     var name = $(arg).attr('name');
-    if (category_names_selected.indexOf(name) >= 0){
-       category_names_selected = category_names_selected.replace(name, "");
-    }else{category_names_selected+=" <a href='"+pageURL+".php?category="+cat_id+"'><span class='crumb-checked'>"+name+"</span></a>";}
 
-    
-       
     if (true_false===true)
     {
         if(filter_type==='subject'){
@@ -171,9 +201,10 @@ function checked($,arg, true_false, filter_type){
                selected_institutions.push(name);
         }
         
-        process_filter($,selected_subjects, category_type, tag_type, selected_institutions, body_type);
-        
-                closeActiveBox($);
+        //add filter value to process filter, and collect it in the php file, then use it to filter the post
+         process_filter($,selected_subjects, category_type, tag_type, selected_institutions, body_type);
+            
+            closeActiveBox($);
             disableClickMe($);
             setTimeout(function(){isotopes_modal($);}, 500);
                 
@@ -207,7 +238,7 @@ function checked($,arg, true_false, filter_type){
  * @returns {undefined}
  * ajax filter for subject box
  */
-function process_filter($, selected_subjects, category_type, tag_type, selected_institutions, body_type){
+function process_filter($, selected_subjects, category_type, tag_type, selected_institutions, body_type, filter_value){
     $.ajax({
      url: '/LGWP/wp-admin/admin-ajax.php', 
      type: "POST",
@@ -218,7 +249,8 @@ function process_filter($, selected_subjects, category_type, tag_type, selected_
             'cat':category_type,
             'type':tag_type,
             'selected_institutions': selected_institutions,
-            'body_type': body_type
+            'body_type': body_type,
+            'location': meta_filter
            },
    dataType:'HTML', 
    success: function(data){
@@ -274,7 +306,8 @@ function process_filter_scroll($, selected_subjects, postoffset, category_type, 
             'cat':category_type,
             'type':tag_type,
             'selected_institutions': selected_institutions,
-            'body_type': body_type
+            'body_type': body_type,
+            'location': meta_filter
            },
    dataType:'HTML', 
    

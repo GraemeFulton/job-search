@@ -832,6 +832,6 @@ $total_reviews = $row[0]->total;
 $totl = $aggregate_rating * 20;
 $wpdb->flush();
 
-echo '<br><div class="sp_rating" id="wpcr_respond_1"><div class="base"><div style="width:'.$totl.'%" class="average"></div></div>&nbsp'.$total_reviews.' Reviews</div>';
+echo '<br><div class="sp_rating" id="wpcr_respond_1"><div class="base"><div style="width:'.$totl.'%" class="average"></div></div>&nbsp('.$total_reviews.' Reviews)</div>';
 }
 ?>

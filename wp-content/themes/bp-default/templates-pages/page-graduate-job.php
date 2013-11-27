@@ -8,6 +8,7 @@
 include (TEMPLATEPATH . '/templates-headers/header-graduate-job.php');
 
 ?>
+
 <div id="page-container">
 
 <div id="sidebar-left">
@@ -26,7 +27,6 @@ include (TEMPLATEPATH . '/templates-headers/header-graduate-job.php');
     
     ?>
 </div>
-
 
 <?php 
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
