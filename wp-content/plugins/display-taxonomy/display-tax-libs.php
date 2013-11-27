@@ -147,21 +147,24 @@ class Display_Taxonomy{
         <div class="controls">
           <div class="input-append">
                 
-            <select id="multi-append" class="select2" multiple="multiple" style="width:110px;">
+            <select id="multi-append" class="select2" multiple="multiple" name="meta" style="width:110px;">
               <option></option>
     <?php
         global $wpdb;
            
         $sql="SELECT DISTINCT $wpdb->postmeta.meta_value
                 from $wpdb->postmeta 
-                WHERE $wpdb->postmeta.meta_key ='$meta_key'";
+                WHERE $wpdb->postmeta.meta_key ='$meta_key'
+                ORDER BY $wpdb->postmeta.meta_value ASC";
         
         $safe_sql= $wpdb->prepare($sql);
         $results=$wpdb->get_results($safe_sql);
         foreach($results as $group)
-    {       
+    {      
+            $location=explode("|",$group->meta_value);
+            $location_name=explode("+",$location[0]);
             
-       echo '<option value="'.$group->meta_value.'">'.$group->meta_value.'</option>'; 
+       echo '<option value="'.$location_name[0].'">'.$location_name[0].'</option>'; 
        
     }
         ?>

@@ -1,7 +1,5 @@
 jQuery(document).ready(function ($) {
-  
-    load_more_button_listener($);
-   
+    
     activate_listeners($);
 
     graylien_infinite_scroll($);         
@@ -16,26 +14,7 @@ jQuery(document).ready(function ($) {
 var selected_subjects =[]; //array to hold checked subjects
 var selected_institutions=[]; //array to hold checked institutions
 var meta_filter= "";
-
-/*
- * load_more_button
- * @param {type} $
- * @returns {undefined}
- * listens for click of load more button, and loads more posts
- */
-function load_more_button_listener($){
- $('#blog-more').click(function(event){
-       event.preventDefault();
-        var postoffset = $('.hentry').length;
-        var category_type= $('#content').attr('category_type');
-        var tag_type= $('#content').attr('tag_type');
-
- // console.log("offset: "+postoffset);
-
-  ajaxLoadMore($,selected_subjects,postoffset, category_type, tag_type);
- });  
-}
-
+var meta_filter_arr=[];
 
 /*
  * graylien_infinite_scroll
@@ -56,7 +35,7 @@ function graylien_infinite_scroll($){
             var body_type= $('#content').attr('body_type');
 
       
-            process_filter_scroll($,selected_subjects,postoffset, category_type, tag_type, selected_institutions,body_type);
+            process_filter_scroll($,postoffset, category_type, tag_type, body_type);
             isLoadingData=true;
 
             closeActiveBox($);
@@ -78,12 +57,12 @@ function graylien_infinite_scroll($){
  */
 function activate_listeners($){
   
-  //uncheck all boxes on page load
-    $('#input:checkbox').prop('checked', false);
-
+  //Clear all selections
+   clear_previous_selections($);
+    
+  //activate listeners  
    subject_listener($);
    institution_listener($);
-    
    location_search($);
 
     
@@ -148,6 +127,7 @@ function location_search($){
        
        if($("#multi-append").val()==null){
            meta_filter="";
+           meta_filter_arr=[];
         apply_filter($,'#multi-append', true, '');
        }
        
@@ -162,7 +142,7 @@ function location_search($){
         //if there IS something in the box, meta_filter=box value
         if(meta_filter!=null){
             meta_filter=meta_filter.toString();
-            meta_filter= meta_filter.split('|', 1)[0];    
+            meta_filter_arr= meta_filter.split(',');console.log(meta_filter_arr);
         }
         else meta_filter="";//else meta_filter is blank
 
@@ -184,7 +164,7 @@ function location_search($){
  */
 function apply_filter($,arg, true_false, filter_type){
     
-    $("html, body").animate({ scrollTop: 0 }, 500);
+  //  $("html, body").animate({ scrollTop: 0 }, 500);
     //filter for the url_string
     var category_type= $('#content').attr('category_type');
     var tag_type= $('#content').attr('tag_type');
@@ -202,7 +182,7 @@ function apply_filter($,arg, true_false, filter_type){
         }
         
         //add filter value to process filter, and collect it in the php file, then use it to filter the post
-         process_filter($,selected_subjects, category_type, tag_type, selected_institutions, body_type);
+         process_filter($, category_type, tag_type, body_type);
             
             closeActiveBox($);
             disableClickMe($);
@@ -221,7 +201,7 @@ function apply_filter($,arg, true_false, filter_type){
         }
            
            
-           process_filter($,selected_subjects, category_type, tag_type, selected_institutions, body_type);           
+           process_filter($, category_type, tag_type, body_type);           
            
            closeActiveBox($);
             disableClickMe($);
@@ -238,7 +218,7 @@ function apply_filter($,arg, true_false, filter_type){
  * @returns {undefined}
  * ajax filter for subject box
  */
-function process_filter($, selected_subjects, category_type, tag_type, selected_institutions, body_type, filter_value){
+function process_filter($, category_type, tag_type, body_type){
     $.ajax({
      url: '/LGWP/wp-admin/admin-ajax.php', 
      type: "POST",
@@ -250,7 +230,7 @@ function process_filter($, selected_subjects, category_type, tag_type, selected_
             'type':tag_type,
             'selected_institutions': selected_institutions,
             'body_type': body_type,
-            'location': meta_filter
+            'location': meta_filter_arr
            },
    dataType:'HTML', 
    success: function(data){
@@ -291,7 +271,7 @@ function process_filter($, selected_subjects, category_type, tag_type, selected_
  * @param {type} tax
  * @param {type} postoffset
  * @returns {undefined} */
-function process_filter_scroll($, selected_subjects, postoffset, category_type, tag_type, selected_institutions, body_type){
+function process_filter_scroll($, postoffset, category_type, tag_type, body_type){
  
  if(isLoadingData==true) return;
  
@@ -307,7 +287,7 @@ function process_filter_scroll($, selected_subjects, postoffset, category_type, 
             'type':tag_type,
             'selected_institutions': selected_institutions,
             'body_type': body_type,
-            'location': meta_filter
+            'location': meta_filter_arr
            },
    dataType:'HTML', 
    
@@ -435,3 +415,63 @@ function getBodyName(data){
      return body;
     
 }
+
+
+/*
+ * clear_previous_selections
+ * @param {type} $
+ * @returns {undefined}
+ * removes any previously selected options 
+ * clears checkboxes and select box
+ */
+function clear_previous_selections($){
+    
+    $('#input:checkbox').prop('checked', false);
+    $('#myselect').attr('value','');
+    
+    //clear duplicate select values
+    remove_duplicate_select_options($);
+    
+}
+
+/*
+ * remove_duplicate_select_options
+ * @param {type} $
+ * @returns {undefined}
+ * removes any duplicate names from the meta select box
+ */
+function remove_duplicate_select_options($){
+    
+    var usedNames = {};
+     $("select[name='meta'] > option").each(function () 
+     {
+         if(usedNames[this.text]) 
+         {
+            $(this).remove();
+         } 
+         else 
+         {
+            usedNames[this.text] = this.value;
+         }
+    });
+}
+
+
+/*
+ * load_more_button
+ * @param {type} $
+ * @returns {undefined}
+ * listens for click of load more button, and loads more posts
+ */
+//function load_more_button_listener($){
+// $('#blog-more').click(function(event){
+//       event.preventDefault();
+//        var postoffset = $('.hentry').length;
+//        var category_type= $('#content').attr('category_type');
+//        var tag_type= $('#content').attr('tag_type');
+//
+// // console.log("offset: "+postoffset);
+//
+//  process_filter_scroll($,postoffset, category_type, tag_type, body_type);
+// });  
+//}
