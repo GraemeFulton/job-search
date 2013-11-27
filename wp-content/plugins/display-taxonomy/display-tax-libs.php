@@ -277,7 +277,7 @@ class Display_Taxonomy{
                $list = implode ( ',', $slugs );
 
                if($names[0])
-               echo '| Offered by: <a href="'.$url.'/?uni='.$list.'">'.$names[0].'</a>';
+               echo '| Offered by: <a href="'.$url.'/?'.$this->grouped_taxonomy_short.'='.$list.'">'.$names[0].'</a>';
             }
      }
      else{
@@ -285,7 +285,7 @@ class Display_Taxonomy{
          $term_name = wp_get_post_terms($post_id, $this->grouped_taxonomy_short, array("fields" => "names"));
          $term_slug = wp_get_post_terms($post_id, $this->grouped_taxonomy_short, array("fields" => "slugs"));
         
-         if($term_name[0])echo '| Offered by: <a href="'.$url.'/?uni='.$term_slug[0].'">'.$term_name[0].'</a>';
+         if($term_name[0])echo '| Offered by: <a href="'.$url.'/?'.$this->grouped_taxonomy_short.'='.$term_slug[0].'">'.$term_name[0].'</a>';
          
      }
  }

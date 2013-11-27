@@ -83,15 +83,12 @@ printf("Course Type: %s ",$course_type);
   $object_id = wp_get_post_terms($post->ID, 'uni', array("fields" => "ids"));
   
   $group_parent_id= $tree->get_tag_group_leader($object_id[0]);
-  var_dump($group_parent_id);
   //print the group
   $tree->print_linked_taggroup_or_tag($post->ID, $object_id, $group_parent_id);
 
   show_ratings($post->ID);
  ?> 
-<?php echo do_shortcode('[WPCR_INSERT]'); ?>
-
-     <?php echo "<br> ";if(function_exists("kk_star_ratings")) : echo kk_star_ratings($pid); endif; ?>
+<?php //echo do_shortcode('[WPCR_INSERT]'); ?>
                                             <hr>                                     
                                                     <?php // edit_post_link( __( 'Edit this page.', 'buddypress' ), '<p class="edit-link">', '</p>'); ?>
 
