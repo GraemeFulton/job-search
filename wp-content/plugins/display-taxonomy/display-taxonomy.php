@@ -32,6 +32,7 @@ Author URI: http://gfulton.me.uk
     function load_js()
     {
         wp_enqueue_script('the_js', plugins_url('/checkbox.js',__FILE__) );
+        echo '<script> templateUrl = "'.plugins_url("display-taxonomy").'"</script>';
     }
     add_action('wp_head','load_js');
 

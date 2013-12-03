@@ -1,7 +1,7 @@
 <!--course post loop template-->
 	
 <?php  
-if (!have_posts()){echo '<h2 class="hentry" style="width:100%"><br><br> Hey, we don&apos;t have any courses matching this criteria at the moment, please try a different filter.</h2>';
+if (!have_posts()){echo '<h2 class="hentry no-more" style="width:100%"><br><br> Hey, we don&apos;t have any courses matching this criteria at the moment, please try a different filter.</h2>';
 return;
 }
 ?>
@@ -45,7 +45,7 @@ printf("Course Type: %s ",$course_type);
   $tree->print_linked_taggroup_or_tag($post_id, $object_id, $group_parent_id);
    show_ratings($post_id);
 
- ?>     <?php// echo "<br> ";if(function_exists("kk_star_ratings")) : echo kk_star_ratings($post_id); endif; ?>
+ ?>   
 
                                             <hr>                                     
                                                     <?php // edit_post_link( __( 'Edit this page.', 'buddypress' ), '<p class="edit-link">', '</p>'); ?>

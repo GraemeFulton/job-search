@@ -244,7 +244,7 @@ class Display_Taxonomy{
   }
  
  /*
-  * all_tags_from_group_url
+  * print_linked_taggroup_or_tag
   * @param: $post_id
   * 
   * gets all children tags from a given tag group parent, and builds an URL
@@ -277,7 +277,7 @@ class Display_Taxonomy{
                $list = implode ( ',', $slugs );
 
                if($names[0])
-               echo '| Offered by: <a href="'.$url.'/?'.$this->grouped_taxonomy_short.'='.$list.'">'.$names[0].'</a>';
+               echo '<a href="'.$url.'/?'.$this->grouped_taxonomy_short.'='.$list.'">'.$names[0].'</a>';
             }
      }
      else{
@@ -285,11 +285,82 @@ class Display_Taxonomy{
          $term_name = wp_get_post_terms($post_id, $this->grouped_taxonomy_short, array("fields" => "names"));
          $term_slug = wp_get_post_terms($post_id, $this->grouped_taxonomy_short, array("fields" => "slugs"));
         
-         if($term_name[0])echo '| Offered by: <a href="'.$url.'/?'.$this->grouped_taxonomy_short.'='.$term_slug[0].'">'.$term_name[0].'</a>';
+         if($term_name[0])echo '<a href="'.$url.'/?'.$this->grouped_taxonomy_short.'='.$term_slug[0].'">'.$term_name[0].'</a>';
          
      }
  }
  
+  /*
+  * get_linked_taggroup_or_tag
+  * @param: $post_id
+  * 
+  * gets all children tags from a given tag group parent, and builds an URL
+  * including all tags, and returns it by echoing it straight out.
+  * 
+  * if the tag doesn't belong to a group, it builds the url for just the one tag
+  */
+ public function get_linked_taggroup_or_tag($post_id, $object_id, $group_parent_id){
+          
+     // $object_id = wp_get_post_terms($post_id, 'uni', array("fields" => "ids"));
+      
+     // $group_parent_id= $this->get_tag_group_leader($object_id);
+
+      $url = get_bloginfo('url');
+      
+     if ($group_parent_id)
+     {
+            if($object_id)
+            {
+                $tags_from_group= xtt_tags_from_group(intval($group_parent_id),'array',$this->grouped_taxonomy, $this->grouped_taxonomy_short);
+                $slugs=array();
+                $names=array();
+
+                foreach($tags_from_group as $tags)
+                {
+                    array_push($slugs, $tags['tag_slug']);
+                    array_push($names, $tags['tag_name']);
+                }
+
+               $list = implode ( ',', $slugs );
+
+               if($names[0])
+               return '<a href="'.$url.'/?'.$this->grouped_taxonomy_short.'='.$list.'">'.$names[0].'</a>';
+            }
+     }
+     else{
+         
+         $term_name = wp_get_post_terms($post_id, $this->grouped_taxonomy_short, array("fields" => "names"));
+         $term_slug = wp_get_post_terms($post_id, $this->grouped_taxonomy_short, array("fields" => "slugs"));
+        
+         if($term_name[0])return '<a href="'.$url.'/?'.$this->grouped_taxonomy_short.'='.$term_slug[0].'">'.$term_name[0].'</a>';
+         
+     }
+ }
+ 
+ /*
+  * get_location
+  * @params: post id
+  * returns the location name (no coordinates)
+  */
+ public function get_location($post_id){
+     
+    $location =  get_field('location', $post_id);
+    $location=explode("|",$location);
+    $location=explode("+",$location[0]);
+    return $location[0];
+     
+ }
+ 
+    /*
+     * get subject field
+     */
+    public function grouped_taxonomy_name($post_id){
+             
+    $category = wp_get_post_terms($post_id, $this->category_type_short, array("fields" => "names"));    
+
+    return $category[0];
+        
+    }
  
  /*
   * print_post_image
@@ -345,14 +416,72 @@ class Display_Taxonomy{
            return;
         }
         
-        
-    
+       
    //or finally use the dummy
      
         $dummy="http://localhost/LGWP/wp-content/uploads/post_images/dummy-job.png";
         printf('<br><img style="float:left position:relative; max-height:150px;" src="%s"/>', $dummy);
         return;
     }
+    
+     /*
+  * print_post_image
+  * @params:
+  * prints ONE image from optional images the post may have- priority for images:
+  * 1. Image attached to the institution (group parent)
+  * 2. Image attached to the post (from google images)
+  * 3. Image attached to the category (e.g. accounting/programmer)
+  * 4. Fall back on default image
+  */
+ public function get_post_image($group_parent_id, $post_id){
+     
+    //1. Image attached to the institution (group parent)
+     
+     if ($this->grouped_taxonomy_short!='uni'){
+     
+    $institution_image = s8_get_taxonomy_image_src(get_term_by('id', $group_parent_id, $this->grouped_taxonomy), 'thumbnail');
+    if ($institution_image!=false)
+    {
+        
+         return $institution_image;
+    }
+   }
+//else use anything associated to the tag:
+             
+         $term_id = wp_get_post_terms($post_id, $this->grouped_taxonomy_short, array("fields" => "ids"));
+        $company_tag_image = s8_get_taxonomy_image_src(get_term_by('id', $term_id[0], $this->grouped_taxonomy_short), 'thumbnail');
+
+        if ($company_tag_image!=false){
+            return $company_tag_image['src'];
+        }
+        
+ 
+//else use the google image:
+        $pic = types_render_field("post-image", array("output"=>"raw"));
+    
+        if($pic){          
+          return $pic;
+        }
+    
+ //else use the category (accounting image):
+        
+        $cat_term_id = wp_get_post_terms($post_id, 'profession', array("fields" => "ids"));    
+        $group_leader=$this->get_tag_group_leader($cat_term_id[0]);
+       $category_image = s8_get_taxonomy_image_src(get_term_by('id', $group_leader, $this->category_type), 'medium');
+     //  var_dump($category_image);
+       if ($category_image!=false){
+           return $category_image['src'];
+        }
+        
+        
+    
+   //or finally use the dummy
+     
+        $dummy="http://localhost/LGWP/wp-content/uploads/post_images/dummy-job.png";
+        return $dummy; 
+    }
+    
+ 
      
 }
 ?>

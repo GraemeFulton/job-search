@@ -64,6 +64,8 @@ function reset_isotopes($){
  */
 function isotopes_init($,colWidth,offset,topOffset)
 {
+        $('#content').prepend('<img id="ajax-loader" style="margin:10px 0 0 10px;"src="'+templateUrl+'/ajax-loader.gif"/>');
+
     // cache container    
      var $blogpage = $('#blog-page');
   var $container = $('#loaded_content');
@@ -81,6 +83,10 @@ function isotopes_init($,colWidth,offset,topOffset)
     });
     }).isotope( 'insert', $blogpage.find('.hentry') );
     
+  setTimeout(function(){$('#ajax-loader').fadeOut('medium'); }, 100);
+  setTimeout(function(){$("#loaded_content").isotope( 'reLayout' ); }, 500);
+
+    
     isotopes_modal($);
 }
 
@@ -94,7 +100,9 @@ function isotopes_modal($){
            //$(".item").removeClass("activepost").removeClass("activepost_edge");
             $(this).css("z-index", "-1");
 
-           $(this).siblings(".entry").children('p').show();
+           $(this).siblings(".pop-out").show();
+           $(this).siblings(".entry").hide();
+
           $(this).closest(".item").addClass("activepost");//make it an active post
            $(this).closest(".item").prepend("<div class='close_box'>X</div>");
 
@@ -178,11 +186,13 @@ function enableClickMe($){
 function closeActiveBox($){
     
     //if there's already an active box, don't need to run this
-     if(!$(".activepost").length > 0)return;       
+ //  if(!$(".activepost").length > 0)return;       
     
-           $(".clickme").closest(".isotope-item").removeClass("activepost_edger").removeClass("activepost_edge");
-                      $(".clickme").closest(".activepost").children('.entry').children('p').hide();
-                                      $(".close_box").remove();   
+           $(".clickme").closest(".isotope").removeClass("activepost_edge");
+           $(".clickme").closest(".activepost").children('.pop-out').hide();
+           $(".clickme").closest(".activepost").children('.entry').show();
+
+           $(".close_box").remove();   
 
 
      $(".activepost").closest(".isotope-item").animate(
@@ -196,12 +206,15 @@ function closeActiveBox($){
                     $("#loaded_content").isotope( 'reLayout' ); 
                     
                 });
+                     $(".activepost .clickme").css("z-index", "999");
+
                 $(".clickme").closest(".item").removeClass("activepost").removeClass("activepost_edge");
                
             //re-enable isotope modal
-           closeActiveBox($);
-            disableClickMe($);
-            setTimeout(function(){isotopes_modal($);}, 500);
+     //     closeActiveBox($);
+              enableClickMe($);	
+
+           $("#loaded_content").isotope( 'reLayout' ); 
 }
 
 
@@ -214,7 +227,8 @@ $('.close_box').click(function(){
            $(this).parent(".item").removeClass("activepost_edger").removeClass("activepost_edge");
             $(this).siblings(".clickme").css("z-index", "1");
 
-            $(this).siblings(".entry").children('p').hide();
+            $(this).siblings(".pop-out").hide();
+            $(this).siblings(".entry").show();
                 
 
 		//   $(this).removeClass("close_box");

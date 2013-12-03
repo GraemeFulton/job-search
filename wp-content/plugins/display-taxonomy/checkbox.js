@@ -24,11 +24,15 @@ var meta_filter_arr=[];
  */
 var isLoadingData;
 function graylien_infinite_scroll($){
-    
+     
     $(window).scroll(function () {
                 
    if (($(window).scrollTop() >= $(document).height() - $(window).height())) {
-                     
+  
+    //if there's already no more, exit here
+        if ($('.no-more').length > 0){
+        return;
+        }
             var postoffset = $('.hentry').length;
             var category_type= $('#content').attr('category_type');
             var tag_type= $('#content').attr('tag_type');
@@ -38,8 +42,7 @@ function graylien_infinite_scroll($){
             process_filter_scroll($,postoffset, category_type, tag_type, body_type);
             isLoadingData=true;
 
-            closeActiveBox($);
-            disableClickMe($);
+            resetCurrentActiveBox($)
             setTimeout(function(){isotopes_modal($);}, 500);
 
 
@@ -219,6 +222,10 @@ function apply_filter($,arg, true_false, filter_type){
  * ajax filter for subject box
  */
 function process_filter($, category_type, tag_type, body_type){
+    //loading gif
+    $('.hentry').empty();
+    $('#content').prepend('<img id="ajax-loader" style="margin:10px 0 0 10px;"src="'+templateUrl+'/ajax-loader.gif"/>');
+
     $.ajax({
      url: '/LGWP/wp-admin/admin-ajax.php', 
      type: "POST",
@@ -253,6 +260,8 @@ function process_filter($, category_type, tag_type, body_type){
          resetCurrentActiveBox($);
             //reinitiate ratings plugin
      //    $('.kk-star-ratings').kkstarratings();
+                  $('#ajax-loader').remove();
+
          return false;
      },
              
@@ -274,7 +283,9 @@ function process_filter($, category_type, tag_type, body_type){
 function process_filter_scroll($, postoffset, category_type, tag_type, body_type){
  
  if(isLoadingData==true) return;
- 
+     //loading gif
+    $('#content').append('<img id="ajax-loader" src="'+templateUrl+'/ajax-loader.gif"/>');
+    
     $.ajax({
      url: '/LGWP/wp-admin/admin-ajax.php', 
      type: "POST",
@@ -312,6 +323,8 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
          isLoadingData=false;
          //reinitiate ratings plugin
     //     $('.kk-star-ratings').kkstarratings();
+             $('#ajax-loader').remove();
+             $('#ajax-loader').remove();
 
          return false;
      },
