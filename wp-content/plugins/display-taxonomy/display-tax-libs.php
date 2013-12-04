@@ -163,6 +163,9 @@ class Display_Taxonomy{
     {      
             $location=explode("|",$group->meta_value);
             $location_name=explode("+",$location[0]);
+             
+            if ($location_name[0]=='United')
+                $location_name[0]='United Kingdom';
             
        echo '<option value="'.$location_name[0].'">'.$location_name[0].'</option>'; 
        
@@ -347,6 +350,10 @@ class Display_Taxonomy{
     $location =  get_field('location', $post_id);
     $location=explode("|",$location);
     $location=explode("+",$location[0]);
+    
+    if ($location[0]=='United')
+        $location[0]='UK';
+    
     return $location[0];
      
  }

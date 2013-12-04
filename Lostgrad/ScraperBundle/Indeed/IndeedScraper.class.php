@@ -21,7 +21,8 @@ Class IndeedScraper extends JobScraperAbstract{
               $result->snippet, //exerpt 
               $result->company, //company name used for image search
               "indeed",//tags
-              "indeed"//provider
+              "indeed",//provider
+              $this->post_type //post-type
                );
   
     }
