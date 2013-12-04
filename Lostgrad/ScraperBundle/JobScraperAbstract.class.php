@@ -2,6 +2,17 @@
  
 abstract class JobScraperAbstract extends ScraperAbstract{
     
+protected $post_type;
+
+public function Setup($API, $initiativeURL, $category, $post_type){
+    
+    $this->urlToScrape = $API;
+    $this->initiativeURL = $initiativeURL;  
+    $this->category= $category;
+    $this->post_type= $post_type;
+
+}
+    
 public function updateJobDetails
            (
             $wpdb, 
@@ -15,7 +26,8 @@ public function updateJobDetails
             $job_exerpt,
             $jobimage, 
             $tags,
-            $provider
+            $provider,
+            $post_type
            )
   {
     
@@ -37,7 +49,7 @@ public function updateJobDetails
             $imageURL= $this->getImageURL($jobimage);
 
             //add to database:
-            $this->submitPost($wpdb, $job_title, $job_desc,$job_exerpt, $imageURL, $tags,'graduate-job', $job);
+            $this->submitPost($wpdb, $job_title, $job_desc,$job_exerpt, $imageURL, $tags,$this->post_type, $job);
 
             $job->addJob($wpdb,$this->last_insert_id); 
              echo "<h4 style='color:green;'> Job Inserted</h4>";       

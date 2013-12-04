@@ -18,7 +18,7 @@ public function Setup($API, $initiativeURL, $category){
 
 public abstract function getArray();
 
-public abstract function scrape($h);    
+public abstract function scrape($wpdb);    
     
   
 public function submitPost($wpdb, $post_title, $content,$excerpt,$photo, $tags, $post_type, $entity)

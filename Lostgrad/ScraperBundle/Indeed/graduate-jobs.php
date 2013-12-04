@@ -86,7 +86,7 @@ $wpdb = new wpdb( $DB_USER, $DB_PASS, $DB_NAME, $DB_HOST);
             $initiativeURL='http://www.indeed.com';  
 
             $scraper = new IndeedScraper();
-            $scraper->Setup($API, $initiativeURL, $category->name);
+            $scraper->Setup($API, $initiativeURL, $category->name, 'graduate-job');
             $scraper->scrape($wpdb);            
 
          }   

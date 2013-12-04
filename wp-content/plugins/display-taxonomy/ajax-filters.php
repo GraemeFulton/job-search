@@ -126,6 +126,11 @@ function load_post_loop_view($category_type) {
         include("Views/graduatejob_post_loop.php");  
         
     }
+      else if($category_type=='work-experience-job'){
+        
+        include("Views/graduatejob_post_loop.php");  
+        
+    }
     
     wp_reset_query();
     exit;
