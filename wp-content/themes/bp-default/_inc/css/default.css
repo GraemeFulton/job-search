@@ -237,6 +237,9 @@ box-shadow: 0 0 0 0 !important;
 .header-workexperience{
         border-top:4px solid rgba(204, 0, 255, 1);
 }
+.header-travel{
+        border-top:4px solid green;
+}
 
 
 #header_bg{
@@ -2630,6 +2633,13 @@ background-color: cornflowerblue;
 height: 1px;
 margin-bottom: 0px;
 
+}
+.type-travel-opportunities hr{
+    color: green;
+background-color: green;
+height: 1px;
+margin-bottom: 0px;
+    
 }
 
 .item {

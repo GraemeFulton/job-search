@@ -12,6 +12,12 @@ Author URI: http://gfulton.me.uk
     /* display_taxonomy_tree
      * 
      * plugin hook called from sidebar
+     * @params: 
+     * tag_type - the tag group e.g. subject
+     * grouped_taxonomy - the taxonomy group e.g. uni
+     * 
+     * Creates a new Display_Taxonomy instance, and prints the relevant 
+     * filters
      * 
      */
      

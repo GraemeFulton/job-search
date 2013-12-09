@@ -44,14 +44,14 @@
     </div>
 		<?php do_action( 'bp_before_header' ); ?>
 
-		<div id="header" class="header-workexperience">                  
+		<div id="header" class="header-travel">                  
                     <div id="search-bar" role="search">
                             <div id="main_search">
                             <?php get_search_form(); ?>
                             </div>
 			</div><!-- #search-bar -->
                           <div id="header-quote">
-                        <?php quotescollection_quote('show_author=1&show_source=1&tags=work&ajax_refresh=0&char_limit=200&random=1')?>
+                        <?php quotescollection_quote('show_author=1&show_source=1&tags=travel&ajax_refresh=0&char_limit=200&random=1')?>
                     </div>
                    
                         <div id="navigation" role="navigation">

@@ -46,16 +46,73 @@ class Display_Taxonomy{
 * Sidebar (left ~widgets)
 ****************************************************/
 
-       //not using atm
+     /*
+      * prints the taxonomy heirarchy for the current taxonomy
+      */
     public function display_tree()
     {
-        $jobsTerms = get_terms($this->grouped_taxonomy_short); 
+        $tag = get_terms($this->grouped_taxonomy_short); 
 
-        foreach($jobsTerms as $term){
-        $checked = (has_term($term->slug, 'subject', $post->ID)) ? 'checked="checked"' : '';
-        echo "<input type='checkbox' name='" . $term->slug . "' value='" . $term->name . "' $checked />";
-        echo "<label for='" . $term->slug . "'>" . $term->name . "</label><br>";
-        }
+        echo '<div id="subject-filter">';
+          foreach($tag as $tags)
+          {
+              if($tags->parent==0)//if there is no parent, it is a top-level category
+              {
+                  $checked = (has_term($tags->slug, $this->grouped_taxonomy_short, $tags->ID)) ? 'checked="checked"' : '';
+
+                  echo '<input type="checkbox" name="' . $tags->slug . '" value="' . $tags->name . '" obj_id='.$tags->term_id.$checked.' />';
+                  echo '<label  style="font-weight:bold;" for="' . $tags->slug . '">' . $tags->name . '</label><br>';
+
+                  //get term children
+                   $termchildren= get_term_children( $tags->term_id,$this->grouped_taxonomy_short );
+                   foreach($termchildren as $child)
+                   {
+                      $term = get_term_by( 'id', $child, $this->grouped_taxonomy_short );
+                      echo '<input type="checkbox" name="' . $term->slug . '" value="' . $term->name . '" obj_id='.$term->term_id.$checked.' />';
+                      echo '<label for="' . $term->slug . '">' . $term->name . '</label><br>';
+                   }
+
+              }
+          }
+          echo '</div>';
+        
+    }
+    
+    
+    /*
+     * display_linked_taxonomy_hierarchy_list
+     * 
+     * displays a hierarchical taxonomy linked to the current page
+     * this is similar to display_tree, but is parameterized, and only shows
+     * the children of the hierarchy e.g provider
+     * 
+     * it's a hierarchical taxonomy so we can show different taxonomies depending on the slug
+     */
+    public function display_linked_taxonomy_hierarchy_list($taxonomy, $slug){
+         $tag = get_terms($taxonomy); 
+
+        echo '<div id="'.$taxonomy.'-filter">';
+          foreach($tag as $tags)
+          {
+              if($tags->parent==0 && $tags->slug==$slug)//if there is no parent, it is a top-level category
+              {
+//                  $checked = (has_term($tags->slug, $taxonomy, $tags->ID)) ? 'checked="checked"' : '';
+//
+//                  echo '<input type="checkbox" name="' . $tags->slug . '" value="' . $tags->name . '" obj_id='.$tags->term_id.$checked.' />';
+//                  echo '<label  style="font-weight:bold;" for="' . $tags->slug . '">' . $tags->name . '</label><br>';
+
+                  //get term children
+                   $termchildren= get_term_children( $tags->term_id,$taxonomy );
+                   foreach($termchildren as $child)
+                   {
+                      $term = get_term_by( 'id', $child, $taxonomy );
+                      echo '<input type="checkbox" name="' . $term->slug . '" value="' . $term->name . '" obj_id='.$term->term_id.$checked.' />';
+                      echo '<label for="' . $term->slug . '">' . $term->name . '</label><br>';
+                   }
+
+              }
+          }
+          echo '</div>';
         
     }
     
@@ -364,8 +421,8 @@ class Display_Taxonomy{
     public function grouped_taxonomy_name($post_id){
              
     $category = wp_get_post_terms($post_id, $this->category_type_short, array("fields" => "names"));    
-
-    return $category[0];
+    $deepest_category= end($category);
+    return $deepest_category;
         
     }
  

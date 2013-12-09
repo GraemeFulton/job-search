@@ -13,6 +13,7 @@ jQuery(document).ready(function ($) {
  */
 var selected_subjects =[]; //array to hold checked subjects
 var selected_institutions=[]; //array to hold checked institutions
+var selected_providers=[];//array to hold checked providers
 var meta_filter= "";
 var meta_filter_arr=[];
 
@@ -37,9 +38,10 @@ function graylien_infinite_scroll($){
             var category_type= $('#content').attr('category_type');
             var tag_type= $('#content').attr('tag_type');
             var body_type= $('#content').attr('body_type');
+            var fn= $('#content').attr('fn');
 
       
-            process_filter_scroll($,postoffset, category_type, tag_type, body_type);
+            process_filter_scroll($,postoffset, category_type, tag_type, body_type, fn);
             isLoadingData=true;
 
             resetCurrentActiveBox($)
@@ -66,7 +68,10 @@ function activate_listeners($){
   //activate listeners  
    subject_listener($);
    institution_listener($);
+   provider_listener($);
+   
    location_search($);
+   
 
     
 }
@@ -111,6 +116,28 @@ function institution_listener($){
         else{
 
             apply_filter($,this, false, 'institution');
+        }
+    }); 
+}
+
+/*
+ *provider_listener 
+ * @param {type} $
+ * @returns {undefined}
+ * listens for changes in the subject filter checkboxes
+ */
+function provider_listener($){
+  $('#provider-filter input:checkbox').change(
+    
+    function()
+    {
+       if ($(this).is(':checked')) {
+            apply_filter($,this, true, 'provider');
+      
+        }
+        else{
+
+            apply_filter($,this, false, 'provider');
         }
     }); 
 }
@@ -172,6 +199,7 @@ function apply_filter($,arg, true_false, filter_type){
     var category_type= $('#content').attr('category_type');
     var tag_type= $('#content').attr('tag_type');
     var body_type= $('#content').attr('body_type');
+    var fn= $('#content').attr('fn');
     //name for filtering
     var name = $(arg).attr('name');
 
@@ -183,9 +211,12 @@ function apply_filter($,arg, true_false, filter_type){
         if (filter_type==='institution'){
                selected_institutions.push(name);
         }
+        if (filter_type==='provider'){
+               selected_providers.push(name);
+        }
         
         //add filter value to process filter, and collect it in the php file, then use it to filter the post
-         process_filter($, category_type, tag_type, body_type);
+         process_filter($, category_type, tag_type, body_type, fn);
             
             closeActiveBox($);
             disableClickMe($);
@@ -202,9 +233,13 @@ function apply_filter($,arg, true_false, filter_type){
         var index = selected_institutions.indexOf(name);
         selected_institutions.splice(index,1);
         }
+        if(filter_type==='provider'){
+        var index = selected_providers.indexOf(name);
+        selected_providers.splice(index,1);
+        }
            
            
-           process_filter($, category_type, tag_type, body_type);           
+           process_filter($, category_type, tag_type, body_type, fn);           
            
            closeActiveBox($);
             disableClickMe($);
@@ -221,7 +256,7 @@ function apply_filter($,arg, true_false, filter_type){
  * @returns {undefined}
  * ajax filter for subject box
  */
-function process_filter($, category_type, tag_type, body_type){
+function process_filter($, category_type, tag_type, body_type, fn){
     //loading gif
     $('.hentry').empty();
     $('#content').prepend('<img id="ajax-loader" style="margin:10px 0 0 10px;"src="'+templateUrl+'/ajax-loader.gif"/>');
@@ -231,13 +266,14 @@ function process_filter($, category_type, tag_type, body_type){
      type: "POST",
      data: {
             'action': 'check_box_filters',
-            'fn':'process_filter',
+            'fn':fn,
             'selected_subjects':selected_subjects,
             'cat':category_type,
             'type':tag_type,
             'selected_institutions': selected_institutions,
             'body_type': body_type,
-            'location': meta_filter_arr
+            'location': meta_filter_arr,
+            'provider':selected_providers
            },
    dataType:'HTML', 
    success: function(data){
@@ -280,7 +316,7 @@ function process_filter($, category_type, tag_type, body_type){
  * @param {type} tax
  * @param {type} postoffset
  * @returns {undefined} */
-function process_filter_scroll($, postoffset, category_type, tag_type, body_type){
+function process_filter_scroll($, postoffset, category_type, tag_type, body_type, fn){
  
  if(isLoadingData==true) return;
      //loading gif
@@ -291,14 +327,15 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
      type: "POST",
      data: {
             'action': 'check_box_filters',
-            'fn':'process_filter',
+            'fn':fn,
             'selected_subjects':selected_subjects,
             'offset':postoffset,
             'cat':category_type,
             'type':tag_type,
             'selected_institutions': selected_institutions,
             'body_type': body_type,
-            'location': meta_filter_arr
+            'location': meta_filter_arr,
+            'provider': selected_providers
            },
    dataType:'HTML', 
    
