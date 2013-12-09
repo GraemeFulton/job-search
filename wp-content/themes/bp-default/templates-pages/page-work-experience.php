@@ -21,7 +21,9 @@ include (TEMPLATEPATH . '/templates-headers/header-work-experience.php');
                     $tree->display_tag_groups_b();
           echo '<hr><h2>Location</h2>';
           $tree->display_meta_group_list('location');
-
+            
+          echo '<hr><h2>Provider</h2>';
+          $tree->display_linked_taxonomy_hierarchy_list('provider', 'job-providers');
         }
     
     ?>
@@ -41,7 +43,7 @@ $args= array(
 
 
 query_posts( $args); ?>
-	<div id="content"  category_type='work-experience-job' tag_type='profession' body_type="company">
+	<div id="content"  category_type='work-experience-job' tag_type='profession' body_type="company" fn="group_filter">
 		<div class="padder">
 
 		<?php do_action( 'bp_before_blog_page' ); ?>
@@ -127,9 +129,7 @@ $location=$tree->get_location($post_id);
 
        
         </div><!-- .padder -->
-  <div class="nav-more">
-             <a href="#" id="blog-more" style="height:100px;"><h4>Load More</h4></a>
-        </div>
+
    </div><!-- .page -->
 
 	<?php get_sidebar(); ?>

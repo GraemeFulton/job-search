@@ -9,7 +9,7 @@
     {
          switch($_REQUEST['fn'])
         {
-             case 'process_filter':
+             case 'group_filter':
                   $output = create_post_filter(
                           $_POST['selected_subjects'], 
                           $_POST['offset'],
@@ -17,9 +17,20 @@
                           $_POST['type'], 
                           $_POST['selected_institutions'],
                           $_POST['body_type'],
-                          $_POST['location']
+                          $_POST['location'],
+                          $_POST['provider']
                           );
              break;
+         
+             case 'regular_filter':
+                  $output = create_simple_post_filter(
+                          $_POST['selected_subjects'], 
+                          $_POST['offset'],
+                          $_POST['cat'], 
+                          $_POST['type'],
+                          $_POST['provider']
+                          );
+                 break;
              default:
                  $output = 'No function specified, check your jQuery.ajax() call';
              break;
@@ -41,7 +52,15 @@
  * returns: html template 
  * note:change location to meta value
  */
-function create_post_filter($selected_subjects, $offset, $category_type, $tag_type, $selected_institutions, $body_type, $location)
+function create_post_filter($selected_subjects, 
+                            $offset, 
+                            $category_type, 
+                            $tag_type, 
+                            $selected_institutions, 
+                            $body_type, 
+                            $location,
+                            $selected_provider
+                            )
 {
     
    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -85,6 +104,15 @@ function create_post_filter($selected_subjects, $offset, $category_type, $tag_ty
         }      
     } //QUERY CHECKED INSTITUTIONS
     
+      //QUERY CHECKED PROVIDER (destination)
+    if($selected_provider!=""){//if a box has been checked, we add a taxnomoy query
+
+            $args['tax_query'][0]['terms']=$selected_provider;
+            $args['tax_query'][0]['taxonomy']='provider';
+            $args['tax_query'][0]['field']='slug';
+            
+    } //QUERY CHECKED PROVIDER
+    
     //QUERY META VALUE (LOCATION)
        if($location!=""){
            
@@ -115,6 +143,49 @@ function create_post_filter($selected_subjects, $offset, $category_type, $tag_ty
 }
 
 
+function create_simple_post_filter($selected_subjects, 
+                                    $offset, 
+                                    $category_type, 
+                                    $tag_type,
+                                    $selected_provider
+                                    ){
+    
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+    $args= array
+    (
+        'offset'=>$offset,
+        'post_type'=>$category_type,
+        'paged'=>$paged,
+        'posts_per_page'=>9,
+        'orderby' => 'title',
+        'order' => 'ASC'
+    );
+    
+     //QUERY CHECKED SUBJECTS (destination)
+    if($selected_subjects!=""){//if a box has been checked, we add a taxnomoy query
+
+            $args['tax_query'][1]['terms']=$selected_subjects;
+            $args['tax_query'][1]['taxonomy']=$tag_type;
+            $args['tax_query'][1]['field']='slug';
+            
+    } //QUERY CHECKED SUBJECTS
+    
+     //QUERY CHECKED PROVIDER (destination)
+    if($selected_provider!=""){//if a box has been checked, we add a taxnomoy query
+
+            $args['tax_query'][0]['terms']=$selected_provider;
+            $args['tax_query'][0]['taxonomy']='provider';
+            $args['tax_query'][0]['field']='slug';
+            
+    } //QUERY CHECKED PROVIDER
+    
+        query_posts($args);
+
+       return load_post_loop_view($category_type);
+
+}
+
 function load_post_loop_view($category_type) {
 
     if ($category_type=='course'){
@@ -131,6 +202,12 @@ function load_post_loop_view($category_type) {
         include("Views/graduatejob_post_loop.php");  
         
     }
+       else if($category_type=='travel-opportunities'){
+        
+        include("Views/travel_post_loop.php");  
+        
+    }
+    
     
     wp_reset_query();
     exit;
