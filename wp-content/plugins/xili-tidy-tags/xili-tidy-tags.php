@@ -1337,6 +1337,7 @@ function xili_tidy_tags_start () {
                 $xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'profession',  'graduate-job'  );
                 $xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'company',  'company'  );
                 $xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'uni',  'university'  );
+            //    $xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'location',  'graduate-job'  );
 
 
 	}

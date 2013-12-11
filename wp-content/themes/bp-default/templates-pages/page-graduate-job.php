@@ -12,18 +12,28 @@ include (TEMPLATEPATH . '/templates-headers/header-graduate-job.php');
 
 <div id="sidebar-left">
      <h2>Sort Jobs:</h2>
-    <hr>
-    <h2>Profession</h2>        
     <?php if ( function_exists( 'display_taxonomy_tree' ) ) 
         { $tree= display_taxonomy_tree('profession', 'company');
-          $tree->display_tag_groups();
+          
+            echo '<hr><h2>Job Type</h2>';
+          $tree->display_category_type_options('job_type');
+         
+          //Profession Filter
+          echo '<hr>';
+           widgets_on_template("Profession Filter");
+                  
+         //Location Filter         
+          echo '<hr>';
+           widgets_on_template("Location Filter"); 
+           
                     echo '<hr><h2>Company</h2>'; 
                     $tree->display_tag_groups_b();
-          echo '<hr><h2>Location</h2>';
-          $tree->display_meta_group_list('location');
+//          echo '<hr><h2>Location</h2>';
+//          $tree->display_meta_group_select_box('location');
           
           echo '<hr><h2>Provider</h2>';
           $tree->display_linked_taxonomy_hierarchy_list('provider', 'job-providers');
+        
 
         }
     
@@ -72,7 +82,8 @@ if($term_id){
     $provider= s8_get_taxonomy_image_src(get_term_by('id', $term_id[0], 'provider'), 'small');
 }
 //location
-$location=$tree->get_location($post_id);
+//$location=$tree->get_location($post_id);
+$location= wp_get_post_terms($post_id, 'location', array("fields" => "names"));
 
 
 ?>               
@@ -90,7 +101,7 @@ $location=$tree->get_location($post_id);
 
                                 	<?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) );?>
 					<div class="entry">                                    
-                                            <p><?php echo $company_name;?> | <?php echo $profession;?> | <?php echo $location?> | <?php echo $job_type;?></p>
+                                            <p><?php echo $company_name;?> | <?php echo $profession;?> | <?php echo $location[0]?> | <?php echo $job_type;?></p>
                                         </div>
                                 
                                         <div class="pop-out">
@@ -98,7 +109,7 @@ $location=$tree->get_location($post_id);
                                             <table class="pop-out-tbl">
                                                <tr><td>Offered By: </td><td><?php echo $company_name;?></td></tr>
                                               <tr class="alt"><td>Profession: </td><td><?php echo $profession;?></td></tr>
-                                               <tr><td>Location: </td><td><?php echo $location;?></td></tr>
+                                               <tr><td>Location: </td><td><?php echo $location[0];?></td></tr>
                                                <tr class="alt"><td>Job Type: </td><td><?php echo $job_type;?></td></tr>
                                                
                                                 <tr><td>Job Provider:</td><td><img style="float:left; position:relative; max-height:35px;" src="<?php echo $provider['src']?>"/></td></tr>

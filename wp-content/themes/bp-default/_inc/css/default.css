@@ -128,7 +128,7 @@ div#content {
 border-top-left-radius: 6px;
 border-top-right-radius: 6px;
 float: left;
-width: 69%;
+width: 64%;
 position: relative;
 margin-bottom:100px;
 background:#fff;
@@ -452,16 +452,26 @@ div#sidebar div.tags div#tag-text {
 #sidebar-left{
     position: relative;
     float: left;
-    width:14%;
+    width:20%;
     margin-right:1%;
     height:100%;
     border-radius:3px;
     background:#eaeaea;
     border:none;
     padding:10px;
+    padding-left:20px;
     
 }
 
+.dtree a{
+    font-weight:bolder;
+    color: #555;
+    cursor: pointer;
+    font-size:13.4px;
+}
+.dtree .clip {
+margin-left: -10px;
+}
 
 /*--------------------------------------------------------------
 3.0 - Non-structural
@@ -653,7 +663,7 @@ a:focus {
 max-width: 1250px;
 margin: 0 auto;
 bottom: 0;
-margin-left: 16.2%;
+margin-left: 24.2%;
 width: 68%;
 /*height:50px;*/
 }

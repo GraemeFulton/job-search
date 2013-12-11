@@ -12,14 +12,19 @@ include (TEMPLATEPATH . '/templates-headers/header-course.php');
     
 <div id="sidebar-left">
     <h2>Sort Courses:</h2>
-    <hr>
-    <h2>Subject</h2>
     
     <?php if ( function_exists( 'display_taxonomy_tree' ) ) 
         {
         global $tree;
           $tree= display_taxonomy_tree('subject', 'uni');
-          $tree->display_tag_groups();
+          
+           echo '<hr><h2>Course Type</h2>';
+          $tree->display_category_type_options('course_type');
+          
+          //Subject Filter
+          echo '<hr>';
+           widgets_on_template("Subject Filter");
+        //$tree->display_tag_groups();
           
           echo '<hr><h2>University</h2>'; $tree->display_tag_groups_b();
           

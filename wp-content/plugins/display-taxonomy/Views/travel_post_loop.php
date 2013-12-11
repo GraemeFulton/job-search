@@ -7,9 +7,9 @@ return;
 ?>
 	<?php if (have_posts()) : while (have_posts()) : the_post();
              $tree= display_taxonomy_tree('destination', 'destination');?>
-  <?php                    
+   <?php                    
 //set up page variables
-$post_id=get_the_ID;
+$post_id=get_the_ID();
 //post image
 $post_image=$tree->get_post_image($group_parent_id, $post_id); 
 //subject/grouped taxonomy
@@ -17,10 +17,11 @@ $subject=$tree->grouped_taxonomy_name($post_id);
 // get advert type
 $course_type=types_render_field("travel-type", array("output"=>"normal"));
 //print company name, and image
-$post_object_id = wp_get_post_terms($post_id, 'company', array("fields" => "ids"));
-$group_parent_id= $tree->get_tag_group_leader($post_object_id[0]);
+
 //get provider logo
 $term_id = wp_get_post_terms($post_id, 'provider', array("fields" => "ids"));
+$provider_name= wp_get_post_terms($post_id, 'provider', array("fields" => "names"));
+
 if($term_id){
     $provider= s8_get_taxonomy_image_src(get_term_by('id', $term_id[0], 'provider'), 'small');
 }
@@ -37,7 +38,7 @@ $ratings= show_ratings($post_id);
 				<h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
                                 	<div class="entry">                                    
-                                           <?php echo $uni_name;?> | <?php echo $subject;?> | <?php echo $course_type;?>
+                                           <?php echo $provider_name[0];?> | <?php echo $subject;?> | <?php echo $course_type;?>
                                            <?php echo $ratings;?>     
                                         </div>
                                 

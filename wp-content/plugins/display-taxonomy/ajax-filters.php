@@ -18,7 +18,8 @@
                           $_POST['selected_institutions'],
                           $_POST['body_type'],
                           $_POST['location'],
-                          $_POST['provider']
+                          $_POST['provider'],
+                          $_POST['selected_category_type']
                           );
              break;
          
@@ -28,7 +29,8 @@
                           $_POST['offset'],
                           $_POST['cat'], 
                           $_POST['type'],
-                          $_POST['provider']
+                          $_POST['provider'],
+                          $_POST['selected_category_type']
                           );
                  break;
              default:
@@ -59,7 +61,8 @@ function create_post_filter($selected_subjects,
                             $selected_institutions, 
                             $body_type, 
                             $location,
-                            $selected_provider
+                            $selected_provider,
+                            $selected_category_type
                             )
 {
     
@@ -107,22 +110,34 @@ function create_post_filter($selected_subjects,
       //QUERY CHECKED PROVIDER (destination)
     if($selected_provider!=""){//if a box has been checked, we add a taxnomoy query
 
-            $args['tax_query'][0]['terms']=$selected_provider;
-            $args['tax_query'][0]['taxonomy']='provider';
-            $args['tax_query'][0]['field']='slug';
+            $args['tax_query'][1]['terms']=$selected_provider;
+            $args['tax_query'][1]['taxonomy']='provider';
+            $args['tax_query'][1]['field']='slug';
             
     } //QUERY CHECKED PROVIDER
     
-    //QUERY META VALUE (LOCATION)
+    //QUERY CHECKED LOCATION
        if($location!=""){
            
+            $args['tax_query'][2]['terms']=$location;
+            $args['tax_query'][2]['taxonomy']='location';
+            $args['tax_query'][2]['field']='slug';   
+    }
+    
+    
+    
+    //QUERY META VALUE (LOCATION)
+   //QUERY META VALUE (category_type)
+       if($selected_category_type!=""){
+           
       $meta=array('relation'=>'OR');
-      foreach($location as $key=>$value)
+      foreach($selected_category_type as $key=>$value)
         {     
+            $result = str_replace('-', '"', $value);
           
            $meta[$key]=array(
-                    'key' => 'location',
-                    'value' => $value,
+                    'key' => 'job_type',
+                    'value' => $result,
                     'compare' => 'LIKE',
                     );              
          
@@ -131,11 +146,6 @@ function create_post_filter($selected_subjects,
           $args['meta_query']=$meta;
             
     }
-    
-    
-    
-    //QUERY META VALUE (LOCATION)
-
     
     query_posts($args);
     
@@ -147,8 +157,10 @@ function create_simple_post_filter($selected_subjects,
                                     $offset, 
                                     $category_type, 
                                     $tag_type,
-                                    $selected_provider
-                                    ){
+                                    $selected_provider,
+                                    $selected_category_type
+                                    )
+ {
     
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
@@ -179,6 +191,31 @@ function create_simple_post_filter($selected_subjects,
             $args['tax_query'][0]['field']='slug';
             
     } //QUERY CHECKED PROVIDER
+    
+     //QUERY META VALUE (category_type)
+       if($selected_category_type!=""){
+           
+      $meta=array('relation'=>'OR');
+      foreach($selected_category_type as $key=>$value)
+        {     
+           $result = str_replace('-', '"', $value);
+
+           $meta[$key]=array(
+                    'key' => 'travel_type',
+                    'value' => $result,
+                    'compare' => 'LIKE',
+                    );              
+         
+        }                          
+
+          $args['meta_query']=$meta;
+            
+    }
+    
+    
+    
+    //QUERY META VALUE (LOCATION)
+    
     
         query_posts($args);
 

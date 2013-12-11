@@ -30,7 +30,8 @@ if($term_id){
     $provider= s8_get_taxonomy_image_src(get_term_by('id', $term_id[0], 'provider'), 'small');
 }
 //location
-$location=$tree->get_location($post_id);
+//$location=$tree->get_location($post_id);
+$location= wp_get_post_terms($post_id, 'location', array("fields" => "names"));
 
 
 ?>               
@@ -48,7 +49,7 @@ $location=$tree->get_location($post_id);
 
                                 	<?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) );?>
 					<div class="entry">                                    
-                                            <p><?php echo $company_name;?> | <?php echo $profession;?> | <?php echo $location?> | <?php echo $job_type;?></p>
+                                            <p><?php echo $company_name;?> | <?php echo $profession;?> | <?php echo $location[0]?> | <?php echo $job_type;?></p>
                                         </div>
                                 
                                         <div class="pop-out">
@@ -56,7 +57,7 @@ $location=$tree->get_location($post_id);
                                             <table class="pop-out-tbl">
                                                <tr><td>Offered By: </td><td><?php echo $company_name;?></td></tr>
                                               <tr class="alt"><td>Profession: </td><td><?php echo $profession;?></td></tr>
-                                               <tr><td>Location: </td><td><?php echo $location;?></td></tr>
+                                               <tr><td>Location: </td><td><?php echo $location[0];?></td></tr>
                                                <tr class="alt"><td>Job Type: </td><td><?php echo $job_type;?></td></tr>
                                                
                                                 <tr><td>Job Provider:</td><td><img style="float:left; position:relative; max-height:35px;" src="<?php echo $provider['src']?>"/></td></tr>

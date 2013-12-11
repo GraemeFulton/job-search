@@ -20,7 +20,7 @@ include (TEMPLATEPATH . '/templates-headers/header-work-experience.php');
                     echo '<hr><h2>Company</h2>'; 
                     $tree->display_tag_groups_b();
           echo '<hr><h2>Location</h2>';
-          $tree->display_meta_group_list('location');
+          $tree->display_meta_group_select_box('location');
             
           echo '<hr><h2>Provider</h2>';
           $tree->display_linked_taxonomy_hierarchy_list('provider', 'job-providers');

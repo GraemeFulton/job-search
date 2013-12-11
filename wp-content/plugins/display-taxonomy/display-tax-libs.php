@@ -192,30 +192,23 @@ class Display_Taxonomy{
     
     /*
      * diplay_meta_group 
-     * queries a piece of tag meta, such as location
+     * queries a piece of tag meta: currently tailored for location filter (needs refactoring)
      *     <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
 
      */
-    public function display_meta_group_list($meta_key){
+    public function display_meta_group_select_box($meta_key){
         
         ?>
     <div class="control-group">
-        <label for="multi-append" class="control-label">Select Location(s): </label>
+        <label for="<?php echo $meta_key;?>-filter" class="control-label">Select Location(s): </label>
         <div class="controls">
           <div class="input-append">
                 
             <select id="multi-append" class="select2" multiple="multiple" name="meta" style="width:110px;">
               <option></option>
     <?php
-        global $wpdb;
-           
-        $sql="SELECT DISTINCT $wpdb->postmeta.meta_value
-                from $wpdb->postmeta 
-                WHERE $wpdb->postmeta.meta_key ='$meta_key'
-                ORDER BY $wpdb->postmeta.meta_value ASC";
-        
-        $safe_sql= $wpdb->prepare($sql);
-        $results=$wpdb->get_results($safe_sql);
+       $results = $this->meta_query($meta_key);
+       
         foreach($results as $group)
     {      
             $location=explode("|",$group->meta_value);
@@ -247,6 +240,55 @@ class Display_Taxonomy{
     
     <?php
     
+        
+    }
+    
+    /*
+     * meta_query
+     * @param: meta_key - e.g. 'location'
+     * returns a meta key values (for the meta key provided as the param)
+     * associated to a category type
+     */
+    private function meta_query($meta_key){
+         global $wpdb;
+           
+        $sql="SELECT DISTINCT $wpdb->postmeta.meta_value
+                from $wpdb->postmeta 
+                WHERE $wpdb->postmeta.meta_key ='$meta_key'
+                ORDER BY $wpdb->postmeta.meta_value ASC";
+        
+        $safe_sql= $wpdb->prepare($sql);
+        
+        return $wpdb->get_results($safe_sql);
+        
+    }
+    
+    /*
+     * display_category_type_options
+     * @param: meta_key: e.g. job_type/course_type/travel_type
+     * displays radio options to display the type of category type:
+     * e.g. category type= course ; options would be free/
+     */
+    public function display_category_type_options($meta_key){
+        
+        $results = $this->meta_query($meta_key);
+
+        echo '<div id="category-type-filter"><form>';
+        echo '<input type="radio" name="option" value="clear" checked/>All<br>';
+
+        foreach($results as $result)
+        {
+            $result = str_replace('"', "-", $result->meta_value);
+            
+            $parts = explode(':', $result);
+            $safe_name = $parts[5];
+            $safe_name=$this->clean_string($safe_name);
+                        
+            echo '<input type="radio" name="option" value="' .$result. '"/>'.$safe_name.'<br>';
+        }
+
+        echo '</form></div>';
+
         
     }
     
@@ -545,6 +587,18 @@ class Display_Taxonomy{
         return $dummy; 
     }
     
+    
+    /************************************
+     *******UTILITY FUNCTIONS************ 
+     *************************************/
+    private function clean_string($string) {
+    $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+    $string = str_replace('_', '-', $string); // Replaces all spaces with hyphens.
+
+    $string= preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+     return ucwords(str_replace('-', ' ', $string)); // Replaces all spaces with hyphens.
+
+    }
  
      
 }

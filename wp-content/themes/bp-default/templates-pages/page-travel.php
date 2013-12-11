@@ -22,9 +22,10 @@ include (TEMPLATEPATH . '/templates-headers/header-travel.php');
           
           echo '<hr><h2>Provider</h2>';
           $tree->display_linked_taxonomy_hierarchy_list('provider', 'travel-providers');
-       }
-       // 
     
+          $tree->display_category_type_options('travel_type');
+       }
+  
     ?>
     <?php do_action('the_action_hook'); ?>
 
