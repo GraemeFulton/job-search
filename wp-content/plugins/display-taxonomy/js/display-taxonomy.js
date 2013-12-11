@@ -2,7 +2,10 @@ jQuery(document).ready(function ($) {
     
     activate_listeners($);
 
-    graylien_infinite_scroll($);         
+    graylien_infinite_scroll($);     
+    
+  //$("#tree").fancytree("option", "checkbox", true);
+
 });
 
 /*
@@ -14,6 +17,9 @@ jQuery(document).ready(function ($) {
 var selected_subjects =[]; //array to hold checked subjects
 var selected_institutions=[]; //array to hold checked institutions
 var selected_providers=[];//array to hold checked providers
+var selected_category_type=[];
+var selected_locations=[];
+
 var meta_filter= "";
 var meta_filter_arr=[];
 
@@ -53,135 +59,6 @@ function graylien_infinite_scroll($){
     
 }
 
-
-/*
- * check_box_listener
- * @returns {undefined}
- * Listener for changes in checkboxes
- * Triggers checked() & unchecked() functions
- */
-function activate_listeners($){
-  
-  //Clear all selections
-   clear_previous_selections($);
-    
-  //activate listeners  
-   subject_listener($);
-   institution_listener($);
-   provider_listener($);
-   
-   location_search($);
-   
-
-    
-}
-
-/*
- *subject_listener 
- * @param {type} $
- * @returns {undefined}
- * listens for changes in the subject filter checkboxes
- */
-function subject_listener($){
-  $('#subject-filter input:checkbox').change(
-    
-    function()
-    {
-       if ($(this).is(':checked')) {
-            apply_filter($,this, true, 'subject');
-      
-        }
-        else{
-
-            apply_filter($,this, false, 'subject');
-        }
-    }); 
-}
-
-/*
- *institution_listener 
- * @param {type} $
- * @returns {undefined}
- * listens for changes in the institution filter checkboxes
- */
-function institution_listener($){
-  $('#institution-filter input:checkbox').change(
-    
-    function()
-    {
-       if ($(this).is(':checked')) {
-            apply_filter($,this, true, 'institution');
-      
-        }
-        else{
-
-            apply_filter($,this, false, 'institution');
-        }
-    }); 
-}
-
-/*
- *provider_listener 
- * @param {type} $
- * @returns {undefined}
- * listens for changes in the subject filter checkboxes
- */
-function provider_listener($){
-  $('#provider-filter input:checkbox').change(
-    
-    function()
-    {
-       if ($(this).is(':checked')) {
-            apply_filter($,this, true, 'provider');
-      
-        }
-        else{
-
-            apply_filter($,this, false, 'provider');
-        }
-    }); 
-}
-
-/*
- * location_search
- * @param {type} $
- * @param {type} arg
- * @param {type} true_false
- * @param {type} filter_type
- * @returns {undefined}
- */
-function location_search($){
-    
-    //listen for if the box is empty
-     $("#multi-append").on("change", function(){
-       
-       if($("#multi-append").val()==null){
-           meta_filter="";
-           meta_filter_arr=[];
-        apply_filter($,'#multi-append', true, '');
-       }
-       
-   }) 
-    
-    //all on click!
-    $('#location_search').click(function(){
-    
-       //assign value of meta box to meta_filter variable
-        meta_filter= $("#multi-append").val();//$("#multi-append").select2("val");
-
-        //if there IS something in the box, meta_filter=box value
-        if(meta_filter!=null){
-            meta_filter=meta_filter.toString();
-            meta_filter_arr= meta_filter.split(',');console.log(meta_filter_arr);
-        }
-        else meta_filter="";//else meta_filter is blank
-
-        apply_filter($,'#multi-append', true, '');
-
-    })
-    
-}
-
 /*
  * checked
  * @param {type} arg
@@ -200,21 +77,10 @@ function apply_filter($,arg, true_false, filter_type){
     var tag_type= $('#content').attr('tag_type');
     var body_type= $('#content').attr('body_type');
     var fn= $('#content').attr('fn');
-    //name for filtering
-    var name = $(arg).attr('name');
 
     if (true_false===true)
     {
-        if(filter_type==='subject'){
-            selected_subjects.push(name);
-        }
-        if (filter_type==='institution'){
-               selected_institutions.push(name);
-        }
-        if (filter_type==='provider'){
-               selected_providers.push(name);
-        }
-        
+           
         //add filter value to process filter, and collect it in the php file, then use it to filter the post
          process_filter($, category_type, tag_type, body_type, fn);
             
@@ -224,20 +90,6 @@ function apply_filter($,arg, true_false, filter_type){
                 
     }      
     else { 
-        
-        if(filter_type==='subject'){
-        var index = selected_subjects.indexOf(name);
-        selected_subjects.splice(index,1);
-        }
-         if(filter_type==='institution'){
-        var index = selected_institutions.indexOf(name);
-        selected_institutions.splice(index,1);
-        }
-        if(filter_type==='provider'){
-        var index = selected_providers.indexOf(name);
-        selected_providers.splice(index,1);
-        }
-           
            
            process_filter($, category_type, tag_type, body_type, fn);           
            
@@ -257,6 +109,7 @@ function apply_filter($,arg, true_false, filter_type){
  * ajax filter for subject box
  */
 function process_filter($, category_type, tag_type, body_type, fn){
+    console.log(selected_locations);
     //loading gif
     $('.hentry').empty();
     $('#content').prepend('<img id="ajax-loader" style="margin:10px 0 0 10px;"src="'+templateUrl+'/ajax-loader.gif"/>');
@@ -272,8 +125,9 @@ function process_filter($, category_type, tag_type, body_type, fn){
             'type':tag_type,
             'selected_institutions': selected_institutions,
             'body_type': body_type,
-            'location': meta_filter_arr,
-            'provider':selected_providers
+            'location': selected_locations,
+            'provider':selected_providers,
+            'selected_category_type':selected_category_type
            },
    dataType:'HTML', 
    success: function(data){
@@ -334,8 +188,9 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
             'type':tag_type,
             'selected_institutions': selected_institutions,
             'body_type': body_type,
-            'location': meta_filter_arr,
-            'provider': selected_providers
+            'location': selected_locations,
+            'provider': selected_providers,
+            'selected_category_type':selected_category_type
            },
    dataType:'HTML', 
    
@@ -463,24 +318,6 @@ function getBodyName(data){
          body= "| Institution: "+data.key2.post_title;
     
      return body;
-    
-}
-
-
-/*
- * clear_previous_selections
- * @param {type} $
- * @returns {undefined}
- * removes any previously selected options 
- * clears checkboxes and select box
- */
-function clear_previous_selections($){
-    
-    $('#input:checkbox').prop('checked', false);
-    $('#myselect').attr('value','');
-    
-    //clear duplicate select values
-    remove_duplicate_select_options($);
     
 }
 

@@ -14,7 +14,7 @@ Class IndeedScraper extends JobScraperAbstract{
               $this->category,//profession
               "id_indeed", 
               $result->company, 
-              $result->formattedLocation." ".$result->country,
+              $result->formattedLocation,
               $result->url, 
               $result->jobtitle,  
               $result->snippet,  //description

@@ -76,22 +76,22 @@ class Job
             );
             
             
-            //INSERT JOB-LOCATION 
+            //INSERT JOB-LOCATION (ACF)
             
-            $location=$this->get_coordinates();
+//            $location=$this->get_coordinates();
+//            
+//              $job_location = array(
+//                'post_id' => $last_insert_id,
+//                'meta_value'=>$location,
+//                'meta_key'=>'location'
+//            );
+//            $wpdb->insert(
+//                'wp_postmeta', 
+//                $job_location,
+//                array( '%d', '%s', '%s' )
+//            );
             
-              $job_location = array(
-                'post_id' => $last_insert_id,
-                'meta_value'=>$location,
-                'meta_key'=>'location'
-            );
-            $wpdb->insert(
-                'wp_postmeta', 
-                $job_location,
-                array( '%d', '%s', '%s' )
-            );
-            
-            
+           
             $this->setObjectTerms($last_insert_id);
   }
   
@@ -110,7 +110,10 @@ class Job
     wp_set_object_terms($last_insert_id,$this->job_profession,'profession');
     
     //INSERT SUBJECT NAME/RELATIONSHIP
-    wp_set_object_terms($last_insert_id,$this->employer_name,'company');      
+    wp_set_object_terms($last_insert_id,$this->employer_name,'company');    
+    
+      //INSERT LOCATION NAME/RELATIONSHIP
+    wp_set_object_terms($last_insert_id,$this->job_location,'location');
   }
     
   public function isJobRecorded($wpdb)
