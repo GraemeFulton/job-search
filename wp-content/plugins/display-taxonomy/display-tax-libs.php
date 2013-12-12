@@ -172,7 +172,7 @@ class Display_Taxonomy{
                 $checked = (has_term($group->slug, $this->category_type, $post->ID)) ? 'checked="checked"' : '';
 
                 echo '<input type="checkbox" name="' . $group->slug . '" value="' . $group->name . '" obj_id='.$group->term_id.$checked.' />';
-                echo '<label  style="font-weight:bold;" for="' . $group->slug . '">' . $group->name . '</label><br>';
+                echo '<label  style="font-weight:normal; font-size:13.4px" for="' . $group->slug . '">' . $group->name . '</label><br>';
 
                 //get term children
                  $termchildren= get_term_children( $group->term_id,$this->category_type );

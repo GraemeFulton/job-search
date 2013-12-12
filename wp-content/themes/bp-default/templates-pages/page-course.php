@@ -11,26 +11,33 @@ include (TEMPLATEPATH . '/templates-headers/header-course.php');
 <div id="page-container">
     
 <div id="sidebar-left">
-    <h2>Sort Courses:</h2>
+    <div class="filter-header">
+    <h4>Filter</h4>
+    </div>
     
     <?php if ( function_exists( 'display_taxonomy_tree' ) ) 
         {
         global $tree;
           $tree= display_taxonomy_tree('subject', 'uni');
           
-           echo '<hr><h2>Course Type</h2>';
+           echo '<div class="nav-filter"><h4>Course Type</h4>';
           $tree->display_category_type_options('course_type');
-          
+                    echo '</div>';
+
           //Subject Filter
-          echo '<hr>';
+           echo '<h3 class="filter-title"><i class="ico fa fa-book"></i> Subject</h3>';
            widgets_on_template("Subject Filter");
         //$tree->display_tag_groups();
           
-          echo '<hr><h2>University</h2>'; $tree->display_tag_groups_b();
-          
-          echo '<hr><h2>Provider</h2>';
+          echo '<div class="nav-filter"><h3><i class="ico fa fa-building"></i> University</h3>'; $tree->display_tag_groups_b();
+                    echo '</div>';
+
+          echo '<div class="nav-filter"><h3>Provider</h3>';
           $tree->display_linked_taxonomy_hierarchy_list('provider', 'course-providers');
-       }
+                 echo '</div>';
+
+          
+        }
        // 
     
     ?>
