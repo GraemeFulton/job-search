@@ -6,11 +6,13 @@ class Job
 {
     protected $initiative_job_id = 0;        //initiative category identifier
     protected $employer_name = "";                //e.g. 1= coursera
-    protected $job_location= "";                 //name of the category
+    protected $job_location= "";                
     protected $job_url = "";
     protected $job_provider="";
     protected $job_profession="";
     protected $job_desc=""; //used for existance check
+    
+    protected $job_type="";
     
     /**
      * Access modifier to set protected properties
@@ -38,10 +40,11 @@ class Job
    public function addJob($wpdb, $last_insert_id)
   {
             //INSERT JOB-TYPE
+       //entry: a:1:{i:0;s:11:"entry_level";} //gs a:1:{i:0;s:15:"graduate_scheme";}
             $job_type = array(
                 'post_id' => $last_insert_id,
-                'meta_value'=>'a:1:{s:64:"wpcf-fields-checkboxes-option-d847eb71bad56ab77945a6625aab63b2-1";s:1:"2";}',
-                'meta_key'=>'wpcf-graduate-job-type'
+                'meta_value'=>$this->job_type,
+                'meta_key'=>'job_type'
             );//meta_value = 2:Entry Level
 
             $wpdb->insert(

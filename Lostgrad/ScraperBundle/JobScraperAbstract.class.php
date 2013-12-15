@@ -3,13 +3,15 @@
 abstract class JobScraperAbstract extends ScraperAbstract{
     
 protected $post_type;
+protected $post_type_meta;
 
-public function Setup($API, $initiativeURL, $category, $post_type){
+public function Setup($API, $initiativeURL, $category, $post_type, $post_type_meta){
     
     $this->urlToScrape = $API;
     $this->initiativeURL = $initiativeURL;  
     $this->category= $category;
     $this->post_type= $post_type;
+    $this->post_type_meta= $post_type_meta;
 
 }
     
@@ -27,7 +29,8 @@ public function updateJobDetails
             $jobimage, 
             $tags,
             $provider,
-            $post_type
+            $post_type,
+            $post_type_meta
            )
   {
     
@@ -39,6 +42,7 @@ public function updateJobDetails
         $job->job_location=$location;
         $job->job_provider=$provider;
         $job->job_profession=$profession;
+        $job->job_type = $post_type_meta;
         
         //if the course already exists, just break here
        $exists= $job->isJobRecorded($wpdb);					

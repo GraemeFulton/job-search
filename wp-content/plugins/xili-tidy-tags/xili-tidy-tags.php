@@ -1333,7 +1333,7 @@ function xili_tidy_tags_start () {
 		require( $plugin_path . '/xili-includes/xtt-class-admin.php' );
               //  $xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags );
                 
-                $xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'subject',  'course'  );
+      //          $xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'subject',  'course'  );
                 $xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'profession',  'graduate-job'  );
                 $xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'company',  'company'  );
                 $xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'uni',  'university'  );
