@@ -22,7 +22,8 @@ Class IndeedScraper extends JobScraperAbstract{
               $result->company, //company name used for image search
               "indeed",//tags
               "indeed",//provider
-              $this->post_type //post-type
+              $this->post_type, //post-type
+              $this->post_type_meta //job type
                );
   
     }
@@ -44,10 +45,5 @@ Class IndeedScraper extends JobScraperAbstract{
         return new SimpleXMLElement($data);
     }
     
-    
-
-    
-    
-
 }
 ?>

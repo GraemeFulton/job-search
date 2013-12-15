@@ -11,19 +11,36 @@ include (TEMPLATEPATH . '/templates-headers/header-work-experience.php');
 <div id="page-container">
 
 <div id="sidebar-left">
-     <h2>Sort Jobs:</h2>
-    <hr>
-    <h2>Profession</h2>        
+    <div class="filter-header">
+     <h4>Filters</h4>
+     </div>
     <?php if ( function_exists( 'display_taxonomy_tree' ) ) 
         { $tree= display_taxonomy_tree('profession', 'company');
-          $tree->display_tag_groups();
-                    echo '<hr><h2>Company</h2>'; 
+          
+        
+//            echo '<div class="nav-filter"><h4>Job Type</h4>';
+//          $tree->display_category_type_options('job_type');
+//          echo '</div>';
+         
+          //Profession Filter
+           echo '<h3 class="filter-title"><i class="ico fa fa-crosshairs"></i> Profession</h3>';
+           widgets_on_template("Profession Filter");
+                  
+         //Location Filter         
+           echo '<h3 class="filter-title"><i class="ico fa fa-map-marker"></i> Location</h3>';
+           widgets_on_template("Location Filter"); 
+           
+                    echo '<div class="nav-filter"><h3>Company</h3>'; 
                     $tree->display_tag_groups_b();
-          echo '<hr><h2>Location</h2>';
-          $tree->display_meta_group_select_box('location');
-            
-          echo '<hr><h2>Provider</h2>';
+                    echo '</div>';
+//          echo '<hr><h2>Location</h2>';
+//          $tree->display_meta_group_select_box('location');
+          
+          echo '<div class="nav-filter"><h3>Provider</h3>';
           $tree->display_linked_taxonomy_hierarchy_list('provider', 'job-providers');
+                  echo '</div>';
+
+
         }
     
     ?>

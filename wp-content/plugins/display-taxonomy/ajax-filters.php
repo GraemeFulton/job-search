@@ -79,18 +79,22 @@ function create_post_filter($selected_subjects,
     );
     
     //QUERY CHECKED SUBJECTS
-    if($selected_subjects!=""){//if a box has been checked, we add a taxnomoy query
+    if($selected_subjects!="" && $tag_type=='subject'){//if a box has been checked, we add a taxnomoy query
          
-        $tags_from_group=array();
-        
-        foreach($selected_subjects as $term)
-        {       
-            $tags_from_group= array_merge($tags_from_group,xtt_tags_from_group($term, '',"xili_tidy_tags_".$tag_type, $tag_type));
-            $args['tax_query'][1]['terms']=$tags_from_group;
-            $args['tax_query'][1]['taxonomy']=$tag_type;
-            $args['tax_query'][1]['field']='slug';
-        }      
+         $args['tax_query'][3]['terms']=$selected_subjects;
+            $args['tax_query'][3]['taxonomy']='subject';
+            $args['tax_query'][3]['field']='slug';    
     } //QUERY CHECKED SUBJECTS
+    
+    //QUERY CHECKED PROFESSION
+      if($selected_subjects!="" && $tag_type=='profession'){//if a box has been checked, we add a taxnomoy query
+                
+            $args['tax_query'][4]['terms']=$selected_subjects;
+            $args['tax_query'][4]['taxonomy']='profession';
+            $args['tax_query'][4]['field']='slug';   
+            
+    }
+    //QUERY CHECKED PROFESSION
     
     //QUERY CHECKED INSTITUTIONS
         if($selected_institutions!=""){//if a box has been checked, we add a taxnomoy query
@@ -116,18 +120,17 @@ function create_post_filter($selected_subjects,
             
     } //QUERY CHECKED PROVIDER
     
+    
     //QUERY CHECKED LOCATION
        if($location!=""){
            
             $args['tax_query'][2]['terms']=$location;
             $args['tax_query'][2]['taxonomy']='location';
             $args['tax_query'][2]['field']='slug';   
-    }
-    
-    
-    
+       }
     //QUERY META VALUE (LOCATION)
-   //QUERY META VALUE (category_type)
+   
+//QUERY META VALUE (category_type)
        if($selected_category_type!=""){
            
       $meta=array('relation'=>'OR');
@@ -146,6 +149,8 @@ function create_post_filter($selected_subjects,
           $args['meta_query']=$meta;
             
     }
+    //QUERY META VALUE (category_type)
+
     
     query_posts($args);
     

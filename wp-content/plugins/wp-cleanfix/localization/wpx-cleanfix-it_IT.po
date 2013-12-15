@@ -1,0 +1,520 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CleanFix\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-04-23 11:06+0100\n"
+"PO-Revision-Date: 2013-04-23 11:06+0100\n"
+"Last-Translator: wpXtreme, Inc. <info@wpxtre.me>\n"
+"Language-Team: wpXtreme, Inc. <info@wpxtre.me>\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_nx:1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../kickstart.php:85
+#, php-format
+msgid ""
+"%s cannot be used because your WordPress version is %s and it is lower than "
+"the plugin minimum requirement: %s.<br/>To resolve the issue, we "
+"<strong>strongly recommend</strong> you to deactivate this plugin and "
+"upgrade your system."
+msgstr ""
+
+#: ../kickstart.php:89
+#, php-format
+msgid ""
+"%s cannot be used because your PHP language version is %s and it is lower "
+"than the plugin minimum requirement: %s.<br/>To resolve this issue, we "
+"<strong>strongly recommend</strong> you to deactivate this plugin and "
+"upgrade your system."
+msgstr ""
+
+#: ../kickstart.php:93
+#, php-format
+msgid ""
+"%s cannot be used because your MySQL database version is %s and it is lower "
+"than the plugin minimum requirement: %s.<br/>To resolve this issue, we "
+"<strong>strongly recommend</strong> you to deactivate this plugin and "
+"upgrade your system."
+msgstr ""
+
+#: ../kickstart.php:101
+#, php-format
+msgid ""
+"%s cannot be used because your wpXtreme framework version is %s, and it is "
+"lower than the plugin minimum requirement: %s.<br/>To resolve this issue, it "
+"is <strong>strongly recommended</strong> to deactivate this plugin and "
+"upgrade your system."
+msgstr ""
+
+#: ../kickstart.php:285
+msgid "Warning"
+msgstr ""
+
+#: ../classes/admin/wpx-cleanfix-admin.php:72
+msgid "Cheatin&#8217; uh?"
+msgstr ""
+
+#: ../classes/admin/wpx-cleanfix-admin.php:113
+#: ../classes/admin/wpx-cleanfix-admin.php:157
+#: ../classes/admin/wpx-cleanfix-admin.php:158
+#: ../classes/admin/wpx-cleanfix-main-vc.php:22
+msgid "Clean & Fix"
+msgstr ""
+
+#: ../classes/admin/wpx-cleanfix-admin.php:150
+#: ../classes/admin/wpx-cleanfix-admin.php:151
+msgid "CleanFix"
+msgstr ""
+
+#: ../classes/admin/wpx-cleanfix-admin.php:166
+msgid "About"
+msgstr ""
+
+#: ../classes/admin/wpx-cleanfix-main-vc.php:41
+msgid "Please, select an user before continue."
+msgstr ""
+
+#: ../classes/core/wpxcf-ajax.php:96
+#, php-format
+msgid "An error occourred! Code: %s Description: %s"
+msgstr ""
+
+#: ../classes/core/wpxcf-ajax.php:150
+msgid "SEVERE internal error!"
+msgstr ""
+
+#: ../classes/modules/wpxcf-database-module.php:23
+#: ../classes/modules/wpxcf-database-module.php:37
+msgid "Tables"
+msgstr ""
+
+#: ../classes/modules/wpxcf-database-module.php:38
+msgid "Database table status"
+msgstr ""
+
+#: ../classes/modules/wpxcf-database-module.php:90
+msgid "Table Engine"
+msgstr ""
+
+#: ../classes/modules/wpxcf-database-module.php:91
+msgid "Table Name"
+msgstr ""
+
+#: ../classes/modules/wpxcf-database-module.php:92
+msgid "Table Gain"
+msgstr ""
+
+#: ../classes/modules/wpxcf-database-module.php:94
+msgid "Total Gain"
+msgstr ""
+
+#: ../classes/modules/wpxcf-database-module.php:181
+#, php-format
+msgid "You have %s table to optimize for a gain of %s."
+msgid_plural "You have %s tables to optimize for a gain of %s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../classes/modules/wpxcf-database-module.php:183
+msgid "Fix: click here in order to optimize your table. This action is safe."
+msgstr ""
+
+#: ../classes/modules/wpxcf-media-module.php:22
+#: ../classes/modules/wpxcf-modules.php:96
+msgid "Media"
+msgstr ""
+
+#: ../classes/modules/wpxcf-media-module.php:36
+msgid "Orphan attachments"
+msgstr ""
+
+#: ../classes/modules/wpxcf-media-module.php:37
+msgid ""
+"An orphan attachment is a custom post type without a valid parent post's ID "
+"(it's missed). An attachment usually has a null parent post or a post's ID"
+msgstr ""
+
+#: ../classes/modules/wpxcf-media-module.php:65
+#, php-format
+msgid "You have %s orphan attachment."
+msgid_plural "You have %s orphan attachments."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../classes/modules/wpxcf-media-module.php:67
+msgid "Fix: click here in order to remove invalid post parent"
+msgstr ""
+
+#: ../classes/modules/wpxcf-meta-module.php:23
+msgid "Meta tables and temporary cache"
+msgstr ""
+
+#: ../classes/modules/wpxcf-meta-module.php:37
+msgid "Orphan post meta"
+msgstr ""
+
+#: ../classes/modules/wpxcf-meta-module.php:38
+msgid ""
+"Post Meta without post. These are the extra properties for a generic post "
+"(post, page, custom post type, etc...). Sometimes, post meta records may "
+"exist without relative post: in this case, post meta are orphan and can be "
+"deleted"
+msgstr ""
+
+#: ../classes/modules/wpxcf-meta-module.php:42
+msgid "Temporary"
+msgstr ""
+
+#: ../classes/modules/wpxcf-meta-module.php:43
+msgid ""
+"These records are used by WordPress for temporary data. If you like you can "
+"delete them in safe."
+msgstr ""
+
+#: ../classes/modules/wpxcf-meta-module.php:51
+msgid "Orphan user meta"
+msgstr ""
+
+#: ../classes/modules/wpxcf-meta-module.php:52
+msgid ""
+"User Meta without user. These are extra properties for user. May exist some "
+"records without the relative user"
+msgstr ""
+
+#: ../classes/modules/wpxcf-meta-module.php:82
+#, php-format
+msgid "You have %s orphan post meta."
+msgid_plural "You have %s orphan post meta."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../classes/modules/wpxcf-meta-module.php:87
+#: ../classes/modules/wpxcf-meta-module.php:118
+#: ../classes/modules/wpxcf-meta-module.php:150
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:202
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:230
+msgid "Fix: click here to delete in safe and permantely."
+msgstr ""
+
+#: ../classes/modules/wpxcf-meta-module.php:113
+#, php-format
+msgid "You have %s temporary post meta."
+msgid_plural "You have %s temporary post meta."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../classes/modules/wpxcf-meta-module.php:145
+#, php-format
+msgid "You have %s orphan user meta."
+msgid_plural "You have %s orphan user meta."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../classes/modules/wpxcf-module-response.php:122
+msgid "All works."
+msgstr ""
+
+#: ../classes/modules/wpxcf-module-view.php:45
+msgid "Refresh"
+msgstr ""
+
+#: ../classes/modules/wpxcf-module-view.php:125
+msgid ""
+"WARNING!! Are you sure you want to permanently delete these data? This "
+"action is not undoable."
+msgstr ""
+
+#: ../classes/modules/wpxcf-modules.php:84
+msgid "Database"
+msgstr ""
+
+#: ../classes/modules/wpxcf-modules.php:90
+msgid "Posts, Page and Custom Post Type"
+msgstr ""
+
+#: ../classes/modules/wpxcf-modules.php:102
+msgid "Meta data and cache"
+msgstr ""
+
+#: ../classes/modules/wpxcf-modules.php:108
+msgid "Terms and taxonomies"
+msgstr ""
+
+#: ../classes/modules/wpxcf-posts-module.php:22
+msgid "Posts"
+msgstr ""
+
+#: ../classes/modules/wpxcf-posts-module.php:36
+msgid "Revisions"
+msgstr ""
+
+#: ../classes/modules/wpxcf-posts-module.php:37
+msgid ""
+"Post in revision. WordPress auto-generates revisions when you save a new "
+"version. If you don't need them, you can delete them in safe and permanently "
+"to gain space in the database"
+msgstr ""
+
+#: ../classes/modules/wpxcf-posts-module.php:45
+msgid "Auto Draft"
+msgstr ""
+
+#: ../classes/modules/wpxcf-posts-module.php:46
+msgid ""
+"Post in Auto Draft. WordPress saves an Auto Draft in the database every n "
+"seconds. The Auto draft is different from draft, however you can remove it "
+"in safe to gain space in the database"
+msgstr ""
+
+#: ../classes/modules/wpxcf-posts-module.php:54
+msgid "Trash"
+msgstr ""
+
+#: ../classes/modules/wpxcf-posts-module.php:55
+msgid "Post in trash."
+msgstr ""
+
+#: ../classes/modules/wpxcf-posts-module.php:63
+#: ../classes/modules/wpxcf-posts-module.php:186
+msgid "Posts without Users"
+msgstr ""
+
+#: ../classes/modules/wpxcf-posts-module.php:64
+msgid "Posts with invalid user."
+msgstr ""
+
+#: ../classes/modules/wpxcf-posts-module.php:95
+#, php-format
+msgid "You have %s post in revision."
+msgid_plural "You have %s posts in revision."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../classes/modules/wpxcf-posts-module.php:101
+msgid "Fix: click here to delete your posts revisions."
+msgstr ""
+
+#: ../classes/modules/wpxcf-posts-module.php:128
+#, php-format
+msgid "You have %s post in Auto draft."
+msgid_plural "You have %s posts in Auto draft."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../classes/modules/wpxcf-posts-module.php:131
+msgid "Fix: click here to delete your posts auto draft."
+msgstr ""
+
+#: ../classes/modules/wpxcf-posts-module.php:156
+#, php-format
+msgid "You have %s post in the trash."
+msgid_plural "You have %s posts in the trash."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../classes/modules/wpxcf-posts-module.php:159
+msgid "Fix: click here to delete your posts from trash."
+msgstr ""
+
+#: ../classes/modules/wpxcf-posts-module.php:184
+#, php-format
+msgid "You have %s post without a valid user author liked."
+msgid_plural "You have %s posts without a valid user author liked."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../classes/modules/wpxcf-posts-module.php:186
+#, php-format
+msgid ""
+"WARNIG!! Be carefull: this action will set the '%s' to your selected user. "
+"Are you sure?"
+msgstr ""
+
+#: ../classes/modules/wpxcf-posts-module.php:187
+msgid "Fix: click here fto repair post without user."
+msgstr ""
+
+#: ../classes/modules/wpxcf-posts-module.php:203
+msgid "Choose a new user"
+msgstr ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:23
+msgid "Terms, taxonomie and relationships"
+msgstr ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:37
+msgid "Consistent Terms"
+msgstr ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:38
+msgid "These are orphan Terms and they don't exist in the taxonomy table."
+msgstr ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:46
+msgid "Consistent Terms/Taxonomy"
+msgstr ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:47
+msgid "These are orphan Taxonomies and they have not a valid term linked."
+msgstr ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:55
+msgid "Consistent Terms/Relationships"
+msgstr ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:56
+msgid "Check for term_relationships table and looking for missing taxonomy id."
+msgstr ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:64
+msgid "Orphan Post Tags"
+msgstr ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:65
+msgid "Check for unused posts tags."
+msgstr ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:73
+msgid "Orphan Post Categories"
+msgstr ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:74
+msgid "Check for unused posts categories."
+msgstr ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:82
+msgid "Orphan Terms"
+msgstr ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:83
+msgid "Check for unused generic terms."
+msgstr ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:115
+#, php-format
+msgid "You have %s orphan term. This term doesn't extis as taxonomy."
+msgid_plural "You have %s orphan terms. These terms do not extis as taxonomy."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:117
+msgid "Fix: click here to repair terms"
+msgstr ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:143
+#, php-format
+msgid ""
+"You have %s orphan taxonomy. This is taxonomy have a not valid term id "
+"linked."
+msgid_plural ""
+"You have %s orphan taxonomies. These taxonomies have not a valid term id "
+"linked."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:145
+msgid "Fix: click here to repair terms and taxonomies."
+msgstr ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:172
+#, php-format
+msgid ""
+"You have %s row broken. This object id or term taxonomy id is not valid."
+msgid_plural ""
+"You have %s rows broken. These are objects's id or term taxonomy's id not "
+"valid."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:174
+msgid "Fix: click here to repair terms relationships."
+msgstr ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:200
+#, php-format
+msgid "You have %s orphan tag."
+msgid_plural "You have %s orphan tags."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:228
+#, php-format
+msgid "You have %s orphan post category."
+msgid_plural "You have %s orphan post categories."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:256
+#, php-format
+msgid "You have %s orphan generic term"
+msgid_plural "You have %s orphan generic terms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../classes/modules/wpxcf-term-taxonomy-module.php:258
+msgid "Fix: click here in order to delete all orphan terms."
+msgstr ""
+
+#~ msgid "Placeholders"
+#~ msgstr "Segnaposti"
+
+#~ msgid "Environment"
+#~ msgstr "Ambienti"
+
+#~ msgid "Places"
+#~ msgstr "Posti"
+
+#~ msgid "Place information"
+#~ msgstr "Informazioni posto"
+
+#~ msgid "Status"
+#~ msgstr "Stato"
+
+#~ msgid "Name"
+#~ msgstr "Nome"
+
+#~ msgid "Description"
+#~ msgstr "Descrizione"
+
+#~ msgid "All"
+#~ msgstr "Tutti"
+
+#~ msgid "Publish"
+#~ msgstr "Pubblica"
+
+#~ msgid "Edit"
+#~ msgstr "Modifica"
+
+#~ msgid "Restore"
+#~ msgstr "Repristina"
+
+#~ msgid "Delete"
+#~ msgstr "Elimina"
+
+#~ msgid "Icon"
+#~ msgstr "Icona"
+
+#~ msgid "Move to Trash"
+#~ msgstr "Sposta nel cestino"
+
+#~ msgid "Add New"
+#~ msgstr "Aggiungi nuovo"
+
+#~ msgid "New Place"
+#~ msgstr "Nuovo posto"
+
+#~ msgid "Edit Place"
+#~ msgstr "Modifica posto"
+
+#~ msgid "Add"
+#~ msgstr "Aggiungi"
+
+#~ msgid "Update"
+#~ msgstr "Aggiorna"
