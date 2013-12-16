@@ -81,10 +81,10 @@ $group_parent_id= $tree->get_tag_group_leader($post_object_id[0]);
 //get company name
 $uni_name= $tree->get_linked_taggroup_or_tag($post_id, $post_object_id, $group_parent_id); 
 //get provider logo
-$term_id = wp_get_post_terms($post_id, 'provider', array("fields" => "ids"));
-if($term_id){
-    $provider= s8_get_taxonomy_image_src(get_term_by('id', $term_id[0], 'provider'), 'small');
-}
+//$term_id = wp_get_post_terms($post_id, 'provider', array("fields" => "ids"));
+//if($term_id){
+//    $provider= s8_get_taxonomy_image_src(get_term_by('id', $term_id[0], 'provider'), 'small');
+//}
 $ratings= show_ratings($post_id);
 ?>                            
 
