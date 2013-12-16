@@ -23,11 +23,8 @@ public abstract function scrape($wpdb);
   
 public function submitPost($wpdb, $post_title, $content,$excerpt,$photo, $tags, $post_type, $entity)
 {        
-  //only insert the post if it does not already exist (based on the title)
- // $exists= $this->checkPostExists($wpdb,$post_title );
-        
- // if (!$exists)
- // {
+
+    
           $slug = $this->sluggify($post_title);
         
            $post = array(
@@ -58,13 +55,9 @@ public function submitPost($wpdb, $post_title, $content,$excerpt,$photo, $tags, 
      $this->last_insert_id = $wpdb->insert_id;
     
         //insert the image
-        if($photo=='dummy'){
-            //commented out as we're not inserting dummy image urls to the database, no point 
-           // $this->insert_dummy_image($wpdb, $entity);
-        }else
+        if($photo!='dummy'){//we're not inserting dummy image urls to the database, no point 
             $this->insert_post_image($wpdb, $post_title, $photo, $entity);  
-  // }
-  // else echo '<p style="color:red">Course Not Submitted - a course with this title ('.$post_title.') already exists';
+        }
 }
 
 /*
@@ -122,34 +115,6 @@ public function insert_post_image($wpdb, $image_title, $photoUrl, $entity){
   
     echo "<br><h4 style='color:green'>Image: ".$h->post->image." saved.</h4>";
 }
-
-
-/*
- * insert_dummy_image
- * inserts a dummy image
- */
-private function insert_dummy_image($wpdb, $entity)
-{
-     $lastInsertID= $wpdb->insert_id;
-
-     if ($entity->employer_name){
-         $dummy_image= "http://localhost/LGWP/wp-content/uploads/post_images/dummy-job.png";
-     }
-     
-     $post_image = array(
-    'post_id' => $lastInsertID,
-    'meta_value'=>$dummy_image,
-    'meta_key'=>'wpcf-post-image'
-     );
-    $wpdb->insert(
-    'wp_postmeta', 
-    $post_image,
-    array( '%d', '%s', '%s' )
-    );
-
-    echo "<br><b>Dummy Image Inserted :)</b>";    
-}
-
 
 /*
  * insert_image

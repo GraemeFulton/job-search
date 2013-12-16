@@ -6,13 +6,18 @@ Class Indeed_Post_Gen{
    
     protected $job_type;
     protected $job_type_search_terms;
+    protected $job_type_taxonomy;
+    protected $page_type;
     protected $wpdb;
     
-  public function __construct($job_type, $job_type_search_terms)
+  public function __construct($job_type, $job_type_search_terms, $job_type_taxonomy, $page_type)
     {
         $this->connect_database();
         $this->job_type= $job_type;
         $this->job_type_search_terms= $job_type_search_terms;
+        $this->job_type_taxonomy = $job_type_taxonomy;
+        $this->page_type = $page_type;
+        
         $this->gather_category_terms();
     }  
     
@@ -72,7 +77,7 @@ private function gather_category_terms(){
                 $initiativeURL='http://www.indeed.com';  
 
                 $scraper = new IndeedScraper();
-                $scraper->Setup($API, $initiativeURL, $category->name, 'graduate-job', $this->job_type);
+                $scraper->Setup($API, $initiativeURL, $category->name, $this->page_type, $this->job_type, $this->job_type_taxonomy);
                 $scraper->scrape($this->wpdb);            
             }
          }   
@@ -102,7 +107,7 @@ private function gather_category_terms(){
             echo '<br><b>Title</b>: '.$title.' <b>Search</b>: '.$search.'<br>';
        
                     //if graduate jobs
-                  if($this->job_type=='a:1:{i:0;s:15:"graduate_scheme";}'){
+                  if($this->job_type=='Graduate Scheme'){
 
                       $withTitle="title%3A((".$title.")+(".$this->job_type_search_terms."))";
                      return $API= 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q='.$withTitle.'&co=gb&userip=1.2.3.4&v=2';//st=employer'; 
@@ -111,13 +116,30 @@ private function gather_category_terms(){
                   }
                   
                   //if entry level
-                  elseif($this->job_type=='a:1:{i:0;s:11:"entry_level";}'){
+                  elseif($this->job_type=='Entry Level'){
                 
                       if($search!=''){
                             $withTitle="title%3A((".$search.")+(".$this->job_type_search_terms."))";//put search term in title
                            return $API= 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q='."+".$withTitle.'&co=gb&userip=1.2.3.4&v=2&st=employer'; 
                         }
                   }
+                  
+                  elseif($this->job_type=='Internship'){
+
+                      $withTitle="title%3A((".$title.")+(".$this->job_type_search_terms."))";
+                     return $API= 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q='.$withTitle.'&co=gb&userip=1.2.3.4&v=2';//st=employer'; 
+
+                  }
+                  
+                  elseif($this->job_type=='Summer Job'){
+
+                      $withTitle="title%3A((".$title.")+(".$this->job_type_search_terms."))";
+                     return $API= 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q='.$withTitle.'&co=gb&userip=1.2.3.4&v=2';//st=employer'; 
+
+                  }
+                  
+                  
+                  
             
    }
 }

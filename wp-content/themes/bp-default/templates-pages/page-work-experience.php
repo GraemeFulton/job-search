@@ -36,9 +36,11 @@ include (TEMPLATEPATH . '/templates-headers/header-work-experience.php');
 //          echo '<hr><h2>Location</h2>';
 //          $tree->display_meta_group_select_box('location');
           
-          echo '<div class="nav-filter"><h3>Provider</h3>';
-          $tree->display_linked_taxonomy_hierarchy_list('provider', 'job-providers');
-                  echo '</div>';
+           echo '<div id="Provider_Filter"><h3 class="filter-title">Provider</h3>';
+          echo '<div class="page_widget">'.widgets_on_template("Job Provider Filter")."</div></div>";
+          
+            echo '<div id="Type_Filter"><h3 class="filter-title">Job Type</h3>';
+          echo '<div class="page_widget">'.widgets_on_template("Work Experience Type Filter")."</div></div>";
 
 
         }
@@ -76,17 +78,17 @@ $post_image=$tree->get_post_image($group_parent_id, $post_id);
 //subject/grouped taxonomy
 $profession=$tree->grouped_taxonomy_name($post_id);
 // get advert type
-$job_type=types_render_field("graduate-job-type", array("output"=>"normal"));
+//$job_type=types_render_field("graduate-job-type", array("output"=>"normal"));
 //print company name, and image
 $post_object_id = wp_get_post_terms($post_id, 'company', array("fields" => "ids"));
 $group_parent_id= $tree->get_tag_group_leader($post_object_id[0]);
 //get company name
 $company_name= $tree->get_linked_taggroup_or_tag($post_id, $post_object_id, $group_parent_id); 
 //get provider logo
-$term_id = wp_get_post_terms($post_id, 'provider', array("fields" => "ids"));
-if($term_id){
-    $provider= s8_get_taxonomy_image_src(get_term_by('id', $term_id[0], 'provider'), 'small');
-}
+//$term_id = wp_get_post_terms($post_id, 'provider', array("fields" => "ids"));
+//if($term_id){
+//    $provider= s8_get_taxonomy_image_src(get_term_by('id', $term_id[0], 'provider'), 'small');
+//}
 //location
 $location=$tree->get_location($post_id);
 

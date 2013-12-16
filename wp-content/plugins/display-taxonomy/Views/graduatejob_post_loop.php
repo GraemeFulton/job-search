@@ -25,7 +25,7 @@ $group_parent_id= $tree->get_tag_group_leader($post_object_id[0]);
 //get company name
 $company_name= $tree->get_linked_taggroup_or_tag($post_id, $post_object_id, $group_parent_id); 
 //get provider logo
-$term_id = wp_get_post_terms($post_id, 'provider', array("fields" => "ids"));
+$term_id = wp_get_post_terms($post_id, 'job-provider', array("fields" => "ids"));
 if($term_id){
     $provider= s8_get_taxonomy_image_src(get_term_by('id', $term_id[0], 'provider'), 'small');
 }
@@ -42,7 +42,7 @@ $location= wp_get_post_terms($post_id, 'location', array("fields" => "names"));
                                         
                                         <div class="post_image">
                                             <br>
-                                            <img style="position: relative; max-height:150px;" src="<?php echo $post_image?>"/> 
+                                            <img style="position: relative; max-width:95%;" src="<?php echo $post_image?>"/> 
                                          </div>
                                         
 				<h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>

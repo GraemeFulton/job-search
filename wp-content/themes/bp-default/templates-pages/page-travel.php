@@ -64,11 +64,11 @@ $course_type=types_render_field("travel-type", array("output"=>"normal"));
 //print company name, and image
 
 //get provider logo
-$term_id = wp_get_post_terms($post_id, 'provider', array("fields" => "ids"));
-$provider_name= wp_get_post_terms($post_id, 'provider', array("fields" => "names"));
+//$term_id = wp_get_post_terms($post_id, 'provider', array("fields" => "ids"));
+//$provider_name= wp_get_post_terms($post_id, 'provider', array("fields" => "names"));
 
 if($term_id){
-    $provider= s8_get_taxonomy_image_src(get_term_by('id', $term_id[0], 'provider'), 'small');
+   // $provider= s8_get_taxonomy_image_src(get_term_by('id', $term_id[0], 'provider'), 'small');
 }
 $ratings= show_ratings($post_id);
 ?>                            

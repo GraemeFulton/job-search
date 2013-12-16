@@ -24,11 +24,11 @@ include (TEMPLATEPATH . '/templates-headers/header-graduate-job.php');
          
           //Profession Filter
            echo '<h3 class="filter-title"><i class="ico fa fa-crosshairs"></i> Profession</h3>';
-           widgets_on_template("Profession Filter");
+           echo '<div class="page_widget">'.widgets_on_template("Profession Filter")."</div>";
                   
          //Location Filter         
            echo '<h3 class="filter-title"><i class="ico fa fa-map-marker"></i> Location</h3>';
-           widgets_on_template("Location Filter"); 
+           echo '<div class="page_widget">'.widgets_on_template("Location Filter")."</div>"; 
            
                     echo '<div class="nav-filter"><h3>Company</h3>'; 
                     $tree->display_tag_groups_b();
@@ -36,9 +36,9 @@ include (TEMPLATEPATH . '/templates-headers/header-graduate-job.php');
 //          echo '<hr><h2>Location</h2>';
 //          $tree->display_meta_group_select_box('location');
           
-          echo '<div class="nav-filter"><h3>Provider</h3>';
-          $tree->display_linked_taxonomy_hierarchy_list('provider', 'job-providers');
-                  echo '</div>';
+          echo '<div id="Provider_Filter"><h3 class="filter-title">Provider</h3>';
+          echo '<div class="page_widget">'.widgets_on_template("Job Provider Filter")."</div></div>";
+                //  echo '</div>';
 
 
         }
@@ -83,7 +83,7 @@ $group_parent_id= $tree->get_tag_group_leader($post_object_id[0]);
 //get company name
 $company_name= $tree->get_linked_taggroup_or_tag($post_id, $post_object_id, $group_parent_id); 
 //get provider logo
-$term_id = wp_get_post_terms($post_id, 'provider', array("fields" => "ids"));
+$term_id = wp_get_post_terms($post_id, 'job-provider', array("fields" => "ids"));
 if($term_id){
     $provider= s8_get_taxonomy_image_src(get_term_by('id', $term_id[0], 'provider'), 'small');
 }
@@ -100,7 +100,7 @@ $location= wp_get_post_terms($post_id, 'location', array("fields" => "names"));
                                         
                                         <div class="post_image">
                                             <br>
-                                            <img style="position: relative; max-height:150px;" src="<?php echo $post_image?>"/> 
+                                            <img style="position: relative; max-width:95%;" src="<?php echo $post_image?>"/> 
                                          </div>
                                         
 				<h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>

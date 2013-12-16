@@ -16,9 +16,13 @@ require_once('../../../wp-load.php' );
 <body>
 <h2>Indeed Graduate Job Generator</h2>
 <form action="?action=generatePosts" method="post">
-    <input type="radio" name="job_type" value='a:1:{i:0;s:11:"entry_level";}' />Entry Level <br>
-    <input type="radio" name="job_type" value='a:1:{i:0;s:15:"graduate_scheme";}' />Graduate Scheme <br>
-
+    <h2>Graduate Jobs</h2>
+    <input type="radio" name="graduate_job" value='Entry Level' />Entry Level <br>
+    <input type="radio" name="graduate_job" value='Graduate Scheme' />Graduate Scheme <br>
+    <hr>
+    <h2>Work Experience</h2>
+     <input type="radio" name="work_experience" value='Internship' />Internship<br>
+    <input type="radio" name="work_experience" value='Summer Job' />Summer Job<br>
 <input type="submit" value="Generate Posts">
 </form>
 
@@ -39,53 +43,77 @@ if(isset($_GET['action'])=='generatePosts') {
 
 Class Form_Handler{
 
-    protected $job_option_selected;
+    protected $job_taxonomy_type;
+    protected $page_type;
     
    public function start_scraper(){
         
-          if(isset($_POST['job_type'])){
+          if(isset($_POST['graduate_job'])){
        
-        $job_type = stripslashes($_POST["job_type"]);
+        $job_type= $_POST['graduate_job'];
         
-        $job_type_search_terms= $this->get_search_terms($job_type);
+        $this->job_taxonomy_type='job-type';
+        $this->page_type = 'graduate-job';
         
-        if($this->job_option_selected==1){
-        foreach($job_type_search_terms as $term){
-        $gen= new Indeed_Post_Gen($job_type, $term); //loop through each if graduate scheme
+        $this->scrape_graduate_jobs($job_type);
+     
+    }
+    
+    
+        elseif(isset($_POST['work_experience'])){
+       
+        $job_type= $_POST['work_experience'];
+        $this->page_type = 'work-experience-job';
+        $this->job_taxonomy_type='work-experience-type';
 
-        }
-        }
-        elseif($this->job_option_selected==2){
-            
-            $gen= new Indeed_Post_Gen($job_type, $job_type_search_terms);//otherwise provide the full string
-            
-        }
-    }
+        $this->scrape_work_experience($job_type);
         
     }
     
-    
-   private function get_search_terms($job_type){
         
-    
-        //if graduate jobs
-        if($job_type=='a:1:{i:0;s:15:"graduate_scheme";}'){
-            
-            echo 'Job Type Meta: '.$job_type;
-            $this->job_option_selected=1;
-           return $job_search_array=['graduate+programme', 'graduate+scheme', 'Intake+-placement+-school'];
-         
-
-        }
-        //if entry level
-        elseif($job_type=='a:1:{i:0;s:11:"entry_level";}'){
-            $this->job_option_selected=2;
-            echo 'Job Type Meta: '.$job_type;
-         return   $job_type_search_terms= 'junior+or+graduate+or+trainee+or+-programme+or+-scheme+-2014+-2013+-charge';
-        }
-    
-    
     }
+    
+    private function scrape_graduate_jobs($job_type){
+        
+        if($job_type=='Graduate Job'){
+            
+            $job_type_search_terms=['graduate+programme', 'graduate+scheme', 'Intake+-placement+-school'];
+              
+            foreach($job_type_search_terms as $term){
+                $gen= new Indeed_Post_Gen($job_type, $term, $this->job_taxonomy_type, $this->page_type); //loop through each if graduate scheme
+             }
+        }
+        elseif($job_type=='Entry Level'){
+            
+             $job_type_search_terms= 'junior+or+graduate+or+trainee+or+-programme+or+-scheme+-2014+-2013+-charge';
+            $gen= new Indeed_Post_Gen($job_type, $job_type_search_terms, $this->job_taxonomy_type, $this->page_type);//otherwise provide the full string
+            
+        }
+        
+    }
+    
+    private function scrape_work_experience($job_type){
+    
+        if($job_type=='Internship'){
+        
+            $job_type_search_terms=['Internship+-summer', 'Placement+-summer', 'Temporary+Student+-summer'];
+            
+            foreach($job_type_search_terms as $term){
+                $gen= new Indeed_Post_Gen($job_type, $term, $this->job_taxonomy_type, $this->page_type); //loop through each if graduate scheme
+            }
+        
+        }
+        elseif($job_type=='Summer Job'){
+            
+            $job_type_search_terms=['Summer+Graduate', 'Summer+student', 'Intake+-placement+-school'];
+            
+            foreach($job_type_search_terms as $term){
+                $gen= new Indeed_Post_Gen($job_type, $term, $this->job_taxonomy_type, $this->page_type); //loop through each if graduate scheme
+            }
+            
+        }
+    }
+    
 
 }
 ?>
