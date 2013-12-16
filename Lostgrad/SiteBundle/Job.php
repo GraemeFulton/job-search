@@ -4,15 +4,25 @@ require( '../../../wp-load.php' );
 
 class Job
 {
-    protected $initiative_job_id = 0;        //initiative category identifier
-    protected $employer_name = "";                //e.g. 1= coursera
+    
+    /*
+     * protected properties - single values
+     */
+    protected $initiative_job_id = 0;
+    protected $employer_name = ""; 
     protected $job_location= "";                
     protected $job_url = "";
     protected $job_provider="";
     protected $job_profession="";
     protected $job_desc=""; //used for existance check
-    
     protected $job_type="";
+    
+    /*protected properties - taxonomies
+     * 
+     * depending on the type of job (work experience or graduate job)
+     * we need to set the taxonomy we will be submitting into.
+     */
+    protected $job_type_taxonomy=""; 
     
     /**
      * Access modifier to set protected properties
@@ -41,18 +51,18 @@ class Job
   {
             //INSERT JOB-TYPE
        //entry: a:1:{i:0;s:11:"entry_level";} //gs a:1:{i:0;s:15:"graduate_scheme";}
-            $job_type = array(
-                'post_id' => $last_insert_id,
-                'meta_value'=>$this->job_type,
-                'meta_key'=>'job_type'
-            );//meta_value = 2:Entry Level
-
-            $wpdb->insert(
-                'wp_postmeta', 
-                $job_type,
-                array( '%d', '%s', '%s' )
-            );
-            
+//            $job_type = array(
+//                'post_id' => $last_insert_id,
+//                'meta_value'=>$this->job_type,
+//                'meta_key'=>'job_type'
+//            );//meta_value = 2:Entry Level
+//
+//            $wpdb->insert(
+//                'wp_postmeta', 
+//                $job_type,
+//                array( '%d', '%s', '%s' )
+//            );
+//            
             
            //INSERT JOB-URL   
               $job_url = array(
@@ -107,7 +117,10 @@ class Job
   private function setObjectTerms($last_insert_id){
       
     //INSERT PROVIDER NAME/RELATIONSHIP
-    wp_set_object_terms($last_insert_id,$this->job_provider,'provider');
+    wp_set_object_terms($last_insert_id,$this->job_provider,'job-provider');
+    
+      //INSERT PROVIDER NAME/RELATIONSHIP
+    wp_set_object_terms($last_insert_id,$this->job_type,$this->job_type_taxonomy);
     
     //INSERT UNIVERSITY NAME/RELATIONSHIP
     wp_set_object_terms($last_insert_id,$this->job_profession,'profession');
@@ -117,6 +130,7 @@ class Job
     
       //INSERT LOCATION NAME/RELATIONSHIP
     wp_set_object_terms($last_insert_id,$this->job_location,'location');
+    
   }
     
   public function isJobRecorded($wpdb)

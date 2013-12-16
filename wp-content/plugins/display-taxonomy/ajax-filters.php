@@ -7,11 +7,7 @@
      */
     function process_filter()
     {
-         switch($_REQUEST['fn'])
-        {
-             case 'group_filter':
-                  $output = create_post_filter(
-                          $_POST['selected_subjects'], 
+         $super_filter = new Super_Filter($_POST['selected_subjects'], 
                           $_POST['offset'],
                           $_POST['cat'], 
                           $_POST['type'], 
@@ -19,20 +15,19 @@
                           $_POST['body_type'],
                           $_POST['location'],
                           $_POST['provider'],
-                          $_POST['selected_category_type']
-                          );
+                          $_POST['selected_category_type']);
+         
+         switch($_REQUEST['fn'])
+        {
+             
+             case 'group_filter':
+                 $output= $super_filter->create_filter();
              break;
          
-             case 'regular_filter':
-                  $output = create_simple_post_filter(
-                          $_POST['selected_subjects'], 
-                          $_POST['offset'],
-                          $_POST['cat'], 
-                          $_POST['type'],
-                          $_POST['provider'],
-                          $_POST['selected_category_type']
-                          );
-                 break;
+             case 'regular_filter':               
+                $output= $super_filter->create_filter();
+             break;
+         
              default:
                  $output = 'No function specified, check your jQuery.ajax() call';
              break;
@@ -48,13 +43,23 @@
          die;
     }
     
-/*
- * ajax_get_latest_posts
- * args: taxonomy (checkbox selections), offset(number of courses already loaded)
- * returns: html template 
- * note:change location to meta value
- */
-function create_post_filter($selected_subjects, 
+
+
+
+Class Super_Filter{
+    
+        protected $selected_subjects; 
+        protected $offset;
+        protected $category_type;
+        protected $tag_type; //e.g. profession/subject
+        protected $selected_institutions;
+        protected $body_type;
+        protected $location;
+        protected $selected_provider;
+        protected $selected_category_type;
+  
+  
+  public function __construct($selected_subjects, 
                             $offset, 
                             $category_type, 
                             $tag_type, 
@@ -62,189 +67,112 @@ function create_post_filter($selected_subjects,
                             $body_type, 
                             $location,
                             $selected_provider,
-                            $selected_category_type
-                            )
-{
+                            $selected_category_type) 
+  {      
+      $this->selected_subjects= $selected_subjects;
+      $this->offset= $offset;
+      $this->category_type= $category_type;
+      $this->tag_type= $tag_type;
+      $this->selected_institutions= $selected_institutions;
+      $this->body_type= $body_type;
+      $this->location=$location;
+      $this->selected_provider= $selected_provider;
+      $this->selected_category_type=$selected_category_type;
+  }
     
-   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+  public function create_filter(){
+      
+      
+      $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-    $args= array
-    (
-        'offset'=>$offset,
-        'post_type'=>$category_type,
-        'paged'=>$paged,
-        'posts_per_page'=>9,
-        'orderby' => 'title',
-        'order' => 'ASC'
-    );
+    //get the post args
+    $args= $this->initiate_post_args();
     
-    //QUERY CHECKED SUBJECTS
-    if($selected_subjects!="" && $tag_type=='subject'){//if a box has been checked, we add a taxnomoy query
+    //query any checked subjects/professions/destinations
+    $args= $this->taxonomy_shared_filter($this->tag_type, 0,$this->selected_subjects, $args);
          
-         $args['tax_query'][3]['terms']=$selected_subjects;
-            $args['tax_query'][3]['taxonomy']='subject';
-            $args['tax_query'][3]['field']='slug';    
-    } //QUERY CHECKED SUBJECTS
+    //query any checked institutions
+    $args= $this->xili_group_taxonomy_filter($args, 2, $this->selected_institutions);
+       
+      //query any checked provider (destination)
+    $args=$this->filter_provider($args);
     
-    //QUERY CHECKED PROFESSION
-      if($selected_subjects!="" && $tag_type=='profession'){//if a box has been checked, we add a taxnomoy query
-                
-            $args['tax_query'][4]['terms']=$selected_subjects;
-            $args['tax_query'][4]['taxonomy']='profession';
-            $args['tax_query'][4]['field']='slug';   
-            
-    }
-    //QUERY CHECKED PROFESSION
-    
-    //QUERY CHECKED INSTITUTIONS
-        if($selected_institutions!=""){//if a box has been checked, we add a taxnomoy query
-         
-        $tags_from_group=array();
-        
-        foreach($selected_institutions as $term)
-        {       
-           $tags_from_group= array_merge($tags_from_group,xtt_tags_from_group($term, '',"xili_tidy_tags_".$body_type, $body_type));
+    //query any checked locations
+    $args= $this->regular_taxonomy_filter('location', 4, $this->location, $args);  
 
-            $args['tax_query'][0]['terms']=$tags_from_group;
-            $args['tax_query'][0]['taxonomy']=$body_type;
-            $args['tax_query'][0]['field']='slug';
-        }      
-    } //QUERY CHECKED INSTITUTIONS
-    
-      //QUERY CHECKED PROVIDER (destination)
-    if($selected_provider!=""){//if a box has been checked, we add a taxnomoy query
-
-            $args['tax_query'][1]['terms']=$selected_provider;
-            $args['tax_query'][1]['taxonomy']='provider';
-            $args['tax_query'][1]['field']='slug';
-            
-    } //QUERY CHECKED PROVIDER
-    
-    
-    //QUERY CHECKED LOCATION
-       if($location!=""){
-           
-            $args['tax_query'][2]['terms']=$location;
-            $args['tax_query'][2]['taxonomy']='location';
-            $args['tax_query'][2]['field']='slug';   
-       }
-    //QUERY META VALUE (LOCATION)
-   
-//QUERY META VALUE (category_type)
-       if($selected_category_type!=""){
-           
-      $meta=array('relation'=>'OR');
-      foreach($selected_category_type as $key=>$value)
-        {     
-            $result = str_replace('-', '"', $value);
-          
-           $meta[$key]=array(
-                    'key' => 'job_type',
-                    'value' => $result,
-                    'compare' => 'LIKE',
-                    );              
-         
-        }                          
-
-          $args['meta_query']=$meta;
-            
-    }
-    //QUERY META VALUE (category_type)
-
-    
     query_posts($args);
     
-   return load_post_loop_view($category_type);
-}
-
-
-function create_simple_post_filter($selected_subjects, 
-                                    $offset, 
-                                    $category_type, 
-                                    $tag_type,
-                                    $selected_provider,
-                                    $selected_category_type
-                                    )
- {
-    
-    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
-    $args= array
-    (
-        'offset'=>$offset,
-        'post_type'=>$category_type,
-        'paged'=>$paged,
-        'posts_per_page'=>9,
-        'orderby' => 'title',
-        'order' => 'ASC'
-    );
-    
-     //QUERY CHECKED SUBJECTS (destination)
-    if($selected_subjects!=""){//if a box has been checked, we add a taxnomoy query
-
-            $args['tax_query'][1]['terms']=$selected_subjects;
-            $args['tax_query'][1]['taxonomy']=$tag_type;
-            $args['tax_query'][1]['field']='slug';
-            
-    } //QUERY CHECKED SUBJECTS
-    
-     //QUERY CHECKED PROVIDER (destination)
-    if($selected_provider!=""){//if a box has been checked, we add a taxnomoy query
-
-            $args['tax_query'][0]['terms']=$selected_provider;
-            $args['tax_query'][0]['taxonomy']='provider';
-            $args['tax_query'][0]['field']='slug';
-            
-    } //QUERY CHECKED PROVIDER
-    
-     //QUERY META VALUE (category_type)
-       if($selected_category_type!=""){
-           
-      $meta=array('relation'=>'OR');
-      foreach($selected_category_type as $key=>$value)
-        {     
-           $result = str_replace('-', '"', $value);
-
-           $meta[$key]=array(
-                    'key' => 'travel_type',
-                    'value' => $result,
-                    'compare' => 'LIKE',
-                    );              
-         
-        }                          
-
-          $args['meta_query']=$meta;
-            
-    }
+   return $this->load_post_loop_view($this->category_type);
+      
+      
+      
+  }  
     
     
     
-    //QUERY META VALUE (LOCATION)
+//  public function create_filter_simple(){
+//      
+//    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+//
+//    $args= $this->initiate_post_args();
+//
+//    
+//    //query any checked subjects/professions/destinations
+//    $args= $this->taxonomy_shared_filter($this->tag_type, 0,$this->selected_subjects, $args);
+//    
+//     //QUERY CHECKED PROVIDER (destination)
+//    if($this->selected_provider!=""){//if a box has been checked, we add a taxnomoy query
+//
+//            $args['tax_query'][0]['terms']=$this->selected_provider;
+//            $args['tax_query'][0]['taxonomy']='provider';
+//            $args['tax_query'][0]['field']='slug';
+//            
+//    } //QUERY CHECKED PROVIDER
+//    
+//     //QUERY META VALUE (category_type)
+//       if($this->selected_category_type!=""){
+//           
+//      $meta=array('relation'=>'OR');
+//      foreach($this->selected_category_type as $key=>$value)
+//        {     
+//           $result = str_replace('-', '"', $value);
+//
+//           $meta[$key]=array(
+//                    'key' => 'travel_type',
+//                    'value' => $result,
+//                    'compare' => 'LIKE',
+//                    );              
+//         
+//        }                          
+//
+//          $args['meta_query']=$meta;
+//            
+//    }
+//    
+//    query_posts($args);
+//
+//    return $this->load_post_loop_view();
+//    }
     
     
-        query_posts($args);
+    
+    private function load_post_loop_view() {
 
-       return load_post_loop_view($category_type);
-
-}
-
-function load_post_loop_view($category_type) {
-
-    if ($category_type=='course'){
+    if ($this->category_type=='course'){
     // the Loop
       include("Views/course_post_loop.php");  
     }
-    else if($category_type=='graduate-job'){
+    else if($this->category_type=='graduate-job'){
         
         include("Views/graduatejob_post_loop.php");  
         
     }
-      else if($category_type=='work-experience-job'){
+      else if($this->category_type=='work-experience-job'){
         
         include("Views/graduatejob_post_loop.php");  
         
     }
-       else if($category_type=='travel-opportunities'){
+       else if($this->category_type=='travel-opportunities'){
         
         include("Views/travel_post_loop.php");  
         
@@ -253,5 +181,90 @@ function load_post_loop_view($category_type) {
     
     wp_reset_query();
     exit;
+}
+
+    /*
+     * regular_taxonomy_filter
+     * 
+     * @param: tag_type_name
+     * returns: args
+     * 
+     * takes a taxonomy tag-type name, e.g. 'subject', and applies that name as the
+     * regular taxonomy we are filtering against.
+     */
+    private function taxonomy_shared_filter($tag_type_name, $array_index, $selected_terms, $args){
+    
+       if($selected_terms!="" && $this->tag_type==$tag_type_name){//if a box has been checked, we add a taxnomoy query
+         
+            $args['tax_query'][$array_index]['terms']=$selected_terms;
+            $args['tax_query'][$array_index]['taxonomy']=$tag_type_name;
+            $args['tax_query'][$array_index]['field']='slug';
+            
+      }
+      return $args;
+    
+   }
+   
+    private function regular_taxonomy_filter($tag_type_name, $array_index, $selected_terms, $args){
+    
+       if($selected_terms!=""){//if a box has been checked, we add a taxnomoy query
+         
+            $args['tax_query'][$array_index]['terms']=$selected_terms;
+            $args['tax_query'][$array_index]['taxonomy']=$tag_type_name;
+            $args['tax_query'][$array_index]['field']='slug';
+            
+      }
+      return $args;
+    
+   }
+   
+   private function xili_group_taxonomy_filter($args, $array_index, $selected_group_terms){
+       
+       if($selected_group_terms!=""){
+            $tags_from_group=array();
+
+             foreach($selected_group_terms as $term)
+             {       
+                $tags_from_group= array_merge($tags_from_group,xtt_tags_from_group($term, '',"xili_tidy_tags_".$this->body_type, $this->body_type));
+
+                 $args['tax_query'][$array_index]['terms']=$tags_from_group;
+                 $args['tax_query'][$array_index]['taxonomy']=$this->body_type;
+                 $args['tax_query'][$array_index]['field']='slug';
+             }
+       }
+       return $args;
+       
+   }
+   
+   private function filter_provider($args){
+       
+       if($this->category_type=='course'){
+       $args= $this->regular_taxonomy_filter('course-provider', 3, $this->selected_provider, $args);  
+       }
+       elseif($this->category_type=='graduate-job' || $this->category_type=='work-experience-job'){
+       $args= $this->regular_taxonomy_filter('job-provider', 3, $this->selected_provider, $args);  
+       }
+       elseif($this->category_type=='travel'){
+       $args= $this->regular_taxonomy_filter('travel-agent', 3, $this->selected_provider, $args);  
+       }
+       
+       return $args;
+   }
+   
+   private function initiate_post_args(){
+       
+     $args= array
+    (
+        'offset'=>$this->offset,
+        'post_type'=>$this->category_type,
+        'paged'=>$paged,
+        'posts_per_page'=>9,
+        'orderby' => 'title',
+        'order' => 'ASC'
+    );
+       
+       return $args;
+   }
+    
 }
 ?>

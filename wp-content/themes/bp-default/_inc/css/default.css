@@ -2764,19 +2764,22 @@ FILTERS
 *******************/
 #Profession_Filter{
     padding:15px;
-    border-bottom: 1px solid #ccc
 }
 #Location_Filter{
     padding:13px;
-    border-bottom: 1px solid #ccc
 
 }
 
 #Subject_Filter{
     padding:13px;
-    border-bottom: 1px solid #ccc
 
 }
+.page_widget{
+    padding:13px;
+    border-bottom: 1px solid #ccc
+    
+}
+
 .nav-filter{
     padding:13px;
     border-bottom: 1px solid #ccc

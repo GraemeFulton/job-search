@@ -469,7 +469,7 @@ class Display_Taxonomy{
     }
  
  /*
-  * print_post_image
+  * get_xili_post_image
   * @params:
   * prints ONE image from optional images the post may have- priority for images:
   * 1. Image attached to the institution (group parent)
@@ -477,69 +477,7 @@ class Display_Taxonomy{
   * 3. Image attached to the category (e.g. accounting/programmer)
   * 4. Fall back on default image
   */
- public function print_post_image($group_parent_id, $post_id){
-     
-    //1. Image attached to the institution (group parent)
-     
-     if ($this->grouped_taxonomy_short!='uni'){
-     
-    $institution_image = s8_get_taxonomy_image_src(get_term_by('id', $group_parent_id, $this->grouped_taxonomy), 'thumbnail');
-    if ($institution_image!=false)
-    {
-        printf('<br><img style="float:left position:relative; max-height:150px; " src="%s"/>', $institution_image['src']);
-         
-         return;
-    }
-   }
-//else use anything associated to the tag:
-             
-         $term_id = wp_get_post_terms($post_id, $this->grouped_taxonomy_short, array("fields" => "ids"));
-        $company_tag_image = s8_get_taxonomy_image_src(get_term_by('id', $term_id[0], $this->grouped_taxonomy_short), 'thumbnail');
-
-        if ($company_tag_image!=false){
-        printf('<br><img style="float:left position:relative; max-height:150px; " src="%s"/>', $company_tag_image['src']);
-            return;
-        }
-        
- 
-//else use the google image:
-        $pic = types_render_field("post-image", array("output"=>"raw"));
-    
-        if($pic){
-          printf('<br><img style="float:left position:relative; max-height:150px;" src="%s"/>', $pic);
-          
-          return;
-        }
-    
- //else use the category (accounting image):
-        
-        $cat_term_id = wp_get_post_terms($post_id, 'profession', array("fields" => "ids"));    
-        $group_leader=$this->get_tag_group_leader($cat_term_id[0]);
-       $category_image = s8_get_taxonomy_image_src(get_term_by('id', $group_leader, $this->category_type), 'medium');
-     //  var_dump($category_image);
-       if ($category_image!=false){
-        printf('<br><img style="float:left position:relative; max-height:150px; " src="%s"/>', $category_image['src']);
-           return;
-        }
-        
-       
-   //or finally use the dummy
-     
-        $dummy="http://localhost/LGWP/wp-content/uploads/post_images/dummy-job.png";
-        printf('<br><img style="float:left position:relative; max-height:150px;" src="%s"/>', $dummy);
-        return;
-    }
-    
-     /*
-  * print_post_image
-  * @params:
-  * prints ONE image from optional images the post may have- priority for images:
-  * 1. Image attached to the institution (group parent)
-  * 2. Image attached to the post (from google images)
-  * 3. Image attached to the category (e.g. accounting/programmer)
-  * 4. Fall back on default image
-  */
- public function get_post_image($group_parent_id, $post_id){
+ public function get_xili_post_image($group_parent_id, $post_id){
      
     //1. Image attached to the institution (group parent)
      
@@ -578,6 +516,58 @@ class Display_Taxonomy{
        if ($category_image!=false){
            return $category_image['src'];
         }
+        
+        
+    
+   //or finally use the dummy
+     
+        $dummy="http://localhost/LGWP/wp-content/uploads/post_images/dummy-job.png";
+        return $dummy; 
+    }
+    
+ /*
+  * print_post_image **USING THIS ONE
+  * @params:
+  * prints ONE image from optional images the post may have- priority for images:
+  * 1. Image attached to the institution (group parent)
+  * 2. Image attached to the post (from google images)
+  * 3. Image attached to the category (e.g. accounting/programmer)
+  * 4. Fall back on default image
+  */
+ public function get_post_image($group_parent_id, $post_id){
+     
+  //else use anything associated to the tag:
+             
+         $term_id = wp_get_post_terms($post_id, $this->grouped_taxonomy_short, array("fields" => "ids"));
+        $company_tag_image = s8_get_taxonomy_image_src(get_term_by('id', $term_id[0], $this->grouped_taxonomy_short), 'full');
+
+        if ($company_tag_image!=false){
+            return $company_tag_image['src'];
+        }
+        
+        
+ 
+//else use the google image:
+        $pic = types_render_field("post-image", array("output"=>"raw"));
+    
+        if($pic){          
+          return $pic;
+        }
+    
+ //else use the category (accounting image):
+        $cat_term_id = wp_get_post_terms($post_id, 'profession', array("fields" => "ids")); 
+       $category_image = s8_get_taxonomy_image_src(get_term_by('id', $cat_term_id[0], 'profession'), 'medium');
+       if ($category_image!=false){
+           return $category_image['src'];
+        }
+       else {
+           $sub_category = get_term_by( 'id', $cat_term_id[0], 'profession' );
+           $parent = get_term_by( 'id', $sub_category->parent, 'profession');
+          $category_image = s8_get_taxonomy_image_src($parent, 'medium');
+          if ($category_image!=false){
+           return $category_image['src'];
+        } 
+       }
         
         
     

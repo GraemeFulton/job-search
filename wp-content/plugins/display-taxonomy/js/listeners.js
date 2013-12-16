@@ -116,26 +116,48 @@ function institution_listener($){
  * @returns {undefined}
  * listens for changes in the subject filter checkboxes
  */
+//function provider_listener($){
+//  $('#provider-filter input:checkbox').change(
+//    
+//    function()
+//    {
+//            var name = $(this).attr('name');
+//
+//       if ($(this).is(':checked')) {
+//
+//            selected_providers.push(name);
+//            apply_filter($,this, true, 'provider');
+//      
+//        }
+//        else{
+//        var index = selected_providers.indexOf(name);
+//           selected_providers.splice(index,1);
+//            apply_filter($,this, false, 'provider');
+//        }
+//    }); 
+//}
 function provider_listener($){
-  $('#provider-filter input:checkbox').change(
-    
-    function()
+    $('#Provider_Filter .dtree_tax input').change(
+        
+        function()
     {
-            var name = $(this).attr('name');
-
        if ($(this).is(':checked')) {
-
-            selected_providers.push(name);
-            apply_filter($,this, true, 'provider');
+           
+           selected_providers.push($(this).siblings('.node').attr('slug'));
+           apply_filter($,this, true, 'provider');
       
         }
         else{
-        var index = selected_providers.indexOf(name);
-           selected_providers.splice(index,1);
+            var name= ($(this).siblings('.node').attr('slug'));        
+            var index = selected_providers.indexOf(name);
+            selected_providers.splice(index,1);
+        
             apply_filter($,this, false, 'provider');
         }
-    }); 
+    });
 }
+
+
 
 /*
  * category_type_listener
