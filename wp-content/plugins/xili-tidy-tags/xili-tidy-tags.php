@@ -1333,11 +1333,17 @@ function xili_tidy_tags_start () {
 		require( $plugin_path . '/xili-includes/xtt-class-admin.php' );
               //  $xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags );
                 
-      //          $xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'subject',  'course'  );
-                $xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'profession',  'graduate-job'  );
-                $xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'company',  'company'  );
-                $xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'uni',  'university'  );
-            //    $xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'location',  'graduate-job'  );
+                //uncomment to reactivate xili tidy tags 
+         
+                //now using hierarchical categories for subjects and professions:
+                //$xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'subject',  'course'  );
+                //$xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'profession',  'graduate-job'  );
+                
+                //using simple tags for companies and uni's
+             //  $xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'company',  'company'  );
+             //  $xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'uni',  'university'  );
+            
+                //$xili_tidy_tags_admin = new xili_tidy_tags_admin( $xili_tidy_tags, 'location',  'graduate-job'  );
 
 
 	}

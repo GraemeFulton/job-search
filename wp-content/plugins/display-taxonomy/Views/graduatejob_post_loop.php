@@ -1,12 +1,4 @@
-<!--course post loop template-->
-	
-<?php  
-if (!have_posts()){echo '<h2 class="hentry no-more" style="width:100%"><br><br> Hey, we don&apos;t have any jobs matching this criteria at the moment, we&apos;re working to add more!</h2>';
-return;
-}
-?>
-
-			<?php if (have_posts()) : while (have_posts()) : the_post();
+		<?php if (have_posts()) : while (have_posts()) : the_post();
                         $tree= display_taxonomy_tree('profession', 'company');
                         ?>
                     

@@ -18,23 +18,17 @@ include (TEMPLATEPATH . '/templates-headers/header-work-experience.php');
         { $tree= display_taxonomy_tree('profession', 'company');
           
         
-//            echo '<div class="nav-filter"><h4>Job Type</h4>';
-//          $tree->display_category_type_options('job_type');
-//          echo '</div>';
-         
-          //Profession Filter
+      //Profession Filter
            echo '<h3 class="filter-title"><i class="ico fa fa-crosshairs"></i> Profession</h3>';
-           widgets_on_template("Profession Filter");
+           echo '<div class="page_widget">'.widgets_on_template("Profession Filter")."</div>";
                   
          //Location Filter         
            echo '<h3 class="filter-title"><i class="ico fa fa-map-marker"></i> Location</h3>';
-           widgets_on_template("Location Filter"); 
+           echo '<div class="page_widget">'.widgets_on_template("Location Filter")."</div>"; 
            
-                    echo '<div class="nav-filter"><h3>Company</h3>'; 
-                    $tree->display_tag_groups_b();
+            echo '<div class="nav-filter"><h3><i class="ico fa fa-building"></i> Company</h3>'; 
+                    $tree->display_select2_box('Select Companies');
                     echo '</div>';
-//          echo '<hr><h2>Location</h2>';
-//          $tree->display_meta_group_select_box('location');
           
            echo '<div id="Provider_Filter"><h3 class="filter-title">Provider</h3>';
           echo '<div class="page_widget">'.widgets_on_template("Job Provider Filter")."</div></div>";
@@ -62,7 +56,9 @@ $args= array(
 
 
 query_posts( $args); ?>
-	<div id="content"  category_type='work-experience-job' tag_type='profession' body_type="company" fn="group_filter">
+            <div class='selected-we-options'id='selected-options'></div>
+
+	<div id="content"  category_type='work-experience-job' tag_type='profession' body_type="company">
 		<div class="padder">
 
 		<?php do_action( 'bp_before_blog_page' ); ?>
