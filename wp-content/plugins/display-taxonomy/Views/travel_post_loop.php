@@ -1,10 +1,4 @@
-<!--travel post loop template-->
-	
-<?php  
-if (!have_posts()){echo '<h2 class="hentry no-more" style="width:100%"><br><br> Hey, we don&apos;t have any travel opportunities matching this criteria at the moment, please try a different filter.</h2>';
-return;
-}
-?>
+
 	<?php if (have_posts()) : while (have_posts()) : the_post();
              $tree= display_taxonomy_tree('destination', 'destination');?>
    <?php                    

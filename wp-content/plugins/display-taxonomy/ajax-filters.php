@@ -7,6 +7,7 @@
      */
     function process_filter()
     {
+        
          $super_filter = new Super_Filter($_POST['selected_subjects'], 
                           $_POST['offset'],
                           $_POST['cat'], 
@@ -20,12 +21,12 @@
          switch($_REQUEST['fn'])
         {
              
-             case 'group_filter':
-                 $output= $super_filter->create_filter();
+             case 'select':
+                 $output= $super_filter->create_filter('select');
              break;
          
-             case 'regular_filter':               
-                $output= $super_filter->create_filter();
+             case 'scroll':               
+                $output= $super_filter->create_filter('scroll');
              break;
          
              default:
@@ -56,7 +57,10 @@ Class Super_Filter{
         protected $body_type;
         protected $location;
         protected $selected_provider;
-        protected $selected_category_type;
+        protected $selected_post_type;
+        
+        protected $view; //string (path of view to be loaded)
+        protected $printable_name; //name for message when no posts returned
   
   
   public function __construct($selected_subjects, 
@@ -77,114 +81,99 @@ Class Super_Filter{
       $this->body_type= $body_type;
       $this->location=$location;
       $this->selected_provider= $selected_provider;
-      $this->selected_category_type=$selected_category_type;
+      $this->selected_post_type=$selected_category_type;
   }
     
-  public function create_filter(){
+  public function create_filter($filter_type){
       
-      
-      $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
     //get the post args
     $args= $this->initiate_post_args();
     
     //query any checked subjects/professions/destinations
     $args= $this->taxonomy_shared_filter($this->tag_type, 0,$this->selected_subjects, $args);
-         
-    //query any checked institutions
-    $args= $this->xili_group_taxonomy_filter($args, 2, $this->selected_institutions);
-       
-      //query any checked provider (destination)
-    $args=$this->filter_provider($args);
-    
-    //query any checked locations
-    $args= $this->regular_taxonomy_filter('location', 4, $this->location, $args);  
+                
+    //initiate filters depending on page types
+    $args=$this->create_regular_taxonomy_filters($args);
 
     query_posts($args);
     
-   return $this->load_post_loop_view($this->category_type);
+   return $this->load_post_loop_view($filter_type);
       
       
       
   }  
-    
-    
-    
-//  public function create_filter_simple(){
-//      
-//    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-//
-//    $args= $this->initiate_post_args();
-//
-//    
-//    //query any checked subjects/professions/destinations
-//    $args= $this->taxonomy_shared_filter($this->tag_type, 0,$this->selected_subjects, $args);
-//    
-//     //QUERY CHECKED PROVIDER (destination)
-//    if($this->selected_provider!=""){//if a box has been checked, we add a taxnomoy query
-//
-//            $args['tax_query'][0]['terms']=$this->selected_provider;
-//            $args['tax_query'][0]['taxonomy']='provider';
-//            $args['tax_query'][0]['field']='slug';
-//            
-//    } //QUERY CHECKED PROVIDER
-//    
-//     //QUERY META VALUE (category_type)
-//       if($this->selected_category_type!=""){
-//           
-//      $meta=array('relation'=>'OR');
-//      foreach($this->selected_category_type as $key=>$value)
-//        {     
-//           $result = str_replace('-', '"', $value);
-//
-//           $meta[$key]=array(
-//                    'key' => 'travel_type',
-//                    'value' => $result,
-//                    'compare' => 'LIKE',
-//                    );              
-//         
-//        }                          
-//
-//          $args['meta_query']=$meta;
-//            
-//    }
-//    
-//    query_posts($args);
-//
-//    return $this->load_post_loop_view();
-//    }
-    
-    
-    
-    private function load_post_loop_view() {
+  
+  private function create_regular_taxonomy_filters($args){
+       
+       if($this->category_type=='course'){
+            $args= $this->regular_taxonomy_filter('course-provider', 3, $this->selected_provider, $args); 
+            $args= $this->regular_taxonomy_filter('uni', 2,$this->selected_institutions, $args);
+            $args= $this->regular_taxonomy_filter('course-type', 5,$this->selected_post_type, $args);
 
-    if ($this->category_type=='course'){
-    // the Loop
-      include("Views/course_post_loop.php");  
-    }
-    else if($this->category_type=='graduate-job'){
+            $this->view = "Views/course_post_loop.php";
+            $this->printable_name= "courses";
+      }
+      elseif($this->category_type=='graduate-job' || $this->category_type=='work-experience-job'){
         
-        include("Views/graduatejob_post_loop.php");  
-        
-    }
-      else if($this->category_type=='work-experience-job'){
-        
-        include("Views/graduatejob_post_loop.php");  
-        
-    }
-       else if($this->category_type=='travel-opportunities'){
-        
-        include("Views/travel_post_loop.php");  
-        
-    }
-    
-    
-    wp_reset_query();
-    exit;
-}
+            $args= $this->regular_taxonomy_filter('job-provider', 3, $this->selected_provider, $args);  
+            $args= $this->regular_taxonomy_filter('company', 2,$this->selected_institutions, $args);
+            $args= $this->regular_taxonomy_filter('location', 4, $this->location, $args);  
 
+            $this->view = "Views/graduatejob_post_loop.php";
+            $this->printable_name= "jobs";
+
+       }
+       if($this->category_type=='graduate-job'){
+           
+           $args= $this->regular_taxonomy_filter('job-type', 5,$this->selected_post_type, $args);          
+       }
+       if( $this->category_type=='work-experience-job'){
+           
+           $args= $this->regular_taxonomy_filter('work-experience-type', 5,$this->selected_post_type, $args);
+       }
+       elseif($this->category_type=='travel'){
+        
+           $args= $this->regular_taxonomy_filter('travel-agent', 3, $this->selected_provider, $args);  
+            
+           $this->view = "Views/travel_post_loop.php";
+           $this->printable_name= "travel opportunities";
+       }
+       
+       
+       return $args;
+   }
+   
+   
+    private function load_post_loop_view($filter_type) {
+        if (!have_posts()){
+         
+            if ($filter_type=='select'){
+              echo '<div class="sorry-message">
+                  <h2 class="no-more" style="width:100%">
+                   <br><br> Sorry, we don&apos;t have any '.$this->printable_name.' matching this criteria at the moment, please try a different filter.
+                   </h2>
+                   <button id="reset-filter" class="btn btn-success">Reset Filter</button>
+                   </div>';
+            }
+            elseif ($filter_type=='scroll'){
+              echo '<div class="sorry-message">
+                  <h2 class="no-more" style="width:100%">
+                  <br><br> Sorry, that&apos;s all the '.$this->printable_name.' we&apos;ve got matching your criteria. We&apos;re working to add more! 
+                  </h2>
+                  <button id="reset-filter" class="btn btn-success">Reset Filter</button>
+                   </div>';
+            }
+        return;
+        }
+        else{
+        include($this->view);      
+        }
+        wp_reset_query();
+        exit;
+    }
+    
     /*
-     * regular_taxonomy_filter
+     * taxonomy_shared_filter
      * 
      * @param: tag_type_name
      * returns: args
@@ -218,41 +207,10 @@ Class Super_Filter{
     
    }
    
-   private function xili_group_taxonomy_filter($args, $array_index, $selected_group_terms){
-       
-       if($selected_group_terms!=""){
-            $tags_from_group=array();
-
-             foreach($selected_group_terms as $term)
-             {       
-                $tags_from_group= array_merge($tags_from_group,xtt_tags_from_group($term, '',"xili_tidy_tags_".$this->body_type, $this->body_type));
-
-                 $args['tax_query'][$array_index]['terms']=$tags_from_group;
-                 $args['tax_query'][$array_index]['taxonomy']=$this->body_type;
-                 $args['tax_query'][$array_index]['field']='slug';
-             }
-       }
-       return $args;
-       
-   }
-   
-   private function filter_provider($args){
-       
-       if($this->category_type=='course'){
-       $args= $this->regular_taxonomy_filter('course-provider', 3, $this->selected_provider, $args);  
-       }
-       elseif($this->category_type=='graduate-job' || $this->category_type=='work-experience-job'){
-       $args= $this->regular_taxonomy_filter('job-provider', 3, $this->selected_provider, $args);  
-       }
-       elseif($this->category_type=='travel'){
-       $args= $this->regular_taxonomy_filter('travel-agent', 3, $this->selected_provider, $args);  
-       }
-       
-       return $args;
-   }
-   
    private function initiate_post_args(){
        
+     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
      $args= array
     (
         'offset'=>$this->offset,

@@ -2795,3 +2795,14 @@ FILTERS
     
 }
 .ico{color: #999}
+
+#selected-options{width:80%; height:auto; border-bottom:1px solid #ccc;  border-right:1px solid #ccc;position:relative; float:right}
+.selected-index{background:rgb(214, 113, 46);color:#fff; font-weight:bold; font-size:13px; padding:3px;border-radius:3px;}
+.selected-tag{background:#eaeaea;color:#222; font-size:13px; padding:3px;margin-left:4px;border-radius:3px;}
+.selected-filter{margin-bottom:4px;position: relative;float:left;margin-left:5px;}
+.filter-group{ margin:5px 12px 5px 5px;}
+.clear_both{clear: both; float: left; display: block; position: relative;}
+
+.selected-course-options .selected-index{background:#3B5998;}
+.selected-we-options .selected-index{background: mediumslateblue;}
+.selected-job-options .selected-index{background: #EB470A;}

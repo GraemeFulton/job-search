@@ -29,12 +29,16 @@ include (TEMPLATEPATH . '/templates-headers/header-course.php');
            widgets_on_template("Subject Filter");
         //$tree->display_tag_groups();
           
-          echo '<div class="nav-filter"><h3><i class="ico fa fa-building"></i> University</h3>'; $tree->display_tag_groups_b();
-                    echo '</div>';
+//          echo '<div class="nav-filter"><h3><i class="ico fa fa-building"></i> University</h3>'; $tree->display_tag_groups_b();
+//                    echo '</div>';
 
           echo '<div class="nav-filter"><h3>Provider</h3>';
           $tree->display_linked_taxonomy_hierarchy_list('provider', 'course-providers');
                  echo '</div>';
+                 
+            echo '<div class="nav-filter"><h3><i class="ico fa fa-building"></i> University</h3>'; 
+                    $tree->display_select2_box('Select Universities');
+                    echo '</div>';
 
           
         }
@@ -57,8 +61,9 @@ $args= array(
 );
 
 query_posts( $args); ?>
-    
-	<div id="content"  category_type='course' tag_type='subject' body_type="uni" fn="group_filter">
+            <div class='selected-course-options'id='selected-options'></div>
+
+	<div id="content"  category_type='course' tag_type='subject' body_type="uni">
                         
 		<div class="padder">
 

@@ -18,9 +18,8 @@ include (TEMPLATEPATH . '/templates-headers/header-graduate-job.php');
         { $tree= display_taxonomy_tree('profession', 'company');
           
         
-            echo '<div class="nav-filter"><h4>Job Type</h4>';
-          $tree->display_category_type_options('job_type');
-          echo '</div>';
+              echo '<div id="Type_Filter"><h4 class="filter-title">Job Type</h4>';
+          echo '<div class="page_widget">'.widgets_on_template("Job Type Filter")."</div></div>";
          
           //Profession Filter
            echo '<h3 class="filter-title"><i class="ico fa fa-crosshairs"></i> Profession</h3>';
@@ -30,17 +29,22 @@ include (TEMPLATEPATH . '/templates-headers/header-graduate-job.php');
            echo '<h3 class="filter-title"><i class="ico fa fa-map-marker"></i> Location</h3>';
            echo '<div class="page_widget">'.widgets_on_template("Location Filter")."</div>"; 
            
-                    echo '<div class="nav-filter"><h3>Company</h3>'; 
-                    $tree->display_tag_groups_b();
+            echo '<div class="nav-filter"><h3><i class="ico fa fa-building"></i> Company</h3>'; 
+                    $tree->display_select2_box('Select Companies');
                     echo '</div>';
+           
+//                    echo '<div class="nav-filter"><h3>Company</h3>'; 
+//                    $tree->display_tag_groups_b();
+//                    echo '</div>';
+                    
+                    
 //          echo '<hr><h2>Location</h2>';
 //          $tree->display_meta_group_select_box('location');
           
           echo '<div id="Provider_Filter"><h3 class="filter-title">Provider</h3>';
           echo '<div class="page_widget">'.widgets_on_template("Job Provider Filter")."</div></div>";
                 //  echo '</div>';
-
-
+       
         }
     
     ?>
@@ -60,7 +64,10 @@ $args= array(
 
 
 query_posts( $args); ?>
-	<div id="content"  category_type='graduate-job' tag_type='profession' body_type="company" fn="group_filter">
+        <div class='selected-job-options'id='selected-options'></div>
+
+	<div id="content"  category_type='graduate-job' tag_type='profession' body_type="company">
+
 		<div class="padder">
 
 		<?php do_action( 'bp_before_blog_page' ); ?>

@@ -15,14 +15,15 @@ jQuery(document).ready(function ($) {
  * Unchecked categories are removed from the url_string
  */
 var selected_subjects =[]; //array to hold checked subjects
-var selected_institutions=[]; //array to hold checked institutions
 var selected_providers=[];//array to hold checked providers
 var selected_category_type=[];
 var selected_locations=[];
+var selected_institutions=[];
 
 var meta_filter= "";
 var meta_filter_arr=[];
 
+var all_selections={};
 /*
  * graylien_infinite_scroll
  * @param {type} $
@@ -44,10 +45,9 @@ function graylien_infinite_scroll($){
             var category_type= $('#content').attr('category_type');
             var tag_type= $('#content').attr('tag_type');
             var body_type= $('#content').attr('body_type');
-            var fn= $('#content').attr('fn');
 
       
-            process_filter_scroll($,postoffset, category_type, tag_type, body_type, fn);
+            process_filter_scroll($,postoffset, category_type, tag_type, body_type);
             isLoadingData=true;
 
             resetCurrentActiveBox($)
@@ -76,13 +76,12 @@ function apply_filter($,arg, true_false, filter_type){
     var category_type= $('#content').attr('category_type');
     var tag_type= $('#content').attr('tag_type');
     var body_type= $('#content').attr('body_type');
-    var fn= $('#content').attr('fn');
 
     if (true_false===true)
     {
            
         //add filter value to process filter, and collect it in the php file, then use it to filter the post
-         process_filter($, category_type, tag_type, body_type, fn);
+         process_filter($, category_type, tag_type, body_type);
             
             closeActiveBox($);
             disableClickMe($);
@@ -91,7 +90,7 @@ function apply_filter($,arg, true_false, filter_type){
     }      
     else { 
            
-           process_filter($, category_type, tag_type, body_type, fn);           
+           process_filter($, category_type, tag_type, body_type);           
            
            closeActiveBox($);
             disableClickMe($);
@@ -108,8 +107,11 @@ function apply_filter($,arg, true_false, filter_type){
  * @returns {undefined}
  * ajax filter for subject box
  */
-function process_filter($, category_type, tag_type, body_type, fn){
-    console.log(selected_locations);
+function process_filter($, category_type, tag_type, body_type){
+
+    update_selected_options($);
+     $('.sorry-message').remove();
+
     //loading gif
     $('.hentry').empty();
     $('#content').prepend('<img id="ajax-loader" style="margin:10px 0 0 10px;"src="'+templateUrl+'/ajax-loader.gif"/>');
@@ -119,11 +121,11 @@ function process_filter($, category_type, tag_type, body_type, fn){
      type: "POST",
      data: {
             'action': 'check_box_filters',
-            'fn':fn,
+            'fn':'select',
             'selected_subjects':selected_subjects,
             'cat':category_type,
             'type':tag_type,
-            'selected_institutions': selected_institutions,
+            'selected_institutions':selected_institutions,
             'body_type': body_type,
             'location': selected_locations,
             'provider':selected_providers,
@@ -170,10 +172,11 @@ function process_filter($, category_type, tag_type, body_type, fn){
  * @param {type} tax
  * @param {type} postoffset
  * @returns {undefined} */
-function process_filter_scroll($, postoffset, category_type, tag_type, body_type, fn){
- 
- if(isLoadingData==true) return;
+function process_filter_scroll($, postoffset, category_type, tag_type, body_type){
+  
+ if(isLoadingData===true) return;
      //loading gif
+     $('.sorry-message').remove();
     $('#content').append('<img id="ajax-loader" src="'+templateUrl+'/ajax-loader.gif"/>');
     
     $.ajax({
@@ -181,7 +184,7 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
      type: "POST",
      data: {
             'action': 'check_box_filters',
-            'fn':fn,
+            'fn':'scroll',
             'selected_subjects':selected_subjects,
             'offset':postoffset,
             'cat':category_type,
@@ -229,6 +232,42 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
     
 }
 
+
+function update_selected_options($){
+ console.log(all_selections)
+ 
+ $('#selected-options').empty().append(
+         '<h4 style="padding:5px 0 0 5px; float:left;"><i style="margin-top:-15px;"class="fa fa-search"></i> &nbsp;Your Selected Options: </h4><div class="clear_both"></div>');
+ 
+ $.each(all_selections, function(index, item){
+    
+    
+    
+    if(item!=""){
+
+        var output= '<div class="filter-group">';
+
+        output+='<span class="selected-index selected-filter">'+index+': </span>';
+
+        $.each(item, function(index, tag){
+            
+           output+='<span class="selected-tag selected-filter">'+tag+'</span>';
+
+        })
+        output+='</div>';
+        
+        $('#selected-options').append(output);
+
+    }
+     //+": "+item+" | "
+     
+ })
+     
+     
+   
+ 
+ 
+}
 /* 
  * @param {type} url
  * @returns {unresolved} 

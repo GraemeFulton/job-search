@@ -44,7 +44,7 @@ $args= array(
 
 query_posts( $args); ?>
     
-	<div id="content"  category_type='travel-opportunities' tag_type='destination' body_type="destination" fn="regular_filter">
+	<div id="content"  category_type='travel-opportunities' tag_type='destination' body_type="destination">
                         
 		<div class="padder">
 

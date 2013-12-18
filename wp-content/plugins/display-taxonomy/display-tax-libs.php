@@ -78,6 +78,47 @@ class Display_Taxonomy{
         
     }
     
+      
+    public function display_select2_box($title){
+               ?>
+    <div class="control-group">
+        <label for="<?php echo $this->grouped_taxonomy_short;?>-filter" class="control-label"><?php echo $title?>: </label>
+        <div class="controls">
+          <div class="input-append">
+                
+            <select id="<?php echo $this->grouped_taxonomy_short;?>-multi-append" class="select2" multiple="multiple" name="meta" style="width:80%;">
+              <option></option>
+    <?php
+       $tags = get_terms($this->grouped_taxonomy_short); 
+       
+        foreach($tags as $tag)
+    {      
+            
+       echo '<option value="'.$tag->slug.'" name="'.$tag->name.'">'.$tag->name.'</option>'; 
+       
+    }
+        ?>
+            </select>
+          <button class="btn" id="<?php echo $this->grouped_taxonomy_short;?>_search" type="button">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </div>
+        </div>
+      </div> 
+   <script>
+      $('.select2').select2({ placeholder : '' });
+      
+      $('.select2-remote').select2({ data: [{id:'A', text:'A'}]});
+
+      $('button[data-select2-open]').click(function(){
+        $('#' + $(this).data('select2-open')).select2('open');
+      });
+    </script>
+    
+    <?php
+        
+    }
+    
     
     /*
      * display_linked_taxonomy_hierarchy_list
@@ -189,6 +230,7 @@ class Display_Taxonomy{
 
     }
     
+  
     
     /*
      * diplay_meta_group 
