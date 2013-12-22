@@ -509,6 +509,18 @@ class Display_Taxonomy{
     return $deepest_category;
         
     }
+    
+    
+     /*
+     * get type field (e.g. travel type, course type...)
+     */
+    public function get_taxonomy_field($post_id, $type){
+             
+    $category = wp_get_post_terms($post_id, $type, array("fields" => "names"));    
+    $deepest_category= end($category);
+    return $deepest_category;
+        
+    }
  
  /*
   * get_xili_post_image
@@ -617,6 +629,27 @@ class Display_Taxonomy{
      
         $dummy="http://localhost/LGWP/wp-content/uploads/post_images/dummy-job.png";
         return $dummy; 
+    }
+    
+    
+    public function show_embedded_video($post_id){
+        
+        $field='embedded-media';
+        
+        $pic = do_shortcode("[types field='embedded-media' id='".$post_id."' width='450' height='315']");
+    
+        if($pic)          
+        return $pic;
+        
+    }
+    
+    
+    public function types_post_type($post_id, $field, $display){
+        
+        $pic = do_shortcode("[types field='$field' id='".$post_id."' output='".$display."']");
+    
+        if($pic)         
+        return $pic;        
     }
     
     

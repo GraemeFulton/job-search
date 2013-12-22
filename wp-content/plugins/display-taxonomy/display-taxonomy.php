@@ -46,13 +46,21 @@ Author URI: http://gfulton.me.uk
 
 
     /*
-     * ajax course subject filter hooks
+     * checkbox filter hooks
      */
-    include("ajax-filters.php");
+    include("filters/filter_checkbox.php");
 
-    add_action('wp_ajax_nopriv_check_box_filters', 'process_filter');
-    add_action('wp_ajax_check_box_filters', 'process_filter');
+    add_action('wp_ajax_nopriv_check_box_filter', 'checkbox_filter');
+    add_action('wp_ajax_check_box_filter', 'checkbox_filter');
 
     
+     /*
+     * popup filter hooks
+     */
+    include("filters/filter_popup.php");
+
+    add_action('wp_ajax_nopriv_popup_filter', 'popup_filter');
+    add_action('wp_ajax_popup_filter', 'popup_filter');
+
 ?>
 

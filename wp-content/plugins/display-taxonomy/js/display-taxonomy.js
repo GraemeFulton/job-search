@@ -33,7 +33,10 @@ var all_selections={};
 var isLoadingData;
 function graylien_infinite_scroll($){
      
-    $(window).scroll(function () {
+     //make sure it's not bound from the start
+     $(window).unbind('scroll.load_more');
+     
+    $(window).bind('scroll.load_more',function () {
                 
    if (($(window).scrollTop() >= $(document).height() - $(window).height())) {
   
@@ -56,6 +59,7 @@ function graylien_infinite_scroll($){
 
    }
 });
+
     
 }
 
@@ -69,7 +73,7 @@ function graylien_infinite_scroll($){
  * or removes unchecked value from url_string
  * 
  */
-function apply_filter($,arg, true_false, filter_type){
+function apply_filter($, true_false){
     
   //  $("html, body").animate({ scrollTop: 0 }, 500);
     //filter for the url_string
@@ -120,7 +124,7 @@ function process_filter($, category_type, tag_type, body_type){
      url: '/LGWP/wp-admin/admin-ajax.php', 
      type: "POST",
      data: {
-            'action': 'check_box_filters',
+            'action': 'check_box_filter',
             'fn':'select',
             'selected_subjects':selected_subjects,
             'cat':category_type,
@@ -166,7 +170,7 @@ function process_filter($, category_type, tag_type, body_type){
 }
 
 /*
-* ajaxLoadMore
+* process_filter_scroll
 
  * @param {type} $
  * @param {type} tax
@@ -183,7 +187,7 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
      url: '/LGWP/wp-admin/admin-ajax.php', 
      type: "POST",
      data: {
-            'action': 'check_box_filters',
+            'action': 'check_box_filter',
             'fn':'scroll',
             'selected_subjects':selected_subjects,
             'offset':postoffset,
@@ -221,7 +225,49 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
              $('#ajax-loader').remove();
              $('#ajax-loader').remove();
 
+//rebind infinitescroll
+            graylien_infinite_scroll($);
+            popup_listener($);
+//////////////////////////
+
          return false;
+     },
+     error: function(errorThrown){
+               alert('error');
+               console.log(errorThrown);
+          }
+});  
+
+    
+}
+
+/*
+* process_popup_data
+
+ * @param {type} $
+ * @param {type} tax
+ * @param {type} postoffset
+ * @returns {undefined} */
+function process_popup_data($, popup, category, tag_type,body_type, post_id){
+    
+    $.ajax({
+     url: '/LGWP/wp-admin/admin-ajax.php', 
+     type: "POST",
+     data: {
+            'action': 'popup_filter',
+            'category':category,
+            'post_id': post_id,
+            'tag_type':tag_type,
+            'body_type': body_type
+           },
+   dataType:'HTML',   
+    success: function(data){
+        $(popup).css("display", "none"); 
+        $(popup).append(data);
+        $(popup).slideDown('slow');
+        closeBoxHandler($, post_id)
+
+        return false;
      },
      error: function(errorThrown){
                alert('error');
@@ -236,15 +282,18 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
 function update_selected_options($){
  console.log(all_selections)
  
- $('#selected-options').empty().append(
-         '<h4 style="padding:5px 0 0 5px; float:left;"><i style="margin-top:-15px;"class="fa fa-search"></i> &nbsp;Your Selected Options: </h4><div class="clear_both"></div>');
+ var selected_option_head= '<h4 class="options-title"><i style="margin-top:-15px;"class="fa fa-search"></i> &nbsp;Your Selected Options: </h4>';
+     selected_option_head+='<div class="clear_both"></div><div id="nothing_selected">Nothing Selected. Please use the filters available on the left to find what you want.</div>'
+    
+    
+    $('#selected-options').empty().append(selected_option_head);
  
  $.each(all_selections, function(index, item){
     
     
     
     if(item!=""){
-
+        $("#nothing_selected").remove();
         var output= '<div class="filter-group">';
 
         output+='<span class="selected-index selected-filter">'+index+': </span>';
@@ -259,106 +308,15 @@ function update_selected_options($){
         $('#selected-options').append(output);
 
     }
-     //+": "+item+" | "
      
  })
      
      
-   
+   remove_tag_from_search($)
  
  
 }
-/* 
- * @param {type} url
- * @returns {unresolved} 
- */
- 
-//function printResults($,data){
-// console.log(data);
-// 
-// $("#blog-page").empty();
-// $('#blog-page').append(data);
-////  $.each(data['pagination'],function(){
-////     
-////  //    consoloe.log(this);
-////      
-////  });
-//////////////////////OLD:
-////$.each(data['posts'], function() {
-//// //   console.log(this.ID);
-////  
-//// var course_type= getCourseType(this);
-//// var body_name= getBodyName(this);
-//// 
-////    var content= this.post_content;        
-////    content= jQuery.trim(content).substring(0, 310).split(" ").slice(0, -1).join(" ") + " [...]";
-////    content= content.replace(/\n/g, "<br />");
-////            content=  content.replace(/<img[^>]*>/g,"");
-////
-////    
-////    var post= 
-////        '<div id="'+this.post_id+'" class="'+this.post_id+' '+this.post_type+' type-'+this.post_type+' status-publish hentry">'
-////        +'<h2 class="posttitle"><a href="'+this.guid+'" rel="bookmark" title="Permanent Link to '+this.post_title+'">'+this.post_title+'</a></h2>'
-////        +'<div class="entry">'
-////        +content+"</div></div>"
-////        +"</a><br><p>"+course_type+" "+body_name+"</p><hr>";
-////   
-////  $("#blog-page").append(post);
-////  $('.entry a').contents().unwrap(); //remove hyperlinks in descriptions
-////
-////});
-// 
-//}
 
-
-
-/*
- * getPageName
- * @param: url
- * @returns: returns the filename
- */
-
-function getPageName(url) {
-    var index = url.lastIndexOf("/") + 1;
-    var filenameWithExtension = url.substr(index);
-    var filename = filenameWithExtension.split(".")[0]; // <-- added this line
-    return filename;                                    // <-- added this line
-}
-
-/*
- * getCourseType
- * @param: data
- * @returns: course type
- */
-
-function getCourseType(data){
-    
-     var course_type= "";
-    if(data.key1['wpcf-fields-checkboxes-option-b7c3ac2ba41562b7ea3cfbcdd3587bf0-1'])
-         course_type= 'Course Type: Paid';
-    
-        if(data.key1['wpcf-fields-checkboxes-option-60039c1cd5b3cf7f3d424671ae5ccc3a-2'])
-         course_type= 'Course Type: Free';
-     
-     return course_type;
-    
-}
-
-/*
- * getBodyType
- * @param: data
- * @returns: body/institution offering job/course
- */
-
-function getBodyName(data){
-    
-     var body= "";
-    if(data.key2.post_title)
-         body= "| Institution: "+data.key2.post_title;
-    
-     return body;
-    
-}
 
 /*
  * remove_duplicate_select_options

@@ -129,18 +129,22 @@ function wpcf_admin_fields_get_fields( $only_active = false,
     $required_data = array('id', 'name', 'type', 'slug');
     $fields = (array) get_option( $option_name, array() );
     foreach ( $fields as $k => $v ) {
+        $failed = false;
         foreach ( $required_data as $required ) {
             if ( !isset( $v[$required] ) ) {
                 $failed = true;
                 continue;
             }
+            if ( is_numeric($v[$required]) === true) {
+                $failed = true;
+                continue;
+            }
         }
-        if ( !empty($failed) ) {
+        if ( is_numeric($k) === true || $failed ) {
             unset( $fields[$k] );
             continue;
         }
         // This call loads config file
-        // TODO connect with WPCF_Fields
         $data = wpcf_fields_type_action( $v['type'] );
         if ( empty( $data ) ) {
             unset( $fields[$k] );
@@ -168,10 +172,11 @@ function wpcf_admin_fields_get_fields( $only_active = false,
         }
         $v['id'] = $k;
         $v['meta_key'] = wpcf_types_get_meta_prefix( $v ) . $k;
+        $v['meta_type'] = $option_name == 'wpcf-fields' ? 'postmeta' : 'usermeta'; 
         $fields[$k] = wpcf_sanitize_field( $v );
     }
-    $cache[$cache_key] = $fields;
-    return apply_filters( 'types_fields', $fields );
+    $cache[$cache_key] = apply_filters( 'types_fields', $fields );
+    return $cache[$cache_key];
 }
 
 /**
@@ -241,11 +246,6 @@ function wpcf_admin_fields_get_fields_by_group( $group_id, $key = 'slug',
             continue;
         }
         $results[$field_id] = $fields[$field_id];
-//        $field = wpcf_admin_fields_get_field( $field_id, false, false, false,
-//                $meta_name );
-//        if ( !empty( $field ) ) {
-//            $results[$field_id] = $field;
-//        }
     }
     if ( $use_cache ) {
         $cache[$cache_key] = $results;

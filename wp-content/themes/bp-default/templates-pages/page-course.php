@@ -20,18 +20,14 @@ include (TEMPLATEPATH . '/templates-headers/header-course.php');
         global $tree;
           $tree= display_taxonomy_tree('subject', 'uni');
           
-           echo '<div class="nav-filter"><h4>Course Type</h4>';
-          $tree->display_category_type_options('course_type');
-                    echo '</div>';
+            echo '<div id="Type_Filter"><h4 class="filter-title">Course Type</h4><br>';
+          echo '<div class="page_widget">'.widgets_on_template("Course Type Filter")."</div></div>";
+        
 
           //Subject Filter
-           echo '<h3 class="filter-title"><i class="ico fa fa-book"></i> Subject</h3>';
-           widgets_on_template("Subject Filter");
-        //$tree->display_tag_groups();
-          
-//          echo '<div class="nav-filter"><h3><i class="ico fa fa-building"></i> University</h3>'; $tree->display_tag_groups_b();
-//                    echo '</div>';
-
+            echo '<h3 class="filter-title"><i class="ico fa fa-book"></i> Subject</h3>';
+           echo '<div class="page_widget">'.widgets_on_template("Subject Filter")."</div>";
+           
           echo '<div class="nav-filter"><h3>Provider</h3>';
           $tree->display_linked_taxonomy_hierarchy_list('provider', 'course-providers');
                  echo '</div>';
@@ -82,18 +78,14 @@ $subject=$tree->grouped_taxonomy_name($post_id);
 $course_type=types_render_field("course-type", array("output"=>"normal"));
 //print company name, and image
 $post_object_id = wp_get_post_terms($post_id, 'uni', array("fields" => "ids"));
-$group_parent_id= $tree->get_tag_group_leader($post_object_id[0]);
+//$group_parent_id= $tree->get_tag_group_leader($post_object_id[0]);
 //get company name
 $uni_name= $tree->get_linked_taggroup_or_tag($post_id, $post_object_id, $group_parent_id); 
-//get provider logo
-//$term_id = wp_get_post_terms($post_id, 'provider', array("fields" => "ids"));
-//if($term_id){
-//    $provider= s8_get_taxonomy_image_src(get_term_by('id', $term_id[0], 'provider'), 'small');
-//}
+
 $ratings= show_ratings($post_id);
 ?>                            
 
-				<div id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
+				<div id="<?php echo $post_id; ?>" <?php post_class(); ?>>
                                     <div class="item">
     
                                           <div class="post_image">
@@ -107,22 +99,7 @@ $ratings= show_ratings($post_id);
                                            <?php echo $ratings;?>     
                                         </div>
                                 
-                                      <div class="pop-out">
-                                            <div class="datagrid">
-                                            <table class="pop-out-tbl">
-                                               <tr class="alt"><td>Offered By: </td><td><?php echo $uni_name;?></td></tr>
-                                              <tr><td>Subject: </td><td><?php echo $subject;?></td></tr>
-                                               <tr class="alt"><td>Course Type: </td><td><?php echo $course_type;?></td></tr>
-                                               
-                                                <tr><td>Course Provider:</td><td><img style="float:left; position:relative; max-height:35px; max-width:80px;" src="<?php echo $provider['src']?>"/></td></tr>
-                                                <tr class="alt"><td>Course Excerpt: </td><td><?php echo  the_excerpt( __( '<p class="serif">Read the rest of this page &rarr;</p>', 'buddypress' ) ); ?></td></tr>
-                                                <tr><td>Course Rating: </td><td>  <?php echo $ratings;?> </td></tr>
-                                            </table>
-                                            </div>
-                                            <?php
-                                            echo replace_links('<a class="btn btn-success btn-large" href="'.(types_render_field("course-url", array("show_name"=>"true","raw"=>"true"))).'">Learn Now</a>'); 
-                                            ?>
-                                        </div>  
+                                      <div class="pop-out"></div>  
                                 <hr>
                                 <div class="clickme"></div><!--overlay -->
 				</div><!--item-->
