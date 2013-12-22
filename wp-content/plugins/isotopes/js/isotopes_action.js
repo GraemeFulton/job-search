@@ -4,7 +4,7 @@ jQuery(window).ready(function ($) {
 
    isotopes_pre_init($);
    
-   scrollHandler($);
+  // scrollHandler($);
 });
 
 
@@ -126,7 +126,7 @@ function isotopes_modal($){
                        {
                           left:  movementAmount+350,
                           position:"absolute",
-                          top: -topOffset-150
+                          top: -topOffset-400
                
                         },200,function()
                         {
@@ -176,7 +176,10 @@ function disableClickMe($){
 function enableClickMe($){
    
             isotopes_modal($);	
-    
+            
+            popup_listener($);
+            graylien_infinite_scroll($);
+                
 }
 
 /*
@@ -188,6 +191,7 @@ function closeActiveBox($){
     //if there's already an active box, don't need to run this
  //  if(!$(".activepost").length > 0)return;       
     
+
            $(".clickme").closest(".isotope").removeClass("activepost_edge");
            $(".clickme").closest(".activepost").children('.pop-out').hide();
            $(".clickme").closest(".activepost").children('.entry').show();
@@ -219,11 +223,12 @@ function closeActiveBox($){
 
 
 
-function closeBoxHandler($){
+function closeBoxHandler($, post_id){
 
-$('.close_box').click(function(){ 
+$('.close_box').unbind('click');
+$('.close_box').bind('click',function(){ 
 	
-	   $(this).parent(".item").removeClass("activepost").removeClass("activepost_edge");
+           $(this).parent(".item").removeClass("activepost").removeClass("activepost_edge");
            $(this).parent(".item").removeClass("activepost_edger").removeClass("activepost_edge");
             $(this).siblings(".clickme").css("z-index", "1");
 
@@ -248,6 +253,13 @@ $('.close_box').click(function(){
          $(this).remove();
          enableClickMe($);	
                           $("#loaded_content").isotope( 'reLayout' ); 
+        
+            //stop any video
+            setTimeout(function(){
+                    var video = $("#youtube_player-"+post_id+"").children(":first").attr("src");
+                $("#youtube_player-"+post_id+"").children(":first").attr("src","");
+                $("#youtube_player-"+post_id+"").children(":first").attr("src",video);
+            }, 850)
 
 	});
 
@@ -258,29 +270,32 @@ $('.close_box').click(function(){
 /*
  * scrollHandler
  * 
+ * Not for loading more! only resets active box.
+ * 
  * after the page scrolls down a bit, the left bar, and breadcrumbs
  * are positioned at the top.
  */
-var lastFixPos = 0;
-var threshold = 800;
-
-function scrollHandler($){
-    
-        $(document).scroll(function () {
-
- var diff = Math.abs($(window).scrollTop() - lastFixPos);
-  if(diff > threshold){
-
-            resetCurrentActiveBox($);            
-
-    lastFixPos = $(window).scrollTop();
-  }
- 
-
-});
-    
-    
-}
+//var lastFixPos = 0;
+//var threshold = 800;
+//
+//function scrollHandler($){
+//    
+//        $(document).bind('scroll.reset_active_box',function () {
+//
+// var diff = Math.abs($(window).scrollTop() - lastFixPos);
+//  if(diff > threshold){
+//
+//       //     resetCurrentActiveBox($);            
+//
+//    lastFixPos = $(window).scrollTop();
+//  }
+//        //      popup_listener($);
+//
+//
+//});
+//    
+//    
+//}
 
 
 
@@ -292,7 +307,10 @@ function resetCurrentActiveBox($){
   
     closeActiveBox($);
     disableClickMe($);
-    setTimeout(function(){reset_isotopes($);isotopes_modal($);}, 100);
+    setTimeout(function(){reset_isotopes($);isotopes_modal($);
+    popup_listener($)
+    
+    }, 100);
     
     
    

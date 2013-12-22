@@ -16,166 +16,65 @@ function activate_listeners($){
     
   //activate listeners  
   //activate trees
-   subject_tree_listener($);
-   profession_tree_listener($);
-   provider_tree_listener($);
+   tree_listener($,"#Subject_Filter", all_selections.Subjects=[], selected_subjects);
+   tree_listener($,"#Profession_Filter", all_selections.Professions=[], selected_subjects);
+   tree_listener($,"#Destination_Filter", all_selections.Destinations=[], selected_subjects);
+   tree_listener($,"#Provider_Filter", all_selections.Providers=[], selected_providers);
+   tree_listener($,"#Location_Filter", all_selections.Locations=[], selected_locations);
+   tree_listener($,"#Type_Filter", all_selections.Types=[], selected_category_type);
+
 
    //activate instituion listeneres
    select2_search_listener($, 'company', all_selections.Company=[]);
    select2_search_listener($, 'uni',all_selections.University=[]);
    
- //  location_search($);
-   category_type_tree_listener($);
+   //popup listener
+   popup_listener($);
    
-    location_tree_listener($);
-    
+   //reset when scrollup 
+   scroll_up_click_reset($);
+   
 }
 
 
 /*
- *profession_tree_listener 
+ *tree_listener 
  * @param {type} $
+ * @param {type} filter_selector
+ * @param {type} arr_object
+ * @param {type} global_var
  * @returns {undefined}
  * listens for changes in the subject filter checkboxes
  */
-function profession_tree_listener($){
+function tree_listener($, filter_selector, arr_object, global_var){
      
-    all_selections.Professions=[];
     
-    $('#Profession_Filter .dtree_tax input').change(function()
+    $(filter_selector+' .dtree_tax input').change(function()
     {
        if ($(this).is(':checked')) {
                 
          var term= $(this).siblings('.node').text();
 
-          selected_subjects.push($(this).siblings('.node').attr('slug'));         
-          all_selections.Professions.push([term]);
+          global_var.push($(this).siblings('.node').attr('slug'));         
+          arr_object.push([term]);
 
-          apply_filter($,this, true, 'location');
+          apply_filter($, true);
       
         }
         else{
             var selection_name= ($(this).siblings('.node').text());
    
-             $.each(all_selections.Professions, function(index, item){
+             $.each(arr_object, function(index, item){
                 if (item==selection_name){
-                    (all_selections.Professions.splice(index,1))
+                    (arr_object.splice(index,1))
                 }
             }); 
             
             var name= ($(this).siblings('.node').attr('slug'));        
-            var index = selected_subjects.indexOf(name);
-            selected_subjects.splice(index,1);
+            var index = global_var.indexOf(name);
+            global_var.splice(index,1);
 
-            apply_filter($,this, false, 'subject');
-        }
-    });
-}
-
-/*
- *subject_tree_listener 
- * @param {type} $
- * @returns {undefined}
- * listens for changes in the subject filter checkboxes
- */
-function subject_tree_listener($){
-    
-    all_selections.Subjects=[];
-
-    $('#Subject_Filter .dtree_tax input').change(function()
-    {
-       if ($(this).is(':checked')) {
-           
-           var term= $(this).siblings('.node').text();
-         all_selections.Subjects.push([term]);
-            
-           selected_subjects.push($(this).siblings('.node').attr('slug'));
-           apply_filter($,this, true, 'location');
-      
-        }
-        else{
-           var selection_name= ($(this).siblings('.node').text());
-
-             $.each(all_selections.Subjects, function(index, item){
-                if (item==selection_name){
-                    (all_selections.Subjects.splice(index,1))
-                }
-            }); 
-            
-            var name= ($(this).siblings('.node').attr('slug'));        
-            var index = selected_subjects.indexOf(name);
-            selected_subjects.splice(index,1);
-        
-            apply_filter($,this, false, 'subject');
-        }
-    });
-}
-
-function provider_tree_listener($){
-        all_selections.Providers=[];
-
-    $('#Provider_Filter .dtree_tax input').change(function()
-    {
-     if ($(this).is(':checked')) {
-           
-           var term= $(this).siblings('.node').text();
-         all_selections.Providers.push([term]);
-            
-           selected_providers.push($(this).siblings('.node').attr('slug'));
-           apply_filter($,this, true, 'location');
-      
-        }
-        else{
-           var selection_name= ($(this).siblings('.node').text());
-
-             $.each(all_selections.Providers, function(index, item){
-                if (item==selection_name){
-                    (all_selections.Providers.splice(index,1))
-                }
-            }); 
-            
-            var name= ($(this).siblings('.node').attr('slug'));        
-            var index = selected_providers.indexOf(name);
-            selected_providers.splice(index,1);
-        
-            apply_filter($,this, false, 'provider');
-        }
-    });
-}
-
-function location_tree_listener($){
-        all_selections.Locations=[];
-
-    $('#input:checkbox').prop('checked', false);
-
-     $('#Location_Filter .dtree_tax input').change(
-    
-    function()
-    {
-      if ($(this).is(':checked')) {
-           
-           var term= $(this).siblings('.node').text();
-         all_selections.Locations.push([term]);
-            
-           selected_locations.push($(this).siblings('.node').attr('slug'));
-           apply_filter($,this, true, 'location');
-      
-        }
-        else{
-
-           var selection_name= ($(this).siblings('.node').text());
-        
-           $.each(all_selections.Locations, function(index, item){
-                if (item==selection_name){
-                    (all_selections.Locations.splice(index,1))
-                }
-            });   
-            
-            var name= ($(this).siblings('.node').attr('slug'));        
-            var index = selected_locations.indexOf(name);
-            selected_locations.splice(index,1);
-        
-            apply_filter($,this, false, 'location');
+            apply_filter($, false);
         }
     });
 }
@@ -198,7 +97,7 @@ function select2_search_listener($, institution_type, arr_object){
         apply_filter($,'#multi-append', true, '');
        }
        
-   }) 
+   });
     
     //all on click!
     $('#'+institution_type+'_search').click(function(){
@@ -220,57 +119,8 @@ function select2_search_listener($, institution_type, arr_object){
         selected_institutions = arr_object;
         apply_filter($,'#multi-append', true, '');
 
-    })
-}
-
-
-/*
- * category_type_listener
- * @param {type} $
- * @param {type} arg
- * @param {type} true_false
- * @param {type} filter_type
- * @returns {undefined}
- */
-function category_type_tree_listener($){
-        all_selections.Type=[];
-
-    $('#input:checkbox').prop('checked', false);
-
-     $('#Type_Filter .dtree_tax input').change(
-    
-    function()
-    {
-      if ($(this).is(':checked')) {
-           
-           var term= $(this).siblings('.node').text();
-         all_selections.Type.push([term]);
-            
-           selected_category_type.push($(this).siblings('.node').attr('slug'));
-           apply_filter($,this, true, 'category_type');
-      
-        }
-        else{
-           var selection_name= ($(this).siblings('.node').text());
-
-             $.each(all_selections.Type, function(index, item){
-                if (item==selection_name){
-                    (all_selections.Type.splice(index,1))
-                }
-            }); 
-            
-            
-            var name= ($(this).siblings('.node').attr('slug'));        
-            var index = selected_category_type.indexOf(name);
-            selected_category_type.splice(index,1);
-        
-            apply_filter($,this, false, 'category_type');
-        }
     });
 }
-
-
-
 
 /*
  * clear_previous_selections
@@ -290,56 +140,87 @@ function clear_previous_selections($){
 }
 
 
-/*
- *institution_listener 
- * @param {type} $
- * @returns {undefined}
- * listens for changes in the institution filter checkboxes
- */
-//function institution_listener($){
-//  $('#institution-filter input:checkbox').change(
-//    
-//    function()
-//    {
-//                var name = $(this).attr('name');
-//
-//       if ($(this).is(':checked')) {
-//            
-//            selected_institutions.push(name);
-//            apply_filter($,this, true, 'institution');
-//      
-//        }
-//        else{
-//        var index = selected_institutions.indexOf(name);
-//           selected_institutions.splice(index,1);
-//            apply_filter($,this, false, 'institution');
-//        }
-//    }); 
-//}
+function remove_tag_from_search($){
+    
+    $('.selected-filter').click(function(){
+        
+        var selected_option= $(this).text();
+      
+        $('.node').each(function(i, obj) {
+            //test
+            var checkbox= $(obj).text()
+            if(selected_option==checkbox){
+            
+                var cb=$(obj).siblings('input[type=checkbox]');
+                
+                cb.trigger('click');
+                return;
+            }
+        });
+
+
+        $(".select2-search-choice").each(function(i, obj){
+            
+            
+            var select2_option= $(obj).text();
+            //strip spaces, or they dont match
+                select2_option = select2_option.replace(/\s/g, '');
+                selected_option = selected_option.replace(/\s/g, '');
+
+               if(selected_option==select2_option){
+                var select_close=$(obj).children('a');
+                select_close.trigger('click');
+                    $(document).css({'cursor':'wait'})
+
+                setTimeout(function(){$(".input-append .btn").trigger('click');}, 300);
+                    $(document).css({'cursor':'default'})
+
+                return;
+            }
+            
+        })
+        
+        
+    })
+    
+}
 
 /*
- *provider_listener 
- * @param {type} $
- * @returns {undefined}
- * listens for changes in the subject filter checkboxes
+ * popup listener
+ * 
  */
-//function provider_listener($){
-//  $('#provider-filter input:checkbox').change(
-//    
-//    function()
-//    {
-//            var name = $(this).attr('name');
-//
-//       if ($(this).is(':checked')) {
-//
-//            selected_providers.push(name);
-//            apply_filter($,this, true, 'provider');
-//      
-//        }
-//        else{
-//        var index = selected_providers.indexOf(name);
-//           selected_providers.splice(index,1);
-//            apply_filter($,this, false, 'provider');
-//        }
-//    }); 
-//}
+function popup_listener($){
+    
+    $('.clickme').unbind('click.popup');
+   
+
+ $('.clickme').bind('click.popup', function() {
+
+            var post_id= $(this).parent().parent('.hentry').attr('id');
+
+     $(window).unbind('scroll.load_more'); //deactivate infinitescroll
+        //if data already loaded, don't need to do it again
+         if ($(this).siblings(".pop-out").html().length > 0) {
+             closeBoxHandler($, post_id)
+            return;
+         }                                     
+        
+        
+        var category= $('#content').attr('category_type');
+        var tag_type= $('#content').attr('tag_type');
+        var body_type= $('#content').attr('body_type');
+        var popup= $(this).siblings('.pop-out');
+    
+        process_popup_data($, popup,category,tag_type,body_type, post_id);
+   });
+}
+
+
+function scroll_up_click_reset($){
+ 
+ $('#scrollUp').click(function(){
+     
+        resetCurrentActiveBox($); 
+ });
+ 
+}

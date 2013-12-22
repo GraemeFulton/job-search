@@ -464,7 +464,7 @@ div#sidebar div.tags div#tag-text {
 }
 
 .dtree a{
-    color: #555;
+    color: #2C2C2C;
     cursor: pointer;
     font-size:13.4px;
 }
@@ -2691,7 +2691,7 @@ margin-bottom: 0px;
 .datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover { text-decoration: none;border-color: #7D7D7D; color: #F5F5F5; background: none; background-color:#8C8C8C;}
 
 .activepost{
-    width:500px !important;height:570px!important;
+    width:500px !important;height:auto!important;
 box-shadow: 1px 1px 10px 5000px rgba(12,12,12,0.78);
     z-index:99999 !important;
     background:#fff;
@@ -2774,6 +2774,10 @@ FILTERS
     padding:13px;
 
 }
+#Destination_Filter{
+    padding:13px;
+
+}
 .page_widget{
     padding:13px;
     border-bottom: 1px solid #ccc
@@ -2799,10 +2803,17 @@ FILTERS
 #selected-options{width:80%; height:auto; border-bottom:1px solid #ccc;  border-right:1px solid #ccc;position:relative; float:right}
 .selected-index{background:rgb(214, 113, 46);color:#fff; font-weight:bold; font-size:13px; padding:3px;border-radius:3px;}
 .selected-tag{background:#eaeaea;color:#222; font-size:13px; padding:3px;margin-left:4px;border-radius:3px;}
-.selected-filter{margin-bottom:4px;position: relative;float:left;margin-left:5px;}
+.selected-filter{cursor: pointer; margin-bottom:4px;position: relative;float:left;margin-left:5px;}
 .filter-group{ margin:5px 12px 5px 5px;}
 .clear_both{clear: both; float: left; display: block; position: relative;}
+
+.selected-filter:hover{border:1px solid red;}
 
 .selected-course-options .selected-index{background:#3B5998;}
 .selected-we-options .selected-index{background: mediumslateblue;}
 .selected-job-options .selected-index{background: #EB470A;}
+.selected-travel-options .selected-index{background: green;}
+
+
+#nothing_selected{padding:5px 0 0 5px; float:left; margin-left:12px;margin-top:-10px}
+.options-title{padding:5px 0 0 5px; float:left;}

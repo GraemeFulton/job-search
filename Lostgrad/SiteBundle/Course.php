@@ -14,6 +14,7 @@ class Course
     protected $courseSubject="";
     protected $courseURL="";
     
+    protected $course_type="Free";
 
     /**
      * Access modifier to set protected properties
@@ -39,18 +40,18 @@ class Course
    */
    public function addCourse($wpdb, $last_insert_id)
   {
-       //INSERT COURSE-TYPE
-            $course_type = array(
-                'post_id' => $last_insert_id,
-                'meta_value'=>'a:1:{s:64:"wpcf-fields-checkboxes-option-60039c1cd5b3cf7f3d424671ae5ccc3a-2";s:1:"1";}',
-                'meta_key'=>'wpcf-course-type'
-            );//meta_value = free course
-
-            $wpdb->insert(
-                'wp_postmeta', 
-                $course_type,
-                array( '%d', '%s', '%s' )
-            );
+//       //INSERT COURSE-TYPE
+//            $course_type = array(
+//                'post_id' => $last_insert_id,
+//                'meta_value'=>'a:1:{s:64:"wpcf-fields-checkboxes-option-60039c1cd5b3cf7f3d424671ae5ccc3a-2";s:1:"1";}',
+//                'meta_key'=>'wpcf-course-type'
+//            );//meta_value = free course
+//
+//            $wpdb->insert(
+//                'wp_postmeta', 
+//                $course_type,
+//                array( '%d', '%s', '%s' )
+//            );
             
       // INSERT START DATE
        if($this->startDate!=="")
@@ -85,7 +86,7 @@ class Course
               $course_url = array(
                 'post_id' => $last_insert_id,
                 'meta_value'=>$this->courseURL,
-                'meta_key'=>'wpcf-course-url'
+                'meta_key'=>'wpcf-opportunity-url'
             );
             $wpdb->insert(
                 'wp_postmeta', 
@@ -105,6 +106,20 @@ class Course
                 array( '%d', '%s', '%s' )
             );
             
+              //INSERT YOUTUBE VID
+            if($this->youtube!=""){
+              $provider_course_id = array(
+                'post_id' => $last_insert_id,
+                'meta_value'=>'http://www.youtube.com/watch?v='.$this->youtube,
+                'meta_key'=>'wpcf-embedded-media'
+            );
+            $wpdb->insert(
+                'wp_postmeta', 
+                $provider_course_id,
+                array( '%d', '%s', '%s' )
+            );
+            }
+            
             $this->setObjectTerms($last_insert_id);
   }
   
@@ -116,8 +131,11 @@ class Course
    */
   private function setObjectTerms($last_insert_id){
       
+      //INSERT PROVIDER NAME/RELATIONSHIP
+    wp_set_object_terms($last_insert_id,$this->course_type,'course-type'); 
+      
     //INSERT PROVIDER NAME/RELATIONSHIP
-    wp_set_object_terms($last_insert_id,$this->courseProvider,'provider');
+    wp_set_object_terms($last_insert_id,$this->courseProvider,'course-provider');
     
     //INSERT UNIVERSITY NAME/RELATIONSHIP
     wp_set_object_terms($last_insert_id,$this->courseUniversity,'uni');

@@ -68,7 +68,7 @@ class Job
               $job_url = array(
                 'post_id' => $last_insert_id,
                 'meta_value'=>$this->job_url,
-                'meta_key'=>'wpcf-job-url'
+                'meta_key'=>'wpcf-opportunity-url'
             );
             $wpdb->insert(
                 'wp_postmeta', 

@@ -5,7 +5,7 @@
      * args: arguments from checkbox.js 
      * returns: returns html template to ajax call
      */
-    function process_filter()
+    function checkbox_filter()
     {
         
          $super_filter = new Super_Filter($_POST['selected_subjects'], 
@@ -110,7 +110,7 @@ Class Super_Filter{
             $args= $this->regular_taxonomy_filter('uni', 2,$this->selected_institutions, $args);
             $args= $this->regular_taxonomy_filter('course-type', 5,$this->selected_post_type, $args);
 
-            $this->view = "Views/course_post_loop.php";
+            $this->view = "course_post_loop.php";
             $this->printable_name= "courses";
       }
       elseif($this->category_type=='graduate-job' || $this->category_type=='work-experience-job'){
@@ -119,7 +119,7 @@ Class Super_Filter{
             $args= $this->regular_taxonomy_filter('company', 2,$this->selected_institutions, $args);
             $args= $this->regular_taxonomy_filter('location', 4, $this->location, $args);  
 
-            $this->view = "Views/graduatejob_post_loop.php";
+            $this->view = "graduatejob_post_loop.php";
             $this->printable_name= "jobs";
 
        }
@@ -131,11 +131,13 @@ Class Super_Filter{
            
            $args= $this->regular_taxonomy_filter('work-experience-type', 5,$this->selected_post_type, $args);
        }
-       elseif($this->category_type=='travel'){
+       elseif($this->category_type=='travel-opportunities'){
         
            $args= $this->regular_taxonomy_filter('travel-agent', 3, $this->selected_provider, $args);  
-            
-           $this->view = "Views/travel_post_loop.php";
+           $args= $this->regular_taxonomy_filter('travel-type', 5,$this->selected_post_type, $args);
+ 
+           
+           $this->view = "travel_post_loop.php";
            $this->printable_name= "travel opportunities";
        }
        
@@ -153,7 +155,7 @@ Class Super_Filter{
                    <br><br> Sorry, we don&apos;t have any '.$this->printable_name.' matching this criteria at the moment, please try a different filter.
                    </h2>
                    <button id="reset-filter" class="btn btn-success">Reset Filter</button>
-                   </div>';
+                  copy </div>';
             }
             elseif ($filter_type=='scroll'){
               echo '<div class="sorry-message">
@@ -166,7 +168,7 @@ Class Super_Filter{
         return;
         }
         else{
-        include($this->view);      
+        include('templates/templates-post-loop/'.$this->view);      
         }
         wp_reset_query();
         exit;
