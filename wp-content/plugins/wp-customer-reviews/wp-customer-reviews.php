@@ -968,7 +968,7 @@ class WPCustomerReviews {
         if (!isset($this->p->ftitle)) { $this->p->ftitle = ''; }
         if (!isset($this->p->ftext)) { $this->p->ftext = ''; }
 
-        
+        //graeme edit
    if ( is_user_logged_in() ) 
    {
             

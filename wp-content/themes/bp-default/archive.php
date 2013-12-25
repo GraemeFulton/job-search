@@ -1,6 +1,7 @@
 <?php get_header(); ?>
+<div class='single-container'>
 
-	<div id="content">
+	<div id="content"class='single-content'>
 		<div class="padder">
 
 		<?php do_action( 'bp_before_archive' ); ?>
@@ -20,8 +21,32 @@
 					<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 						<div class="author-box">
-							<?php echo get_avatar( get_the_author_meta( 'user_email' ), '50' ); ?>
-							<p><?php printf( _x( 'by %s', 'Post written by...', 'buddypress' ), bp_core_get_userlink( $post->post_author ) ); ?></p>
+<?php 
+if ( 'course' == get_post_type() ){
+           $img= types_render_field("post-image", array("output"=>"raw"));
+           echo '<img width=50 src="'.$img.'"/>';
+
+}else{
+$post_id=  get_the_ID();
+
+     $cat_term_id = wp_get_post_terms($post_id, 'profession', array("fields" => "ids")); 
+       $category_image = s8_get_taxonomy_image_src(get_term_by('id', $cat_term_id[0], 'profession'), 'medium');
+       if ($category_image!=false){
+           echo '<img width=50 src="'.$category_image['src'].'"/>';
+        }      
+         else {
+           $sub_category = get_term_by( 'id', $cat_term_id[0], 'profession' );
+           $parent = get_term_by( 'id', $sub_category->parent, 'profession');
+          $category_image = s8_get_taxonomy_image_src($parent, 'medium');
+          if ($category_image!=false){
+           echo '<img width=50 src="'.$category_image['src'].'"/>';
+        }
+         }
+}  
+      
+       
+?>
+                                                    <p><?php printf( _x( 'by %s', 'Post written by...', 'buddypress' ), bp_core_get_userlink( $post->post_author ) ); ?></p>
 						</div>
 
 						<div class="post-content">
@@ -59,6 +84,9 @@
 		</div><!-- .padder -->
 	</div><!-- #content -->
 
+	<div class='sidebar-single'>
 	<?php get_sidebar(); ?>
+            </div>
+</div>
 
 <?php get_footer(); ?>

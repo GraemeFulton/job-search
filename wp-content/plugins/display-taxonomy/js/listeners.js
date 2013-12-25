@@ -34,6 +34,9 @@ function activate_listeners($){
    //reset when scrollup 
    scroll_up_click_reset($);
    
+   //search filter
+    Search_Filter($, all_selections.Search=[]);
+   
 }
 
 
@@ -58,7 +61,7 @@ function tree_listener($, filter_selector, arr_object, global_var){
           global_var.push($(this).siblings('.node').attr('slug'));         
           arr_object.push([term]);
 
-          apply_filter($, true);
+          apply_filter($);
       
         }
         else{
@@ -74,7 +77,7 @@ function tree_listener($, filter_selector, arr_object, global_var){
             var index = global_var.indexOf(name);
             global_var.splice(index,1);
 
-            apply_filter($, false);
+            apply_filter($);
         }
     });
 }
@@ -94,7 +97,7 @@ function select2_search_listener($, institution_type, arr_object){
        if($(".select2-choices").children().length==1){
            arr_object.length=0;
 
-        apply_filter($,'#multi-append', true, '');
+        apply_filter($);
        }
        
    });
@@ -117,7 +120,7 @@ function select2_search_listener($, institution_type, arr_object){
         
         
         selected_institutions = arr_object;
-        apply_filter($,'#multi-append', true, '');
+        apply_filter($);
 
     });
 }
@@ -141,6 +144,8 @@ function clear_previous_selections($){
 
 
 function remove_tag_from_search($){
+    
+   
     
     $('.selected-filter').click(function(){
         
@@ -178,10 +183,19 @@ function remove_tag_from_search($){
                 return;
             }
             
-        })
+        });
         
         
-    })
+    });
+    
+    
+    $('.selected-search').click(function(){
+        $('.selected-search-index').remove();
+        $(this).remove();
+        $('#Search_Term').val('');
+        $('#Search_Filter').click();
+        
+    });
     
 }
 
@@ -223,4 +237,32 @@ function scroll_up_click_reset($){
         resetCurrentActiveBox($); 
  });
  
+}
+
+
+function Search_Filter($,search_terms){
+ 
+ $("#Search_Filter").click(function(e){
+     
+     e.preventDefault();
+     
+     var terms= $('#Search_Term').val();
+     
+     //alert(terms)
+      if(terms){
+         
+        search_terms.length=0;
+        search_terms.push(terms);
+             
+        }
+        else   search_terms.length=0;
+        
+       
+    console.log(search_terms)
+    apply_filter($);
+     
+     
+ });
+ 
+
 }

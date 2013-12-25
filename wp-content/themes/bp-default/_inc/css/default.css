@@ -1,4 +1,4 @@
-/*--------------------------------------------------------------
+se/*--------------------------------------------------------------
 Hello, this is the BuddyPress Default theme stylesheet.
 
 ----------------------------------------------------------------
@@ -104,9 +104,9 @@ div#page-container{
 }
 
 div#header-quote {
-max-width: 879px;
+max-width: 665px;
 margin: 15px auto;
-left: 100px;
+left: 12px;
 position: relative;
 color: #fff;
 padding: 10px;
@@ -123,17 +123,7 @@ body.activity-permalink div#container {
 2.1 - Content
 --------------------------------------------------------------*/
 div#content {
--moz-border-radius-topleft: 6px;
--webkit-border-top-left-radius: 6px;
--moz-border-radius-bottomleft: 6px;
--webkit-border-bottom-left-radius: 6px;
-border-top-left-radius: 6px;
-border-top-right-radius: 6px;
-float: left;
-width: 64%;
 position: relative;
-margin-bottom:100px;
-background:#fff;
 }
 div#content .padder {
 
@@ -151,6 +141,25 @@ div#content .main-column {
 }
 textarea {
 	overflow: auto;
+}
+.single-content{
+    float:left;
+    width:80% !important;
+    background:#fff;
+}
+.main-content{
+    -moz-border-radius-topleft: 6px;
+-webkit-border-top-left-radius: 6px;
+-moz-border-radius-bottomleft: 6px;
+-webkit-border-bottom-left-radius: 6px;
+border-top-left-radius: 6px;
+border-top-right-radius: 6px;
+float: left;
+width: 64%;
+position: relative;
+margin-bottom:100px;
+background:#fff;
+    
 }
 /*--------------------------------
 ADMIN BAR - BOOTSTRAP/WP MERGE
@@ -184,7 +193,10 @@ background-image: linear-gradient(to top,#222 0,#222 5px);
 #wp-admin-bar-wp-logo{display:none}
 #wp-admin-bar-site-name{display:none}
 
-#main_search{margin-top:4%; margin-left:-12.8%;}
+#main_search_category{margin-top:4%;width:500px; margin:3% auto;}
+
+
+#main_search{margin-top:4%;width:500px; margin:3% auto;}
 #main_search .sf_search span.sf_block{width:500px; height:50px;-webkit-box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);
 -moz-box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);
 box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);}
@@ -224,8 +236,7 @@ box-shadow: 0 0 0 0 !important;
 	position: relative;    
         
         margin: 0 auto;
-    width:67.5%;
-    margin-top:80px;
+max-width: 1250px;    margin-top:80px;
         background:rgba(10, 10, 10, 0.9);
 
 }
@@ -312,7 +323,10 @@ opacity:1;
 2.3 - Footer
 --------------------------------------------------------------*/
 #footer {
-	margin: 20px 0;
+	position: relative;
+width: 100%;
+float: left;
+margin: 0 auto;
 }
 #footer-widgets {
 	background: #fff;
@@ -365,9 +379,23 @@ div#sidebar {
 -moz-border-radius: 3px;
 -webkit-border-radius: 3px;
 border-radius: 3px;
-float: right;
-position: relative;
-width:15%;
+
+width:100%;
+}
+.sidebar-single{
+    background:#eaeaea;
+    width:20%;
+    float:right;
+}
+.sidebar-main{
+    width:15%;
+    float:right;
+    
+}
+.single-container{
+    background:#fff;
+    display:flex;
+    
 }
 div#sidebar div#sidebar-me {
 	margin-bottom: 15px;
@@ -977,6 +1005,9 @@ div.comment-meta em {
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
 	padding: 15px;
+        float: left;
+        margin-top: 10px;
+        width:100%;
 }
 #respond .avb img {
 	float: inherit;
@@ -2690,6 +2721,21 @@ margin-bottom: 0px;
 .datagrid table tfoot li a { text-decoration: none; display: inline-block;  padding: 2px 8px; margin: 1px;color: #F5F5F5;border: 1px solid #8C8C8C;-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8C8C8C), color-stop(1, #7D7D7D) );background:-moz-linear-gradient( center top, #8C8C8C 5%, #7D7D7D 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8C8C8C', endColorstr='#7D7D7D');background-color:#8C8C8C; }
 .datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover { text-decoration: none;border-color: #7D7D7D; color: #F5F5F5; background: none; background-color:#8C8C8C;}
 
+#single_ratings{float:left; width:100%; position:relative;margin-top:10px;}
+#single_youtube_player{float:left; width:45%;position:relative; margin-bottom: 20px;}
+.single_datagrid{width:48%;float:right; position:relative; margin:0px 10px 10px 10px;z-index: 500;}
+#wpcr_button_1{visibility: hidden;}
+#single_ratings h5{margin-bottom:-48px;background:#f8f8f8; width:100%; padding:8px; }
+.single_post_content{position:relative;padding:5px;}
+.single_post_content h4{background:#f8f8f8; width:49%; padding:8px; margin-bottom:5px; }
+.single_content{float:left; padding:5px;width:100%;}
+#single_post_image{ display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width:100%;
+}
+#single_post_image_box{border:1px solid #eaeaea; padding:10px;border-bottom:none;}
+
 .activepost{
     width:500px !important;height:auto!important;
 box-shadow: 1px 1px 10px 5000px rgba(12,12,12,0.78);
@@ -2804,6 +2850,8 @@ FILTERS
 .selected-index{background:rgb(214, 113, 46);color:#fff; font-weight:bold; font-size:13px; padding:3px;border-radius:3px;}
 .selected-tag{background:#eaeaea;color:#222; font-size:13px; padding:3px;margin-left:4px;border-radius:3px;}
 .selected-filter{cursor: pointer; margin-bottom:4px;position: relative;float:left;margin-left:5px;}
+.selected-search{cursor: pointer; margin-bottom:4px;position: relative;float:left;margin-left:5px;}
+
 .filter-group{ margin:5px 12px 5px 5px;}
 .clear_both{clear: both; float: left; display: block; position: relative;}
 

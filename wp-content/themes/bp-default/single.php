@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
-	<div id="content">
+<div class='single-container'>
+	<div id="content" class='single-content'>
 		<div class="padder">
 
 			<?php do_action( 'bp_before_blog_single_post' ); ?>
@@ -53,6 +54,8 @@
 		</div><!-- .padder -->
 	</div><!-- #content -->
 
+        <div class='sidebar-single'>
 	<?php get_sidebar(); ?>
-
+            </div>
+</div>
 <?php get_footer(); ?>

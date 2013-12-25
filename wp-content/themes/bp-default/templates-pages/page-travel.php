@@ -6,6 +6,7 @@
 */
 
 include (TEMPLATEPATH . '/templates-headers/header-travel.php');
+do_action('enable_isotopes');
 
 ?>
 <div id="page-container">
@@ -48,7 +49,7 @@ $args= array(
 query_posts( $args); ?>
                 <div class='selected-travel-options'id='selected-options'></div>
 
-	<div id="content"  category_type='travel-opportunities' tag_type='destination' body_type="destination">
+	<div id="content" class='main-content'  category_type='travel-opportunities' tag_type='destination' body_type="destination">
                         
 		<div class="padder">
 
@@ -106,7 +107,8 @@ $ratings= show_ratings($post_id);
         </div><!-- .padder -->
    </div><!-- .page -->
 
+	<div class='sidebar-main'>
 	<?php get_sidebar(); ?>
-
+</div>
 <?php get_footer(); ?>
 </div>

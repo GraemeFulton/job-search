@@ -73,7 +73,7 @@ function graylien_infinite_scroll($){
  * or removes unchecked value from url_string
  * 
  */
-function apply_filter($, true_false){
+function apply_filter($){
     
   //  $("html, body").animate({ scrollTop: 0 }, 500);
     //filter for the url_string
@@ -81,26 +81,14 @@ function apply_filter($, true_false){
     var tag_type= $('#content').attr('tag_type');
     var body_type= $('#content').attr('body_type');
 
-    if (true_false===true)
-    {
-           
+       
         //add filter value to process filter, and collect it in the php file, then use it to filter the post
          process_filter($, category_type, tag_type, body_type);
             
             closeActiveBox($);
             disableClickMe($);
             setTimeout(function(){isotopes_modal($);}, 500);
-                
-    }      
-    else { 
-           
-           process_filter($, category_type, tag_type, body_type);           
-           
-           closeActiveBox($);
-            disableClickMe($);
-            setTimeout(function(){isotopes_modal($);}, 500);
-    }
-        
+   
 }
 
 
@@ -133,11 +121,12 @@ function process_filter($, category_type, tag_type, body_type){
             'body_type': body_type,
             'location': selected_locations,
             'provider':selected_providers,
-            'selected_category_type':selected_category_type
+            'selected_category_type':selected_category_type,
+             'search_filter':all_selections.Search[0]
            },
    dataType:'HTML', 
    success: function(data){
- 
+ console.log(selected_institutions)
         //remove all boxes
         $(".hentry").remove(); 
        
@@ -280,39 +269,52 @@ function process_popup_data($, popup, category, tag_type,body_type, post_id){
 
 
 function update_selected_options($){
- console.log(all_selections)
  
  var selected_option_head= '<h4 class="options-title"><i style="margin-top:-15px;"class="fa fa-search"></i> &nbsp;Your Selected Options: </h4>';
      selected_option_head+='<div class="clear_both"></div><div id="nothing_selected">Nothing Selected. Please use the filters available on the left to find what you want.</div>'
     
     
     $('#selected-options').empty().append(selected_option_head);
- 
+    
  $.each(all_selections, function(index, item){
-    
-    
-    
+        
     if(item!=""){
         $("#nothing_selected").remove();
         var output= '<div class="filter-group">';
 
-        output+='<span class="selected-index selected-filter">'+index+': </span>';
+        //if it's a search item:
+      if(index=='Search'){
+        output+='<span class="selected-index selected-filter selected-search-index">'+index+': </span>';
 
-        $.each(item, function(index, tag){
+        $.each(item, function(index,tag){
+            output+='<span class="selected-tag selected-search">'+tag+'</span>';
+
             
-           output+='<span class="selected-tag selected-filter">'+tag+'</span>';
-
-        })
-        output+='</div>';
+        });
         
-        $('#selected-options').append(output);
+        }
+        else
+        {
+            //otherwise:
+            
+            output+='<span class="selected-index selected-filter">'+index+': </span>';
 
+            $.each(item, function(index, tag){
+               output+='<span class="selected-tag selected-filter">'+tag+'</span>';
+
+            })
+        }
+            output+='</div>';
+
+            $('#selected-options').append(output);
+
+        
     }
      
- })
+ });
      
      
-   remove_tag_from_search($)
+   remove_tag_from_search($);
  
  
 }

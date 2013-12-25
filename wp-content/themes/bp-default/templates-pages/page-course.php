@@ -6,21 +6,17 @@
 */
 
 include (TEMPLATEPATH . '/templates-headers/header-course.php');
-
+do_action('enable_isotopes');
 ?>
 <div id="page-container">
+    
     
 <div id="sidebar-left">
     <div class="filter-header">
     <h4>Filter</h4>
     </div>
     
-    <?php if ( function_exists( 'display_taxonomy_tree' ) ) 
-        {
-        global $tree;
-          $tree= display_taxonomy_tree('subject', 'uni');
-          
-            echo '<div id="Type_Filter"><h4 class="filter-title">Course Type</h4><br>';
+ <?php      echo '<div id="Type_Filter"><h4 class="filter-title">Course Type</h4><br>';
           echo '<div class="page_widget">'.widgets_on_template("Course Type Filter")."</div></div>";
         
 
@@ -35,10 +31,6 @@ include (TEMPLATEPATH . '/templates-headers/header-course.php');
             echo '<div class="nav-filter"><h3><i class="ico fa fa-building"></i> University</h3>'; 
                     $tree->display_select2_box('Select Universities');
                     echo '</div>';
-
-          
-        }
-       // 
     
     ?>
     <?php do_action('the_action_hook'); ?>
@@ -59,7 +51,7 @@ $args= array(
 query_posts( $args); ?>
             <div class='selected-course-options'id='selected-options'></div>
 
-	<div id="content"  category_type='course' tag_type='subject' body_type="uni">
+	<div id="content"  class='main-content' category_type='course' tag_type='subject' body_type="uni">
                         
 		<div class="padder">
 
@@ -122,7 +114,8 @@ $ratings= show_ratings($post_id);
         </div><!-- .padder -->
    </div><!-- .page -->
 
+   <div class='sidebar-main'>
 	<?php get_sidebar(); ?>
-
+</div>
 <?php get_footer(); ?>
 </div>

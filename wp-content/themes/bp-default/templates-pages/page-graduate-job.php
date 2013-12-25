@@ -6,6 +6,8 @@
 */
 
 include (TEMPLATEPATH . '/templates-headers/header-graduate-job.php');
+do_action('enable_isotopes');
+
 ?>
 
 <div id="page-container">
@@ -32,15 +34,7 @@ include (TEMPLATEPATH . '/templates-headers/header-graduate-job.php');
             echo '<div class="nav-filter"><h3><i class="ico fa fa-building"></i> Company</h3>'; 
                     $tree->display_select2_box('Select Companies');
                     echo '</div>';
-           
-//                    echo '<div class="nav-filter"><h3>Company</h3>'; 
-//                    $tree->display_tag_groups_b();
-//                    echo '</div>';
-                    
-                    
-//          echo '<hr><h2>Location</h2>';
-//          $tree->display_meta_group_select_box('location');
-          
+
           echo '<div id="Provider_Filter"><h3 class="filter-title">Provider</h3>';
           echo '<div class="page_widget">'.widgets_on_template("Job Provider Filter")."</div></div>";
                 //  echo '</div>';
@@ -66,7 +60,7 @@ $args= array(
 query_posts( $args); ?>
         <div class='selected-job-options'id='selected-options'></div>
 
-	<div id="content"  category_type='graduate-job' tag_type='profession' body_type="company">
+	<div id="content"   class='main-content' category_type='graduate-job' tag_type='profession' body_type="company">
 
 		<div class="padder">
 
@@ -131,8 +125,9 @@ $location= wp_get_post_terms($post_id, 'location', array("fields" => "names"));
         </div><!-- .padder -->
    </div><!-- .page -->
 
+	 <div class='sidebar-main'>
 	<?php get_sidebar(); ?>
-
+</div>
 <?php get_footer(); ?>
 
 </div>

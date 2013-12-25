@@ -6,6 +6,8 @@
 */
 
 include (TEMPLATEPATH . '/templates-headers/header-work-experience.php');
+do_action('enable_isotopes');
+
 ?>
 
 <div id="page-container">
@@ -58,7 +60,7 @@ $args= array(
 query_posts( $args); ?>
             <div class='selected-we-options'id='selected-options'></div>
 
-	<div id="content"  category_type='work-experience-job' tag_type='profession' body_type="company">
+	<div id="content" class='main-content'  category_type='work-experience-job' tag_type='profession' body_type="company">
 		<div class="padder">
 
 		<?php do_action( 'bp_before_blog_page' ); ?>
@@ -122,8 +124,9 @@ $location= wp_get_post_terms($post_id, 'location', array("fields" => "names"));
 
    </div><!-- .page -->
 
+	<div class='sidebar-main'>
 	<?php get_sidebar(); ?>
-
+</div>
 <?php get_footer(); ?>
 
 </div>

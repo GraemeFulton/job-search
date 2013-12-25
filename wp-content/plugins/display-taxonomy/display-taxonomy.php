@@ -42,7 +42,7 @@ Author URI: http://gfulton.me.uk
 
         echo '<script> templateUrl = "'.plugins_url("display-taxonomy").'"</script>';
     }
-    add_action('wp_head','load_js');
+    add_action('enable_isotopes','load_js');
 
 
     /*
