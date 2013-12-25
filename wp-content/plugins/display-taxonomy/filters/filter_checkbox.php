@@ -190,7 +190,6 @@ Class Super_Filter{
     
        if($selected_terms!="" && $this->tag_type==$tag_type_name){//if a box has been checked, we add a taxnomoy query
          
-           array_push($selected_terms, $this->search_term);
             $args['tax_query'][$array_index]['terms']=$selected_terms;
             $args['tax_query'][$array_index]['taxonomy']=$tag_type_name;
             $args['tax_query'][$array_index]['field']='slug';
@@ -203,7 +202,7 @@ Class Super_Filter{
     private function regular_taxonomy_filter($tag_type_name, $array_index, $selected_terms, $args){
     
        if($selected_terms!=""){//if a box has been checked, we add a taxnomoy query
-         array_push($selected_terms, $this->search_term);
+         
             $args['tax_query'][$array_index]['terms']=$selected_terms;
             $args['tax_query'][$array_index]['taxonomy']=$tag_type_name;
             $args['tax_query'][$array_index]['field']='slug';
@@ -224,7 +223,8 @@ Class Super_Filter{
         'paged'=>$paged,
         'posts_per_page'=>9,
         'orderby' => 'title',
-        'order' => 'ASC'
+        'order' => 'ASC',
+        's'=>$this->search_term
     );
        
        return $args;

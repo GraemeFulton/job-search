@@ -45,19 +45,9 @@
 		<?php do_action( 'bp_before_header' ); ?>
 
 		<div id="header" class="header-course">                  
-    
-                            <div id="main_search_category">
-                                <?php if ( function_exists( 'display_taxonomy_tree' ) ) 
-                                          {
-                                            global $tree;
-                                              $tree= display_taxonomy_tree('subject', 'uni');
-                                                
-                                              $tree->display_main_select2_box('search');
-                                          }
-                                    ?>
-                                
-                                
-<!--                                <form class="navbar-form" role="search">
+                    <div id="search-bar" role="search">
+                            <div id="main_search">
+                                <form class="navbar-form" role="search">
                                     <div class="input-group">
                                      <input type="text" class="form-control" id='Search_Term' placeholder="Search for Courses" name="srch-term">
                                         <div class="input-group-btn">
@@ -65,9 +55,18 @@
                                     </div>
                                 </div>
                                
-                                </form>-->
-                               
+                                </form>
+                                       <?php if ( function_exists( 'display_taxonomy_tree' ) ) 
+                                          {
+                                            global $tree;
+                                              $tree= display_taxonomy_tree('subject', 'uni');
+                                                
+                                           //   $tree->display_main_select2_box('search');
+                                          }
+                                    ?>
+                                
                             </div>
+			</div><!-- #search-bar -->
                               
                           <div id="header-quote">
                         <?php quotescollection_quote('show_author=1&show_source=1&tags=education&ajax_refresh=0&char_limit=200&random=1')?>

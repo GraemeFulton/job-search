@@ -126,9 +126,9 @@ class Display_Taxonomy{
     <div class="control-group">
         <label for="<?php echo $this->grouped_taxonomy_short;?>-main-filter" class="control-label"><?php echo $title?>: </label>
         <div class="controls">
-          <div class="input-append">
+          <div class="main-input-append">
                 
-            <select id="<?php echo $this->grouped_taxonomy_short;?>-multi-append" class="select2_main" multiple="multiple" name="meta" style="width:80%;">
+            <select id="main-multi-append" class="select2_main" multiple="multiple" name="meta" style="width:80%;">
               <option></option>
     <?php
        $tags1 = get_terms($this->grouped_taxonomy_short); 
@@ -158,14 +158,14 @@ class Display_Taxonomy{
        }
         ?>
             </select>
-          <button class="btn" id="<?php echo $this->grouped_taxonomy_short;?>_main_search" type="button">
+          <button class="btn" id="main_search_filter_button" type="button">
               <i class="glyphicon glyphicon-search"></i>
             </button>
           </div>
         </div>
       </div> 
    <script>
-      $('.select2_main').select2({ placeholder : '' });
+      $('.select2_main').select2({ placeholder : 'Search for Courses' });
       
       $('button[data-select2-open]').click(function(){
         $('#' + $(this).data('select2-open')).select2('open');
