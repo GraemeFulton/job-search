@@ -55,29 +55,32 @@ Class Popup_Filter{
          if($this->category=='travel-opportunities'){
              $this->provider_taxonomy='travel-agent';
              $this->post_type_taxonomy='travel-type';
-             $this->template = 'travel_popup.php';
+             $this->template = 'travel';
          }
          elseif ($this->category=='course'){
              $this->provider_taxonomy='course-provider';
              $this->post_type_taxonomy='course-type';
-             $this->template = 'course_popup.php';
+             $this->template = 'course';
          }
         elseif($this->category=='graduate-job'){
                  $this->post_type_taxonomy='job-type';
                  $this->provider_taxonomy= 'job-provider';
-                 $this->template = 'job_popup.php';
+                 $this->template = 'job';
                  
         }
         elseif($this->category=='work-experience-job'){
                  $this->post_type_taxonomy='work-experience-type';
                   $this->provider_taxonomy= 'job-provider';
-                  $this->template = 'job_popup.php';
+                  $this->template = 'job';
 
          }
      }
        
-         
-     public function template_response(){
+     /*
+      * template_response
+      * @param $page = bool value. if false, exit (for ajax); if true, use for page
+      */
+     public function template_response($page){
          
          $tree= $this->get_taxonomy_tree();
          
@@ -98,11 +101,16 @@ Class Popup_Filter{
          $link = $this->get_link($tree);
          
          //return html view
-         include('templates/templates-popup/'.$this->template);exit;
-
+         if($page==true){
+             $the_content= $this->get_content_by_id($this->post_id);
+             $post_image = $this->show_post_image($tree);
+              include('templates/templates-single/'.$this->template.'_single.php');
+         }
+         else{
+         include('templates/templates-popup/'.$this->template.'_popup.php');exit;
+         }
+         
      }
-     
-        
      
      private function get_taxonomy_tree(){
          
@@ -133,7 +141,11 @@ Class Popup_Filter{
      }
      
     
-    
+    private function show_post_image($tree){
+         $post_image=$tree->get_post_image($group_parent_id, $this->post_id);
+         return '<div id="single_post_image_box"><img id="single_post_image" src="'.$post_image.'"/></div>';
+        
+    }
     
     private function get_provider_logo(){
         
@@ -176,6 +188,20 @@ private function get_excerpt_by_id($post_id){
         endif;
         $the_excerpt = '<p>' . $the_excerpt . '</p>';
         return $the_excerpt;
+}
+
+/*
+ * http://wordpress.stackexchange.com/questions/9667/get-wordpress-post-content-by-post-id
+ */
+private function get_content_by_id($post_id){
+  
+    $my_postid = $post_id;//This is page id or post id
+    $content_post = get_post($my_postid);
+    $content = $content_post->post_content;
+    $content = apply_filters('the_content', $content);
+    $content = str_replace(']]>', ']]&gt;', $content);
+    return $content;
+    
 }
 
 private function show_ratings($post_id){

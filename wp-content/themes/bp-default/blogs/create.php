@@ -11,7 +11,9 @@ get_header( 'buddypress' ); ?>
 
 	<?php do_action( 'bp_before_directory_blogs_content' ); ?>
 
-	<div id="content">
+<div class='single-container'>
+
+	<div id="content"class='single_content'>
 		<div class="padder" role="main">
 		
 		<?php do_action( 'bp_before_create_blog_content_template' ); ?>
@@ -43,6 +45,10 @@ get_header( 'buddypress' ); ?>
 
 	<?php do_action( 'bp_after_directory_blogs_content' ); ?>
 
-<?php get_sidebar( 'buddypress' ); ?>
+<div class='sidebar-single'>
+        <?php get_sidebar( 'buddypress' ); ?>
+        </div>
+        
+</div>
 <?php get_footer( 'buddypress' ); ?>
 

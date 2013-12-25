@@ -82,6 +82,7 @@ printf("| Course Type: %s",$course_type);
 		</div><!-- .padder -->
 	</div><!-- #content -->
 
+	<div class='sidebar-main'>
 	<?php get_sidebar(); ?>
-
+</div>
 <?php get_footer(); ?>

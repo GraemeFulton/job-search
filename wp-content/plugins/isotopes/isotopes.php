@@ -11,17 +11,26 @@ Author URI: http://gfulton.me.uk
    /*
      * Action: load checkbox.js script
      */
-    function isotopes_scripts()
+    function isotopes_css()
     {
-        //js
-        wp_enqueue_script('isotopes', plugins_url('/js/isotopes.js',__FILE__) );
-        wp_enqueue_script('isotopes_action', plugins_url('/js/isotopes_action.js',__FILE__) );
+        
         
         //css
         wp_register_style( 'isotopes_css', plugins_url('/css/isotopes_css.css', __FILE__) );
         wp_enqueue_style( 'isotopes_css' );
     }
-    add_action( 'wp_enqueue_scripts', 'isotopes_scripts' );
+    
+    add_action( 'wp_enqueue_scripts', 'isotopes_css' );
+    
+    
+    function isotopes_js(){
+        //js
+        wp_enqueue_script('isotopes', plugins_url('/js/isotopes.js',__FILE__) );
+        wp_enqueue_script('isotopes_action', plugins_url('/js/isotopes_action.js',__FILE__) );
+        
+    }
+    add_action( 'enable_isotopes', 'isotopes_js' );
+
 
     
     /*

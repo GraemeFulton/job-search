@@ -108,8 +108,6 @@ class Display_Taxonomy{
    <script>
       $('.select2').select2({ placeholder : '' });
       
-      $('.select2-remote').select2({ data: [{id:'A', text:'A'}]});
-
       $('button[data-select2-open]').click(function(){
         $('#' + $(this).data('select2-open')).select2('open');
       });
@@ -119,7 +117,64 @@ class Display_Taxonomy{
         
     }
     
+    /*
+     * display_main_select2_box
+     * Giant select search box at the top
+     */
+      public function display_main_select2_box(){
+               ?>
+    <div class="control-group">
+        <label for="<?php echo $this->grouped_taxonomy_short;?>-main-filter" class="control-label"><?php echo $title?>: </label>
+        <div class="controls">
+          <div class="input-append">
+                
+            <select id="<?php echo $this->grouped_taxonomy_short;?>-multi-append" class="select2_main" multiple="multiple" name="meta" style="width:80%;">
+              <option></option>
+    <?php
+       $tags1 = get_terms($this->grouped_taxonomy_short); 
+       $tags2 = get_terms($this->category_type_short); 
+       
+       if($tags1){
+                echo '<optgroup label="'.$this->grouped_taxonomy_short.'">';
+                 foreach($tags1 as $tag)
+                 {      
+
+                echo '<option value="'.$tag->slug.'" name="'.$tag->name.'">'.$tag->name.'</option>'; 
+
+                  }
+                    echo '</optgroup>"';
+       }
+       if($tags2){
+            echo '<optgroup label="'.$this->category_type_short.'">';
+                 foreach($tags2 as $tag)
+                 {      
+
+                echo '<option value="'.$tag->slug.'" name="'.$tag->name.'">'.$tag->name.'</option>'; 
+
+                  }
+                    echo '</optgroup>"';
+           
+           
+       }
+        ?>
+            </select>
+          <button class="btn" id="<?php echo $this->grouped_taxonomy_short;?>_main_search" type="button">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </div>
+        </div>
+      </div> 
+   <script>
+      $('.select2_main').select2({ placeholder : '' });
+      
+      $('button[data-select2-open]').click(function(){
+        $('#' + $(this).data('select2-open')).select2('open');
+      });
+    </script>
     
+    <?php
+        
+    }
     /*
      * display_linked_taxonomy_hierarchy_list
      * 

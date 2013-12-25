@@ -1,7 +1,9 @@
 <?php get_header( 'buddypress' ); ?>
 
-	<div id="content">
-		<div class="padder">
+<div class='single-container'>
+
+	<div id="content"class='single_content'>
+            <div class="padder">
 
 		<?php do_action( 'bp_before_register_page' ); ?>
 
@@ -276,8 +278,12 @@
 		</div><!-- .padder -->
 	</div><!-- #content -->
 
-	<?php get_sidebar( 'buddypress' ); ?>
 
+<div class='sidebar-single'>
+        <?php get_sidebar( 'buddypress' ); ?>
+        </div>
+        
+</div>
 	<script type="text/javascript">
 		jQuery(document).ready( function() {
 			if ( jQuery('div#blog-details').length && !jQuery('div#blog-details').hasClass('show') )

@@ -1,6 +1,6 @@
 <div class="datagrid">
     <table class="pop-out-tbl">
-        <div id="youtube_player"><?php echo $video?></div>
+        <div id="youtube_player-<?php echo $this->post_id?>"><?php echo $video?></div>
         <tr><td>Destination: </td><td><?php echo $institution;?></td></tr>
         <tr class="alt"><td>Travel Type: </td><td><?php echo $post_type;?></td></tr>
         <tr><td>Travel Agent:</td><td><img style="float:left; position:relative; max-height:35px; max-width:80px;" src="<?php echo $provider['src']?>"/></td></tr>

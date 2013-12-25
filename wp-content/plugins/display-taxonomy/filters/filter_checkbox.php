@@ -16,7 +16,8 @@
                           $_POST['body_type'],
                           $_POST['location'],
                           $_POST['provider'],
-                          $_POST['selected_category_type']);
+                          $_POST['selected_category_type'],
+                          $_POST['search_filter']);
          
          switch($_REQUEST['fn'])
         {
@@ -58,6 +59,7 @@ Class Super_Filter{
         protected $location;
         protected $selected_provider;
         protected $selected_post_type;
+        protected $search_term;
         
         protected $view; //string (path of view to be loaded)
         protected $printable_name; //name for message when no posts returned
@@ -71,7 +73,8 @@ Class Super_Filter{
                             $body_type, 
                             $location,
                             $selected_provider,
-                            $selected_category_type) 
+                            $selected_category_type,
+                            $search) 
   {      
       $this->selected_subjects= $selected_subjects;
       $this->offset= $offset;
@@ -82,6 +85,7 @@ Class Super_Filter{
       $this->location=$location;
       $this->selected_provider= $selected_provider;
       $this->selected_post_type=$selected_category_type;
+      $this->search_term= $search;
   }
     
   public function create_filter($filter_type){
@@ -150,20 +154,19 @@ Class Super_Filter{
         if (!have_posts()){
          
             if ($filter_type=='select'){
-              echo '<div class="sorry-message">
+              echo '<div class="sorry-message hentry" style="width:100%">
                   <h2 class="no-more" style="width:100%">
                    <br><br> Sorry, we don&apos;t have any '.$this->printable_name.' matching this criteria at the moment, please try a different filter.
                    </h2>
-                   <button id="reset-filter" class="btn btn-success">Reset Filter</button>
-                  copy </div>';
+                   <button id="reset-filter" class="btn btn-success">Reset Filter</button></div>';exit;
             }
             elseif ($filter_type=='scroll'){
-              echo '<div class="sorry-message">
-                  <h2 class="no-more" style="width:100%">
+              echo '<div class="sorry-message hentry" style="width:100%">
+                  <h2 class="no-more" >
                   <br><br> Sorry, that&apos;s all the '.$this->printable_name.' we&apos;ve got matching your criteria. We&apos;re working to add more! 
                   </h2>
                   <button id="reset-filter" class="btn btn-success">Reset Filter</button>
-                   </div>';
+                   </div>';exit;
             }
         return;
         }
@@ -187,6 +190,7 @@ Class Super_Filter{
     
        if($selected_terms!="" && $this->tag_type==$tag_type_name){//if a box has been checked, we add a taxnomoy query
          
+           array_push($selected_terms, $this->search_term);
             $args['tax_query'][$array_index]['terms']=$selected_terms;
             $args['tax_query'][$array_index]['taxonomy']=$tag_type_name;
             $args['tax_query'][$array_index]['field']='slug';
@@ -199,7 +203,7 @@ Class Super_Filter{
     private function regular_taxonomy_filter($tag_type_name, $array_index, $selected_terms, $args){
     
        if($selected_terms!=""){//if a box has been checked, we add a taxnomoy query
-         
+         array_push($selected_terms, $this->search_term);
             $args['tax_query'][$array_index]['terms']=$selected_terms;
             $args['tax_query'][$array_index]['taxonomy']=$tag_type_name;
             $args['tax_query'][$array_index]['field']='slug';

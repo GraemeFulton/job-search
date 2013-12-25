@@ -9,7 +9,9 @@
 
 get_header( 'buddypress' ); ?>
 
-	<div id="content">
+<div class='single-container'>
+
+	<div id="content"class='single_content'>
 		<div class="padder">
 
 			<?php do_action( 'bp_before_member_settings_template' ); ?>
@@ -76,6 +78,8 @@ get_header( 'buddypress' ); ?>
 		</div><!-- .padder -->
 	</div><!-- #content -->
 
-<?php get_sidebar( 'buddypress' ); ?>
+<div class='sidebar-single'>
+        <?php get_sidebar( 'buddypress' ); ?>
+        </div>
 
 <?php get_footer( 'buddypress' ); ?>
