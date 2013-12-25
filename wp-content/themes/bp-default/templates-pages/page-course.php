@@ -24,9 +24,8 @@ do_action('enable_isotopes');
             echo '<h3 class="filter-title"><i class="ico fa fa-book"></i> Subject</h3>';
            echo '<div class="page_widget">'.widgets_on_template("Subject Filter")."</div>";
            
-          echo '<div class="nav-filter"><h3>Provider</h3>';
-          $tree->display_linked_taxonomy_hierarchy_list('provider', 'course-providers');
-                 echo '</div>';
+       echo '<div id="Provider_Filter"><h3 class="filter-title">Provider</h3>';
+          echo '<div class="page_widget">'.widgets_on_template("Course Provider Filter")."</div></div>";
                  
             echo '<div class="nav-filter"><h3><i class="ico fa fa-building"></i> University</h3>'; 
                     $tree->display_select2_box('Select Universities');

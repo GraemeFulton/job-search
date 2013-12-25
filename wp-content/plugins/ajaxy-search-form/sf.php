@@ -762,7 +762,7 @@ class AjaxyLiveSearch {
 		<div><label class="screen-reader-text" for="s">' . __('Search for:') . '</label>
 		<div class="sf_search" style="border:'.$border.'"><span class="sf_block">
 		<input style="width:'.($width).'px;" class="sf_input" autocomplete="off" type="text" value="' . (get_search_query() == '' ? $label : get_search_query()). '" name="s"/>
-		<button class="sf_button searchsubmit" type="submit"><span class="sf_hidden">'. esc_attr__('Search') .'</span></button></span></div></div></form></div>';
+		<button class="sf_button searchsubmit" type="submit"><i class="fa fa-search fa-2x"></i><span class="sf_hidden">'. esc_attr__('Search') .'</span></button></span></div></div></form></div>';
 		if($this->get_style_setting('credits', 1 ) == 1) {
 			$form = $form.'<a style="display:none" href="http://www.ajaxy.org">Powered by Ajaxy</a>';
 		}

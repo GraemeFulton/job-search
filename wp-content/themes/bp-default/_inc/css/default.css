@@ -197,11 +197,11 @@ background-image: linear-gradient(to top,#222 0,#222 5px);
 
 
 #main_search{margin-top:4%;width:500px; margin:3% auto;}
-#main_search .sf_search span.sf_block{width:500px; height:50px;-webkit-box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);
+#main_search .sf_search span.sf_block{width:500px; height:48px;-webkit-box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);
 -moz-box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);
 box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);}
 #main_search .screen-reader-text{display:none;}
-#main_search .sf_search .sf_input {height:50px !important; font-size:18px}
+#main_search .sf_search .sf_input {height:46px !important; font-size:18px;font-style: normal;}
 #main_search .sf_search .sf_button, .sf_search .searchsubmit {
 background-repeat: no-repeat !important;
 background-size: 50px 50px;
@@ -222,6 +222,10 @@ font-size: 11px !important;
 -moz-box-shadow: 0 0 0 0 !important;
 box-shadow: 0 0 0 0 !important;
 }
+
+.page .sf_container .sf_block{height:40px !important}
+.page .sf_container .sf_block .sf_input{height:38px !important}
+.page .sf_container .sf_block .sf_button{height:38px !important; width:38px !important;margin: 0px !important;}
 
 /*--------------------------------------------------------------
 2.2 - Header
@@ -318,7 +322,12 @@ opacity:1;
 	text-decoration: none;
 }
 
-
+#Search_Term{
+    height:50px;
+    margin-top:0.5px;
+    font-size:20px;
+}
+#Search_Filter{height:50px; border: 1px inset #888;margin-left:-5px;border-left:none; background:#EBEBEB}
 /*--------------------------------------------------------------
 2.3 - Footer
 --------------------------------------------------------------*/
