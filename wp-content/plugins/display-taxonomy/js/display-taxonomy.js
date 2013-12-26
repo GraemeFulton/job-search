@@ -53,7 +53,7 @@ function graylien_infinite_scroll($){
             process_filter_scroll($,postoffset, category_type, tag_type, body_type);
             isLoadingData=true;
 
-            resetCurrentActiveBox($)
+            resetCurrentActiveBox($);
             setTimeout(function(){isotopes_modal($);}, 500);
 
 
@@ -146,6 +146,8 @@ function process_filter($, category_type, tag_type, body_type){
             //reinitiate ratings plugin
      //    $('.kk-star-ratings').kkstarratings();
                   $('#ajax-loader').remove();
+       
+       setTimeout(function(){ $('#loaded_content').isotope( 'reLayout');}, 500); //prevent overlap
 
          return false;
      },
@@ -186,7 +188,8 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
             'body_type': body_type,
             'location': selected_locations,
             'provider': selected_providers,
-            'selected_category_type':selected_category_type
+            'selected_category_type':selected_category_type,
+            'search_filter':all_selections.Search[0]
            },
    dataType:'HTML', 
    
@@ -206,7 +209,7 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
              
          //append new isotopes    
          $('#loaded_content').isotope( 'insert', $(data) );
-         setTimeout(function(){ $('#loaded_content').isotope( 'reLayout');}, 200); //prevent overlap
+         setTimeout(function(){ $('#loaded_content').isotope( 'reLayout');}, 320); //prevent overlap
         
          isLoadingData=false;
          //reinitiate ratings plugin

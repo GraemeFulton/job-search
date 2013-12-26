@@ -635,7 +635,7 @@ class Display_Taxonomy{
     }
     
  /*
-  * print_post_image **USING THIS ONE
+  * print_post_image **USING** THIS ONE
   * @params:
   * prints ONE image from optional images the post may have- priority for images:
   * 1. Image attached to the institution (group parent)
@@ -656,12 +656,14 @@ class Display_Taxonomy{
         
         
  
-//else use the google image:
+//else use the google/post image - dont use for jobs(profession):
+if($this->grouped_taxonomy_short!='company'){
         $pic = types_render_field("post-image", array("output"=>"raw"));
     
         if($pic){          
           return $pic;
         }
+}
     
  //else use the category (accounting image):
         $cat_term_id = wp_get_post_terms($post_id, 'profession', array("fields" => "ids")); 

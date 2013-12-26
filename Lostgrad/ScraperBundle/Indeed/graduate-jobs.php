@@ -75,7 +75,7 @@ Class Form_Handler{
     
     private function scrape_graduate_jobs($job_type){
         
-        if($job_type=='Graduate Job'){
+        if($job_type=='Graduate Scheme'){
             
             $job_type_search_terms=['graduate+programme', 'graduate+scheme', 'Intake+-placement+-school'];
               

@@ -109,24 +109,22 @@ function isotopes_modal($){
 	   closeBoxHandler($, this);
 
             //get center of content box
-             var pageCenter= ($("#content").width()/2);
+                var pageCenter= ($(window).width()/2);
            //get position of box clicked
-              var leftOffset = ($(this).closest(".isotope-item").offset().left); 
+                var leftOffset = ($(this).closest(".isotope-item").offset().left); 
             //work out the movement to the middle
-              var movementAmount = (pageCenter-leftOffset)-100;
-          
-           var arrowOffset=  $(".slider-button").offset().top;
-           var tp2=$(this).offset().top;
-           topOffset= tp2-(arrowOffset);
+                var leftAnimation = (pageCenter-leftOffset)- $('.activepost').width()/2;
+            //top offset
+                var topAnimation= ($(this).offset().top)-($(window).scrollTop()+50);
              
            $(this).closest(".item").addClass("activepost_edge");//make it an active post
            $(this).closest(".isotope-item").css("z-index", "6");
              
            $(this).closest(".isotope-item").animate(
                        {
-                          left:  movementAmount+350,
+                          left:  leftAnimation,
                           position:"absolute",
-                          top: -topOffset-400
+                          top: -topAnimation
                
                         },200,function()
                         {
@@ -189,7 +187,7 @@ function enableClickMe($){
 function closeActiveBox($){
     
     //if there's already an active box, don't need to run this
- //  if(!$(".activepost").length > 0)return;       
+    if(!$(".activepost").length > 0)return;       
     
 
            $(".clickme").closest(".isotope").removeClass("activepost_edge");
@@ -265,37 +263,6 @@ $('.close_box').bind('click',function(){
 
 	
 }
-
-
-/*
- * scrollHandler
- * 
- * Not for loading more! only resets active box.
- * 
- * after the page scrolls down a bit, the left bar, and breadcrumbs
- * are positioned at the top.
- */
-//var lastFixPos = 0;
-//var threshold = 800;
-//
-//function scrollHandler($){
-//    
-//        $(document).bind('scroll.reset_active_box',function () {
-//
-// var diff = Math.abs($(window).scrollTop() - lastFixPos);
-//  if(diff > threshold){
-//
-//       //     resetCurrentActiveBox($);            
-//
-//    lastFixPos = $(window).scrollTop();
-//  }
-//        //      popup_listener($);
-//
-//
-//});
-//    
-//    
-//}
 
 
 

@@ -17,7 +17,7 @@ public function scrape($wpdb)
       //   $courseDescription=$courseraCourse['courses'][0]['certificate_description'].'<br>'.$courseraCourse['short_description'];
         $courseDescription=$courseraCourse['short_description'];
 
-         $coursePhoto = $courseraCourse['small_icon_hover'];
+         $coursePhoto = $courseraCourse['photo'];
          $courseShortName = $courseraCourse['short_name'];
          $instructor=$courseraCourse['instructor'];
        
@@ -59,8 +59,8 @@ public function scrape($wpdb)
                 $coursePhoto,
                 $courseSubject,
                 $youtube,
-                'coursera',//tags
-                'coursera'//provider
+                'Coursera',//tags
+                'Coursera'//provider
                 );
          
             $totalSubmitted+=1;

@@ -55,8 +55,12 @@ public function updateJobDetails
         //otherwise carry on, and populate database:
             $imageURL= $this->getImageURL($jobimage);
 
+        //post content requires as much detail as possible, for accurate searches
+        $post_content=$job_desc.$this->build_additional_content($employer_name, $location, $profession, $provider);
+        
+            
             //add to database:
-            $this->submitPost($wpdb, $job_title, $job_desc,$job_exerpt, $imageURL, $tags,$this->post_type, $job);
+            $this->submitPost($wpdb, $job_title, $post_content,$job_exerpt, $imageURL, $tags,$this->post_type, $job);
 
             $job->addJob($wpdb,$this->last_insert_id); 
              echo "<h4 style='color:green;'> Job Inserted</h4>";       
@@ -67,6 +71,23 @@ public function updateJobDetails
     
   }
     
+    private function build_additional_content($employer_name, $location, $profession, $provider){
+      
+      $additional_content = '<div class="additional_content"><p>';
+      
+      $additional_content.='Company: '.$employer_name;
+      $additional_content.=' | Location: '.$location;
+      $additional_content.=' | Profession: '.$profession;
+      $additional_content.=' | Provider: '.$provider;
+      
+      $additional_content.='</p></div>';
+     
+      return $additional_content;
+
+  }
+  
+  
+  
     public function getImageURL($nameForSearch){
         
         
