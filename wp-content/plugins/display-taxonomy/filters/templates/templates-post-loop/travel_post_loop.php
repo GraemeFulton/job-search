@@ -9,7 +9,7 @@ $post_image=$tree->get_post_image($group_parent_id, $post_id);
 //subject/grouped taxonomy
 $subject=$tree->grouped_taxonomy_name($post_id);
 // get advert type
-$course_type=types_render_field("travel-type", array("output"=>"normal"));
+$course_type=$tree->get_taxonomy_field($post_id, 'travel-type');
 //print company name, and image
 
 $ratings= show_ratings($post_id);
@@ -18,13 +18,13 @@ $ratings= show_ratings($post_id);
                                     <div class="item">
     
                                           <div class="post_image">
-                                            <img style="position: relative; max-height:280px;" src="<?php echo $post_image?>"/> 
+                                            <img class="travel_post_image" src="<?php echo $post_image?>"/> 
                                          </div>
 
 				<h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
                                 	<div class="entry">                                    
-                                           <?php echo $provider_name[0];?> | <?php echo $subject;?> | <?php echo $course_type;?>
+                                           <?php echo $subject;?> | <?php echo $course_type;?>
                                            <?php echo $ratings;?>     
                                         </div>
                                 

@@ -4,7 +4,7 @@ $location= $this->get_jobs_location($tree);
 
 <div class="datagrid">
     <table class="pop-out-tbl">
-        <div id="youtube_player-<?php echo $this->post_id?>"><?php echo $video?></div>
+        <!--<div id="youtube_player-<?php //echo $this->post_id?>"><?php //echo $video?></div>-->
         <tr><td>Offered By: </td><td><?php echo $institution;?></td></tr>
         <tr class="alt"><td>Profession: </td><td><?php echo $subject;?></td></tr>
         <tr><td>Location: </td><td><?php echo $location;?></td></tr>

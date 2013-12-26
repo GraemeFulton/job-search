@@ -87,9 +87,8 @@ $location= wp_get_post_terms($post_id, 'location', array("fields" => "names"));
                                     
                                     <div class="item">
                                         
-                                        <div class="post_image">
-                                            <br>
-                                            <img style="position: relative; max-width:95%;" src="<?php echo $post_image?>"/> 
+                                      <div class="post_image">
+                                            <img class="job_post_image" src="<?php echo $post_image?>"/> 
                                          </div>
                                         
 				<h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>

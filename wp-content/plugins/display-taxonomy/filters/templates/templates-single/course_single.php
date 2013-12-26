@@ -41,7 +41,7 @@
             open=true;
         }
                            
-            jQuery('body').scrollTo('#single_ratings');
+            jQuery('body').scrollTo('#wpcr_commentform ');
         })
    </script>
      

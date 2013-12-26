@@ -36,6 +36,8 @@ function activate_listeners($){
    
    //search filter
     Search_Filter($, all_selections.Search=[]);
+    
+    scrollHandler($);
    
 }
 
@@ -54,15 +56,15 @@ function tree_listener($, filter_selector, arr_object, global_var){
     
     $(filter_selector+' .dtree_tax input').change(function()
     {
-       if ($(this).is(':checked')) {
+        if ($(this).is(':checked')) {
                 
          var term= $(this).siblings('.node').text();
 
           global_var.push($(this).siblings('.node').attr('slug'));         
           arr_object.push([term]);
 
-          apply_filter($);
-      
+            get_delay_apply_filter($)
+          
         }
         else{
             var selection_name= ($(this).siblings('.node').text());
@@ -77,7 +79,7 @@ function tree_listener($, filter_selector, arr_object, global_var){
             var index = global_var.indexOf(name);
             global_var.splice(index,1);
 
-            apply_filter($);
+            get_delay_apply_filter($)
         }
     });
 }
@@ -94,10 +96,12 @@ function tree_listener($, filter_selector, arr_object, global_var){
 function select2_search_listener($, institution_type, arr_object){
    //listen for if the box is empty
      $(".input-append").change(function(){
+         
+         
        if($(".select2-choices").children().length==1){
            arr_object.length=0;
 
-        apply_filter($);
+            get_delay_apply_filter($)
        }
        
    });
@@ -120,7 +124,7 @@ function select2_search_listener($, institution_type, arr_object){
         
         
         selected_institutions = arr_object;
-        apply_filter($);
+            get_delay_apply_filter($)
 
     });
 }
@@ -175,10 +179,10 @@ function remove_tag_from_search($){
                if(selected_option==select2_option){
                 var select_close=$(obj).children('a');
                 select_close.trigger('click');
-                    $(document).css({'cursor':'wait'})
+              //      $(document).css({'cursor':'wait'})
 
-                setTimeout(function(){$(".input-append .btn").trigger('click');}, 300);
-                    $(document).css({'cursor':'default'})
+                $(".input-append .btn").trigger('click');
+            //        $(document).css({'cursor':'default'})
 
                 return;
             }
@@ -190,6 +194,7 @@ function remove_tag_from_search($){
     
     
     $('.selected-search').click(function(){
+
         $('.selected-search-index').remove();
         $(this).remove();
         $('#Search_Term').val('');
@@ -243,7 +248,8 @@ function scroll_up_click_reset($){
 function Search_Filter($,search_terms){
  
  $("#Search_Filter").click(function(e){
-     
+//  $('html,body').animate({ scrollTop: 200 }, 'fast');
+
      e.preventDefault();
      
      var terms= $('#Search_Term').val();
@@ -258,11 +264,82 @@ function Search_Filter($,search_terms){
         else   search_terms.length=0;
         
        
-    console.log(search_terms)
-    apply_filter($);
+    get_delay_apply_filter($);
      
      
  });
  
+
+}
+/*
+ * scroll
+ * 
+ * after the page scrolls down a bit, the left bar, and breadcrumbs
+ * are positioned at the top.
+ */
+var lastFixPos = 0;
+var threshold = 800;
+
+function scrollHandler($){
+    
+        $(document).scroll(function () {
+    var y = $(this).scrollTop();
+    if (y > 320) {
+        $("#sidebar-left").css({"top":"50px","height":"95%","width":"260px", "position":"fixed", "overflow-y":"scroll"});
+        $("#content").css({"margin-left":"20.5%", "border-left":"1px solid rgba(0,0,0,0.3)"});
+       // $("#sidebar-right").css("top", "0px");
+        $("#selected-options").css({"position":"fixed", "top":"50px","margin-left":"258px", "width":"991px", "z-index":"5"});
+   } 
+    else{ 
+        $("#sidebar-left").css({"top":"","height":"80%", "position":"relative","width":"", "overflow-y":""});
+                $("#content").css({"margin-left":"", "border-left": ""});
+        $("#selected-options").css({"position":"", "top":"", "margin-left":"", "width":""});
+
+    //    $("#sidebar-right").css("top", "");
+     //   $("#breadcrumbs").css({"position":"relative", "top":""});
+
+}
+ if (y > 800) {
+     
+     $("#to_top").fadeIn();
+     
+ }
+ else{$("#to_top").fadeOut();}
+ 
+ var diff = Math.abs($(window).scrollTop() - lastFixPos);
+  if(diff > threshold){
+
+           // resetCurrentActiveBox($);            
+
+    lastFixPos = $(window).scrollTop();
+  }
+ 
+
+});
+    
+    
+}
+
+
+/*
+ * utility function
+ */
+
+function get_delay_apply_filter($){
+    
+    
+var y = $(document).scrollTop();
+    if (y < 400) { 
+    
+    apply_filter($);
+    }else{
+        
+        
+        $('html,body').animate({ scrollTop: 200 }, 'fast');
+            setTimeout(function(){apply_filter($);}, 380)
+
+        
+    } 
+            
 
 }

@@ -42,8 +42,11 @@ public function updateCourseDetails
         $course->courseProvider=$provider;
         $course->courseURL= $courseURL;
        
+        //post content requires as much detail as possible, for accurate searches
+        $content=$courseContent.$this->build_additional_content($courseSubject, $universityName, $provider);
+        
         //add to database:
-        $this->submitPost($wpdb, $courseTitle, $courseContent,$courseExcerpt, $coursePhoto, $tags, 'course',$course);
+        $this->submitPost($wpdb, $courseTitle, $content,$courseExcerpt, $coursePhoto, $tags, 'course',$course);
         
         $course->addCourse($wpdb, $this->last_insert_id); 
           
@@ -55,6 +58,22 @@ public function updateCourseDetails
    
     
     
+  private function build_additional_content($courseSubject, $universityName, $provider){
+      
+      $additional_content = '<div class="additional_content"><p>';
+      
+      $additional_content.='University: '.$universityName;
+      $additional_content.=' | Subject: '.$courseSubject;
+      $additional_content.=' | Provider: '.$provider;
+      
+      $additional_content.='</p></div>';
+      
+      return $additional_content;
+      
+  }
+  
+  
+  
 } 
 
 

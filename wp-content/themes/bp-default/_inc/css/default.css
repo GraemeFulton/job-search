@@ -124,6 +124,7 @@ body.activity-permalink div#container {
 --------------------------------------------------------------*/
 div#content {
 position: relative;
+min-height: 900px;
 }
 div#content .padder {
 
@@ -485,6 +486,7 @@ div#sidebar div.tags div#tag-text {
 }
 
 
+
 /*--------------------------------------------------------------
 3.0 - LG Sidebar-left
 --------------------------------------------------------------*/
@@ -497,15 +499,39 @@ div#sidebar div.tags div#tag-text {
     background:#fff;
     border:none;
     border-right:1px solid #ccc;
-    
 }
 
 .dtree a{
     color: #2C2C2C;
     cursor: pointer;
     font-size:13.4px;
+vertical-align: top;
 }
 .dtree .clip {
+}
+::-webkit-scrollbar {
+    width: 14px;
+}
+
+.dtNode input{margin-right:3px;}
+ 
+.dtNode{margin-bottom:2px;}
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 1px;
+    border-radius: 1px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 1px;
+    border-radius: 1px;
+    background: rgba(255, 255, 255, 0.3); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(255, 255, 255, 0.3); 
 }
 
 /*--------------------------------------------------------------
@@ -2663,7 +2689,7 @@ left:20%;
   -moz-box-shadow:6px 6px 7px rgba(0,0,0,.7);
   -webkit-box-shadow: 6px 6px 7px rgba(0,0,0,.7);
   box-shadow:6px 6px 7px rgba(0,0,0,.7);
-  z-index:5;
+  z-index:4;
 }
 
 .type-graduate-job  hr{color: orange;
@@ -2706,6 +2732,11 @@ margin-bottom: 0px;
     background:#fff;
     text-align: center;
     border:1px solid #e0e0e0;
+}
+
+.post_image img{
+    
+    position: relative; max-width:100%;
 }
 
 
@@ -2814,6 +2845,12 @@ inactivepost{position:relative;}
 #blog-page{display:none;}
 }
 
+.sorry-message:hover{
+ -moz-box-shadow:none !important;
+  -webkit-box-shadow: none!important;
+  box-shadow:none!important;
+}
+
 /*******************
 FILTERS
 *******************/
@@ -2855,7 +2892,7 @@ FILTERS
 }
 .ico{color: #999}
 
-#selected-options{width:80%; height:auto; border-bottom:1px solid #ccc;  border-right:1px solid #ccc;position:relative; float:right}
+#selected-options{background:#fff;width:80%; height:auto; border-bottom:1px solid #ccc;  border-right:1px solid #ccc;position:relative; float:right}
 .selected-index{background:rgb(214, 113, 46);color:#fff; font-weight:bold; font-size:13px; padding:3px;border-radius:3px;}
 .selected-tag{background:#eaeaea;color:#222; font-size:13px; padding:3px;margin-left:4px;border-radius:3px;}
 .selected-filter{cursor: pointer; margin-bottom:4px;position: relative;float:left;margin-left:5px;}
@@ -2870,7 +2907,6 @@ FILTERS
 .selected-we-options .selected-index{background: mediumslateblue;}
 .selected-job-options .selected-index{background: #EB470A;}
 .selected-travel-options .selected-index{background: green;}
-
 
 #nothing_selected{padding:5px 0 0 5px; float:left; margin-left:12px;margin-top:-10px}
 .options-title{padding:5px 0 0 5px; float:left;}
