@@ -655,8 +655,7 @@ class Display_Taxonomy{
         }
         
         
- 
-//else use the google/post image - dont use for jobs(profession):
+  //else use the google/post image - dont use for jobs(profession):
 if($this->grouped_taxonomy_short!='company'){
         $pic = types_render_field("post-image", array("output"=>"raw"));
     
@@ -664,8 +663,9 @@ if($this->grouped_taxonomy_short!='company'){
           return $pic;
         }
 }
-    
+           
  //else use the category (accounting image):
+        if($this->grouped_taxonomy_short=='company'){
         $cat_term_id = wp_get_post_terms($post_id, 'profession', array("fields" => "ids")); 
        $category_image = s8_get_taxonomy_image_src(get_term_by('id', $cat_term_id[0], 'profession'), 'medium');
        if ($category_image!=false){
@@ -679,8 +679,9 @@ if($this->grouped_taxonomy_short!='company'){
            return $category_image['src'];
         } 
        }
+        }
         
-        
+
     
    //or finally use the dummy
      

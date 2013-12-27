@@ -202,7 +202,9 @@ class AjaxyLiveSearch {
 		$theImageSrc = false;
                 
                 //if there is a custom post image, we can use that - graeme 
-                $theImageSrc= types_render_field("post-image", array("output"=>"raw"));
+                $tree=new Display_Taxonomy();
+                $theImageSrc=$tree->get_post_image($group_parent_id, $post_id);
+               // $theImageSrc= types_render_field("post-image", array("output"=>"raw"));
                 
 		preg_match_all ('/<img[^>]+>/i', $content, $matches);
 		$imageCount = count ($matches);
