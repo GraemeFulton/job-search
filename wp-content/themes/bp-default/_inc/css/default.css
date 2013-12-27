@@ -66,8 +66,7 @@ a img{border:none;}
 2.0 - Structural
 --------------------------------------------------------------*/
 body {
-	background-color: #eaeaea;
-	background-image: url( ../images/background.gif );
+	background-color: #fff;
 	background-repeat: repeat-x;
 	background-position: top left;
 	color: #555;
@@ -76,6 +75,7 @@ body {
 	line-height: 170%;
 	margin: 0 auto;
 	width: 100%;
+        background-size:100%;
 }
 .padder {
 	padding: 19px;
@@ -407,12 +407,26 @@ width:100%;
     display:flex;
     
 }
+.profile-buttons{
+    float:left;
+    position:relative;
+    margin-bottom:5px;
+    
+}
+.profile-button {
+margin-bottom: 8px;
+margin-left: -5px;
+margin-right: 7px;
+line-height:28px !important;
+}
 div#sidebar div#sidebar-me {
 	margin-bottom: 15px;
 }
 div#sidebar div#sidebar-me img.avatar {
-	float: left;
-	margin: 0 10px 15px 0;
+float: left;
+margin: 0 10px 5px -2px;
+height: 50px;
+width: 50px;
 }
 div#sidebar div#sidebar-me h4 {
 	font-size: 16px;
@@ -1316,7 +1330,7 @@ form#whats-new-form textarea {
 	color: #555;
 	font-family: inherit;
 	font-size: 14px;
-	height: 35px;
+	height: 40px;
 	padding: 6px;
 	width: 98%;
 }
@@ -1330,6 +1344,7 @@ form#whats-new-form #whats-new-options select {
 form#whats-new-form #whats-new-submit {
 	float: right;
 	margin-top: 12px;
+        margin-right: 16px;
 }
 #whats-new-options {
 	overflow: auto;
@@ -2440,8 +2455,9 @@ ul.item-list li h5 span.small {
 div.item-list-tabs {
 	background: #eaeaea;
 	clear: left;
-	margin: 25px -19px 20px -19px;
+	margin: 30px -19px 15px 0px;
 	overflow: hidden;
+        width:100%;
 }
 div.item-list-tabs ul li a {
 	text-decoration: none;
@@ -2473,8 +2489,8 @@ div.item-list-tabs ul li.last select {
 div.item-list-tabs ul li a,
 div.item-list-tabs ul li span {
 	display: block;
-	padding: 5px 10px;
-	text-decoration: none;
+	padding: 0px 10px;
+	text-decoration: none;height: 24px;
 }
 div.item-list-tabs ul li a span {
 	background: #1fb3dd;
@@ -2512,20 +2528,23 @@ ul li.loading a {
 	background-image: url( ../images/ajax-loader.gif );
 	background-position: 92% 50%;
 	background-repeat: no-repeat;
-	padding-right: 30px !important;
+	padddiv.item-list-tabs ul li a,ing-right: 30px !important;
 }
 div#item-nav ul li.loading a {
 	background-position: 88% 50%;
 }
 div.item-list-tabs#object-nav {
-	margin-top: 0;
+        border-radius: 5px;
+        margin-top:-5px;
 }
 div.item-list-tabs#subnav {
-	background: #fff;
-	border-bottom: 1px solid #eaeaea;
-	margin: -15px -19px 15px -19px;
-	min-height: 35px;
-	overflow: hidden;
+background: #fff;
+border-bottom: 1px solid #eaeaea;
+margin: -10px 0px 5px 0px;
+min-height: 35px;
+overflow: hidden;
+border-bottom-left-radius: 6px;
+border-bottom-right-radius: 6px;
 }
 div.item-list-tabs ul li.feed a {
 	background: url( ../images/rss.png ) center left no-repeat;
@@ -2605,7 +2624,7 @@ div#message-thread div.message-options {
 
 div.message-search {
 	float: right;
-	margin: 0 20px;
+	margin: 5px 20px;
 }
 
 /*--------------------------------------------------------------
