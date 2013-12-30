@@ -2836,6 +2836,7 @@ box-shadow: 1px 1px 10px 5000px rgba(12,12,12,0.78);
 }
 .close_box:hover{color: #3B5998; cursor: hand; cursor: pointer;}
 
+.close_tag{color: #888; margin-left:2px;}
 
 .fixed {
     position: fixed;

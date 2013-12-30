@@ -290,7 +290,7 @@ function update_selected_options($){
         output+='<span class="selected-index selected-filter selected-search-index">'+index+': </span>';
 
         $.each(item, function(index,tag){
-            output+='<span class="selected-tag selected-search">'+tag+'</span>';
+            output+='<span class="selected-tag selected-search">'+tag+'<i class="fa fa-times close_tag"></i></span>';
 
             
         });
@@ -303,7 +303,7 @@ function update_selected_options($){
             output+='<span class="selected-index selected-filter">'+index+': </span>';
 
             $.each(item, function(index, tag){
-               output+='<span class="selected-tag selected-filter">'+tag+'</span>';
+               output+='<span class="selected-tag selected-filter">'+tag+'<i class="fa fa-times close_tag"></i></span>';
 
             })
         }
