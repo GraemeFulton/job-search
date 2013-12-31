@@ -97,11 +97,12 @@ $location= wp_get_post_terms($post_id, 'location', array("fields" => "names"));
 
                                 	<?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) );?>
 					<div class="entry">                                    
-                                            <p><?php echo $company_name;?> | <?php echo $profession;?> | <?php echo $location[0]?> | <?php echo $job_type;?></p>
+                                         <span class="post-tag"><i class="ico fa fa-building"></i> <?php echo $company_name;?></span> 
+                                         <span class="post-tag"><i class="ico fa fa-crosshairs"></i> <?php echo $profession;?> </span>
+                                         <span class="post-tag"><i class="ico fa fa-map-marker"></i> <?php echo $location[0]?></span>
                                         </div>
                                 
                                         <div class="pop-out"></div>
-                                            <hr>                                     
 					
                                             <div class="clickme"></div><!--overlay -->
 				</div><!--item-->
