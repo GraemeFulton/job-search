@@ -405,6 +405,8 @@ width:100%;
 .single-container{
     background:#fff;
     display:flex;
+    	display: -webkit-flex;
+    
     
 }
 .profile-buttons{
@@ -518,7 +520,7 @@ div#sidebar div.tags div#tag-text {
 .dtree a{
     color: #2C2C2C;
     cursor: pointer;
-    font-size:13.4px;
+    font-size:12px;
 vertical-align: top;
 }
 .dtree .clip {
@@ -1205,6 +1207,7 @@ h2.pagetitle a,
 h2.posttitle a {
 	color: #666;
 	text-decoration: none;
+	font-size:16px;
 }
 .edit-link,
 .page-link {
@@ -2689,14 +2692,16 @@ GRID VIEW
 #blog-page .hentry, #loaded_content .hentry
 {
 width:225px;
-padding: 2px 2px 2px 2px;
+padding: 0px;
 margin: 10px 13px 10px 14px;
 
 
 }
 
-.entry{overflow:hidden; padding:3px 10px 3px 10px; }
+.entry{color:#666;overflow:hidden; padding:3px 10px 3px 10px; }
+.entry a{color:#666}
 
+.post-tag{font-size:11px;border-radius:5px; float:left; position:relative;margin-right:6px;}
 .nav-more{
 position:fixed;
 bottom:0;
@@ -2711,34 +2716,44 @@ left:20%;
   z-index:4;
 }
 
-.type-graduate-job  hr{color: orange;
-background-color: orange;
-height: 1px;
+
+.type-graduate-job  .entry{
+background:#fff;
+border-left:1px solid #eaeaea;
+border-right:1px solid #eaeaea;
+border-bottom:1px solid orange;
 margin-bottom: 0px;
 }
-.type-work-experience-job  hr{color: rgba(204, 0, 255, 1);
-background-color: rgba(204, 0, 255, 1);
-height: 1px;
+.type-work-experience-job  .entry{
+background:#fff;
+border-left:1px solid #eaeaea;
+border-right:1px solid #eaeaea;
+border-bottom:1px solid rgba(204, 0, 255, 1);
 margin-bottom: 0px;
 }
-.type-course hr{color: cornflowerblue;
-background-color: cornflowerblue;
-height: 1px;
+.type-course .entry{s
+background:#fff;
+border-left:1px solid #eaeaea;
+border-right:1px solid #eaeaea;
+border-bottom:1px solid cornflowerblue;
 margin-bottom: 0px;
 
 }
-.type-travel-opportunities hr{
-    color: green;
-background-color: green;
-height: 1px;
+.type-travel-opportunities .entry{
+background:#fff;
+border-left:1px solid #eaeaea;
+border-right:1px solid #eaeaea;
+border-bottom:1px solid green;
 margin-bottom: 0px;
-    
 }
 
 .item {
-    background:#edeff4;
-    margin-bottom:0px !important;
-    padding: 0 0 0 0 !important;
+	
+	color: #222;
+background:#fff;
+border-left:1px solid #ccc;
+border-right:1px solid #ccc;
+margin-bottom: 0px;
 }
 
 
@@ -2746,11 +2761,13 @@ margin-bottom: 0px;
     width:100%;
     top:0px;
     overflow:hidden;
-    margin-bottom:10px;
+    margin-bottom:3px;
     line-height: 0;
     background:#fff;
     text-align: center;
-    border:1px solid #e0e0e0;
+    border-top:1px solid #e0e0e0;
+    border-bottom:1px solid #e0e0e0;
+    
 }
 
 .post_image img{
@@ -2852,7 +2869,6 @@ box-shadow: 1px 1px 10px 5000px rgba(12,12,12,0.78);
 .item{
     width: 100%;
 height: 100%;
-margin: 0px 0px 4px 0px;
 color: #222;
 }
 
@@ -2912,7 +2928,17 @@ FILTERS
 }
 .ico{color: #999}
 
-#selected-options{background:#fff;width:80%; height:auto; border-bottom:1px solid #ccc;  border-right:1px solid #ccc;position:relative; float:right}
+#selected-options{width:80%; height:auto; border-bottom:1px solid #ccc;  border-right:1px solid #ccc;position:relative; float:right;
+background: #ffffff; /* Old browsers */
+background: -moz-linear-gradient(top,  #ffffff 0%, #f3f3f3 50%, #ededed 51%, #ffffff 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(50%,#f3f3f3), color-stop(51%,#ededed), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+}
 .selected-index{background:rgb(214, 113, 46);color:#fff; font-weight:bold; font-size:13px; padding:3px;border-radius:3px;}
 .selected-tag{background:#eaeaea;color:#222; font-size:13px; padding:3px;margin-left:4px;border-radius:3px;}
 .selected-filter{cursor: pointer; margin-bottom:4px;position: relative;float:left;margin-left:5px;}

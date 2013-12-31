@@ -86,12 +86,12 @@ $ratings= show_ratings($post_id);
 				<h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
                                 	<div class="entry">                                    
-                                           <?php echo $uni_name;?> | <?php echo $subject;?> | <?php echo $course_type;?>
-                                           <?php echo $ratings;?>     
+                                          <span class="post-tag"><i class="ico fa fa-building"></i> <?php echo $uni_name;?></span>
+                                          <span class="post-tag"><i class="ico fa fa-book"></i> <?php echo $subject;?></span>
+                                           <?php// echo $ratings;?>     
                                         </div>
                                 
                                       <div class="pop-out"></div>  
-                                <hr>
                                 <div class="clickme"></div><!--overlay -->
 				</div><!--item-->
 

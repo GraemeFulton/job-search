@@ -85,7 +85,6 @@ $ratings= show_ratings($post_id);
                                         </div>
                                 
                                       <div class="pop-out"></div>  
-                                <hr>
                                 <div class="clickme"></div><!--overlay -->
 				</div><!--item-->
 
