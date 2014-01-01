@@ -115,7 +115,7 @@ function isotopes_modal($){
             //work out the movement to the middle
                 var leftAnimation = (pageCenter-leftOffset)- $('.activepost').width()/2;
             //top offset
-                var topAnimation= ($(this).offset().top)-($(window).scrollTop()+50);
+                var topAnimation= ($(this).offset().top)-($(window).scrollTop()+70);
              
            $(this).closest(".item").addClass("activepost_edge");//make it an active post
            $(this).closest(".isotope-item").css("z-index", "6");
@@ -187,7 +187,7 @@ function enableClickMe($){
 function closeActiveBox($){
     
     //if there's already an active box, don't need to run this
-    if(!$(".activepost").length > 0)return;       
+  //  if(!$(".activepost").length > 0)return;       
     
 
            $(".clickme").closest(".isotope").removeClass("activepost_edge");
@@ -275,7 +275,7 @@ function resetCurrentActiveBox($){
     closeActiveBox($);
     disableClickMe($);
     setTimeout(function(){reset_isotopes($);isotopes_modal($);
-    popup_listener($)
+    popup_listener($);
     
     }, 100);
     

@@ -2173,8 +2173,15 @@ table tr th {
 table tr td.label {
 	border-right: 1px solid #eaeaea;
 	font-weight: bold;
-	width: 25%;
+	width: 100%;
+	display:block !important;
+	padding:5px !important;
+	line-height: 2.5 !important;
+	color:#333 !important;
+	text-align: left !important;
+	font-size: 100%;
 }
+
 table tr td.thread-info p {
 	margin: 0;
 }
@@ -2684,6 +2691,8 @@ br + br { display: none; }
     margin-left:5px;
     
 }
+
+
 /*
 GRID VIEW
 */
@@ -2813,7 +2822,7 @@ margin-bottom: 0px;
 #single_post_image_box{border:1px solid #eaeaea; padding:10px;border-bottom:none;}
 
 .activepost{
-    width:500px !important;height:auto!important;
+    width:169% !important;height:auto!important;
 box-shadow: 1px 1px 10px 5000px rgba(12,12,12,0.78);
     z-index:99999 !important;
     background:#fff;
@@ -2947,7 +2956,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .filter-group{ margin:5px 12px 5px 5px;}
 .clear_both{clear: both; float: left; display: block; position: relative;}
 
-.selected-filter:hover{border:1px solid red;}
+.selected-filter:hover{border:1px solid rgb(219, 219, 219);}
 
 .selected-course-options .selected-index{background:#3B5998;}
 .selected-we-options .selected-index{background: mediumslateblue;}
