@@ -91,7 +91,7 @@ Class Super_Filter{
   public function create_filter($filter_type){
       
     //get the post args
-    $args= $this->initiate_post_args();
+    $args= $this->initiate_post_args($filter_type);
     
     //query any checked subjects/professions/destinations
     $args= $this->taxonomy_shared_filter($this->tag_type, 0,$this->selected_subjects, $args);
@@ -212,7 +212,10 @@ Class Super_Filter{
     
    }
    
-   private function initiate_post_args(){
+   private function initiate_post_args($filter_type){
+   	
+   	if($filter_type=='scroll')$offset=6;
+   	elseif($filter_type=='select')$offset=9;
        
      $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
@@ -221,7 +224,7 @@ Class Super_Filter{
         'offset'=>$this->offset,
         'post_type'=>$this->category_type,
         'paged'=>$paged,
-        'posts_per_page'=>9,
+        'posts_per_page'=>$offset,
         'orderby' => 'title',
         'order' => 'ASC',
         's'=>$this->search_term

@@ -101,6 +101,7 @@ function apply_filter($){
  */
 function process_filter($, category_type, tag_type, body_type){
 
+	resetCurrentActiveBox($);
     update_selected_options($);
      $('.sorry-message').remove();
 
@@ -168,7 +169,8 @@ function process_filter($, category_type, tag_type, body_type){
  * @param {type} postoffset
  * @returns {undefined} */
 function process_filter_scroll($, postoffset, category_type, tag_type, body_type){
-  
+	resetCurrentActiveBox($);
+
  if(isLoadingData===true) return;
      //loading gif
      $('.sorry-message').remove();
@@ -256,7 +258,7 @@ function process_popup_data($, popup, category, tag_type,body_type, post_id){
     success: function(data){
         $(popup).css("display", "none"); 
         $(popup).append(data);
-        $(popup).slideDown('slow');
+        $(popup).slideDown('fast');
         closeBoxHandler($, post_id)
 
         return false;
