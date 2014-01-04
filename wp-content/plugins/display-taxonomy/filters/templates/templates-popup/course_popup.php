@@ -10,3 +10,4 @@
     </table>
 </div>
 <?php echo replace_links('<a class="btn btn-success btn-large" href="'.$link.'">Learn Now</a>');?>
+<?php wpfp_link($this->post_id); ?>

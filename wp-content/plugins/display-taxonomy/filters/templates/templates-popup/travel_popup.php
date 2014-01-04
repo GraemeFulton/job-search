@@ -9,3 +9,4 @@
     </table>
 </div>
 <?php echo replace_links('<a class="btn btn-success btn-large" href="'.$link.'">Read More</a>');?>
+<?php  wpfp_link(); ?>

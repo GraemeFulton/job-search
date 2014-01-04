@@ -101,7 +101,7 @@ function apply_filter($){
  */
 function process_filter($, category_type, tag_type, body_type){
 
-	resetCurrentActiveBox($);
+//	resetCurrentActiveBox($);
     update_selected_options($);
      $('.sorry-message').remove();
 
@@ -214,6 +214,8 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
          setTimeout(function(){ $('#loaded_content').isotope( 'reLayout');}, 320); //prevent overlap
         
          isLoadingData=false;
+     	resetCurrentActiveBox($);
+
          //reinitiate ratings plugin
     //     $('.kk-star-ratings').kkstarratings();
              $('#ajax-loader').remove();
@@ -258,7 +260,7 @@ function process_popup_data($, popup, category, tag_type,body_type, post_id){
     success: function(data){
         $(popup).css("display", "none"); 
         $(popup).append(data);
-        $(popup).slideDown('fast');
+        $(popup).slideDown('slow');
         closeBoxHandler($, post_id)
 
         return false;

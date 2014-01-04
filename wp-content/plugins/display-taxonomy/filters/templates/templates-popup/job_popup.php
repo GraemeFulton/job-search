@@ -15,3 +15,4 @@ $location= $this->get_jobs_location($tree);
     </table>
 </div>
 <?php echo replace_links('<a class="btn btn-success btn-large" href="'.$link.'">Apply Now</a>');?>
+<?php wpfp_link(); ?>
