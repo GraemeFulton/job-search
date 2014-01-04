@@ -17,6 +17,8 @@
                    </table>
                <?php echo replace_links('<a class="btn btn-success btn-large" href="'.$link.'">Learn Now</a>');?>
                <button id='review_button' class='btn btn-success btn-large' style='background:goldenrod; border-color:goldenrod'>Write a Review</button>
+                                           <?php wpfp_link(); ?>
+               
             </div>
            
            
