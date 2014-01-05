@@ -1220,6 +1220,7 @@ div.page table {
 	border-collapse: collapse;
 	border-spacing: 0;
 	margin-bottom: 15px;
+	width:100%;
 }
 div.post table th,
 div.page table th {
@@ -2169,8 +2170,9 @@ table tr td,
 table tr th {
 	padding: 8px;
 	vertical-align: middle;
-	width: 100%;
+	/*width: 100%;*/
 }
+.bp-widget table tr td{width:100%;}
 table tr td.label {
 	border-right: 1px solid #eaeaea;
 	font-weight: normal;
@@ -2324,6 +2326,7 @@ div#message p {
 }
 div#item-header {
 	overflow: hidden;
+	margin-bottom:-35px;
 }
 div#item-header div#item-header-content {
 	margin-left: 170px;
@@ -2468,7 +2471,7 @@ ul.item-list li h5 span.small {
 div.item-list-tabs {
 	background: #222;
 	clear: left;
-	margin: 30px -19px 10px 0px;
+	margin: 30px -19px 5px 0px;
 	overflow: hidden;
         width:100%;
 }
@@ -2476,6 +2479,8 @@ div.item-list-tabs {
 
 #item-nav ul li a{
 	color:#fff;
+	font-size:15px;
+	margin-bottom:5px;
 }
 div.item-list-tabs ul li a {
 	text-decoration: none;
@@ -2492,7 +2497,7 @@ div.item-list-tabs#subnav ul li {
 	margin-top: 0;
 }
 div.item-list-tabs ul li:first-child {
-	margin-left: 20px;
+	margin-left: 160px;
 }
 div.item-list-tabs ul li.last {
 	float: right;
@@ -2508,7 +2513,7 @@ div.item-list-tabs ul li a,
 div.item-list-tabs ul li span {
 	display: block;
 	padding: 2px 10px;
-	text-decoration: none;height: 24px;color:#222
+	text-decoration: none;height: 27px;color:#222
 }
 div.item-list-tabs ul li a span {
 	background: #1fb3dd;
@@ -2557,7 +2562,7 @@ div.item-list-tabs#object-nav {
 }
 div.item-list-tabs#subnav {
 background: #fff;
-border-bottom: 1px solid #eaeaea;
+border-bottom: 1px solid #d6d6d6;
 margin: -10px 0px 5px 0px;
 min-height: 25px;
 overflow: hidden;
