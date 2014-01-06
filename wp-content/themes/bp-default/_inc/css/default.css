@@ -1545,6 +1545,9 @@ body.activity-permalink .activity-content blockquote {
 --------------------------------------------------------------*/
 div.activity-meta {
 	margin: 18px 0;
+	background: #eaeaea;
+padding-left: 5px;
+width: 30%;
 }
 body.activity-permalink div.activity-meta {
 	margin-bottom: 6px;
@@ -2009,6 +2012,7 @@ div.generic-button a:hover,
 	text-decoration: none;
 }
 
+.activity-meta .button{background:none !important; border:none !important;padding:0px !important;margin-right:6px;}
 /*--------------------------------------------------------------
 6.6 - Ajax Loading
 --------------------------------------------------------------*/
