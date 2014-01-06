@@ -1557,6 +1557,7 @@ a.activity-time-since {
 	color: #aaa;
 	text-decoration: none;
 }
+.time-since {color:#999999}
 a.activity-time-since:hover {
 	color: #888;
 	text-decoration: underline;
@@ -2326,7 +2327,6 @@ div#message p {
 }
 div#item-header {
 	overflow: hidden;
-	margin-bottom:-35px;
 }
 div#item-header div#item-header-content {
 	margin-left: 170px;
