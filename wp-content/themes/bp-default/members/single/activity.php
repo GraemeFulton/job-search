@@ -59,6 +59,11 @@
 	</ul>
 </div><!-- .item-list-tabs -->
 
+
+<?php   echo widgets_on_template("Profile Saved Posts");?>        
+
+
+
 <?php do_action( 'bp_before_member_activity_post_form' ); ?>
 
 <?php

@@ -19,13 +19,13 @@
                          <div class="profile-buttons">
 
 			<h4><?php echo bp_core_get_userlink( bp_loggedin_user_id() ); ?></h4>
-                        <?php echo '<a class="button profile-button" href="'.bp_loggedin_user_domain().'profile">My Profile</a>' ?>
-               <br>    <?php echo '<a class="button profile-button" href="'.bp_loggedin_user_domain().'activity">My Activity</a>' ?>
-               <br>	<?php echo '<a class="button profile-button" href="'.bp_loggedin_user_domain().'profile/edit">Edit Profile</a>' ?>
-                <br>  <?php echo '<a class="button profile-button" href="'.bp_loggedin_user_domain().'profile/change-avatar">Change Avatar</a>' ?>
-                <br>	<?php echo '<a class="button profile-button" href="'.bp_loggedin_user_domain().'invite-anyone">Invite Friends</a>' ?>
+                        <?php echo '<p class="profile-button"><a href="'.bp_loggedin_user_domain().'profile"><i class="fa fa-user"></i> My Profile</a></p>' ?>
+               <br>    <?php echo '<p class="profile-button"><a href="'.bp_loggedin_user_domain().'activity"><i class="fa fa-comments-o"></i> My Activity</a></p>' ?>
+               <br>	<?php echo '<p class="profile-button"><a href="'.bp_loggedin_user_domain().'profile/edit"><i class="fa fa-edit"></i> Edit Profile</a></p>' ?>
+                <br>  <?php echo '<p class="profile-button"><a href="'.bp_loggedin_user_domain().'profile/change-avatar"><i class="fa fa-camera"></i> Change Avatar</a></p>' ?>
+                <br>	<?php echo '<p class="profile-button"><a href="'.bp_loggedin_user_domain().'invite-anyone"><i class="fa fa-share-square-o"></i> Invite Friends</a></p>' ?>
 
-                   <br>     <a class="button profile-button" href="<?php echo wp_logout_url( wp_guess_url() ); ?>"><?php _e( 'Log Out', 'buddypress' ); ?></a>
+                   <br>     <p class="profile-button"><a href="<?php echo wp_logout_url( wp_guess_url() ); ?>"><?php _e( '<i class="fa fa-sign-out"></i> Log Out', 'buddypress' ); ?></a></p>
                     </div>
 			<?php do_action( 'bp_sidebar_me' ); ?>
 		</div>

@@ -416,10 +416,12 @@ width:100%;
     
 }
 .profile-button {
-margin-bottom: 8px;
+margin-bottom: -13px;
 margin-left: -5px;
 margin-right: 7px;
-line-height:28px !important;
+background: #fff;
+padding: 3px;
+width: 100%;
 }
 div#sidebar div#sidebar-me {
 	margin-bottom: 15px;
@@ -740,7 +742,7 @@ a:focus {
 max-width: 1250px;
 margin: 0 auto;
 bottom: 0;
-margin-left: 24.2%;
+margin-left: 19.6%;
 width: 68%;
 /*height:50px;*/
 }
@@ -778,12 +780,12 @@ width: 68%;
 	margin-left: 0;
 }
 #nav > li > a {
-	-moz-border-radius-topleft: 3px;
+	/*-moz-border-radius-topleft: 3px;
 	-webkit-border-top-left-radius: 3px;
 	-moz-border-radius-topright: 3px;
 	-webkit-border-top-right-radius: 3px;
 	border-top-left-radius: 3px;
-	border-top-right-radius: 3px;
+	border-top-right-radius: 3px;*/
 }
 #nav li.selected a,
 #nav > li.current-menu-item a,
@@ -1300,11 +1302,15 @@ span.sticky-post {
 --------------------------------------------------------------*/
 #activity-stream {
 	margin-top: -5px;
+	width:80%;
+	float:right;
 }
 #item-body form#whats-new-form {
 	border-bottom: 1px solid #ddd;
 	margin: 20px 0 10px;
 	padding-bottom: 20px;
+	width:80%;
+	float:right;
 }
 .home-page form#whats-new-form {
 	border-bottom: none;
@@ -1440,8 +1446,8 @@ body.activity-permalink li.mini .activity-meta {
 	padding: 0;
 }
 .activity-list .activity-content {
-	margin-left: 70px;
-	margin-bottom: 15px;
+	margin-left: 60px;
+	margin-bottom: 5px;
 }
 body.activity-permalink .activity-list li .activity-content {
 	background: #fff;
@@ -1491,7 +1497,6 @@ span.highlight {
 }
 .activity-list .activity-content .activity-inner,
 .activity-list .activity-content blockquote {
-	margin: 10px 10px 5px 0;
 	overflow: hidden;
 }
 .activity-list li.new_forum_post .activity-content .activity-inner,
@@ -1544,10 +1549,10 @@ body.activity-permalink .activity-content blockquote {
 6.1.2 - Activity Comments
 --------------------------------------------------------------*/
 div.activity-meta {
-	margin: 18px 0;
+	margin: 12px 0;
 	background: #eaeaea;
 padding-left: 5px;
-width: 30%;
+width: 255px;
 }
 body.activity-permalink div.activity-meta {
 	margin-bottom: 6px;
@@ -1686,6 +1691,10 @@ div.activity-comments form.root {
 div.activity-comments div#message {
 	margin-top: 15px;
 	margin-bottom: 0;
+}
+.activity #message{
+	float: right;
+width: 80%;
 }
 div.activity-comments form.loading {
 	background-image: url( ../images/ajax-loader.gif );
@@ -2314,21 +2323,13 @@ span.user-nicename {
 }
 span.activity,
 div#message p {
-	border: 1px solid #DBDBDB;
 	-moz-border-radius: 1px;
 	-webkit-border-radius: 1px;
 	border-radius: 1px;
 	font-weight: normal;
-	margin-top: 3px;
-	text-decoration: none;
-	background: #F8F8F8;
-	background-image: -webkit-linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, 0));
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255, 255, 255, .5)), color-stop(100%,rgba(255, 255, 255, 0))); /* Chrome,Safari4+ */
-	background-image: -moz-linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, 0));
-	background-image: -ms-linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, 0));
-	background-image: -o-linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, 0));
-	background-image: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, 0));
+	margin-left: -10px;
 }
+.vcard .item{border-left:none;border-right:none;}
 div#item-header {
 	overflow: hidden;
 }
@@ -2426,11 +2427,14 @@ ul.item-list {
 }
 ul.item-list li {
 	border-bottom: 1px solid #eaeaea;
-	padding: 15px 0;
+	padding: 5px 0;
 	position: relative;
 }
+.sidebar-single .item{background:#eaeaea;border-bottom:1px solid #fff;}
+
 ul.item-list.activity-list li {
 	padding-bottom: 0;
+	width:95%;
 }
 ul.single-line li {
 	border: none;
@@ -2503,6 +2507,9 @@ div.item-list-tabs#subnav ul li {
 div.item-list-tabs ul li:first-child {
 	margin-left: 160px;
 }
+.activity-type-tabs ul li:first-child{margin-left:5px !important;}
+.activity-type-tabs a{color: #fff !important;}
+.feed{margin-left:8px !important;}
 div.item-list-tabs ul li.last {
 	float: right;
 	margin: 7px 20px 0 0;
@@ -2995,3 +3002,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 .wpfp-span{margin-left:5px;padding:5px;font-size:14px;}
 .wpfp-span a{margin-left:2px;color:#444}
+
+#Profile_Saved_Posts{
+	float: left;
+width: 170px;
+background: #f8f8f8;
+padding: 5px;
+min-height: 155px;
+
+}
+#Profile_Saved_Posts ul li a{
+	background:#eaeaea;
+	border-radius:8px;
+	padding:3px;
+	margin-bottom:8px;
+	float:left;
+}
+.course-menu{border-top:1px solid blue;}
+li.current-menu-item.course-menu a{border-top:1px solid blue !important;color:blue !important; }
+
+.job-menu{border-top:1px solid orange}
+li.current-menu-item.job-menu a{border-top:1px solid orange !important;color:darkorange !important;}
+
+.we-menu{border-top:1px solid purple;}
+li.current-menu-item.we-menu a{border-top:1px solid purple !important;color:purple !important; }
+
+.travel-menu{border-top:1px solid  green;}
+li.current-menu-item.travel-menu a{border-top:1px solid green !important;color:green !important;}
