@@ -135,6 +135,8 @@ get_header( 'buddypress' ); ?>
 					</li>
 				</ul>
 			</div><!-- .item-list-tabs -->
+			<?php   echo widgets_on_template("Profile Saved Posts");?>        
+			
 
 			<?php do_action( 'bp_before_directory_activity_list' ); ?>
 
