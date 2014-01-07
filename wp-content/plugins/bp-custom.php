@@ -12,7 +12,7 @@ add_filter( 'bp_blogs_record_comment_post_types', 'bbg_record_my_custom_post_typ
 
 
 /* Add a new activity stream item for when people change their Profile Picute */
-function xprofile_new_avatar_activity($post_ID, $post) {
+function xprofile_new_favourite_activity($post_ID, $post) {
 	global $bp;
 	$user_id = $bp->loggedin_user->id;
 	$userlink = $bp->loggedin_user->domain;
@@ -30,5 +30,5 @@ function xprofile_new_avatar_activity($post_ID, $post) {
 	'type' => 'new_favourite'
 	) );
 }
-add_action( 'wpfp_after_add', 'xprofile_new_avatar_activity', 10, 2 );
+add_action( 'wpfp_after_add', 'xprofile_new_favourite_activity', 10, 2 );
 ?>

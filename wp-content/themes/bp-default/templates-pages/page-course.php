@@ -16,22 +16,21 @@ do_action('enable_isotopes');
     <h4>Filter</h4>
     </div>
     
- <?php      echo '<div id="Type_Filter"><h4 class="filter-title">Course Type</h4><br>';
+ <?php    echo '<div id="Type_Filter"><h4 class="filter-title">Course Type</h4><br>';
           echo '<div class="page_widget">'.widgets_on_template("Course Type Filter")."</div></div>";
-        
-
+    
           //Subject Filter
-            echo '<h3 class="filter-title"><i class="ico fa fa-book"></i> Subject</h3>';
-           echo '<div class="page_widget">'.widgets_on_template("Subject Filter")."</div>";
+          echo '<h3 class="filter-title"><i class="ico fa fa-book"></i> Subject</h3>';
+          echo '<div class="page_widget">'.widgets_on_template("Subject Filter")."</div>";
            
-       echo '<div id="Provider_Filter"><h3 class="filter-title">Provider</h3>';
+       	  echo '<div id="Provider_Filter"><h3 class="filter-title">Provider</h3>';
           echo '<div class="page_widget">'.widgets_on_template("Course Provider Filter")."</div></div>";
                  
-            echo '<div class="nav-filter"><h3><i class="ico fa fa-building"></i> University</h3>'; 
-                    $tree->display_select2_box('Select Universities');
-                    echo '</div>';
-    
-    ?>
+          echo '<div class="nav-filter"><h3><i class="ico fa fa-building"></i> University</h3>'; 
+          $tree->display_select2_box('Select Universities');
+          echo '</div>';
+?>
+
     <?php do_action('the_action_hook'); ?>
 
 </div>
