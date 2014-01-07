@@ -371,6 +371,9 @@ margin: 0 auto;
 	font-size: 12px;
 	margin: 0 0 10px 0;
 }
+#wpfp-most_favorited_posts .widgettitle{font-size:16px;float:left; margin-top:5px;}
+#wpfp-users_favorites .widgettitle{font-size:16px;float:left; margin-top:20px;}
+
 #footer-widget-area div div.item-options {
 	margin-left: 0;
 	margin-right: 0;
@@ -959,7 +962,12 @@ div#pag-bottom {
 }
 #comments {
 	margin-top: 30px;
+float: left;
+width: 100%;
 }
+#comments h3:FIRST-CHILD{background: #e8e8e8; padding:5px;margin-bottom: 1px;}
+#comments .comment-reply-title{background:none !important; margin-bottom:8px !important;}
+.item.hproduct{border-right:none !important;border-left:none !important;}
 #comments ol.commentlist {
 	border-bottom: 1px solid #e4e4e4;
 	margin: 0 0 30px 0;
@@ -1077,6 +1085,7 @@ div.comment-meta em {
 ol.commentlist #respond {
 	clear: left;
 	margin-left: 70px;
+	width:80%
 }
 .commentlist ul.children #respond {
 	margin-bottom: 10px;
@@ -1266,7 +1275,7 @@ div.author-box img {
 	margin: 0;
 }
 div.post-content {
-	margin-left: 105px;
+
 }
 p.date span:first-child {
 	font-style: italic;
@@ -1401,9 +1410,9 @@ body.activity-permalink ul.activity-list li.has-comments {
 }
 .activity-list li.mini .activity-avatar img.avatar,
 .activity-list li.mini .activity-avatar img.FB_profile_pic {
-	height: 20px;
+/*	height: 20px;
 	margin-left: 30px;
-	width: 20px;
+	width: 20px;*/
 }
 .activity-permalink .activity-list li.mini .activity-avatar img.avatar,
 .activity-permalink .activity-list li.mini .activity-avatar img.FB_profile_pic {
@@ -1475,9 +1484,9 @@ body.activity-permalink .activity-list li .activity-header > p {
 }
 .activity-list .activity-content .activity-header,
 .activity-list .activity-content .comment-header {
-	color: #888;
-	font-size: 11px;
-	line-height: 220%;
+	font-size: 13px;
+font-weight: normal;
+line-height: 1.38;
 }
 .activity-header {
 	margin-right: 20px;
@@ -1553,7 +1562,7 @@ body.activity-permalink .activity-content blockquote {
 --------------------------------------------------------------*/
 div.activity-meta {
 	margin: 12px 0;
-	background: #eaeaea;
+	background: #effeff;
 padding-left: 5px;
 width: 255px;
 }
@@ -1568,11 +1577,12 @@ a.activity-time-since {
 	color: #aaa;
 	text-decoration: none;
 }
-.time-since {color:#999999}
+.time-since {color:#999999; font-weight: normal !important;}
 a.activity-time-since:hover {
 	color: #888;
 	text-decoration: underline;
 }
+.activity-header a{color:#1fb3dd !important;font-weight:bold;}
 a.bp-primary-action,
 #reply-title small a {
 	font-size: 11px;
@@ -1780,7 +1790,9 @@ div#message {
 	margin-bottom: 0;
 }
 div#message.updated {
-	clear: both;
+clear: both;
+margin: 5px 0 5px 0;
+width: 99%;
 }
 div#message p {
 	font-size: 12px;
@@ -2437,7 +2449,7 @@ ul.item-list li {
 
 ul.item-list.activity-list li {
 	padding-bottom: 0;
-	width:95%;
+	width:70%;
 }
 ul.single-line li {
 	border: none;
@@ -2850,6 +2862,8 @@ margin-bottom: 0px;
 .single_datagrid{width:48%;float:right; position:relative; margin:0px 10px 10px 10px;z-index: 500;}
 #wpcr_button_1{visibility: hidden;}
 #single_ratings h5{margin-bottom:-48px;background:#f8f8f8; width:100%; padding:8px; }
+.wpcr_status_msg div{margin-top: 48px;
+margin-bottom: -48px;}
 .single_post_content{position:relative;padding:5px;}
 .single_post_content h4{background:#f8f8f8; width:49%; padding:8px; margin-bottom:5px; }
 .single_content{float:left; padding:5px;width:100%;}

@@ -846,4 +846,18 @@ add_filter('single_template', create_function(
 		return TEMPLATEPATH . "/single-{$cat->slug}.php"; }
 	return $the_template;' )
 );
+
+/*
+ * Multiple post types for activity stream
+ */
+
+function inspired_record_more_types( $types ) {
+
+	$types[] = 'course';
+	$types[] = 'travel';
+
+	return $types;
+}
+
+add_filter( 'bp_blogs_record_post_post_types', 'inspired_record_more_types');
 ?>
