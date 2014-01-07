@@ -104,14 +104,13 @@ div#page-container{
 }
 
 div#header-quote {
-max-width: 665px;
-margin: 15px auto;
+max-width: 500px;
+margin: 0px auto;
 left: 12px;
 position: relative;
 color: #fff;
-padding: 10px;
 }
-#header-quote p{font-size:27px;line-height:27px;}
+#header-quote p{font-size:14px;}
 
 body.activity-permalink div#container {
 	background: none;
@@ -194,10 +193,10 @@ background-image: linear-gradient(to top,#222 0,#222 5px);
 #wp-admin-bar-wp-logo{display:none}
 #wp-admin-bar-site-name{display:none}
 
-#main_search_category{margin-top:4%;width:500px; margin:3% auto;}
+#main_search_category{width:500px; margin:15px auto;}
 
 
-#main_search{margin-top:4%;width:500px; margin:3% auto;}
+#main_search{width:500px; margin:25px auto;}
 #main_search .sf_search span.sf_block{width:500px; height:48px;-webkit-box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);
 -moz-box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);
 box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);}
@@ -224,6 +223,7 @@ font-size: 11px !important;
 box-shadow: 0 0 0 0 !important;
 }
 
+.sf_container{padding-top:25px;}
 .page .sf_container .sf_block{height:40px !important}
 .page .sf_container .sf_block .sf_input{height:38px !important}
 .page .sf_container .sf_block .sf_button{height:38px !important; width:38px !important;margin: 0px !important;}
@@ -232,17 +232,16 @@ box-shadow: 0 0 0 0 !important;
 2.2 - Header
 --------------------------------------------------------------*/
 #header {
-         background-repeat:no-repeat;
-        background-size: 100% 100%;
-        background-position:left;
-	height: 300px;
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    background-position:left;
+	height: 200px;
 	/*margin-bottom: 20px;*/
-	padding-top: 25px;
 	position: relative;    
-        
-        margin: 0 auto;
-max-width: 1250px;    margin-top:80px;
-        background:rgba(10, 10, 10, 0.9);
+    margin: 0 auto;
+	max-width: 1250px;
+	margin-top:45px;
+    background:rgba(10, 10, 10, 0.9);
 
 }
 
@@ -328,7 +327,7 @@ opacity:1;
     margin-top:0.5px;
     font-size:20px;
 }
-#Search_Filter{height:50px; border: 1px inset #888;margin-left:-5px;border-left:none; background:#EBEBEB}
+#Search_Filter{margin-top:1px;height:50px; border: 1px inset #888;margin-left:-5px;border-left:none; background:#EBEBEB}
 /*--------------------------------------------------------------
 2.3 - Footer
 --------------------------------------------------------------*/
@@ -416,15 +415,19 @@ width:100%;
     
 }
 .profile-button {
-margin-bottom: -13px;
-margin-left: -5px;
 margin-right: 7px;
-background: #fff;
 padding: 3px;
 width: 100%;
+margin-bottom: -20px;
 }
+.profile-button a{
+color:#555}
 div#sidebar div#sidebar-me {
 	margin-bottom: 15px;
+	float:left;
+	/*background:#fff;*/
+	width:100%;
+	padding:5px;
 }
 div#sidebar div#sidebar-me img.avatar {
 float: left;
@@ -743,7 +746,6 @@ max-width: 1250px;
 margin: 0 auto;
 bottom: 0;
 margin-left: 19.6%;
-width: 68%;
 /*height:50px;*/
 }
 .quotescollection_nextquote{
@@ -1199,7 +1201,7 @@ div.post:last-child,
 	margin-bottom: 0;
 }
 h2.posttitle {
-	line-height: 120%;
+	line-height: 90%;
 	margin: 0;
 }
 h2.pagetitle {
@@ -1207,9 +1209,10 @@ h2.pagetitle {
 }
 h2.pagetitle a,
 h2.posttitle a {
-	color: #666;
+	color: #555;
 	text-decoration: none;
-	font-size:16px;
+	font-size:15px;
+	font-weight:bold;
 }
 .edit-link,
 .page-link {
@@ -2732,11 +2735,14 @@ GRID VIEW
 
 #blog-page .hentry, #loaded_content .hentry
 {
-width:225px;
+width:193px;
 padding: 0px;
-margin: 10px 13px 10px 14px;
+margin: 12px 14px 12px 14px;
+}
 
-
+#loaded_content{
+	margin:0 auto;
+	width:680px;
 }
 
 .entry{color:#666;overflow:hidden; padding:3px 10px 3px 10px; }
@@ -2816,6 +2822,7 @@ margin-bottom: 0px;
     position: relative; max-width:100%;
 }
 
+.activepost .post_image img{max-height:200px;}
 
 
 /**********Box animation*****************/
@@ -2854,7 +2861,7 @@ margin-bottom: 0px;
 #single_post_image_box{border:1px solid #eaeaea; padding:10px;border-bottom:none;}
 
 .activepost{
-    width:169% !important;height:auto!important;
+    width:505px !important;height:auto!important;
 box-shadow: 1px 1px 10px 5000px rgba(12,12,12,0.78);
     z-index:99999 !important;
     background:#fff;
@@ -2863,11 +2870,13 @@ box-shadow: 1px 1px 10px 5000px rgba(12,12,12,0.78);
 .activepost .posttitle{
     padding:10px;
     margin-bottom:5px;
+    max-height:none !important;
 }
 
 .item .posttitle{
     padding:0 10px 0 10px;
     overflow:hidden;
+    max-height:47px;
 }
 
 /*.activepost:hover{
