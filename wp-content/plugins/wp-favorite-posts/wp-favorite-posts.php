@@ -54,13 +54,13 @@ function wp_favorite_posts() {
 }
 add_action('wp_loaded', 'wp_favorite_posts');
 
-function wpfp_add_favorite($post_id = "") {
+function wpfp_add_favorite($post_id = "") {	
     if ( empty($post_id) ) $post_id = $_REQUEST['postid'];
     if (wpfp_get_option('opt_only_registered') && !is_user_logged_in() )
         wpfp_die_or_go(wpfp_get_option('text_only_registered') );
 
     if (wpfp_do_add_to_list($post_id)) {
-        // added, now?
+        // added, now?    	 
         do_action('wpfp_after_add', $post_id);
         if (wpfp_get_option('statics')) wpfp_update_post_meta($post_id, 1);
         if (wpfp_get_option('added') == 'show remove link') {
@@ -217,7 +217,7 @@ function wpfp_list_most_favorited($limit=5) {
         foreach ($results as $o):
             $p = get_post($o->post_id);
             echo "<li>";
-            echo "<a href='".get_permalink($o->post_id)."' title='". $p->post_title ."'>" . $p->post_title . "</a> ($o->meta_value)";
+            echo "<a href='".get_permalink($o->post_id)."' title='". $p->post_title ."'>" . $p->post_title . "&nbsp;<span style='color:#666'>($o->meta_value)</span></a>";
             echo "</li>";
         endforeach;
         echo "</ul>";

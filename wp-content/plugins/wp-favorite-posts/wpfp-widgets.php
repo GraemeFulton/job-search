@@ -66,6 +66,29 @@ function wpfp_widget_init() {
         endif;
         echo $after_widget;
     }
+    
+    //*** graylien favorites widget ***//
+    function wpfp_graylien_users_favorites_widget_view($user_name) {
+
+    	$options = wpfp_get_options();
+    	if (isset($options['uf_widget_limit'])) {
+    		$limit = $options['uf_widget_limit'];
+    	}
+    	$title = empty($options['uf_widget_title']) ? 'Users Favorites' : "<h4>".$user_name."'s Favourites</h4>";
+    	echo $before_widget;
+    	echo $before_title
+    	. $title
+    	. $after_title;
+    	$favorite_post_ids = wpfp_get_users_favorites($user_name);
+    
+    	$limit = $options['uf_widget_limit'];
+    	if (@file_exists(TEMPLATEPATH.'/wpfp-your-favs-widget.php')):
+    	include(TEMPLATEPATH.'/wpfp-your-favs-widget.php');
+    	else:
+    	include("wpfp-your-favs-widget.php");
+    	endif;
+    	echo $after_widget;
+    }
 
     function wpfp_users_favorites_widget_control() {
         $options = wpfp_get_options();
