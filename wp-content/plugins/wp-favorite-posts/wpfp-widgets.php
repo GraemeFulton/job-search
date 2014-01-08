@@ -1,5 +1,8 @@
 <?php
 function wpfp_widget_init() {
+	/*************************
+	 *  Most favorites widget
+	 *************************/
     function wpfp_widget_view($args) {
         extract($args);
         $options = wpfp_get_options();
@@ -44,7 +47,9 @@ function wpfp_widget_init() {
     wp_register_sidebar_widget('wpfp-most_favorited_posts', 'Most Favorited Posts', 'wpfp_widget_view');
     wp_register_widget_control('wpfp-most_favorited_posts', 'Most Favorited Posts', 'wpfp_widget_control' );
 
-    //*** users favorites widget ***//
+    /*************************
+     *  Users favorites widget
+    *************************/
     function wpfp_users_favorites_widget_view($args) {
         extract($args);
         $options = wpfp_get_options();
@@ -67,28 +72,6 @@ function wpfp_widget_init() {
         echo $after_widget;
     }
     
-    //*** graylien favorites widget ***//
-    function wpfp_graylien_users_favorites_widget_view($user_name) {
-
-    	$options = wpfp_get_options();
-    	if (isset($options['uf_widget_limit'])) {
-    		$limit = $options['uf_widget_limit'];
-    	}
-    	$title = empty($options['uf_widget_title']) ? 'Users Favorites' : "<h4>".$user_name."'s Favourites</h4>";
-    	echo $before_widget;
-    	echo $before_title
-    	. $title
-    	. $after_title;
-    	$favorite_post_ids = wpfp_get_users_favorites($user_name);
-    
-    	$limit = $options['uf_widget_limit'];
-    	if (@file_exists(TEMPLATEPATH.'/wpfp-your-favs-widget.php')):
-    	include(TEMPLATEPATH.'/wpfp-your-favs-widget.php');
-    	else:
-    	include("wpfp-your-favs-widget.php");
-    	endif;
-    	echo $after_widget;
-    }
 
     function wpfp_users_favorites_widget_control() {
         $options = wpfp_get_options();
@@ -118,3 +101,93 @@ function wpfp_widget_init() {
     wp_register_widget_control('wpfp-users_favorites','User\'s Favorites', 'wpfp_users_favorites_widget_control' );
 }
 add_action('widgets_init', 'wpfp_widget_init');
+
+
+//*** graylien favorites widget ***//
+function wpfp_graylien_users_favorites_widget_view($user_name) {
+
+	$options = wpfp_get_options();
+	if (isset($options['uf_widget_limit'])) {
+		$limit = $options['uf_widget_limit'];
+	}
+	$title = empty($options['uf_widget_title']) ? 'Users Favorites' : "<h4>".$user_name."'s Favourites</h4>";
+	echo $before_widget;
+	echo $before_title
+	. $title
+	. $after_title;
+	$favorite_post_ids = wpfp_get_users_favorites($user_name);
+
+	$limit = $options['uf_widget_limit'];
+	if (@file_exists(TEMPLATEPATH.'/wpfp-your-favs-widget.php')):
+	include(TEMPLATEPATH.'/wpfp-your-favs-widget.php');
+	else:
+	include("wpfp-your-favs-widget.php");
+	endif;
+	echo $after_widget;
+}
+/*************************
+ *  Lostgrad favorites widget
+*************************/
+function wpfp_lostgrad_widget_view($args) {
+	extract($args);
+$options = wpfp_get_options();
+if (isset($options['lg_widget_limit'])) {
+	$limit = $options['lg_widget_limit'];
+}
+if (isset($options['lg_widget_posttype'])) {
+	$posttype = $options['lg_widget_posttype'];
+}
+$title = empty($options['lg_widget_title']) ? 'Users Favorites' : $options['lg_widget_title'];
+echo $before_widget;
+echo $before_title
+. $title
+. $after_title;
+$favorite_post_ids = wpfp_get_users_favorites();
+
+$limit = $options['lg_widget_limit'];
+
+include("templates/all_favourites.php");
+
+echo $after_widget;
+}
+
+function wpfp_lostgrad_widget_control() {
+	$options = wpfp_get_options();
+	if (isset($_POST["wpfp-lg-widget-submit"])):
+	$options['lg_widget_title'] = strip_tags(stripslashes($_POST['wpfp-title']));
+	$options['lg_widget_limit'] = strip_tags(stripslashes($_POST['wpfp-limit']));
+	$options['lg_widget_posttype'] = strip_tags(stripslashes($_POST['wpfp-posttype']));
+	
+	update_option("wpfp_options", $options);
+	endif;
+	$title = $options['lg_widget_title'];
+	$limit = $options['lg_widget_limit'];
+	$posttype = $options['lg_widget_posttype'];
+	
+	?>
+        <p>
+            <label for="wpfp-title">
+                <?php _e('Title:'); ?> <input type="text" value="<?php echo $title; ?>" class="widefat" id="wpfp-title" name="wpfp-title" />
+            </label>
+        </p>
+         <p>
+            <label for="wpfp-posttype">
+                <?php _e('Type of posts to show:'); ?> <input type="text" value="<?php echo $posttype; ?>" style="width: 100px; text-align:left;" id="wpfp-posttype" name="wpfp-posttype" />
+            </label>
+        </p>
+        <p>
+            <label for="wpfp-limit">
+                <?php _e('Number of posts to show:'); ?> <input type="text" value="<?php echo $limit; ?>" style="width: 28px; text-align:center;" id="wpfp-limit" name="wpfp-limit" />
+            </label>
+        </p>
+        <?php if (!$options['statics']) { ?>
+        <p>
+            You must enable statics from favorite posts <a href="plugins.php?page=wp-favorite-posts" title="Favorite Posts Configuration">configuration page</a>.
+        </p>
+        <?php } ?>
+        <input type="hidden" name="wpfp-lg-widget-submit" value="1" />
+    <?php
+    }
+    wp_register_sidebar_widget('wpfp-lostgrad_favorited_posts', 'Lostgrad Favorited Posts', 'wpfp_lostgrad_widget_view');
+    wp_register_widget_control('wpfp-lostgrad_favorited_posts', 'Lostgrad Favorited Posts', 'wpfp_lostgrad_widget_control' );
+

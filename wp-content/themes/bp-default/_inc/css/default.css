@@ -2679,9 +2679,13 @@ div.message-search {
 /*--------------------------------------------------------------
 6.9 - Extended Profiles
 --------------------------------------------------------------*/
-.bp-widget{
-	padding:5px;
-	margin-top:12px;
+
+.profile .bp-widget{
+	padding: 5px;
+margin-top: 12px;
+float: left;
+width: 50%;
+min-height: 130px;
 }
 
 div.profile h4 {
