@@ -657,7 +657,7 @@ class Display_Taxonomy{
         
   //else use the google/post image - dont use for jobs(profession):
 if($this->grouped_taxonomy_short!='company'){
-        $pic = types_render_field("post-image", array("output"=>"raw"));
+        $pic = types_render_field("post-image", array("output"=>"raw", "post_id"=>$post_id));
     
         if($pic){          
           return $pic;

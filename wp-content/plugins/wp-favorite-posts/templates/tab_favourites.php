@@ -31,6 +31,7 @@ if ($favorite_post_ids):
 	//uasort($post_types, "compareElems");
         
     foreach ($post_types as $key => $value) {
+    	if($value[0]==$slug){
     	//div container for each group
     	echo '<div class="post-favourite-group favourite-'.$value[0].'">';
     	//add pre-designated order (defined within the wpfp_get_order method)
@@ -57,7 +58,7 @@ if ($favorite_post_ids):
 			
     	}
     	echo "</div>";//post-favourite-group
-    	 
+    	}
     }
     echo "</div>";//all-post-favourites
     ?>
