@@ -102,6 +102,10 @@ function wpfp_widget_init() {
 }
 add_action('widgets_init', 'wpfp_widget_init');
 
+/****************************************************************************
+ * >>>>>>>>>>>>>New updates by graylien: should add this to a new file>>>>>>
+ * **************************************************************************
+ */
 
 //*** graylien favorites widget ***//
 function wpfp_graylien_users_favorites_widget_view($user_name) {
@@ -126,7 +130,7 @@ function wpfp_graylien_users_favorites_widget_view($user_name) {
 	echo $after_widget;
 }
 /*************************
- *  Lostgrad favorites widget
+ *  Lostgrad ALL favorites widget
 *************************/
 function wpfp_lostgrad_widget_view($args) {
 	extract($args);
@@ -137,12 +141,11 @@ if (isset($options['lg_widget_limit'])) {
 if (isset($options['lg_widget_posttype'])) {
 	$posttype = $options['lg_widget_posttype'];
 }
-$title = empty($options['lg_widget_title']) ? 'Users Favorites' : $options['lg_widget_title'];
-echo $before_widget;
-echo $before_title
-. $title
-. $after_title;
-$favorite_post_ids = wpfp_get_users_favorites();
+//$title = empty($options['lg_widget_title']) ? 'Users Favorites' : $options['lg_widget_title'];
+//echo $before_widget;
+//echo $before_title. $title. $after_title;
+global $bp;
+$favorite_post_ids = wpfp_get_users_favorites($bp->displayed_user->fullname);
 
 $limit = $options['lg_widget_limit'];
 
@@ -190,4 +193,117 @@ function wpfp_lostgrad_widget_control() {
     }
     wp_register_sidebar_widget('wpfp-lostgrad_favorited_posts', 'Lostgrad Favorited Posts', 'wpfp_lostgrad_widget_view');
     wp_register_widget_control('wpfp-lostgrad_favorited_posts', 'Lostgrad Favorited Posts', 'wpfp_lostgrad_widget_control' );
+	
+    /*************************
+     *  Lostgrad TABBED favorites shortcode
+    *************************/
+    function wpfp_lostgrad_favourites($args) {
 
+		$slug=$args['slug'];
+    	global $bp;
+    	$favorite_post_ids = wpfp_get_users_favorites($bp->displayed_user->fullname);
+        
+    	include("templates/tab_favourites.php");
+    }
+    add_shortcode('profile_favourites','wpfp_lostgrad_favourites');
+    
+    
+    ///////////utility functions
+    
+    function in_array_r($needle, $haystack, $strict = false) {
+    	foreach ($haystack as $item) {
+    		if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && in_array_r($needle, $item, $strict))) {
+    			return true;
+    		}
+    	}
+    
+    	return false;
+    }
+    
+function array_search_2d($needle, $haystack){
+    foreach($haystack as $k => $h){ 
+        $key = array_search($needle, $h);
+        if($key !== false){
+echo "__";
+            return  $h;
+            
+        }
+    }
+    return false;
+}
+
+function get_the_image($post_id){
+	$post_type=get_post_type( $post_id );
+
+if($post_type=='course')
+{
+	$course_tree=display_taxonomy_tree('subject', 'uni');	
+	return $image=$course_tree->get_post_image($group_parent_id, $post_id);
+}
+elseif ($post_type=='graduate-job')
+{
+	$job_tree=display_taxonomy_tree('profession', 'company');
+	return $image=$job_tree->get_post_image($group_parent_id, $post_id);
+}
+elseif ($post_type=='work-experience-job')
+{
+	$job_tree=display_taxonomy_tree('profession', 'company');
+	return $image=$job_tree->get_post_image($group_parent_id, $post_id);
+}
+elseif($post_type=='travel-opportunities'){
+	$travel_tree=display_taxonomy_tree('location', 'location');
+	return $image=$travel_tree->get_post_image($group_parent_id, $post_id);
+
+}
+}
+
+function wpfp_get_post_title($slug){
+
+	if ($slug=='course'){
+		return "Courses";
+	}
+	elseif ($slug=='graduate-job')
+	return "Graduate Jobs";
+	
+	elseif ($slug=='work-experience-job')
+	return "Work Experience";
+	
+	elseif ($slug=='travel-opportunities')
+	return "Travel Opportunities";
+
+}
+
+function wpfp_get_order($slug){
+	if ($slug=='course'){
+	return "a";
+}
+elseif ($slug=='graduate-job')
+return "b";
+
+elseif ($slug=='work-experience-job')
+return "c";
+
+elseif ($slug=='travel-opportunities')
+return "d";
+}
+
+function wpfp_limit_post_title($title){
+$the_excerpt = $title; //Gets post_content to be used as a basis for the excerpt
+$excerpt_length = 4; //Sets excerpt length by word count
+$the_excerpt = strip_tags(strip_shortcodes($the_excerpt)); //Strips tags and images
+$words = explode(' ', $the_excerpt, $excerpt_length + 1);
+if(count($words) > $excerpt_length) :
+array_pop($words);
+array_push($words, '…');
+$the_excerpt = implode(' ', $words);
+endif;
+return $the_excerpt;
+}
+
+// function compareElems($elem1, $elem2) {
+//     return strcmp($elem1[0], $elem2[0]);
+// }
+
+/////////////////////////////
+    
+    ?>
