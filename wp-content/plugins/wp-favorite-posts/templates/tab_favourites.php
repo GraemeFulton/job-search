@@ -27,13 +27,13 @@ if ($favorite_post_ids):
     echo "Your favorites will be here.";
     echo "</li>";
     endif;
-    echo '<div id="all-post-favourites">';
+    echo '<div id="tab-all-post-favourites">';
 	//uasort($post_types, "compareElems");
         
     foreach ($post_types as $key => $value) {
     	if($value[0]==$slug){
     	//div container for each group
-    	echo '<div class="post-favourite-group favourite-'.$value[0].'">';
+    	echo '<div class="tab-post-favourite-group favourite-'.$value[0].'">';
     	//add pre-designated order (defined within the wpfp_get_order method)
     	echo '<p style="display:none;" class="order">'.wpfp_get_order($value[0]).'</p>';
     	//loop through each group's posts and print what desired attributes
@@ -62,19 +62,3 @@ if ($favorite_post_ids):
     }
     echo "</div>";//all-post-favourites
     ?>
-  
-   <script>
-        var $container = jQuery('#all-post-favourites');
-    
-        // initialize isotope
-        $container.isotope({
-        	getSortData : {
-        	    order : function ( $elem ) {
-        	      return $elem.find('.order').text();
-        	    }
-        	  },
-         // options...
-          itemSelector: '.post-favourite-group',
-          sortBy : 'order' 
-        });
-        </script>

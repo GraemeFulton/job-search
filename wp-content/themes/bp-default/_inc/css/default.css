@@ -85,7 +85,7 @@ div#container {
 	position: relative;
 	width: 100%;
         max-width: 1250px;
-        margin: 0 auto;
+        margin: 30px auto;
         border-radius: 10px;
 
 }
@@ -196,7 +196,8 @@ background-image: linear-gradient(to top,#222 0,#222 5px);
 #main_search_category{width:500px; margin:15px auto;}
 
 
-#main_search{width:500px; margin:25px auto;}
+#main_search{width:500px; margin:43px auto;}
+#main_search .input-group{z-index:4;}
 #main_search .sf_search span.sf_block{width:500px; height:48px;-webkit-box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);
 -moz-box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);
 box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);}
@@ -235,27 +236,30 @@ box-shadow: 0 0 0 0 !important;
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-position:left;
-	height: 200px;
+	height: 141px;
 	/*margin-bottom: 20px;*/
 	position: relative;    
-    margin: 0 auto;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	float:left;
+	margin-top: 2px;
+	width: 100%;
 	max-width: 1250px;
-	margin-top:45px;
-    background:rgba(10, 10, 10, 0.9);
-
+	margin-left:27px;
 }
+.travel-line{position:fixed; top:50px; width:100%; height:10px; background:green;z-index: 999;}
+.course-line{position:fixed; top:50px; width:100%; height:10px; background:rgba(0, 61, 255, 1);z-index: 999;}
+.graduatejob-line{position:fixed; top:50px; width:100%; height:10px; background:rgba(255, 112, 0, 1);z-index: 999;}
+.workexperience-line{position:fixed; top:50px; width:100%; height:10px; background:rgba(204, 0, 255, 1);z-index: 999;}
 
 .header-course{
-    border-top:4px solid rgba(0, 61, 255, 1);
 }
 .header-graduatejob{
-    border-top:4px solid rgba(255, 112, 0, 1);
 }
 .header-workexperience{
-        border-top:4px solid rgba(204, 0, 255, 1);
 }
 .header-travel{
-        border-top:4px solid green;
+
 }
 
 
@@ -3044,14 +3048,21 @@ min-height: 155px;
 	margin-bottom:8px;
 	float:left;
 }
-.course-menu{border-top:1px solid blue;}
-li.current-menu-item.course-menu a{border-top:1px solid blue !important;color:blue !important; }
 
-.job-menu{border-top:1px solid orange}
-li.current-menu-item.job-menu a{border-top:1px solid orange !important;color:darkorange !important;}
+.navbar-inverse{border:none !important; height:10px;}
+.course-menu{border-top:3px solid blue;margin-right:2px;}
+li.current-menu-item.course-menu a{color:#fff !important;background:blue !important; }
+li.course-menu a{color:rgb(84, 98, 255) !important;}
 
-.we-menu{border-top:1px solid purple;}
-li.current-menu-item.we-menu a{border-top:1px solid purple !important;color:purple !important; }
 
-.travel-menu{border-top:1px solid  green;}
-li.current-menu-item.travel-menu a{border-top:1px solid green !important;color:green !important;}
+.job-menu{border-top:3px solid orange;margin-right:2px;}
+li.current-menu-item.job-menu a{color:#fff !important;background:orange !important;}
+li.job-menu a{color:#F89A21 !important;}
+
+.we-menu{border-top:3px solid rgba(204, 0, 255, 1);margin-right:2px;}
+li.current-menu-item.we-menu a{color:#fff !important;background:rgba(204, 0, 255, 1) !important; }
+li.we-menu a {color: rgb(223, 30, 223) !important;}
+
+.travel-menu{border-top:3px solid  green;margin-right:2px;}
+li.travel-menu a {color: rgb(18, 189, 18) !important;}
+li.current-menu-item.travel-menu a{color:#fff !important;background:green !important;}
