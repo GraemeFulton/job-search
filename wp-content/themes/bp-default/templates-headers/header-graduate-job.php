@@ -38,7 +38,6 @@
     );
 
 ?>
-   <input id="toggle-button" type="button" value="Toggle Style">
         </div><!--/.nav-collapse -->
       </div>
     </div>
@@ -67,22 +66,10 @@
                                 
                             </div>
 			</div><!-- #search-bar -->
-                          <div id="header-quote">
-                        <?php quotescollection_quote('show_author=1&show_source=1&tags=work&ajax_refresh=0&char_limit=200&random=1')?>
-                    </div>
-                   
-                        <div id="navigation" role="navigation">
-
-                            <div id="second-nav">
-                                <?php wp_nav_menu( array( 'container' => false, 'menu_id' => 'nav', 'theme_location' => 'secondary', 'fallback_cb' => 'bp_dtheme_main_nav' ) ); ?>
-
-                            </div>
-                            
-                        </div>
-                    			<?php do_action( 'bp_header' );?>
-
+                        
 		</div><!-- #header -->
-
+    <div class="graduatejob-line"></div>
+		
 		<?php do_action( 'bp_after_header'     ); ?>
 		<?php do_action( 'bp_before_container' ); ?>
                   <div class="slider-button fixed"></div>
