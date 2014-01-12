@@ -269,7 +269,7 @@ function wpfp_get_post_title($slug){
 	return "Work Experience";
 	
 	elseif ($slug=='travel-opportunities')
-	return "Travel Opportunities";
+	return "Travel";
 
 }
 
@@ -278,13 +278,13 @@ function wpfp_get_order($slug){
 	return "a";
 }
 elseif ($slug=='graduate-job')
-return "b";
-
-elseif ($slug=='work-experience-job')
 return "c";
 
-elseif ($slug=='travel-opportunities')
+elseif ($slug=='work-experience-job')
 return "d";
+
+elseif ($slug=='travel-opportunities')
+return "b";
 }
 
 function wpfp_limit_post_title($title){

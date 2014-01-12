@@ -33,6 +33,13 @@
 	float:left;
 	position:relative;
 }
+#Profile_Saved_Posts .profile-bookmark-image{
+	width:100px;
+}
+#Profile_Saved_Posts .profile-bookmark-image-box{
+	height:auto;
+	margin-bottom:-4px;
+}
 .profile-bookmark-image-box{
 	height: 86px;
 	float: left;

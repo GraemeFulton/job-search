@@ -216,6 +216,14 @@ function wpfp_list_most_favorited($limit=5) {
         echo "<ul>";
         foreach ($results as $o):
             $p = get_post($o->post_id);
+        
+        //image
+        $image=get_the_image($p->ID);
+        echo '<div class="profile-bookmark-image-box">';
+        echo "<a href='".get_permalink($p->ID)."' title='". $p->post_title ."'>";
+        echo '<img class="profile-bookmark-image" src="'.$image.'"/></a><br>';
+        echo "</div>";
+        
             echo "<li>";
             echo "<a href='".get_permalink($o->post_id)."' title='". $p->post_title ."'>" . $p->post_title . "&nbsp;<span style='color:#666'>($o->meta_value)</span></a>";
             echo "</li>";

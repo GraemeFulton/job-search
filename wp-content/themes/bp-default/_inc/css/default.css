@@ -1514,6 +1514,7 @@ span.highlight {
 .activity-list .activity-content .activity-inner,
 .activity-list .activity-content blockquote {
 	overflow: hidden;
+	margin-top:5px;
 }
 .activity-list li.new_forum_post .activity-content .activity-inner,
 .activity-list li.new_forum_topic .activity-content .activity-inner {
@@ -1762,7 +1763,20 @@ div.activity-comments form div.ac-reply-content {
 	color: inherit;
 }
 
-
+/*------------------
+activity - bookmarks
+---------------------*/
+.activity-bookmark-image{
+width: 97px;
+float: left;
+position: relative;
+clear:both;
+}
+.activity-bookmark-title{
+	color: #1fb3dd !important;
+	float:left;
+font-weight: normal;
+}
 /*--------------------------------------------------------------
 6.2 - Toolbar
 --------------------------------------------------------------*/
@@ -3050,13 +3064,13 @@ min-height: 155px;
 }
 
 .navbar-inverse{border:none !important; height:10px;}
-.course-menu{border-top:3px solid blue;margin-right:2px;}
-li.current-menu-item.course-menu a{color:#fff !important;background:blue !important; }
+.course-menu{border-top:3px solid rgba(0, 61, 255, 1);;margin-right:2px;}
+li.current-menu-item.course-menu a{color:#fff !important;background:rgba(0, 61, 255, 1) !important; }
 li.course-menu a{color:rgb(84, 98, 255) !important;}
 
 
-.job-menu{border-top:3px solid orange;margin-right:2px;}
-li.current-menu-item.job-menu a{color:#fff !important;background:orange !important;}
+.job-menu{border-top:3px solid rgba(255, 112, 0, 1);margin-right:2px;}
+li.current-menu-item.job-menu a{color:#fff !important;background:rgba(255, 112, 0, 1) !important;}
 li.job-menu a{color:#F89A21 !important;}
 
 .we-menu{border-top:3px solid rgba(204, 0, 255, 1);margin-right:2px;}
