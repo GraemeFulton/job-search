@@ -12,23 +12,27 @@ add_filter( 'bp_blogs_record_comment_post_types', 'bbg_record_my_custom_post_typ
 
 
 /* Add a new activity stream item for when people change their Profile Picute */
-function xprofile_new_favourite_activity($post_ID, $post) {
+function xprofile_new_bookmark_activity($post_ID, $post) {
 	global $bp;
 	$user_id = $bp->loggedin_user->id;
 	$userlink = $bp->loggedin_user->domain;
 	$username= $bp->loggedin_user->fullname;
+	$image=get_the_image($post_ID);
 	
 	bp_activity_add( array(
 	'user_id' => $user_id,
 	
 	'action' => '<a href="'.$userlink.'">'.$username
-	.'</a> has a new favourite '.get_post_type( $post_ID )
-	.': <a href="'.get_permalink( $post_ID)
-	.'">'.get_the_title($post_ID).'</a>',
-	
+	.'</a> bookmarked this ',
 	'component' => 'profile',
-	'type' => 'new_favourite'
+	'type' => 'new_bookmark',
+	'item_id'=>$post_ID,
+	'content'=>'<a href="'.get_permalink( $post_ID)
+	.'"><span class="activity-bookmark-title">'.get_the_title($post_ID).'</span>'.
+			 //image
+        '<img class="activity-bookmark-image" src="'.$image.'"/>'.
+        "</a>"
 	) );
 }
-add_action( 'wpfp_after_add', 'xprofile_new_favourite_activity', 10, 2 );
+add_action( 'wpfp_after_add', 'xprofile_new_bookmark_activity', 10, 2 );
 ?>
