@@ -398,7 +398,7 @@ width:100%;
     margin-top:11px;
 }
 .sidebar-main{
-    width:15%;
+    width:195px;
     float:right;
     
 }
@@ -515,7 +515,7 @@ div#sidebar div.tags div#tag-text {
 #sidebar-left{
     position: relative;
     float: left;
-    width:20%;
+    width:249px;
     height:100%;
     border-radius:3px;
     background:#fff;
@@ -2762,14 +2762,14 @@ GRID VIEW
 
 #blog-page .hentry, #loaded_content .hentry
 {
-width:193px;
+width:210px;
 padding: 0px;
 margin: 12px 14px 12px 14px;
 }
 
 #loaded_content{
 	margin:0 auto;
-	width:680px;
+	width:715px;
 }
 
 .entry{color:#666;overflow:hidden; padding:3px 10px 3px 10px; }
@@ -2793,30 +2793,22 @@ left:20%;
 
 .type-graduate-job  .entry{
 background:#fff;
-border-left:1px solid #eaeaea;
-border-right:1px solid #eaeaea;
 border-bottom:1px solid orange;
 margin-bottom: 0px;
 }
 .type-work-experience-job  .entry{
 background:#fff;
-border-left:1px solid #eaeaea;
-border-right:1px solid #eaeaea;
 border-bottom:1px solid rgba(204, 0, 255, 1);
 margin-bottom: 0px;
 }
 .type-course .entry{s
 background:#fff;
-border-left:1px solid #eaeaea;
-border-right:1px solid #eaeaea;
 border-bottom:1px solid cornflowerblue;
 margin-bottom: 0px;
 
 }
 .type-travel-opportunities .entry{
 background:#fff;
-border-left:1px solid #eaeaea;
-border-right:1px solid #eaeaea;
 border-bottom:1px solid green;
 margin-bottom: 0px;
 }
