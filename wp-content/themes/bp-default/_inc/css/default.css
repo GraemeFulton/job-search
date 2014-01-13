@@ -85,7 +85,7 @@ div#container {
 	position: relative;
 	width: 100%;
         max-width: 1250px;
-        margin: 30px auto;
+        margin: 20px auto;
         border-radius: 10px;
 
 }
@@ -198,33 +198,26 @@ background-image: linear-gradient(to top,#222 0,#222 5px);
 
 #main_search{width:500px; margin:43px auto;}
 #main_search .input-group{z-index:4;}
-#main_search .sf_search span.sf_block{width:500px; height:48px;-webkit-box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);
+#main_search .sf_search span.sf_block{width:500px; height:48px !important;-webkit-box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);
 -moz-box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);
 box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);}
 #main_search .screen-reader-text{display:none;}
 #main_search .sf_search .sf_input {height:46px !important; font-size:18px;font-style: normal;}
+
 #main_search .sf_search .sf_button, .sf_search .searchsubmit {
-background-repeat: no-repeat !important;
-background-size: 50px 50px;
-background-position: 0px 0 !important;
-background-color: white !important;
-border: 0 none !important;
-cursor: pointer !important;
-display: block !important;
 height: 45px !important;
-padding: 0 !important;
-position: absolute !important;
-right: 1px !important;
-top: 1px !important;
 width: 45px !important;
-margin: 1px 1% 1px 2px !important;
+margin: 0px 0px 0px 0px !important;
 font-size: 11px !important;
 -webkit-box-shadow: 0 0 0 0 !important;
 -moz-box-shadow: 0 0 0 0 !important;
 box-shadow: 0 0 0 0 !important;
+z-index:4;
 }
 
-.sf_container{padding-top:25px;}
+.sf_search{z-index:4}
+
+
 .page .sf_container .sf_block{height:40px !important}
 .page .sf_container .sf_block .sf_input{height:38px !important}
 .page .sf_container .sf_block .sf_button{height:38px !important; width:38px !important;margin: 0px !important;}
@@ -400,8 +393,9 @@ width:100%;
 }
 .sidebar-single{
     background:#eaeaea;
-    width:20%;
+    width:255px;
     float:right;
+    margin-top:11px;
 }
 .sidebar-main{
     width:15%;
@@ -2606,11 +2600,11 @@ div.item-list-tabs#object-nav {
 div.item-list-tabs#subnav {
 background: #fff;
 border-bottom: 1px solid #d6d6d6;
+border-right:1px solid #d6d6d6;
+border-left:1px solid #d6d6d6;
 margin: -10px 0px 5px 0px;
 min-height: 25px;
 overflow: hidden;
-border-bottom-left-radius: 6px;
-border-bottom-right-radius: 6px;
 }
 div.item-list-tabs ul li.feed a {
 	background: url( ../images/rss.png ) center left no-repeat;
@@ -3048,17 +3042,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .wpfp-span a{margin-left:2px;color:#444}
 
 #Profile_Saved_Posts{
-	float: left;
+float: left;
+border-left: 1px solid #d6d6d6;
+border-bottom:1px solid #d6d6d6;
+border-right: 1px solid #d6d6d6;
 width: 170px;
 background: #f8f8f8;
-padding: 5px;
+padding: 12px;
 min-height: 155px;
+margin-top: -5px;
 
 }
 #Profile_Saved_Posts ul li a{
-	background:#eaeaea;
+	background:#FDFDFD;
 	border-radius:8px;
-	padding:3px;
+	padding:4px;
 	margin-bottom:8px;
 	float:left;
 }
