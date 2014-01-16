@@ -2851,7 +2851,7 @@ margin-bottom: 0px;
 .home-content{float:left;width:100%;}
 .home-content .tab-post-favourite-group
 {
-	width:300px !important; padding:1px !important; margin:1px !important;
+	width:196px !important; padding:1px !important; margin:1px !important;
 	float:left;
 }
 
@@ -2888,11 +2888,25 @@ padding:5px;
 
 #Featured_Content{
 	float: left;
-width: 650px;
-background: #eaeaea;
+width: 844px;
 padding: 20px;
 }
 
+#Featured_Content .profile-bookmark-image{width:185px !important;}
+#Featured_Content .profile-bookmark-item{width:187px !important; height:auto !important;}
+#Featured_Content .tab-post-favourite-group{border:none !important;}
+#Featured_Content .profile-bookmark-image-box{height:auto !important;}
+#Featured_Content .profile-bookmark-item{overflow:visible !important;}
+#Featured_Content .profile-bookmark-link {
+padding: 2px;
+float: left;
+position: absolute;
+left: 0px;
+bottom: 0px;
+background:rgba(0,0,0,0.8);
+width:100%;
+color:#fff !important;
+}
 
 /**********Box animation*****************/
 .item .pop-out {display:none;}
