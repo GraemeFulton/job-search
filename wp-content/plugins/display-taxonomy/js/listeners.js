@@ -284,11 +284,11 @@ function scrollHandler($){
     
         $(document).scroll(function () {
     var y = $(this).scrollTop();
-    if (y > 320) {
-        $("#sidebar-left").css({"top":"50px","height":"95%","width":"260px", "position":"fixed", "overflow-y":"scroll"});
-        $("#content").css({"margin-left":"20.5%", "border-left":"1px solid rgba(0,0,0,0.3)"});
+    if (y > 115) {
+        $("#sidebar-left").css({"top":"55px","height":"95%","width":"249px", "position":"fixed", "overflow-y":"scroll"});
+        $("#content").css({"margin-left":"249px", "border-left":"1px solid rgba(0,0,0,0.3)"});
        // $("#sidebar-right").css("top", "0px");
-        $("#selected-options").css({"position":"fixed", "top":"50px","margin-left":"258px", "width":"991px", "z-index":"5"});
+        $("#selected-options").css({"position":"fixed", "top":"55px","margin-left":"249px", "width":"1000px", "z-index":"5"});
    } 
     else{ 
         $("#sidebar-left").css({"top":"","height":"80%", "position":"relative","width":"", "overflow-y":""});
@@ -335,8 +335,8 @@ var y = $(document).scrollTop();
     }else{
         
         
-        $('html,body').animate({ scrollTop: 200 }, 'fast');
-            setTimeout(function(){apply_filter($);}, 380)
+        $('html,body').animate({ scrollTop: 118 }, 'medium');
+            setTimeout(function(){apply_filter($);}, 600)
 
         
     } 

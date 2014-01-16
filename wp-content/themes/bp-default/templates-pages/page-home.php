@@ -10,7 +10,7 @@ get_header();
 
 <div id="page-container">
 
-	<div id="content"   class='main-content'>
+	<div id="home-content" class='home-content'>
 
 		<div class="padder">
 
@@ -18,24 +18,16 @@ get_header();
 
 		<div class="page" role="main">
                         
-<h1>Welcome</h1>
+<?php 
+echo do_shortcode('[widgets_on_pages id="Member Feed"]');
 
-			<?php comments_template(); ?>
+$post_types=['course', 'travel-opportunities','graduate-job', 'work-experience-job'];
 
-		                 
+echo '<div id="Featured_Content">';
+echo "<h2>Featured Content</h2>";
+foreach($post_types as $type){
 
-                                
-<?php do_action( 'bp_after_blog_page' ); ?>
-	
-	</div><!-- #content -->
-        
-       
-        </div><!-- .padder -->
-   </div><!-- #content -->
-
-	 <div class='sidebar-main'>
-	<?php get_sidebar(); ?>
-</div>
-<?php get_footer(); ?>
-
-</div>
+do_shortcode('[profile_favourites slug="'.$type.'"]');
+}
+echo '</div>';
+?>
