@@ -2843,6 +2843,56 @@ margin-bottom: 0px;
 
 .activepost .post_image img{max-height:200px;}
 
+/******HOME PAGE****/
+.home_post_image{
+	max-width:200px;
+	float:left;
+}
+.home-content{float:left;width:100%;}
+.home-content .tab-post-favourite-group
+{
+	width:300px !important; padding:1px !important; margin:1px !important;
+	float:left;
+}
+
+
+.home-content .favourite-course .post-favourite-group-title{color:rgb(84, 98, 255) ; }
+.home-content .favourite-graduate-job .post-favourite-group-title{color:#F89A21 ;}
+.home-content .favourite-work-experience-job .post-favourite-group-title{color:rgb(223, 30, 223) ;}
+.home-content .favourite-travel-opportunities .post-favourite-group-title{color:green ;}
+
+.home-posttitle{
+	float: left;
+position: absolute;
+font-size: 14px;
+max-width: 200px;
+width: 100%;
+background: rgba(0,0,0,0.8);
+bottom: -20px;
+padding:5px;
+}
+.home-posttitle a{color:#fff !important; }
+.home_item{
+	float:left;
+	min-width:200px;
+	max-width:200px;
+}
+.post-head{
+	min-width:200px;
+	max-width:200px;
+	background:blue;
+	height:170px;
+}
+#Member_Feed{width:320px;float:left;margin-right:30px;}
+.swa-rss{display:none;}
+
+#Featured_Content{
+	float: left;
+width: 650px;
+background: #eaeaea;
+padding: 20px;
+}
+
 
 /**********Box animation*****************/
 .item .pop-out {display:none;}
