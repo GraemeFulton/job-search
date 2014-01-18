@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<div id="page-container">
+<div id="page-container" >
 
 	<div id="home-content" class='home-content'>
 
@@ -17,7 +17,9 @@ get_header();
 		<?php do_action( 'bp_before_blog_page' ); ?>
 
 		<div class="page" role="main">
-                        
+		
+		<div class="slider-area"><?php echo do_shortcode("[promoslider]"); ?></div>
+            <div class="featured-area">
 <?php 
 echo do_shortcode('[widgets_on_pages id="Member Feed"]');
 
@@ -28,6 +30,9 @@ echo "<h2>Featured Content</h2>";
 foreach($post_types as $type){
 
 do_shortcode('[profile_favourites slug="'.$type.'"]');
+//echo '<button class="profile-bookmark-item btn btn-success">See All</button>';
+
 }
-echo '</div>';
 ?>
+</div><!-- featured area -->
+</div>

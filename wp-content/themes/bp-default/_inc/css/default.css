@@ -84,7 +84,7 @@ div#container {
 	overflow: visible;
 	position: relative;
 	width: 100%;
-        max-width: 1250px;
+        max-width: 1300px;
         margin: 20px auto;
         border-radius: 10px;
 
@@ -396,6 +396,7 @@ width:100%;
     width:255px;
     float:right;
     margin-top:11px;
+    margin-right:15px;
 }
 .sidebar-main{
     width:195px;
@@ -2851,16 +2852,34 @@ margin-bottom: 0px;
 .home-content{float:left;width:100%;}
 .home-content .tab-post-favourite-group
 {
-	width:196px !important; padding:1px !important; margin:1px !important;
+	/*width:196px !important;
+		 padding:1px !important; margin:1px !important;
 	float:left;
+	*/
+	width:100%;
+	border:none;
+	border-radius:12px;
 }
+.promo_slider_wrapper {
+width:800px;
+	}
+	.promo_slider{
+	height:310px !important;
+	
+	}
+	.slider-area{background:rgb(21, 184, 158);padding:20px;}
+	#home-content .padder{padding:0px;}
+	.home-page-container{
+	
+max-width: 100% !important;}
 
-
+.home-content .post-favourite-group-title h4{font-size:16px;}
 .home-content .favourite-course .post-favourite-group-title{color:rgb(84, 98, 255) ; }
-.home-content .favourite-graduate-job .post-favourite-group-title{color:#F89A21 ;}
+.home-content .favourite-graduate-job .post-favourite-group-title{color:rgb(238, 114, 0) ;}
 .home-content .favourite-work-experience-job .post-favourite-group-title{color:rgb(223, 30, 223) ;}
 .home-content .favourite-travel-opportunities .post-favourite-group-title{color:green ;}
 
+.home-content .profile-bookmark-item{border-radius:12px;}
 .home-posttitle{
 	float: left;
 position: absolute;
@@ -2883,23 +2902,32 @@ padding:5px;
 	background:blue;
 	height:170px;
 }
-#Member_Feed{width:320px;float:right;margin-right:30px;}
+#Member_Feed{width:320px;float:right;}
 .swa-rss{display:none;}
 
 #Featured_Content{
 	float: left;
-width: 844px;
+width: 775px !important;
 padding: 20px;
 }
+.featured-area{
+background: #E9E9E9;
+height: auto;
+width: 100%;
+float: left;
+}
 
+
+
+
+
+/*
 #Featured_Content .profile-bookmark-image{width:100% !important;}
 #Featured_Content .profile-bookmark-item{border:none !important;
 margin:1px !important;
 width:191px !important; height:auto !important;}
 #Featured_Content .tab-post-favourite-group{background:transparent !important;}
 #Featured_Content .post-favourite-group-title{background:#fff; width:100%;}
-
-
 
 
 #Featured_Content .profile-bookmark-image-box{height:auto !important;}
@@ -2919,7 +2947,7 @@ color:#fff !important;
 #Featured_Content .hr-graduate-job{margin-bottom:-20px; color:orange;}
 #Featured_Content .hr-work-experience-job{margin-bottom:-20px; color:purple;}
 #Featured_Content .hr-course{margin-bottom:-20px; color:blue;}
-
+*/
 
 /**********Box animation*****************/
 .item .pop-out {display:none;}
