@@ -2883,7 +2883,7 @@ padding:5px;
 	background:blue;
 	height:170px;
 }
-#Member_Feed{width:320px;float:left;margin-right:30px;}
+#Member_Feed{width:320px;float:right;margin-right:30px;}
 .swa-rss{display:none;}
 
 #Featured_Content{
@@ -2892,9 +2892,16 @@ width: 844px;
 padding: 20px;
 }
 
-#Featured_Content .profile-bookmark-image{width:185px !important;}
-#Featured_Content .profile-bookmark-item{width:187px !important; height:auto !important;}
-#Featured_Content .tab-post-favourite-group{border:none !important;}
+#Featured_Content .profile-bookmark-image{width:100% !important;}
+#Featured_Content .profile-bookmark-item{border:none !important;
+margin:1px !important;
+width:191px !important; height:auto !important;}
+#Featured_Content .tab-post-favourite-group{background:transparent !important;}
+#Featured_Content .post-favourite-group-title{background:#fff; width:100%;}
+
+
+
+
 #Featured_Content .profile-bookmark-image-box{height:auto !important;}
 #Featured_Content .profile-bookmark-item{overflow:visible !important;}
 #Featured_Content .profile-bookmark-link {
@@ -2907,6 +2914,12 @@ background:rgba(0,0,0,0.8);
 width:100%;
 color:#fff !important;
 }
+
+#Featured_Content .hr-travel-opportunities{margin-bottom:-20px; color:green;}
+#Featured_Content .hr-graduate-job{margin-bottom:-20px; color:orange;}
+#Featured_Content .hr-work-experience-job{margin-bottom:-20px; color:purple;}
+#Featured_Content .hr-course{margin-bottom:-20px; color:blue;}
+
 
 /**********Box animation*****************/
 .item .pop-out {display:none;}
