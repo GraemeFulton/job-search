@@ -41,6 +41,8 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
+            <div class="home-line"></div>
+    
 		<?php do_action( 'bp_before_header' ); ?>
 
 <!-- 		<div id="header">                   -->

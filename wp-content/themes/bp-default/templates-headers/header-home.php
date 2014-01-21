@@ -2,6 +2,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 	<head profile="http://gmpg.org/xfn/11">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	
 		<meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>" />
 		<?php if ( current_theme_supports( 'bp-default-responsive' ) ) : ?><meta name="viewport" content="width=device-width, initial-scale=1.0" /><?php endif; ?>
 		<title><?php wp_title( '|', true, 'right' ); bloginfo( 'name' ); ?></title>
@@ -14,7 +16,7 @@
 
 	<body <?php body_class(); ?> id="bp-default">
       <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-inverse navbar-fixed-top home-navbar" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -43,17 +45,17 @@
     </div>
 		<?php do_action( 'bp_before_header' ); ?>
 
-		<div id="header">                  
-                    <div id="search-bar" role="search">
-                            <div id="main_search">
-                            <?php get_search_form(); ?>
-                            </div>
-			</div>
+<!-- 		<div id="header">                   -->
+<!--                     <div id="search-bar" role="search"> -->
+<!--                             <div id="main_search"> -->
+                            <?php //get_search_form(); ?>
+<!--                             </div> -->
+<!-- 			</div> -->
 			<!-- #search-bar -->
                           
                     			<?php do_action( 'bp_header' );?>
 
-		</div>
+<!-- 		</div> -->
 		<!-- #header -->
 
 		<?php do_action( 'bp_after_header'     ); ?>
