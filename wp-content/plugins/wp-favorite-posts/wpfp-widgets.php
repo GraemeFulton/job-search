@@ -197,11 +197,13 @@ function wpfp_lostgrad_widget_control() {
     /*************************
      *  Lostgrad TABBED favorites shortcode
     *************************/
+    //shortcode used on homepage to display featured posts (admins favourites)
     function wpfp_lostgrad_favourites($args) {
 
 		$slug=$args['slug'];
+		$username=$args['user'];
     	global $bp;
-    	$favorite_post_ids = wpfp_get_users_favorites($bp->displayed_user->fullname);
+    	$favorite_post_ids = wpfp_get_users_favorites($username);
         
     	include("templates/tab_favourites.php");
     }
