@@ -1,7 +1,7 @@
 jQuery(document).ready(function(){
 var j=jQuery;
 var jq=jQuery;
-j(".widget_bp_swa_widget div.pagination-links a").live("click",function(){
+j(".widget_bp_swa_widget div.pagination-links a").on("click",function(){
      var parent=j(this).parents(".widget_bp_swa_widget").get(0);
      parent=j(parent);//cast as jquery object
 	var page=get_var_in_url(j(this).attr("href"),"acpage");
@@ -58,7 +58,7 @@ j.post( ajaxurl, {
 
 
 //for filters
-j(".widget_bp_swa_widget #activity-filter-links li a").live("click",function(){
+j(".widget_bp_swa_widget #activity-filter-links li a").on("click",function(){
      var parent=j(this).parents(".widget_bp_swa_widget").get(0);
      parent=j(parent);//cast as jquery object
 	var page=1;//when ever someone clicks on a filter link, start by showing the first
@@ -74,7 +74,7 @@ j(".widget_bp_swa_widget #activity-filter-links li a").live("click",function(){
 
 	/* New posts */
         //copied from bp-default global.js
-	j("input#swa-whats-new-submit").live( 'click',function() {
+	j("input#swa-whats-new-submit").on( 'click',function() {
 		var button = j(this);
 		var form = button.parent().parent().parent().parent();
                 var parent=j(this).parents(".widget_bp_swa_widget").get(0);//GET THE PARENT FOR SCOPING
@@ -150,7 +150,7 @@ j(".widget_bp_swa_widget #activity-filter-links li a").live("click",function(){
  jq('form.swa-ac-form').hide();
 /* Activity list event delegation */
 	/* Activity list event delegation */
-	jq('ul.swa-activity-list').live('click', function(event) {
+	jq('ul.swa-activity-list').on('click', function(event) {
 		var target = jq(event.target);
 
 		/* Comment / comment reply links */

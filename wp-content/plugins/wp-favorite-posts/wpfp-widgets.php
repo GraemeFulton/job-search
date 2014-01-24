@@ -262,16 +262,17 @@ elseif($post_type=='travel-opportunities'){
 function wpfp_get_post_title($slug){
 
 	if ($slug=='course'){
-		return "Courses";
+		return '<i class="fa fa-book"></i> Courses';
 	}
 	elseif ($slug=='graduate-job')
-	return "Graduate Jobs";
-	
+		return '<i class="fa fa-crosshairs"></i> Graduate Jobs';
+		
 	elseif ($slug=='work-experience-job')
-	return "Work Experience";
-	
+		return '<i class="fa fa-crosshairs"></i> Work Experience';
+		
 	elseif ($slug=='travel-opportunities')
-	return "Travel";
+		return '<i class="fa fa-plane"></i> Travel';
+	
 
 }
 
@@ -307,5 +308,4 @@ return $the_excerpt;
 // }
 
 /////////////////////////////
-    
-    ?>
+?>
