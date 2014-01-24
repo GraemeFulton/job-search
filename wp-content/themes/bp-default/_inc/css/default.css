@@ -2764,7 +2764,7 @@ GRID VIEW
 */
 @media (min-width: 600px) {
 
-#blog-page .hentry, #loaded_content .hentry
+#blog-page .hentry, #loaded_content .hentry, #blog-page-standard .hentry, #loaded_content .hentry
 {
 width:210px;
 padding: 0px;
@@ -2866,7 +2866,10 @@ padding: 10px;
 border-radius: 10px;
 color:#fff;
 }
-.home-page-btn{float:left; margin-right:5px;}
+.home-page-btn{float:left; margin-left:5px;}
+.homepage-button{height:50px; margin-right:2px}
+#Login_Widget{margin-left:-15px;}
+
 .lwa table{
 	width:210px !important;
 	border:none !important;
@@ -2897,9 +2900,11 @@ color:#fff;
 width:595px;
 margin-top:-5px !important;
 	}
-	.promo_slider_nav{margin:0px !important;}
+	.promo_slider_nav{margin:0px !important; z-index:95 !important;}
 	.navbar > .container .navbar-brand{ }
 	.navbar-inverse .navbar-nav > li{}
+	.navbar-inverse .navbar-brand:hover{color:rgb(26, 143, 124) !important}
+	.nav > li > a:hover{color:rgb(26, 143, 124) !important}
 	
 	.home-navbar{ height:60px !important;border-bottom:5px solid rgb(10, 221, 187) !important}
 	.home-navbar a.navbar-brand {color:#222; font-size:40px;}

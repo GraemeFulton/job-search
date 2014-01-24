@@ -35,4 +35,20 @@ function xprofile_new_bookmark_activity($post_ID, $post) {
 	) );
 }
 add_action( 'wpfp_after_add', 'xprofile_new_bookmark_activity', 10, 2 );
+
+/*
+//front end posts
+
+add_action('bp_init','my_post_form',4);//register a form
+//it will register a fomr
+function my_post_form(){
+	$settings=array('post_type'=>'post',//which post type
+			'post_author'=>  bp_loggedin_user_id(),//who will be the author of the submitted post
+			'post_status'=>'draft',//how the post should be saved, change it to 'publish' if you want to make the post published automatically
+			'current_user_can_post'=>  is_user_logged_in(),//who can post
+			'show_categories'=>true,//whether to show categories list or not, make sure to keep it true
+			'allowed_categories'=>array(1,2,3,4)//array of allowed categories which should be shown, use  get_all_category_ids() if you want to allow all categories
+	);
+	$form=bp_new_simple_blog_post_form('my form',$settings);//create a Form Instance and register it
+}*/
 ?>

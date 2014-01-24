@@ -855,9 +855,13 @@ function inspired_record_more_types( $types ) {
 
 	$types[] = 'course';
 	$types[] = 'travel';
+	$types[] = 'post';
+	
 
 	return $types;
 }
 
 add_filter( 'bp_blogs_record_post_post_types', 'inspired_record_more_types');
+
+
 ?>

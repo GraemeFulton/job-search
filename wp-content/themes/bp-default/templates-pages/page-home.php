@@ -49,17 +49,15 @@ include (TEMPLATEPATH . '/templates-headers/header-home.php');
         <div class="featured-area">
         
         <div id="Members_Feed">
-        <h2><i class="ico fa fa-users"></i> Join Our Community</h2>
-        
-<h4><i class="ico fa fa-user"></i> Members</h4>
-<?php 
+        <h2><i class="ico fa fa-users"></i> Members</h2>
+        <?php 
 echo do_shortcode('[widgets_on_pages id="Members Box"]');
 ?>
-<h4><i class="ico fa fa-users"></i> Groups</h4>
+<!-- <h4><i class="ico fa fa-users"></i> Groups</h4> -->
 <?php 
-echo do_shortcode('[widgets_on_pages id="Groups Box"]');
+//echo do_shortcode('[widgets_on_pages id="Groups Box"]');
 ?>
-<h4><i class="ico fa fa-comments-o"></i> Activity</h4>
+<h2><i class="ico fa fa-comments-o"></i> Member Activity</h2>
 <?php 
 echo do_shortcode('[widgets_on_pages id="Member Feed"]');
 ?>
@@ -70,7 +68,7 @@ echo do_shortcode('[widgets_on_pages id="Member Feed"]');
 $post_types=['course', 'travel-opportunities','graduate-job', 'work-experience-job'];
 
 echo '<div id="Featured_Content">';
-echo '<h2><i class="ico fa fa-star-o"></i> Featured Content</h2>';
+echo '<h2><i class="ico fa fa-star-o"></i> Featured</h2>';
 foreach($post_types as $type){
 
 do_shortcode('[profile_favourites slug="'.$type.'" user="admin"]');
