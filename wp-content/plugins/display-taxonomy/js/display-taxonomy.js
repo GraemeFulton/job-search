@@ -24,6 +24,9 @@ var meta_filter= "";
 var meta_filter_arr=[];
 
 var all_selections={};
+
+var order_by=[];
+var sort_a_z=[];
 /*
  * graylien_infinite_scroll
  * @param {type} $
@@ -107,7 +110,7 @@ function process_filter($, category_type, tag_type, body_type){
 
     //loading gif
     $('.hentry').empty();
-    $('#content').prepend('<img id="ajax-loader" style="margin:10px 0 0 10px;"src="'+templateUrl+'/ajax-loader.gif"/>');
+    $('#content').prepend('<img id="ajax-loader-check-box" style="margin:10px 0 0 10px;"src="'+templateUrl+'/ajax-loader.gif"/>');
 
     $.ajax({
      url: '/LGWP/wp-admin/admin-ajax.php', 
@@ -123,7 +126,9 @@ function process_filter($, category_type, tag_type, body_type){
             'location': selected_locations,
             'provider':selected_providers,
             'selected_category_type':selected_category_type,
-             'search_filter':all_selections.Search[0]
+             'search_filter':all_selections.Search[0],
+             'order_by':order_by,
+             'sort_a_z':sort_a_z
            },
    dataType:'HTML', 
    success: function(data){
@@ -145,8 +150,10 @@ function process_filter($, category_type, tag_type, body_type){
          $('#loaded_content').isotope( 'insert', $(data) );
          resetCurrentActiveBox($);
             //reinitiate ratings plugin
+         reset_filter_listener($);
+
      //    $('.kk-star-ratings').kkstarratings();
-                  $('#ajax-loader').remove();
+                  $('#ajax-loader-check-box').remove();
        
        setTimeout(function(){ $('#loaded_content').isotope( 'reLayout');}, 500); //prevent overlap
 
@@ -174,7 +181,7 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
  if(isLoadingData===true) return;
      //loading gif
      $('.sorry-message').remove();
-    $('#content').append('<img id="ajax-loader" src="'+templateUrl+'/ajax-loader.gif"/>');
+    $('#content').append('<img id="ajax-loader-scroll" src="'+templateUrl+'/ajax-loader.gif"/>');
     
     $.ajax({
      url: '/LGWP/wp-admin/admin-ajax.php', 
@@ -191,7 +198,10 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
             'location': selected_locations,
             'provider': selected_providers,
             'selected_category_type':selected_category_type,
-            'search_filter':all_selections.Search[0]
+            'search_filter':all_selections.Search[0],
+            'order_by':order_by,
+            'sort_a_z':sort_a_z
+
            },
    dataType:'HTML', 
    
@@ -218,12 +228,12 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
 
          //reinitiate ratings plugin
     //     $('.kk-star-ratings').kkstarratings();
-             $('#ajax-loader').remove();
-             $('#ajax-loader').remove();
+             $('#ajax-loader-scroll').remove();
 
 //rebind infinitescroll
             graylien_infinite_scroll($);
             popup_listener($);
+            reset_filter_listener($);
 //////////////////////////
 
          return false;
@@ -245,7 +255,8 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
  * @param {type} postoffset
  * @returns {undefined} */
 function process_popup_data($, popup, category, tag_type,body_type, post_id){
-    
+        $('#content').prepend('<img id="ajax-loader-popup" style="margin:10px 0 0 10px;"src="'+templateUrl+'/ajax-loader.gif"/>');
+
     $.ajax({
      url: '/LGWP/wp-admin/admin-ajax.php', 
      type: "POST",
@@ -262,7 +273,7 @@ function process_popup_data($, popup, category, tag_type,body_type, post_id){
         $(popup).append(data);
         $(popup).slideDown('slow');
         closeBoxHandler($, post_id)
-
+        $('#ajax-loader-popup').fadeOut();
         return false;
      },
      error: function(errorThrown){
@@ -281,7 +292,7 @@ function update_selected_options($){
      selected_option_head+='<div class="clear_both"></div><div id="nothing_selected">Nothing Selected. Please use the filters available on the left to find what you want.</div>'
     
     
-    $('#selected-options').empty().append(selected_option_head);
+    $('#selected-options-container').empty().append(selected_option_head);
     
  $.each(all_selections, function(index, item){
         
@@ -313,7 +324,9 @@ function update_selected_options($){
         }
             output+='</div>';
 
-            $('#selected-options').append(output);
+            $('#selected-options-container').append(output).addClass("selected-options-active");
+            $("#loaded_content").addClass("selected-options-padding");
+
 
         
     }

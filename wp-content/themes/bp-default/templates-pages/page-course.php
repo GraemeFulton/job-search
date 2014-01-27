@@ -12,22 +12,32 @@ do_action('enable_isotopes');
     
     
 <div id="sidebar-left">
-    <i class="fa fa-chevron-right"></i>
-    <div class="filter-header">
-    <h4>Filter</h4>
+    
+    <div id="sidebar-toggle">
+        <div id="toggle-icon">
+            <button class="fa fa-chevron-right"></button>
+        </div>
+
     </div>
     
- <?php    echo '<div id="Type_Filter"><h4 class="filter-title">Course Type</h4><br>';
+    <div class="filter-tabs">
+        <div class="filter-tab active-filter" id="filter-tab-1"><h4>Filters</h4></div>
+        <div class="filter-tab" id="filter-tab-2"><h4>More Options</h4></div>
+    </div>
+    
+ <?php    echo '<div id="Type_Filter" class="filter-tab-1"><h4 class="filter-title">Course Type</h4><br>';
           echo '<div class="page_widget">'.widgets_on_template("Course Type Filter")."</div></div>";
     
           //Subject Filter
+          echo '<div class="filter-tab-1">';
           echo '<h3 class="filter-title"><i class="ico fa fa-book"></i> Subject</h3>';
           echo '<div class="page_widget">'.widgets_on_template("Subject Filter")."</div>";
+          echo '</div>';
            
-       	  echo '<div id="Provider_Filter"><h3 class="filter-title">Provider</h3>';
+       	  echo '<div id="Provider_Filter" class="filter-tab-2"><h3 class="filter-title">Provider</h3>';
           echo '<div class="page_widget">'.widgets_on_template("Course Provider Filter")."</div></div>";
                  
-          echo '<div class="nav-filter"><h3><i class="ico fa fa-building"></i> University</h3>'; 
+          echo '<div class="nav-filter filter-tab-2" ><h3><i class="ico fa fa-building"></i> University</h3>'; 
           $tree->display_select2_box('Select Universities');
           echo '</div>';
 ?>
@@ -43,20 +53,46 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $args= array(
         'post_type'=>'course',
     	'paged' => $paged,
-        'orderby' => 'title',
-        'order' => 'ASC'
+        'orderby' => 'date',
+        'order' => 'DESC'
 );
 
 query_posts( $args); ?>
-            <div class='selected-course-options'id='selected-options'></div>
 
 	<div id="content"  class='main-content' category_type='course' tag_type='subject' body_type="uni">
-                        
+                                 <div class='selected-course-options'id='selected-options'>
+                                     <div id="selected-options-container"></div>
+                                  
+                                     <div class="sort-by-container">
+                                         <div class="order-by">
+                                         <select id="sort-box">
+                                        <option value="" disabled="disabled" selected="selected">Order By</option>
+                                        <option value="title">Order By Title</option>
+                                        <option value="date">Order By Date</option>
+                                        </select>
+                                         </div>
+                                         <div class="sort-a-z">
+                                             
+                                             <div class="numeric-sort">&nbsp; Sort:
+                                         <button class="fa fa-sort-numeric-desc sort-asc sort-button sort-active"></button>
+                                         <button class="fa fa-sort-numeric-asc sort-desc sort-button "></button>
+                                             </div>
+                                             
+                                         <div class="alpha-sort">&nbsp; Sort:
+                                            <button class="fa fa-sort-alpha-asc sort-desc sort-button "></button>
+                                             <button class="fa fa-sort-alpha-desc sort-asc sort-button sort-active"></button>
+                                            </div>
+                                         </div>
+                                     </div>
+                                     
+                                 </div>
+   
 		<div class="padder">
 
 		<?php do_action( 'bp_before_blog_page' ); ?>
 
 		<div class="page" id="blog-page" role="main">
+                    
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
   <?php                    
 //set up page variables

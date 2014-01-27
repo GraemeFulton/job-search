@@ -12,21 +12,33 @@ do_action('enable_isotopes');
 <div id="page-container">
     
 <div id="sidebar-left">
-     <div class="filter-header">
-    <h4>Filter</h4>
+ <div id="sidebar-toggle">
+        <div id="toggle-icon">
+            <button class="fa fa-chevron-right"></button>
+        </div>
+
+    </div>
+    
+    <div class="filter-tabs">
+        <div class="filter-tab active-filter" id="filter-tab-1"><h4>Filters</h4></div>
+        <div class="filter-tab" id="filter-tab-2"><h4>More Options</h4></div>
     </div>
     
     <?php if ( function_exists( 'display_taxonomy_tree' ) ) 
         {
           $tree= display_taxonomy_tree('destination', 'destination');
 
-           echo '<div id="Type_Filter"><h4 class="filter-title">Travel Type</h4><br>';
+          //travel type filter
+           echo '<div id="Type_Filter" class="filter-tab-1"><h4 class="filter-title">Travel Type</h4><br>';
           echo '<div class="page_widget">'.widgets_on_template("Travel Type Filter")."</div></div>";
         
+          //destination filter
+          echo '<div class="filter-tab-1">';
           echo '<h3 class="filter-title"><i class="ico fa fa-plane"></i> Destination</h3>';
            echo '<div class="page_widget">'.widgets_on_template("Destination Filter")."</div>";
+           echo '</div>';
           
-           echo '<div id="Provider_Filter"><h3 class="filter-title">Travel Agent</h3>';
+           echo '<div id="Provider_Filter" class="filter-tab-2"><h3 class="filter-title">Travel Agent</h3>';
           echo '<div class="page_widget">'.widgets_on_template("Travel Provider Filter")."</div></div>";
        }
   
@@ -42,15 +54,33 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $args= array(
         'post_type'=>'travel-opportunities',
     	'paged' => $paged,
-        'orderby' => 'title',
-        'order' => 'ASC'
+        'orderby' => 'date',
+        'order' => 'DESC'
 );
 
 query_posts( $args); ?>
-                <div class='selected-travel-options'id='selected-options'></div>
 
 	<div id="content" class='main-content'  category_type='travel-opportunities' tag_type='destination' body_type="destination">
-                        
+                                <div class='selected-travel-options'id='selected-options'>
+                                    <div id="selected-options-container"></div>
+                                  
+                                    <div class="sort-by-container">
+                                         <div class="order-by">
+                                         <select id="sort-box">
+                                        <option value="" disabled="disabled" selected="selected">Order By</option>
+                                        <option value="title">Order By Title</option>
+                                        <option value="date">Order By Date</option>
+                                        </select>
+                                         </div>
+                                         <div class="sort-a-z">
+                                             &nbsp; Sort:
+                                         <button class="fa fa-sort-amount-desc sort-asc sort-button sort-active"></button>
+                                         <button class="fa fa-sort-amount-asc sort-desc sort-button "></button>
+                                         </div>
+                                     </div>
+                                    
+                                </div>
+        
 		<div class="padder">
 
 		<?php do_action( 'bp_before_blog_page' ); ?>

@@ -64,7 +64,7 @@ function reset_isotopes($){
  */
 function isotopes_init($,colWidth,offset,topOffset)
 {
-        $('#content').prepend('<img id="ajax-loader" style="margin:10px 0 0 10px;"src="'+templateUrl+'/ajax-loader.gif"/>');
+        $('#content').prepend('<img id="ajax-loader-check-box" style="margin:10px 0 0 10px;"src="'+templateUrl+'/ajax-loader.gif"/>');
 
     // cache container    
      var $blogpage = $('#blog-page');
@@ -83,7 +83,7 @@ function isotopes_init($,colWidth,offset,topOffset)
     });
     }).isotope( 'insert', $blogpage.find('.hentry') );
     
-  setTimeout(function(){$('#ajax-loader').fadeOut('medium'); }, 100);
+  setTimeout(function(){$('#ajax-loader-check-box').fadeOut('medium'); }, 100);
   setTimeout(function(){$("#loaded_content").isotope( 'reLayout' ); }, 500);
 
     

@@ -17,7 +17,9 @@
                           $_POST['location'],
                           $_POST['provider'],
                           $_POST['selected_category_type'],
-                          $_POST['search_filter']);
+                          $_POST['search_filter'],
+                          $_POST['order_by'],
+                          $_POST['sort_a_z']);
          
          switch($_REQUEST['fn'])
         {
@@ -60,6 +62,9 @@ Class Super_Filter{
         protected $selected_provider;
         protected $selected_post_type;
         protected $search_term;
+        protected $order_by;
+        protected $order_a_z;
+
         
         protected $view; //string (path of view to be loaded)
         protected $printable_name; //name for message when no posts returned
@@ -74,7 +79,9 @@ Class Super_Filter{
                             $location,
                             $selected_provider,
                             $selected_category_type,
-                            $search) 
+                            $search,
+                            $order_by,
+                            $order_a_z) 
   {      
       $this->selected_subjects= $selected_subjects;
       $this->offset= $offset;
@@ -86,6 +93,8 @@ Class Super_Filter{
       $this->selected_provider= $selected_provider;
       $this->selected_post_type=$selected_category_type;
       $this->search_term= $search;
+      $this->order_by= $order_by;
+      $this->order_a_z= $order_a_z;
   }
     
   public function create_filter($filter_type){
@@ -166,7 +175,7 @@ Class Super_Filter{
                   <br><br> Sorry, that&apos;s all the '.$this->printable_name.' we&apos;ve got matching your criteria. We&apos;re working to add more! 
                   </h2>
                   <button id="reset-filter" class="btn btn-success">Reset Filter</button>
-                   </div>';exit;
+                   </div><script>';exit;
             }
         return;
         }
@@ -225,8 +234,8 @@ Class Super_Filter{
         'post_type'=>$this->category_type,
         'paged'=>$paged,
         'posts_per_page'=>$offset,
-        'orderby' => 'title',
-        'order' => 'ASC',
+        'orderby' => $this->order_by,
+        'order' => $this->order_a_z,
         's'=>$this->search_term
     );
        

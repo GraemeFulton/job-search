@@ -32,8 +32,6 @@ $args= array(
 );
 
 query_posts( $args); ?>
-            <div id='selected-options'></div>
-
 	<div id="content"  class='main-content'>
                         
 		<div class="padder">
