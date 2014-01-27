@@ -12,6 +12,7 @@ do_action('enable_isotopes');
     
     
 <div id="sidebar-left">
+    <i class="fa fa-chevron-right"></i>
     <div class="filter-header">
     <h4>Filter</h4>
     </div>

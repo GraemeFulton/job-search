@@ -82,4 +82,3 @@
 		<?php do_action( 'bp_before_container' ); ?>
                   <div class="slider-button fixed"></div>
 
-		<div id="container">

@@ -281,8 +281,12 @@ var lastFixPos = 0;
 var threshold = 800;
 
 function scrollHandler($){
-    
+
         $(document).scroll(function () {
+             //dont run if small window size
+    if ($(window).width() < 600) {return;}
+    
+            
     var y = $(this).scrollTop();
     if (y > 115) {
         $("#sidebar-left").css({"top":"55px","height":"95%","width":"249px", "position":"fixed", "overflow-y":"scroll"});
