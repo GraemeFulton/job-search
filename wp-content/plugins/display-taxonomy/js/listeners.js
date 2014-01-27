@@ -37,8 +37,17 @@ function activate_listeners($){
    //search filter
     Search_Filter($, all_selections.Search=[]);
     
+    //scroller
     scrollHandler($);
    
+   //sidebar popout
+   popout_sidebar($);
+   filter_tab_listener($);
+   
+   //order by listner
+   order_by_listener($);
+   sort_button_listener($);
+   reset_filter_listener($);
 }
 
 
@@ -53,6 +62,7 @@ function activate_listeners($){
  */
 function tree_listener($, filter_selector, arr_object, global_var){
      
+    uncheck_parent($,filter_selector);
     
     $(filter_selector+' .dtree_tax input').change(function()
     {
@@ -130,6 +140,39 @@ function select2_search_listener($, institution_type, arr_object){
 }
 
 /*
+* Order By Listener
+
+ * @param {type} $
+ * @returns {undefined} */
+
+function order_by_listener($){
+
+    $("#sort-box").change(function(){
+           
+        order_by=this.value;
+        if(this.value=='title'){
+          $(".numeric-sort").fadeOut(function(){
+                        $(".alpha-sort").fadeIn();
+
+          });
+
+        }
+        else if(this.value=='date'){
+            $(".alpha-sort").fadeOut(function(){
+                           $(".numeric-sort").fadeIn();
+
+            });
+        }
+        
+        get_delay_apply_filter($);
+
+    });
+
+
+}
+
+
+/*
  * clear_previous_selections
  * @param {type} $
  * @returns {undefined}
@@ -138,12 +181,58 @@ function select2_search_listener($, institution_type, arr_object){
  */
 function clear_previous_selections($){
     
-    $('#input:checkbox').prop('checked', false);
+    $('input:checkbox').prop('checked', false);
     $('#myselect').attr('value','');
     
     //clear duplicate select values
     remove_duplicate_select_options($);
     
+}
+
+/*
+ * uncheck_parent
+ * e.g. if CS is checked, and we then check AI, it's still include all CS
+ * results when the search is performed. 
+ * Therefore we need to uncheck the parent, and vica versa
+ */
+function uncheck_parent($, filter_selector){
+            var child_is_checked=false;
+            var parent_is_checked=false;
+      $(filter_selector+' .dtree_tax input').change(function()
+    {
+        
+             //get the parent checkbox, and uncheck it
+           if($(this).prev().get(0).tagName=='IMG'){
+               if (child_is_checked==true)return;
+               
+              var parent=$(this).parent().parent().prevAll('.dtNode:first').children('input');
+        if(parent.is(':checked')){
+            parent_is_checked=true;
+
+            parent.click();
+        }
+                    parent_is_checked=false;
+                    
+         }
+            
+        //get the children checkbox, and uncheck it
+        var children=$(this).parent().next('.clip:first').children('.dtNode').children('input');
+        
+        if(children.length>0){
+
+           if (parent_is_checked==true)return;
+            
+           $(children).each(function(){
+               if($(this).is(':checked'))child_is_checked=true;
+               if($(this).is(':checked')){
+                    $(this).click();
+                }
+           
+           });
+            child_is_checked=false;
+        }
+   
+    });
 }
 
 
@@ -235,6 +324,17 @@ function popup_listener($){
 }
 
 
+/*
+* filter tabs
+
+ * @param {type} $
+ * @returns {undefined} */
+
+function filter_tab_listener($){
+ 
+ 
+}
+
 function scroll_up_click_reset($){
  
  $('#scrollUp').click(function(){
@@ -271,6 +371,44 @@ function Search_Filter($,search_terms){
  
 
 }
+
+/*
+* sort button listener
+
+ * @param {type} $
+ * @returns {undefined} */
+function sort_button_listener($){
+   $('.sort-button').click(function(){
+       if ( $(this).hasClass("sort-asc") ){
+           $(this).addClass('sort-active');
+           $(".sort-desc").removeClass('sort-active');
+           sort_a_z='DESC';
+               get_delay_apply_filter($);
+
+
+       }
+        if ( $(this).hasClass("sort-desc") ){
+           $(this).addClass('sort-active');
+           $(".sort-asc").removeClass('sort-active');
+             sort_a_z='ASC';
+                 get_delay_apply_filter($);
+
+
+       }
+       
+   
+   });
+ 
+}
+
+function reset_filter_listener($){
+     $('#reset-filter').click(function(){
+           //                get_delay_apply_filter($);
+ window.setTimeout('location.reload()', 1);        //  clear_previous_selections($);
+
+   });
+}
+
 /*
  * scroll
  * 
@@ -292,12 +430,12 @@ function scrollHandler($){
         $("#sidebar-left").css({"top":"55px","height":"95%","width":"249px", "position":"fixed", "overflow-y":"scroll"});
         $("#content").css({"margin-left":"249px", "border-left":"1px solid rgba(0,0,0,0.3)"});
        // $("#sidebar-right").css("top", "0px");
-        $("#selected-options").css({"position":"fixed", "top":"55px","margin-left":"249px", "width":"1000px", "z-index":"5"});
+        $("#selected-options").css({"position":"fixed", "top":"55px","width":"76%", "z-index":"5"});
    } 
     else{ 
         $("#sidebar-left").css({"top":"","height":"80%", "position":"relative","width":"", "overflow-y":""});
                 $("#content").css({"margin-left":"", "border-left": ""});
-        $("#selected-options").css({"position":"", "top":"", "margin-left":"", "width":""});
+        $("#selected-options").css({"position":"", "top":"",  "width":""});
 
     //    $("#sidebar-right").css("top", "");
      //   $("#breadcrumbs").css({"position":"relative", "top":""});
@@ -324,6 +462,60 @@ function scrollHandler($){
     
 }
 
+/*
+ * Popout Sidebar
+ * 
+ * -for mobiles-
+ *when the toggle button is clicked, this expands the left sidebar, and forces
+ *the main content to go underneath. When clicked again, the opposite happens
+ *
+ *when sidebar is open, the right arrow icon is swapped with a left arrow icon 
+ *
+ */
+
+function popout_sidebar($){
+   $('#sidebar-toggle').on('click', function(){
+       
+       if ( $("#sidebar-toggle").hasClass("sidebar-open") ){
+
+              $('#sidebar-left').animate({width:'50px'}).removeClass('sidebar-open');
+              $('#sidebar-toggle').removeClass('sidebar-open');
+              $("#toggle-icon" ).replaceWith( '<div id="toggle-icon"><button class="fa fa-chevron-right"></button></div>' );
+       }
+       else{
+
+            $('#sidebar-left').animate({width:'100%'})
+            $('#sidebar-left').addClass('sidebar-open');
+            $('#sidebar-toggle').addClass('sidebar-open');
+              $("#toggle-icon" ).replaceWith( '<div id="toggle-icon"><button class="fa fa-chevron-left"></button></div>' );
+
+       }
+   
+   });
+    
+}
+
+
+function filter_tab_listener($){
+   
+      $('#filter-tab-2').on('click', function(){
+           $('#filter-tab-2').addClass('active-filter')
+           $('#filter-tab-1').removeClass('active-filter')
+
+            $('.filter-tab-1').fadeOut('medium', function(){
+                    $('.filter-tab-2').fadeIn();
+            });
+      });
+      
+        $('#filter-tab-1').on('click', function(){
+                   $('#filter-tab-1').addClass('active-filter')
+                    $('#filter-tab-2').removeClass('active-filter')
+         
+            $('.filter-tab-2').fadeOut('medium', function(){
+               $('.filter-tab-1').fadeIn();
+            });
+      });
+}
 
 /*
  * utility function

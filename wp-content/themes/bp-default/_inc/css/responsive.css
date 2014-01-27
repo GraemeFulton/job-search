@@ -22,6 +22,21 @@ Hello, this is the BuddyPress Responsive theme stylesheet
 		margin-top: -28px !important;
 		background: #eaeaea;
 	}
+        
+        img{max-width:250px;}
+        .navbar-collapse{background:#222;}
+        #sidebar{display:none;}
+        .single-container{width:100%;display:block !important;overflow:hidden;}
+        #sidebar-toggle{display:inline;}
+        #toggle-icon{padding:8px;}
+        #sidebar-left{width:50px;background:#eaeaea}
+        #selected-options{float:left;width:100px;display:none;}
+        .single-content{width:100% !important;}
+        .sidebar-open{background:#eaeaea !important;}
+        #main_search{width:100%;padding:10px;}
+        .selected-options-padding{margin-top:4px !important;}
+
+        
 	#wpadminbar {
 		display: none;
 	}
