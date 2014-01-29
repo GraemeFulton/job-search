@@ -15,7 +15,7 @@
                        <tr class="alt"><td>Course Provider:</td><td><img style="float:left; position:relative; max-height:35px; max-width:80px;" src="<?php echo $provider['src']?>"/></td></tr>
                        <tr><td>Course Rating: </td><td><?php echo $ratings;?></td></tr>
                    </table>
-               <?php echo replace_links('<a class="btn btn-success btn-large" href="'.$link.'">Learn Now</a>');?>
+               <?php echo '<a class="btn btn-success btn-large" href="'.$link.'">Learn Now</a>';?>
                <button id='review_button' class='btn btn-success btn-large' style='background:goldenrod; border-color:goldenrod'>Write a Review</button>
                                            <?php wpfp_link(); ?>
                

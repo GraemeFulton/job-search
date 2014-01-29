@@ -14,7 +14,7 @@
                             <tr><td>Travel Agent:</td><td><img style="float:left; position:relative; max-height:35px; max-width:80px;" src="<?php echo $provider['src']?>"/></td></tr>
                             <tr class="alt"><td>Rating: </td><td><?php echo $ratings;?></td></tr>
                      </table>
-                    <?php echo replace_links('<a class="btn btn-success btn-large" href="'.$link.'">Read More</a>');?>
+                    <?php echo '<a class="btn btn-success btn-large" href="'.$link.'">Read More</a>';?>
                     <button id='review_button' class='btn btn-success btn-large' style='background:goldenrod; border-color:goldenrod'>Write a Review</button>
                                         <?php wpfp_link(); ?>
             </div>          
