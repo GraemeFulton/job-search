@@ -8,5 +8,5 @@
         <tr><td>Rating: </td><td><?php echo $ratings;?></td></tr>
     </table>
 </div>
-<?php echo replace_links('<a class="btn btn-success btn-large" href="'.$link.'">Read More</a>');?>
+<?php echo '<a class="btn btn-success btn-large" href="'.$link.'">Read More</a>';?>
 <?php  wpfp_link($this->post_id); ?>

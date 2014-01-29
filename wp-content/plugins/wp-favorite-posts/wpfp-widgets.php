@@ -257,6 +257,13 @@ elseif($post_type=='travel-opportunities'){
 	return $image=$travel_tree->get_post_image($group_parent_id, $post_id);
 
 }
+elseif($post_type=="post")
+{
+    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id), 'single-post-thumbnail' );
+    
+    return $image[0];
+}
+
 }
 
 function wpfp_get_post_title($slug){
@@ -272,6 +279,9 @@ function wpfp_get_post_title($slug){
 		
 	elseif ($slug=='travel-opportunities')
 		return '<i class="fa fa-plane"></i> Travel';
+        
+        elseif ($slug=='post')
+		return '<i class="fa fa-smile-o"></i> Posts';
 	
 
 }
@@ -288,6 +298,9 @@ return "d";
 
 elseif ($slug=='travel-opportunities')
 return "b";
+
+elseif ($slug=='post')
+return "c";
 }
 
 function wpfp_limit_post_title($title){

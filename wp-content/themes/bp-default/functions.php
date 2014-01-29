@@ -863,6 +863,9 @@ function inspired_record_more_types( $types ) {
 
 add_filter( 'bp_blogs_record_post_post_types', 'inspired_record_more_types');
 
+/*
+ * SELECT 2 SEARCH FILTER
+ */
 function select_2_search($title){
     
     $id= strtolower($title);
@@ -898,4 +901,15 @@ function select_2_search($title){
     <?php
         
     }
+    
+    /*
+     * BLOG INFO SHORTCODE
+     */
+    function digwp_bloginfo_shortcode( $atts ) {
+   extract(shortcode_atts(array(
+       'key' => '',
+   ), $atts));
+   return get_bloginfo($key);
+}
+add_shortcode('bloginfo', 'digwp_bloginfo_shortcode');
 ?>

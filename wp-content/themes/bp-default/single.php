@@ -5,7 +5,7 @@
 		<div class="padder">
 
 			<?php do_action( 'bp_before_blog_single_post' ); ?>
-
+<?php wpfp_link() ?> 
 			<div class="page" id="blog-single" role="main">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
