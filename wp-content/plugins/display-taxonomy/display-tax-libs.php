@@ -645,6 +645,13 @@ class Display_Taxonomy{
   */
  public function get_post_image($group_parent_id, $post_id){
      
+     //use featured image
+     if (has_post_thumbnail( $post_id) ){
+    $image = wp_get_attachment_image_src( get_post_thumbnail_id($post_id ), 'single-post-thumbnail' );
+    return $image[0]; 
+    
+     }
+     
   //else use anything associated to the tag:
              
          $term_id = wp_get_post_terms($post_id, $this->grouped_taxonomy_short, array("fields" => "ids"));

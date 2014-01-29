@@ -76,9 +76,8 @@ query_posts( $args); ?>
 
 	<div id="content" class='main-content'  category_type='work-experience-job' tag_type='profession' body_type="company">
 	            <div class='selected-we-options'id='selected-options'>
-                        <div id="selected-options-container"></div>
                                   
-                                        <div class="sort-by-container">
+                                      <div class="sort-by-container">
                                          <div class="order-by">
                                          <select id="sort-box">
                                         <option value="" disabled="disabled" selected="selected">Order By</option>
@@ -87,9 +86,16 @@ query_posts( $args); ?>
                                         </select>
                                          </div>
                                          <div class="sort-a-z">
-                                             &nbsp; Sort:
-                                         <button class="fa fa-sort-amount-desc sort-asc sort-button sort-active"></button>
-                                         <button class="fa fa-sort-amount-asc sort-desc sort-button "></button>
+                                             
+                                             <div class="numeric-sort">&nbsp; Sort:
+                                         <button class="fa fa-sort-numeric-desc sort-asc sort-button sort-active"></button>
+                                         <button class="fa fa-sort-numeric-asc sort-desc sort-button "></button>
+                                             </div>
+                                             
+                                         <div class="alpha-sort">&nbsp; Sort:
+                                            <button class="fa fa-sort-alpha-asc sort-desc sort-button "></button>
+                                             <button class="fa fa-sort-alpha-desc sort-asc sort-button sort-active"></button>
+                                            </div>
                                          </div>
                                      </div>
                         
@@ -158,6 +164,12 @@ $location= wp_get_post_terms($post_id, 'location', array("fields" => "names"));
    </div><!-- .page -->
 
 	<div class='sidebar-main'>
+             <a href="<?php echo site_url();?>/new-work-experience-job"<button class="btn btn-success">Add New Job</button></a>
+
+            <div id="selected-options-container"class="selected-we-options">
+        <h4 class="options-title"><i style="margin-top:-15px;"class="fa fa-search"></i> &nbsp;Selected: </h4><div class="clear_both"></div>
+                                          <div id="nothing_selected">Nothing Selected. Please use the filters available on the left to find what you want.</div>
+    </div>
 	<?php get_sidebar(); ?>
 </div>
 <?php get_footer(); ?>
