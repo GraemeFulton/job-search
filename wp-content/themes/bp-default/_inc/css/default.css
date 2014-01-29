@@ -100,6 +100,8 @@ div#page-container{
         padding-right:1px;
     
 }
+.blog-page-container{
+}
 
 div#header-quote {
 max-width: 500px;
@@ -144,7 +146,7 @@ textarea {
 }
 .single-content{
     float:left;
-    width:80% !important;
+    width:100% !important;
     background:#fff;
 }
 .main-content{
@@ -325,6 +327,13 @@ opacity:1;
     font-size:20px;
 }
 #Search_Filter{margin-top:1px;height:50px; border: 1px inset #888;margin-left:-5px;border-left:none; background:#EBEBEB}
+
+#Tag_Search_Term{
+    height: 28px;
+margin-top: 0.5px;
+font-size: 13px;
+}
+#Tag_Search_Filter{margin-top:1px;height:28px; margin-left:0px;border-left:none; background:#EBEBEB; color:gray}
 /*--------------------------------------------------------------
 2.3 - Footer
 --------------------------------------------------------------*/
@@ -393,10 +402,10 @@ width:100%;
 }
 .sidebar-single{
     background:#eaeaea;
+    margin-top:11px;
+    margin-right:0px;
     width:255px;
     float:right;
-    margin-top:11px;
-    margin-right:15px;
 }
 .sidebar-main{
     width:195px;
@@ -2819,8 +2828,19 @@ margin-bottom: 0px;
 background:#fff;
 border-bottom:1px solid cornflowerblue;
 margin-bottom: 0px;
-
 }
+.type-post .item{
+background:#fff;
+border-bottom:1px solid rgb(10, 221, 187);
+margin-bottom: 0px;
+border-top:1px solid #ccc;
+}
+.type-post .post_image{
+    border:none !important;
+    border-radius: 0px !important;
+}
+.type-post .posttitle{padding:10px !important;max-height:none !important;}
+
 .type-travel-opportunities .entry{
 background:#fff;
 border-bottom:1px solid green;
@@ -3124,7 +3144,6 @@ text-align: center;
 }
 .item{
     width: 100%;
-height: 100%;
 color: #222;
 border-radius:8px;
 }
@@ -3181,8 +3200,10 @@ FILTERS
 }
 .ico{color: #999}
 
-#selected-options{width:100%; height:auto;position:relative; float:left;
-background: #ffffff; /* Old browsers */
+#selected-options{height:auto;position:relative; float:right;
+background: rgba(255,255,255,0.9); /* Old browsers */
+z-index:5;
+border-radius:8px;
 
 
 }
@@ -3190,12 +3211,20 @@ background: #ffffff; /* Old browsers */
 .selected-tag{background:#eaeaea;color:#222; font-size:13px; padding:3px;margin-left:4px;border-radius:3px;}
 .selected-filter{cursor: pointer; margin-bottom:4px;position: relative;float:left;margin-left:5px;}
 .selected-search{cursor: pointer; margin-bottom:4px;position: relative;float:left;margin-left:5px;}
+.selected_tags{cursor: pointer; margin-bottom:4px;position: relative;float:left;margin-left:5px;}
+.selected-author{cursor: pointer; margin-bottom:4px;position: relative;float:left;margin-left:5px;}
+
+
 
 .filter-group{ margin:5px 12px 5px 5px;}
 .clear_both{clear: both; float: left; display: block; position: relative;}
 
 .selected-filter:hover{background:rgb(219, 219, 219);}
+.selected-author:hover{background:rgb(219, 219, 219);}
+.selected-search:hover{background:rgb(219, 219, 219);}
+.selected_tags:hover{background:rgb(219, 219, 219);}
 
+.selected-blog-options .selected-index{background:rgb(10, 221, 187);}
 .selected-course-options .selected-index{background:#3B5998;}
 .selected-we-options .selected-index{background: mediumslateblue;}
 .selected-job-options .selected-index{background: #EB470A;}
@@ -3229,39 +3258,7 @@ margin-top: -5px;
 	float:left;
 }
 
-.navbar-inverse{border-bottom:none; height:10px;
-/*
-PLAIN WHITE GRADIENT
-background: #ffffff;  Old browsers 
-background: -moz-linear-gradient(top,  #ffffff 0%, #f3f3f3 50%, #ededed 51%, #ffffff 100%);  FF3.6+ 
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(50%,#f3f3f3), color-stop(51%,#ededed), color-stop(100%,#ffffff));  Chrome,Safari4+ 
-background: -webkit-linear-gradient(top,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%);  Chrome10+,Safari5.1+ 
-background: -o-linear-gradient(top,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%);  Opera 11.10+ 
-background: -ms-linear-gradient(top,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%);  IE10+ 
-background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%);  W3C 
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );  IE6-9 */
-
-/*
-APPLE GRADIENT
-border-right: 1px solid #5d5d5d;
-border-left: 1px solid #929292;
-
-border-bottom: 1px solid #575757;
-border-top: 1px solid #797979;
-background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #787878), color-stop(0.5, #5E5E5E), color-stop(0.51, #707070), color-stop(1, #838383));
-background-image: -moz-linear-gradient(center bottom, #787878 0%, #5E5E5E 50%, #707070 51%, #838383 100%);
-background-color: #5f5f5f;
-
-LOSTGRAD GRADIENT
-background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #F8F8F8), color-stop(0.5, #E2E2E2), color-stop(0.51, #EBEBEB), color-stop(1, #ECECEC));
-background-image: -moz-linear-gradient(center bottom, #787878 0%, #5E5E5E 50%, #707070 51%, #838383 100%);
-background-color: #FFFFFF;
-
-background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #C0C0C0), color-stop(0.5, #BBBBBB), color-stop(0.51, #B6B6B6), color-stop(1, #DADADA));
-background-image: -moz-linear-gradient(center bottom, #787878 0%, #5E5E5E 50%, #707070 51%, #838383 100%);
-background-color: #FFFFFF;
-*/
-
+.navbar-inverse{border-bottom:none; height:50px;
 
 background: #ffffff; 
 background: -moz-linear-gradient(top,  #ffffff 0%, #f3f3f3 50%, #ededed 51%, #ffffff 100%); 
@@ -3272,7 +3269,8 @@ background: -ms-linear-gradient(top,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff
 background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%); 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );  
 
-
+/*background: -webkit-gradient(linear, center top, center bottom, from(white), to(#D3D8E8));
+background: -webkit-linear-gradient(top, white, #D3D8E8);*/
 }
 
 li.current-menu-item a{background: rgb(10, 221, 187) !important;}
@@ -3349,3 +3347,13 @@ min-height:130px;
 .order-by{float:left;}
 .sort-a-z{float:left;}
 .alpha-sort{display:none;}
+
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+/* Styles */
+.main-content{
+    width:75% !important;
+}
+}

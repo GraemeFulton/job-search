@@ -863,5 +863,39 @@ function inspired_record_more_types( $types ) {
 
 add_filter( 'bp_blogs_record_post_post_types', 'inspired_record_more_types');
 
-
+function select_2_search($title){
+    
+    $id= strtolower($title);
+               ?>
+    <div class="control-group">
+        <label for="<?php echo $id?>-filter" class="control-label"><?php echo $title?> Filter</label>
+        <div class="controls">
+          <div class="input-append">
+                
+            <select id="<?php echo $id?>-multi-append" class="select2"  style="width:80%;">
+              <option></option>
+    <?php
+    if($title=='Tag'){
+       $tags = get_tags(); 
+           foreach($tags as $tag)
+            {      
+                echo '<option value="'.$tag->slug.'" name="'.$tag->name.'">'.$tag->name.'</option>'; 
+            }
+    }
+    elseif($title=='Author'){
+         $blogusers = get_users('');
+            foreach ($blogusers as $user) {
+               echo '<option value="'.$user->user_nicename.'" name="'.$user->user_nicename.'">'.$user->user_nicename.'</option>'; 
+            }
+    }
+    ?>
+            </select>
+          </div>
+        </div>
+      </div> 
+  
+    
+    <?php
+        
+    }
 ?>

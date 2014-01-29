@@ -105,13 +105,7 @@ class Display_Taxonomy{
           </div>
         </div>
       </div> 
-   <script>
-      $('.select2').select2({ placeholder : '' });
-      
-      $('button[data-select2-open]').click(function(){
-        $('#' + $(this).data('select2-open')).select2('open');
-      });
-    </script>
+  
     
     <?php
         

@@ -126,7 +126,6 @@ function apply_cat_filter($){
  */
 function process_cat_filter($){
     
-    console.log(selected_subjects);
     //	resetCurrentActiveBox($);
     update_selected_options($);
      $('.sorry-message').remove();
@@ -144,12 +143,12 @@ function process_cat_filter($){
             'selected_subjects':selected_subjects,
             'cat':'post',
             'type':'category',
-            'selected_institutions':selected_institutions,
+            'selected_institutions':all_selections.Tags[0],//tag search for posts
             'body_type': '',
             'location': selected_locations,
-            'provider':selected_providers,
+            'provider':all_selections.Author[0],//author search for posts
             'selected_category_type':selected_category_type,
-             'search_filter':'',
+             'search_filter':all_selections.Search[0],
              'order_by':order_by,
              'sort_a_z':sort_a_z,
              'tax_or_cat':'cat'
@@ -229,7 +228,6 @@ function process_filter($, category_type, tag_type, body_type){
            },
    dataType:'HTML', 
    success: function(data){
- console.log(selected_institutions)
         //remove all boxes
         $(".hentry").remove(); 
        
@@ -400,10 +398,32 @@ function update_selected_options($){
 
         //if it's a search item:
       if(index=='Search'){
-        output+='<span class="selected-index selected-filter selected-search-index">'+index+': </span>';
+        output+='<span class="selected-index selected-filter selected-search-index">'+index+': </span><div class="clear_both"></div>';
 
         $.each(item, function(index,tag){
             output+='<span class="selected-tag selected-search">'+tag+'<i class="fa fa-times close_tag"></i></span><div class="clear_both"></div>';
+
+            
+        });
+        
+        }
+             //if it's a search item:
+      else if(index=='Tags'){
+        output+='<span class="selected-index selected-filter selected-tag-index">'+index+': </span><div class="clear_both"></div>';
+
+        $.each(item, function(index,tag){
+            output+='<span class="selected-tag selected_tags">'+tag+'<i class="fa fa-times close_tag"></i></span><div class="clear_both"></div>';
+
+            
+        });
+        
+        }
+                //if it's an Author item:
+      else if(index=='Author'){
+        output+='<span class="selected-index selected-filter selected-author-index">'+index+': </span><div class="clear_both"></div>';
+
+        $.each(item, function(index,tag){
+            output+='<span class="selected-tag selected-author">'+tag+'<i class="fa fa-times close_tag"></i></span><div class="clear_both"></div>';
 
             
         });

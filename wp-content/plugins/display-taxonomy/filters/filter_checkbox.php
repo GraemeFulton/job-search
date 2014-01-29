@@ -115,7 +115,7 @@ Class Super_Filter{
     }
     elseif($this->tax_or_cat=='cat'){
       $args= $this->category_handler($args);
-    }
+    }   
     query_posts($args);
     
    return $this->load_post_loop_view($filter_type);
@@ -127,8 +127,7 @@ Class Super_Filter{
   private function category_handler($args){
       
       $this->view="blog_post_loop.php";
-      $args=$this->taxonomy_shared_filter('category', 0, $this->selected_subjects, $args);
-
+      $args=$this->regular_taxonomy_filter('category', 0, $this->selected_subjects, $args);
       return $args;
   }
   
@@ -169,8 +168,7 @@ Class Super_Filter{
            $this->view = "travel_post_loop.php";
            $this->printable_name= "travel opportunities";
        }
-       
-       
+              
        return $args;
    }
    
@@ -254,7 +252,19 @@ Class Super_Filter{
         'order' => $this->order_a_z,
         's'=>$this->search_term
     );
-       
+     if ($this->tax_or_cat=='cat'){
+        
+           $user = get_userdatabylogin($this->selected_provider);
+           $search_tag=  str_replace(' ', '-', $this->selected_institutions);
+         
+         $args2=array(
+             'tag'=>$search_tag,
+             'author'=>$user->ID
+         );
+         
+         $args= array_merge($args, $args2);
+     }
+  
        return $args;
    }
     
