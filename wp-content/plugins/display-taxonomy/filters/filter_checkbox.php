@@ -19,7 +19,8 @@
                           $_POST['selected_category_type'],
                           $_POST['search_filter'],
                           $_POST['order_by'],
-                          $_POST['sort_a_z']);
+                          $_POST['sort_a_z'],
+                          $_POST['tax_or_cat']);
          
          switch($_REQUEST['fn'])
         {
@@ -64,6 +65,7 @@ Class Super_Filter{
         protected $search_term;
         protected $order_by;
         protected $order_a_z;
+        protected $tax_or_cat;
 
         
         protected $view; //string (path of view to be loaded)
@@ -81,7 +83,8 @@ Class Super_Filter{
                             $selected_category_type,
                             $search,
                             $order_by,
-                            $order_a_z) 
+                            $order_a_z,
+                            $tax_or_cat) 
   {      
       $this->selected_subjects= $selected_subjects;
       $this->offset= $offset;
@@ -95,6 +98,7 @@ Class Super_Filter{
       $this->search_term= $search;
       $this->order_by= $order_by;
       $this->order_a_z= $order_a_z;
+      $this->tax_or_cat= $tax_or_cat;
   }
     
   public function create_filter($filter_type){
@@ -102,19 +106,31 @@ Class Super_Filter{
     //get the post args
     $args= $this->initiate_post_args($filter_type);
     
+    if($this->tax_or_cat=='tax'){
     //query any checked subjects/professions/destinations
     $args= $this->taxonomy_shared_filter($this->tag_type, 0,$this->selected_subjects, $args);
                 
     //initiate filters depending on page types
     $args=$this->create_regular_taxonomy_filters($args);
-
+    }
+    elseif($this->tax_or_cat=='cat'){
+      $args= $this->category_handler($args);
+    }
     query_posts($args);
     
    return $this->load_post_loop_view($filter_type);
       
       
+  }
+  
+  
+  private function category_handler($args){
       
-  }  
+      $this->view="blog_post_loop.php";
+      $args=$this->taxonomy_shared_filter('category', 0, $this->selected_subjects, $args);
+
+      return $args;
+  }
   
   private function create_regular_taxonomy_filters($args){
        
@@ -175,7 +191,7 @@ Class Super_Filter{
                   <br><br> Sorry, that&apos;s all the '.$this->printable_name.' we&apos;ve got matching your criteria. We&apos;re working to add more! 
                   </h2>
                   <button id="reset-filter" class="btn btn-success">Reset Filter</button>
-                   </div><script>';exit;
+                   </div>';exit;
             }
         return;
         }

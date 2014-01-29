@@ -94,6 +94,102 @@ function apply_filter($){
    
 }
 
+/*
+ * apply_cat_filter
+ * same as above, but for category, not taxnomy
+ * @param {type} $
+ * @param {type} category_type
+ * @param {type} tag_type
+ * @param {type} body_type
+ * @returns {undefined}
+ */
+function apply_cat_filter($){
+    
+  //  $("html, body").animate({ scrollTop: 0 }, 500);
+    //filter for the url_string
+        
+        //add filter value to process filter, and collect it in the php file, then use it to filter the post
+         process_cat_filter($);
+            
+            closeActiveBox($);
+            disableClickMe($);
+            setTimeout(function(){isotopes_modal($);}, 500);
+   
+}
+
+/*
+ *process_cat_filter 
+ * @param {type} $
+ * @param {type} tax
+ * @returns {undefined}
+ * ajax filter for subject box
+ */
+function process_cat_filter($){
+    
+    console.log(selected_subjects);
+    //	resetCurrentActiveBox($);
+    update_selected_options($);
+     $('.sorry-message').remove();
+
+    //loading gif
+    $('.hentry').empty();
+    $('#content').prepend('<img id="ajax-loader-check-box" style="margin:10px 0 0 10px;"src="'+templateUrl+'/ajax-loader.gif"/>');
+
+    $.ajax({
+     url: '/LGWP/wp-admin/admin-ajax.php', 
+     type: "POST",
+     data: {
+             'action': 'check_box_filter',
+            'fn':'select',
+            'selected_subjects':selected_subjects,
+            'cat':'post',
+            'type':'category',
+            'selected_institutions':selected_institutions,
+            'body_type': '',
+            'location': selected_locations,
+            'provider':selected_providers,
+            'selected_category_type':selected_category_type,
+             'search_filter':'',
+             'order_by':order_by,
+             'sort_a_z':sort_a_z,
+             'tax_or_cat':'cat'
+           },
+   dataType:'HTML', 
+   success: function(data){
+ console.log(selected_institutions)
+        //remove all boxes
+        $(".hentry").remove(); 
+       
+       //destroy isotopes
+       var $container = $('#loaded_content');
+        $container.isotope('destroy');
+
+        // initialize isotope
+        $container.isotope({
+         masonry: {
+                    columnWidth: 0
+                  }
+         });
+               
+         $('#loaded_content').isotope( 'insert', $(data) );
+         resetCurrentActiveBox($);
+            //reinitiate ratings plugin
+         reset_filter_listener($);
+
+     //    $('.kk-star-ratings').kkstarratings();
+                  $('#ajax-loader-check-box').remove();
+       
+       setTimeout(function(){ $('#loaded_content').isotope( 'reLayout');}, 500); //prevent overlap
+
+         return false;
+     },
+             
+     error: function(errorThrown){
+               alert('error');
+               console.log(errorThrown);
+          }
+});  
+}
 
 /*
  *process_subject 
@@ -128,7 +224,8 @@ function process_filter($, category_type, tag_type, body_type){
             'selected_category_type':selected_category_type,
              'search_filter':all_selections.Search[0],
              'order_by':order_by,
-             'sort_a_z':sort_a_z
+             'sort_a_z':sort_a_z,
+             'tax_or_cat':'tax'
            },
    dataType:'HTML', 
    success: function(data){
@@ -200,7 +297,8 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
             'selected_category_type':selected_category_type,
             'search_filter':all_selections.Search[0],
             'order_by':order_by,
-            'sort_a_z':sort_a_z
+            'sort_a_z':sort_a_z,
+            'tax_or_cat':'tax'
 
            },
    dataType:'HTML', 
@@ -288,8 +386,8 @@ function process_popup_data($, popup, category, tag_type,body_type, post_id){
 
 function update_selected_options($){
  
- var selected_option_head= '<h4 class="options-title"><i style="margin-top:-15px;"class="fa fa-search"></i> &nbsp;Your Selected Options: </h4>';
-     selected_option_head+='<div class="clear_both"></div><div id="nothing_selected">Nothing Selected. Please use the filters available on the left to find what you want.</div>'
+ var selected_option_head= '<h4 class="options-title"><i style="margin-top:-15px;"class="fa fa-search"></i> &nbsp;Selected: </h4>';
+     selected_option_head+='<div class="clear_both"></div><div id="nothing_selected">Nothing Selected. Please use the filters available on the left to find what you want.</div>';
     
     
     $('#selected-options-container').empty().append(selected_option_head);
@@ -305,7 +403,7 @@ function update_selected_options($){
         output+='<span class="selected-index selected-filter selected-search-index">'+index+': </span>';
 
         $.each(item, function(index,tag){
-            output+='<span class="selected-tag selected-search">'+tag+'<i class="fa fa-times close_tag"></i></span>';
+            output+='<span class="selected-tag selected-search">'+tag+'<i class="fa fa-times close_tag"></i></span><div class="clear_both"></div>';
 
             
         });
@@ -315,20 +413,20 @@ function update_selected_options($){
         {
             //otherwise:
             
-            output+='<span class="selected-index selected-filter">'+index+': </span>';
+            output+='<span class="selected-index selected-filter">'+index+': </span><div class="clear_both"></div>';
 
             $.each(item, function(index, tag){
-               output+='<span class="selected-tag selected-filter">'+tag+'<i class="fa fa-times close_tag"></i></span>';
+               output+='<span class="selected-tag selected-filter">'+tag+'<i class="fa fa-times close_tag"></i></span><div class="clear_both"></div>';
 
             })
         }
             output+='</div>';
 
             $('#selected-options-container').append(output).addClass("selected-options-active");
-            $("#loaded_content").addClass("selected-options-padding");
 
+            $('.selected-index').hide().fadeIn(500);
+            $('.selected-tag').hide().fadeIn(500);
 
-        
     }
      
  });

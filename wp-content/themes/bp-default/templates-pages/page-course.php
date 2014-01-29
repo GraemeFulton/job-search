@@ -60,9 +60,9 @@ $args= array(
 query_posts( $args); ?>
 
 	<div id="content"  class='main-content' category_type='course' tag_type='subject' body_type="uni">
-                                 <div class='selected-course-options'id='selected-options'>
-                                     <div id="selected-options-container"></div>
+                                 <div id='selected-options'>
                                   
+
                                      <div class="sort-by-container">
                                          <div class="order-by">
                                          <select id="sort-box">
@@ -150,6 +150,12 @@ $ratings= show_ratings($post_id);
    </div><!-- .page -->
 
    <div class='sidebar-main'>
+           		<a href="<?php echo site_url();?>/new-course"<button class="btn btn-success">Add New Course</button></a>
+
+    <div id="selected-options-container"class="selected-course-options">
+        <h4 class="options-title"><i style="margin-top:-15px;"class="fa fa-search"></i> &nbsp;Selected: </h4><div class="clear_both"></div>
+                                          <div id="nothing_selected">Nothing Selected. Please use the filters available on the left to find what you want.</div>
+    </div>
 	<?php get_sidebar(); ?>
 </div>
 <?php get_footer(); ?>

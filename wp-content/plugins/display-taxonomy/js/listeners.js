@@ -16,12 +16,15 @@ function activate_listeners($){
     
   //activate listeners  
   //activate trees
-   tree_listener($,"#Subject_Filter", all_selections.Subjects=[], selected_subjects);
-   tree_listener($,"#Profession_Filter", all_selections.Professions=[], selected_subjects);
-   tree_listener($,"#Destination_Filter", all_selections.Destinations=[], selected_subjects);
-   tree_listener($,"#Provider_Filter", all_selections.Providers=[], selected_providers);
-   tree_listener($,"#Location_Filter", all_selections.Locations=[], selected_locations);
-   tree_listener($,"#Type_Filter", all_selections.Types=[], selected_category_type);
+   tree_listener($,"#Subject_Filter", all_selections.Subjects=[], selected_subjects,'.dtree_tax');
+   tree_listener($,"#Profession_Filter", all_selections.Professions=[], selected_subjects,'.dtree_tax');
+   tree_listener($,"#Destination_Filter", all_selections.Destinations=[], selected_subjects,'.dtree_tax');
+   tree_listener($,"#Provider_Filter", all_selections.Providers=[], selected_providers,'.dtree_tax');
+   tree_listener($,"#Location_Filter", all_selections.Locations=[], selected_locations,'.dtree_tax');
+   tree_listener($,"#Type_Filter", all_selections.Types=[], selected_category_type,'.dtree_tax');
+
+   tree_listener($,"#Category_Filter", all_selections.Subjects=[], selected_subjects, '.dtree_cat');
+
 
 
    //activate instituion listeneres
@@ -60,21 +63,29 @@ function activate_listeners($){
  * @returns {undefined}
  * listens for changes in the subject filter checkboxes
  */
-function tree_listener($, filter_selector, arr_object, global_var){
+function tree_listener($, filter_selector, arr_object, global_var, dtree_type){
      
     uncheck_parent($,filter_selector);
     
-    $(filter_selector+' .dtree_tax input').change(function()
+    $(filter_selector+' '+dtree_type+' input').change(function()
     {
+        console.log("change");
         if ($(this).is(':checked')) {
                 
          var term= $(this).siblings('.node').text();
 
-          global_var.push($(this).siblings('.node').attr('slug'));         
-          arr_object.push([term]);
+         
 
-            get_delay_apply_filter($)
-          
+            if(dtree_type=='.dtree_cat'){
+                global_var.push($(this).siblings('.node').attr('title'));         
+                arr_object.push([term]);
+                get_delay_apply_filter($)
+            }
+            else{
+                global_var.push($(this).siblings('.node').attr('slug'));         
+                arr_object.push([term]);
+                get_delay_apply_filter($)
+            }
         }
         else{
             var selection_name= ($(this).siblings('.node').text());
@@ -89,6 +100,7 @@ function tree_listener($, filter_selector, arr_object, global_var){
             var index = global_var.indexOf(name);
             global_var.splice(index,1);
 
+          
             get_delay_apply_filter($)
         }
     });
@@ -413,7 +425,7 @@ function reset_filter_listener($){
  * scroll
  * 
  * after the page scrolls down a bit, the left bar, and breadcrumbs
- * are positioned at the top.
+ * click to the top.
  */
 var lastFixPos = 0;
 var threshold = 800;
@@ -430,12 +442,19 @@ function scrollHandler($){
         $("#sidebar-left").css({"top":"55px","height":"95%","width":"249px", "position":"fixed", "overflow-y":"scroll"});
         $("#content").css({"margin-left":"249px", "border-left":"1px solid rgba(0,0,0,0.3)"});
        // $("#sidebar-right").css("top", "0px");
-        $("#selected-options").css({"position":"fixed", "top":"55px","width":"76%", "z-index":"5"});
+        $("#selected-options").css({"position":"fixed", "top":"55px","width":"76%", "margin":"0px"});
+        $("#selected-options-container").css({"position":"fixed", "top":"55px","right":"0px","margin":"0px"});
+
+        $(".sidebar-main").css({"margin-top":"240px", "border-top":"1px solid #ccc"});
+
    } 
     else{ 
         $("#sidebar-left").css({"top":"","height":"80%", "position":"relative","width":"", "overflow-y":""});
                 $("#content").css({"margin-left":"", "border-left": ""});
-        $("#selected-options").css({"position":"", "top":"",  "width":""});
+        $("#selected-options").css({"position":"", "top":"",  "width":"", "margin":""});
+        $("#selected-options-container").css({"position":"", "top":"",  "width":"", "margin":""});
+
+        $(".sidebar-main").css({"margin-top":"", "border-top":""});
 
     //    $("#sidebar-right").css("top", "");
      //   $("#breadcrumbs").css({"position":"relative", "top":""});
@@ -526,16 +545,20 @@ function get_delay_apply_filter($){
     
 var y = $(document).scrollTop();
     if (y < 400) { 
-    
-    apply_filter($);
+        if( $('#content').attr('category_type')) apply_filter($);
+        else apply_cat_filter($);
     }else{
         
         
         $('html,body').animate({ scrollTop: 118 }, 'medium');
-            setTimeout(function(){apply_filter($);}, 600)
+            setTimeout(function(){
+                if( $('#content').attr('category_type')) apply_filter($);
+                 else apply_cat_filter($);     
+            }, 600)
 
         
     } 
             
 
 }
+
