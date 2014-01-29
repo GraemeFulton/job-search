@@ -5,26 +5,49 @@
  * A Page for courses
 */
 
-get_header();
 do_action('enable_isotopes');
+include (TEMPLATEPATH . '/templates-headers/header-posts.php');
 
 ?>
-<div id="page-container">
+<div id="page-container" class="blog-page-container">
     
     
 <div id="sidebar-left">
-    <div class="filter-header">
-    <h4>Blog Posts</h4>
+      <div id="sidebar-toggle">
+        <div id="toggle-icon">
+            <button class="fa fa-chevron-right"></button>
+        </div>
+
     </div>
-    		<a href="<?php echo site_url();?>/new-post"<button class="btn btn-success">Add New Post</button></a>
+    
+    <div class="filter-tabs">
+        <div class="filter-tab active-filter" id="filter-tab-1"><h4>Filters</h4></div>
+        <div class="filter-tab" id="filter-tab-2"><h4>More Options</h4></div>
+    </div>
     
     <?php 
-     //Subject Filter
+     //Category Filter
           echo '<div class="filter-tab-1">';
           echo '<h3 class="filter-title"><i class="ico fa fa-book"></i> Category</h3>';
           echo '<div class="page_widget">'.widgets_on_template("Category Filter")."</div>";
           echo '</div>';
-    ?>
+          
+          echo '<div class="filter-tab-2">';
+          echo '<div class="page_widget">More Options Coming Soon!</div></div>';
+              
+     
+                    
+echo '<div class="nav-filter filter-tab-2" ><h3><i class="ico fa fa-tags"></i> Tag</h3>'; 
+select_2_search('Tag');
+          echo '</div>';   
+          
+          echo '<div class="nav-filter filter-tab-1" ><h3><i class="ico fa fa-user"></i> Author</h3>'; 
+select_2_search('Author');
+          echo '</div>';
+    
+          ?>
+    
+    
 </div>
 
 
@@ -69,7 +92,7 @@ query_posts( $args); ?>
 
 		<?php do_action( 'bp_before_blog_page' ); ?>
 
-		<div class="page" id="blog-page-standard" role="main">
+		<div class="page" id="blog-page" role="main">
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
   <?php                    
 //set up page variables
@@ -123,23 +146,15 @@ $ratings= show_ratings($post_id);
    </div><!-- .page -->
 
    <div class='sidebar-main'>
+       		<a href="<?php echo site_url();?>/new-post"<button class="btn btn-success">Add New Post</button></a>
+
+    <div id="selected-options-container"class="selected-blog-options">
+        <h4 class="options-title"><i style="margin-top:-15px;"class="fa fa-search"></i> &nbsp;Selected: </h4><div class="clear_both"></div>
+                                          <div id="nothing_selected">Nothing Selected. Please use the filters available on the left to find what you want.</div>
+    </div>
+       
+       
 	<?php get_sidebar(); ?>
 </div>
 <?php get_footer(); ?>
 </div>
-
-  <script>
-        var $container = jQuery('.main-content');
-    
-        // initialize isotope
-        $container.isotope({
-        	getSortData : {
-        	    order : function ( $elem ) {
-        	      return $elem.find('.order').text();
-        	    }
-        	  },
-         // options...
-          itemSelector: '.post',
-          sortBy : 'order' 
-        });
-        </script>
