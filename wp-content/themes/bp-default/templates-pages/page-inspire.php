@@ -1,13 +1,12 @@
 <?php 
 /*
- * Template Name: Posts (All)
+ * Template Name: Inspire
  * 
- * A Page for courses
+ * A Page for inspire
 */
 
+include (TEMPLATEPATH . '/templates-headers/header-inspire.php');
 do_action('enable_isotopes');
-include (TEMPLATEPATH . '/templates-headers/header-posts.php');
-
 ?>
 <div id="page-container" class="blog-page-container">
     
@@ -28,23 +27,18 @@ include (TEMPLATEPATH . '/templates-headers/header-posts.php');
     <?php 
      //Category Filter
           echo '<div class="filter-tab-1">';
-          echo '<h3 class="filter-title"><i class="ico fa fa-check-square-o"></i> Category</h3>';
-          echo '<div class="page_widget">'.widgets_on_template("Category Filter")."</div>";
+          echo '<h3 class="filter-title"><i class="ico fa fa-lightbulb-o"></i> &nbsp;Topics</h3>';
+          echo '<div class="page_widget">'.widgets_on_template("Topic Filter")."</div>";
           echo '</div>';
+
+ echo '<div class="nav-filter filter-tab-2" ><h3><i class="ico fa fa-tags"></i> Tags</h3>'; 
+          $tree->display_select2_box('Select Tags');
+          echo '</div>';  
           
+                    
           echo '<div class="filter-tab-2">';
           echo '<div class="page_widget">More Options Coming Soon!</div></div>';
-              
-     
-                    
-echo '<div class="nav-filter filter-tab-2" ><h3><i class="ico fa fa-tags"></i> Tag</h3>'; 
-select_2_search('Tag');
-          echo '</div>';   
-          
-          echo '<div class="nav-filter filter-tab-1" ><h3><i class="ico fa fa-user"></i> Author</h3>'; 
-select_2_search('Author');
-          echo '</div>';
-    
+                  
           ?>
     
     
@@ -55,13 +49,14 @@ select_2_search('Author');
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 $args= array(
+        'post_type'=>'inspire-posts',
     	'paged' => $paged,
         'orderby' => 'date',
         'order' => 'DESC'
 );
 
 query_posts( $args); ?>
-	<div id="content"  class='main-content'>
+	<div id="content"  class='main-content' category_type='inspire-posts' tag_type='topic' body_type="inspire-tag">
                         <div id='selected-options'>
                                   
 
@@ -122,7 +117,7 @@ $ratings= show_ratings($post_id);
            <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><button class="btn btn-success">Read More</button></a>
             
 		    </div>
-                                
+                                 
         </div><!--item-->
 
 	</div>
