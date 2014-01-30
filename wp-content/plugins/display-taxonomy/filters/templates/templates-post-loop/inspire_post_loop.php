@@ -1,9 +1,11 @@
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-  <?php                    
-//set up page variables
-$post_id=$post->ID;
+ <?php    
+                                              $tree= display_taxonomy_tree('topic', 'inspire-tag');
 
-$ratings= show_ratings($post_id);
+//set up page variables
+$post_id=get_the_ID();
+//subject/grouped taxonomy
+$subject=$tree->grouped_taxonomy_name($post_id);
 ?>                            
 
 	<div id="<?php echo $post_id; ?>" <?php post_class(); ?>>
@@ -20,13 +22,15 @@ $ratings= show_ratings($post_id);
 
             <div class="entry">     
              <?php if(has_excerpt( $post_id ))the_excerpt(); ?> 
+                <?php echo '<i class="fa fa-lightbulb-o fa-2x"></i>&nbsp;'.$subject?>
 <div class="author-box">
 						<?php echo get_avatar( get_the_author_meta( 'user_email' ), '50' ); ?>
+						<p><?php printf( _x( 'by %s', 'Post written by...', 'buddypress' ), str_replace( '<a href=', '<a rel="author" href=', bp_core_get_userlink( $post->post_author ) ) ); ?></p>
 					</div>
            <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><button class="btn btn-success">Read More</button></a>
             
 		    </div>
-                                
+                                 
         </div><!--item-->
 
 	</div>
@@ -38,5 +42,5 @@ $ratings= show_ratings($post_id);
 			<?php endwhile; endif; ?>
                                                         
 
-                                
+                                                
 <?php do_action( 'bp_after_blog_page' ); ?>

@@ -3278,8 +3278,7 @@ background: -ms-linear-gradient(top,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff
 background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%); 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );  
 
-/*background: -webkit-gradient(linear, center top, center bottom, from(white), to(#D3D8E8));
-background: -webkit-linear-gradient(top, white, #D3D8E8);*/
+background:#fff;
 }
 
 li.current-menu-item a{background: rgb(10, 221, 187) !important;}
@@ -3305,7 +3304,7 @@ li.current-menu-item.travel-menu a{color:#fff !important;background:green !impor
 
 .inspire-menu{border-top:3px solid #FFCB05!important;}
 li.current-menu-item.inspire-menu a{color:#fff !important;background:#FFCB05 !important; }
-li.inspire-menu a {color: #FFCB05!important;}
+li.inspire-menu a {color: goldenrod!important;}
 
 /*
 .home-navbar li.travel-menu a{color:#f8f8f8 !important;}
