@@ -168,6 +168,13 @@ Class Super_Filter{
            $this->view = "travel_post_loop.php";
            $this->printable_name= "travel opportunities";
        }
+       elseif($this->category_type=='inspire-posts'){
+        
+           $args= $this->regular_taxonomy_filter('inspire-tag', 3, $this->selected_institutions, $args);  
+
+           $this->view = "inspire_post_loop.php";
+           $this->printable_name= "inspire posts";
+       }
               
        return $args;
    }

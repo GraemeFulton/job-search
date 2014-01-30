@@ -22,6 +22,7 @@ function activate_listeners($){
   //activate trees
    tree_listener($,"#Subject_Filter", all_selections.Subjects=[], selected_subjects,'.dtree_tax');
    tree_listener($,"#Profession_Filter", all_selections.Professions=[], selected_subjects,'.dtree_tax');
+   tree_listener($,"#Topic_Filter", all_selections.Topics=[], selected_subjects,'.dtree_tax');
    tree_listener($,"#Destination_Filter", all_selections.Destinations=[], selected_subjects,'.dtree_tax');
    tree_listener($,"#Provider_Filter", all_selections.Providers=[], selected_providers,'.dtree_tax');
    tree_listener($,"#Location_Filter", all_selections.Locations=[], selected_locations,'.dtree_tax');
@@ -32,6 +33,7 @@ function activate_listeners($){
    //activate instituion listeners
    select2_search_listener($, 'company', all_selections.Company=[]);
    select2_search_listener($, 'uni',all_selections.University=[]);
+   select2_search_listener($, 'inspire-tag',all_selections.Tag=[]);
 
    //activate post page listeners
    select2_single_filter_listener($, 'tag',all_selections.Tags=[]);

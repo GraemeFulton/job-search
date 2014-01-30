@@ -74,6 +74,10 @@ Class Popup_Filter{
                   $this->template = 'job';
 
          }
+         elseif($this->category=='inspire-posts'){
+                    
+                  $this->template = 'inspire';
+         }
      }
        
      /*
@@ -99,6 +103,11 @@ Class Popup_Filter{
          $ratings = $this->show_ratings($this->post_id);
          
          $link = $this->get_link($tree);
+         
+         if($this->category=="inspire-posts"){
+             $content= $this->get_content_by_id($this->post_id);
+             $full_content=$this->generateVideoEmbeds($content);
+         }
          
          //return html view
          if($page==true){
@@ -190,6 +199,11 @@ private function get_excerpt_by_id($post_id){
         return $the_excerpt;
 }
 
+private function get_post_content($post_id){
+            $the_post = get_post($post_id); //Gets post ID
+           return $the_content= $the_post->post_content; //Gets post_content to be used as a basis for the excerpt   
+}
+
 /*
  * http://wordpress.stackexchange.com/questions/9667/get-wordpress-post-content-by-post-id
  */
@@ -218,13 +232,49 @@ private function show_ratings($post_id){
 
     
 }
-       
-       
-    
-          
-          
-        
-        
+
+/**
+ * Finds youtube videos links and makes them an embed.
+ * search: http://www.youtube.com/watch?v=xg7aeOx2VKw
+ * search: http://www.youtube.com/embed/vx2u5uUu3DE
+ * search: http://youtu.be/xg7aeOx2VKw
+ * replace: <iframe width="560" height="315" src="http://www.youtube.com/embed/xg7aeOx2VKw" frameborder="0" allowfullscreen></iframe>
+ *
+ * @param string
+ * @return string
+ * @see http://stackoverflow.com/questions/6621809/replace-youtube-link-with-video-player
+ * @see http://stackoverflow.com/questions/5830387/how-to-find-all-youtube-video-ids-in-a-string-using-a-regex
+ */
+function generateVideoEmbeds($text) {
+    // No youtube? Not worth processing the text.
+    if ((stripos($text, 'youtube.') === false) && (stripos($text, 'youtu.be') === false)) {
+        return $text;
+    }
+
+    $search = '@          # Match any youtube URL in the wild.
+        [^"\'](?:https?://)?  # Optional scheme. Either http or https; We want the http thing NOT to be prefixed by a quote -> not embeded yet.
+        (?:www\.)?        # Optional www subdomain
+        (?:               # Group host alternatives
+          youtu\.be/      # Either youtu.be,
+        | youtube\.com    # or youtube.com
+          (?:             # Group path alternatives
+            /embed/       # Either /embed/
+          | /v/           # or /v/
+          | /watch\?v=    # or /watch\?v=
+          )               # End path alternatives.
+        )                 # End host alternatives.
+        ([\w\-]{8,25})    # $1 Allow 8-25 for YouTube id (just in case).
+        (?:               # Group unwanted &feature extension
+            [&\w-=%]*     # Either &feature=related or any other key/value pairs
+        )
+        \b                # Anchor end to word boundary.
+        @xsi';
+
+    $replace = '> <div id="youtube_player-'.$this->post_id.'"><iframe width="450" height="315" src="http://www.youtube.com/embed/$1" frameborder="0" allowfullscreen></iframe></div>';
+    $text = preg_replace($search, $replace, $text);
+
+    return $text;
+}
         
     }
 ?>
