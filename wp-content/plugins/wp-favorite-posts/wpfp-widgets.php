@@ -257,6 +257,10 @@ elseif($post_type=='travel-opportunities'){
 	return $image=$travel_tree->get_post_image($group_parent_id, $post_id);
 
 }
+elseif($post_type=='inspire-posts'){
+          $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id), 'single-post-thumbnail' );
+          return $image[0];
+}
 elseif($post_type=="post")
 {
     $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id), 'single-post-thumbnail' );
@@ -269,19 +273,22 @@ elseif($post_type=="post")
 function wpfp_get_post_title($slug){
 
 	if ($slug=='course'){
-		return '<i class="fa fa-book"></i> Courses';
+		return '<i class="fa fa-book fa-2x"></i> Courses';
 	}
 	elseif ($slug=='graduate-job')
-		return '<i class="fa fa-crosshairs"></i> Graduate Jobs';
+		return '<i class="fa fa-bullseye fa-2x"></i> Graduate Jobs';
 		
 	elseif ($slug=='work-experience-job')
-		return '<i class="fa fa-crosshairs"></i> Work Experience';
+		return '<i class="fa fa-crosshairs fa-2x"></i> Work Experience';
 		
 	elseif ($slug=='travel-opportunities')
-		return '<i class="fa fa-plane"></i> Travel';
+		return '<i class="fa fa-plane fa-2x"></i> Travel';
         
         elseif ($slug=='post')
-		return '<i class="fa fa-smile-o"></i> Posts';
+		return '<i class="fa fa-smile-o fa-2x"></i> Posts';
+	
+         elseif ($slug=='inspire-posts')
+		return '<i class="fa fa-lightbulb-o fa-2x"></i>&nbsp; Inspire';
 	
 
 }
@@ -299,8 +306,11 @@ return "d";
 elseif ($slug=='travel-opportunities')
 return "b";
 
+elseif ($slug=='inspire-posts')
+return "e";
+
 elseif ($slug=='post')
-return "c";
+return "f";
 }
 
 function wpfp_limit_post_title($title){

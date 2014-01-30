@@ -91,9 +91,9 @@ query_posts( $args); ?>
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
   <?php                    
 //set up page variables
-$post_id=$post->ID;
-
-$ratings= show_ratings($post_id);
+$post_id=get_the_ID();
+//subject/grouped taxonomy
+$subject=$tree->grouped_taxonomy_name($post_id);
 ?>                            
 
 	<div id="<?php echo $post_id; ?>" <?php post_class(); ?>>
@@ -110,6 +110,7 @@ $ratings= show_ratings($post_id);
 
             <div class="entry">     
              <?php if(has_excerpt( $post_id ))the_excerpt(); ?> 
+                <?php echo '<i class="fa fa-lightbulb-o fa-2x"></i>&nbsp;'.$subject?>
 <div class="author-box">
 						<?php echo get_avatar( get_the_author_meta( 'user_email' ), '50' ); ?>
 						<p><?php printf( _x( 'by %s', 'Post written by...', 'buddypress' ), str_replace( '<a href=', '<a rel="author" href=', bp_core_get_userlink( $post->post_author ) ) ); ?></p>
