@@ -45,7 +45,7 @@ function isotopes_pre_init($)
 
 function reset_isotopes($){
     
-     $container= $('#blog-page');
+     $container= $('#loaded_content');
                        $container.isotope('destroy');
 
                         // initialize isotope
@@ -145,7 +145,7 @@ function isotopes_modal($){
 //                        $('.ui-widget-overlay').css('background', 'white');
 $("#main-overlay").fadeIn();
 
-                          $("#blog-page").isotope( 'reLayout' ); 
+                          $("#loaded_content").isotope( 'reLayout' ); 
                        $(this).closest(".isotope-item").css("z-index", "6");
                         });
   
@@ -164,10 +164,10 @@ $("#main-overlay").fadeIn();
                  "top":"0"
                 },300,"linear",function()
                 {
-                   $("#blog-page").isotope( 'reLayout' ); 
+                   $("#loaded_content").isotope( 'reLayout' ); 
                 });
              
-         $("#blog-page").isotope( 'reLayout' ); 
+         $("#loaded_content").isotope( 'reLayout' ); 
          enableClickMe($);
        };
 
@@ -260,7 +260,7 @@ $('.close_box').bind('click',function(){
                 },300,"linear",function()
                 {
                        
-               var $container= $('#blog-page');
+               var $container= $('#loaded_content');
                        $container.isotope('destroy');
 
                         // initialize isotope
