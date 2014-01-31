@@ -45,7 +45,7 @@ function isotopes_pre_init($)
 
 function reset_isotopes($){
     
-     $container= $('#loaded_content');
+   var  $container= $('#loaded_content');
                        $container.isotope('destroy');
 
                         // initialize isotope
@@ -218,7 +218,7 @@ function closeActiveBox($){
                  "top":"0"
                 },300,"linear",function()
                 {
-                    $("#blog-posts").isotope( 'reLayout' ); 
+                    $("#loaded_content").isotope( 'reLayout' ); 
                     
                 });
                      $(".activepost .clickme").css("z-index", "999");
@@ -229,7 +229,7 @@ function closeActiveBox($){
      //     closeActiveBox($);
               enableClickMe($);	
 
-           $("#blog-posts").isotope( 'reLayout' ); 
+        //   $("#loaded_content").isotope( 'reLayout' ); 
 }
 
 
