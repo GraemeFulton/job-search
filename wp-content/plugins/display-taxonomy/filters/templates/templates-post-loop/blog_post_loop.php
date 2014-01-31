@@ -1,7 +1,8 @@
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
   <?php                    
 //set up page variables
-$post_id=$post->ID;
+$post_id=get_the_ID();
+
 
 $ratings= show_ratings($post_id);
 ?>                            
@@ -10,11 +11,9 @@ $ratings= show_ratings($post_id);
           <div class="item">
               		<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>
           <?php if($url){?>
-    			<div class="post_image">
-    			<div class="course_post_image">
-<img src="<?php echo $url; ?>" longdesc="URL_2" alt="Text_2" />
-    			</div>
-                 </div>
+    		           <div class="post_image post_image_<?php echo $post_id?> is-loading">
+                                            <img class="course_post_image advert_image" src=""/> 
+                                         </div>
 <?php }?>
 			<h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 

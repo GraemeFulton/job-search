@@ -129,6 +129,8 @@ Class Super_Filter{
   private function category_handler($args){
       
       $this->view="blog_post_loop.php";
+      $this->printable_name="posts";
+      
       $args=$this->regular_taxonomy_filter('category', 0, $this->selected_subjects, $args);
       return $args;
   }

@@ -155,10 +155,10 @@ function process_cat_filter($){
            },
    dataType:'HTML', 
    success: function(data){
- console.log(selected_institutions)
         //remove all boxes
         $(".hentry").remove(); 
-       
+
+        var parsedData = JSON.parse(data);
        //destroy isotopes
        var $container = $('#loaded_content');
         $container.isotope('destroy');
@@ -170,17 +170,18 @@ function process_cat_filter($){
                   }
          });
                
-         $('#loaded_content').isotope( 'insert', $(data) );
+         $('#loaded_content').isotope( 'insert', $(parsedData[0]) );
+         
+         setTimeout(function(){insert_images($, parsedData);}, 750);
+
+         
          resetCurrentActiveBox($);
-            //reinitiate ratings plugin
+         //reinitiate ratings plugin
          reset_filter_listener($);
 
-     //    $('.kk-star-ratings').kkstarratings();
-                  $('#ajax-loader-check-box').remove();
-       
-       setTimeout(function(){ $('#loaded_content').isotope( 'reLayout');}, 500); //prevent overlap
-
-         return false;
+         $('#ajax-loader-check-box').remove();
+        
+          return false;
      },
              
      error: function(errorThrown){
@@ -231,7 +232,6 @@ function process_filter($, category_type, tag_type, body_type){
    success: function(data){
         //remove all boxes
         $(".hentry").remove(); 
-       
        var parsedData = JSON.parse(data);
        
        //destroy isotopes
@@ -246,11 +246,7 @@ function process_filter($, category_type, tag_type, body_type){
              }
          });
         $container.isotope( 'insert', ( $(parsedData[0])) )
-        // trigger isotope again after images have been loaded
-//        .imagesLoaded( function() {
-//            $container.isotope('reLayout');
-//            
-//        });
+
               setTimeout(function(){insert_images($, parsedData);}, 750);
 
         resetCurrentActiveBox($);
