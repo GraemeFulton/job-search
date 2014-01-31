@@ -15,6 +15,8 @@
 	</head>
 
 	<body <?php body_class(); ?> id="bp-default">
+                        <div id="main-overlay"></div>
+
       <!-- Fixed navbar -->
     <div class="navbar navbar-inverse navbar-fixed-top home-navbar" role="navigation">
       <div class="container">
