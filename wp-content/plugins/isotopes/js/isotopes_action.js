@@ -1,10 +1,6 @@
 jQuery(window).ready(function ($) {
 
-//$(".item").addClass("isotope-item");
-
    isotopes_pre_init($);
-   
-  // scrollHandler($);
 });
 
 
@@ -49,8 +45,17 @@ function isotopes_pre_init($)
 
 function reset_isotopes($){
     
-    $("#loaded_content").isotope( 'reLayout' );    
-     
+     $container= $('#blog-page');
+                       $container.isotope('destroy');
+
+                        // initialize isotope
+                        $container.isotope({
+                         masonry: {
+                                    columnWidth: 0
+                                  }
+                         });    
+     	    $("#main-overlay").fadeOut();
+
 }
 
 
@@ -71,29 +76,37 @@ function isotopes_init($,colWidth,offset,topOffset)
   var $container = $('#loaded_content');
 
     // initialize isotope
-    $container.imagesLoaded(function(){
+
+        
     $container.isotope({
      // options...
       itemSelector: '.hentry',
         masonry: {
-           columnWidth: 0
+                   layoutMode : 'fitRows'
+
         }
     
   
-    });
-    }).isotope( 'insert', $blogpage.find('.hentry') );
-    
+    })           
+
+   .isotope( 'insert', $blogpage.find('.hentry') );
+   $('#blog-page').show();
+    setTimeout(function(){$('.post_image').removeClass('is-loading');}, 1000);
+    setTimeout(function(){$container.isotope('reLayout');}, 1050);
+
   setTimeout(function(){$('#ajax-loader-check-box').fadeOut('medium'); }, 100);
-  setTimeout(function(){$("#loaded_content").isotope( 'reLayout' ); }, 500);
+  //setTimeout(function(){$("#loaded_content").isotope( 'reLayout' ); }, 500);
 
     
     isotopes_modal($);
 }
 
 function isotopes_modal($){
-    
-   $('.clickme').click(function(){ 
-        disableClickMe($);
+     $(" .clickme").unbind('click');
+    popup_listener($);
+   $('.clickme').on('click',function(){ 
+
+       disableClickMe($);
 
        if(! $(this).closest(".isotope-item").hasClass("activepost"))
        {//if it isnt the active post
@@ -128,8 +141,11 @@ function isotopes_modal($){
                
                         },200,function()
                         {
-                  //      
-                          $("#loaded_content").isotope( 'reLayout' ); 
+//                        $(this).closest(".isotope-item").dialog('open');  
+//                        $('.ui-widget-overlay').css('background', 'white');
+$("#main-overlay").fadeIn();
+
+                          $("#blog-page").isotope( 'reLayout' ); 
                        $(this).closest(".isotope-item").css("z-index", "6");
                         });
   
@@ -148,10 +164,10 @@ function isotopes_modal($){
                  "top":"0"
                 },300,"linear",function()
                 {
-                   $("#loaded_content").isotope( 'reLayout' ); 
+                   $("#blog-page").isotope( 'reLayout' ); 
                 });
              
-         $("#loaded_content").isotope( 'reLayout' ); 
+         $("#blog-page").isotope( 'reLayout' ); 
          enableClickMe($);
        };
 
@@ -174,8 +190,6 @@ function disableClickMe($){
 function enableClickMe($){
    
             isotopes_modal($);	
-            
-            popup_listener($);
             graylien_infinite_scroll($);
                 
 }
@@ -188,7 +202,6 @@ function closeActiveBox($){
     
     //if there's already an active box, don't need to run this
   //  if(!$(".activepost").length > 0)return;       
-    
 
            $(".clickme").closest(".isotope").removeClass("activepost_edge");
            $(".clickme").closest(".activepost").children('.pop-out').hide();
@@ -205,7 +218,7 @@ function closeActiveBox($){
                  "top":"0"
                 },300,"linear",function()
                 {
-                    $("#loaded_content").isotope( 'reLayout' ); 
+                    $("#blog-posts").isotope( 'reLayout' ); 
                     
                 });
                      $(".activepost .clickme").css("z-index", "999");
@@ -216,7 +229,7 @@ function closeActiveBox($){
      //     closeActiveBox($);
               enableClickMe($);	
 
-           $("#loaded_content").isotope( 'reLayout' ); 
+           $("#blog-posts").isotope( 'reLayout' ); 
 }
 
 
@@ -225,7 +238,8 @@ function closeBoxHandler($, post_id){
 
 $('.close_box').unbind('click');
 $('.close_box').bind('click',function(){ 
-	
+	    $("#main-overlay").fadeOut();
+
            $(this).parent(".item").removeClass("activepost").removeClass("activepost_edge");
            $(this).parent(".item").removeClass("activepost_edger").removeClass("activepost_edge");
             $(this).siblings(".clickme").css("z-index", "1");
@@ -245,19 +259,28 @@ $('.close_box').bind('click',function(){
                  "top":"0"
                 },300,"linear",function()
                 {
-                    
+                       
+               var $container= $('#blog-page');
+                       $container.isotope('destroy');
+
+                        // initialize isotope
+                        $container.isotope({
+                         masonry: {
+                                    columnWidth: 0
+                                  }
+                         });
+
                 });
               
          $(this).remove();
          enableClickMe($);	
-                          $("#loaded_content").isotope( 'reLayout' ); 
         
             //stop any video
-            setTimeout(function(){
-                    var video = $("#youtube_player-"+post_id+"").children(":first").attr("src");
-                $("#youtube_player-"+post_id+"").children(":first").attr("src","");
-                $("#youtube_player-"+post_id+"").children(":first").attr("src",video);
-            }, 850)
+//            setTimeout(function(){
+//                    var video = $("#youtube_player-"+post_id+"").children(":first").attr("src");
+//                $("#youtube_player-"+post_id+"").children(":first").attr("src","");
+//                $("#youtube_player-"+post_id+"").children(":first").attr("src",video);
+//            }, 850)
 
 	});
 
@@ -274,9 +297,7 @@ function resetCurrentActiveBox($){
   
     closeActiveBox($);
     disableClickMe($);
-    setTimeout(function(){reset_isotopes($);isotopes_modal($);
-    popup_listener($);
-    
+    setTimeout(function(){reset_isotopes($);isotopes_modal($);   
     }, 100);
     
     

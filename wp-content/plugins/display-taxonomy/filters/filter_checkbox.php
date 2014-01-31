@@ -38,7 +38,7 @@
              break;
         }
  
-        $output=json_encode($output);
+       $output=json_encode($output);
         
         if(is_array($output))
         {
@@ -116,10 +116,12 @@ Class Super_Filter{
     elseif($this->tax_or_cat=='cat'){
       $args= $this->category_handler($args);
     }   
-    query_posts($args);
+   $qp= query_posts($args);
     
-   return $this->load_post_loop_view($filter_type);
-      
+ //  return $this->load_post_loop_view($filter_type);
+   $output= [$this->load_post_loop_view($filter_type), $this->printposts($qp)]; 
+    return $output;
+            
       
   }
   
@@ -184,27 +186,34 @@ Class Super_Filter{
         if (!have_posts()){
          
             if ($filter_type=='select'){
-              echo '<div class="sorry-message hentry" style="width:100%">
+              return '<div class="sorry-message hentry" style="width:100%">
                   <h2 class="no-more" style="width:100%">
                    <br><br> Sorry, we don&apos;t have any '.$this->printable_name.' matching this criteria at the moment, please try a different filter.
                    </h2>
-                   <button id="reset-filter" class="btn btn-success">Reset Filter</button></div>';exit;
+                   <button id="reset-filter" class="btn btn-success">Reset Filter</button></div>';
             }
             elseif ($filter_type=='scroll'){
-              echo '<div class="sorry-message hentry" style="width:100%">
+              return '<div class="sorry-message hentry" style="width:100%">
                   <h2 class="no-more" >
                   <br><br> Sorry, that&apos;s all the '.$this->printable_name.' we&apos;ve got matching your criteria. We&apos;re working to add more! 
                   </h2>
                   <button id="reset-filter" class="btn btn-success">Reset Filter</button>
-                   </div>';exit;
+                   </div>';
             }
         return;
         }
         else{
+
+        ob_start(); //start the output buffer
         include('templates/templates-post-loop/'.$this->view);      
+        //include the specified file
+        $output_buffer = ob_get_contents(); 
+        //return the contents of the output buffer
+        ob_end_clean(); 
+        //remove the output buffer contents and end output buffering
+        return $output_buffer;
+                
         }
-        wp_reset_query();
-        exit;
     }
     
     /*
@@ -274,6 +283,26 @@ Class Super_Filter{
   
        return $args;
    }
+   
+   
+   
+   /*
+    * getting the images individually
+    */
     
+    function printposts($qp){   
+    $posts=$qp;
+    
+    foreach ( $posts as $key => $post ) 
+    {
+        $posts[ $key ]->image= get_the_image($post->ID);
+        
+    }
+    
+    $pagedposts=array();
+    $pagedposts['posts']=$posts;
+
+    return $pagedposts;
+    }
 }
 ?>

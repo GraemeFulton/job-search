@@ -24,7 +24,9 @@ Author URI: http://gfulton.me.uk
     
     
     function isotopes_simple_js(){
-    	wp_enqueue_script('isotopes', plugins_url('/js/isotopes.js',__FILE__) );	 
+    	wp_enqueue_script('isotopes', plugins_url('/js/isotopes.js',__FILE__) );
+        wp_enqueue_script('imagesloaded', plugins_url('/js/imagesloaded.js',__FILE__) );	 
+
     }
     add_action( 'wp_enqueue_scripts', 'isotopes_simple_js' );
         

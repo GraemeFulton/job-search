@@ -109,8 +109,8 @@ $ratings= show_ratings($post_id);
 				<div id="<?php echo $post_id; ?>" <?php post_class(); ?>>
                                     <div class="item">
     
-                                          <div class="post_image">
-                                            <img class="travel_post_image" src="<?php echo $post_image?>"/> 
+                                        <div class="post_image is-loading">
+                                            <img class="travel_post_image advert_image" src="<?php echo $post_image?>"/> 
                                          </div>
 
 				<h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
