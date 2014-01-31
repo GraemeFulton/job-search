@@ -2793,7 +2793,7 @@ border-radius:8px;
 
 #loaded_content{
 	margin:0px auto;
-	width:715px;
+/*	width:715px;*/
 }
 
 .entry{color:#666;overflow:hidden; padding:3px 10px 3px 10px; border-radius:8px; }
@@ -2877,9 +2877,41 @@ margin-bottom: 0px;
     border-top-right-radius: 8px;
 border-top-left-radius: 8px;
 }
+/*.advert_image{display:none;}*/
+.is-loading {
+  background-color: black;
+  background-image: url('http://desandro.github.io/imagesloaded/assets/loading.gif');
+  height:150px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.is-loading img,
+.is-broken img {
+  opacity: 0;
+}
+.is-broken {
+  background-image: url('http://desandro.github.io/imagesloaded/assets/broken.png');
+  background-color: #be3730;
+}
+.filter_hide{
+    -moz-opacity: 0;
+    opacity: 0;
+    -moz-transform: scale(0.01);
+    -webkit-transform: scale(0.01);
+    -o-transform: scale(0.01);
+    -ms-transform: scale(0.01);
+    transform: scale(0.01);
+}
+
+
 
 .post_image img{
     
+  -webkit-transition: opacity 0.4s;
+     -moz-transition: opacity 0.4s;
+      -ms-transition: opacity 0.4s;
+          transition: opacity 0.4s;
     position: relative; max-width:100%;
 }
 
@@ -3094,11 +3126,20 @@ margin-bottom: -48px;}
 
 .activepost{
     width:505px !important;height:auto!important;
-box-shadow: 1px 1px 10px 5000px rgba(12,12,12,0.78);
     z-index:99999 !important;
     background:#fff;
     padding:25px !important;
 }
+
+#main-overlay{
+    width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.6);
+position: fixed;
+z-index: 6;
+display:none;
+}
+
 .activepost .posttitle{
     padding:10px;
     margin-bottom:5px;
