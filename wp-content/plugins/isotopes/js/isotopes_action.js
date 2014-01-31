@@ -103,9 +103,11 @@ function isotopes_init($,colWidth,offset,topOffset)
 
 function isotopes_modal($){
      $(" .clickme").unbind('click');
+     $(" .clickme").bind('click');
+
     popup_listener($);
    $('.clickme').on('click',function(){ 
-
+console.log('clik')
        disableClickMe($);
 
        if(! $(this).closest(".isotope-item").hasClass("activepost"))

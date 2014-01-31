@@ -40,7 +40,7 @@ function activate_listeners($){
    select2_single_filter_listener($, 'author',all_selections.Author=[]);
 
    //popup listener
-   popup_listener($);
+   //popup_listener($);
    
    //reset when scrollup 
    scroll_up_click_reset($);
