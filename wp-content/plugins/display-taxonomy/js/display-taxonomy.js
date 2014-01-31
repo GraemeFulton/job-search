@@ -315,7 +315,7 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
        
    var $container = $('#loaded_content');
     
-    $container.isotope( 'insert', $(parsedData[0]) )
+    $container.isotope( 'insert', $(parsedData[0]) );
         // trigger isotope again after images have been loaded
       setTimeout(function(){insert_images($, parsedData);}, 1100);
                
@@ -323,6 +323,8 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
          
      $('#ajax-loader-scroll').remove();
     //rebind infinitescroll
+     resetCurrentActiveBox($);
+
     graylien_infinite_scroll($);
     reset_filter_listener($);
 
