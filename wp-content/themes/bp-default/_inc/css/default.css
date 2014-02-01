@@ -1,4 +1,4 @@
-se/*--------------------------------------------------------------
+/*--------------------------------------------------------------
 Hello, this is the BuddyPress Default theme stylesheet.
 
 ----------------------------------------------------------------
@@ -3409,4 +3409,15 @@ and (min-width : 1824px) {
 .main-content{
     width:75% !important;
 }
+}
+
+/*
+*Popup
+*/
+.job-expiry{
+    color: rgb(255, 255, 255);
+background: rgb(190, 20, 20);
+font-weight: bold;
+padding: 4px;
+border-radius: 8px;
 }
