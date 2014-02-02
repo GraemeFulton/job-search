@@ -3,7 +3,6 @@
      
       <div class='single_post_content'>
           
-            <div id="single_youtube_player"><?php echo $video?></div>
 
             <div class="single_datagrid">
                          <?php echo $post_image?>
@@ -14,21 +13,24 @@
                             <tr><td>Travel Agent:</td><td><img style="float:left; position:relative; max-height:35px; max-width:80px;" src="<?php echo $provider['src']?>"/></td></tr>
                             <tr class="alt"><td>Rating: </td><td><?php echo $ratings;?></td></tr>
                      </table>
-                    <?php echo '<a class="btn btn-success btn-large" href="'.$link.'">Read More</a>';?>
+                    <?php echo '<a class="btn btn-success btn-large" target="_blank" href="'.$link.'">Visit Source</a>';?>
                     <button id='review_button' class='btn btn-success btn-large' style='background:goldenrod; border-color:goldenrod'>Write a Review</button>
                                         <?php wpfp_link(); ?>
-            </div>          
-
-          
-          
-            <h4>Description</h4>
-           <?php echo $the_content?>
-
-            <div id='single_ratings'>
+                       <div id='single_ratings'>
                   <h5>Reviews</h5>
                   <?php   echo do_shortcode('[WPCR_INSERT]' )?> 
             </div>
-      </div>
+            </div>          
+
+          
+            <div class="single_cont">
+                  <div id="single_youtube_player"><?php echo $video?></div>
+
+            <h4>Description</h4>
+           <?php echo $the_content?>
+
+            </div>
+     </div>
  </div>
 
    <script>

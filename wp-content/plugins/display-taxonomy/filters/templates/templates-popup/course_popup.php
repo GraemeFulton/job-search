@@ -9,7 +9,8 @@
         <tr class="alt"><td>Course Rating: </td><td><?php echo $ratings;?></td></tr>
     </table>
 </div>
-<?php echo '<a class="btn btn-success btn-large" href="'.$link.'">Learn Now</a>';?>
+<?php echo '<a class="btn btn-success btn-large" href="'.get_permalink( $this->post_id ).'">Read More</a>';?>
+<?php echo ' <a class="btn btn-success btn-large enroll" target="_blank" href="'.$link.'">Enroll</a>';?>
 <?php wpfp_link($this->post_id); ?>
 <script>
     var $= jQuery;

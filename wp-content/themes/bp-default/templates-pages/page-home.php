@@ -21,7 +21,7 @@ include (TEMPLATEPATH . '/templates-headers/header-home.php');
         ------------------>
       
 		<div class="home-slider-area">
-		
+                    <div class="center-wrapper">
 		<!-- slider -->
 		<?php echo do_shortcode("[promoslider]"); ?>
 		
@@ -40,41 +40,42 @@ include (TEMPLATEPATH . '/templates-headers/header-home.php');
 				<?php echo do_shortcode('[widgets_on_pages id="Login Widget"]'); ?>
 		
 		</div>
-		
+                    </div>
 		</div>
         
         <!----------------
         ------area 2 -----
         ------------------>
         <div class="featured-area">
-        
-        <div id="Members_Feed">
-        <h2><i class="ico fa fa-users"></i> Members</h2>
-        <?php 
-echo do_shortcode('[widgets_on_pages id="Members Box"]');
-?>
-<!-- <h4><i class="ico fa fa-users"></i> Groups</h4> -->
-<?php 
-//echo do_shortcode('[widgets_on_pages id="Groups Box"]');
-?>
-<h2><i class="ico fa fa-comments-o"></i> Member Activity</h2>
-<?php 
-echo do_shortcode('[widgets_on_pages id="Member Feed"]');
-?>
+            <div class="center-wrapper">
+                        <div id="Members_Feed">
+                        <h2><i class="ico fa fa-users"></i> Members</h2>
+                        <?php 
+                echo do_shortcode('[widgets_on_pages id="Members Box"]');
+                ?>
+                <!-- <h4><i class="ico fa fa-users"></i> Groups</h4> -->
+                <?php 
+                //echo do_shortcode('[widgets_on_pages id="Groups Box"]');
+                ?>
+                <h2><i class="ico fa fa-comments-o"></i> Member Activity</h2>
+                <?php 
+                echo do_shortcode('[widgets_on_pages id="Member Feed"]');
+                ?>
 
-</div>
+                </div>
 
-<?php
-$post_types=['course', 'travel-opportunities','graduate-job', 'work-experience-job'];
+                <?php
+                $post_types=['course', 'travel-opportunities','graduate-job', 'work-experience-job'];
 
-echo '<div id="Featured_Content">';
-echo '<h2><i class="ico fa fa-star-o"></i> Featured</h2>';
-foreach($post_types as $type){
+                echo '<div id="Featured_Content">';
+                echo '<h2><i class="ico fa fa-star-o"></i> Featured</h2>';
+                foreach($post_types as $type){
 
-do_shortcode('[profile_favourites slug="'.$type.'" user="admin"]');
-//echo '<button class="profile-bookmark-item btn btn-success">See All</button>';
+                do_shortcode('[profile_favourites slug="'.$type.'" user="admin"]');
+                //echo '<button class="profile-bookmark-item btn btn-success">See All</button>';
 
-}
-?>
+                }
+                ?>
+          </div>
 </div><!-- featured area -->
 </div>

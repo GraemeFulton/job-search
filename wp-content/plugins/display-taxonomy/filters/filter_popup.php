@@ -87,9 +87,7 @@ Class Popup_Filter{
      public function template_response($page){
          
          $tree= $this->get_taxonomy_tree();
-         
-         $video = $this->get_video($tree);
-         
+        
          $institution = $this->get_institution_name($tree);
          
          $subject= $this->get_subject($tree);
@@ -100,9 +98,21 @@ Class Popup_Filter{
          
          $excerpt = $this->get_excerpt_by_id($this->post_id);
          
-         $ratings = $this->show_ratings($this->post_id);
          
          $link = $this->get_link($tree);
+         
+         if($this->category=="course"){
+            $instructor = $this->get_instructor($tree);    
+            $start_date = $tree->get_course_start_date($this->post_id);
+            $course_length=$tree->get_course_length($this->post_id);
+            $ratings = $this->show_ratings($this->post_id);
+
+         }
+         
+         if($this->category=='travel'){
+              $ratings = $this->show_ratings($this->post_id);
+
+         }
          
          if($this->category=="inspire-posts"){
              $content= $this->get_content_by_id($this->post_id);
@@ -111,8 +121,11 @@ Class Popup_Filter{
          
          //return html view
          if($page==true){
+             $video = $this->get_video($tree);
              $the_content= $this->get_content_by_id($this->post_id);
              $post_image = $this->show_post_image($tree);
+                           $ratings = $this->show_ratings($this->post_id);
+
               include('templates/templates-single/'.$this->template.'_single.php');
          }
          else{
@@ -133,6 +146,11 @@ Class Popup_Filter{
         return $tree->show_embedded_video($this->post_id);
      }
      
+       private function get_instructor($tree){
+         
+         return $tree->get_course_instructor($this->post_id);
+
+     }
      
      private function get_subject($tree){
          
@@ -172,7 +190,6 @@ Class Popup_Filter{
 
      }
      
-         
      private function get_institution_name($tree){
          
          return $tree->get_linked_taggroup_or_tag($this->post_id, '', ''); 

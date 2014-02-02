@@ -28,7 +28,8 @@ $location= $this->get_jobs_location($tree);
         
     </table>
 </div>
-<?php echo '<a class="btn btn-success btn-large" href="'.$link.'">Apply Now</a>';?>
+<?php echo '<a class="btn btn-success btn-large" href="'.get_permalink( $this->post_id ).'">Read More</a>';?>
+<?php echo ' <a class="btn btn-success btn-large apply" target="_blank" href="'.$link.'">Apply Now</a>';?>
 <?php wpfp_link($this->post_id); ?>
 <script>
     var $= jQuery;

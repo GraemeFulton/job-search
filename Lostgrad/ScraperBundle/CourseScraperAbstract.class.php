@@ -17,7 +17,8 @@ public function updateCourseDetails
             $courseSubject,
             $youtube,
             $tags,
-            $provider
+            $provider,
+            $instructor
            )
   {
          $course = new Course();
@@ -41,9 +42,10 @@ public function updateCourseDetails
         $course->youtube= $youtube;
         $course->courseProvider=$provider;
         $course->courseURL= $courseURL;
+        $course->courseInstructor= $instructor;
        
         //post content requires as much detail as possible, for accurate searches
-        $content=$courseContent.$this->build_additional_content($courseSubject, $universityName, $provider);
+        $content=$courseContent.$this->build_additional_content($courseSubject, $universityName, $provider, $instructor);
         
         //add to database:
         $this->submitPost($wpdb, $courseTitle, $content,$courseExcerpt, $coursePhoto, $tags, 'course',$course);
@@ -58,14 +60,15 @@ public function updateCourseDetails
    
     
     
-  private function build_additional_content($courseSubject, $universityName, $provider){
+  private function build_additional_content($courseSubject, $universityName, $provider, $instructor){
       
       $additional_content = '<div class="additional_content"><p>';
       
       $additional_content.='University: '.$universityName;
       $additional_content.=' | Subject: '.$courseSubject;
       $additional_content.=' | Provider: '.$provider;
-      
+      $additional_content.=' | Instructor: '.$instructor;
+
       $additional_content.='</p></div>';
       
       return $additional_content;

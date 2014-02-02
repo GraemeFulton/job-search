@@ -91,6 +91,7 @@ function isotopes_init($,colWidth,offset,topOffset)
 
    .isotope( 'insert', $blogpage.find('.hentry') );
    $('#blog-page').show();
+    //         setTimeout(function(){$('#blog-more').fadeIn(1000);}, 750);
     setTimeout(function(){$('.post_image').removeClass('is-loading');}, 1000);
     setTimeout(function(){$container.isotope('reLayout');}, 1050);
 

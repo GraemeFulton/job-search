@@ -123,7 +123,6 @@ body.activity-permalink div#container {
 --------------------------------------------------------------*/
 div#content {
 position: relative;
-min-height: 900px;
 border-left:1px solid #ccc;
 border-radius:0px;
 }
@@ -2785,7 +2784,7 @@ GRID VIEW
 
 #blog-page .hentry, #loaded_content .hentry, #blog-page-standard .hentry, #loaded_content .hentry
 {
-width:210px;
+width:29%;
 padding: 0px;
 margin: 12px 14px 12px 14px;
 border-radius:8px;
@@ -2881,7 +2880,7 @@ border-top-left-radius: 8px;
 .is-loading {
   background-color: black;
   background-image: url('http://desandro.github.io/imagesloaded/assets/loading.gif');
-  height:150px;
+  min-height:150px;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -2936,6 +2935,11 @@ border-top-left-radius: 8px;
 .navbar-nav > li > a .fa-2x{margin-top:-10px !important}
 .fa-lightbulb-o{margin-right:-8px;}
 
+.center-wrapper{
+    max-width:1250px;
+margin: 0 auto;
+    
+}
 
 .home-show-case{
 	background: rgb(71, 187, 168);
@@ -2945,6 +2949,13 @@ color:#fff;
 }
 .home-page-btn{float:left; margin-left:5px;}
 .homepage-button{height:50px; margin-right:2px}
+
+.enroll{background:#0367b0 !important;border-color:#0362a7;}
+.apply{background:rgba(218, 104, 15, 1) !important; border-color:rgba(218, 104, 15, 1) !important;}
+
+.single_cont{float: right;
+width: 48%;}
+
 #Login_Widget{margin-left:-15px;}
 
 .lwa table{
@@ -3108,14 +3119,14 @@ color:#fff !important;
 .datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover { text-decoration: none;border-color: #7D7D7D; color: #F5F5F5; background: none; background-color:#8C8C8C;}
 
 #single_ratings{float:left; width:100%; position:relative;margin-top:10px;}
-#single_youtube_player{float:left; width:45%;position:relative; margin-bottom: 20px;}
-.single_datagrid{width:48%;float:right; position:relative; margin:0px 10px 10px 10px;z-index: 500;}
+#single_youtube_player{ position:relative; margin-bottom: 20px;}
+.single_datagrid{width:48%;float:left; position:relative; margin:0px 10px 10px 10px;z-index: 500;}
 #wpcr_button_1{visibility: hidden;}
 #single_ratings h5{margin-bottom:-48px;background:#f8f8f8; width:100%; padding:8px; }
 .wpcr_status_msg div{margin-top: 48px;
 margin-bottom: -48px;}
-.single_post_content{position:relative;padding:5px;}
-.single_post_content h4{background:#f8f8f8; width:49%; padding:8px; margin-bottom:5px; }
+.single_post_content{position:relative;padding:5px;float:left;width:100%;}
+.single_post_content h4{background:#f8f8f8; width:100%; padding:8px; margin-bottom:5px; }
 .single_content{float:left; padding:5px;width:100%;}
 #single_post_image{ display: block;
     margin-left: auto;
@@ -3134,11 +3145,12 @@ margin-bottom: -48px;}
 #main-overlay{
     width: 100%;
 height: 100%;
-background: rgba(0,0,0,0.6);
+background: rgba(0,0,0,0.85);
 position: fixed;
 z-index: 6;
 display:none;
 }
+
 
 .activepost .posttitle{
     padding:10px;
@@ -3334,8 +3346,12 @@ li.course-menu a{color:rgb(23, 51, 255) !important;}
 .job-menu{border-top:3px solid rgba(255, 112, 0, 1) !important;}
 li.current-menu-item.job-menu a{color:#fff !important;background:rgba(255, 112, 0, 1) !important;}
 li.job-menu a{color:#FF7A00 !important;}
+.job-menu.current-menu-ancestor{color:#fff !important;background:rgba(255, 112, 0, 1) !important;}
+.job-menu.current-menu-ancestor a{color:#fff !important;}
 
 .we-menu{border-top:3px solid rgba(204, 0, 255, 1) !important;}
+.we-menu.current-menu-ancestor{color:#fff !important;background: rgba(204, 0, 255, 1) !important;}
+.we-menu.current-menu-ancestor a{color:#fff !important;}
 li.current-menu-item.we-menu a{color:#fff !important;background:rgba(204, 0, 255, 1) !important; }
 li.we-menu a {color: rgb(240, 17, 240) !important;}
 
@@ -3409,6 +3425,10 @@ and (min-width : 1824px) {
 .main-content{
     width:75% !important;
 }
+.is-loading{
+    min-height:240px;
+
+}
 }
 
 /*
@@ -3420,4 +3440,40 @@ background: rgb(190, 20, 20);
 font-weight: bold;
 padding: 4px;
 border-radius: 8px;
+}
+#blog-more{
+   
+padding: 10px 5px;
+font-family: sans-serif;
+font-size: 14px;
+line-height: 20px;
+text-align: center;
+text-decoration: none;
+text-shadow: 0 1px 0 #fff;
+color: #828282;
+-webkit-box-shadow: 0 0px 2px 1px rgba(0, 0, 0, 0.2);
+-moz-box-shadow: 0 0px 2px 1px rgba(0, 0, 0, 0.2);
+box-shadow: 0 0px 2px 1px rgba(0, 0, 0, 0.2);
+background-color: #E6E6E6;
+background-image: -moz-linear-gradient(top, #EBEBEB, #DEDEDE);
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#EBEBEB), to(#DEDEDE));
+background-image: -webkit-linear-gradient(top, #EBEBEB, #DEDEDE);
+background-image: -o-linear-gradient(top, #EBEBEB, #DEDEDE);
+background-image: linear-gradient(to bottom, #EBEBEB, #DEDEDE);
+background-repeat: repeat-x;
+-webkit-transition: bottom 150ms linear;
+-moz-transition: bottom 150ms linear;
+transition: bottom 150ms linear;
+    
+    width: 100px;
+height: 50px;
+float: left;
+bottom: -100px;
+left: 48%;
+position: absolute;
+visibility: hidden;
+}
+#blog-more:hover{
+    cursor:pointer;
+    
 }

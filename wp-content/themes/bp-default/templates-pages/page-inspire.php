@@ -135,7 +135,8 @@ $subject=$tree->grouped_taxonomy_name($post_id);
 	</div><!-- #content -->
         
         <div id="loaded_content"></div>
-       
+               <div id="blog-more"><p>Load More</p></div>
+
         </div><!-- .padder -->
    </div><!-- .page -->
 
