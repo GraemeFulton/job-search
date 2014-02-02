@@ -15,6 +15,7 @@ class Course
     protected $courseURL="";
     
     protected $course_type="Free";
+    protected $courseInstructor="";
 
     /**
      * Access modifier to set protected properties
@@ -93,6 +94,20 @@ class Course
                 $course_url,
                 array( '%d', '%s', '%s' )
             );
+            
+            //INSERT COURSE-INSTRUCTOR
+             //INSERT COURSE-URL   
+              $course_instructor = array(
+                'post_id' => $last_insert_id,
+                'meta_value'=>$this->courseInstructor,
+                'meta_key'=>'wpcf-course-instructor'
+            );
+            $wpdb->insert(
+                'wp_postmeta', 
+                $course_instructor,
+                array( '%d', '%s', '%s' )
+            );
+            
             
            //INSERT PROVIDER-COURSE-ID   
               $provider_course_id = array(

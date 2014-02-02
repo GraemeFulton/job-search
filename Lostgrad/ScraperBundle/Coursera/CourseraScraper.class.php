@@ -60,7 +60,8 @@ public function scrape($wpdb)
                 $courseSubject,
                 $youtube,
                 'Coursera',//tags
-                'Coursera'//provider
+                'Coursera',//provider
+                $instructor
                 );
          
             $totalSubmitted+=1;

@@ -4,8 +4,10 @@ jQuery(document).ready(function ($) {
 
     graylien_infinite_scroll($);     
     
+   // if(jQuery('.we-menu.active').length){jQuery('.job-menu.current-menu-parent').removeClass(".job-menu.current-menu-ancestor").addClass('we-menu we-menu.current-menu-ancestor')}
+    
   //$("#tree").fancytree("option", "checkbox", true);
-
+//load_more_button_listener($);
 });
 
 /*
@@ -35,7 +37,7 @@ var sort_a_z=[];
  */
 var isLoadingData;
 function graylien_infinite_scroll($){
-     
+  //   load_more_button_listener($);
      //make sure it's not bound from the start
      $(window).unbind('scroll.load_more');
      
@@ -64,6 +66,31 @@ function graylien_infinite_scroll($){
 });
 
     
+}
+
+
+/*
+ * load_more_button
+ * @param {type} $
+ * @returns {undefined}
+ * listens for click of load more button, and loads more posts
+ */
+function load_more_button_listener($){
+ $('#blog-more').click(function(event){
+     $('#blog-more').hide();
+       event.preventDefault();
+        var postoffset = $('.hentry').length;
+        var category_type= $('#content').attr('category_type');
+        var tag_type= $('#content').attr('tag_type');
+        var body_type= $('#content').attr('body_type');
+
+ // console.log("offset: "+postoffset);
+
+  process_filter_scroll($,postoffset, category_type, tag_type, body_type);
+              isLoadingData=true;
+            setTimeout(function(){isotopes_modal($);}, 500);
+             setTimeout(function(){$('#blog-more').fadeIn(2000);}, 1200);
+ });  
 }
 
 /*
@@ -472,28 +499,6 @@ function remove_duplicate_select_options($){
     });
 }
 
-
-/*
- * load_more_button
- * @param {type} $
- * @returns {undefined}
- * listens for click of load more button, and loads more posts
- */
-//function load_more_button_listener($){
-// $('#blog-more').click(function(event){
-//       event.preventDefault();
-//        var postoffset = $('.hentry').length;
-//        var category_type= $('#content').attr('category_type');
-//        var tag_type= $('#content').attr('tag_type');
-//
-// // console.log("offset: "+postoffset);
-//
-//  process_filter_scroll($,postoffset, category_type, tag_type, body_type);
-// });  
-//}
-
-
-
 //function printResults($,data){
 // console.log(data);
 // 
@@ -546,9 +551,12 @@ function insert_images($, data){
                 
          $matchingElem.children('.advert_image').attr('src',this.image )
          
-         .imagesLoaded( function() {
+         .imagesLoaded( function() {  
+     
+             $container.isotope('reLayout');
+
           }).progress( function( instance, image ) {
-  
+              
                 var $item = $( image.img ).parent();
                 
                 if ( !image.isLoaded ) {
@@ -570,7 +578,7 @@ function insert_images($, data){
 
 });
       
-    },480)
+    },300)
 
 
 }

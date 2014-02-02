@@ -141,11 +141,11 @@ $ratings= show_ratings($post_id);
                                 
 <?php do_action( 'bp_after_blog_page' ); ?>
                     
-	
 	</div><!-- #content -->
         
         <div id="loaded_content"></div>
-       
+        <div id="blog-more"><p>Load More</p></div>
+
         </div><!-- .padder -->
    </div><!-- .page -->
 

@@ -702,6 +702,32 @@ if($this->grouped_taxonomy_short!='company'){
         
     }
     
+    public function get_course_instructor($post_id){
+              
+        $instructor= do_shortcode("[types field='course-instructor' id='".$post_id."]");
+
+        if($instructor)
+        return $instructor;
+        else return "N/A";
+    }    
+    
+       public function get_course_start_date($post_id){
+              
+        $start_date= do_shortcode("[types field='start-date' id='".$post_id."]");
+
+        if($start_date)
+        return $start_date;
+        else return "N/A";
+    }    
+    
+    public function get_course_length($post_id){
+         $length= do_shortcode("[types field='course-length' id='".$post_id."]");
+
+        if($length)
+        return $length;
+        else return "N/A";
+        
+    }
     
     public function types_post_type($post_id, $field, $display){
         
