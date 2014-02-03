@@ -276,13 +276,13 @@ elseif($post_type=="post")
 function wpfp_get_post_title($slug){
 
 	if ($slug=='course'){
-		return '<i class="fa fa-book fa-2x"></i> Courses';
+		return '<i class="fa fa-book fa-2x"></i> Learn';
 	}
 	elseif ($slug=='graduate-job')
-		return '<i class="fa fa-bullseye fa-2x"></i> Graduate Jobs';
+		return '<i class="fa fa-bullseye fa-2x"></i> Work';
 		
 	elseif ($slug=='work-experience-job')
-		return '<i class="fa fa-crosshairs fa-2x"></i> Work Experience';
+		return '<i class="fa fa-gears fa-2x"></i> Experience';
 		
 	elseif ($slug=='travel-opportunities')
 		return '<i class="fa fa-plane fa-2x"></i> Travel';
