@@ -202,11 +202,10 @@ function wpfp_lostgrad_widget_control() {
 
 		$slug=$args['slug'];
 		$username=$args['user'];
-                if($username="me"){
+                if($username=="me"){
                       global $bp;
                     $username=$bp->displayed_user->fullname;
                 }
-    	global $bp;
     	$favorite_post_ids = wpfp_get_users_favorites($username);
         
     	include("templates/tab_favourites.php");
