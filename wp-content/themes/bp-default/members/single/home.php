@@ -10,7 +10,7 @@
 get_header( 'buddypress' ); ?>
 <div class='single-container'>
 
-	<div id="content" class='single_content'>
+	<div id="content" class='single_content single_content_profile'>
 		<div class="padder">
 
 			<?php do_action( 'bp_before_member_home_content' ); ?>

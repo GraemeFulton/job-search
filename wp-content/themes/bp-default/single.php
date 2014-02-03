@@ -1,16 +1,19 @@
 <?php get_header(); ?>
 
 <div class='single-container'>
-	<div id="content" class='single-content'>
+	<div id="content" class='single-content single-page'>
 		<div class="padder">
 
 			<?php do_action( 'bp_before_blog_single_post' ); ?>
-<?php wpfp_link() ?> 
 			<div class="page" id="blog-single" role="main">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+<?php
+$post_id=  get_the_ID();
+$image_src=get_the_image($post_id);
 
-				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+?>
+				<div id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
 
 					<div class="author-box">
 						<?php echo get_avatar( get_the_author_meta( 'user_email' ), '50' ); ?>
@@ -19,9 +22,9 @@
 
 					<div class="post-content">
 						<h2 class="posttitle"><?php the_title(); ?></h2>
-
 						<p class="date">
 							<?php printf( __( '%1$s <span>in %2$s</span>', 'buddypress' ), get_the_date(), get_the_category_list( ', ' ) ); ?>
+                                                       <span class="bookmark-post-icon"><?php wpfp_link($post_id); ?></span>
 							<span class="post-utility alignright"><?php edit_post_link( __( 'Edit this entry', 'buddypress' ) ); ?></span>
 						</p>
 
@@ -29,7 +32,9 @@
 							<?php the_content( __( 'Read the rest of this entry &rarr;', 'buddypress' ) ); ?>
 
 							<?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) ); ?>
-						</div>
+						<img src="<?php echo $image_src;?>" class="archive_image"/>
+
+                                                </div>
 
 						<p class="postmetadata"><?php the_tags( '<span class="tags">' . __( 'Tags: ', 'buddypress' ), ', ', '</span>' ); ?>&nbsp;</p>
 

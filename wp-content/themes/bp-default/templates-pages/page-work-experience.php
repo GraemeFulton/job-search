@@ -166,7 +166,6 @@ $location= wp_get_post_terms($post_id, 'location', array("fields" => "names"));
    </div><!-- .page -->
 
 	<div class='sidebar-main'>
-             <a href="<?php echo site_url();?>/new-work-experience-job"<button class="btn btn-success">Add New Job</button></a>
 
             <div id="selected-options-container"class="selected-we-options">
         <h4 class="options-title"><i style="margin-top:-15px;"class="fa fa-search"></i> &nbsp;Selected: </h4><div class="clear_both"></div>

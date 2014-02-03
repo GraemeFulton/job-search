@@ -13,7 +13,7 @@ get_header( 'buddypress' ); ?>
 
 <div class='single-container'>
 
-	<div id="content"class='single_content'>
+	<div id="content"class='single_content single_content_white'>
 		<div class="padder">
 
 		<?php do_action( 'bp_before_directory_groups' ); ?>
@@ -47,7 +47,7 @@ get_header( 'buddypress' ); ?>
 				</ul>
 			</div><!-- .item-list-tabs -->
 
-			<div class="item-list-tabs" id="subnav" role="navigation">
+			<div class="item-list-tabs groupsdir" id="subnav" role="navigation">
 				<ul>
 
 					<?php do_action( 'bp_groups_directory_group_types' ); ?>

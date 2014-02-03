@@ -12,7 +12,7 @@
 
 <div class='single-container'>
 
-	<div id="content"class='single_content'>
+	<div id="content"class='single_content single_content_profile'>
 		<div class="padder">
 
 			<?php do_action( 'bp_before_member_settings_template' ); ?>
@@ -48,6 +48,7 @@
 
 					</ul>
 				</div><!-- .item-list-tabs -->
+        <div class="edit-profile-form-area">
 
 				<h3><?php _e( 'Delete Account', 'buddypress' ); ?></h3>
 
@@ -85,7 +86,7 @@
 				</form>
 
 				<?php do_action( 'bp_after_member_body' ); ?>
-
+        </div>
 			</div><!-- #item-body -->
 
 			<?php do_action( 'bp_after_member_settings_template' ); ?>

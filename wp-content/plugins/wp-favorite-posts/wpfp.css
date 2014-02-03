@@ -12,6 +12,7 @@
 	padding: 12px;
 	border: 1px solid #eaeaea;
 	background:#fff;
+        border-radius:20px;
 }
 
 .post-favourite-group-title{
@@ -19,12 +20,14 @@
 }
 
 .tab-post-favourite-group{
-	margin: 14px;
+	
 	width: 908px;
 	float: left;
-	padding: 12px;
+	padding: 20px;
+        margin:20px;
 	border: 1px solid #eaeaea;
 	background:#fff;
+        border-radius: 20px;
 }
 
 

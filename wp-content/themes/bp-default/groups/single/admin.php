@@ -3,6 +3,7 @@
 		<?php bp_group_admin_tabs(); ?>
 	</ul>
 </div><!-- .item-list-tabs -->
+       <div class="edit-profile-form-area">
 
 <form action="<?php bp_group_admin_form_action(); ?>" name="group-settings-form" id="group-settings-form" class="standard-form" method="post" enctype="multipart/form-data" role="main">
 
@@ -371,3 +372,4 @@
 
 </form><!-- #group-settings-form -->
 
+</div>

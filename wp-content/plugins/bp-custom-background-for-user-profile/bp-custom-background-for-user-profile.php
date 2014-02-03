@@ -268,7 +268,7 @@ function inject_css(){
         $repeat_type = 'repeat';
     ?>
 <style type="text/css">
-body.is-user-profile{
+body.is-user-profile .single_content{
     background: url(<?php echo $image_url;?>);
 	background-repeat: <?php echo $repeat_type; ?>;
 }

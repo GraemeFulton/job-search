@@ -6,7 +6,7 @@
 	<?php do_action( 'bp_inside_before_sidebar' ); ?>
 
 	<?php if ( is_user_logged_in() ) : ?>
-
+            <style>.widget_loginwithajaxwidget{display:none;}</style>
 		<?php do_action( 'bp_before_sidebar_me' ); ?>
 
 		<div id="sidebar-me">
@@ -18,7 +18,6 @@
 
                          <div class="profile-buttons">
 
-			<h4><?php echo bp_core_get_userlink( bp_loggedin_user_id() ); ?></h4>
                         <?php echo '<p class="profile-button"><a href="'.bp_loggedin_user_domain().'profile"><i class="fa fa-user"></i> My Profile</a></p>' ?>
                <br>    <?php echo '<p class="profile-button"><a href="'.bp_loggedin_user_domain().'backpack"><i class="fa fa-briefcase"></i> My Backpack</a></p>' ?>
                <br>    <?php echo '<p class="profile-button"><a href="'.bp_loggedin_user_domain().'activity"><i class="fa fa-comments-o"></i> My Activity</a></p>' ?>
@@ -52,21 +51,7 @@
 
 		<?php endif; ?>
 
-		<form name="login-form" id="sidebar-login-form" class="standard-form" action="<?php echo site_url( 'wp-login.php', 'login_post' ); ?>" method="post">
-			<label><?php _e( 'Username', 'buddypress' ); ?><br />
-			<input type="text" name="log" id="sidebar-user-login" class="input" value="<?php if ( isset( $user_login) ) echo esc_attr(stripslashes($user_login)); ?>" tabindex="97" /></label>
-
-			<label><?php _e( 'Password', 'buddypress' ); ?><br />
-			<input type="password" name="pwd" id="sidebar-user-pass" class="input" value="" tabindex="98" /></label>
-
-			<p class="forgetmenot"><label><input name="rememberme" type="checkbox" id="sidebar-rememberme" value="forever" tabindex="99" /> <?php _e( 'Remember Me', 'buddypress' ); ?></label></p>
-
-			<input type="submit" name="wp-submit" id="sidebar-wp-submit" value="<?php _e( 'Log In', 'buddypress' ); ?>" tabindex="100" />
-
-			<?php do_action( 'bp_sidebar_login_form' ); ?>
-
-			<input type="hidden" name="testcookie" value="1" />
-		</form>
+	
 
 		<?php do_action( 'bp_after_sidebar_login_form' ); ?>
 
