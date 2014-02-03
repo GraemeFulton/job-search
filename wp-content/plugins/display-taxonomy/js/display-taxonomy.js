@@ -465,7 +465,11 @@ function update_selected_options($){
 
             $('.selected-index').hide().fadeIn(500);
             $('.selected-tag').hide().fadeIn(500);
-
+            
+            $('#selected-options-container').removeClass('normalHighlight').addClass('animateHighlight');
+            setTimeout(function(){
+                  $('#selected-options-container').removeClass('animateHighlight').addClass('normalHighlight');
+            }, 1500)
     }
      
  });
@@ -582,3 +586,22 @@ function insert_images($, data){
 
 
 }
+
+/*
+* animatie highlight
+* 
+* http://stackoverflow.com/questions/275931/how-do-you-make-an-element-flash-in-jquery
+* Usage example:
+
+$("div").animateHighlight("#dd0000", 1000);
+* 
+ */
+ 
+function animateHighlight(div,highlightColor, duration) {
+    var highlightBg = highlightColor || "#222";
+    var animateMs = duration || 1500;
+    var originalBg = div.css("backgroundColor");
+    alert(originalBg)
+    div.addClass('highlight');
+   
+};
