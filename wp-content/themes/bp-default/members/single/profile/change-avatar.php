@@ -13,15 +13,19 @@
 
 			<?php wp_nonce_field( 'bp_avatar_upload' ); ?>
 			<p><?php _e( 'Click below to select a JPG, GIF or PNG format photo from your computer and then click \'Upload Image\' to proceed.', 'buddypress' ); ?></p>
+                              <span id="filename"></span>
+                            <p id="avatar-upload">
 
-			<p id="avatar-upload">
-                            <span class="fileinput-button">
-                                <span class="btn btn-primary">Choose Image</span>
+                            <div class="fileinput-button">
+                                <span class="btn btn-primary">Choose Image</span><br>
                                 <input type="file" name="file" id="file" />
-                            </span>
+                            </div>
+                            <div style="float:left">
 				<input class="btn btn-success" type="submit" name="upload" id="upload" value="<?php _e( 'Upload Image', 'buddypress' ); ?>" />
 				<input type="hidden" name="action" id="action" value="bp_avatar_upload" />
+                            </div>
 			</p>
+                        <br><div class="clear_both"></div><hr style="background:#fff">
 
 			<?php if ( bp_get_user_has_avatar() ) : ?>
 				<p><?php _e( "If you'd like to delete your current avatar but not upload a new one, please use the delete avatar button.", 'buddypress' ); ?></p>
@@ -62,3 +66,17 @@
 
 <?php do_action( 'bp_after_profile_avatar_upload_content' ); ?>
        </div>
+
+ <script>
+  jQuery('#fileinput-button').click(function(e) {
+     e.stopImmediatePropagation();
+     console.log('triggered');
+  });
+
+  jQuery('input[type=file]').bind('change', function() {
+    var str = "";
+    str = jQuery(this).val();
+    str = jQuery(this).val().replace(/C:\\fakepath\\/i, '');
+    jQuery("#filename").text('Filename: '+str);
+  }).change();
+ </script>

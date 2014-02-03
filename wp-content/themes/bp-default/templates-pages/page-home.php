@@ -65,7 +65,7 @@ include (TEMPLATEPATH . '/templates-headers/header-home.php');
                 </div>
 
                 <?php
-                $post_types=['course', 'travel-opportunities','graduate-job', 'work-experience-job'];
+                $post_types=['course', 'work-experience-job','graduate-job', 'travel-opportunities'];
 
                 echo '<div id="Featured_Content">';
                 echo '<h2><i class="ico fa fa-star-o"></i> Featured</h2>';
@@ -75,6 +75,9 @@ include (TEMPLATEPATH . '/templates-headers/header-home.php');
                 //echo '<button class="profile-bookmark-item btn btn-success">See All</button>';
 
                 }
+                echo '<div class="inspire-featured">';
+                do_shortcode('[profile_favourites slug="inspire-posts" user="admin"]');
+                echo '</div>';
                 ?>
           </div>
 </div><!-- featured area -->

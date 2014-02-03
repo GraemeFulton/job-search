@@ -21,18 +21,20 @@ $image_src=get_the_image($post_id);
 					</div>
 
 					<div class="post-content">
-						<h2 class="posttitle"><?php the_title(); ?></h2>
-						<p class="date">
+                                            <p class="date">
 							<?php printf( __( '%1$s <span>in %2$s</span>', 'buddypress' ), get_the_date(), get_the_category_list( ', ' ) ); ?>
                                                        <span class="bookmark-post-icon"><?php wpfp_link($post_id); ?></span>
 							<span class="post-utility alignright"><?php edit_post_link( __( 'Edit this entry', 'buddypress' ) ); ?></span>
 						</p>
+						<h2 class="posttitle"><?php the_title(); ?></h2>
+                                                <br>
+                                                <img src="<?php echo $image_src;?>" class="archive_image"/>
+                                                <hr>
+                                                <div class="entry">
 
-						<div class="entry">
 							<?php the_content( __( 'Read the rest of this entry &rarr;', 'buddypress' ) ); ?>
 
 							<?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) ); ?>
-						<img src="<?php echo $image_src;?>" class="archive_image"/>
 
                                                 </div>
 

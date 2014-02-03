@@ -1964,12 +1964,20 @@ ul.edit-buttons li a:hover{text-decoration:none;background:#dadada; color:#3c3c3
     width:100%;
     float:left;
 }
-#subnav{width:100% !important;}
+#subnav{width:99.9%;}
 .single_content_profile #subnav{
-    width:100% !important;
-    margin-left:-1px !important;
-
+   width: 99.9% !important;
+margin-left: 1px !important;
+    
 }
+
+.single_content div.item-list-tabs{
+    border-top:1px solid #ccc;
+    border-right:1px solid #ccc;
+    border-left:1px solid #ccc;
+}
+#filename{}
+
 .add-post-btn{
     float: right;
 position: absolute;
@@ -2480,7 +2488,7 @@ table.forum p.topic-meta {
 	margin: 20px 0;
 }
 .animateHighlight{
-    background:#13D5C4 !important;
+    background:#1DECFF !important;
     -webkit-transition: background 0.8s ease;
        -moz-transition: background 0.8s ease;
         -ie-transition: background 0.8s ease;
@@ -2520,9 +2528,13 @@ div#message p {
 .vcard .item{border-left:none;border-right:none;}
 div#item-header {
 	overflow: hidden;
-        padding:15px;
-        background:#fff;
-        width:99.9%;
+padding: 15px;
+background: #fff;
+width: 99.9%;
+margin-left: 1px;
+border-top:1px solid #ccc;
+border-left:1px solid #ccc;
+border-right:1px solid #ccc;
 }
 div#item-header div#item-header-content {
 	margin-left: 170px;
@@ -2766,10 +2778,11 @@ div.item-list-tabs#object-nav {
 
 div.item-list-tabs#subnav {
 background: #fff;
+border-top:none ;
 border-bottom: 1px solid #d6d6d6;
 border-right:1px solid #d6d6d6;
 border-left:1px solid #d6d6d6;
-margin: -6px 0px 5px 0px;
+margin: -6px 0px 5px 1px;
 min-height: 25px;
 overflow: hidden;
 }
@@ -2777,6 +2790,7 @@ overflow: hidden;
 div.item-list-tabs.groupsdir , div.item-list-tabs.membersdir {
     background: #fff; 
 border: 1px solid #d6d6d6 !important;
+border-top:1px solid #d6d6d6 !important;
 margin: -34px 0px 5px 0px !important;
 min-height: 30px !important;
 }
@@ -2804,7 +2818,7 @@ border-color: #eea236;
 background-color: #5cb85c;
 border-color: #4cae4c;
 }
-.bookmark-post-icon{float:right;font-style: normal !important;margin-top:-55px;}
+.bookmark-post-icon{float:right;font-style: normal !important;margin-top:-7px;}
 .btn-primary{font-style:normal;}
 
 .friendship-button.pending_friend.requested, .friendship-button .remove, .button.reject, .button.remove,
@@ -3276,7 +3290,7 @@ margin-top:-5px !important;
 max-width: 100% !important;}
 
 .home-content .post-favourite-group-title h4{font-size:16px;}
-.home-content .favourite-course .post-favourite-group-title{color:rgb(84, 98, 255) ; }
+.home-content .favourite-course .post-favourite-group-title{color:rgb(23, 51, 255); }
 .home-content .favourite-graduate-job .post-favourite-group-title{color:rgb(238, 114, 0) ;}
 .home-content .favourite-work-experience-job .post-favourite-group-title{color:rgb(223, 30, 223) ;}
 .home-content .favourite-travel-opportunities .post-favourite-group-title{color:green ;}
@@ -3312,6 +3326,15 @@ border:2px solid #eaeaea;
 	background:blue;
 	height:170px;
 }
+
+.inspire-featured .favourite-inspire-posts{
+    
+    width:708px !important;
+}
+.inspire-featured h4{
+color:goldenrod;
+}
+
 #Members_Feed{
 	width: 400px;
 margin-top: 20px;

@@ -276,6 +276,15 @@ function process_filter($, category_type, tag_type, body_type){
 
               setTimeout(function(){insert_images($, parsedData);}, 750);
 
+               setTimeout(function(){
+                     $('#selected-options-container').removeClass('normalHighlight').addClass('animateHighlight');
+            setTimeout(function(){
+                  $('#selected-options-container').removeClass('animateHighlight').addClass('normalHighlight');
+            }, 3200)  
+                   
+               }, 1200)
+
+
         resetCurrentActiveBox($);
         //reinitiate ratings plugin
         reset_filter_listener($);
@@ -341,7 +350,7 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
     $container.isotope( 'insert', $(parsedData[0]) );
         // trigger isotope again after images have been loaded
       setTimeout(function(){insert_images($, parsedData);}, 1100);
-               
+            
      isLoadingData=false;
          
      $('#ajax-loader-scroll').remove();
@@ -466,10 +475,7 @@ function update_selected_options($){
             $('.selected-index').hide().fadeIn(500);
             $('.selected-tag').hide().fadeIn(500);
             
-            $('#selected-options-container').removeClass('normalHighlight').addClass('animateHighlight');
-            setTimeout(function(){
-                  $('#selected-options-container').removeClass('animateHighlight').addClass('normalHighlight');
-            }, 1500)
+          
     }
      
  });
