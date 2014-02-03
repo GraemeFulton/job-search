@@ -145,7 +145,6 @@ $ratings= show_ratings($post_id);
    </div><!-- .page -->
 
    <div class='sidebar-main'>
-       		<a href="<?php echo site_url();?>/new-post"<button class="btn btn-success">Add New Post</button></a>
 
     <div id="selected-options-container"class="selected-blog-options">
         <h4 class="options-title"><i style="margin-top:-15px;"class="fa fa-search"></i> &nbsp;Selected: </h4><div class="clear_both"></div>

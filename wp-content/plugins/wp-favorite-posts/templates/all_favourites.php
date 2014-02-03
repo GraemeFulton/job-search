@@ -62,11 +62,17 @@ if ($favorite_post_ids):
     	}	
     }
     echo "</div>";//all-post-favourites
+
     ?>
-  
-   <script>
-        var $container = jQuery('#all-post-favourites');
+    <div id="loaded_content"></div>  
+   
+    <script>
     
+    $=jQuery;
+    var $favepage= jQuery('#all-post-favourites');
+    var $container = $('#loaded_content');
+
+    $('#all-post-favourites').hide()
         // initialize isotope
         $container.isotope({
         	getSortData : {
@@ -77,5 +83,6 @@ if ($favorite_post_ids):
          // options...
           itemSelector: '.post-favourite-group',
           sortBy : 'order' 
-        });
-        </script>
+        })
+        .isotope('insert',$favepage.find('.post-favourite-group'));
+ </script>

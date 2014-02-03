@@ -11,7 +11,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 
-<div id="dpa-achievements">
+<div id="dpa-achievements" class="edit-profile-form-area">
 
 	<?php do_action( 'dpa_template_before_author_achievements' ); ?>
 

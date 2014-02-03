@@ -72,7 +72,8 @@
                                 
                             </div>
 			</div><!-- #search-bar -->
-                              
+          		<a href="<?php echo site_url();?>/new-post"<button class="add-post-btn btn btn-primary">Add New Post</button></a>
+                           
 <!--                           <div id="header-quote"> -->
                         <?php //quotescollection_quote('show_author=1&show_source=1&tags=education&ajax_refresh=0&char_limit=200&random=1')?>
 <!--                     </div> -->

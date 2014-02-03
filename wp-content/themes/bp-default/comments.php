@@ -63,7 +63,9 @@
 
 <?php endif; ?>
 
-<?php if ( comments_open() ) comment_form(); ?>
+<?php if ( comments_open() ) comment_form(array(
+		'comment_notes_after' => ' ',
+	)); ?>
 
 <?php if ( !empty( $num_trackbacks ) ) : ?>
 	<div id="trackbacks">

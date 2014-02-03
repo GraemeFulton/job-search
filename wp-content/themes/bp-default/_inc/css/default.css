@@ -125,7 +125,20 @@ div#content {
 position: relative;
 border-left:1px solid #ccc;
 border-radius:0px;
+background:#DDE8E9;
 }
+.single_content_profile{background:#F2F5FF !important;float: left;
+width: 100%;}
+.single_content_white{background:#fff !important;}
+
+#blog-single{background:#fff!important; padding:20px; border-radius:20px; border:1px solid #ccc;
+-webkit-box-shadow: 0 0 25px rgba(0,0,0,0.07);
+-moz-box-shadow: 0 0 25px rgba(0,0,0,0.07);
+box-shadow: 0 0 25px rgba(0,0,0,0.07);
+margin:20px;
+}
+
+.main-content{background:#fff !important;}
 div#content .padder {
 
 }
@@ -239,6 +252,7 @@ z-index:4;
 	float:left;
 	margin-top: 2px;
 	width: 100%;
+        background:#F2F5FF;
 }
 .home-line{position:fixed; top:50px; width:100%; height:7px; background:rgb(10, 221, 187);z-index: 99999;}
 .travel-line{position:fixed; top:50px; width:100%; height:7px; background:green;z-index: 99999;}
@@ -401,11 +415,13 @@ border-radius: 3px;
 width:100%;
 }
 .sidebar-single{
-    background:#eaeaea;
-    margin-top:11px;
+    background:#fff;
+    margin-top:8px;
     margin-right:0px;
     width:255px;
     float:right;
+    border:1px solid #ccc;
+    border-bottom-left-radius: 10px;
 }
 .sidebar-main{
     width:195px;
@@ -884,31 +900,28 @@ margin-left: 19.6%;
 /*--------------------------------------------------------------
 4.1 - Pagination
 --------------------------------------------------------------*/
-div.pagination {
-	background: #f4f4f4;
+div.pagination-bp {
 	border: none;
 	color: #888;
 	font-size: 11px;
-	height: 19px;
-	margin: -20px -19px 0px -19px;
 	padding: 8px 20px;
 	position: relative;
 }
-div.pagination .pag-count {
+div.pagination-bp .pag-count {
 	float: left;
 }
-div.pagination .pagination-links {
+div.pagination-bp .pagination-links {
 	float: right;
 }
-div.pagination .pagination-links span,
-div.pagination .pagination-links a {
+div.pagination-bp .pagination-links span,
+div.pagination-bp .pagination-links a {
 	font-size: 12px;
 	padding: 0 5px;
 }
-div.pagination .pagination-links a:hover {
+div.pagination-bp .pagination-links a:hover {
 	font-weight: bold;
 }
-noscript div.pagination {
+noscript div.pagination-bp {
 	margin-bottom: 15px;
 }
 div#pag-bottom {
@@ -1173,7 +1186,7 @@ dd.wp-caption p.wp-caption-text,
 5.4 - Images
 --------------------------------------------------------------*/
 img.avatar {
-	border: 2px solid #eee;
+	border: 2px solid #d3d3d3;
 	float: left;
 }
 img.wp-smiley {
@@ -1319,16 +1332,19 @@ span.sticky-post {
 6.1 - Activity
 --------------------------------------------------------------*/
 #activity-stream {
-	margin-top: -5px;
+	margin-top: 15px;
 	width:80%;
 	float:right;
 }
 #item-body form#whats-new-form {
-	border-bottom: 1px solid #ddd;
 	margin: 20px 0 10px;
 	padding-bottom: 20px;
 	width:80%;
 	float:right;
+}
+.single_content_profile #item-body form#whats-new-form{
+    
+    width:100% !important;
 }
 .home-page form#whats-new-form {
 	border-bottom: none;
@@ -1377,6 +1393,7 @@ form#whats-new-form #whats-new-submit {
 #whats-new-options {
 	overflow: auto;
 	height: 0;
+        margin-top:-40px;
 }
 body.no-js #whats-new-options {
 	height: auto;
@@ -1465,7 +1482,14 @@ body.activity-permalink li.mini .activity-meta {
 }
 .activity-list .activity-content {
 	margin-left: 60px;
-	margin-bottom: 5px;
+margin-bottom: 5px;
+background: #fff;
+border-radius: 5px;
+padding: 20px;
+        -webkit-box-shadow: 0 0 25px rgba(0,0,0,0.06);
+-moz-box-shadow: 0 0 25px rgba(0,0,0,0.06);
+box-shadow: 0 0 25px rgba(0,0,0,0.06);
+border:1px solid #eaeaea;
 }
 body.activity-permalink .activity-list li .activity-content {
 	background: #fff;
@@ -1619,6 +1643,8 @@ div.activity-comments {
 	position: relative;
 	width: auto;
 	clear: both;
+        border: 1px solid #D8D8D8;
+border-radius: 8px;
 }
 body.activity-permalink div.activity-comments {
 	background: none;
@@ -1770,10 +1796,12 @@ div.activity-comments form div.ac-reply-content {
 activity - bookmarks
 ---------------------*/
 .activity-bookmark-image{
-width: 97px;
+width: 250px;
 float: left;
 position: relative;
 clear:both;
+border:2px solid #DFDFDF;
+border-radius:5px;
 }
 .activity-bookmark-title{
 	color: #1fb3dd !important;
@@ -1846,15 +1874,108 @@ div.reject {
 	float: left;
 	margin-left: 10px;
 }
-ul.button-nav li {
-	float: left;
+.edit-buttons{
+    width: auto;
+    float: left;
+    padding:20px;
+    margin:20px;
+    border-radius: 20px;
+    background:#fff;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 0 25px rgba(0,0,0,0.04)
+}
+ul.edit-buttons li {
 	margin: 0 10px 10px 0;
 }
-ul.button-nav li.current a {
+ul.edit-buttons li.current a {
 	font-weight: bold;
+     background: #dadada;
+color: #3c3c3c;
+
+        box-shadow: 0 0 2px rgba(0,0,0,0.7);
 }
 
+/*
+*PROFILE EDIT BUTTONS
+*/
+ul.edit-buttons li a{
+ color: #999;
+margin-top:10px;
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: normal;
+line-height: 1.428571429;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+cursor: pointer;
+background-image: none;
+border: 1px solid transparent;
+border-radius: 4px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+width:100%;
+}
+ul.edit-buttons li a:hover{text-decoration:none;background:#dadada; color:#3c3c3c;}
 
+.edit-profile-form-area, #groups-list, #group-list,.members-item-list, #friend-list{
+    background:#fff;
+    border-radius:20px;
+    padding: 20px;
+    float:left;
+    margin:20px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 0 25px rgba(0,0,0,0.04);
+    width:96.5% !important;
+
+}
+.edit-main-area{width:500px !important;}
+.wpuf-pagination{margin-top:8px;}
+#dpa-achievements{background:#fff;}
+#avatar-upload input[type="file"] {background:red;}
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+  float: left;
+  margin-right: 4px;
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  transform: translate(-300px, 0) scale(4);
+  font-size: 23px;
+  direction: ltr;
+  cursor: pointer;
+}
+
+.single_content .padder{padding:0px !important;margin-top:15px;}
+#item-body{
+    background:#F2F5FF;
+    width:100%;
+    float:left;
+}
+#subnav{width:100% !important;}
+.single_content_profile #subnav{
+    width:100% !important;
+    margin-left:-1px !important;
+
+}
+.add-post-btn{
+    float: right;
+position: absolute;
+top: 40px;
+right: 10px;
+}
+#pag-top{display:none;}
 /*--------------------------------------------------------------
 6.5 - Forms
 --------------------------------------------------------------*/
@@ -2004,7 +2125,7 @@ div#invite-list {
 	padding: 5px;
 	width: 160px;
 }
-button,
+/*button,
 a.button,
 input[type=submit],
 input[type=button],
@@ -2012,14 +2133,14 @@ input[type=reset],
 ul.button-nav li a,
 div.generic-button a,
 .comment-reply-link {
-	background: #fff; /* Old browsers */
-	background: -moz-linear-gradient(top, #ffffff 0%, #ededed 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #ffffff 0%,#ededed 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #ffffff 0%,#ededed 100%); /* Opera11.10+ */
-	background: -ms-linear-gradient(top, #ffffff 0%,#ededed 100%); /* IE10+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
-	background: linear-gradient(top, #ffffff 0%,#ededed 100%); /* W3C */
+	background: #fff;  Old browsers 
+	background: -moz-linear-gradient(top, #ffffff 0%, #ededed 100%);  FF3.6+ 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ededed));  Chrome,Safari4+ 
+	background: -webkit-linear-gradient(top, #ffffff 0%,#ededed 100%);  Chrome10+,Safari5.1+ 
+	background: -o-linear-gradient(top, #ffffff 0%,#ededed 100%);  Opera11.10+ 
+	background: -ms-linear-gradient(top, #ffffff 0%,#ededed 100%);  IE10+ 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );  IE6-9 
+	background: linear-gradient(top, #ffffff 0%,#ededed 100%);  W3C 
 	border: 1px solid #ccc;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
@@ -2044,18 +2165,18 @@ ul.button-nav li.current a,
 div.generic-button a:hover,
 .comment-reply-link:hover {
 	background: #ededed;
-	background: -moz-linear-gradient(top, #ffffff 0%, #e0e0e0 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e0e0e0)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #ffffff 0%,#e0e0e0 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #ffffff 0%,#e0e0e0 100%); /* Opera11.10+ */
-	background: -ms-linear-gradient(top, #ffffff 0%,#e0e0e0 100%); /* IE10+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e0e0e0',GradientType=0 ); /* IE6-9 */
-	background: linear-gradient(top, #ffffff 0%,#e0e0e0 100%); /* W3C */
+	background: -moz-linear-gradient(top, #ffffff 0%, #e0e0e0 100%);  FF3.6+ 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e0e0e0));  Chrome,Safari4+ 
+	background: -webkit-linear-gradient(top, #ffffff 0%,#e0e0e0 100%);  Chrome10+,Safari5.1+ 
+	background: -o-linear-gradient(top, #ffffff 0%,#e0e0e0 100%);  Opera11.10+ 
+	background: -ms-linear-gradient(top, #ffffff 0%,#e0e0e0 100%);  IE10+ 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e0e0e0',GradientType=0 );  IE6-9 
+	background: linear-gradient(top, #ffffff 0%,#e0e0e0 100%);  W3C 
 	border: 1px solid #bbb;
 	color: #555;
 	outline: none;
 	text-decoration: none;
-}
+}*/
 
 .activity-meta .button{background:none !important; border:none !important;padding:0px !important;margin-right:6px;}
 /*--------------------------------------------------------------
@@ -2234,20 +2355,22 @@ table tr th {
 }
 .bp-widget table tr td{width:100%;}
 table tr td.label {
-	border-right: 1px solid #eaeaea;
 	font-weight: normal;
-	width: 145px;
 	display:block !important;
 	padding:5px !important;
 	line-height: 2.5 !important;
-	color:#141823 !important;
+	color:#89919c !important;
 	text-align: left !important;
 	font-size: 100%;
 }
-.profile a{color:#3a3a3a;}
+.profile-header{font-size:20px !important; margin-bottom:-5px !important;}
+.profile .bp-widget a{color:#3a3a3a;}
 a.bp-primary-action span, #reply-title small a span{background:#3a3a3a !important;}
-.field_subjects a{background:#eaeaea; border-radius:5px;padding:5px;}
+.field_subjects a{color:#1fb3dd !important;}
+.edit-profile-form-area .page-head{display:none;}
 
+.wpuf-author{display:none;}
+.profile-add-blog-button{margin-top:5px;}
 table tr td.thread-info p {
 	margin: 0;
 }
@@ -2261,7 +2384,6 @@ table.forum td {
 	text-align: center;
 }
 table tr.alt td {
-	background: #f5f5f5;
 }
 table.notification-settings {
 	margin-bottom: 20px;
@@ -2379,6 +2501,9 @@ div#message p {
 .vcard .item{border-left:none;border-right:none;}
 div#item-header {
 	overflow: hidden;
+        padding:15px;
+        background:#fff;
+        width:100%;
 }
 div#item-header div#item-header-content {
 	margin-left: 170px;
@@ -2473,11 +2598,11 @@ ul.item-list {
 	width: 100%;
 }
 ul.item-list li {
-	border-bottom: 1px solid #eaeaea;
 	padding: 5px 0;
 	position: relative;
 }
-.sidebar-single .item{background:#eaeaea;border-bottom:1px solid #fff;}
+.sidebar-single .item{background:#F2F5FF;}
+#members-list.item-list{margin-top:2px;}
 
 ul.item-list.activity-list li {
 	padding-bottom: 0;
@@ -2526,7 +2651,7 @@ ul.item-list li h5 span.small {
 div.item-list-tabs {
 	background: #f6f6f6;
 	clear: left;
-	margin: 30px -19px 5px 0px;
+	margin: 30px -0px 5px -0px;
 	overflow: hidden;
         width:100%;
 }
@@ -2534,8 +2659,8 @@ div.item-list-tabs {
 
 #item-nav ul li a{
 	font-size:15px;
-	margin-bottom:4px;
-        border-bottom:1px solid #ccc;
+/*	margin-bottom:4px;
+        border-bottom:1px solid #ccc;*/
         height: auto;
         padding:15px !important
 }
@@ -2619,15 +2744,24 @@ div.item-list-tabs#object-nav {
         margin-top:-5px;
         border: 1px solid #ccc;
 }
+
 div.item-list-tabs#subnav {
 background: #fff;
 border-bottom: 1px solid #d6d6d6;
 border-right:1px solid #d6d6d6;
 border-left:1px solid #d6d6d6;
-margin: -10px 0px 5px 0px;
+margin: -6px 0px 5px 0px;
 min-height: 25px;
 overflow: hidden;
 }
+
+div.item-list-tabs.groupsdir , div.item-list-tabs.membersdir {
+    background: #fff; 
+border: 1px solid #d6d6d6 !important;
+margin: -34px 0px 5px 0px !important;
+min-height: 30px !important;
+}
+
 div.item-list-tabs ul li.feed a {
 	background: url( ../images/rss.png ) center left no-repeat;
 	padding-left: 20px;
@@ -2636,9 +2770,57 @@ div.item-list-tabs ul li.feed a {
 #mods-list li,
 #members-list li {
 	overflow: auto;
+        overflow-y:hidden;
 }
 
+.friendship-button.is_friend.remove{
+   color: #ffffff;
+background-color: #f0ad4e;
+border-color: #eea236;
 
+}
+.friendship-button.not_friends.add, .friendship-button .add, .button.accept,
+.group-button.join-group, #groups-directory-form .button, a.join-group{
+  color: #ffffff;
+background-color: #5cb85c;
+border-color: #4cae4c;
+}
+.bookmark-post-icon{float:right;font-style: normal !important;margin-top:-55px;}
+.btn-primary{font-style:normal;}
+
+.friendship-button.pending_friend.requested, .friendship-button .remove, .button.reject, .button.remove,
+.group-button.leave-group, a.leave-group{
+    color: #ffffff;
+background-color: #d9534f;
+border-color: #d43f3a;
+}
+.activity-button.mention, #send-private-message .send-message{
+ color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+#post-mention, #send-private-message{margin-top:17px !important; }
+
+.friendship-button, .group-button,.friendship-button .remove, .button, a.leave-group, a.join-group,
+.activity-button.mention, #send-private-message .send-message{
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: normal;
+line-height: 1.428571429;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+cursor: pointer;
+background-image: none;
+border: 1px solid transparent;
+border-radius: 4px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+}
 /*--------------------------------------------------------------
 6.9 - Private Messaging Threads
 --------------------------------------------------------------*/
@@ -2663,11 +2845,33 @@ div.item-list-tabs ul li a span.unread-count {
 	color: #fff;
 }
 div.messages-options-nav {
-	background: #eee;
-	font-size: 11px;
-	margin: 0 -19px;
-	padding: 5px 15px;
-	text-align: right;
+	float: right;
+}
+#delete_inbox_messages, #delete_sentbox_messages{
+    
+    color: #ffffff;
+background-color: #d9534f;
+border-color: #d43f3a;
+
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: normal;
+line-height: 1.428571429;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+cursor: pointer;
+background-image: none;
+border: 1px solid transparent;
+border-radius: 4px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+    
 }
 div#message-thread div.message-box {
 	margin: 0 -19px;
@@ -2714,20 +2918,24 @@ div.message-search {
 --------------------------------------------------------------*/
 
 .profile .bp-widget{
-	padding: 5px;
-margin-top: 12px;
 float: left;
-width: 50%;
+width: 45%;
 min-height: 130px;
+margin: 20px;
+background: #fff;
+padding: 20px;
+border-radius: 20px;
+border: 1px solid #eaeaea;
+box-shadow: 0 0 25px rgba(0,0,0,0.06);
 }
 
 div.profile h4 {
 	padding:5px;
-	border-bottom:1px solid #e8e8e8;
+/*	border-bottom:1px solid #e8e8e8;
 	background:#fff;
 	font-size:21px;
 	color:#222;
-	margin-bottom:0px;
+	margin-bottom:0px;*/
 }
 #profile-edit-form ul.button-nav {
 	margin-top: 15px;
@@ -2788,6 +2996,7 @@ width:29%;
 padding: 0px;
 margin: 12px 14px 12px 14px;
 border-radius:8px;
+box-shadow: 0 0 25px rgba(0,0,0,0.06);
 }
 
 #loaded_content{
@@ -2845,6 +3054,40 @@ border-top:1px solid #ccc;
     border:none !important;
     border-radius: 0px !important;
 }
+.archive_image{
+    
+    max-width:400px;
+    
+}
+#blog-archives .post-content{
+    background: #fff;
+float: left;
+width: 85%;
+padding: 20px;
+border-radius: 20px;
+margin-bottom: 25px;
+-webkit-box-shadow: 0 0 25px rgba(0,0,0,0.06);
+-moz-box-shadow: 0 0 25px rgba(0,0,0,0.06);
+box-shadow: 0 0 25px rgba(0,0,0,0.06);
+border: 1px solid #eaeaea;
+}
+    
+}
+
+#blog-archives #nav-below{
+    float:right;
+    
+}
+#blog-archives #nav-above{
+    float:right;
+    
+}
+.archive-list{
+    float:left;
+    width:100%;
+    padding-left:45px;
+    
+}
 .type-post .posttitle{padding:10px !important;max-height:none !important;}
 
 .type-travel-opportunities .entry{
@@ -2853,7 +3096,7 @@ border-bottom:1px solid green;
 margin-bottom: 0px;
 }
 
-.item {
+#loaded_content .item {
 	
 	color: #222;
 background:#fff;
@@ -2929,6 +3172,7 @@ border-top-left-radius: 8px;
 /*.navbar-inverse .navbar-nav > li > a{color:#141823}*/
 /*.navbar-inverse .navbar-brand{color:#141823}*/
 
+
 .navbar-inverse .navbar-nav > li > a{color:#141823; border-left:1px solid #E9E9E9;}
 .navbar-inverse .navbar-brand{color:#141823}
 .home-page .navbar-nav > li > a .fa-2x{margin-top:-10px !important}
@@ -2980,9 +3224,11 @@ width: 48%;}
 		 padding:1px !important; margin:1px !important;
 	float:left;
 	*/
-	width:316px;
-	border:none;
+	width:334px;
 	border-radius:12px;
+        -webkit-box-shadow: 0 0 25px rgba(0,0,0,0.04);
+-moz-box-shadow: 0 0 25px rgba(0,0,0,0.04);
+box-shadow: 0 0 25px rgba(0,0,0,0.04);
 }
 .promo_slider_wrapper {
 width:595px;
@@ -3027,6 +3273,14 @@ background: rgba(0,0,0,0.8);
 bottom: -20px;
 padding:5px;
 }
+
+.post-favourite-group{
+    -webkit-box-shadow: 0 0 25px rgba(0,0,0,0.06);
+-moz-box-shadow: 0 0 25px rgba(0,0,0,0.06);
+box-shadow: 0 0 25px rgba(0,0,0,0.06);
+border:2px solid #eaeaea;
+}
+
 .home-posttitle a{color:#fff !important; }
 .home_item{
 	float:left;
@@ -3040,12 +3294,13 @@ padding:5px;
 	height:170px;
 }
 #Members_Feed{
-	width: 320px;
+	width: 400px;
 margin-top: 20px;
 float: right;
 padding: 10px;
 margin-right: 10px;
 border-radius: 10px;
+border: 3px solid #ddd;
 background:#F0F0F0;
 }
 #Members_Box .item{width:90% !important;}
@@ -3059,7 +3314,7 @@ width: 840px !important;
 padding: 20px;
 }
 .featured-area{
-background: #E9E9E9;
+background: #E0EEEE;
 height: auto;
 width: 100%;
 float: left;
@@ -3297,20 +3552,17 @@ border-radius:8px;
 
 #item-header-avatar{padding:5px;}
 
-.wpfp-span{margin-left:5px;padding:5px;font-size:14px;}
+.wpfp-span{margin-left:1px;padding:1px;font-size:14px;}
 .wpfp-span a{margin-left:2px;color:#444}
 
 #Profile_Saved_Posts{
 float: left;
-border-left: 1px solid #d6d6d6;
-border-bottom:1px solid #d6d6d6;
-border-right: 1px solid #d6d6d6;
+border: 1px solid #d6d6d6;
 width: 170px;
 background: #f8f8f8;
 padding: 12px;
 min-height: 155px;
-margin-top: -5px;
-
+border-radius:5px;
 }
 #Profile_Saved_Posts ul li a{
 	background:#FDFDFD;
@@ -3368,8 +3620,34 @@ li.inspire-menu a {color: goldenrod!important;}
 .home-navbar li.course-menu a{color:#f8f8f8 !important;}
 .home-navbar li.job-menu a{color:#f8f8f8 !important;}
 .home-navbar li.we-menu a{color:#f8f8f8 !important;}*/
-.bpfb_form_container{background:#fff !important;}
+.single_content_profile .bpfb_form_container{background: #fff !important;
+border-radius: 12px;
+margin: 30px 14px 0px 14px;
+-webkit-box-shadow: 0 0 25px rgba(0,0,0,0.06);
+-moz-box-shadow: 0 0 25px rgba(0,0,0,0.06);
+box-shadow: 0 0 25px rgba(0,0,0,0.06);
+border: 3px solid #d8d8d8;
+}
 form#whats-new-form h5{color:#444 !important;}
+
+.single_content_profile .bpfb_form_container{height:163px;margin-top:-5px;
+float: right;
+width: 87%;
+margin-top: 13px !important;
+
+}
+
+.single_content .bpfb_form_container{background: #fff !important;
+border-radius: 12px;
+-webkit-box-shadow: 0 0 25px rgba(0,0,0,0.06);
+-moz-box-shadow: 0 0 25px rgba(0,0,0,0.06);
+box-shadow: 0 0 25px rgba(0,0,0,0.06);
+border: 3px solid #d8d8d8;
+min-height:163px;
+}
+.single_content #item-body form#whats-new-form{
+    width:100%;
+}
 
 /*
 SIDEBAR TOGGLE
@@ -3400,7 +3678,7 @@ background:#fff;
 width:195px;
 margin-bottom:25px;
 border:1px solid #cacaca;
-background:#f8f8f8;
+background:#DDE8E9;
 min-height:130px;
 }
 

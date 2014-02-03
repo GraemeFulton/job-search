@@ -7,16 +7,17 @@ if ( bp_has_profile( 'profile_group_id=' . bp_get_current_profile_group_id() ) )
 
 	<?php do_action( 'bp_before_profile_field_content' ); ?>
 
-		<h4><?php printf( __( "Editing '%s' Profile Group", "buddypress" ), bp_get_the_profile_group_name() ); ?></h4>
+    <h4 class="profile-header">&nbsp;<i class="fa fa-edit"></i>&nbsp;Edit Profile</h4>
 
-		<ul class="button-nav">
+		<ul class="edit-buttons">
 
 			<?php bp_profile_group_tabs(); ?>
 
 		</ul>
 
-		<div class="clear"></div>
-
+     
+       <div class="edit-profile-form-area edit-main-area">
+           <h5><?php printf( __( "Editing '%s'", "buddypress" ), bp_get_the_profile_group_name() ); ?></h5><hr>
 		<?php while ( bp_profile_fields() ) : bp_the_profile_field(); ?>
 
 			<div<?php bp_field_css_class( 'editfield' ); ?>>
@@ -145,7 +146,7 @@ if ( bp_has_profile( 'profile_group_id=' . bp_get_current_profile_group_id() ) )
 	<?php do_action( 'bp_after_profile_field_content' ); ?>
 
 	<div class="submit">
-		<input type="submit" name="profile-group-edit-submit" id="profile-group-edit-submit" value="<?php _e( 'Save Changes', 'buddypress' ); ?> " />
+		<input type="submit" class="btn btn-success" name="profile-group-edit-submit" id="profile-group-edit-submit" value="<?php _e( 'Save Changes', 'buddypress' ); ?> " />
 	</div>
 
 	<input type="hidden" name="field_ids" id="field_ids" value="<?php bp_the_profile_group_field_ids(); ?>" />
@@ -157,3 +158,5 @@ if ( bp_has_profile( 'profile_group_id=' . bp_get_current_profile_group_id() ) )
 <?php endwhile; endif; ?>
 
 <?php do_action( 'bp_after_profile_edit_content' ); ?>
+</div>
+                

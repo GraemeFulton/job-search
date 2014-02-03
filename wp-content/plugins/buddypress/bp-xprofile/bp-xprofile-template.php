@@ -827,7 +827,7 @@ function bp_profile_group_tabs() {
 	$tabs = array();
 	for ( $i = 0, $count = count( $groups ); $i < $count; ++$i ) {
 		if ( $group_name == $groups[$i]->name )
-			$selected = ' class="current"';
+			$selected = ' class="active current"';
 		else
 			$selected = '';
 
