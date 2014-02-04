@@ -74,7 +74,7 @@ function activate_listeners($){
  */
 function tree_listener($, filter_selector, arr_object, global_var, dtree_type){
      
-    uncheck_parent($,filter_selector);
+   // uncheck_parent($,filter_selector);
     
     $(filter_selector+' '+dtree_type+' input').change(function()
     {

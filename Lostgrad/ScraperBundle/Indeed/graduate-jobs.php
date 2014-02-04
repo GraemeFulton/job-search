@@ -22,7 +22,9 @@ require_once('../../../wp-load.php' );
     <hr>
     <h2>Work Experience</h2>
      <input type="radio" name="work_experience" value='Internship' />Internship<br>
-    <input type="radio" name="work_experience" value='Summer Job' />Summer Job<br>
+    <input type="radio" name="work_experience" value='Volunteer' />Volunteer<br>
+    <input type="radio" name="work_experience" value='Student Jobs' />Student Jobs<br>
+
 <input type="submit" value="Generate Posts">
 </form>
 
@@ -63,6 +65,7 @@ Class Form_Handler{
         elseif(isset($_POST['work_experience'])){
        
         $job_type= $_POST['work_experience'];
+       
         $this->page_type = 'work-experience-job';
         $this->job_taxonomy_type='work-experience-type';
 
@@ -77,7 +80,7 @@ Class Form_Handler{
         
         if($job_type=='Graduate Scheme'){
             
-            $job_type_search_terms=['graduate+programme', 'graduate+scheme', 'Intake+-placement+-school'];
+            $job_type_search_terms=['graduate+programme', 'graduate+scheme', 'Intake+-placement+-school+-internship+-intern'];
               
             foreach($job_type_search_terms as $term){
                 $gen= new Indeed_Post_Gen($job_type, $term, $this->job_taxonomy_type, $this->page_type); //loop through each if graduate scheme
@@ -85,7 +88,7 @@ Class Form_Handler{
         }
         elseif($job_type=='Entry Level'){
             
-             $job_type_search_terms= 'junior+or+graduate+or+trainee+or+-programme+or+-scheme+-2014+-2013+-charge';
+             $job_type_search_terms= 'junior+or+graduate+or+trainee+or+-programme+or+-scheme+-2014+-2013+-charge+-placement+-director+-senior';
             $gen= new Indeed_Post_Gen($job_type, $job_type_search_terms, $this->job_taxonomy_type, $this->page_type);//otherwise provide the full string
             
         }
@@ -96,16 +99,25 @@ Class Form_Handler{
     
         if($job_type=='Internship'){
         
-            $job_type_search_terms=['Internship+-summer', 'Placement+-summer', 'Temporary+Student+-summer'];
+            $job_type_search_terms=['Internship', 'Placement'];
             
             foreach($job_type_search_terms as $term){
                 $gen= new Indeed_Post_Gen($job_type, $term, $this->job_taxonomy_type, $this->page_type); //loop through each if graduate scheme
             }
         
         }
-        elseif($job_type=='Summer Job'){
+        elseif($job_type=='Volunteer'){
             
-            $job_type_search_terms=['Summer+Graduate', 'Summer+student', 'Intake+-placement+-school'];
+            $job_type_search_terms=['Volunteer'];
+            
+            foreach($job_type_search_terms as $term){
+                $gen= new Indeed_Post_Gen($job_type, $term, $this->job_taxonomy_type, $this->page_type); //loop through each if graduate scheme
+            }
+            
+        }
+           elseif($job_type=='Student Jobs'){
+            
+            $job_type_search_terms=['Part+Time+Student', 'Evening*+Student', 'Weekend+Student', 'Student+-Teacher+-Lecturer+-Dean+-Support+-Director+-Deputy'];
             
             foreach($job_type_search_terms as $term){
                 $gen= new Indeed_Post_Gen($job_type, $term, $this->job_taxonomy_type, $this->page_type); //loop through each if graduate scheme
