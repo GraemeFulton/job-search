@@ -33,7 +33,7 @@ Hello, this is the BuddyPress Default theme stylesheet.
 	6.6 - Ajax Loading
 	6.7 - Topics and Tables - Forums and General
 	6.8 - Headers, Lists and Tabs - Activity, Groups, Blogs, Forums
-	6.9 - Private Messaging Threads
+	6.9 - Private Messaging Threads.post_image img
 	6.10 - Extended Profiles
 --------------------------------------------------------------*/
 
@@ -41,6 +41,9 @@ Hello, this is the BuddyPress Default theme stylesheet.
 1.0 - Reset - Reset default browser CSS. Based on work by Eric
 Meyer: v1.0  http://meyerweb.com/eric/tools/css/reset/index.html
 --------------------------------------------------------------*/
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+
+
 html,body,div,span,applet,object,iframe,
 h1,h2,h3,h4,h5,h6,p,blockquote,pre,
 a,abbr,acronym,address,big,cite,code,
@@ -75,7 +78,21 @@ body {
 	margin: 0 auto;
 	width: 100%;
         background-size:100%;
+        font-family:'Ubuntu', sans-serif !important;
 }
+
+.fa{font-family: "FontAwesome"!important;}
+
+body,
+input,
+button,
+select,
+textarea,
+.navbar-search .search-query,
+h1,h2,h3,h4,h5,p,a{
+  font-family: 'Ubuntu', sans-serif !important;
+}
+
 .padder {
 	padding: 19px;
 }
@@ -83,7 +100,7 @@ div#container {
 	overflow: visible;
 	position: relative;
 	width: 100%;
-        margin: 20px auto;
+        margin: 30px auto;
         border-radius: 10px;
 
 }
@@ -254,12 +271,13 @@ z-index:4;
 	width: 100%;
         background:#F2F5FF;
 }
-.home-line{position:fixed; top:50px; width:100%; height:7px; background:rgb(10, 221, 187);z-index: 99999;}
-.travel-line{position:fixed; top:50px; width:100%; height:7px; background:green;z-index: 99999;}
-.course-line{position:fixed; top:50px; width:100%; height:7px; background:rgba(0, 61, 255, 1);z-index: 99999;}
-.inspire-line{position:fixed; top:50px; width:100%; height:7px; background:#FFCB05;z-index: 99999;}
-.graduatejob-line{position:fixed; top:50px; width:100%; height:7px; background:rgba(255, 112, 0, 1);z-index: 99999;}
-.workexperience-line{position:fixed; top:50px; width:100%; height:7px; background:rgba(204, 0, 255, 1);z-index: 99999;}
+#header.header-course, #header.header-home{margin-top:32px;}
+.home-line{position:fixed; top:63px; width:100%; height:7px; background:rgb(10, 221, 187);z-index: 99999;}
+.travel-line{position:fixed; top:63px; width:100%; height:7px; background:green;z-index: 99999;}
+.course-line{position:fixed; top:63px; width:100%; height:7px; background:rgba(0, 61, 255, 1);z-index: 99999;}
+.inspire-line{position:fixed; top:63px; width:100%; height:7px; background:#FFCB05;z-index: 99999;}
+.graduatejob-line{position:fixed; top:63px; width:100%; height:7px; background:rgba(255, 112, 0, 1);z-index: 99999;}
+.workexperience-line{position:fixed; top:63px; width:100%; height:7px; background:rgba(204, 0, 255, 1);z-index: 99999;}
 
 .header-course{
 }
@@ -534,7 +552,7 @@ div#sidebar div.tags div#tag-text {
 }
 
 
-
+.wpuf-el.tags{float:none !important;}
 /*--------------------------------------------------------------
 3.0 - LG Sidebar-left
 --------------------------------------------------------------*/
@@ -644,11 +662,8 @@ code p {
 	padding: 15px;
 	overflow: auto;
 }
-code {
-	font-family: "Monaco", courier, sans-serif;
-}
+
 blockquote {
-	font-family: georgia, times, serif;
 	font-size: 16px;
 	font-style: italic;
 	line-height: 150%;
@@ -966,7 +981,6 @@ div#pag-bottom {
 .paged-navigation,
 .comment-navigation {
 	overflow: hidden;
-	font-family: georgia, times, serif;
 	font-size: 14px;
 	font-style: italic;
 	margin: 5px 0 25px 0;
@@ -1270,7 +1284,6 @@ div.author-box {
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	float: left;
-	font-family: georgia, times, serif;
 	font-style: italic;
 	margin: 0 15px 15px 0;
 	padding: 10px;
@@ -1307,7 +1320,6 @@ p.postmetadata {
 	border-bottom: 1px solid #e4e4e4;
 	border-top: 1px solid #e4e4e4;
 	color: #888;
-	font-family: Georgia, times, serif;
 	font-size: 12px;
 	margin: 10px 0;
 	padding: 3px 0;
@@ -3187,10 +3199,10 @@ border-top-left-radius: 8px;
      -moz-transition: opacity 0.4s;
       -ms-transition: opacity 0.4s;
           transition: opacity 0.4s;
-    position: relative; max-width:100%;
+    position: relative; width:100%;
 }
 
-.activepost .post_image img{max-height:200px;}
+/*.activepost .post_image img{max-height:200px;}*/
 
 /******HOME PAGE****/
 
@@ -3204,13 +3216,18 @@ border-top-left-radius: 8px;
 
 /*.navbar-inverse .navbar-nav > li > a{color:#141823}*/
 /*.navbar-inverse .navbar-brand{color:#141823}*/
-
-
-.navbar-inverse .navbar-nav > li > a{color:#141823; border-left:1px solid #E9E9E9;}
+.menu-text a{padding-top:20px !important}
+.navbar-brand{font-size:20px;}
+.navbar-inverse .navbar-nav > li > a{color:#141823; border-left:1px solid #E9E9E9; text-align:center; height:63px;
+font-size:13.5px;
+}
 .navbar-inverse .navbar-brand{color:#141823}
-.home-page .navbar-nav > li > a .fa-2x{margin-top:-10px !important}
-.navbar-nav > li > a .fa-2x{margin-top:-10px !important}
+.home-page .navbar-nav > li > a .fa-2x{margin-top:-10px !important; display:block; margin:0 auto;}
+.navbar-nav > li > a .fa-2x{margin-top:-10px !important; display:block; margin:0 auto;}
 .fa-lightbulb-o{margin-right:-8px;}
+
+#tab-all-post-favourites .fa-2x{display:block; text-align: center;margin-bottom:2px;}
+
 
 .center-wrapper{
     max-width:1250px;
@@ -3268,7 +3285,7 @@ width:595px;
 margin-top:-5px !important;
 	}
 	.promo_slider_nav{margin:0px !important; z-index:95 !important;}
-	.navbar > .container .navbar-brand{ }
+	.navbar > .container .navbar-brand{ margin-top:5px;}
 	.navbar-inverse .navbar-nav > li{}
 	.navbar-inverse .navbar-brand:hover{color:rgb(26, 143, 124) !important}
 	.nav > li > a:hover{color:rgb(26, 143, 124) !important}
@@ -3766,7 +3783,6 @@ border-radius: 8px;
 #blog-more{
    
 padding: 10px 5px;
-font-family: sans-serif;
 font-size: 14px;
 line-height: 20px;
 text-align: center;

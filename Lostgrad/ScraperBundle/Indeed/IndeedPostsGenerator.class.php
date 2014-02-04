@@ -68,7 +68,7 @@ private function gather_category_terms(){
          {  
             echo '<li>'.$category->name.'<br>';//indeed search terms
             echo '<br>Search String: '.$search_term=  (str_replace(' ', '%20', $category->name));
-            
+                        
             $API= $this->build_search_string($category);
             if ($API){
                 echo '<p style="background:#FDFFC2;">API Search: '.$API.'</p><hr>';
@@ -117,8 +117,23 @@ private function gather_category_terms(){
                   
                   //if entry level
                   elseif($this->job_type=='Entry Level'){
-                
-                      if($search!=''){
+                     
+                                                      echo "<h1>read".$category->name."</h1>";
+                       //in entry level, skip over engineering cos it doesnt work well
+                      if (strpos($category->name,'Civil') !== false ||
+                             strpos($category->name,'Electrical') !== false  ||
+                             strpos($category->name,'Industrial') !== false  ||
+                              strpos($category->name,'Mechanical') !== false ||
+                             strpos($category->name,'Energy') !== false
+
+                              ) {
+                          
+                          echo "Ignoring ".$category->name."<br>";
+                          
+                        return;
+                        }
+                        ///////////////////////////////////////////////////////////////
+                      elseif ($search!==''){
                             $withTitle="title%3A((".$search.")+(".$this->job_type_search_terms."))";//put search term in title
                            return $API= 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q='."+".$withTitle.'&co=gb&userip=1.2.3.4&v=2&st=employer'; 
                         }
@@ -131,12 +146,20 @@ private function gather_category_terms(){
 
                   }
                   
-                  elseif($this->job_type=='Summer Job'){
+                  elseif($this->job_type=='Volunteer'){
 
                       $withTitle="title%3A((".$title.")+(".$this->job_type_search_terms."))";
                      return $API= 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q='.$withTitle.'&co=gb&userip=1.2.3.4&v=2';//st=employer'; 
 
                   }
+                  
+                     elseif($this->job_type=='Student Jobs'){
+
+                      $withTitle="title%3A((".$title.")+(".$this->job_type_search_terms."))";
+                     return $API= 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q='.$withTitle.'&co=gb&userip=1.2.3.4&v=2';//st=employer'; 
+
+                  }
+                  
                   
                   
                   
