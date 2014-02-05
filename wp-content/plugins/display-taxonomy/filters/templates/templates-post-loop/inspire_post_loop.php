@@ -19,15 +19,11 @@ $subject=$tree->grouped_taxonomy_name($post_id);
 			<h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
             <div class="entry">     
-             <?php if(has_excerpt( $post_id ))the_excerpt(); ?> 
-                <?php echo '<i class="fa fa-lightbulb-o fa-2x"></i>&nbsp;'.$subject?>
-<div class="author-box">
-						<?php echo get_avatar( get_the_author_meta( 'user_email' ), '50' ); ?>
-						<p><?php printf( _x( 'by %s', 'Post written by...', 'buddypress' ), str_replace( '<a href=', '<a rel="author" href=', bp_core_get_userlink( $post->post_author ) ) ); ?></p>
-					</div>
-           <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><button class="btn btn-success">Read More</button></a>
-            
-		    </div>
+               <?php if(has_excerpt( $post_id ))the_excerpt(); ?> 
+                <div class="read_more_btn"> <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><button class="btn btn-success">Read More</button></a>
+                </div>
+                <span class="inspire-cat-tag"> <?php echo '<i class="fa fa-lightbulb-o fa-2x"></i>&nbsp; '.$subject?></span>               
+            </div>
                                  
         </div><!--item-->
 

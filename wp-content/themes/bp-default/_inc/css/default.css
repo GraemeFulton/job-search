@@ -3150,7 +3150,8 @@ border-right:1px solid #ccc;
 margin-bottom: 0px;
 }
 
-
+.read_more_btn{float:left;margin-right:5px;margin-bottom:5px;margin-top:5px;}
+.inspire-cat-tag{float:left; margin-top:8px;}
 .post_image{
     width:100%;
     top:0px;

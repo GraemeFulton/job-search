@@ -112,15 +112,13 @@ function isotopes_modal($){
 
     popup_listener($);
    $('.clickme').on('click',function(){ 
-console.log('clik')
        disableClickMe($);
 
        if(! $(this).closest(".isotope-item").hasClass("activepost"))
        {//if it isnt the active post
            $("#main-overlay").fadeIn();
-
            
-           $(this).css("z-index", "-1");
+           $(this).css({"z-index": "-1", "visibility":"hidden"});
            $(this).siblings(".pop-out").show();
            $(this).siblings(".entry").hide();
 
@@ -150,28 +148,10 @@ console.log('clik')
                         },320);
   
        }
-       
-       else
-       {
-           $(this).closest(".item").removeClass("activepost").removeClass("activepost_edge");
-           $(this).closest(".isotope-item").removeClass("activepost_edger").removeClass("activepost_edge");
-                
-              $(this).closest(".isotope-item").animate(
-                {
-                 'left':'0',
-                 "z-index":"0",
-                 position:"relative",
-                 "top":"0"
-                },360,"linear");
-             
-         $("#loaded_content").isotope( 'reLayout' ); 
-         enableClickMe($);
-       };
+                      
 
-      
+     });
 
-    });
-    
 
 }
 
@@ -220,6 +200,7 @@ function closeActiveBox($){
 
                 $(".clickme").closest(".item").removeClass("activepost").removeClass("activepost_edge");
                
+               $(this).closest(".clickme").css({"background":"red", "visibility":"visible"})
             //re-enable isotope modal
               enableClickMe($);	
 }
@@ -235,7 +216,7 @@ $('.close_box').bind('click',function(){
 
            $(this).parent(".item").removeClass("activepost").removeClass("activepost_edge");
            $(this).parent(".item").removeClass("activepost_edger").removeClass("activepost_edge");
-            $(this).siblings(".clickme").css("z-index", "1");
+            $(this).siblings(".clickme").css({"z-index":"1", "visibility":"visible"});
 
             $(this).siblings(".pop-out").hide();
             $(this).siblings(".entry").show();
@@ -282,6 +263,7 @@ function relayoutListener($){
         
         $('.close_box').bind('click',function(){ 
         $("#main-overlay").fadeOut();
+               $(this).closest('.clickme').show();
 
            $(this).parent(".item").removeClass("activepost").removeClass("activepost_edge");
            $(this).parent(".item").removeClass("activepost_edger").removeClass("activepost_edge");
