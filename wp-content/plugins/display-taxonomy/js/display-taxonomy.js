@@ -40,7 +40,6 @@ function graylien_infinite_scroll($){
   //   load_more_button_listener($);
      //make sure it's not bound from the start
      $(window).unbind('scroll.load_more');
-     
     $(window).bind('scroll.load_more',function () {
                 
    if (($(window).scrollTop() >= $(document).height() - $(window).height())) {
@@ -49,6 +48,7 @@ function graylien_infinite_scroll($){
         if ($('.no-more').length > 0){
         return;
         }
+
             var postoffset = $('.hentry').length;
             var category_type= $('#content').attr('category_type');
             var tag_type= $('#content').attr('tag_type');
@@ -58,8 +58,7 @@ function graylien_infinite_scroll($){
             process_filter_scroll($,postoffset, category_type, tag_type, body_type);
             isLoadingData=true;
 
-            //resetCurrentActiveBox($);
-            setTimeout(function(){isotopes_modal($);}, 500);
+           // setTimeout(function(){isotopes_modal($);}, 2000);
 
 
    }
@@ -117,7 +116,7 @@ function apply_filter($){
             
             closeActiveBox($);
             disableClickMe($);
-            setTimeout(function(){isotopes_modal($);}, 500);
+            setTimeout(function(){isotopes_modal($);}, 2000);
    
 }
 
@@ -269,12 +268,15 @@ function process_filter($, category_type, tag_type, body_type){
              // options...
              itemSelector: '.hentry',
             masonry: {
-                columnWidth: 0
+                columnWidth: 0,
+                animationOptions: {
+                    duration: 800
+                }
              }
          });
         $container.isotope( 'insert', ( $(parsedData[0])) )
 
-              setTimeout(function(){insert_images($, parsedData);}, 750);
+              setTimeout(function(){insert_images($, parsedData);}, 1000);
 
                setTimeout(function(){
                      $('#selected-options-container').removeClass('normalHighlight').addClass('animateHighlight');
@@ -314,8 +316,11 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
 
  if(isLoadingData===true) return;
      //loading gif
-     $('.sorry-message').remove();
+    $('.sorry-message').remove();
     $('#content').append('<img id="ajax-loader-scroll" src="'+templateUrl+'/ajax-loader.gif"/>');
+    
+    $(" .clickme").unbind('click');
+
     
     $.ajax({
      url: '/LGWP/wp-admin/admin-ajax.php', 
@@ -347,10 +352,10 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
        
    var $container = $('#loaded_content');
     
-    $container.isotope( 'insert', $(parsedData[0]) );
+    $container.isotope( 'insert', $(parsedData[0]) );   
         // trigger isotope again after images have been loaded
       setTimeout(function(){insert_images($, parsedData);}, 1100);
-            
+
      isLoadingData=false;
          
      $('#ajax-loader-scroll').remove();
@@ -548,7 +553,8 @@ function remove_duplicate_select_options($){
 
 
 function insert_images($, data){
-    
+
+ 
     var $posts=data[1]['posts'];
     var $container = $('#loaded_content');
 
@@ -563,7 +569,7 @@ function insert_images($, data){
          
          .imagesLoaded( function() {  
      
-             $container.isotope('reLayout');
+        //     $container.isotope('reLayout');
 
           }).progress( function( instance, image ) {
               
@@ -573,24 +579,27 @@ function insert_images($, data){
                     $item.addClass('is-broken');
                 }else{
                   $item.removeClass('is-loading');
+                  //  $container.isotope('reLayout');        
                 }
            });
-                
+  
        }
        
        else{console.log("no match")}
-
+     
     });
+    
+   $container.imagesLoaded(function(){
+    
+     
+        relayoutListener($);
+        
 
-    setTimeout(function(){
-      $container.imagesLoaded(function(){
-  $container.isotope('reLayout');
-
-});
+   
+       
+   });
+    
       
-    },300)
-
-
 }
 
 /*

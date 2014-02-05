@@ -76,6 +76,7 @@ function isotopes_init($,colWidth,offset,topOffset)
   var $container = $('#loaded_content');
 
     // initialize isotope
+    //$(" .clickme").unbind('click');
 
         
     $container.isotope({
@@ -84,6 +85,9 @@ function isotopes_init($,colWidth,offset,topOffset)
         masonry: {
                    layoutMode : 'fitRows'
 
+        },
+        animationOptions: {
+            duration: 800
         }
     
   
@@ -99,7 +103,7 @@ function isotopes_init($,colWidth,offset,topOffset)
   //setTimeout(function(){$("#loaded_content").isotope( 'reLayout' ); }, 500);
 
     
-    isotopes_modal($);
+setTimeout(function(){isotopes_modal($)},1300 )
 }
 
 function isotopes_modal($){
@@ -113,17 +117,18 @@ console.log('clik')
 
        if(! $(this).closest(".isotope-item").hasClass("activepost"))
        {//if it isnt the active post
-           //$(".item").removeClass("activepost").removeClass("activepost_edge");
-            $(this).css("z-index", "-1");
+           $("#main-overlay").fadeIn();
 
+           
+           $(this).css("z-index", "-1");
            $(this).siblings(".pop-out").show();
            $(this).siblings(".entry").hide();
 
           $(this).closest(".item").addClass("activepost");//make it an active post
            $(this).closest(".item").prepend("<div class='close_box'>X</div>");
 
-	   closeBoxHandler($, this);
-
+            relayoutListener($)
+            
             //get center of content box
                 var pageCenter= ($(window).width()/2);
            //get position of box clicked
@@ -142,15 +147,7 @@ console.log('clik')
                           position:"absolute",
                           top: -topAnimation
                
-                        },200,function()
-                        {
-//                        $(this).closest(".isotope-item").dialog('open');  
-//                        $('.ui-widget-overlay').css('background', 'white');
-$("#main-overlay").fadeIn();
-
-                          $("#loaded_content").isotope( 'reLayout' ); 
-                       $(this).closest(".isotope-item").css("z-index", "6");
-                        });
+                        },320);
   
        }
        
@@ -165,10 +162,7 @@ $("#main-overlay").fadeIn();
                  "z-index":"0",
                  position:"relative",
                  "top":"0"
-                },300,"linear",function()
-                {
-                   $("#loaded_content").isotope( 'reLayout' ); 
-                });
+                },360,"linear");
              
          $("#loaded_content").isotope( 'reLayout' ); 
          enableClickMe($);
@@ -205,6 +199,7 @@ function closeActiveBox($){
     
     //if there's already an active box, don't need to run this
   //  if(!$(".activepost").length > 0)return;       
+	    $("#main-overlay").fadeOut();
 
            $(".clickme").closest(".isotope").removeClass("activepost_edge");
            $(".clickme").closest(".activepost").children('.pop-out').hide();
@@ -219,21 +214,16 @@ function closeActiveBox($){
                  "z-index":"0",
                  position:"relative",
                  "top":"0"
-                },300,"linear",function()
-                {
-                    $("#loaded_content").isotope( 'reLayout' ); 
-                    
-                });
-                     $(".activepost .clickme").css("z-index", "999");
+                },360,"linear");
+                
+                $(".activepost .clickme").css("z-index", "999");
 
                 $(".clickme").closest(".item").removeClass("activepost").removeClass("activepost_edge");
                
             //re-enable isotope modal
-     //     closeActiveBox($);
               enableClickMe($);	
-
-        //   $("#loaded_content").isotope( 'reLayout' ); 
 }
+
 
 
 
@@ -260,20 +250,7 @@ $('.close_box').bind('click',function(){
                  "z-index":"0",
                  position:"relative",
                  "top":"0"
-                },300,"linear",function()
-                {
-                       
-               var $container= $('#loaded_content');
-                       $container.isotope('destroy');
-
-                        // initialize isotope
-                        $container.isotope({
-                         masonry: {
-                                    columnWidth: 0
-                                  }
-                         });
-
-                });
+                },360,"linear");
               
          $(this).remove();
          enableClickMe($);	
@@ -291,6 +268,53 @@ $('.close_box').bind('click',function(){
 }
 
 
+function relayoutListener($){
+
+   var  $container= $('#loaded_content');
+
+ if(!$(".activepost").length > 0){
+        $container.isotope('reLayout');  
+      //  setTimeout(isotopes_modal($), 500)
+    } else{
+        
+        //when the active box is closed, do a relayout
+        $('.close_box').unbind('click');
+        
+        $('.close_box').bind('click',function(){ 
+        
+         $("#main-overlay").fadeOut();
+
+           $(this).parent(".item").removeClass("activepost").removeClass("activepost_edge");
+           $(this).parent(".item").removeClass("activepost_edger").removeClass("activepost_edge");
+            $(this).siblings(".clickme").css("z-index", "1");
+
+            $(this).siblings(".pop-out").hide();
+            $(this).siblings(".entry").show();
+                
+
+		//   $(this).removeClass("close_box");
+		   
+       
+               $(this).closest(".isotope-item").animate(
+                {
+                 'left':'0',
+                 "z-index":"0",
+                 position:"relative",
+                 "top":"0"
+                },360,"linear", function(){
+                    
+                    $container.isotope('reLayout');
+                    alert('relaying')
+                   // setTimeout(isotopes_modal($), 500)
+                });
+              
+         $(this).remove();
+            graylien_infinite_scroll($);
+        
+        });
+    } setTimeout(isotopes_modal($), 1500);
+
+}
 
 /*
  * resetCurrentActiveBox
@@ -300,8 +324,8 @@ function resetCurrentActiveBox($){
   
     closeActiveBox($);
     disableClickMe($);
-    setTimeout(function(){reset_isotopes($);isotopes_modal($);   
-    }, 100);
+//    setTimeout(function(){reset_isotopes($);isotopes_modal($);   
+//    }, 100);
     
     
    
