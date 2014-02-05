@@ -27,17 +27,17 @@ do_action('enable_isotopes');
     
     <?php 
      //Category Filter
-          echo '<div class="filter-tab-1">';
-          echo '<h3 class="filter-title"><i class="ico fa fa-check-square-o"></i> Category</h3>';
-          echo '<div class="page_widget">'.widgets_on_template("Category Filter")."</div>";
-          echo '</div>';
+//          echo '<div class="filter-tab-1">';
+//          echo '<h3 class="filter-title"><i class="ico fa fa-check-square-o"></i> Category</h3><br>';
+//          echo '<div class="page_widget">'.widgets_on_template("Category Filter")."</div>";
+//          echo '</div>';
           
           echo '<div class="filter-tab-2">';
           echo '<div class="page_widget">More Options Coming Soon!</div></div>';
               
      
                     
-echo '<div class="nav-filter filter-tab-2" ><h3><i class="ico fa fa-tags"></i> Tag</h3>'; 
+echo '<div class="nav-filter filter-tab-1" ><h3><i class="ico fa fa-tags"></i> Tag</h3>'; 
 select_2_search('Tag');
           echo '</div>';   
           

@@ -27,7 +27,7 @@ do_action('enable_isotopes');
     <?php 
      //Category Filter
           echo '<div class="filter-tab-1">';
-          echo '<h3 class="filter-title"><i class="ico fa fa-lightbulb-o"></i> &nbsp;Topics</h3>';
+          echo '<h3 class="filter-title"><i class="ico fa fa-lightbulb-o"></i> &nbsp;Topics</h3><br>';
           echo '<div class="page_widget">'.widgets_on_template("Topic Filter")."</div>";
           echo '</div>';
 
