@@ -3167,7 +3167,7 @@ border-top-left-radius: 8px;
 /*.advert_image{display:none;}*/
 .is-loading {
   background-color: black;
-  background-image: url('http://desandro.github.io/imagesloaded/assets/loading.gif');
+  background-image: url( ../images/loading.gif );
   min-height:150px;
   background-position: center;
   background-repeat: no-repeat;
