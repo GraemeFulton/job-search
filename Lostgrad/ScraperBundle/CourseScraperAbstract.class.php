@@ -18,7 +18,8 @@ public function updateCourseDetails
             $youtube,
             $tags,
             $provider,
-            $instructor
+            $instructor,
+            $Fee
            )
   {
          $course = new Course();
@@ -43,6 +44,7 @@ public function updateCourseDetails
         $course->courseProvider=$provider;
         $course->courseURL= $courseURL;
         $course->courseInstructor= $instructor;
+        $course->courseFee = $fee;
        
         //post content requires as much detail as possible, for accurate searches
         $content=$courseContent.$this->build_additional_content($courseSubject, $universityName, $provider, $instructor);

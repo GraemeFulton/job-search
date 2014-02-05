@@ -108,12 +108,10 @@ $subject=$tree->grouped_taxonomy_name($post_id);
 
             <div class="entry">     
              <?php if(has_excerpt( $post_id ))the_excerpt(); ?> 
-                <?php echo '<i class="fa fa-lightbulb-o fa-2x"></i>&nbsp;'.$subject?>
-<div class="author-box">
-						<?php echo get_avatar( get_the_author_meta( 'user_email' ), '50' ); ?>
-						<p><?php printf( _x( 'by %s', 'Post written by...', 'buddypress' ), str_replace( '<a href=', '<a rel="author" href=', bp_core_get_userlink( $post->post_author ) ) ); ?></p>
-					</div>
-           <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><button class="btn btn-success">Read More</button></a>
+                <div class="read_more_btn"> <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><button class="btn btn-success">Read More</button></a>
+                </div>
+                <span class="inspire-cat-tag"> <?php echo '<i class="fa fa-lightbulb-o fa-2x"></i>&nbsp; '.$subject?></span>               
+              
             
 		    </div>
                                  
@@ -141,7 +139,6 @@ $subject=$tree->grouped_taxonomy_name($post_id);
    </div><!-- .page -->
 
    <div class='sidebar-main'>
-       		<a href="<?php echo site_url();?>/new-post"<button class="btn btn-success">Add New Post</button></a>
 
     <div id="selected-options-container"class="selected-blog-options">
         <h4 class="options-title"><i style="margin-top:-15px;"class="fa fa-search"></i> &nbsp;Selected: </h4><div class="clear_both"></div>

@@ -61,7 +61,8 @@ public function scrape($wpdb)
                 $youtube,
                 'Coursera',//tags
                 'Coursera',//provider
-                $instructor
+                $instructor,
+                'Free'//Price
                 );
          
             $totalSubmitted+=1;

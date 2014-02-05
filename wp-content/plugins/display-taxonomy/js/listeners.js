@@ -533,11 +533,11 @@ function scrollHandler($){
             
     var y = $(this).scrollTop();
     if (y > 115) {
-        $("#sidebar-left").css({"top":"55px","height":"95%","width":"249px", "position":"fixed", "overflow-y":"scroll"});
+        $("#sidebar-left").css({"top":"70px","height":"95%","width":"249px", "position":"fixed", "overflow-y":"scroll"});
         $("#content").css({"margin-left":"249px", "border-left":"1px solid rgba(0,0,0,0.3)"});
        // $("#sidebar-right").css("top", "0px");
-        $("#selected-options").css({"position":"fixed", "top":"55px","right":"196px", "margin":"0px"});
-        $("#selected-options-container").css({"position":"fixed", "top":"55px","right":"0px","margin":"0px"});
+        $("#selected-options").css({"position":"fixed", "top":"70px","right":"196px", "margin":"0px"});
+        $("#selected-options-container").css({"position":"fixed", "top":"70px","right":"0px","margin":"0px"});
 
         $(".sidebar-main").css({"margin-top":"240px", "border-top":"1px solid #ccc"});
 

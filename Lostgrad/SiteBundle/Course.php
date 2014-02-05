@@ -16,6 +16,7 @@ class Course
     
     protected $course_type="Free";
     protected $courseInstructor="";
+    protected $courseFee = "";
 
     /**
      * Access modifier to set protected properties
@@ -82,6 +83,20 @@ class Course
                 $course_length,
                 array( '%d', '%s', '%s' )
             );
+            
+            //INSERT COURSE FEE
+               //INSERT COURSE-LENGTH     
+              $course_length = array(
+                'post_id' => $last_insert_id,
+                'meta_value'=>$this->courseFee,
+                'meta_key'=>'wpcf-course-fee'
+            );
+            $wpdb->insert(
+                'wp_postmeta', 
+                $course_length,
+                array( '%d', '%s', '%s' )
+            );
+            
             
            //INSERT COURSE-URL   
               $course_url = array(
