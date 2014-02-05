@@ -3165,6 +3165,19 @@ margin-bottom: 0px;
     border-top-right-radius: 8px;
 border-top-left-radius: 8px;
 }
+
+.edit-profile-form-area .label{
+        
+    display: inline;
+padding: 0px 0px 0px 0px !important;
+font-size: inherit !important;
+line-height: inherit !important;
+color: inherit !important;
+text-align: inherit !important;
+    margin-left:-20px !important;
+}
+
+
 /*.advert_image{display:none;}*/
 .is-loading {
   background-color: black;
