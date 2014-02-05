@@ -201,7 +201,7 @@ function process_cat_filter($){
          setTimeout(function(){insert_images($, parsedData);}, 750);
 
          
-         resetCurrentActiveBox($);
+       //  resetCurrentActiveBox($);
          //reinitiate ratings plugin
          reset_filter_listener($);
 
@@ -287,7 +287,7 @@ function process_filter($, category_type, tag_type, body_type){
                }, 1200)
 
 
-        resetCurrentActiveBox($);
+       // resetCurrentActiveBox($);
         //reinitiate ratings plugin
         reset_filter_listener($);
 
@@ -313,6 +313,7 @@ function process_filter($, category_type, tag_type, body_type){
  * @returns {undefined} */
 function process_filter_scroll($, postoffset, category_type, tag_type, body_type){
 	//resetCurrentActiveBox($);
+ 	    //$("#main-overlay").fadeIn();
 
  if(isLoadingData===true) return;
      //loading gif
@@ -360,11 +361,11 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
          
      $('#ajax-loader-scroll').remove();
     //rebind infinitescroll
-     resetCurrentActiveBox($);
+    // resetCurrentActiveBox($);
 
     graylien_infinite_scroll($);
     reset_filter_listener($);
-
+ 	   
          return false;
      },
      error: function(errorThrown){
@@ -554,7 +555,7 @@ function remove_duplicate_select_options($){
 
 function insert_images($, data){
 
- 
+
     var $posts=data[1]['posts'];
     var $container = $('#loaded_content');
 
