@@ -281,8 +281,7 @@ function relayoutListener($){
         $('.close_box').unbind('click');
         
         $('.close_box').bind('click',function(){ 
-        
-         $("#main-overlay").fadeOut();
+        $("#main-overlay").fadeOut();
 
            $(this).parent(".item").removeClass("activepost").removeClass("activepost_edge");
            $(this).parent(".item").removeClass("activepost_edger").removeClass("activepost_edge");
@@ -303,16 +302,15 @@ function relayoutListener($){
                  "top":"0"
                 },360,"linear", function(){
                     
-                    $container.isotope('reLayout');
-                    alert('relaying')
-                   // setTimeout(isotopes_modal($), 500)
+                   setTimeout(function(){ $container.isotope('reLayout');}, 370)
                 });
               
          $(this).remove();
             graylien_infinite_scroll($);
         
         });
-    } setTimeout(isotopes_modal($), 1500);
+    } setTimeout(function(){isotopes_modal($); 
+}, 0);
 
 }
 
@@ -324,8 +322,7 @@ function resetCurrentActiveBox($){
   
     closeActiveBox($);
     disableClickMe($);
-//    setTimeout(function(){reset_isotopes($);isotopes_modal($);   
-//    }, 100);
+    setTimeout(function(){reset_isotopes($);isotopes_modal($);      }, 100);
     
     
    
