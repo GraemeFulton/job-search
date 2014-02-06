@@ -30,6 +30,14 @@
 	<?php endif; ?>
 
 	<span class="activity"><?php bp_last_activity( bp_displayed_user_id() ); ?></span>
+        
+        <a href="<?php echo site_url().'/author/'. bp_get_displayed_user_username(); ?>">
+        <button class="btn btn-inverse">View Blog</button>
+        </a>
+        <?php if(bp_displayed_user_id()==  bp_loggedin_user_id()){?>
+        <a href="<?php echo site_url().'/new-post/';?>">
+            <button class="btn btn-success">New Post</button></a>
+        <?php }?>
 
 	<?php do_action( 'bp_before_member_header_meta' ); ?>
 
@@ -45,10 +53,9 @@
 
 		<?php endif; ?>
 
-		<div id="item-buttons">
+		<div id="item-buttons" style="margin-left:-11px">
 
 			<?php do_action( 'bp_member_header_actions' ); ?>
-
 		</div><!-- #item-buttons -->
 
 		<?php

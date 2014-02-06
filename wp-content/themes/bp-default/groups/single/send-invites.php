@@ -18,7 +18,7 @@
 
 		<div class="main-column">
 
-			<div id="message" class="info">
+			<div id="message" class="info edit-profile-form-area">
 				<p><?php _e('Select people to invite from your friends list.', 'buddypress'); ?></p>
 			</div>
 
@@ -57,7 +57,7 @@
 		<div class="clear"></div>
 
 		<div class="submit">
-			<input type="submit" name="submit" id="submit" value="<?php _e( 'Send Invites', 'buddypress' ); ?>" />
+			<input class="btn btn-success" type="submit" name="submit" id="submit" value="<?php _e( 'Send Invites', 'buddypress' ); ?>" />
 		</div>
 
 		<?php wp_nonce_field( 'groups_send_invites', '_wpnonce_send_invites'); ?>

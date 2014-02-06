@@ -1,0 +1,53 @@
+<?php
+/*
+Plugin Name: Isotopes
+Plugin URI: http://graylien.tumblr.com
+Description: Adds Isotope/Masonry to gridview
+Version: 1.0
+Author: Graeme Fulton
+Author URI: http://gfulton.me.uk
+*/
+
+   /*
+     * Action: load checkbox.js script
+     */
+    function isotopes_css()
+    {
+        
+        
+        //css
+        wp_register_style( 'isotopes_css', plugins_url('/css/isotopes_css.css', __FILE__) );
+        wp_enqueue_style( 'isotopes_css' );
+    }
+    
+    add_action( 'wp_enqueue_scripts', 'isotopes_css' );
+    
+    
+    function isotopes_simple_js(){
+    	wp_enqueue_script('isotopes', plugins_url('/js/isotopes.js',__FILE__) );
+        wp_enqueue_script('imagesloaded', plugins_url('/js/imagesloaded.js',__FILE__) );	 
+
+    }
+    add_action( 'wp_enqueue_scripts', 'isotopes_simple_js' );
+        
+    
+    function isotopes_action_js(){
+        //js
+        wp_enqueue_script('isotopes_action', plugins_url('/js/isotopes_action.js',__FILE__) );       
+    }
+    add_action( 'enable_isotopes', 'isotopes_action_js' );
+
+
+    
+    /*
+     * add isotope class to post items
+     */
+//    function additional_classes($class) {
+//       $class[] = 'isotope-item';
+//       return $class;
+//    }   
+//    add_filter('post_class', 'additional_classes');
+
+   
+?>
+

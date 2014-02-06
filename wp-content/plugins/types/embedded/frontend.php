@@ -158,17 +158,10 @@ function types_render_field( $field_id, $params, $content = null, $code = '' ) {
         $meta = $_meta['custom_order'];
 
         // Sometimes if meta is empty - array(0 => '') is returned
-        if ( (count( $meta ) == 1 ) ) {
-            $meta_id = key( $meta );
-            $_temp = array_shift( $meta );
-            if ( strval( $_temp ) == '' ) {
-                return '';
-            } else {
-                $params['field_value'] = $_temp;
-                return types_render_field_single( $field, $params, $content,
-                                $code, $meta_id );
-            }
-        } else if ( !empty( $meta ) ) {
+        if ( count( $meta ) == 1 && reset( $meta ) == '' ) {
+            return '';
+        }
+        if ( !empty( $meta ) ) {
             $output = '';
 
             if ( isset( $params['index'] ) ) {
@@ -295,6 +288,8 @@ function types_render_field_single( $field, $params, $content = null,
         // Skype is array
         if ( $field['type'] == 'skype' && isset( $params['field_value']['skypename'] ) ) {
             $output = $params['field_value']['skypename'];
+        } else if ($field['type'] == 'checkboxes' && is_array( $params['field_value'] ) ) {
+            $output = implode( ', ', $params['field_value'] );
         } else {
             $output = $params['field_value'];
         }
@@ -316,12 +311,7 @@ function types_render_field_single( $field, $params, $content = null,
         } else if ( $output == '__wpcf_skip_empty' ) {
             $output = '';
         }
-        
-        // Compat with 'output' => 'html'
-        // TODO Remove If 'class' or 'style' parameters are set - force HTML output
-//        if ( ((isset( $params['class'] ) && !empty( $params['class'] )) || (isset( $params['style'] ) && !empty( $params['style'] ))) && $field['type'] != 'date' ) {
-//            $params['output'] = 'html';
-//        }
+
         if (isset($params['output']) && $params['output'] == 'html') {
             $output = wpcf_frontend_compat_html_output( $output, $field, $content, $params );
         } else {

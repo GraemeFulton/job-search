@@ -1,0 +1,49 @@
+{#
+    Copyright (c) 2011 Mike Green <myatus@gmail.com>
+
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+#}
+
+<div id="image_nav" class="tablenav hide-if-js">
+    <div id="image_upload_html">
+        <form action="" method="post" enctype="multipart/form-data">
+            {{ nonce | raw }}
+            <label class="screen-reader-text" for="upload_file">{{ __('Add Image') }}</label>
+            <input type="file" name="upload_file" id="upload_file /">
+            <input type="submit" name="upload" id="upload" class="button" value="{{ __('Add Image') }}" />
+        </form>
+    </div>
+    <div id="image_nav_page_links" class="tablenav-pages">{{ page_links | raw }}</div>
+</div>
+
+<div id="image_container">
+    {% for image in images %}
+    <div id="image_{{ image.ID }}" class="image myatu_inline_block">
+        <img src="{{ image.thumb.0 }}" alt="{{ image.meta_alt }}" title="{% if image.post_excerpt %}{{ image.post_excerpt }}{% else %}{{ image.post_name }}{% endif %}" />
+    </div>
+    {% endfor %}
+</div>
+
+<div id="image_buttons" class="image_buttons">
+    <a href="#" id="image_edit_button"   class="image_button myatu_inline_block" title="{{ __('Edit Image') }}"   accesskey="e"></a>
+    <a href="#" id="image_del_button"    class="image_button myatu_inline_block" title="{{ __('Delete Image') }}" accesskey="d"></a>
+    <a href="#" id="image_remove_button" class="image_button myatu_inline_block" title="{{ __('Remove Image') }}" accesskey="r"></a>
+</div>
+
+<div id="image_move_left_button_holder" class="image_buttons">
+    <a href="#" id="image_move_left_button" class="image_button" title="{{ __('Move Left') }}"  accesskey="n"></a>
+</div>
+
+<div id="image_move_right_button_holder" class="image_buttons">
+    <a href="" id="image_move_right_button" class="image_button" title="{{ __('Move Right') }}" accesskey="m"></a>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+jQuery(document).ready(function($){
+    mainWin = window.dialogArguments || opener || parent || top;
+    mainWin.myatu_bgm.onImagesIframeFinish({{ current_page }});
+});
+//]]>
+</script>

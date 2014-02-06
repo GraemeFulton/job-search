@@ -12,8 +12,9 @@
 <?php get_header( 'buddypress' ); ?>
 
 	<?php do_action( 'bp_before_directory_forums_page' ); ?>
+<div class='single-container'>
 
-	<div id="content">
+	<div id="content"class='single_content'>
 		<div class="padder">
 
 			<?php do_action( 'bp_before_directory_forums' ); ?>
@@ -160,5 +161,10 @@
 
 	<?php do_action( 'bp_after_directory_forums_page' ); ?>
 
-<?php get_sidebar( 'buddypress' ); ?>
+<div class='sidebar-single'>
+        <?php get_sidebar( 'buddypress' ); ?>
+        </div>
+        
+</div>
+    
 <?php get_footer( 'buddypress' ); ?>

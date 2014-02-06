@@ -1,4 +1,5 @@
-<h4><?php _e( 'Change Avatar', 'buddypress' ); ?></h4>
+<h4 class="profile-header"><?php _e( '<i class="fa fa-camera"></i>&nbsp; Change Avatar', 'buddypress' ); ?></h4>
+       <div class="edit-profile-form-area">
 
 <?php do_action( 'bp_before_profile_avatar_upload_content' ); ?>
 
@@ -12,16 +13,23 @@
 
 			<?php wp_nonce_field( 'bp_avatar_upload' ); ?>
 			<p><?php _e( 'Click below to select a JPG, GIF or PNG format photo from your computer and then click \'Upload Image\' to proceed.', 'buddypress' ); ?></p>
+                              <span id="filename"></span>
+                            <p id="avatar-upload">
 
-			<p id="avatar-upload">
-				<input type="file" name="file" id="file" />
-				<input type="submit" name="upload" id="upload" value="<?php _e( 'Upload Image', 'buddypress' ); ?>" />
+                            <div class="fileinput-button">
+                                <span class="btn btn-primary">Choose Image</span><br>
+                                <input type="file" name="file" id="file" />
+                            </div>
+                            <div style="float:left">
+				<input class="btn btn-success" type="submit" name="upload" id="upload" value="<?php _e( 'Upload Image', 'buddypress' ); ?>" />
 				<input type="hidden" name="action" id="action" value="bp_avatar_upload" />
+                            </div>
 			</p>
+                        <br><div class="clear_both"></div><hr style="background:#fff">
 
 			<?php if ( bp_get_user_has_avatar() ) : ?>
 				<p><?php _e( "If you'd like to delete your current avatar but not upload a new one, please use the delete avatar button.", 'buddypress' ); ?></p>
-				<p><a class="button edit" href="<?php bp_avatar_delete_link(); ?>" title="<?php _e( 'Delete Avatar', 'buddypress' ); ?>"><?php _e( 'Delete My Avatar', 'buddypress' ); ?></a></p>
+				<p><a class="btn btn-danger" href="<?php bp_avatar_delete_link(); ?>" title="<?php _e( 'Delete Avatar', 'buddypress' ); ?>"><?php _e( 'Delete My Avatar', 'buddypress' ); ?></a></p>
 			<?php endif; ?>
 
 		<?php endif; ?>
@@ -57,3 +65,18 @@
 <?php endif; ?>
 
 <?php do_action( 'bp_after_profile_avatar_upload_content' ); ?>
+       </div>
+
+ <script>
+  jQuery('#fileinput-button').click(function(e) {
+     e.stopImmediatePropagation();
+     console.log('triggered');
+  });
+
+  jQuery('input[type=file]').bind('change', function() {
+    var str = "";
+    str = jQuery(this).val();
+    str = jQuery(this).val().replace(/C:\\fakepath\\/i, '');
+    jQuery("#filename").text('Filename: '+str);
+  }).change();
+ </script>

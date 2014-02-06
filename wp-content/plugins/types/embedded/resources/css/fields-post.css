@@ -65,3 +65,14 @@ img.ui-datepicker-trigger {
 	max-width:200px;
 	height:auto;	
 }
+.types-cp-preview {
+    width: 22px;
+    height: 22px;
+    float: left;
+    border: 1px solid #BBBBBB;
+}
+#types-preview-warning {
+    margin: 10px 5px 0 0;
+    display: none;
+    clear: both;
+}

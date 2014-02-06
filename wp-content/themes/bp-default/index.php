@@ -1,8 +1,10 @@
 <?php get_header(); ?>
 
 
-	<div id="content">
-		<div class="padder">
+<div class='single-container'>
+
+	<div id="content"class='single_content'>
+            <div class="padder">
 
 		<?php do_action( 'bp_before_blog_home' ); ?>
 
@@ -66,6 +68,10 @@
 		</div><!-- .padder -->
 	</div><!-- #content -->
 
-	<?php get_sidebar(); ?>
+	<div class='sidebar-single'>
+        <?php get_sidebar( 'buddypress' ); ?>
+        </div>
+        
+</div>
 
 <?php get_footer(); ?>

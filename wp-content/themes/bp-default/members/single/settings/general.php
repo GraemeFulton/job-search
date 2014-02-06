@@ -9,7 +9,9 @@
 
 get_header( 'buddypress' ); ?>
 
-	<div id="content">
+<div class='single-container'>
+
+	<div id="content"class='single_content single_content_profile'>
 		<div class="padder">
 
 			<?php do_action( 'bp_before_member_settings_template' ); ?>
@@ -45,6 +47,7 @@ get_header( 'buddypress' ); ?>
 
 					</ul>
 				</div><!-- .item-list-tabs -->
+       <div class="edit-profile-form-area">
 
 				<h3><?php _e( 'General Settings', 'buddypress' ); ?></h3>
 
@@ -69,7 +72,7 @@ get_header( 'buddypress' ); ?>
 					<?php do_action( 'bp_core_general_settings_before_submit' ); ?>
 
 					<div class="submit">
-						<input type="submit" name="submit" value="<?php _e( 'Save Changes', 'buddypress' ); ?>" id="submit" class="auto" />
+						<input class="btn btn-success" type="submit" name="submit" value="<?php _e( 'Save Changes', 'buddypress' ); ?>" id="submit" class="auto" />
 					</div>
 
 					<?php do_action( 'bp_core_general_settings_after_submit' ); ?>
@@ -79,7 +82,7 @@ get_header( 'buddypress' ); ?>
 				</form>
 
 				<?php do_action( 'bp_after_member_body' ); ?>
-
+       </div>
 			</div><!-- #item-body -->
 
 			<?php do_action( 'bp_after_member_settings_template' ); ?>
@@ -87,6 +90,10 @@ get_header( 'buddypress' ); ?>
 		</div><!-- .padder -->
 	</div><!-- #content -->
 
-<?php get_sidebar( 'buddypress' ); ?>
+<div class='sidebar-single'>
+        <?php get_sidebar( 'buddypress' ); ?>
+        </div>
+        
+</div>
 
 <?php get_footer( 'buddypress' ); ?>

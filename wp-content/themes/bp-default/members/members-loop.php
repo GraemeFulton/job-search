@@ -15,7 +15,7 @@
 
 <?php if ( bp_has_members( bp_ajax_querystring( 'members' ) ) ) : ?>
 
-	<div id="pag-top" class="pagination">
+	<div id="pag-top" class="pagination-bp">
 
 		<div class="pag-count" id="member-dir-count-top">
 
@@ -33,7 +33,7 @@
 
 	<?php do_action( 'bp_before_directory_members_list' ); ?>
 
-	<ul id="members-list" class="item-list" role="main">
+	<ul id="members-list" class="item-list members-item-list" role="main">
 
 	<?php while ( bp_members() ) : bp_the_member(); ?>
 
@@ -86,7 +86,7 @@
 
 	<?php bp_member_hidden_fields(); ?>
 
-	<div id="pag-bottom" class="pagination">
+	<div id="pag-bottom" class="pagination-bp">
 
 		<div class="pag-count" id="member-dir-count-bottom">
 

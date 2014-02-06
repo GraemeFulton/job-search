@@ -1,8 +1,9 @@
 <?php do_action( 'bp_before_member_messages_loop' ); ?>
 
 <?php if ( bp_has_message_threads( bp_ajax_querystring( 'messages' ) ) ) : ?>
+       <div class="edit-profile-form-area">
 
-	<div class="pagination no-ajax" id="user-pag">
+	<div class="pagination-bp no-ajax" id="user-pag">
 
 		<div class="pag-count" id="messages-dir-count">
 			<?php bp_messages_pagination_count(); ?>
@@ -72,3 +73,4 @@
 <?php endif;?>
 
 <?php do_action( 'bp_after_member_messages_loop' ); ?>
+       </div>
