@@ -185,6 +185,7 @@ function closeActiveBox($){
            $(".clickme").closest(".activepost").children('.pop-out').hide();
            $(".clickme").closest(".activepost").children('.entry').show();
 
+           $(".clickme").closest(".activepost").children('.clickme').css({"z-index":"1", "visibility":"visible"});
            $(".close_box").remove();   
 
 
@@ -200,7 +201,6 @@ function closeActiveBox($){
 
                 $(".clickme").closest(".item").removeClass("activepost").removeClass("activepost_edge");
                
-               $(this).closest(".clickme").css({"background":"red", "visibility":"visible"})
             //re-enable isotope modal
               enableClickMe($);	
 }

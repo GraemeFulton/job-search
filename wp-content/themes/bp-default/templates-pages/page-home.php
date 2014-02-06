@@ -49,21 +49,7 @@ include (TEMPLATEPATH . '/templates-headers/header-home.php');
         ------------------>
         <div class="featured-area">
             <div class="center-wrapper">
-                        <div id="Members_Feed">
-                        <h2><i class="ico fa fa-users"></i> Members</h2>
-                        <?php 
-                echo do_shortcode('[widgets_on_pages id="Members Box"]');
-                ?>
-                <!-- <h4><i class="ico fa fa-users"></i> Groups</h4> -->
-                <?php 
-                //echo do_shortcode('[widgets_on_pages id="Groups Box"]');
-                ?>
-                <h2><i class="ico fa fa-comments-o"></i> Member Activity</h2>
-                <?php 
-                echo do_shortcode('[widgets_on_pages id="Member Feed"]');
-                ?>
-
-                </div>
+               
 
                 <?php
                 $post_types=['course', 'work-experience-job','graduate-job', 'travel-opportunities'];
@@ -81,5 +67,20 @@ include (TEMPLATEPATH . '/templates-headers/header-home.php');
                 echo '</div>';
                 ?>
           </div>
+                     <div id="Members_Feed">
+                        <h2><i class="ico fa fa-users"></i> Members</h2>
+                        <?php 
+                echo do_shortcode('[widgets_on_pages id="Members Box"]');
+                ?>
+                <!-- <h4><i class="ico fa fa-users"></i> Groups</h4> -->
+                <?php 
+                //echo do_shortcode('[widgets_on_pages id="Groups Box"]');
+                ?>
+                <h2><i class="ico fa fa-comments-o"></i> Member Activity</h2>
+                <?php 
+                echo do_shortcode('[widgets_on_pages id="Member Feed"]');
+                ?>
+
+                </div>
 </div><!-- featured area -->
 </div>
