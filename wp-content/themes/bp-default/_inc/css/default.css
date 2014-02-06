@@ -3295,7 +3295,7 @@ width: 48%;}
 box-shadow: 0 0 25px rgba(0,0,0,0.04);
 }
 .promo_slider_wrapper {
-width:595px;
+width:521px;
 margin-top:-5px !important;
 	}
 	.promo_slider_nav{margin:0px !important; z-index:95 !important;}
@@ -3307,7 +3307,7 @@ margin-top:-5px !important;
 	.home-navbar{ border-bottom:5px solid rgb(10, 221, 187) !important}
 	.home-navbar a.navbar-brand {color:#222; font-size:40px;}
 	.promo_slider{
-	height:310px !important;
+	height:349px !important;
 	
 	}
 	.home-slider-area{
