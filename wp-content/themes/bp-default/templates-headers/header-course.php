@@ -26,6 +26,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+            
+            
+                <div id="sidebar-toggle">
+                    <div id="toggle-icon">
+                        <button type="button" class="btn btn-default ">
+                            <span class="glyphicon glyphicon glyphicon-th-list"></span>
+                        </button>
+                    </div>
+                </div>
+            
+            
 <a class="navbar-brand" href="<?php bloginfo('url')?>"><?php bloginfo('name')?></a>        </div>
         <div class="navbar-collapse collapse">
          <?php /* Primary navigation */

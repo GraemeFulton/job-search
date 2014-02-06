@@ -27,14 +27,14 @@ Hello, this is the BuddyPress Responsive theme stylesheet
         .navbar-collapse{background:#222;}
         #sidebar{display:none;}
         .single-container{width:100%;display:block !important;overflow:hidden;}
-        #sidebar-toggle{display:inline;}
+        #sidebar-toggle{display:inline; margin-top:6px !important;}
         #toggle-icon{padding:8px;}
-        #sidebar-left{width:50px;background:#eaeaea}
         #selected-options{float:left;width:100px;display:none;}
         .single-content{width:100% !important;}
         .sidebar-open{background:#eaeaea !important;}
         #main_search{width:100%;padding:10px;}
         .selected-options-padding{margin-top:4px !important;}
+        .navbar > .container .navbar-brand{margin-top:2px !important;}
 
         
 	#wpadminbar {
@@ -87,6 +87,232 @@ Hello, this is the BuddyPress Responsive theme stylesheet
 	#footer-widgets {
 		padding: 19px 10px;
 	}
+        /*********LG**************************/
+        
+        .promo_slider_wrapper{display:none;}
+        .home-tag-line{width:auto !important;}
+        #Members_Feed, #Featured_Content
+        {
+           margin-right: 0px !important;
+           float:left;
+           margin-top:0px !important;
+           width:100%!important;
+           border-radius:0px!important;
+           border:none !important;
+           
+        }
+        #Featured_Content{
+            padding:0px !important;
+            background:#fff!important;
+            float:left;
+        }
+        #Featured_Content h2, #Featured_Content .ico{margin-left:6px;color:#222;}
+        
+        .activity-bookmark-image{width:160px !important;}
+        
+        .home-content .tab-post-favourite-group,.home-content .favourite-inspire-posts{
+            width:100% !important;
+            margin:0px !important;
+            border-radius: 0px !important;
+        }
+       
+        .lwa-modal{
+            left: 0px !important;
+            margin-left: 0px !important;
+            width: 100% !important;
+            border-radius: 0px;
+        }
+        .profile-bookmark-image{max-width:100% !important; width:100%;}
+        .profile-bookmark-item{width:auto; height:auto;border-radius:0px !important; margin-bottom:10px;}
+        .profile-bookmark-image-box{height:auto;width:100% !important}
+        
+        .navbar-nav{margin:0px -15px;}
+        
+        .navbar-nav > li > a .fa-2x, .home-page .navbar-nav > li > a .fa-2x {
+        margin-top: -5px !important;
+        }
+        .sidebar-main{display:none;}
+        .course-line, .travel-line, .inspire-line, .home-line, .graduatejob-line, .workexperience-line{
+            top:51px;
+            z-index: 500;
+            height: 5px;
+        }
+        .navbar-inverse .navbar-nav > li > a{color:#fff}
+        .navbar-inverse .navbar-toggle  {background:#222} 
+        li.course-menu a{color:rgb(36, 176, 255) !important}
+        
+        div#page-container{overflow:visible;}
+        /****************
+        ***popout menu***
+        http://www.youtube.com/watch?v=m52OcJhaaZU
+        ****************/
+         .mobile-menu{
+             overflow-x:hidden;
+             overflow-y:hidden;
+             position:relative;
+            left:0;
+            
+        }
+        
+         .mobile-menu-open {
+            left:231px;
+            
+        }
+        
+        .mobile-menu-open #sidebar-left.mobile-menu-side{
+            left:0;
+        }
+        
+        #sidebar-left.mobile-menu-side{
+            background:#333; 
+            position:fixed;
+            color:#fff;
+            top:55px;
+            left:-231px;
+            width:210px;
+            height:100%;
+            padding:10px;
+            overflow-y:scroll;
+            
+        }
+        
+        .mobile-menu-side, .mobile-menu{
+             -webkit-transition: left 0.2s ease;
+              -moz-transition: left 0.2s ease;
+            transition: left 0.2s ease;
+        }
+        .sidebar-options{background:none;}
+        .dtree a{color:#fff;}
+        .filter-tab{min-height: 64px;}
+        .active-filter h4 {
+            color: #FFF;
+        }
+        .active-filter{background:#333!important;}
+        .filter-tab{border-bottom:none; border:none;background:#999;color:#494949}
+        /**************************/
+        
+       
+        
+        
+        
+        #main_search{margin:27px auto !important;}
+        
+        .activepost{width:280px !important;margin-left:-25px !important;background: #fff !important;}
+        .activepost h2.posttitle a{color:#222}
+        .main-content{width:100%;margin-bottom:20px;}
+        
+        .padder{padding:5px;}
+        
+        .post_image img{width:100%}
+        .post_image{border-radius:0px !important}
+        
+        .entry {
+		width: 100%;
+                display:none !important;
+	}
+        .item .posttitle{max-height: none;}
+        
+        #loaded_content .item{
+            background:#F7F7F7;
+            border-radius:0px;
+        }
+        h2.pagetitle a, h2.posttitle a{color:#222;font-size:12px;}
+        .posttitle{padding-bottom:5px !important;}
+        
+                    .type-graduate-job  .posttitle{
+            background:#fff;
+            border-bottom:1px solid orange;
+            margin-bottom: 0px;
+            }
+            .type-work-experience-job  .posttitle{
+            background:#fff;
+            border-bottom:1px solid rgba(204, 0, 255, 1);
+            margin-bottom: 0px;
+            }
+            .type-course .posttitle{
+            background:#f7f7f7;
+            border-bottom:1px solid cornflowerblue !important;
+            margin-bottom: 0px;
+            }
+            .type-post .posttitle{
+            background:#fff;
+            border-bottom:1px solid rgb(10, 221, 187);
+            margin-bottom: 0px;
+            border-top:1px solid #ccc;
+            }
+            .type-inspire-posts .posttitle{
+            background:#fff;
+            border-bottom:1px solid #FFCB05;
+            margin-bottom: 0px;
+            border-top:1px solid #ccc;
+            }
+            .wpfp-link .btn{margin-top:5px !important;}
+            .close_box{border-radius:0px !important;}
+            .isotope-item{width:48%;margin:2px;}
+            /****************blog-single page*********************/
+            #blog-single{
+                margin:0px;
+                padding:5px;
+                border-radius:0px !important;
+            }
+            .single_datagrid {
+                width: 100%;
+                float: left;
+                position: relative;
+                margin: 0px!important;
+                z-index: 5;
+             }
+             .single-container{
+                 margin-top:56px;
+             }
+             .single_cont{
+                 width:100%;
+                 float:left;
+             }
+             /******archive*********/
+             .archive_image{
+                 max-width:100%;
+             }
+             .archive-list .entry{
+                 visibility:visible !important;
+                 display:inline !important;
+             }
+             #blog-archives .post-content{
+               width: 100%;
+               padding: 10px;
+               border-radius: 0px;
+               margin-bottom: 18px;
+               border: 1px solid #eaeaea;
+             }
+             .archive-list{
+                 padding-left:0px;
+             }
+             #single_youtube_player iframe{
+                 max-width:100% !important;
+             }
+             /******activity (main)*********/
+             #Profile_Saved_Posts{display:none;}
+             
+             .activity-list .activity-content {
+                margin-left: 0px;
+                margin-bottom: 5px;
+                background: #fff;
+                border-radius: 5px;
+                padding: 10px;
+                -webkit-box-shadow: 0 0 25px rgba(0,0,0,0.06);
+                -moz-box-shadow: 0 0 25px rgba(0,0,0,0.06);
+                box-shadow: 0 0 25px rgba(0,0,0,0.06);
+                border: 1px solid #eaeaea;
+                border-radius:0px;
+                }
+                #activity-stream {
+                    margin-top: 15px;
+                    width: 100%;
+                    float: left;
+                }
+                ul.item-list.activity-list li{
+                    width:100%;
+                }
 }
 
 
@@ -111,6 +337,7 @@ Hello, this is the BuddyPress Responsive theme stylesheet
 	}
 	.entry {
 		width: 100%;
+                display:none;
 	}
 	.entry img {
 		max-width: 100%;

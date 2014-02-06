@@ -8,7 +8,7 @@ Hello, this is the BuddyPress Default theme stylesheet.
 2.0 - Structural
 	2.1 - Content
 	2.2 - Header
-	2.3 - Footer
+	2.3 - Footer.homepage-button
 	2.4 - Sidebar
 3.0 - Non-structural
 	3.1 - Text
@@ -3099,6 +3099,11 @@ border-top:1px solid #ccc;
     border:none !important;
     border-radius: 0px !important;
 }
+
+    
+}
+/**end of media query********/
+
 .archive_image{
     
     max-width:400px;
@@ -3115,8 +3120,6 @@ margin-bottom: 25px;
 -moz-box-shadow: 0 0 25px rgba(0,0,0,0.06);
 box-shadow: 0 0 25px rgba(0,0,0,0.06);
 border: 1px solid #eaeaea;
-}
-    
 }
 
 #blog-archives #nav-below{
@@ -3256,7 +3259,16 @@ border-radius: 10px;
 color:#fff;
 }
 .home-page-btn{float:left; margin-left:5px;}
-.homepage-button{height:50px; margin-right:2px}
+.home-slider-area .homepage-button{
+    height: 65px;
+width: 100px;
+margin-right: 3px;
+font-size: 20px;
+    
+}
+
+.lwa-wp-submit{margin-right:8px;}
+
 
 .enroll{background:#0367b0 !important;border-color:#0362a7;}
 .apply{background:rgba(218, 104, 15, 1) !important; border-color:rgba(218, 104, 15, 1) !important;}
@@ -3707,7 +3719,7 @@ form#whats-new-form h5{color:#444 !important;}
 
 .single_content_profile .bpfb_form_container{height:163px;margin-top:-5px;
 float: right;
-width: 87%;
+width: 80%;
 margin-top: 13px !important;
 
 }
@@ -3728,9 +3740,18 @@ min-height:163px;
 SIDEBAR TOGGLE
 */
 #sidebar-toggle:hover{cursor: pointer;}
-#sidebar-toggle{display:none;}
+#sidebar-toggle{
+    display:none;
+    float: left;
+    margin-top: 13px;
+}
+
+.search-visibility{visibility:hidden;}
+
 .filter-tab{float:left;padding:5px; width:50%;border-left:1px solid #ccc;border-bottom:1px solid #ccc;background:#f6f6f6;}
 .filter-tab {color:#999}
+
+.sidebar-options{margin-top:-5px;background:#fff;}
 
 .filter-tabs{background:#f6f6f6;float: left;width: 100%;margin-bottom:20px;text-align: center;}
 .filter-tabs:hover{color:#222 !important; cursor: pointer;}
