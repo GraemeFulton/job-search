@@ -59,6 +59,14 @@
 	</ul>
 </div><!-- .item-list-tabs -->
 
+<div id="Profile_Saved_Posts">
+<?php  
+global $bp;
+echo wpfp_graylien_users_favorites_widget_view($bp->displayed_user->fullname);
+?>        
+</div>
+
+
 <?php do_action( 'bp_before_member_activity_post_form' ); ?>
 
 <?php

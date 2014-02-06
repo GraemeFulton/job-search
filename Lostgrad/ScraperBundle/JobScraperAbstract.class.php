@@ -1,68 +1,103 @@
  <?php
  
 abstract class JobScraperAbstract extends ScraperAbstract{
+    
+protected $post_type;
+protected $post_type_meta;
+protected $post_type_taxonomy;
 
+public function Setup($API, $initiativeURL, $category, $post_type, $post_type_meta, $post_type_taxonomy){
+    
+    $this->urlToScrape = $API;
+    $this->initiativeURL = $initiativeURL;  
+    $this->category= $category;
+    $this->post_type= $post_type;
+    $this->post_type_meta= $post_type_meta;
+    $this->post_type_taxonomy = $post_type_taxonomy;
+
+}
+    
 public function updateJobDetails
            (
-            $h, 
+            $wpdb, 
+            $profession,
             $initiative_job_id, 
-            $initiative_id, 
             $employer_name, 
             $location, 
-            $initiative_employer_id,
             $job_url, 
             $job_title, 
             $job_desc, 
+            $job_exerpt,
             $jobimage, 
-            $tags            
+            $tags,
+            $provider,
+            $post_type,
+            $post_type_meta
            )
   {
     
         $job = new Job();
-        $job->initiative_job_id=$initiative_job_id;
+        $job->job_url= $job_url;
+        $job->job_desc=$job_desc;
+        $job->initiative_job_id=$initiative_job_id;         
+        $job->employer_name=$employer_name;
+        $job->job_location=$location;
+        $job->job_provider=$provider;
+        $job->job_profession=$profession;
+        $job->job_type = $post_type_meta;
+        $job->job_type_taxonomy = $this->post_type_taxonomy;
         
         //if the course already exists, just break here
-       $exists= $job->isJobRecorded($h);					
-               if (!$exists) {
-       
+       $exists= $job->isJobRecorded($wpdb);					
+        
+       if (!$exists) 
+       {
         //otherwise carry on, and populate database:
-                
-        $job->initiative_id=$initiative_id;
-        $job->employer_name=$employer_name;
-        $job->location=$location;
-        $job->initiative_employer_id=$initiative_employer_id;
+            $imageURL= $this->getImageURL($jobimage);
+
+        //post content requires as much detail as possible, for accurate searches
+        $post_content=$job_desc.$this->build_additional_content($employer_name, $location, $profession, $provider);
         
-        $imageURL= $this->getImageURL($jobimage);
-        
-        //add to database:
-        $lastInsertID=$this->submitPost($h, $job_url, $job_title, $job_desc, $imageURL, $tags,
-                                          $this->urlToScrape, $this->currentCategory, $job);
-        
-        if ($lastInsertID){
-           $job->post_id= $lastInsertID;
-        }
-        else{           		
-           $job->post_id= $job->getLatestPostID($h);         
-        }
-         $job->addJob($h); 
-                
-        }
-        else
-        echo "JobID ".$job->initiative_job_id." already exists, check if it has been updated.<hr>";
+            
+            //add to database:
+            $this->submitPost($wpdb, $job_title, $post_content,$job_exerpt, $imageURL, $tags,$this->post_type, $job);
+
+            $job->addJob($wpdb,$this->last_insert_id); 
+             echo "<h4 style='color:green;'> Job Inserted</h4>";       
+       }
+       else
+       echo "<p style='color:red;'>Job: '".$job_title." | ".$employer_name."' already exists!</p><hr>";
     
     
   }
     
+    private function build_additional_content($employer_name, $location, $profession, $provider){
+      
+      $additional_content = '<div class="additional_content"><p>';
+      
+      $additional_content.='Company: '.$employer_name;
+      $additional_content.=' | Location: '.$location;
+      $additional_content.=' | Profession: '.$profession;
+      $additional_content.=' | Provider: '.$provider;
+      
+      $additional_content.='</p></div>';
+     
+      return $additional_content;
+
+  }
+  
+  
+  
     public function getImageURL($nameForSearch){
         
         
-        $search_term = preg_replace('/[^a-z0-9]+/i', '_', $nameForSearch);
+        $search_term = preg_replace('/[^a-z0-9]+/i', '%20', $nameForSearch);
         //$search= preg_replace("_", "%20", $search_term);
         
         $url = "https://ajax.googleapis.com/ajax/services/search/images?" .
-       "v=1.0&q=".$search_term."%20logo&userip=INSERT-USER-IP&as_filetype=jpg";
+       "v=1.0&q=".$search_term."%20site:http://www.brandprofiles.com/&userip=INSERT-USER-IP";
         
-        
+        echo "<br>Image search: ".$url."<br>";
         // sendRequest
         // note how referer is set manually
         $ch = curl_init();
@@ -77,24 +112,32 @@ public function updateJobDetails
         // now have some fun with the results...
              
       if($json["responseData"]["results"][0]["url"]){
+     //   echo '<br>Image Url: '.$json["responseData"]["results"][0]["url"].'<br>';
       return $json["responseData"]["results"][0]["url"];
       }
       
       else if($json["responseData"]["results"][1]["url"]){
+        //    echo '<br>Image Url: '.$json["responseData"]["results"][1]["url"].'<br>';
               return $json["responseData"]["results"][1]["url"];
 
       }
         else if($json["responseData"]["results"][2]["url"]){
+         //   echo '<br>Image Url: '.$json["responseData"]["results"][2]["url"].'<br>';
            return $json["responseData"]["results"][2]["url"];
 
       }
         else if($json["responseData"]["results"][3]["url"]){
-              return $json["responseData"]["results"][3]["url"];
+         //   echo '<br>Image Url: '.$json["responseData"]["results"][3]["url"].'<br>';
+            return $json["responseData"]["results"][3]["url"];
 
       }
       
-       else   return LOCALPATH."content/images/post_images/dummy_orange.jpg";
-    }
+       else{
+           echo "<br>Image: dummy image used<br>";
+           return 'dummy';
+       }
+           
+       }
   
    
     

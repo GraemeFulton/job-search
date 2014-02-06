@@ -2,40 +2,30 @@
 
 Class IndeedScraper extends JobScraperAbstract{
 
-   public function scrape($h){
+   public function scrape($wpdb){
         
     $resp= $this->getArray();
         
     foreach($resp->results->result as $result)
     {
-        
-    //check if job exists, if so break here
-    $job = new Job();
-    $url=urlencode($result->snippet);
-    $urlQ = rtrim($url, "+");
-    
-    $exists= $job->alternateJobRecordedCheck($h,$urlQ);
-    //echo urlencode($result->snippet);
        
-    
-                if (!$exists) {
-       
-        //otherwise carry on, and populate database:
       $this->updateJobDetails(
-              $h, 
-              "", 
-              "",  
+              $wpdb, 
+              $this->category,//profession
+              "id_indeed", 
               $result->company, 
-              $result->city,
-              "", 
+              $result->formattedLocation,
               $result->url, 
               $result->jobtitle,  
-              $result->snippet,  
-              $result->company, 
-              "indeed");
-         echo "<h4 style='color:green;'> Job Inserted</h4>";
-        }
-        else echo "<h4 style='color:red;'> Job already exists </h4>";
+              $result->snippet,  //description
+              $result->snippet, //exerpt 
+              $result->company, //company name used for image search
+              "indeed",//tags
+              "indeed",//provider
+              $this->post_type, //post-type
+              $this->post_type_meta //job type
+               );
+  
     }
    }
     
@@ -55,10 +45,5 @@ Class IndeedScraper extends JobScraperAbstract{
         return new SimpleXMLElement($data);
     }
     
-    
-
-    
-    
-
 }
 ?>

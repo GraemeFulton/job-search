@@ -1,3 +1,5 @@
+       <div class="edit-profile-form-area edit-main-area">
+
 <form action="<?php bp_messages_form_action('compose'); ?>" method="post" id="send_message_form" class="standard-form" role="main" enctype="multipart/form-data">
 
 	<?php do_action( 'bp_before_messages_compose_content' ); ?>
@@ -35,3 +37,4 @@
 	document.getElementById("send-to-input").focus();
 </script>
 
+       </div>

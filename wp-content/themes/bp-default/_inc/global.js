@@ -61,7 +61,7 @@ jq(document).ready( function() {
 				height:'40px'
 			});
 			jq("form#whats-new-form textarea").animate({
-				height:'20px'
+				height:'40px'
 			});
 			jq("#aw-whats-new-submit").prop("disabled", true);
 		}
@@ -1271,6 +1271,33 @@ jq(document).ready( function() {
 			} );
 		});
 	});
+        
+        /**
+         * TOGGLE CSS
+         * @returns {undefined}
+         */
+//        function init() 
+//        {
+//            document.getElementById('toggle-button').addEventListener('click', toggle_style, false);
+//        }
+//
+//        function toggle_style() 
+//        {
+//            var css_base= window.location.origin+"/LGWP/wp-content/themes/bp-default/_inc/css/";
+//            if(document.getElementById('bp-default-main-css').href == css_base+'default.css?ver=1.8.1') 
+//            {
+//                    document.getElementById('bp-default-main-css').href = ''+css_base+'tabular.css';
+//            } 
+//            else 
+//            {        
+//                    document.getElementById('bp-default-main-css').href = ''+css_base+'default.css?ver=1.8.1';
+//            }
+//        }
+//    window.addEventListener('load', init, false);
+        
+        
+        
+        
 });
 
 /* Setup activity scope and filter based on the current cookie settings. */

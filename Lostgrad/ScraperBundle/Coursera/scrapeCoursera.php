@@ -41,9 +41,6 @@ function generatePosts(){
 $URL= 'https://www.coursera.org/maestro/api/topic/list?full=1'; 
 
 //default category id
-$catID=1;
-$category_type=8;
-$provider_id=1;//coursera
 //can leave the next one for udemy
 $initURL='http://www.coursera.org';        
 /////////////////////////////////////////////////////////////////
@@ -61,7 +58,7 @@ $wpdb = new wpdb( $DB_USER, $DB_PASS, $DB_NAME, $DB_HOST);
 
 echo "connected";
  $scraper = new CourseraScraper();
- $scraper->Setup($URL, $catID, $initURL, $category_type, $provider_id);
+ $scraper->Setup($URL, $initURL, $category);
  $scraper->scrape($wpdb);
 }
 ?>

@@ -1,4 +1,5 @@
 <?php do_action( 'bp_before_profile_loop_content' ); ?>
+    <h4 class="profile-header">&nbsp;<i class="fa fa-user"></i>&nbsp;View Profile</h4>
 
 <?php if ( bp_has_profile() ) : ?>
 

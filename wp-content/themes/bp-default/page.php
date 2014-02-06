@@ -1,40 +1,49 @@
 <?php get_header(); ?>
 
-	<div id="content">
+<div class='single-container'>
+	<div id="content" class='single-content'>
 		<div class="padder">
 
-		<?php do_action( 'bp_before_blog_page' ); ?>
+			<?php do_action( 'bp_before_blog_single_post' ); ?>
 
-		<div class="page" id="blog-page" role="main">
+			<div class="page" id="blog-single" role="main">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-				<h2 class="pagetitle"><?php the_title(); ?></h2>
-
 				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-					<div class="entry">
+				
 
-						<?php the_content( __( '<p class="serif">Read the rest of this page &rarr;</p>', 'buddypress' ) ); ?>
+					<div class="post-content">
+						<h2 class="posttitle"><?php the_title(); ?></h2>
 
-						<?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) ); ?>
-						<?php edit_post_link( __( 'Edit this page.', 'buddypress' ), '<p class="edit-link">', '</p>'); ?>
+						<div class="entry">
+							<?php the_content( __( 'Read the rest of this entry &rarr;', 'buddypress' ) ); ?>
+
+							<?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) ); ?>
+						</div>
 
 					</div>
 
 				</div>
 
-			<?php comments_template(); ?>
+			<?php// comments_template(); ?>
 
-			<?php endwhile; endif; ?>
+			<?php endwhile; else: ?>
 
-		</div><!-- .page -->
+				<p><?php _e( 'Sorry, no posts matched your criteria.', 'buddypress' ); ?></p>
 
-		<?php do_action( 'bp_after_blog_page' ); ?>
+			<?php endif; ?>
+
+		</div>
+
+		<?php do_action( 'bp_after_blog_single_post' ); ?>
 
 		</div><!-- .padder -->
 	</div><!-- #content -->
 
+        <div class='sidebar-single'>
 	<?php get_sidebar(); ?>
-
+            </div>
+</div>
 <?php get_footer(); ?>

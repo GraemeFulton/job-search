@@ -1,6 +1,8 @@
 <?php get_header( 'buddypress' ); ?>
 
-	<div id="content">
+<div class='single-container'>
+
+	<div id="content"class='single_content'>
 		<div class="padder">
 
 			<?php if ( bp_has_groups() ) : while ( bp_groups() ) : bp_the_group(); ?>
@@ -108,6 +110,9 @@
 
 		</div><!-- .padder -->
 	</div><!-- #content -->
-
-<?php get_sidebar( 'buddypress' ); ?>
+<div class='sidebar-single'>
+        <?php get_sidebar( 'buddypress' ); ?>
+        </div>
+        
+</div>
 <?php get_footer( 'buddypress' ); ?>

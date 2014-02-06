@@ -99,8 +99,8 @@ function bp_dtheme_setup() {
 
 		// The height and width of your custom header. You can hook into the theme's own filters to change these values.
 		// Add a filter to bp_dtheme_header_image_width and bp_dtheme_header_image_height to change these values.
-		define( 'HEADER_IMAGE_WIDTH',  apply_filters( 'bp_dtheme_header_image_width',  1250 ) );
-		define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'bp_dtheme_header_image_height', 133  ) );
+		define( 'HEADER_IMAGE_WIDTH',  apply_filters( 'bp_dtheme_header_image_width',  1600 ) );
+		define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'bp_dtheme_header_image_height', 300  ) );
 
 		// We'll be using post thumbnails for custom header images on posts and pages. We want them to be 1250 pixels wide by 133 pixels tall.
 		// Larger images will be auto-cropped to fit, smaller ones will be ignored.
@@ -794,5 +794,122 @@ function bp_dtheme_remove_nojs_body_class() {
 add_action( 'bp_before_header', 'bp_dtheme_remove_nojs_body_class' );
 
 
+/*****************
+BOOTSTRAP NAVIGATION
+********************/
+add_action( 'after_setup_theme', 'wpt_setup' );
+    if ( ! function_exists( 'wpt_setup' ) ):
+        function wpt_setup() {  
+            register_nav_menu( 'primary', __( 'Primary navigation', 'wptuts' ) );
+        } endif;
+        function wpt_register_js() {
+    wp_register_script('jquery.bootstrap.min', get_template_directory_uri() . '/js/bootstrap.min.js', 'jquery');
+    wp_enqueue_script('jquery.bootstrap.min');
+}
+add_action( 'init', 'wpt_register_js' );
+function wpt_register_css() {
+    wp_register_style( 'bootstrap.min', get_template_directory_uri() . '/css/bootstrap.min.css' );
+    wp_enqueue_style( 'bootstrap.min' );
+}
+add_action( 'wp_enqueue_scripts', 'wpt_register_css' );
+?>
+<?php // Register custom navigation walker
+    require_once('wp_bootstrap_navwalker.php');
+    
+?>
 
+<?php
+/*****************
+SHOW RATINGS
+******************/
+function show_ratings($postID){
+global $wpdb;
+$pId = $postID; //if using in another page, use the ID of the post/page you want to show ratings for.
+$row = $wpdb->get_results("SELECT COUNT(*) AS `total`,AVG(review_rating) AS `aggregate_rating`,MAX(review_rating) AS `max_rating` FROM wp_wpcreviews WHERE `page_id`= $pId AND `status`=1");
+$max_rating = $row[0]->max_rating;
+$aggregate_rating = $row[0]->aggregate_rating; 
+$total_reviews = $row[0]->total;
+$totl = $aggregate_rating * 20;
+$wpdb->flush();
+
+return '<div class="sp_rating" id="wpcr_respond_1"><div class="base"><div style="width:'.$totl.'%" class="average"></div></div>&nbsp('.$total_reviews.' Reviews)</div>';
+}
+
+/****************
+ * SINGLE TEMPLATES
+ ******************/
+//Gets post cat slug and looks for single-[cat slug].php and applies it
+add_filter('single_template', create_function(
+	'$the_template',
+	'foreach( (array) get_the_category() as $cat ) {
+		if ( file_exists(TEMPLATEPATH . "/single-{$cat->slug}.php") )
+		return TEMPLATEPATH . "/single-{$cat->slug}.php"; }
+	return $the_template;' )
+);
+
+/*
+ * Multiple post types for activity stream
+ */
+
+function inspired_record_more_types( $types ) {
+
+	$types[] = 'course';
+	$types[] = 'travel';
+	$types[] = 'post';
+	
+
+	return $types;
+}
+
+add_filter( 'bp_blogs_record_post_post_types', 'inspired_record_more_types');
+
+/*
+ * SELECT 2 SEARCH FILTER
+ */
+function select_2_search($title){
+    
+    $id= strtolower($title);
+               ?>
+    <div class="control-group">
+        <label for="<?php echo $id?>-filter" class="control-label"><?php echo $title?> Filter</label>
+        <div class="controls">
+          <div class="input-append">
+                
+            <select id="<?php echo $id?>-multi-append" class="select2"  style="width:80%;">
+              <option></option>
+    <?php
+    if($title=='Tag'){
+       $tags = get_tags(); 
+           foreach($tags as $tag)
+            {      
+                echo '<option value="'.$tag->slug.'" name="'.$tag->name.'">'.$tag->name.'</option>'; 
+            }
+    }
+    elseif($title=='Author'){
+         $blogusers = get_users('');
+            foreach ($blogusers as $user) {
+               echo '<option value="'.$user->user_nicename.'" name="'.$user->user_nicename.'">'.$user->user_nicename.'</option>'; 
+            }
+    }
+    ?>
+            </select>
+          </div>
+        </div>
+      </div> 
+  
+    
+    <?php
+        
+    }
+    
+    /*
+     * BLOG INFO SHORTCODE
+     */
+    function digwp_bloginfo_shortcode( $atts ) {
+   extract(shortcode_atts(array(
+       'key' => '',
+   ), $atts));
+   return get_bloginfo($key);
+}
+add_shortcode('bloginfo', 'digwp_bloginfo_shortcode');
 ?>
