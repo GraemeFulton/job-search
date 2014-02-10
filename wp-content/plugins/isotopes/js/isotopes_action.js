@@ -1,47 +1,8 @@
 jQuery(window).ready(function ($) {
 
-   isotopes_pre_init($);
+   isotopes_init($);
 });
 
-
-/*
- * isotopes_pre_init
- * @param {type} $
- * @returns {undefined}
- * sets up the page dimensions for isotopes
- */
-function isotopes_pre_init($)
-{
-    
-    var colWidth=175;
-    var offset= 26;
-    var width = $(window).width(); 
-    var topOffset= 1;
-    //var height = $(window).height(); 
-
-    if (width<768)
-    {
-        colWidth=10;
-        offset=2.5;
-        topOffset=0;//CHANGE THIS TO MAKE POST GO TO TOP OF PAGE
-      /////////////////////////////////
-      //Top offset (for mobile)///////
-      ///////////////////////////////
-
-    }
-    else 
-    {
-    offset=10;
-    }
-
-    if (navigator.userAgent.match(/iPhone/)) 
-    {
-      colWidth=10;
-      offset=2.5;
-    }
-  
-    isotopes_init($, colWidth,offset,topOffset);
-}
 
 function reset_isotopes($){
     
@@ -107,12 +68,23 @@ setTimeout(function(){isotopes_modal($)},1300 )
 }
 
 function isotopes_modal($){
+
+    var width = $(window).width(); 
+    if (width<768)
+    {
+       var topOffset=70;
+    }
+    else 
+    {
+       topOffset=100;
+    }
+
      $(" .clickme").unbind('click');
      $(" .clickme").bind('click');
 
-    popup_listener($);
+   popup_listener($);
    $('.clickme').on('click',function(){ 
-       disableClickMe($);
+   disableClickMe($);
 
        if(! $(this).closest(".isotope-item").hasClass("activepost"))
        {//if it isnt the active post
@@ -134,7 +106,8 @@ function isotopes_modal($){
             //work out the movement to the middle
                 var leftAnimation = (pageCenter-leftOffset)- $('.activepost').width()/2;
             //top offset
-                var topAnimation= ($(this).offset().top)-($(window).scrollTop()+70);
+
+                var topAnimation= ($(this).offset().top)-($(window).scrollTop()+topOffset);
              
            $(this).closest(".item").addClass("activepost_edge");//make it an active post
            $(this).closest(".isotope-item").css("z-index", "6");
