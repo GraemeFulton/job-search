@@ -8,9 +8,11 @@
 include (TEMPLATEPATH . '/templates-headers/header-course.php');
 do_action('enable_isotopes');
 ?>
+<div class="course-line mobile-menu"></div>
+
+
 <div id="page-container" class="mobile-menu">
-    
-    
+            
 <div id="sidebar-left" class="mobile-menu-side">
     
 

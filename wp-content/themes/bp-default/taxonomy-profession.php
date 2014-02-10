@@ -3,7 +3,7 @@ $post_type=get_post_type();
 ?>
 <div class='single-container'>
 
-	<div id="content"class='single-content'>
+	<div id="content"class='single-content mobile-menu'>
 		<div class="padder">
 
 		<?php do_action( 'bp_before_archive' ); ?>

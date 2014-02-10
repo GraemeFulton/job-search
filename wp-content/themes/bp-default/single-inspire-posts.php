@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-    <div class="home-line mobile-menu"></div>
+    <div class="inspire-line mobile-menu"></div>
 
 <div class='single-container mobile-menu'>
 	<div id="content" class='single-content single-page'>

@@ -10,7 +10,7 @@
 
 <?php get_header( 'buddypress' ); ?>
 
-<div class='single-container'>
+<div class='single-container mobile-menu'>
 
 	<div id="content"class='single_content single_content_profile'>
 		<div class="padder">
@@ -22,7 +22,8 @@
 				<?php locate_template( array( 'members/single/member-header.php' ), true ); ?>
 
 			</div><!-- #item-header -->
-
+     <div id="item-nav" class="mobile-menu-side">
+                            <?php do_action( 'bp_before_single_members_nav' ); ?>
 			<div id="item-nav">
 				<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
 					<ul>
@@ -34,7 +35,7 @@
 					</ul>
 				</div>
 			</div><!-- #item-nav -->
-
+     </div>
 			<div id="item-body" role="main">
 
 				<?php do_action( 'bp_before_member_body' ); ?>

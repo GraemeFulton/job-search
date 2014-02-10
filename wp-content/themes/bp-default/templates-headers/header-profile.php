@@ -10,24 +10,39 @@
 		<?php bp_head(); ?>
 		<?php wp_head(); ?>
                 <?php header("HTTP/1.1 200 OK");?>
+                
+                <script>
+var $=jQuery;
+$(document).ready(function(){
+    var $=jQuery;
+    var $content= $('.mobile-menu');
+       $('#sidebar-toggle').bind('click', function(){
+           $content.toggleClass('mobile-menu-open');
+           $('.navbar-brand').toggleClass('nav-hide');
+           $('.navbar-toggle').toggleClass('nav-hide');
+           $('.navbar-nav').toggleClass('nav-hide');
+           $('#main_search').toggleClass('nav-hide');
+       })   
+})
+</script>
 	</head>
 
 	<body <?php body_class(); ?> id="bp-default">
-                        <div id="main-overlay"></div>
-
       <!-- Fixed navbar -->
     <div class="navbar navbar-inverse navbar-fixed-top mobile-menu" role="navigation">
       <div class="container">
-        <div class="navbar-header">
+          
+           <div class="navbar-header">
             
-            <div id="sidebar-toggle">
+               <div id="sidebar-toggle">
                     <div id="toggle-icon">
-                        <button type="button" class="btn navbar-inverse ">
-                            <span class="glyphicon fa fa-plane fa-2x" style="color:rgb(87, 189, 87)"></span>
+                        <button type="button" class="btn navbar-inverse">
+                             <i class="fa fa-caret-square-o-left fa-2x" style="color:#eaeaea;"></i> 
+
                         </button>
                     </div>
                 </div>
-            
+          
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -49,41 +64,26 @@
     );
 
 ?>
-              <div id="search-bar" role="search">
-                            <div id="main_search">
-                                <form class="navbar-form" role="search">
-                                    <div class="input-group">
-                                     <input type="text" class="form-control" id='Search_Term' placeholder="Search for Travel Opportunities" name="srch-term">
-                                        <div class="input-group-btn">
-                                        <button class="btn btn-default" id='Search_Filter'type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                                    </div>
-                                </div>
-                               
-                                </form>
-                                       <?php if ( function_exists( 'display_taxonomy_tree' ) ) 
-                                          {
-                                            global $tree;
-                                              $tree= display_taxonomy_tree('subject', 'uni');
-                                                
-                                           //   $tree->display_main_select2_box('search');
-                                          }
-                                    ?>
-                                
-                            </div>
-			</div><!-- #search-bar -->
-            
-            
-            
         </div><!--/.nav-collapse -->
       </div>
     </div>
+    </div>
+            <div class="home-line mobile-menu"></div>
+    
 		<?php do_action( 'bp_before_header' ); ?>
 
-		<div id="header" class="header-travel mobile-menu">                  
-                  
-                    
+<!-- 		<div id="header">                   -->
+<!--                     <div id="search-bar" role="search"> -->
+<!--                             <div id="main_search"> -->
+                            <?php //get_search_form(); ?>
+<!--                             </div> -->
+<!-- 			</div> -->
+			<!-- #search-bar -->
+                          
+                    			<?php //do_action( 'bp_header' );?>
 
-		</div><!-- #header -->
+<!-- 		</div> -->
+		<!-- #header -->
 
 		<?php do_action( 'bp_after_header'     ); ?>
 		<?php do_action( 'bp_before_container' ); ?>
