@@ -145,10 +145,6 @@ $ratings= show_ratings($post_id);
 
 	<div class='sidebar-main'>
 
-            <div id="selected-options-container"class="selected-travel-options">
-        <h4 class="options-title"><i style="margin-top:-15px;"class="fa fa-search"></i> &nbsp;Selected: </h4><div class="clear_both"></div>
-                                          <div id="nothing_selected">Nothing Selected. Please use the filters available on the left to find what you want.</div>
-    </div>
 	<?php get_sidebar(); ?>
 </div>
 <?php get_footer(); ?>

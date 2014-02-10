@@ -419,7 +419,7 @@ function process_popup_data($, popup, category, tag_type,body_type, post_id){
 function update_selected_options($){
  
  var selected_option_head= '<h4 class="options-title"><i style="margin-top:-15px;"class="fa fa-search"></i> &nbsp;Selected: </h4>';
-     selected_option_head+='<div class="clear_both"></div><div id="nothing_selected">Nothing Selected. Please use the filters available on the left to find what you want.</div>';
+     selected_option_head+='<div class="clear_both"></div><div id="nothing_selected">Nothing Selected</div>';
     
     
     $('#selected-options-container').empty().append(selected_option_head);

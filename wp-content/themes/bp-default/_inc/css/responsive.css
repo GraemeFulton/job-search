@@ -194,6 +194,9 @@ Hello, this is the BuddyPress Responsive theme stylesheet
             width: 100% !important;
             border-radius: 0px;
         }
+        #provatar{
+            float:left;
+        }
         .home-tag-line .widget_loginwithajaxwidget{
             
             margin-left:15px;
