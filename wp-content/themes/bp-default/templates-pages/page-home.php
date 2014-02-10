@@ -28,7 +28,7 @@ include (TEMPLATEPATH . '/templates-headers/header-home.php');
 		<!-- description -->
 		<div class="home-tag-line">
 		<h1>Start Building Your Brighter Future, For Free.</h1>
-		<h4>Lostgrad is a free service, offering opportunities to help you unlock your true potential, and create the life you want.</h4>
+		<h4 id="lg-description">Lostgrad is a free service, offering opportunities to help you unlock your true potential, and create the life you want.</h4>
 		<div class="home-show-case">
 		<h4><i class="ico fa fa-book"style='margin-right:2px;'></i> Learn something new</h4>
 		<h4><i class="ico fa fa-cogs"></i> Experience the workplace</h4>

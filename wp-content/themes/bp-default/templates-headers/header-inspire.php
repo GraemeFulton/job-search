@@ -17,9 +17,19 @@
                         <div id="main-overlay"></div>
 
       <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-inverse navbar-fixed-top mobile-menu" role="navigation">
       <div class="container">
         <div class="navbar-header">
+            
+               <div id="sidebar-toggle">
+                    <div id="toggle-icon">
+                        <button type="button" class="btn navbar-inverse ">
+                            <span class="glyphicon fa fa-lightbulb-o fa-2x" style="color:goldenrod; margin-right:0px !important"></span>
+                        </button>
+                    </div>
+                </div>
+            
+            
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -41,16 +51,8 @@
     );
 
 ?>
-<!--    <input id="toggle-button" type="button" value="Toggle Style"> -->
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-        <div class="inspire-line"></div>
-    
-		<?php do_action( 'bp_before_header' ); ?>
-
-		<div id="header" class="header-course">                  
-                    <div id="search-bar" role="search">
+            
+               <div id="search-bar" role="search">
                             <div id="main_search">
                                 <form class="navbar-form" role="search">
                                     <div class="input-group">
@@ -71,6 +73,17 @@
                                 
                             </div>
 			</div><!-- #search-bar -->
+            
+            
+<!--    <input id="toggle-button" type="button" value="Toggle Style"> -->
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    
+		<?php do_action( 'bp_before_header' ); ?>
+
+		<div id="header" class="header-course mobile-menu">                  
+                 
                               
 <!--                           <div id="header-quote"> -->
                         <?php //quotescollection_quote('show_author=1&show_source=1&tags=education&ajax_refresh=0&char_limit=200&random=1')?>

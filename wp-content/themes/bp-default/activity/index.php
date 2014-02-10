@@ -14,7 +14,8 @@ get_header( 'buddypress' ); ?>
 
 <div class='single-container'>
 
-	<div id="content"class='single_content'>		<div class="padder">
+	<div id="content"class='single_content  mobile-menu'>
+            <div class="padder">
 
 			<?php do_action( 'bp_before_directory_activity' ); ?>
 
@@ -33,10 +34,11 @@ get_header( 'buddypress' ); ?>
 			<?php endif; ?>
 
 			<?php do_action( 'template_notices' ); ?>
+<div id="item-nav" class="mobile-menu-side">
+					<?php do_action( 'bp_before_activity_type_tab_all' ); ?>
 
 			<div class="item-list-tabs activity-type-tabs" role="navigation">
 				<ul>
-					<?php do_action( 'bp_before_activity_type_tab_all' ); ?>
 
 					<li class="selected" id="activity-all"><a href="<?php bp_activity_directory_permalink(); ?>" title="<?php _e( 'The public activity for everyone on this site.', 'buddypress' ); ?>"><?php printf( __( 'All Members <span>%s</span>', 'buddypress' ), bp_get_total_member_count() ); ?></a></li>
 
@@ -136,7 +138,7 @@ get_header( 'buddypress' ); ?>
 				</ul>
 			</div><!-- .item-list-tabs -->
 			<?php   echo widgets_on_template("Profile Saved Posts");?>        
-			
+</div>	
 
 			<?php do_action( 'bp_before_directory_activity_list' ); ?>
 

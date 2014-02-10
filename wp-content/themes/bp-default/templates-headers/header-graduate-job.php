@@ -16,9 +16,19 @@
                         <div id="main-overlay"></div>
 
       <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-inverse navbar-fixed-top mobile-menu" role="navigation">
       <div class="container">
         <div class="navbar-header">
+            
+                 <div id="sidebar-toggle">
+                    <div id="toggle-icon">
+                        <button type="button" class="btn navbar-inverse ">
+                            <span class="glyphicon fa fa-bullseye fa-2x" style="color:rgba(255, 134, 39, 1)"></span>
+                        </button>
+                    </div>
+                </div>
+            
+            
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -40,13 +50,7 @@
     );
 
 ?>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-		<?php do_action( 'bp_before_header' ); ?>
-
-		<div id="header" class="header-graduatejob">                  
-                   <div id="search-bar" role="search">
+                  <div id="search-bar" role="search">
                             <div id="main_search">
                                 <form class="navbar-form" role="search">
                                     <div class="input-group">
@@ -68,9 +72,18 @@
                                 
                             </div>
 			</div><!-- #search-bar -->
+            
+            
+            
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+		<?php do_action( 'bp_before_header' ); ?>
+
+		<div id="header" class="header-graduatejob mobile-menu">                  
+             
                         
 		</div><!-- #header -->
-    <div class="graduatejob-line"></div>
 		
 		<?php do_action( 'bp_after_header'     ); ?>
 		<?php do_action( 'bp_before_container' ); ?>

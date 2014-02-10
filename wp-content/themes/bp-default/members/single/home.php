@@ -7,10 +7,14 @@
  * @subpackage bp-default
  */
 
-get_header( 'buddypress' ); ?>
-<div class='single-container'>
+include (TEMPLATEPATH . '/templates-headers/header-profile.php');
+$title =ucwords(str_replace('-', ' ', get_query_var('pagename')));
 
-	<div id="content" class='single_content single_content_profile'>
+?>
+<div class='single-container'>
+	<div id="content" class='single_content single_content_profile mobile-menu'>
+               <div class="toggle-title"><i class="fa fa-chevron-circle-up fa-2x"></i> &nbsp;<?php echo $title; ?> </div>
+
 		<div class="padder">
 
 			<?php do_action( 'bp_before_member_home_content' ); ?>
@@ -20,8 +24,11 @@ get_header( 'buddypress' ); ?>
 				<?php locate_template( array( 'members/single/member-header.php' ), true ); ?>
 
 			</div><!-- #item-header -->
+                        
+			<div id="item-nav" class="mobile-menu-side">
+                    
+                            <?php do_action( 'bp_before_single_members_nav' ); ?>
 
-			<div id="item-nav">
 				<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
 					<ul>
 
@@ -33,7 +40,7 @@ get_header( 'buddypress' ); ?>
 				</div>
 			</div><!-- #item-nav -->
 
-			<div id="item-body">
+                        <div id="item-body">
 
 				<?php do_action( 'bp_before_member_body' );
 
@@ -79,4 +86,5 @@ get_header( 'buddypress' ); ?>
         <?php get_sidebar( 'buddypress' ); ?>
         </div>
 </div>
+
 <?php get_footer( 'buddypress' ); ?>

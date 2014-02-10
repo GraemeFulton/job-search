@@ -10,13 +10,39 @@
 		<?php bp_head(); ?>
 		<?php wp_head(); ?>
                 <?php header("HTTP/1.1 200 OK");?>
+                
+                <script>
+var $=jQuery;
+$(document).ready(function(){
+    var $=jQuery;
+    var $content= $('.mobile-menu');
+       $('#sidebar-toggle').bind('click', function(){
+                  $content.toggleClass('mobile-menu-open');
+           $('.navbar-brand').toggleClass('nav-hide');
+           $('.navbar-toggle').toggleClass('nav-hide');
+           $('.navbar-nav').toggleClass('nav-hide');
+           $('#main_search').toggleClass('nav-hide');
+       })   
+})
+</script>
 	</head>
 
 	<body <?php body_class(); ?> id="bp-default">
       <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-inverse navbar-fixed-top mobile-menu" role="navigation">
       <div class="container">
-        <div class="navbar-header">
+          
+           <div class="navbar-header">
+            
+               <div id="sidebar-toggle">
+                    <div id="toggle-icon">
+                        <button type="button" class="btn navbar-inverse ">
+                          <i class="fa fa-caret-square-o-left fa-2x" style="color:#eaeaea;"></i> 
+                        </button>
+                    </div>
+                </div>
+          
+          
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -41,23 +67,10 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-            <div class="home-line"></div>
+        
+            <div class="home-line mobile-menu"></div>
     
 		<?php do_action( 'bp_before_header' ); ?>
-
-<!-- 		<div id="header">                   -->
-<!--                     <div id="search-bar" role="search"> -->
-<!--                             <div id="main_search"> -->
-                            <?php //get_search_form(); ?>
-<!--                             </div> -->
-<!-- 			</div> -->
-			<!-- #search-bar -->
-                          
-                    			<?php //do_action( 'bp_header' );?>
-
-<!-- 		</div> -->
-		<!-- #header -->
-
 		<?php do_action( 'bp_after_header'     ); ?>
 		<?php do_action( 'bp_before_container' ); ?>
                   <div class="slider-button fixed"></div>

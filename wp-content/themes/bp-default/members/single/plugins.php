@@ -13,10 +13,15 @@
 
 ?>
 
-<?php get_header( 'buddypress' ); ?>
+<?php get_header( 'buddypress' ); 
+$title =ucwords(str_replace('-', ' ', get_query_var('pagename')));
+
+?>
 <div class='single-container'>
 
-	<div id="content"class='single_content'>
+	<div id="content"class='single_content mobile-menu'>
+              <div class="toggle-title"><i class="fa fa-chevron-circle-up fa-2x"></i> &nbsp;<?php echo $title; ?> </div>
+
 		<div class="padder">
 
 			<?php do_action( 'bp_before_member_plugin_template' ); ?>
@@ -27,7 +32,7 @@
 
 			</div><!-- #item-header -->
 
-			<div id="item-nav">
+			<div id="item-nav" class="mobile-menu-side">
 				<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
 					<ul>
 
@@ -71,4 +76,6 @@
         </div>
         
 </div>
+
+
 <?php get_footer( 'buddypress' ); ?>

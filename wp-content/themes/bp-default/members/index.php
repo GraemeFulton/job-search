@@ -12,7 +12,7 @@ get_header( 'buddypress' ); ?>
 	<?php do_action( 'bp_before_directory_members_page' ); ?>
 <div class='single-container'>
 
-	<div id="content"class='single_content single_content_white'>
+	<div id="content"class='single_content single_content_white mobile-menu'>
 		<div class="padder">
 
 		<?php do_action( 'bp_before_directory_members' ); ?>
@@ -22,8 +22,9 @@ get_header( 'buddypress' ); ?>
 			<h3><?php _e( 'Members Directory', 'buddypress' ); ?></h3>
 
 			<?php do_action( 'bp_before_directory_members_content' ); ?>
-
+<div id="item-nav" class="mobile-menu-side">
 			<div id="members-dir-search" class="dir-search" role="search">
+			<?php do_action( 'bp_before_directory_members_search_form' ); ?>
 
 				<?php bp_directory_members_search_form(); ?>
 
@@ -70,7 +71,7 @@ get_header( 'buddypress' ); ?>
 					</li>
 				</ul>
 			</div>
-
+</div>
 			<div id="members-dir-list" class="members dir-list">
 
 				<?php locate_template( array( 'members/members-loop.php' ), true ); ?>

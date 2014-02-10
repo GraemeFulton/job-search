@@ -9,16 +9,16 @@ include (TEMPLATEPATH . '/templates-headers/header-work-experience.php');
 do_action('enable_isotopes');
 
 ?>
+<div class="workexperience-line mobile-menu"></div>
 
-<div id="page-container">
 
-<div id="sidebar-left">
-    <div id="sidebar-toggle">
-        <div id="toggle-icon">
-            <button class="fa fa-chevron-right"></button>
-        </div>
+<div id="page-container" class="mobile-menu">
+            
+<div id="sidebar-left" class="mobile-menu-side">
+    
 
-    </div>
+    
+    <div class="sidebar-options">
     
     <div class="filter-tabs">
         <div class="filter-tab active-filter" id="filter-tab-1"><h4>Filters</h4></div>
@@ -58,7 +58,7 @@ do_action('enable_isotopes');
     
     ?>
 </div>
-
+</div>
 <?php 
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 

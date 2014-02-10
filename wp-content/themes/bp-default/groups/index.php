@@ -13,7 +13,7 @@ get_header( 'buddypress' ); ?>
 
 <div class='single-container'>
 
-	<div id="content"class='single_content single_content_white'>
+	<div id="content"class='single_content single_content_white mobile-menu'>
 		<div class="padder">
 
 		<?php do_action( 'bp_before_directory_groups' ); ?>
@@ -23,6 +23,8 @@ get_header( 'buddypress' ); ?>
 			<h3><?php _e( 'Groups Directory', 'buddypress' ); ?><?php if ( is_user_logged_in() && bp_user_can_create_groups() ) : ?> &nbsp;<a class="button" href="<?php echo trailingslashit( bp_get_root_domain() . '/' . bp_get_groups_root_slug() . '/create' ); ?>"><?php _e( 'Create a Group', 'buddypress' ); ?></a><?php endif; ?></h3>
 
 			<?php do_action( 'bp_before_directory_groups_content' ); ?>
+<div id="item-nav" class="mobile-menu-side">
+    			<?php do_action( 'bp_before_directory_groups_nav' ); ?>
 
 			<div id="group-dir-search" class="dir-search" role="search">
 
@@ -67,7 +69,7 @@ get_header( 'buddypress' ); ?>
 					</li>
 				</ul>
 			</div>
-
+                </div>
 			<div id="groups-dir-list" class="groups dir-list">
 
 				<?php locate_template( array( 'groups/groups-loop.php' ), true ); ?>

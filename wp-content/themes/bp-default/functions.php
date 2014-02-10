@@ -912,4 +912,45 @@ function select_2_search($title){
    return get_bloginfo($key);
 }
 add_shortcode('bloginfo', 'digwp_bloginfo_shortcode');
+
+/*
+ * print the profile in the sidebar
+ */
+function graylien_profile_hub(){
+    
+    if ( is_user_logged_in() ) : ?>
+		<?php do_action( 'bp_before_sidebar_me' ); ?>
+
+		<div id="sidebar-me" class="mobile-profile-hub">
+
+			<a id="provatar" href="<?php echo bp_loggedin_user_domain(); ?>">
+				<?php bp_loggedin_user_avatar( 'type=thumb&width=40&height=40' ); ?>
+			</a>	
+                                <div class="clear_both"></div>
+
+                         <div class="profile-buttons">
+              	<?php echo '<p class="profile-button"><a href="'.bp_loggedin_user_domain().'profile/edit"><i class="fa fa-edit"></i> Edit Profile</a></p>' ?>
+                <br>  <?php echo '<p class="profile-button"><a href="'.bp_loggedin_user_domain().'profile/change-avatar"><i class="fa fa-camera"></i> Change Avatar</a></p>' ?>
+                <br>    <?php echo '<p class="profile-button"><a href="'.bp_loggedin_user_domain().'activity"><i class="fa fa-comments-o"></i> My Activity</a></p>' ?>
+                <br> <?php echo '<p class="profile-button"><a href="'.bp_loggedin_user_domain().'backpack"><i class="fa fa-briefcase"></i> My Backpack</a></p>' ?>
+                <br>     <p class="profile-button"><a href="<?php echo wp_logout_url( wp_guess_url() ); ?>"><?php _e( '<i class="fa fa-sign-out"></i> Log Out', 'buddypress' ); ?></a></p>
+                    </div>
+			<?php do_action( 'bp_sidebar_me' ); ?>
+		</div>
+            <div class="clear_both"></div>
+
+		<?php do_action( 'bp_after_sidebar_me' ); ?>
+
+	
+		<?php endif;
+    
+    
+echo do_shortcode('[widgets_on_pages id="Login Widget"]'); 
+
+}
+add_action('bp_before_directory_members_search_form', 'graylien_profile_hub', 0);
+add_action('bp_before_activity_type_tab_all', 'graylien_profile_hub');
+add_action('bp_before_single_members_nav', 'graylien_profile_hub');
+add_action('bp_before_directory_groups_nav', 'graylien_profile_hub');
+add_action('bp_group_start_nav', 'graylien_profile_hub');
 ?>

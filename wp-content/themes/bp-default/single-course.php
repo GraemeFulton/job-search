@@ -1,6 +1,7 @@
 <?php get_header(); ?>
+    <div class="course-line mobile-menu"></div>
 
-<div class='single-container'>
+<div class='single-container mobile-menu'>
     
 	<div id="content" class='single-content'>
 		<div class="padder">
@@ -37,8 +38,10 @@
 		</div><!-- .padder -->
 	</div><!-- #content -->
 
-        <div class='sidebar-single'>
+        <div id="item-nav" class="mobile-menu-side">
+        <div class='sidebar-single sidebar-mobile-shown'>
 	<?php get_sidebar(); ?>
+            </div>
             </div>
 </div>
 <?php get_footer(); ?>

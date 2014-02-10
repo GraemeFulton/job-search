@@ -12,7 +12,7 @@
 get_header(); ?>
 
 	<div id="content">
-		<div class="padder one-column">
+		<div class="padder one-column  mobile-menu">
 
 		<?php do_action( 'bp_before_blog_page' ); ?>
 
