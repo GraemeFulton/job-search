@@ -27,7 +27,7 @@ var meta_filter_arr=[];
 
 var all_selections={};
 
-var order_by=[];
+var order_by='rand';
 var sort_a_z=[];
 /*
  * graylien_infinite_scroll
@@ -117,6 +117,19 @@ function apply_filter($){
             closeActiveBox($);
             disableClickMe($);
             setTimeout(function(){isotopes_modal($);}, 2000);
+   
+}
+
+function get_already_displayed($){
+   
+   var postsArray = [];
+
+    $('.hentry').each( function(i,e) {
+        /* you can use e.id instead of $(e).attr('id') */
+        postsArray.push($(e).attr('id'));
+    });
+    
+    return postsArray;
    
 }
 
@@ -323,6 +336,9 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
     $(" .clickme").unbind('click');
 
     
+    var displayed=get_already_displayed($);
+    console.log(order_by)
+    
     $.ajax({
      url: '/LGWP/wp-admin/admin-ajax.php', 
      type: "POST",
@@ -341,7 +357,8 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
             'search_filter':all_selections.Search[0],
             'order_by':order_by,
             'sort_a_z':sort_a_z,
-            'tax_or_cat':'tax'
+            'tax_or_cat':'tax',
+            'displayed':displayed
 
            },
    dataType:'HTML', 

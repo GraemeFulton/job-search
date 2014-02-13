@@ -737,6 +737,17 @@ if($this->grouped_taxonomy_short!='company'){
         return $pic;        
     }
     
+    public function get_video_url($post_id){
+        
+           $vid_url= get_post_meta( $post_id, 'wpcf-embedded-media', true );
+
+        if($vid_url)
+        return $vid_url;
+        else return "NA";
+    
+    }
+    
+    
     
     /************************************
      *******UTILITY FUNCTIONS************ 

@@ -43,6 +43,7 @@
         'ta' => 'Tamil - தமிழ்',
         'tr' => 'Turkish - Türkçe',
         'vi' => 'Vietnamese - Tiếng Việt',
+        'uk' => 'Ukrainian - Українська Мова',
 //        'th' => 'Thai',
     );
 ?>

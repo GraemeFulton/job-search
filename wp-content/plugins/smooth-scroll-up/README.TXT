@@ -5,10 +5,10 @@ Author URI: http://www.kouratoras.gr
 Author: Konstantinos Kouratoras
 Contributors: kouratoras
 Tags: page, scroll up, scroll, up, navigation, back to top, back, to, top, scroll to top
-Requires at least: 2.9.0
-Tested up to: 3.7
-Stable tag: 0.5
-Version: 0.5.2
+Requires at least: 3.2
+Tested up to: 3.8.1
+Stable tag: 0.6
+Version: 0.6
 License: GPLv2 or later
 
 Scroll Up plugin lightweight plugin that creates a customizable "Scroll to top" feature in any post/page of your WordPress website.
@@ -38,6 +38,26 @@ Go to "Settings -> "Scroll Up Option" and choose the option you want.
 2. Scroll Up in action
 
 == Changelog ==
+
+= 0.6 =
+* Remove options when uninstalling plugin
+* Added onclick event option
+
+= 0.5.7 =
+* Compatibility with WordPress 3.8.1
+
+= 0.5.6 =
+* Bug fixes
+
+= 0.5.5 =
+* Added scroll up center position option
+
+= 0.5.4 =
+* Compatibility with WordPress 3.8
+
+= 0.5.3 =
+* Two options added
+* Minor changes
 
 = 0.5.2 =
 * Compatibility with WordPress 3.7

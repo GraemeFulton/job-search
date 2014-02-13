@@ -51,14 +51,6 @@
     );
 
 ?>
-<!--    <input id="toggle-button" type="button" value="Toggle Style"> -->
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-    
-		<?php do_action( 'bp_before_header' ); ?>
-
-		<div id="header" class="header-home mobile-menu">                  
                     <div id="search-bar" role="search">
                             <div id="main_search">
                                 <form class="navbar-form" role="search">
@@ -81,6 +73,17 @@
                                 
                             </div>
 			</div><!-- #search-bar -->
+            
+            
+<!--    <input id="toggle-button" type="button" value="Toggle Style"> -->
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    
+		<?php do_action( 'bp_before_header' ); ?>
+
+		<div id="header" class="header-home mobile-menu">                  
+            
           		<a href="<?php echo site_url();?>/new-post"<button class="add-post-btn btn btn-primary">Add New Post</button></a>
                            
 <!--                           <div id="header-quote"> -->

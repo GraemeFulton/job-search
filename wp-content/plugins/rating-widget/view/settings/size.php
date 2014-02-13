@@ -6,7 +6,7 @@
 </td>
 <td>
     <?php
-        $sizes = array("small", "medium", "large");
+        $sizes = array("tiny", "small", "medium", "large");
         $tab_index = 5;
         foreach ($sizes as $size)
         {

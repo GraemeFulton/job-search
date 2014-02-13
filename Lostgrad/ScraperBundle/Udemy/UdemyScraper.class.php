@@ -2,11 +2,22 @@
 
 Class UdemyScraper extends CourseScraperAbstract{
 
-    protected $categoryName;
-
+    protected $course_type;
     
-    public function scrape($h) {
-          $courseHTML = $this->getCoursesArray();
+    public function scrape($wpdb) {
+          $courseHTML = $this->getArray();
+          
+          $courseID= array();
+          $courseVid=array();
+          
+         $courseIDs=$courseHTML->find(".course-card-wide");
+          foreach($courseIDs as $ID){
+              
+              $id=$ID->getAttribute('data-courseid');
+              $courseID[]=$id;
+              $courseVid[]="https://www.udemy.com/course/promo-embed/?courseId=".$id;
+          }
+          
           
           $courseTitle=array();
           $courseNames = $courseHTML->find("#courses .title");
@@ -29,12 +40,53 @@ Class UdemyScraper extends CourseScraperAbstract{
             
           }
           
-          $courseDesc=array();
-           $descs= $courseHTML->find("#courses .desc");
-             foreach($descs as $desc){
-            $courseDesc[]= $desc->innertext;
+          $courseExc=array();
+           $excs= $courseHTML->find("#courses .desc");
+             foreach($excs as $exc){
+            $courseExc[]= $exc->innertext;
             
           }
+          
+           $courseInstructor=array();
+           $instructors= $courseHTML->find("#courses .ins-name");
+             foreach($instructors as $instructor){
+            $courseInstructor[]= $instructor->innertext;
+            
+          }
+          
+           $coursePrice=array();
+           $prices= $courseHTML->find("#courses .price");
+             foreach($prices as $price){
+            $coursePrice[]= $price->innertext;
+            
+            if($price->innertext==' Free '){
+                $this->course_type='Free';
+            }
+            else $this->course_type='Paid';
+            $courseType[]=$this->course_type;
+            
+          }
+          
+          
+          //now go to descendent pages and find the post description
+          $courseDesc= array();
+          
+          foreach($urls as $url){
+              
+             $html=file_get_html($url->href);
+              
+            
+              $courseDs= $html->find(".mc .cr");
+             foreach($courseDs as $courseD){
+                 //strip checkboxes
+               $courseDesc[]=  preg_replace("/<\s* input [^>]+ >/xi", "", $courseD->innertext);
+
+            }
+       
+   
+          }
+
+////////////////////////
                    
    $udemyCourses=array();
 
@@ -45,24 +97,54 @@ Class UdemyScraper extends CourseScraperAbstract{
                ('image' => $coursePic[$key], 
                 'title' => $courseTitle[$key], 
                 'url'=>$courseURL[$key],
-                'desc'=>$courseDesc[$key]
+                'exc'=>$courseExc[$key],
+                'desc'=>$courseDesc[$key],
+                'vid'=>$courseVid[$key],
+                'id'=>$courseID[$key],
+                'instructor'=>$courseInstructor[$key],
+                'price'=>$coursePrice[$key],
+                'type'=>$courseType[$key]
                 );
         
     }
+
         
-   //update courses table
-   foreach($udemyCourses as $udemyCourse)
-     {
-        $this->updateCourseDetails($h,0,0,2,"NA","NA","NA",$udemyCourse['url'],$udemyCourse['title'],$udemyCourse['desc'], 
-                                   $udemyCourse['image'],"udemy", "","udemy");
-     }
+  $this->insertCourses($udemyCourses, $wpdb);
+        
+    }
+    
+    
+    private function insertCourses($udemyCourses, $wpdb){
+         //update courses table
+    foreach ($udemyCourses as $udemyCourse){
+         $this->updateCourseDetails
+                ($wpdb, 
+                'udemy_'.$udemyCourse['id'], 
+                'TBC', 
+                'Self Paced', 
+                'N/A',
+                $udemyCourse['url'], 
+                $udemyCourse['title'], 
+                $udemyCourse['desc'], 
+                $udemyCourse['exc'],
+                $udemyCourse['image'],
+                $this->category,
+                $udemyCourse['vid'],
+                'Udemy',//tags
+                'Udemy',//provider
+                $udemyCourse['instructor'],
+                $udemyCourse['price'],//Price
+                $udemyCourse['type']
+                );
+        }
+        
         
     }
     
     
     public function getArray() {
-        $html = new simple_html_dom();
-        $html->load_file($this->urlToScrape); 
+      //  $html = new simple_html_dom();
+        $html=file_get_html($this->urlToScrape); 
         return $html;
     }
     

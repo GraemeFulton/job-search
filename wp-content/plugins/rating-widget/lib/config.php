@@ -7,7 +7,7 @@
         define("WP_RW__ADDRESS_CSS", "http://" . WP_RW__DOMAIN . "/css/");
         define("WP_RW__ADDRESS_JS", "http://" . WP_RW__DOMAIN . "/js/");
         define("WP_RW__ADDRESS_IMG", "http://" . WP_RW__DOMAIN . "/img/");
-        define("WP_RW__ADDRESS_TMB", "http://" . WP_RW__DOMAIN . "/apps/thumb");
+        define("WP_RW__ADDRESS_TMB", "http://" . WP_RW__DOMAIN . "/apps/thumb/");
     }
     else if (WP_RW__LOCALHOST_SCRIPTS)
     {
@@ -15,14 +15,14 @@
         define("WP_RW__ADDRESS_CSS", "http://localhost:8080/css/");
         define("WP_RW__ADDRESS_JS", "http://localhost:8080/js/");
         define("WP_RW__ADDRESS_IMG", "http://localhost:8080/img/");
-        define("WP_RW__ADDRESS_TMB", "http://localhost:8080/apps/thumb");
+        define("WP_RW__ADDRESS_TMB", "http://localhost:8080/apps/thumb/");
     }
     else if (WP_RW__HTTPS && false !== WP_RW__USER_SECRET)
     {
         define("WP_RW__ADDRESS_CSS", "https://secure." . WP_RW__DOMAIN . "/css/");
         define("WP_RW__ADDRESS_JS", "https://secure." . WP_RW__DOMAIN . "/js/");
         define("WP_RW__ADDRESS_IMG", "https://secure." . WP_RW__DOMAIN . "/img/");
-        define("WP_RW__ADDRESS_TMB", "https://secure." . WP_RW__DOMAIN . "/apps/thumb");
+        define("WP_RW__ADDRESS_TMB", "https://secure." . WP_RW__DOMAIN . "/apps/thumb/");
     }
     else if (defined('WP_RW__STAGING') && true === WP_RW__STAGING)
     {

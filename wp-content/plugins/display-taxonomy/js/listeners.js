@@ -207,7 +207,7 @@ function activate_select_2($){
  * @returns {undefined} */
 
 function order_by_listener($){
-
+    
     $("#sort-box").change(function(){
            
         order_by=this.value;
@@ -224,7 +224,7 @@ function order_by_listener($){
 
             });
         }
-        
+        sort_a_z='ASC';
         get_delay_apply_filter($);
 
     });

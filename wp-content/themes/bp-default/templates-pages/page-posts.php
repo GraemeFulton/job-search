@@ -54,8 +54,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 $args= array(
     	'paged' => $paged,
-        'orderby' => 'date',
-        'order' => 'DESC'
+        'orderby' => 'rand'
 );
 
 query_posts( $args); ?>
@@ -74,13 +73,13 @@ query_posts( $args); ?>
                                          <div class="sort-a-z">
                                              
                                              <div class="numeric-sort">&nbsp; Sort:
-                                         <button class="fa fa-sort-numeric-desc sort-asc sort-button sort-active"></button>
+                                         <button class="fa fa-sort-numeric-desc sort-asc sort-button"></button>
                                          <button class="fa fa-sort-numeric-asc sort-desc sort-button "></button>
                                              </div>
                                              
                                          <div class="alpha-sort">&nbsp; Sort:
                                             <button class="fa fa-sort-alpha-asc sort-desc sort-button "></button>
-                                             <button class="fa fa-sort-alpha-desc sort-asc sort-button sort-active"></button>
+                                             <button class="fa fa-sort-alpha-desc sort-asc sort-button"></button>
                                             </div>
                                          </div>
                                      </div>
@@ -100,6 +99,7 @@ $ratings= show_ratings($post_id);
 ?>                            
 
 	<div id="<?php echo $post_id; ?>" <?php post_class(); ?>>
+                <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>">
           <div class="item">
               		<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>
           <?php if($url){?>
@@ -107,20 +107,20 @@ $ratings= show_ratings($post_id);
                                             <img class="post_post_image advert_image" src="<?php echo $url;?>"/> 
                                          </div>
 <?php }?>
-			<h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+			<h2 class="posttitle"><?php the_title(); ?></h2>
 
             <div class="entry">     
              <?php if(has_excerpt( $post_id ))the_excerpt(); ?> 
 <div class="author-box">
 						<?php echo get_avatar( get_the_author_meta( 'user_email' ), '50' ); ?>
-						<p><?php printf( _x( 'by %s', 'Post written by...', 'buddypress' ), str_replace( '<a href=', '<a rel="author" href=', bp_core_get_userlink( $post->post_author ) ) ); ?></p>
 					</div>
-           <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><button class="btn btn-success">Read More</button></a>
+         <button class="btn btn-success">Read More</button>
             
 		    </div>
                                 
         </div><!--item-->
-
+                </a>
+        
 	</div>
 	
 
@@ -143,7 +143,10 @@ $ratings= show_ratings($post_id);
    </div><!-- .page -->
 
    <div class='sidebar-main'>
-      
+       <div id="selected-options-container"class="selected-course-options">
+        <h4 class="options-title"><i style="margin-top:-15px;"class="fa fa-search"></i> &nbsp;Selected: </h4><div class="clear_both"></div>
+                                          <div id="nothing_selected">Nothing Selected.</div>
+    </div>
 	<?php get_sidebar(); ?>
 </div>
 <?php get_footer(); ?>

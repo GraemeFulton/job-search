@@ -59,10 +59,11 @@ Hello, this is the BuddyPress Responsive theme stylesheet
             display:inline; margin-top:8px !important;
             margin-left:8px;
         }
+        .page-template-templates-pagespage-course-php #sidebar-toggle{
+            margin-left:-10px !important;
+        }
         #toggle-icon{
-         padding-left: 5px;
             margin-top: 1px;
-            margin-right: -3px;
         }
         #item-nav #Login_Widget ul li a{
             padding:3px !important;
@@ -184,7 +185,7 @@ Hello, this is the BuddyPress Responsive theme stylesheet
             margin:0px !important;
             border-radius: 0px !important;
         }
-        .home-content{margin-top:25px;}
+        .home-content{margin-top:-5px;}
         .lwa table{
             width:100% !important;
         }
@@ -212,13 +213,13 @@ Hello, this is the BuddyPress Responsive theme stylesheet
         .profile-bookmark-image{max-width:100% !important; width:100%;}
         .profile-bookmark-item{
            height:auto;border-radius:0px !important; margin-bottom:10px;
-           width:47%;
+           width:46%;
            margin:1%;
         }
         div.page ul, div.page ol, div.page dl, div.post ul, div.post ol, div.post dl{
             margin:0 0 0 0;
         }
-        .profile-bookmark-image-box{height:auto;width:100% !important}
+        .profile-bookmark-image-box{height:auto;width:100% !important; }
         
         .navbar-nav{margin:0px -15px;}
         
@@ -929,6 +930,8 @@ Hello, this is the BuddyPress Responsive theme stylesheet
 	#container {
 		border: none;
 	}
+        .home-content{margin-top:-5px !important;}
+        
 /*	div.item-list-tabs ul li {
 		float: none;
 		margin: 0.3em 0.6em;

@@ -3,7 +3,7 @@
 Plugin Name: BP Profile Search
 Plugin URI: http://www.dontdream.it/bp-profile-search/
 Description: Search BuddyPress Members Directory.
-Version: 3.5.2
+Version: 3.5.3
 Author: Andrea Tarantini
 Author URI: http://www.dontdream.it/
 */
@@ -11,7 +11,7 @@ Author URI: http://www.dontdream.it/
 global $bps_globals;
 $bps_globals = new stdClass;
 $bps_globals->plugin = 'BP Profile Search';
-$bps_globals->version = '3.5.2';
+$bps_globals->version = '3.5.3';
 
 include 'bps-functions.php';
 
@@ -69,7 +69,7 @@ function bps_row_meta ($links, $file)
 {
 	if ($file == plugin_basename (__FILE__))
 	{
-		$settings_link = '<a href="'. bps_admin_url (). '">'. __('Settings', 'bps'). '</a>';
+		$settings_link = '<a href="'. bps_admin_url (). '">'. __('Settings', 'buddypress'). '</a>';
 		array_unshift ($links, $settings_link);
 	}
 	return $links;
@@ -148,15 +148,15 @@ function bps_admin_main ()
 	<h3><?php _e('Form Header and Fields', 'bps'); ?></h3>
 
 	<p><?php _e('Select the header text and the profile fields to include in your search form.', 'bps'); ?></p>
-	<p><?php printf (__('After you configure your form, you can display it:
+	<p>
+	<?php _e('After you configure your form, you can display it:', 'bps'); ?>
 	<ul>
-	<li>a) In your Members Directory page, selecting the relevant option below</li>
-	<li>b) In a sidebar or widget area, using the %2$s widget</li>
-	<li>c) In a post or page, using the shortcode %1$s</li>
+	<li><?php _e('a) In your Members Directory page, selecting the relevant option below', 'bps'); ?></li>
+	<li><?php printf (__('b) In a sidebar or widget area, using the %s widget', 'bps'), '<em>'. __('BP Profile Search', 'bps'). '</em>'); ?></li>
+	<li><?php printf (__('c) In a post or page, using the shortcode %s', 'bps'), '<strong>[bp_profile_search_form]</strong>'); ?></li>
 	</ul>
-	Please note that the Form Header and the Toggle Form feature apply to case a) only.', 'bps'),
-	"<strong>[bp_profile_search_form]</strong>",
-	'<em>'. __('BP Profile Search', 'bps'). '</em>'); ?></p>
+	<?php _e('Please note that the Form Header and the Toggle Form feature apply to case a) only.', 'bps'); ?>
+	</p>
 	<p><?php _e('<a href="http://dontdream.it/bp-profile-search/">See the plugin documentation</a> for more detailed instructions.', 'bps'); ?></p>
 
 	<table class="form-table">

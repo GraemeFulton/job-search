@@ -11,14 +11,16 @@
         define('DEF_FREQUENCY', -1);
         
         $DEF_FONT_SIZE = new stdClass();
+        $DEF_FONT_SIZE->TINY = '10px';
         $DEF_FONT_SIZE->SMALL = '12px';
         $DEF_FONT_SIZE->MEDIUM = '16px';
         $DEF_FONT_SIZE->LARGE = '20px';
         
         $DEF_LINE_HEIGHT = new stdClass();
-        $DEF_LINE_HEIGHT->SMALL = '18px';
-        $DEF_LINE_HEIGHT->MEDIUM = '22px';
-        $DEF_LINE_HEIGHT->LARGE = '32px';
+        $DEF_LINE_HEIGHT->TINY = '12px';
+        $DEF_LINE_HEIGHT->SMALL = '16px';
+        $DEF_LINE_HEIGHT->MEDIUM = '20px';
+        $DEF_LINE_HEIGHT->LARGE = '30px';
 
         $DEFAULT_OPTIONS = new stdClass();
         $DEFAULT_OPTIONS->boost = new stdClass();

@@ -1,7 +1,6 @@
 <?php
 //this is required to utilize wp_set_object_terms
-require( '../../../wp-load.php' );
-
+require_once('../../../wp-load.php');
 class Course
 {
     protected $initiativeCourseID = "";          //initiative's course ID (stored to check if unique)
@@ -42,27 +41,14 @@ class Course
    */
    public function addCourse($wpdb, $last_insert_id)
   {
-//       //INSERT COURSE-TYPE
-//            $course_type = array(
-//                'post_id' => $last_insert_id,
-//                'meta_value'=>'a:1:{s:64:"wpcf-fields-checkboxes-option-60039c1cd5b3cf7f3d424671ae5ccc3a-2";s:1:"1";}',
-//                'meta_key'=>'wpcf-course-type'
-//            );//meta_value = free course
-//
-//            $wpdb->insert(
-//                'wp_postmeta', 
-//                $course_type,
-//                array( '%d', '%s', '%s' )
-//            );
-            
+
       // INSERT START DATE
        if($this->startDate!=="")
        {
-             $timestamp = DateTime::createFromFormat('m/d/Y', $this->startDate)->getTimestamp();     
             
               $start_date = array(
                 'post_id' => $last_insert_id,
-                'meta_value'=>$timestamp,
+                'meta_value'=>$this->startDate,
                 'meta_key'=>'wpcf-start-date'
             );
             $wpdb->insert(
@@ -86,14 +72,14 @@ class Course
             
             //INSERT COURSE FEE
                //INSERT COURSE-LENGTH     
-              $course_length = array(
+              $course_fee = array(
                 'post_id' => $last_insert_id,
                 'meta_value'=>$this->courseFee,
                 'meta_key'=>'wpcf-course-fee'
             );
             $wpdb->insert(
                 'wp_postmeta', 
-                $course_length,
+                $course_fee,
                 array( '%d', '%s', '%s' )
             );
             
@@ -140,7 +126,7 @@ class Course
             if($this->youtube!=""){
               $provider_course_id = array(
                 'post_id' => $last_insert_id,
-                'meta_value'=>'http://www.youtube.com/watch?v='.$this->youtube,
+                'meta_value'=>$this->youtube,
                 'meta_key'=>'wpcf-embedded-media'
             );
             $wpdb->insert(
@@ -160,8 +146,9 @@ class Course
    * inserts taxonomy terms related to the post using wp_set_object_terms
    */
   private function setObjectTerms($last_insert_id){
-      
-      //INSERT PROVIDER NAME/RELATIONSHIP
+      global $wpdb;
+$wpdb->set_prefix('wp_');
+      //INSERT course_type/RELATIONSHIP
     wp_set_object_terms($last_insert_id,$this->course_type,'course-type'); 
       
     //INSERT PROVIDER NAME/RELATIONSHIP

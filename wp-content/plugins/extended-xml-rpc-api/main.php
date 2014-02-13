@@ -4,7 +4,7 @@ Plugin Name: Extended API
 Plugin URI: http://www.michaelgrosser.com
 Description: This makes all of the common WordPress functions available via XML RPC rather than having to use pre-defined WP XML-RPC methods.
 Author: Michael Grosser
-Version: 0.8
+Version: 0.8.1
 Author URI: http://www.michaelgrosser.com
 */
 
@@ -43,10 +43,18 @@ function createXmlRpcMethods($methods)
 function wpext_response($params)
 {
     //Separate Params from Request
-    $username = $params[0];
-    $password = $params[1];
-    $method   = $params[2];
-    $args     = $params[3];
+    if (count($params) == 4) {
+        $username = $params[0];
+        $password = $params[1];
+        $method   = $params[2];
+        $args     = $params[3];
+    } elseif (count($params) == 5) {
+        $blog_id  = $params[0]; // we don't need this
+        $username = $params[1];
+        $password = $params[2];
+        $method   = $params[3];
+        $args     = $params[4];
+    }
 
     // List of Allowed WP Functions
     $allowed_functions = get_option('allowed_functions');
@@ -62,7 +70,7 @@ function wpext_response($params)
         try
         {
             if (!empty($args))
-                return call_user_func_array($method,&$args);
+                return call_user_func_array($method, $args);
         } catch (Exception $e) {
             return new IXR_Error( 401, __( 'This is not working.' ) );
         }
@@ -111,7 +119,8 @@ function validate_namespace($input)
  */
 function extapi_settings_page()
 {
-	global $extapi_available_functions;
+    $defined_functions = get_defined_functions();
+    $extapi_available_functions = $defined_functions['user'];
     include('settings_page.php');
 }
 
@@ -126,7 +135,8 @@ function extapi_install()
     extapi_register_settings();	
 }
 
-/** Check and see if we need to run setup. We're doing this
+/**
+ *  Check and see if we need to run setup. We're doing this
  *  here instead of the register_activation_hook to ensure two things:
  *  1. WordPress is fully loaded.
  *  2. If the plugin was activated in schema.php, it doesn't call the hook
@@ -163,20 +173,29 @@ function setup_options()
 	update_option('extapi_installed',true);
 }
 
+/**
+ * Logs data to a log file
+ *
+ * @param $data
+ */
 function logError($data)
 {
+    // make objects and arrays usable
 	if (is_object($data) || is_array($data))
 		$data = print_r($data, true);
 
+    // append a new line to the end of the data
 	$data .= "\r\n";
-	$log_file = 'log/system.log';
 
-	$fh = fopen($log_file, "a+");
-	fwrite($fh,$data);
-	fclose($fh);
+    // define the path to the log file
+	$log_file = ABSPATH . 'wp-content' .
+        DIRECTORY_SEPARATOR . 'plugins' .
+        DIRECTORY_SEPARATOR . 'extended-xml-rpc-api' .
+        DIRECTORY_SEPARATOR . 'log' .
+        DIRECTORY_SEPARATOR . 'system.log';
+
+    // get a file handle, write the data and close
+	$fh = @fopen($log_file, "a+");
+	@fwrite($fh,$data);
+	@fclose($fh);
 }
-
-// we need to set the defined functions here
-// since others will be available in the template that we don't want.
-$defined_functions = get_defined_functions();
-$extapi_available_functions = $defined_functions['user'];

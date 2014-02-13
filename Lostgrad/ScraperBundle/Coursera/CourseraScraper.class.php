@@ -31,8 +31,11 @@ public function scrape($wpdb)
         
         $startDate=$day."/".$month."/".$year;
         //if no start date, set it to TBC
-        if ($startDate=="1/1/999")
-            $startDate="TBC";
+        if ($startDate=="1/1/999"){
+        $startDate="TBC";}
+        else{
+            $startDate = DateTime::createFromFormat('m/d/Y', $startDate)->getTimestamp();     
+        }
         echo $startDate;
         
         $courseLength=$courseraCourse['courses'][0]['duration_string'];
@@ -58,11 +61,12 @@ public function scrape($wpdb)
                 $courseExcerpt,
                 $coursePhoto,
                 $courseSubject,
-                $youtube,
+                'http://www.youtube.com/watch?v='.$youtube,
                 'Coursera',//tags
                 'Coursera',//provider
                 $instructor,
-                'Free'//Price
+                'Free',//Price
+                'MOOC'
                 );
          
             $totalSubmitted+=1;
