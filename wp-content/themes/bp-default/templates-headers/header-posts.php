@@ -51,7 +51,7 @@
     );
 
 ?>
-                    <div id="search-bar" role="search">
+                    <div id="search-bar" class="desktop-search" role="search">
                             <div id="main_search">
                                 <form class="navbar-form" role="search">
                                     <div class="input-group">
@@ -62,15 +62,7 @@
                                 </div>
                                
                                 </form>
-                                       <?php if ( function_exists( 'display_taxonomy_tree' ) ) 
-                                          {
-                                            global $tree;
-                                              $tree= display_taxonomy_tree('subject', 'uni');
-                                                
-                                           //   $tree->display_main_select2_box('search');
-                                          }
-                                    ?>
-                                
+                                                                
                             </div>
 			</div><!-- #search-bar -->
             
@@ -97,3 +89,17 @@
 		<?php do_action( 'bp_before_container' ); ?>
                   <div class="slider-button fixed"></div>
 
+  <div id="search-bar" class="mobile-search mobile-menu" role="search">
+                            <div id="main_search">
+                                <form class="navbar-form" role="search">
+                                    <div class="input-group">
+                                     <input type="text" class="form-control" id='Search_Term' placeholder="Search for Posts" name="srch-term">
+                                        <div class="input-group-btn">
+                                        <button class="btn btn-default" id='Search_Filter'type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                    </div>
+                                </div>
+                               
+                                </form>
+                                                                
+                            </div>
+			</div><!-- #search-bar -->

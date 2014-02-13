@@ -25,10 +25,42 @@ Hello, this is the BuddyPress Responsive theme stylesheet
 		margin-top: -28px !important;
 		background: #eaeaea;
 	}
-            
+        
+        /********LOGIN******************/
+         
+	#wpadminbar {
+		display: inline;
+                height:50px !important;
+                background:rgba(0,0,0,0.9);
+                bottom: 0 !important;
+                top: auto;
+	}
+        html #wpadminbar{
+            z-index:999999 !important;
+        }
+        #wp-toolbar>ul>li{
+            display: inline;
+        }
+        #wpadminbar ul#wp-admin-bar-root-default>li{
+            margin-right:10px;
+        }
+        #wp-admin-bar-wp-logo{display:none !important;}
+        /**************************/
+        #scrollUp{
+            left:20px !important
+        }
+        
+        .mobile-search{display:inline;float:left;width:100%;margin:0 auto;}
+        .mobile-search #Search_Term{width:100%;}
+        .mobile-search .input-group{
+            width:94%;
+        }
+        
+        div#container{margin-top:33px !important;}
+        .mobile-search{margin-top:20px !important;}
+        .desktop-search{display:none;}
         
         img{max-width:250px;}
-        .navbar-collapse{background:#222;}
         .sidebar-single{
             display:none;
             border-color:#666666;            
@@ -84,10 +116,7 @@ Hello, this is the BuddyPress Responsive theme stylesheet
             margin-right: 8px;
             margin-left: -5px;
         }
-        
-	#wpadminbar {
-		display: none;
-	}
+       
 	div#content .padder {
 		margin-right: 0;
 		width: auto;
@@ -185,9 +214,9 @@ Hello, this is the BuddyPress Responsive theme stylesheet
             margin:0px !important;
             border-radius: 0px !important;
         }
-        .home-content{margin-top:-5px;}
+        .home-content{margin-top:5px !important;}
         .lwa table{
-            width:100% !important;
+            width:80% !important;
         }
         .lwa-modal{
             left: 0px !important;
@@ -213,7 +242,7 @@ Hello, this is the BuddyPress Responsive theme stylesheet
         .profile-bookmark-image{max-width:100% !important; width:100%;}
         .profile-bookmark-item{
            height:auto;border-radius:0px !important; margin-bottom:10px;
-           width:46%;
+           width:44.5%;
            margin:1%;
         }
         div.page ul, div.page ol, div.page dl, div.post ul, div.post ol, div.post dl{
@@ -389,9 +418,9 @@ Hello, this is the BuddyPress Responsive theme stylesheet
         /**************************/
         
        #header #sidebar-toggle{margin-top:60px !important;}
-        #header{height:77px;}
+        #header{height:5px;margin-top:-10px;}
         #main_search{
-            margin:-3px auto !important;
+            margin:0px auto !important;
         }
         
        
@@ -861,6 +890,7 @@ Hello, this is the BuddyPress Responsive theme stylesheet
                       .single-item.groups .bpfb_form_container{
                           padiding:0px;
                       }
+.item .posttitle{margin-top:5px !important;}
 
 }
 
@@ -874,11 +904,16 @@ Hello, this is the BuddyPress Responsive theme stylesheet
             width: 48% !important;
             margin: 0.9% 0.9% 0.9% 0.9%;
         }
-    
+            #header{height:5px;margin-top:32px;}
+
 	div.dir-search {
 		float: none;
 		margin: 1.25em 0 0;
 	}
+        
+         div#container{margin-top:0px !important;}
+        .mobile-search{margin-top:0px !important;}
+        
 	ul.item-list li div.action {
 /*		padding-left: 64px;*/
 /*		position: relative;*/
@@ -931,7 +966,7 @@ Hello, this is the BuddyPress Responsive theme stylesheet
 		border: none;
 	}
         .home-content{margin-top:-5px !important;}
-        
+         .mobile-search{margin-top:0px !important;}
 /*	div.item-list-tabs ul li {
 		float: none;
 		margin: 0.3em 0.6em;
@@ -941,6 +976,15 @@ Hello, this is the BuddyPress Responsive theme stylesheet
 		float: none;
 		margin: 0.3em 0.6em;
 	}*/
+.mobile-search{width:94%;}
+
+.profile-bookmark-item{
+    width:80%;
+    margin-left:10%;
+}
+.post-favourite-group-title{
+    margin-left:42%;
+}
 .single-container{
     margin-top:55px !important;
 }
@@ -952,9 +996,6 @@ Hello, this is the BuddyPress Responsive theme stylesheet
            width: 48% !important;
             margin: 0.9% 0.9% 0.9% 0.9%;
         }
-      
-        #header{height:14px;}
-
       
                 .activepost{width:280px !important;margin-left:-25px !important;background: #fff !important;}
 

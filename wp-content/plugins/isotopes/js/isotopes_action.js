@@ -30,7 +30,7 @@ function reset_isotopes($){
  */
 function isotopes_init($,colWidth,offset,topOffset)
 {
-        $('#content').prepend('<img id="ajax-loader-check-box" style="margin:10px 0 0 10px;"src="'+templateUrl+'/ajax-loader.gif"/>');
+        $('#content').prepend('<div id="ajax-loader-check-box" style="margin:10px 0 0 10px;"></div>');
 
     // cache container    
      var $blogpage = $('#blog-page');
