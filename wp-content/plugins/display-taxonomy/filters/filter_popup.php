@@ -182,7 +182,7 @@ Class Popup_Filter{
     private function get_video_url($tree){
         $video_url=$tree->get_video_url($this->post_id, 'embedded-media');
         
-        if($video_url=='NA'){return;}
+        if($video_url=='NA' || $video_url=='N/A'){return;}
                 
          if (strpos($video_url,'youtube') !== false) {
               return $this->get_youtube_embed($video_url);

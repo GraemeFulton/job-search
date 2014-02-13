@@ -39,11 +39,7 @@
 
 		<?php if ( bp_get_signup_allowed() ) : ?>
 		
-			<p id="login-text">
-
-				<?php printf( __( 'Please <a href="%s" title="Create an account">create an account</a> to get started.', 'buddypress' ), bp_get_signup_page() ); ?>
-
-			</p>
+		
 
 		<?php endif; ?>
 

@@ -171,7 +171,7 @@ function process_cat_filter($){
 
     //loading gif
     $('.hentry').empty();
-    $('#content').prepend('<img id="ajax-loader-check-box" style="margin:10px 0 0 10px;"src="'+templateUrl+'/ajax-loader.gif"/>');
+    $('#content').prepend('<div id="ajax-loader-check-box" style="margin:10px 0 0 10px;"></div>');
 
     $.ajax({
      url: '/LGWP/wp-admin/admin-ajax.php', 
@@ -246,7 +246,7 @@ function process_filter($, category_type, tag_type, body_type){
     //loading gif
     $('.hentry').children().fadeOut(250, function() {
 });
-    $('#content').prepend('<img id="ajax-loader-check-box" style="margin:10px 0 0 10px;"src="'+templateUrl+'/ajax-loader.gif"/>');
+    $('#content').prepend('<div id="ajax-loader-check-box" style="margin:10px 0 0 10px;"></div>');
 
     $.ajax({
      url: '/LGWP/wp-admin/admin-ajax.php', 
@@ -331,7 +331,7 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
  if(isLoadingData===true) return;
      //loading gif
     $('.sorry-message').remove();
-    $('#content').append('<img id="ajax-loader-scroll" src="'+templateUrl+'/ajax-loader.gif"/>');
+    $('#content').append('<div id="ajax-loader-scroll"></div>');
     
     $(" .clickme").unbind('click');
 
@@ -402,7 +402,7 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
  * @param {type} postoffset
  * @returns {undefined} */
 function process_popup_data($, popup, category, tag_type,body_type, post_id){
-        $('#content').prepend('<img id="ajax-loader-popup" style="margin:10px 0 0 10px;"src="'+templateUrl+'/ajax-loader.gif"/>');
+        $('#content').prepend('<div id="ajax-loader-popup" style="margin:10px 0 0 10px;"></div>');
 
     $.ajax({
      url: '/LGWP/wp-admin/admin-ajax.php', 

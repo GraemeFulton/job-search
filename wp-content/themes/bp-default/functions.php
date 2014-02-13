@@ -953,4 +953,29 @@ add_action('bp_before_activity_type_tab_all', 'graylien_profile_hub');
 add_action('bp_before_single_members_nav', 'graylien_profile_hub');
 add_action('bp_before_directory_groups_nav', 'graylien_profile_hub');
 add_action('bp_group_start_nav', 'graylien_profile_hub');
+
+
+/*
+ * LOGO LOGIN PAGE
+ */
+function my_login_logo() { ?>
+    <style type="text/css">
+        body.login div#login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/site-login-logo.png);
+            padding-bottom: 30px;
+        }
+    </style>
+    
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+function my_login_logo_url() {
+    return get_bloginfo( 'url' );
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+function my_login_logo_url_title() {
+    return 'Lostgrad';
+}
+add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 ?>
