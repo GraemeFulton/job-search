@@ -3,7 +3,7 @@ Contributors: michaelgrosser
 Tags: API, XML-RPC, XMLRPC, Webservices
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=michaelgrosser%40gmail%2ecom
 Requires at least: 3.0
-Tested up to: 3.4.2
+Tested up to: 3.8.1
 Stable tag: trunk
 
 Extends the WordPress XML-RPC API to allow for nearly every WordPress function to be used.
@@ -11,7 +11,9 @@ Extends the WordPress XML-RPC API to allow for nearly every WordPress function t
 == Description ==
 
 Updated!
-Fixed an issue that caused issues on certain configurations of newer versions of PHP. Please continue to contact me with any suggestions for improvements!
+- Fixed a pass by reference at call time issue.
+- Tested up through WordPress 3.8.1
+- Improved the point at which methods are declared to better capture more available WordPress methods.
 
 This plugin was made to make WordPress easier to integrate with external platforms and external code. While the existing 
 WordPress XML-RPC API provides a lot of functionality, it does not provide everything. This plugin allows nearly every 

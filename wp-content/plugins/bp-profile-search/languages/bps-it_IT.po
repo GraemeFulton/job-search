@@ -1,0 +1,256 @@
+# Copyright (C) 2013 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/bp-profile-search\n"
+"POT-Creation-Date: 2014-01-06 17:14:18+00:00\n"
+"PO-Revision-Date: 2014-01-06 18:56+0100\n"
+"Last-Translator: Andrea <andrea@dontdream.it>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+
+#: bps-functions.php:68
+msgid "There is no date field in user profiles."
+msgstr "Non ci sono campi data nel profilo utente."
+
+#: bps-functions.php:89
+msgid "There is no textbox or selectbox field in user profiles."
+msgstr "Non ci sono campi textbox o selectbox nel profilo utente."
+
+#: bps-functions.php:276
+msgid "Your BP Profile Search form"
+msgstr "Modulo per ricerca profili"
+
+#: bps-functions.php:277 bps-main.php:155
+msgid "BP Profile Search"
+msgstr "Ricerca profili"
+
+#: bps-functions.php:304
+msgid "Title:"
+msgstr "Titolo:"
+
+#: bps-main.php:62 bps-main.php:109
+msgid "Profile Search Setup"
+msgstr "Impostazioni di ricerca profili"
+
+#: bps-main.php:62
+msgid "Profile Search"
+msgstr "Ricerca profili"
+
+#: bps-main.php:72
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: bps-main.php:82
+msgid "<h4>Advanced Search</h4>"
+msgstr "<h4>Ricerca avanzata</h4>"
+
+#: bps-main.php:84
+msgid "Toggle Form"
+msgstr "Mostra/nascondi modulo"
+
+#: bps-main.php:87
+msgid "Value Range"
+msgstr "Intervallo di valori"
+
+#: bps-main.php:88
+msgid "minimum and maximum value"
+msgstr "valore minimo e massimo"
+
+#: bps-main.php:90
+msgid "Age Range"
+msgstr "Intervallo di età"
+
+#: bps-main.php:91
+msgid "minimum and maximum age"
+msgstr "età minima e massima"
+
+#: bps-main.php:100
+msgid "Form Configuration"
+msgstr "Configurazione del modulo"
+
+#: bps-main.php:100
+msgid "Advanced Options"
+msgstr "Impostazioni avanzate"
+
+#: bps-main.php:148
+msgid "Form Header and Fields"
+msgstr "Testata e campi del modulo"
+
+#: bps-main.php:150
+msgid ""
+"Select the header text and the profile fields to include in your search form."
+msgstr ""
+"Seleziona la dicitura della testata e i campi da includere nel modulo di "
+"ricerca."
+
+#: bps-main.php:152
+msgid "After you configure your form, you can display it:"
+msgstr "Dopo aver configurato il modulo, puoi visualizzarlo:"
+
+#: bps-main.php:154
+msgid "a) In your Members Directory page, selecting the relevant option below"
+msgstr ""
+"a) Nella pagina Directory Membri, selezionando l'apposita opzione più sotto"
+
+#: bps-main.php:155
+msgid "b) In a sidebar or widget area, using the %s widget"
+msgstr "b) In una sidebar o area per widget, usando il widget %s"
+
+#: bps-main.php:156
+msgid "c) In a post or page, using the shortcode %s"
+msgstr "c) In un post o in una pagina, usando lo shortcode %s"
+
+#: bps-main.php:158
+msgid ""
+"Please note that the Form Header and the Toggle Form feature apply to case "
+"a) only."
+msgstr ""
+"Nota: le impostazioni Testata del modulo e Mostra/nascondi modulo valgono "
+"solo per il caso a)."
+
+#: bps-main.php:160
+msgid ""
+"<a href=\"http://dontdream.it/bp-profile-search/\">See the plugin "
+"documentation</a> for more detailed instructions."
+msgstr ""
+"<a href=\"http://dontdream.it/bp-profile-search/\">Consulta la "
+"documentazione</a> per istruzioni più dettagliate."
+
+#: bps-main.php:163
+msgid "Form Header:"
+msgstr "Testata del modulo:"
+
+#: bps-main.php:166
+msgid "Toggle Form:"
+msgstr "Mostra/nascondi modulo:"
+
+#: bps-main.php:167
+msgid "Enabled"
+msgstr "Attivato"
+
+#: bps-main.php:169
+msgid "Toggle Form Message:"
+msgstr "Dicitura per mostra/nascondi:"
+
+#: bps-main.php:172
+msgid "Selected Profile Fields:"
+msgstr "Campi attivati:"
+
+#: bps-main.php:177
+msgid "Value Range Search"
+msgstr "Ricerca per intervallo di valori"
+
+#: bps-main.php:179
+msgid ""
+"If user profiles include a numeric field, you can enable the Value Range "
+"Search option. To enable, select the numeric field below."
+msgstr ""
+"Se il profilo utente comprende un campo numerico, puoi attivare la ricerca "
+"per intervallo di valori. Per attivarla, scegli il campo numerico qui sotto."
+
+#: bps-main.php:182
+msgid "Numeric Field:"
+msgstr "Campo numerico:"
+
+#: bps-main.php:185 bps-main.php:201
+msgid "Field Label:"
+msgstr "Etichetta del campo:"
+
+#: bps-main.php:188 bps-main.php:204
+msgid "Field Description:"
+msgstr "Descrizione del campo:"
+
+#: bps-main.php:193
+msgid "Age Range Search"
+msgstr "Ricerca per intervallo di età"
+
+#: bps-main.php:195
+msgid ""
+"If user profiles include a birth date field, you can enable the Age Range "
+"Search option. To enable, select the birth date field below."
+msgstr ""
+"Se il profilo utente comprende un campo con la data di nascita, puoi "
+"attivare la ricerca per intervallo di età. Per attivarla, scegli il campo "
+"con la data di nascita qui sotto."
+
+#: bps-main.php:198
+msgid "Birth Date Field:"
+msgstr "Campo data di nascita:"
+
+#: bps-main.php:209
+msgid "Add to Members Directory page"
+msgstr "Mostra il modulo nella pagina Directory Membri"
+
+#: bps-main.php:211
+msgid "Automatically add your form to the Members Directory page."
+msgstr "Visualizza automaticamente il modulo nella pagina Directory Membri."
+
+#: bps-main.php:214
+msgid "Add to Members Directory:"
+msgstr "Mostra il modulo:"
+
+#: bps-main.php:215
+msgid "Yes"
+msgstr "Sì"
+
+#: bps-main.php:216
+msgid "No"
+msgstr "No"
+
+#: bps-main.php:221 bps-main.php:256
+msgid "Save Settings"
+msgstr "Salva Impostazioni"
+
+#: bps-main.php:244
+msgid "Text Search Mode"
+msgstr "Modalità di ricerca testo"
+
+#: bps-main.php:246
+msgid ""
+"Select your text search mode here. Choose between partial match (a search "
+"for <em>John</em> matches <em>John</em>, <em>Johnson</em>, <em>Long John "
+"Silver</em>, and so on) and exact match (a search for <em>John</em> matches "
+"<em>John</em> only). In both modes the wildcard characters <em>% (percent "
+"sign)</em>, matching zero or more characters, and <em>_ (underscore)</em>, "
+"matching exactly one character, may be used."
+msgstr ""
+"Scegli la modalità di ricerca testo. Corrispondenza parziale significa che "
+"una ricerca per <em>John</em> seleziona <em>John</em>, <em>Johnson</em>, "
+"<em>Long John Silver</em> e così via, mentre Corrispondenza completa "
+"significa che una ricerca per <em>John</em> seleziona soltanto <em>John</"
+"em>. In entrambi i modi si possono usare i caratteri jolly <em>% (percento)</"
+"em>, che corrisponde a zero o più caratteri, e <em>_ (sottolinea)</em>, che "
+"corrisponde esattamente a un carattere."
+
+#: bps-main.php:249
+msgid "Text Search Mode:"
+msgstr "Modalità di ricerca testo:"
+
+#: bps-main.php:250
+msgid "Partial Match"
+msgstr "Corrispondenza parziale"
+
+#: bps-main.php:251
+msgid "Exact Match"
+msgstr "Corrispondenza completa"
+
+#: bps-main.php:272
+msgid "Settings saved."
+msgstr "Impostazioni salvate."
+
+#: bps-searchform.php:20
+msgid "%1$s: Error, your form is not configured."
+msgstr "%1$s: Errore, il modulo non è ancora configurato."
+
+#: bps-searchform.php:162
+msgid "Clear"
+msgstr "Azzera"
+
+#: bps-searchform.php:186
+msgid "Search"
+msgstr "Cerca"

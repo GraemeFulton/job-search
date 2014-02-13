@@ -1,0 +1,236 @@
+# Copyright (C) 2014 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version:  \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/bp-profile-search\n"
+"POT-Creation-Date: 2014-01-06 17:14:18+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: bps-functions.php:68
+msgid "There is no date field in user profiles."
+msgstr ""
+
+#: bps-functions.php:89
+msgid "There is no textbox or selectbox field in user profiles."
+msgstr ""
+
+#: bps-functions.php:276
+msgid "Your BP Profile Search form"
+msgstr ""
+
+#: bps-functions.php:277 bps-main.php:155
+msgid "BP Profile Search"
+msgstr ""
+
+#: bps-functions.php:304
+msgid "Title:"
+msgstr ""
+
+#: bps-main.php:62 bps-main.php:109
+msgid "Profile Search Setup"
+msgstr ""
+
+#: bps-main.php:62
+msgid "Profile Search"
+msgstr ""
+
+#: bps-main.php:72
+msgid "Settings"
+msgstr ""
+
+#: bps-main.php:82
+msgid "<h4>Advanced Search</h4>"
+msgstr ""
+
+#: bps-main.php:84
+msgid "Toggle Form"
+msgstr ""
+
+#: bps-main.php:87
+msgid "Value Range"
+msgstr ""
+
+#: bps-main.php:88
+msgid "minimum and maximum value"
+msgstr ""
+
+#: bps-main.php:90
+msgid "Age Range"
+msgstr ""
+
+#: bps-main.php:91
+msgid "minimum and maximum age"
+msgstr ""
+
+#: bps-main.php:100
+msgid "Form Configuration"
+msgstr ""
+
+#: bps-main.php:100
+msgid "Advanced Options"
+msgstr ""
+
+#: bps-main.php:148
+msgid "Form Header and Fields"
+msgstr ""
+
+#: bps-main.php:150
+msgid ""
+"Select the header text and the profile fields to include in your search form."
+msgstr ""
+
+#: bps-main.php:152
+msgid "After you configure your form, you can display it:"
+msgstr ""
+
+#: bps-main.php:154
+msgid "a) In your Members Directory page, selecting the relevant option below"
+msgstr ""
+
+#: bps-main.php:155
+msgid "b) In a sidebar or widget area, using the %s widget"
+msgstr ""
+
+#: bps-main.php:156
+msgid "c) In a post or page, using the shortcode %s"
+msgstr ""
+
+#: bps-main.php:158
+msgid ""
+"Please note that the Form Header and the Toggle Form feature apply to case "
+"a) only."
+msgstr ""
+
+#: bps-main.php:160
+msgid ""
+"<a href=\"http://dontdream.it/bp-profile-search/\">See the plugin "
+"documentation</a> for more detailed instructions."
+msgstr ""
+
+#: bps-main.php:163
+msgid "Form Header:"
+msgstr ""
+
+#: bps-main.php:166
+msgid "Toggle Form:"
+msgstr ""
+
+#: bps-main.php:167
+msgid "Enabled"
+msgstr ""
+
+#: bps-main.php:169
+msgid "Toggle Form Message:"
+msgstr ""
+
+#: bps-main.php:172
+msgid "Selected Profile Fields:"
+msgstr ""
+
+#: bps-main.php:177
+msgid "Value Range Search"
+msgstr ""
+
+#: bps-main.php:179
+msgid ""
+"If user profiles include a numeric field, you can enable the Value Range "
+"Search option. To enable, select the numeric field below."
+msgstr ""
+
+#: bps-main.php:182
+msgid "Numeric Field:"
+msgstr ""
+
+#: bps-main.php:185 bps-main.php:201
+msgid "Field Label:"
+msgstr ""
+
+#: bps-main.php:188 bps-main.php:204
+msgid "Field Description:"
+msgstr ""
+
+#: bps-main.php:193
+msgid "Age Range Search"
+msgstr ""
+
+#: bps-main.php:195
+msgid ""
+"If user profiles include a birth date field, you can enable the Age Range "
+"Search option. To enable, select the birth date field below."
+msgstr ""
+
+#: bps-main.php:198
+msgid "Birth Date Field:"
+msgstr ""
+
+#: bps-main.php:209
+msgid "Add to Members Directory page"
+msgstr ""
+
+#: bps-main.php:211
+msgid "Automatically add your form to the Members Directory page."
+msgstr ""
+
+#: bps-main.php:214
+msgid "Add to Members Directory:"
+msgstr ""
+
+#: bps-main.php:215
+msgid "Yes"
+msgstr ""
+
+#: bps-main.php:216
+msgid "No"
+msgstr ""
+
+#: bps-main.php:221 bps-main.php:256
+msgid "Save Settings"
+msgstr ""
+
+#: bps-main.php:244
+msgid "Text Search Mode"
+msgstr ""
+
+#: bps-main.php:246
+msgid ""
+"Select your text search mode here. Choose between partial match (a search "
+"for <em>John</em> matches <em>John</em>, <em>Johnson</em>, <em>Long John "
+"Silver</em>, and so on) and exact match (a search for <em>John</em> matches "
+"<em>John</em> only). In both modes the wildcard characters <em>% (percent "
+"sign)</em>, matching zero or more characters, and <em>_ (underscore)</em>, "
+"matching exactly one character, may be used."
+msgstr ""
+
+#: bps-main.php:249
+msgid "Text Search Mode:"
+msgstr ""
+
+#: bps-main.php:250
+msgid "Partial Match"
+msgstr ""
+
+#: bps-main.php:251
+msgid "Exact Match"
+msgstr ""
+
+#: bps-main.php:272
+msgid "Settings saved."
+msgstr ""
+
+#: bps-searchform.php:20
+msgid "%1$s: Error, your form is not configured."
+msgstr ""
+
+#: bps-searchform.php:162
+msgid "Clear"
+msgstr ""
+
+#: bps-searchform.php:186
+msgid "Search"
+msgstr ""

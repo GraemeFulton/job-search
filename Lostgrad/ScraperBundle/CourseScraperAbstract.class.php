@@ -19,7 +19,8 @@ public function updateCourseDetails
             $tags,
             $provider,
             $instructor,
-            $Fee
+            $Fee,
+            $courseType
            )
   {
          $course = new Course();
@@ -28,6 +29,7 @@ public function updateCourseDetails
         if($startDate!=='TBC'){
         $course->startDate=$startDate;
         }
+        
         
         //if the course already exists, just break here
         $exists= $course->isCourseRecorded($wpdb);
@@ -44,8 +46,9 @@ public function updateCourseDetails
         $course->courseProvider=$provider;
         $course->courseURL= $courseURL;
         $course->courseInstructor= $instructor;
-        $course->courseFee = $fee;
-       
+        $course->courseFee = $Fee;
+        $course->course_type= $courseType;
+        
         //post content requires as much detail as possible, for accurate searches
         $content=$courseContent.$this->build_additional_content($courseSubject, $universityName, $provider, $instructor);
         

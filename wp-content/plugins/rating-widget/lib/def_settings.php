@@ -44,6 +44,8 @@
                 $settings->advanced->text->vote = @rw_get_default_value($settings->advanced->text->vote, $dictionary["vote"]);
                 $settings->advanced->text->votes = @rw_get_default_value($settings->advanced->text->votes, $dictionary["votes"]);
                 $settings->advanced->text->thanks = @rw_get_default_value($settings->advanced->text->thanks, $dictionary["thanks"]);
+                $settings->advanced->text->outOf = @rw_get_default_value($settings->advanced->text->outOf, $dictionary["outOf"]);
+                $settings->advanced->text->weRecommend = @rw_get_default_value($settings->advanced->text->weRecommend, $dictionary["weRecommend"]);
             }
         }
         
@@ -117,6 +119,8 @@
         $ret->advanced->text->vote = @rw_get_default_value($settings->advanced->text->vote, $defaults->advanced->text->vote);
         $ret->advanced->text->votes = @rw_get_default_value($settings->advanced->text->votes, $defaults->advanced->text->votes);
         $ret->advanced->text->thanks = @rw_get_default_value($settings->advanced->text->thanks, $defaults->advanced->text->thanks);
+        $ret->advanced->text->outOf = @rw_get_default_value($settings->advanced->text->outOf, $defaults->advanced->text->outOf);
+        $ret->advanced->text->weRecommend = @rw_get_default_value($settings->advanced->text->weRecommend, $defaults->advanced->text->weRecommend);
         
         $ret->advanced->css->container = @rw_get_default_value($settings->advanced->css->container, $defaults->advanced->css->container);
         
@@ -145,6 +149,8 @@
         $settings->advanced->text->vote = @rw_get_default_value($settings->advanced->text->vote, $dictionary["vote"], DUMMY_STR);
         $settings->advanced->text->votes = @rw_get_default_value($settings->advanced->text->votes, $dictionary["votes"], DUMMY_STR);
         $settings->advanced->text->thanks = @rw_get_default_value($settings->advanced->text->thanks, $dictionary["thanks"], DUMMY_STR);
+        $settings->advanced->text->outOf = @rw_get_default_value($settings->advanced->text->outOf, $dictionary["outOf"], DUMMY_STR);
+        $settings->advanced->text->weRecommend = @rw_get_default_value($settings->advanced->text->weRecommend, $dictionary["weRecommend"], DUMMY_STR);
     }
     
     function rw_enrich_options(&$settings, $dictionary = array(), $dir = "ltr", $hor = "right", $type = "star")

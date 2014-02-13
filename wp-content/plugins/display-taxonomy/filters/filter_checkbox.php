@@ -20,7 +20,9 @@
                           $_POST['search_filter'],
                           $_POST['order_by'],
                           $_POST['sort_a_z'],
-                          $_POST['tax_or_cat']);
+                          $_POST['tax_or_cat'],
+                          $_POST['displayed']
+                        );
          
          switch($_REQUEST['fn'])
         {
@@ -66,6 +68,7 @@ Class Super_Filter{
         protected $order_by;
         protected $order_a_z;
         protected $tax_or_cat;
+        protected $already_displayed;
 
         
         protected $view; //string (path of view to be loaded)
@@ -84,7 +87,9 @@ Class Super_Filter{
                             $search,
                             $order_by,
                             $order_a_z,
-                            $tax_or_cat) 
+                            $tax_or_cat,
+                            $displayed
+                            ) 
   {      
       $this->selected_subjects= $selected_subjects;
       $this->offset= $offset;
@@ -99,6 +104,7 @@ Class Super_Filter{
       $this->order_by= $order_by;
       $this->order_a_z= $order_a_z;
       $this->tax_or_cat= $tax_or_cat;
+      $this->already_displayed= $displayed;
   }
     
   public function create_filter($filter_type){
@@ -262,13 +268,13 @@ Class Super_Filter{
 
      $args= array
     (
-        'offset'=>$this->offset,
         'post_type'=>$this->category_type,
         'paged'=>$paged,
         'posts_per_page'=>$offset,
         'orderby' => $this->order_by,
         'order' => $this->order_a_z,
-        's'=>$this->search_term
+        's'=>$this->search_term,
+        'post__not_in'=>$this->already_displayed
     );
      if ($this->tax_or_cat=='cat'){
         

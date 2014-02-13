@@ -159,7 +159,7 @@ echo "<div id='$fname'>";
 echo "<label><input $selected type='radio' name='$fname' value='$value'>$value</label>";
 			}
 echo '</div>';
-echo "<a class='clear-value' href='javascript:clear(\"$fname\");'>". __('Clear', 'bps'). "</a>";
+echo "<a class='clear-value' href='javascript:clear(\"$fname\");'>". __('Clear', 'buddypress'). "</a>";
 echo '</div>';
 			break;
 
@@ -183,7 +183,7 @@ echo '</div>';
 	}
 
 echo "<div class='submit'>";
-echo "<input type='submit' value='". __('Search', 'bps'). "' />";
+echo "<input type='submit' value='". __('Search', 'buddypress'). "' />";
 echo '</div>';
 echo "<input type='hidden' name='bp_profile_search' value='true' />";
 echo '</form>';

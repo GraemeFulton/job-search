@@ -8,12 +8,12 @@
         "rateGood" => "好",
         "rateExcellent" => "优秀",
         "rateThis" => "评分",
-        "like" => "像",
+        "like" => "喜欢",
         "dislike" => "反感",
         "vote" => "投票",
         "votes" => "投票",
         "thanks" => "谢谢",
-        "outOf" => "出",
+        "outOf" => "/",
         "weRecommend" => "我们建议",
     );
 ?>

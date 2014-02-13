@@ -89,6 +89,11 @@ class RatingWidgetPlugin_TopRatedWidget extends WP_Widget
                 "classes" => "forum-post,new-forum-post,user-forum-post",
                 "options" => WP_RW__FORUM_POSTS_OPTIONS,
             );
+            $types['forum_replies'] = array(
+                "rclass" => "forum-reply",
+                "classes" => "forum-reply",
+                "options" => WP_RW__FORUM_POSTS_OPTIONS,
+            );
         }
         
         $bbInstalled = ratingwidget()->IsBBPressInstalled();
@@ -98,7 +103,7 @@ class RatingWidgetPlugin_TopRatedWidget extends WP_Widget
             $types['users'] = array(
                 "rclass" => "user",
                 "classes" => "user",
-                "options" => WP_RW__FORUM_POSTS_OPTIONS,
+                "options" => WP_RW__USERS_OPTIONS,
             );
         }
         
@@ -365,7 +370,7 @@ class RatingWidgetPlugin_TopRatedWidget extends WP_Widget
                                 continue;
                             }
                         }
-                        else if ('forum_posts' === $type)
+                        else if ('forum_posts' === $type || 'forum_replies' === $type)
                         {
                             $id = RatingWidgetPlugin::Urid2ForumPostId($urid);
                             if (function_exists('bp_forums_get_post'))
@@ -505,23 +510,34 @@ class RatingWidgetPlugin_TopRatedWidget extends WP_Widget
         }
     }
 
-    function update($new_instance, $old_instance)
+    protected function GetTypes()
     {
         $types = array("posts", "pages", "comments");
         
-        if (ratingwidget()->IsBuddyPressInstalled())
+        $bpInstalled = ratingwidget()->IsBuddyPressInstalled();
+        $bbpInstalled = ratingwidget()->IsBBPressInstalled();
+        
+        if ($bpInstalled)
         {
             $types[] = "activity_updates";
             $types[] = "activity_comments";
-            $types[] = "users";
         }
         
-        if (ratingwidget()->IsBBPressInstalled())
+        if ($bbpInstalled)
         {
-            $types[] = "users";
             $types[] = "forum_posts";
+            $types[] = "forum_replies";
         }
         
+        if ($bpInstalled || $bbpInstalled)
+            $types[] = "users";
+        
+        return $types;
+    }
+    function update($new_instance, $old_instance)
+    {
+        $types = $this->GetTypes();
+
         $instance = $old_instance;
         $instance['title_max_length'] = (int)$new_instance['title_max_length'];
         $instance['title'] = strip_tags($new_instance['title']);
@@ -541,20 +557,7 @@ class RatingWidgetPlugin_TopRatedWidget extends WP_Widget
 
     function form($instance)
     {
-        $types = array("posts", "pages", "comments");
-                    
-        if (ratingwidget()->IsBuddyPressInstalled())
-        {
-            $types[] = "activity_updates";
-            $types[] = "activity_comments";
-            $types[] = "users";
-        }
-        
-        if (ratingwidget()->IsBBPressInstalled())
-        {
-            $types[] = "users";
-            $types[] = "forum_posts";
-        }
+        $types = $this->GetTypes();
         
         $orders = array("avgrate", "votes", "likes", "created", "updated");
         $orders_labels = array("Average Rate", "Votes Number", "Likes (for Thumbs)", "Created", "Updated");

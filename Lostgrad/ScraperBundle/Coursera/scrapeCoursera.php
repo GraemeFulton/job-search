@@ -1,10 +1,5 @@
 <?php
-#include hotaru
 require "../../SiteBundle/Course.php";
-
-
-# create and load the HTML
-include('simple_html_dom.php');
 
 require_once "../ScraperAbstract.class.php"; 
 require "../CourseScraperAbstract.class.php";

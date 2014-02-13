@@ -1,10 +1,10 @@
 ﻿=== BuddyPress Like ===
 Contributors: darrenmeehan,hempsworth
-Donate link: http://buddypress.org/community/groups/buddypress-like/donate/
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZAJLLEJDBHAWL
 Tags: buddypress, like, rate, thumbs, Post, button
 Requires at least: 3.8
 Tested up to: 3.8
-Stable tag: 0.1.1
+Stable tag: 0.1.5
 
 Gives users the ability to 'like' content across your BuddyPress enabled site. Note BuddyPress Like is currently in Beta.
 
@@ -31,7 +31,21 @@ Requires <a href="http://wordpress.org/plugins/buddypress/">BuddyPress</a>
 
 == Changelog ==
 
-= 0.1.1
+= 0.1.5 =
+* Removed favorite/unfavorite button on activity items using jQuery. 
+* Added function: view_who_likes().
+* Added hook: view_who_likes, will be adding more.
+* Added function bp_like_get_num_likes() to return number of likes of an item.
+* Tidied up jQuery, now properly using no conflict mode, functions split up.
+* Fixed activity filter bug where custom text for 'Blog Post Likes' was not called.
+* Moved Settings Page to under "Settings" tab in Admin, previously was under legacy BuddyPress tab.
+* New donate link.
+* Organised functions into different files, no more having one massive file!
+* Function added: bp_like_post_to_stream() with some code clean up inside
+* Tidied up bp_like_list_scripts() function, properly registering and enqueuing the scripts.
+* Removed like visibility, more changes on this to come.
+
+= 0.1.1 =
 * Fixed errors in readme.txt
 * Started formating code to meet WordPress code Standards
 * Add in View Likes, until some bugs are fixed.
@@ -79,6 +93,9 @@ Requires <a href="http://wordpress.org/plugins/buddypress/">BuddyPress</a>
 * Initial release.
 
 == Upgrade Notice ==
+
+= 0.1.5 =
+Many fixes, but still only suitable for testing. Settings moved to Setting->BuddyPress Like. Can no like comments properly and remove the favourite button.
 
 = 0.1.1 =
 A few awesome fixes! Comments should now work properly.

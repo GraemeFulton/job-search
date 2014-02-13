@@ -65,8 +65,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $args= array(
         'post_type'=>'work-experience-job',
     	'paged' => $paged,
-        'orderby'=>'date',
-        'order' => 'DESC'
+        'orderby' => 'rand'
 );
 
 
@@ -88,13 +87,13 @@ query_posts( $args); ?>
                                          <div class="sort-a-z">
                                              
                                              <div class="numeric-sort">&nbsp; Sort:
-                                         <button class="fa fa-sort-numeric-desc sort-asc sort-button sort-active"></button>
+                                         <button class="fa fa-sort-numeric-desc sort-asc sort-button "></button>
                                          <button class="fa fa-sort-numeric-asc sort-desc sort-button "></button>
                                              </div>
                                              
                                          <div class="alpha-sort">&nbsp; Sort:
                                             <button class="fa fa-sort-alpha-asc sort-desc sort-button "></button>
-                                             <button class="fa fa-sort-alpha-desc sort-asc sort-button sort-active"></button>
+                                             <button class="fa fa-sort-alpha-desc sort-asc sort-button"></button>
                                             </div>
                                          </div>
                                      </div>
@@ -166,7 +165,10 @@ $location= wp_get_post_terms($post_id, 'location', array("fields" => "names"));
    </div><!-- .page -->
 
 	<div class='sidebar-main'>
-
+ <div id="selected-options-container"class="selected-course-options">
+        <h4 class="options-title"><i style="margin-top:-15px;"class="fa fa-search"></i> &nbsp;Selected: </h4><div class="clear_both"></div>
+                                          <div id="nothing_selected">Nothing Selected.</div>
+    </div>
 	<?php get_sidebar(); ?>
 </div>
 <?php get_footer(); ?>

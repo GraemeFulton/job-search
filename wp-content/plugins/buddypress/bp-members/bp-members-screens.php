@@ -228,6 +228,19 @@ function bp_core_screen_activation() {
 	if ( !bp_is_current_component( 'activate' ) )
 		return false;
 
+	// If the user is logged in, redirect away from here
+	if ( is_user_logged_in() ) {
+		if ( bp_is_component_front_page( 'activate' ) ) {
+			$redirect_to = trailingslashit( bp_get_root_domain() . '/' . bp_get_members_root_slug() );
+		} else {
+			$redirect_to = trailingslashit( bp_get_root_domain() );
+		}
+
+		bp_core_redirect( apply_filters( 'bp_loggedin_activate_page_redirect_to', $redirect_to ) );
+
+		return;
+	}
+
 	// Check if an activation key has been passed
 	if ( isset( $_GET['key'] ) ) {
 
@@ -358,7 +371,7 @@ class BP_Members_Theme_Compat {
 			'post_content'   => '',
 			'post_type'      => 'bp_members',
 			'post_status'    => 'publish',
-			'is_archive'     => true,
+			'is_page'        => true,
 			'comment_status' => 'closed'
 		) );
 	}
@@ -369,7 +382,7 @@ class BP_Members_Theme_Compat {
 	 * @since BuddyPress (1.7)
 	 */
 	public function directory_content() {
-		bp_buffer_template_part( 'members/index' );
+		return bp_buffer_template_part( 'members/index', null, false );
 	}
 
 	/** Single ****************************************************************/
@@ -418,7 +431,7 @@ class BP_Members_Theme_Compat {
 			'post_content'   => '',
 			'post_type'      => 'bp_members',
 			'post_status'    => 'publish',
-			'is_archive'     => true,
+			'is_page'        => true,
 			'comment_status' => 'closed'
 		) );
 	}
@@ -429,7 +442,7 @@ class BP_Members_Theme_Compat {
 	 * @since BuddyPress (1.7)
 	 */
 	public function single_dummy_content() {
-		bp_buffer_template_part( 'members/single/home' );
+		return bp_buffer_template_part( 'members/single/home', null, false );
 	}
 }
 new BP_Members_Theme_Compat();
@@ -534,7 +547,7 @@ class BP_Registration_Theme_Compat {
 			'post_content'   => '',
 			'post_type'      => $post_type,
 			'post_status'    => 'publish',
-			'is_archive'     => true,
+			'is_page'        => true,
 			'comment_status' => 'closed'
 		) );
 	}
@@ -546,9 +559,9 @@ class BP_Registration_Theme_Compat {
 	 */
 	public function dummy_content() {
 		if ( bp_is_register_page() ) {
-			bp_buffer_template_part( 'members/register' );
+			return bp_buffer_template_part( 'members/register', null, false );
 		} else {
-			bp_buffer_template_part( 'members/activate' );
+			return bp_buffer_template_part( 'members/activate', null, false );
 		}
 	}
 }

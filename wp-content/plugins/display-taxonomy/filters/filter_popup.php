@@ -83,6 +83,7 @@ Class Popup_Filter{
      /*
       * template_response
       * @param $page = bool value. if false, exit (for ajax); if true, use for page
+      * see middle of the function for if($page==true)
       */
      public function template_response($page){
          
@@ -121,7 +122,7 @@ Class Popup_Filter{
          
          //return html view
          if($page==true){
-             $video = $this->get_video($tree);
+             $video = $this->get_video_url($tree);
              $the_content= $this->get_content_by_id($this->post_id);
              $post_image = $this->show_post_image($tree);
                            $ratings = $this->show_ratings($this->post_id);
@@ -173,6 +174,36 @@ Class Popup_Filter{
          return '<div id="single_post_image_box"><img id="single_post_image" src="'.$post_image.'"/></div>';
         
     }
+    
+    /*
+     * gets a the video url and sends back the correct embed code depending on 
+     * video type
+     */
+    private function get_video_url($tree){
+        $video_url=$tree->get_video_url($this->post_id, 'embedded-media');
+        
+        if($video_url=='NA'){return;}
+                
+         if (strpos($video_url,'youtube') !== false) {
+              return $this->get_youtube_embed($video_url);
+         }
+         else{
+             
+             return '<object width="400" height="225" data="'.$video_url.'"></object>';
+             
+         }
+    }
+    
+    /*
+     * takes the vzaar url and builds the correct embed code
+     */
+  
+    
+    private function get_youtube_embed($vid_url){
+       return $this->youtubeUrlToEmbedCode($vid_url);
+    }
+    
+    
     
     private function get_provider_logo(){
         
@@ -292,6 +323,21 @@ function generateVideoEmbeds($text) {
 
     return $text;
 }
-        
+
+function youtubeUrlToEmbedCode($url){
+
+        preg_match(
+                '/[\\?\\&]v=([^\\?\\&]+)/',
+                $url,
+                $matches
+            );
+        $id = $matches[1];
+
+        $width = '450';
+        $height = '315';
+        return '<object width="' . $width . '" height="' . $height . '"><param name="movie" value="http://www.youtube.com/v/' . $id . '&amp;hl=en_US&amp;fs=1?rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/' . $id . '&amp;hl=en_US&amp;fs=1?rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="' . $width . '" height="' . $height . '"></embed></object>';
+    
     }
+        
+}
 ?>

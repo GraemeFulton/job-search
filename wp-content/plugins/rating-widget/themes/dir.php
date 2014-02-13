@@ -2,13 +2,16 @@
     global $RW_THEMES;
     $RW_THEMES = array(
         'star' => array(
-            'star_oxygen' => array('type' => 'star', 'file' => 'star/oxygen/yellow.php', 'title' => 'Oxygen Yellow Stars 1 (Default)', 'premium' => false),
+            'star_ratingwidget' => array('type' => 'star', 'file' => 'star/ratingwidget.php', 'title' => 'Rating-Widget (Default)', 'premium' => false),
 
-            'star_yellow1' => array('type' => 'star', 'file' => 'star/default/yellow_1.php', 'title' => 'Yellow Stars', 'premium' => false),
-            'star_oxygen1' => array('type' => 'star', 'file' => 'star/oxygen/yellow1.php', 'title' => 'Oxygen Yellow Stars 2', 'premium' => false),
-            'star_darkglass' => array('type' => 'star', 'file' => 'star/darkglass/yellow.php', 'title' => 'Dark Glass Yellow Stars', 'premium' => false),
-            'star_quartz' => array('type' => 'star', 'file' => 'star/quartz/yellow.php', 'title' => 'Quartz Yellow Stars', 'premium' => false),
-            'star_christmas' => array('type' => 'star', 'file' => 'star/christmas/yellow.php', 'title' => 'Christmas Golden Stars', 'premium' => false),
+            'star_oxygen' => array('type' => 'star', 'file' => 'star/oxygen/yellow.php', 'title' => 'Oxygen Yellow Stars 1'),
+
+            'star_yellow1' => array('type' => 'star', 'file' => 'star/default/yellow_1.php', 'title' => 'Yellow Stars'),
+            'star_oxygen1' => array('type' => 'star', 'file' => 'star/oxygen/yellow1.php', 'title' => 'Oxygen Yellow Stars 2'),
+            'star_darkglass' => array('type' => 'star', 'file' => 'star/darkglass/yellow.php', 'title' => 'Dark Glass Yellow Stars'),
+            'star_quartz' => array('type' => 'star', 'file' => 'star/quartz/yellow.php', 'title' => 'Quartz Yellow Stars'),
+            'star_christmas' => array('type' => 'star', 'file' => 'star/christmas/yellow.php', 'title' => 'Christmas Golden Stars'),
+            'star_flat_yellow' => array('type' => 'star', 'file' => 'star/default/flat_yellow.php', 'title' => 'Flat Yellow Stars'),
 
             'star_red1' => array('type' => 'star', 'file' => 'star/default/red_1.php', 'title' => 'Red Stars'),
             'star_oxygen_red' => array('type' => 'star', 'file' => 'star/oxygen/red.php', 'title' => 'Oxygen Red Stars 1'),
@@ -16,6 +19,7 @@
             'star_darkglass_red' => array('type' => 'star', 'file' => 'star/darkglass/red.php', 'title' => 'Dark Glass Red Stars'),
             'star_quartz_red' => array('type' => 'star', 'file' => 'star/quartz/red.php', 'title' => 'Quartz Red Stars'),
             'star_christmas_red' => array('type' => 'star', 'file' => 'star/christmas/red.php', 'title' => 'Christmas Red Stars'),
+            'star_flat_red' => array('type' => 'star', 'file' => 'star/default/flat_red.php', 'title' => 'Flat Red Stars'),
 
             'star_green1' => array('type' => 'star', 'file' => 'star/default/green_1.php', 'title' => 'Green Stars'),
             'star_oxygen_green' => array('type' => 'star', 'file' => 'star/oxygen/green.php', 'title' => 'Oxygen Green Stars 1'),
@@ -23,6 +27,7 @@
             'star_darkglass_green' => array('type' => 'star', 'file' => 'star/darkglass/green.php', 'title' => 'Dark Glass Green Stars'),
             'star_quartz_green' => array('type' => 'star', 'file' => 'star/quartz/green.php', 'title' => 'Quartz Green Stars'),
             'star_christmas_green' => array('type' => 'star', 'file' => 'star/christmas/green.php', 'title' => 'Christmas Green Stars'),
+            'star_flat_green' => array('type' => 'star', 'file' => 'star/default/flat_green.php', 'title' => 'Flat Green Stars'),
 
             'star_blue1' => array('type' => 'star', 'file' => 'star/default/blue_1.php', 'title' => 'Blue Stars'),
             'star_oxygen_blue' => array('type' => 'star', 'file' => 'star/oxygen/blue.php', 'title' => 'Oxygen Blue Stars 1'),
@@ -30,7 +35,10 @@
             'star_darkglass_blue' => array('type' => 'star', 'file' => 'star/darkglass/blue.php', 'title' => 'Dark Glass Blue Stars'),
             'star_quartz_blue' => array('type' => 'star', 'file' => 'star/quartz/blue.php', 'title' => 'Quartz Blue Stars'),
             'star_christmas_blue' => array('type' => 'star', 'file' => 'star/christmas/blue.php', 'title' => 'Christmas Blue Stars'),
+            'star_flat_blue' => array('type' => 'star', 'file' => 'star/default/flat_blue.php', 'title' => 'Flat Blue Stars'),
 
+            'star_flat_magenta' => array('type' => 'star', 'file' => 'star/default/flat_magenta.php', 'title' => 'Flat Magenta Stars'),
+            
             'star_lean_heart' => array('type' => 'star', 'file' => 'star/lean_heart.php', 'title' => 'Lean Hearts'),
             'star_heart1' => array('type' => 'star', 'file' => 'star/heart_1.php', 'title' => 'Hearts'),
 

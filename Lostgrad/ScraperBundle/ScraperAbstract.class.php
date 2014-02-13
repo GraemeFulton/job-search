@@ -113,7 +113,7 @@ public function insert_post_image($wpdb, $image_title, $photoUrl, $entity){
     
     file_put_contents($image_path, $image); 
   
-    echo "<br><h4 style='color:green'>Image: ".$h->post->image." saved.</h4>";
+    echo "<br><h4 style='color:green'>Image:  saved.</h4>";
 }
 
 /*

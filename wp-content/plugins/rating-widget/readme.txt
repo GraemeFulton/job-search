@@ -1,10 +1,10 @@
 === Rating-Widget ===
 Contributors: ratingwidget, svovaf
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VAFEFAZRTLXU4
-Tags: rate, rating, ratings, vote, votes, voting, star, stars, like, dislike, thumbs, widget, widgets, sidebar, comment, comments, post, posts, page, pages, google, admin, administrator, review, reviews, rich-snippets, plugin, plugins, ajax, buddypress, bbpress, social, javascript, js, wordpress, meta
+Tags: rate, rating, ratings, vote, votes, voting, star, stars, like, dislike, thumbs, widget, widgets, sidebar, comment, comments, post, posts, page, pages, google, admin, administrator, review, reviews, rich-snippets, plugin, plugins, ajax, buddypress, bbpress, social, javascript, js, wordpress, meta, woocommerce
 Requires at least: 2.6
-Tested up to: 3.6.1
-Stable tag: 1.9.3
+Tested up to: 3.8
+Stable tag: 1.9.8
 License: GPLv2 or later
 
 Star Rating System for WordPress - the most beautiful & user-freindly Thumb & Star ratings for WordPress.
@@ -39,7 +39,7 @@ To get the **Pro Version** go to - http://rating-widget.com/get-the-word-press-p
 > #### Supported in 40 Languages
 > Rating-Widget star ratings are localizable and currently available in:
 >
-> Afrikaans, Arabic - العربية, Bengali - বাংলা, Bulgarian - български, Catalan - Català, Chinese - 汉语/漢語, Croatian - Hrvatski, Czech - Čeština, Danish - Dansk, English, Estonian - Eesti keel, Finnish - Suomi, French - Français, Georgian - ქართული, German - Deutsch, Greek - Ελληνικά, Hebrew - עברית, Hindi - हिंदी, Hungarian - Magyar, Indonesian - Bahasa Indonesia, Italian - Italiano, Japanese - 日本語, Korean - 한국어/조선말, Lithuanian - Lietuvių, Mongolian - Mongγol Kele, Nederlands - Dutch, Norwegian - Norsk, Persian - فارسی, Polish - Polska, Portuguese - Português, Romanian - Română, Russian - Русский, Serbian - Српски, Slovak - Slovenčina, Slovenian - Slovenščina, Spanish - Español, Swedish - Svenska, Tamil - தமிழ், Turkish - Türkçe, Vietnamese - Tiếng Việt
+> Afrikaans, Arabic - العربية, Bengali - বাংলা, Bulgarian - български, Catalan - Català, Chinese - 汉语/漢語, Croatian - Hrvatski, Czech - Čeština, Danish - Dansk, English, Estonian - Eesti keel, Finnish - Suomi, French - Français, Georgian - ქართული, German - Deutsch, Greek - Ελληνικά, Hebrew - עברית, Hindi - हिंदी, Hungarian - Magyar, Indonesian - Bahasa Indonesia, Italian - Italiano, Japanese - 日本語, Korean - 한국어/조선말, Lithuanian - Lietuvių, Mongolian - Mongγol Kele, Nederlands - Dutch, Norwegian - Norsk, Persian - فارسی, Polish - Polska, Portuguese - Português, Romanian - Română, Russian - Русский, Serbian - Српски, Slovak - Slovenčina, Slovenian - Slovenščina, Spanish - Español, Swedish - Svenska, Tamil - தமிழ், Turkish - Türkçe, Vietnamese - Tiếng Việt, Ukrainian - Українська Мова
 >
 > Can't find your language? Help us translate [here](http://rating-widget.com/help-translate/): http://rating-widget.com/help-translate/
 
@@ -106,6 +106,31 @@ Check out if you have any active caching plugins in your WordPress, they might c
 
 
 == Change Log ==
+= 1.9.8 =
+* Fix: Forum reply's rating style & availability settings are now defined exactly as bbPress topic rating.
+
+= 1.9.7 =
+* New: Added bbPress forum replies section to Top-Rated Widget.
+* Fix: Fixed Chinese translation.
+* Fix: New Premium users' secret keys must not be permuted to lower case.
+* Fix: Forum reply's rating style is now defined by bbPress topic rating style.
+
+= 1.9.6 =
+* Fix: Fixed bbPress forum replies duplicate ratings issue for new bbPress versions.
+* New: Separated between bbPress forum topics and forum replies.
+* New: Added bbPress forum replies to Top-Rated Widget.
+* Update: Improved bbPress plugin detection method.
+* Update: Updated default star theme to flat yellow theme.
+
+= 1.9.5 =
+* New: Added new awesome RatingWidget star rating's theme + 6 flat additional designs.
+* New: Added new tiny size to the size options after so many requests we got.
+* Fix: Fixed advanced settings text options labels.
+* Update: Upgraded mobile detect library to 2.7.5 (http://mobiledetect.net).
+
+= 1.9.4 =
+* New: Localized to Ukrainian.
+
 = 1.9.3 =
 * New: Added site category on registration process to provide better targeted recommended content.
 
