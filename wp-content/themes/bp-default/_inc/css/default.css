@@ -365,12 +365,12 @@ opacity:1;
 	text-decoration: none;
 }
 
-#Search_Term{
+#Search_Term, .Search_Term{
     height:38px;
     margin-top:0.5px;
     font-size:17px;
 }
-#Search_Filter{margin-top:1px;height:38px;margin-left:-5px;border-left:none; background:#EBEBEB}
+#Search_Filter, .Search_Filter{margin-top:1px;height:38px;margin-left:-5px;border-left:none; background:#EBEBEB}
 
 #Tag_Search_Term{
     height: 28px;

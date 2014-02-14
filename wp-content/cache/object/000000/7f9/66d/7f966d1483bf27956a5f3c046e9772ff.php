@@ -1,4 +1,4 @@
-ªþR<?php exit; ?>a:1:{s:7:"content";O:8:"stdClass":24:{s:2:"ID";i:5771;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2013-12-22 15:36:13";s:13:"post_date_gmt";s:19:"2013-12-22 15:36:13";s:12:"post_content";s:892:"<h1>Divemaster in Costa Rica</h1>
+|þR<?php exit; ?>a:1:{s:7:"content";O:8:"stdClass":24:{s:2:"ID";i:5771;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2013-12-22 15:36:13";s:13:"post_date_gmt";s:19:"2013-12-22 15:36:13";s:12:"post_content";s:892:"<h1>Divemaster in Costa Rica</h1>
 Start your adventure as a professional diver and join our Divemaster course in Costa Rica. The Divemaster course will get you working closely with a PADI Instructor. You will expand your dive knowledge and work on your skills daily. The PADI Divemaster training develops your leadership abilities, qualifying you to supervise dive activities and assist instructors with student divers.
 <div>
 <h2>Divemaster in Costa Rica Highlights Include:</h2>

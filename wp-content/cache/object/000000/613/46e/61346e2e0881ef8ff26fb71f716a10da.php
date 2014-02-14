@@ -1,4 +1,4 @@
-ªþR<?php exit; ?>a:1:{s:7:"content";O:8:"stdClass":24:{s:2:"ID";i:5781;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2013-12-22 15:56:29";s:13:"post_date_gmt";s:19:"2013-12-22 15:56:29";s:12:"post_content";s:910:"<h1>Buenos Aires to Rio Travel Pass</h1>
+|þR<?php exit; ?>a:1:{s:7:"content";O:8:"stdClass":24:{s:2:"ID";i:5781;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2013-12-22 15:56:29";s:13:"post_date_gmt";s:19:"2013-12-22 15:56:29";s:12:"post_content";s:910:"<h1>Buenos Aires to Rio Travel Pass</h1>
 This ultra convenient hop-on hop-off bus pass is the best way to organise your transportation and adventure activities when travelling in South America. If you do not speak Spanish or Portuguese it can be quite a hassle and a bit of a minefield to make your way around this fascinating continent. Donâ€™t let language issues put you off exploring these amazing countries
 
 With this travel pass backpacking in South America is so much easier. We include all your transportation and loads of free activities en route. Whatâ€™s more all the itineraries are flexible and the daily departures make this the ideal solution to travel South America.
