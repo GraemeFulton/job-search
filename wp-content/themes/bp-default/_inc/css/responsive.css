@@ -82,7 +82,14 @@ Hello, this is the BuddyPress Responsive theme stylesheet
             margin:0 0 0 0;
             
         }
-        
+        #Login_Widget{
+            width:283px;
+        }
+        .login_panel{
+            float:left;
+        }
+        #social_box{margin-right:3px;}
+        .tagline{width:100%;}
         #login-text{
             display:none;
         }
@@ -227,6 +234,7 @@ Hello, this is the BuddyPress Responsive theme stylesheet
         #provatar{
             float:left;
         }
+        .tagline{margin-left:0px;}
         .home-tag-line .widget_loginwithajaxwidget{
             
             margin-left:15px;

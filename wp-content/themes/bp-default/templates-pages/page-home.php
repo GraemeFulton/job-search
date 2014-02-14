@@ -22,25 +22,38 @@ include (TEMPLATEPATH . '/templates-headers/header-home.php');
       
 		<div class="home-slider-area">
                     <div class="center-wrapper">
-		<!-- slider -->
-		<?php echo do_shortcode("[promoslider]"); ?>
 		
 		<!-- description -->
 		<div class="home-tag-line">
-		<h1>Start Building Your Brighter Future, For Free.</h1>
-		<h4 id="lg-description">Lostgrad is a free service, offering opportunities to help you unlock your true potential, and create the life you want.</h4>
-		<div class="home-show-case">
-		<h4><i class="ico fa fa-book"style='margin-right:2px;'></i> Learn something new</h4>
-		<h4><i class="ico fa fa-cogs"></i> Experience the workplace</h4>
-		<h4><i class="ico fa fa-bullseye"style='margin-right:2px;'></i> Work some place you'll love</h4>
-                <h4><i class="ico fa fa-plane" ></i> Travel the world</h4>
-		<h4><i class="ico fa fa-lightbulb-o" style='margin-right:5px;'></i> Be Inspired</h4>
-		</div>
-		<br>
+                    <div class="tagline">
+		<h1>Build A Brighter Future.</h1>
+                    </div>
+               <!-- panel-->
+                <div class="login_panel">
 		
 				<?php echo do_shortcode('[widgets_on_pages id="Login Widget"]'); ?>
-		
-		</div>
+                    
+                    <div id="social_box">
+                                <!--facebook login-->
+                  <a href="http://localhost/LGWP/login/?loginFacebook=1&redirect=http://localhost/LGWP" onclick="window.location = 'http://localhost/LGWP/login/?loginFacebook=1&redirect='+window.location.href; return false;">
+
+                      <div class="new-fb-btn new-fb-4 new-fb-default-anim"><div class="new-fb-4-1"><div class="new-fb-4-1-1">Log In with facebook</div></div></div>                
+                 </a>
+                                <br>
+                <a href="http://localhost/LGWP/login/?loginTwitter=1&redirect=http://localhost/LGWP" onclick="window.location = 'http://localhost/LGWP/login/?loginTwitter=1&redirect='+window.location.href; return false;"> 
+                    <div class="new-twitter-btn new-twitter-4 new-twitter-default-anim"><div class="new-twitter-4-1"><div class="new-twitter-4-1-1">Log In with twitter</div></div></div>
+
+                </a>
+                    </div>
+
+                
+                <!----->
+                </div>
+                <!-- panel-->
+         
+                
+                
+                </div>
                     </div>
 		</div>
         
