@@ -16,7 +16,7 @@
                         <div id="main-overlay"></div>
 
       <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top mobile-menu" role="navigation">
+    <div class="navbar wide-nav navbar-inverse navbar-fixed-top mobile-menu" role="navigation">
       <div class="container">
         <div class="navbar-header">
             
@@ -54,7 +54,7 @@
                             <div id="main_search">
                                 <form class="navbar-form" role="search">
                                     <div class="input-group">
-                                     <input type="text" class="form-control" id='Search_Term' placeholder="Search for Graduate Jobs" name="srch-term">
+                                     <input type="text" class="form-control" id='Search_Term' placeholder="Search for Work" name="srch-term">
                                         <div class="input-group-btn">
                                         <button class="btn btn-default" id='Search_Filter'type="submit"><i class="glyphicon glyphicon-search"></i></button>
                                     </div>

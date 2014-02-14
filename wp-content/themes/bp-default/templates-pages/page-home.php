@@ -68,7 +68,7 @@ include (TEMPLATEPATH . '/templates-headers/header-home.php');
                 $post_types=['course', 'work-experience-job','graduate-job', 'travel-opportunities'];
 
                 echo '<div id="Featured_Content">';
-                echo '<h2><i class="ico fa fa-star-o"></i> Featured</h2>';
+            //    echo '<h2><i class="ico fa fa-star-o"></i> Featured</h2>';
                 foreach($post_types as $type){
 
                 do_shortcode('[profile_favourites slug="'.$type.'" user="admin"]');

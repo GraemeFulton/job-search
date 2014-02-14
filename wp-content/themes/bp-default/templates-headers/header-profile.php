@@ -29,7 +29,7 @@ $(document).ready(function(){
 
 	<body <?php body_class(); ?> id="bp-default">
       <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top mobile-menu" role="navigation">
+    <div class="navbar navbar-inverse wide-nav navbar-fixed-top mobile-menu" role="navigation">
       <div class="container">
           
            <div class="navbar-header">

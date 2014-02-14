@@ -1,0 +1,1 @@
+©şR<?php exit; ?>a:1:{s:7:"content";a:2:{s:15:"tag_sticky_post";a:1:{i:0;s:1:"0";}s:40:"_oembed_cb63e8ff8c7017866b7b39d6b5fa4e73";a:1:{i:0;s:136:"<iframe width="591" height="443" src="http://www.youtube.com/embed/nx1SeQeRouo?feature=oembed" frameborder="0" allowfullscreen></iframe>";}}}

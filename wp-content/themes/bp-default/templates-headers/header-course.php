@@ -17,7 +17,7 @@
             <div id="main-overlay"></div>
 
       <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top mobile-menu" role="navigation">
+    <div class="navbar wide-nav navbar-inverse navbar-fixed-top mobile-menu" role="navigation">
       <div class="container">
         <div id="sidebar-toggle">
                     <div id="toggle-icon">
