@@ -428,12 +428,12 @@ function scroll_up_click_reset($){
 
 function Search_Filter($,search_terms){
  
- $(".Search_Filter").click(function(e){
+ $("#Search_Filter").click(function(e){
 //  $('html,body').animate({ scrollTop: 200 }, 'fast');
 
      e.preventDefault();
      
-     var terms= $('.Search_Term').val();
+     var terms= $('#Search_Term').val();
      
       if(terms){
          
@@ -448,6 +448,29 @@ function Search_Filter($,search_terms){
      
      
  });
+ 
+  $("#Search_Filter_Mobile").click(function(e){
+//  $('html,body').animate({ scrollTop: 200 }, 'fast');
+
+     e.preventDefault();
+     
+     var terms= $('#Search_Term_Mobile').val();
+     
+      if(terms){
+         
+        search_terms.length=0;
+        search_terms.push(terms);
+             
+        }
+        else   search_terms.length=0;
+        
+       
+    get_delay_apply_filter($);
+     
+     
+ });
+ 
+ 
  
 }
 

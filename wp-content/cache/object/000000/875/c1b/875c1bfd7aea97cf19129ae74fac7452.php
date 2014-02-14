@@ -1,1 +1,0 @@
-ƒþR<?php exit; ?>a:1:{s:7:"content";a:1:{i:281;O:8:"stdClass":11:{s:7:"term_id";i:281;s:4:"name";s:10:"South West";s:4:"slug";s:10:"south-west";s:10:"term_group";i:0;s:16:"term_taxonomy_id";i:311;s:8:"taxonomy";s:8:"location";s:11:"description";s:10:"South West";s:6:"parent";i:279;s:5:"count";i:6;s:9:"object_id";i:15021;s:6:"filter";s:3:"raw";}}}

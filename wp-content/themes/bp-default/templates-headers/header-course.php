@@ -65,7 +65,11 @@
                                 </div>
                                
                                 </form>
-                                       <?php if ( function_exists( 'display_taxonomy_tree' ) ) 
+                              
+                            </div>
+			</div><!-- #search-bar -->
+            
+                     <?php if ( function_exists( 'display_taxonomy_tree' ) ) 
                                           {
                                             global $tree;
                                               $tree= display_taxonomy_tree('subject', 'uni');
@@ -74,10 +78,6 @@
                                           }
                                     ?>
                                 
-                            </div>
-			</div><!-- #search-bar -->
-            
-            
             
             
 <!--    <input id="toggle-button" type="button" value="Toggle Style"> -->
@@ -105,9 +105,9 @@
                             <div id="main_search">
                                 <form class="navbar-form" role="search">
                                     <div class="input-group">
-                                     <input type="text" class="form-control Search_Term" id='Search_Term' placeholder="Search for Courses" name="srch-term">
+                                     <input type="text" class="form-control Search_Term" id='Search_Term_Mobile' placeholder="Search for Courses" name="srch-term">
                                         <div class="input-group-btn">
-                                        <button class="btn btn-default Search_Filter" id='Search_Filter'type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                        <button class="btn btn-default Search_Filter" id='Search_Filter_Mobile'type="submit"><i class="glyphicon glyphicon-search"></i></button>
                                     </div>
                                 </div>
                                
