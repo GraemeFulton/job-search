@@ -26,6 +26,22 @@ Hello, this is the BuddyPress Responsive theme stylesheet
 		background: #eaeaea;
 	}
         
+        /******LOADER GIFS****/
+        #ajax-loader-check-box{
+  top:30%;left:40%;
+
+}
+#ajax-loader-scroll{
+    margin-left:43%;
+  
+}
+#ajax-loader-popup{  position: fixed;
+  top: 33.2%;
+  left: 42.3%;
+
+  }
+        
+        
         /********LOGIN******************/
          
 	#wpadminbar {
@@ -920,6 +936,11 @@ Hello, this is the BuddyPress Responsive theme stylesheet
 		float: none;
 		margin: 1.25em 0 0;
 	}
+             /******LOADER GIFS****/
+        #ajax-loader-check-box{
+  top:55%;
+
+}
         
          div#container{margin-top:0px !important;}
         .mobile-search{margin-top:0px !important;}
@@ -986,6 +1007,22 @@ Hello, this is the BuddyPress Responsive theme stylesheet
 		float: none;
 		margin: 0.3em 0.6em;
 	}*/
+        /******LOADER GIFS****/
+        #ajax-loader-check-box{
+  top:45%;left:26%;
+
+}
+#ajax-loader-scroll{
+    margin-left:31.3%;
+    margin-top:16px;
+  
+}
+#ajax-loader-popup{  position: fixed;
+  top: 33.2%;
+  left: 40.3%;
+
+  }
+
 .mobile-search{width:94%;}
 
 .profile-bookmark-item{

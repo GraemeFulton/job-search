@@ -1,4 +1,4 @@
-ªþR<?php exit; ?>a:1:{s:7:"content";O:8:"stdClass":24:{s:2:"ID";i:5793;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2013-12-22 16:11:17";s:13:"post_date_gmt";s:19:"2013-12-22 16:11:17";s:12:"post_content";s:1351:"<h1>Complete Peru and Bolivia Travel Pass</h1>
+|þR<?php exit; ?>a:1:{s:7:"content";O:8:"stdClass":24:{s:2:"ID";i:5793;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2013-12-22 16:11:17";s:13:"post_date_gmt";s:19:"2013-12-22 16:11:17";s:12:"post_content";s:1351:"<h1>Complete Peru and Bolivia Travel Pass</h1>
 This ultra convenient hop-on hop-off bus pass is the best way to organize your transportation and adventure activities when travelling in South America. If you do not speak Spanish, it can be quite a hassle and a bit of a minefield to make your way around this fascinating continent. Donâ€™t let language issues put you off exploring these amazing countries
 <div>This travel pass makes it easy to go backpacking in South America. We include all your transportation and loads of free activities en route. Whatâ€™s more all the itineraries are flexible and we have daily departures to make this the ideal solution to travel South America.&nbsp;
 <ul>

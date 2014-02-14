@@ -348,8 +348,8 @@ function remove_tag_from_search($){
 
         $('.selected-search-index').remove();
         $(this).remove();
-        $('#Search_Term').val('');
-        $('#Search_Filter').click();
+        $('.Search_Term').val('');
+        $('.Search_Filter').click();
         
     });
     
@@ -428,12 +428,12 @@ function scroll_up_click_reset($){
 
 function Search_Filter($,search_terms){
  
- $("#Search_Filter").click(function(e){
+ $(".Search_Filter").click(function(e){
 //  $('html,body').animate({ scrollTop: 200 }, 'fast');
 
      e.preventDefault();
      
-     var terms= $('#Search_Term').val();
+     var terms= $('.Search_Term').val();
      
       if(terms){
          

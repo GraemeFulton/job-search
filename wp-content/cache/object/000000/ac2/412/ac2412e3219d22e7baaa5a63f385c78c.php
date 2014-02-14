@@ -1,0 +1,1 @@
+ƒþR<?php exit; ?>a:1:{s:7:"content";a:1:{i:408;O:8:"stdClass":11:{s:7:"term_id";i:408;s:4:"name";s:17:"UK Power Networks";s:4:"slug";s:17:"uk-power-networks";s:10:"term_group";i:0;s:16:"term_taxonomy_id";i:447;s:8:"taxonomy";s:7:"company";s:11:"description";s:0:"";s:6:"parent";i:0;s:5:"count";i:1;s:9:"object_id";i:14824;s:6:"filter";s:3:"raw";}}}
