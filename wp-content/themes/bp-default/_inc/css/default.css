@@ -205,9 +205,11 @@ ADMIN BAR - BOOTSTRAP/WP MERGE
 ----------------------------------*/
 .navbar-fixed-top { top: 0px; }
 .container {
-width: 100%;
 color:#fff;
+width:93%;
 }
+        .wide-nav .container{width:93%!important;}
+
 #wpadminbar *{text-shadow: none;color:#777;}
 #wpadminbar .quicklinks{float:right;}
 #wpadminbar .quicklinks ul{float:left;}
@@ -3308,13 +3310,15 @@ text-align: inherit !important;
 	float:left;
 	color:#fff;	
 	width:100%;
+        padding-left: 23px;
+padding-right: 17px;
 }
 
 #social_box{
     float:left;
 }
 
-.tagline{margin-left:27px;}
+.tagline{margin-left:18px;}
 
 .home-tag-line h4{line-height:22px;}
 .home-tag-line .ico{color:#fff; font-size:25px;}
@@ -3413,6 +3417,7 @@ margin-top:-5px !important;
 /*	.home-navbar a.navbar-brand { font-size:40px;}*/
 	.promo_slider{
 	height:349px !important;
+        
 	
 	}
 	.home-slider-area{
@@ -3929,7 +3934,9 @@ min-height:130px;
 @media only screen 
 and (min-width : 1824px) {
 /* Styles */
-
+.container {
+width: 1170px !important;
+}
 .is-loading{
     min-height:240px;
 
