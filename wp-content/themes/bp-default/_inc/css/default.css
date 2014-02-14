@@ -3307,8 +3307,15 @@ text-align: inherit !important;
 .home-tag-line{
 	float:left;
 	color:#fff;	
-	width:610px;
+	width:100%;
 }
+
+#social_box{
+    float:left;
+}
+
+.tagline{margin-left:27px;}
+
 .home-tag-line h4{line-height:22px;}
 .home-tag-line .ico{color:#fff; font-size:25px;}
 
@@ -3357,7 +3364,12 @@ font-size: 20px;
 .single_cont{float: right;
 width: 48%;}
 
-#Login_Widget{margin-left:-15px;}
+#Login_Widget{
+    margin-left:-15px;
+width: 230px;
+float: right;
+margin-top:10px;
+}
 
 .lwa table{
 	width:210px !important;
@@ -3970,4 +3982,15 @@ visibility: hidden;
 #blog-more:hover{
     cursor:pointer;
     
+}
+div.new-twitter-4, div.new-fb-4 {
+width: 195px;
+}
+
+.login_panel{
+    float:right;
+}
+
+.tagline{
+    float:left;
 }
