@@ -1,1 +1,0 @@
-ÆþR<?php exit; ?>a:1:{s:7:"content";a:1:{i:0;O:8:"stdClass":4:{s:7:"meta_id";s:5:"53570";s:7:"post_id";s:5:"10133";s:8:"meta_key";s:15:"wpcf-post-image";s:10:"meta_value";s:134:"http://localhost/LGWP/wp-content/uploads/post_images/Logo_Making_Better_Group_Decisions_Voting_Judgement_Aggregation_and_Fair_Division";}}}

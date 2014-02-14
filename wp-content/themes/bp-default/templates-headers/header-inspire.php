@@ -100,9 +100,9 @@
                             <div id="main_search">
                                 <form class="navbar-form" role="search">
                                     <div class="input-group">
-                                     <input type="text" class="form-control Search_Term" id='Search_Term' placeholder="Search for Posts" name="srch-term">
+                                     <input type="text" class="form-control Search_Term" id='Search_Term_Mobile' placeholder="Search for Posts" name="srch-term">
                                         <div class="input-group-btn">
-                                        <button class="btn btn-default Search_Filter" id='Search_Filter'type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                        <button class="btn btn-default Search_Filter" id='Search_Filter_Mobile'type="submit"><i class="glyphicon glyphicon-search"></i></button>
                                     </div>
                                 </div>
                                
