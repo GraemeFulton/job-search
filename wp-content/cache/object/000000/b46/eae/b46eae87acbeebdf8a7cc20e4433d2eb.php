@@ -1,0 +1,1 @@
+º,S<?php exit; ?>a:1:{s:7:"content";a:2:{s:17:"_wp_page_template";a:1:{i:0;s:30:"templates-pages/page-posts.php";}s:13:"_wpuf_form_id";a:1:{i:0;s:0:"";}}}

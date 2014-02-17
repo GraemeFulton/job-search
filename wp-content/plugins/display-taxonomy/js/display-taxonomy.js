@@ -174,7 +174,7 @@ function process_cat_filter($){
     $('#content').prepend('<div id="ajax-loader-check-box" style="margin:10px 0 0 10px;"></div>');
 
     $.ajax({
-     url: '/LGWP/wp-admin/admin-ajax.php', 
+     url: '/wp-admin/admin-ajax.php', 
      type: "POST",
      data: {
              'action': 'check_box_filter',
@@ -249,7 +249,7 @@ function process_filter($, category_type, tag_type, body_type){
     $('#content').prepend('<div id="ajax-loader-check-box" style="margin:10px 0 0 10px;"></div>');
 
     $.ajax({
-     url: '/LGWP/wp-admin/admin-ajax.php', 
+     url: '/wp-admin/admin-ajax.php', 
      type: "POST",
      data: {
             'action': 'check_box_filter',
@@ -340,7 +340,7 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
     console.log(order_by)
     
     $.ajax({
-     url: '/LGWP/wp-admin/admin-ajax.php', 
+     url: '/wp-admin/admin-ajax.php', 
      type: "POST",
      data: {
             'action': 'check_box_filter',
@@ -405,7 +405,7 @@ function process_popup_data($, popup, category, tag_type,body_type, post_id){
         $('#content').prepend('<div id="ajax-loader-popup" style="margin:10px 0 0 10px;"></div>');
 
     $.ajax({
-     url: '/LGWP/wp-admin/admin-ajax.php', 
+     url: '/wp-admin/admin-ajax.php', 
      type: "POST",
      data: {
             'action': 'popup_filter',
