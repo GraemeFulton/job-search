@@ -733,6 +733,6 @@ return array(
 	),
 	'plugin.license_key' => '',
 	'plugin.type' => '',
-	'wordpress.home' => 'http://localhost/LGWP',
+	'wordpress.home' => 'http://lostgrad.com',
 	'pgcache.bad_behavior_path' => '',
 );

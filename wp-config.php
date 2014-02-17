@@ -21,7 +21,7 @@ define('DB_NAME', 'lgwp');
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'jinkster2312');
+define('DB_PASSWORD', 'Jinkstron3042');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
