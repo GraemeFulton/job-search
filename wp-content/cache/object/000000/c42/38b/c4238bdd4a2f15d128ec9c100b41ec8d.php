@@ -1,0 +1,1 @@
+gS<?php exit; ?>a:1:{s:7:"content";a:1:{i:823;O:8:"stdClass":11:{s:7:"term_id";i:823;s:4:"name";s:12:"Teach Abroad";s:4:"slug";s:11:"tefl-travel";s:10:"term_group";i:0;s:16:"term_taxonomy_id";i:867;s:8:"taxonomy";s:11:"travel-type";s:11:"description";s:35:"Teach English as a Foreign Language";s:6:"parent";i:0;s:5:"count";i:5;s:9:"object_id";i:5823;s:6:"filter";s:3:"raw";}}}

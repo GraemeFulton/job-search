@@ -1,0 +1,1 @@
+¨vS<?php exit; ?>a:1:{s:7:"content";a:1:{i:0;O:8:"stdClass":4:{s:7:"meta_id";s:5:"52334";s:7:"post_id";s:4:"9952";s:8:"meta_key";s:15:"wpcf-post-image";s:10:"meta_value";s:115:"http://localhost/LGWP/wp-content/uploads/post_images/Logo_Tecnolog_as_de_informaci_n_y_comunicaci_n_en_la_educaci_n";}}}

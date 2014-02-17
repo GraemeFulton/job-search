@@ -1,0 +1,1 @@
+ùPS<?php exit; ?>a:1:{s:7:"content";a:1:{i:1365;O:8:"stdClass":11:{s:7:"term_id";i:1365;s:4:"name";s:32:"London Borough of Waltham Forest";s:4:"slug";s:32:"london-borough-of-waltham-forest";s:10:"term_group";i:0;s:16:"term_taxonomy_id";i:1409;s:8:"taxonomy";s:7:"company";s:11:"description";s:0:"";s:6:"parent";i:0;s:5:"count";i:1;s:9:"object_id";i:16076;s:6:"filter";s:3:"raw";}}}
