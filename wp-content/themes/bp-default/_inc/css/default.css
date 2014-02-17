@@ -3238,8 +3238,8 @@ margin-bottom: 0px;
 .read_more_btn{float:left;margin-right:5px;margin-bottom:5px;margin-top:5px;}
 .inspire-cat-tag{float:left; margin-top:8px;}
 .post_image{
-    width:100%;
     top:0px;
+    height:200px;
     overflow:hidden;
     margin-bottom:3px;
     line-height: 0;
@@ -3250,6 +3250,8 @@ margin-bottom: 0px;
     border-top-right-radius: 8px;
 border-top-left-radius: 8px;
 }
+
+.activepost .post_image{height:auto;}
 
 .edit-profile-form-area .label{
         
@@ -3298,10 +3300,10 @@ text-align: inherit !important;
      -moz-transition: opacity 0.4s;
       -ms-transition: opacity 0.4s;
           transition: opacity 0.4s;
-    position: relative; max-width:100%;
+    position: relative; 
 }
 
-.activepost .post_image img{max-height:200px;}
+/*.activepost .post_image img{max-height:200px;}*/
 
 .mobile-search{display:none;}
 /******HOME PAGE****/
@@ -3574,7 +3576,7 @@ margin-bottom: -48px;}
 #single_post_image{ display: block;
     margin-left: auto;
     margin-right: auto;
-    max-width:100%;
+/*    max-width:100%;*/
 }
 #single_post_image_box{border:1px solid #eaeaea; padding:10px;border-bottom:none;}
 

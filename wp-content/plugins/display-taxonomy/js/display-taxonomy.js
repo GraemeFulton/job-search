@@ -174,7 +174,7 @@ function process_cat_filter($){
     $('#content').prepend('<div id="ajax-loader-check-box" style="margin:10px 0 0 10px;"></div>');
 
     $.ajax({
-     url: '/wp-admin/admin-ajax.php', 
+     url: '/LGWP/wp-admin/admin-ajax.php', 
      type: "POST",
      data: {
              'action': 'check_box_filter',
@@ -249,7 +249,7 @@ function process_filter($, category_type, tag_type, body_type){
     $('#content').prepend('<div id="ajax-loader-check-box" style="margin:10px 0 0 10px;"></div>');
 
     $.ajax({
-     url: '/wp-admin/admin-ajax.php', 
+     url: '/LGWP/wp-admin/admin-ajax.php', 
      type: "POST",
      data: {
             'action': 'check_box_filter',
@@ -337,10 +337,10 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
 
     
     var displayed=get_already_displayed($);
-    console.log(order_by)
+  //  console.log(order_by)
     
     $.ajax({
-     url: '/wp-admin/admin-ajax.php', 
+     url: '/LGWP/wp-admin/admin-ajax.php', 
      type: "POST",
      data: {
             'action': 'check_box_filter',
@@ -371,6 +371,7 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
    var $container = $('#loaded_content');
     
     $container.isotope( 'insert', $(parsedData[0]) );   
+    isotopes_modal($);
         // trigger isotope again after images have been loaded
       setTimeout(function(){insert_images($, parsedData);}, 1100);
 
@@ -405,7 +406,7 @@ function process_popup_data($, popup, category, tag_type,body_type, post_id){
         $('#content').prepend('<div id="ajax-loader-popup" style="margin:10px 0 0 10px;"></div>');
 
     $.ajax({
-     url: '/wp-admin/admin-ajax.php', 
+     url: '/LGWP/wp-admin/admin-ajax.php', 
      type: "POST",
      data: {
             'action': 'popup_filter',
@@ -607,15 +608,15 @@ function insert_images($, data){
      
     });
     
-   $container.imagesLoaded(function(){
-    
-     
-        relayoutListener($);
-        
-
-   
-       
-   });
+//   $container.imagesLoaded(function(){
+//    
+//     
+//        relayoutListener($);
+//        
+//
+//   
+//       
+//   });
     
       
 }

@@ -1,0 +1,1 @@
+°aS<?php exit; ?>a:1:{s:7:"content";a:1:{i:0;O:8:"stdClass":4:{s:7:"meta_id";s:5:"73579";s:7:"post_id";s:5:"15931";s:8:"meta_key";s:18:"wpcf-course-length";s:10:"meta_value";s:92:"               <time datetime="2014-04-14">14 April</time>, 5 weeks, 4 hours pw             ";}}}

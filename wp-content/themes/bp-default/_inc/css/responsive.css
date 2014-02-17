@@ -76,7 +76,7 @@ Hello, this is the BuddyPress Responsive theme stylesheet
         .mobile-search{margin-top:20px !important;}
         .desktop-search{display:none;}
         
-        img{max-width:250px;}
+/*        img{max-width:250px;}*/
         .sidebar-single{
             display:none;
             border-color:#666666;            
@@ -461,8 +461,8 @@ Hello, this is the BuddyPress Responsive theme stylesheet
         
         .padder{padding:5px;}
         
-        .post_image img{width:100%}
-        .post_image{border-radius:0px !important}
+/*        .post_image img{width:100%}*/
+        .post_image{border-radius:0px !important; height:150px;}
         
         #loaded_content .entry {
 		width: 100%;

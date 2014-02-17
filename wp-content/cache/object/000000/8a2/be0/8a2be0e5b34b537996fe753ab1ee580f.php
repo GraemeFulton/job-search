@@ -1,0 +1,1 @@
+÷kS<?php exit; ?>a:1:{s:7:"content";a:1:{i:828;O:8:"stdClass":11:{s:7:"term_id";i:828;s:4:"name";s:6:"i-to-i";s:4:"slug";s:6:"i-to-i";s:10:"term_group";i:0;s:16:"term_taxonomy_id";i:872;s:8:"taxonomy";s:12:"travel-agent";s:11:"description";s:0:"";s:6:"parent";i:0;s:5:"count";i:4;s:9:"object_id";i:5819;s:6:"filter";s:3:"raw";}}}
