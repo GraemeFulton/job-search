@@ -1,1 +1,0 @@
-7tS<?php exit; ?>a:1:{s:7:"content";a:1:{i:0;O:8:"stdClass":4:{s:7:"meta_id";s:5:"54667";s:7:"post_id";s:5:"10121";s:8:"meta_key";s:40:"_oembed_89bd75e2ea41c80aa2cd2320808d2497";s:10:"meta_value";s:136:"<iframe width="420" height="315" src="http://www.youtube.com/embed/Bc1-PZ5NfRs?feature=oembed" frameborder="0" allowfullscreen></iframe>";}}}

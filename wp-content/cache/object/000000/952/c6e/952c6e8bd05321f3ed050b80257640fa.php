@@ -1,1 +1,0 @@
-KfS<?php exit; ?>a:1:{s:7:"content";a:1:{i:446;O:8:"stdClass":11:{s:7:"term_id";i:446;s:4:"name";s:11:"Rolls-Royce";s:4:"slug";s:11:"rolls-royce";s:10:"term_group";i:0;s:16:"term_taxonomy_id";i:485;s:8:"taxonomy";s:7:"company";s:11:"description";s:0:"";s:6:"parent";i:0;s:5:"count";i:8;s:9:"object_id";i:16239;s:6:"filter";s:3:"raw";}}}

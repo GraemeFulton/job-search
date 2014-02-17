@@ -1,1 +1,0 @@
-KfS<?php exit; ?>a:1:{s:7:"content";a:1:{i:327;O:8:"stdClass":11:{s:7:"term_id";i:327;s:4:"name";s:7:"Glasgow";s:4:"slug";s:7:"glasgow";s:10:"term_group";i:0;s:16:"term_taxonomy_id";i:357;s:8:"taxonomy";s:8:"location";s:11:"description";s:0:"";s:6:"parent";i:299;s:5:"count";i:6;s:9:"object_id";i:16055;s:6:"filter";s:3:"raw";}}}
