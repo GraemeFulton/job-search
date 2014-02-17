@@ -1,0 +1,8 @@
+gS<?php exit; ?>a:1:{s:7:"content";O:8:"stdClass":23:{s:2:"ID";s:4:"5823";s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2013-12-23 12:28:26";s:13:"post_date_gmt";s:19:"2013-12-23 12:28:26";s:12:"post_content";s:870:"<h1>Join the Vietnam TTV Internship in August 2014!</h1>
+Mountain villages, colourful markets, motorcycle adventures, deserted beaches and all the noodles you could ever want... there's much more to Vietnam than you might think. Why not make it your home for a while?
+
+With in-country support, no experience necessary and loads more, this is your chance to get to know the real Vietnam for 3.5 - 4 incredible months that you'll never forget. Get a glimpse of internship life with this <a href="https://www.youtube.com/watch?v=tHk6ssrcMm8&amp;list=UU31oVQPnnyWbSog1_1AEnqw&amp;index=2" target="_blank">video clip</a>.
+
+What's living in Vietnam really like? Where will I teach? How easy is it to make friends?
+
+Find Out Now! <a href="http://www.teach-english-jobs.com/tefl-vietnam-guide.html">Download your free guide to the TTV Teach in Vietnam Internship</a> !";s:10:"post_title";s:24:"Teach English in Vietnam";s:12:"post_excerpt";s:0:"";s:11:"post_status";s:7:"publish";s:14:"comment_status";s:6:"closed";s:11:"ping_status";s:6:"closed";s:13:"post_password";s:0:"";s:9:"post_name";s:24:"teach-english-in-vietnam";s:7:"to_ping";s:0:"";s:6:"pinged";s:0:"";s:13:"post_modified";s:19:"2013-12-23 13:16:28";s:17:"post_modified_gmt";s:19:"2013-12-23 13:16:28";s:21:"post_content_filtered";s:0:"";s:11:"post_parent";s:1:"0";s:4:"guid";s:65:"http://localhost/LGWP/?post_type=travel-opportunities&#038;p=5823";s:10:"menu_order";s:1:"0";s:9:"post_type";s:20:"travel-opportunities";s:14:"post_mime_type";s:0:"";s:13:"comment_count";s:1:"0";}}

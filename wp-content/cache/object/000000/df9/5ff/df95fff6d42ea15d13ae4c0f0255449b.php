@@ -1,0 +1,9 @@
+ìaS<?php exit; ?>a:1:{s:7:"content";O:8:"stdClass":23:{s:2:"ID";s:4:"9981";s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2014-02-02 00:10:38";s:13:"post_date_gmt";s:19:"2014-02-02 00:10:38";s:12:"post_content";s:484:"This course provides a complete introduction to programming for digital musicians and
+artists, in the real-time multimedia language ChucK. Rich with practical examples and
+pointers to additional web resources, it can be understood by novices wishing to learn to
+program interactive arts systems.   
+<div class="additional_content"><p>University: California Institute of the Arts | Subject: Computer Science: Software Engineering | Provider: Coursera | Instructor: Ajay Kapur</p></div>";s:10:"post_title";s:61:"Introduction to Programming for Musicians and Digital Artists";s:12:"post_excerpt";s:299:"This course provides a complete introduction to programming for digital musicians and
+artists, in the real-time multimedia language ChucK. Rich with practical examples and
+pointers to additional web resources, it can be understood by novices wishing to learn to
+program interactive arts systems.   
+";s:11:"post_status";s:7:"publish";s:14:"comment_status";s:4:"open";s:11:"ping_status";s:4:"open";s:13:"post_password";s:0:"";s:9:"post_name";s:72:"introduction-to-programming-for-musicians-and-digital-artists-2014-02-02";s:7:"to_ping";s:0:"";s:6:"pinged";s:0:"";s:13:"post_modified";s:19:"2014-02-02 00:10:38";s:17:"post_modified_gmt";s:19:"2014-02-02 00:10:38";s:21:"post_content_filtered";s:0:"";s:11:"post_parent";s:1:"0";s:4:"guid";s:0:"";s:10:"menu_order";s:1:"0";s:9:"post_type";s:6:"course";s:14:"post_mime_type";s:0:"";s:13:"comment_count";s:1:"0";}}
