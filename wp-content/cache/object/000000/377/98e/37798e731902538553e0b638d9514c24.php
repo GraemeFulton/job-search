@@ -1,1 +1,1 @@
-Æ,S<?php exit; ?>a:1:{s:7:"content";a:0:{}}
+.S<?php exit; ?>a:1:{s:7:"content";a:0:{}}
