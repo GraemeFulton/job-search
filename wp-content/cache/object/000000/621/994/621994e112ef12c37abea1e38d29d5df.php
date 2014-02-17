@@ -1,1 +1,1 @@
-{-S<?php exit; ?>a:1:{s:7:"content";s:34:"http://lostgrad.com/members/admin/";}
+/S<?php exit; ?>a:1:{s:7:"content";s:34:"http://lostgrad.com/members/admin/";}
