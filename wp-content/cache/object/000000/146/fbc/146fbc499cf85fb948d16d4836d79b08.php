@@ -1,1 +1,0 @@
-÷kS<?php exit; ?>a:1:{s:7:"content";a:1:{i:0;O:8:"stdClass":4:{s:7:"meta_id";s:5:"31023";s:7:"post_id";s:4:"5819";s:8:"meta_key";s:40:"_oembed_27c9a0b9de0368924e533ae57b0727eb";s:10:"meta_value";s:136:"<iframe width="450" height="253" src="http://www.youtube.com/embed/gl2IYBckQdE?feature=oembed" frameborder="0" allowfullscreen></iframe>";}}}

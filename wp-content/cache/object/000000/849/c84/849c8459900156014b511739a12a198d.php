@@ -1,1 +1,0 @@
-sS<?php exit; ?>a:1:{s:7:"content";a:1:{i:312;O:8:"stdClass":11:{s:7:"term_id";i:312;s:4:"name";s:19:"Newcastle upon Tyne";s:4:"slug";s:19:"newcastle-upon-tyne";s:10:"term_group";i:0;s:16:"term_taxonomy_id";i:342;s:8:"taxonomy";s:8:"location";s:11:"description";s:0:"";s:6:"parent";i:277;s:5:"count";i:3;s:9:"object_id";i:15970;s:6:"filter";s:3:"raw";}}}

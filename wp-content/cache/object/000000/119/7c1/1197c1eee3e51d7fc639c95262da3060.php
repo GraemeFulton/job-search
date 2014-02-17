@@ -1,1 +1,0 @@
-ìxS<?php exit; ?>a:1:{s:7:"content";a:1:{i:0;O:8:"stdClass":4:{s:7:"meta_id";s:5:"52963";s:7:"post_id";s:5:"10044";s:8:"meta_key";s:15:"wpcf-post-image";s:10:"meta_value";s:123:"http://localhost/LGWP/wp-content/uploads/post_images/Logo_The_Power_of_Macroeconomics_Economic_Principles_in_the_Real_World";}}}
