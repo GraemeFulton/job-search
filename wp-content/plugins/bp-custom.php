@@ -51,4 +51,31 @@ function my_post_form(){
 	);
 	$form=bp_new_simple_blog_post_form('my form',$settings);//create a Form Instance and register it
 }*/
+
+/*
+ * HIDE ADMIN ACTIVE
+ */
+add_action('bp_init', function() {
+    global $bp;
+
+    if (is_super_admin()) {
+            //first remove the action that record the last activity
+            remove_action('wp_head', 'bp_core_record_activity');
+
+            //then remove the last activity, if present
+            delete_usermeta($bp->loggedin_user->id, 'last_activity');
+    }
+});
+
+// "Not recently active" yazısını super admin için kaldır
+add_filter( 'bp_core_get_last_activity', function($last_active){
+    global $bp;
+    if ( bp_is_active( 'xprofile' ) ){
+        $last_active_bp_string = __( 'Not recently active', 'buddypress' );
+        if( ($last_active_bp_string == $last_active) && is_super_admin($bp->displayed_user->id)) {
+            $last_active = __('Network Admin');
+        }
+    }
+    return $last_active;
+});
 ?>

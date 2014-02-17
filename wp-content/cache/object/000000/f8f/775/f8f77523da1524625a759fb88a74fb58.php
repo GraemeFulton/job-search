@@ -1,0 +1,13 @@
+�vS<?php exit; ?>a:1:{s:7:"content";O:8:"stdClass":24:{s:2:"ID";i:5773;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2013-12-22 15:39:38";s:13:"post_date_gmt";s:19:"2013-12-22 15:39:38";s:12:"post_content";s:1628:"<h1>Learn Spanish in Mexico</h1>
+It is an intensive course that will have you ordering taco’s and getting into the Mexican swing in days! Besides going to classes you are free to enjoy the laid back beach life or go explore Mayan ruins, go diving, visit one of the beautiful under water caves (‘cenotes’) and enjoy the Mexican hospitality. You share a residence with other students and together you will try try your newly apprehended language skills out on the streets and on the beaches!
+<h2>Live and learn in paradise!</h2>
+The award winning language school is the best place to apprehend the second largest language in the world and living in Playa del Carmen will surely be a life changing experience. It is full of people like you, that came here once and never left, or keep coming back. Whatever it is, after this Gap Year you will never be the same, in the most positive sense of the word! Viva Mexico!
+<ul>
+	<li>20 hours Spanish a week in the most thrilling town in the Caribbean</li>
+	<li>Classes are held in open air palapas in an award winning language school</li>
+	<li>Walk to the white beach and blue sea in just five minutes after your class is finished</li>
+	<li>Make friends easily with weekly ‘café social’ and sport activities on the beach every Friday</li>
+	<li>Salsa and cooking classes</li>
+	<li>Never a dull moment with so much culture, night life, beach, friends to make and activities to do!</li>
+</ul>
+It will be hard to find a place that combines learning and fun like our school in Playa. We suggest booking a one way! You won’t be the first deciding to extend their stay…";s:10:"post_title";s:49:"Learn Spanish in Playa, the Mexican Riviera Maya!";s:12:"post_excerpt";s:0:"";s:11:"post_status";s:7:"publish";s:14:"comment_status";s:6:"closed";s:11:"ping_status";s:6:"closed";s:13:"post_password";s:0:"";s:9:"post_name";s:47:"learn-spanish-in-playa-the-mexican-riviera-maya";s:7:"to_ping";s:0:"";s:6:"pinged";s:0:"";s:13:"post_modified";s:19:"2013-12-22 15:39:38";s:17:"post_modified_gmt";s:19:"2013-12-22 15:39:38";s:21:"post_content_filtered";s:0:"";s:11:"post_parent";i:0;s:4:"guid";s:65:"http://localhost/LGWP/?post_type=travel-opportunities&#038;p=5773";s:10:"menu_order";i:0;s:9:"post_type";s:20:"travel-opportunities";s:14:"post_mime_type";s:0:"";s:13:"comment_count";s:1:"0";s:6:"filter";s:3:"raw";}}

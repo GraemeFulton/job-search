@@ -1,0 +1,1 @@
+ìaS<?php exit; ?>a:1:{s:7:"content";a:1:{i:0;O:8:"stdClass":4:{s:7:"meta_id";s:5:"51630";s:7:"post_id";s:4:"9849";s:8:"meta_key";s:15:"wpcf-post-image";s:10:"meta_value";s:114:"http://localhost/LGWP/wp-content/uploads/post_images/Logo_Generation_Rx_The_Science_Behind_Prescription_Drug_Abuse";}}}

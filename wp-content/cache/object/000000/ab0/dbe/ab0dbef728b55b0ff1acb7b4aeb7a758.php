@@ -1,0 +1,1 @@
+bS<?php exit; ?>a:1:{s:7:"content";a:1:{i:0;O:8:"stdClass":4:{s:7:"meta_id";s:5:"64802";s:7:"post_id";s:5:"10045";s:8:"meta_key";s:40:"_oembed_f29ad71b410422f9f3dc0da9ea59dae3";s:10:"meta_value";s:136:"<iframe width="450" height="253" src="http://www.youtube.com/embed/7hPmH29tMWA?feature=oembed" frameborder="0" allowfullscreen></iframe>";}}}
