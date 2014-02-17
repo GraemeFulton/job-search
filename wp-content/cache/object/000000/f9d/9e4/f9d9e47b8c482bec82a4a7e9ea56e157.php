@@ -1,1 +1,0 @@
-ŠfS<?php exit; ?>a:1:{s:7:"content";a:1:{i:0;O:8:"stdClass":4:{s:7:"meta_id";s:5:"53151";s:7:"post_id";s:5:"10072";s:8:"meta_key";s:15:"wpcf-post-image";s:10:"meta_value";s:116:"http://localhost/LGWP/wp-content/uploads/post_images/Logo_The_Brain_Targeted_Teaching_Model_for_21st_Century_Schools";}}}

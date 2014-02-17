@@ -1,1 +1,0 @@
-ÒPS<?php exit; ?>a:1:{s:7:"content";a:1:{i:1655;O:8:"stdClass":11:{s:7:"term_id";i:1655;s:4:"name";s:17:"LONDON ETHNIC LTD";s:4:"slug";s:17:"london-ethnic-ltd";s:10:"term_group";i:0;s:16:"term_taxonomy_id";i:1704;s:8:"taxonomy";s:7:"company";s:11:"description";s:0:"";s:6:"parent";i:0;s:5:"count";i:2;s:9:"object_id";i:15999;s:6:"filter";s:3:"raw";}}}
