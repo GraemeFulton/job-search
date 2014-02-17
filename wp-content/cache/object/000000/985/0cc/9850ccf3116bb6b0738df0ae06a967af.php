@@ -1,1 +1,0 @@
-[RS<?php exit; ?>a:1:{s:7:"content";a:1:{i:0;O:8:"stdClass":4:{s:7:"meta_id";s:5:"64795";s:7:"post_id";s:5:"10138";s:8:"meta_key";s:40:"_oembed_a6fe81796e76097399bf89111bbbe111";s:10:"meta_value";s:136:"<iframe width="450" height="253" src="http://www.youtube.com/embed/1EmVP4RhML8?feature=oembed" frameborder="0" allowfullscreen></iframe>";}}}

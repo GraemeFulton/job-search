@@ -1,1 +1,0 @@
-\sS<?php exit; ?>a:1:{s:7:"content";a:1:{i:0;O:8:"stdClass":4:{s:7:"meta_id";s:5:"27061";s:7:"post_id";s:4:"2695";s:8:"meta_key";s:16:"wpcf-travel-type";s:10:"meta_value";s:86:"a:1:{s:64:"wpcf-fields-checkboxes-option-f2c8021ff1333b04793c7a6f3891ccfa-2";s:1:"1";}";}}}
