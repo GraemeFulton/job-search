@@ -10,6 +10,7 @@ jQuery(document).ready(function ($) {
 //load_more_button_listener($);
 });
 
+var ajax_url='/wp-admin/admin-ajax.php';
 /*
  * var url_string
  * 
@@ -182,7 +183,7 @@ function process_cat_filter($){
     $('#content').prepend('<div id="ajax-loader-check-box" style="margin:10px 0 0 10px;"></div>');
 
     $.ajax({
-     url: '/wp-admin/admin-ajax.php', 
+     url: ajax_url, 
      type: "POST",
      data: {
              'action': 'check_box_filter',
@@ -257,7 +258,7 @@ function process_filter($, category_type, tag_type, body_type){
     $('#content').prepend('<div id="ajax-loader-check-box" style="margin:10px 0 0 10px;"></div>');
 
     $.ajax({
-     url: '/wp-admin/admin-ajax.php', 
+     url: ajax_url, 
      type: "POST",
      data: {
             'action': 'check_box_filter',
@@ -348,7 +349,7 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
   //  console.log(order_by)
     
     $.ajax({
-     url: '/wp-admin/admin-ajax.php', 
+     url: ajax_url, 
      type: "POST",
      data: {
             'action': 'check_box_filter',
@@ -414,7 +415,7 @@ function process_popup_data($, popup, category, tag_type,body_type, post_id){
         $('#content').prepend('<div id="ajax-loader-popup" style="margin:10px 0 0 10px;"></div>');
 
     $.ajax({
-     url: '/wp-admin/admin-ajax.php', 
+     url: ajax_url, 
      type: "POST",
      data: {
             'action': 'popup_filter',
