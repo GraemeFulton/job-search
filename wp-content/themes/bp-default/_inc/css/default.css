@@ -3585,6 +3585,7 @@ margin-bottom: -48px;}
     z-index:99999 !important;
     background:#fff;
     padding:25px !important;
+    padding-top:0px !important;
 }
 
 #main-overlay{
@@ -3629,7 +3630,6 @@ z-index: 999;
 background: #A2A2A2;
 position: absolute;
 right: -1px;
-margin-top: -25px;
 width: 30px;
 height: 27px;
 text-align: center;
