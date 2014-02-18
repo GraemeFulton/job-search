@@ -1044,7 +1044,7 @@ Hello, this is the BuddyPress Responsive theme stylesheet
             margin: 0.9% 0.9% 0.9% 0.9%;
         }
       
-                .activepost{width:280px !important;margin-left:-25px !important;background: #fff !important;}
+                .activepost{width:280px !important;margin-left:-2px !important;background: #fff !important;}
 
 
 	div#subnav.item-list-tabs ul li.last {
