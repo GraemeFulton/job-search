@@ -237,7 +237,7 @@ background: transparent;
 #wpadminbar .ab-top-menu>li.menupop.hover>.ab-item{background: #dadada !important;}
 #wpadminbar #adminbarsearch .adminbar-input:focus{border:1px solid #ccc;margin-top:1px;}
 
-#main_search{width:425px; margin:0px auto;float:left}
+#main_search{width:425px; margin:4px auto;float:left}
 #main_search .input-group{z-index:4;}
 #main_search .sf_search span.sf_block{width:500px; height:48px !important;-webkit-box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);
 -moz-box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);
