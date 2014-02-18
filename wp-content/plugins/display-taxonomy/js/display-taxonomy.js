@@ -34,17 +34,27 @@ var sort_a_z=[];
  * @param {type} $
  * @returns {undefined}
  * triggers the call to load more when user scrolls to bottom
+ * http://stackoverflow.com/questions/9983835/detect-if-user-has-scrolled-to-the-bottom-of-a-div?lq=1
  */
 var isLoadingData;
 function graylien_infinite_scroll($){
   //   load_more_button_listener($);
      //make sure it's not bound from the start
      $(window).unbind('scroll.load_more');
+     
+     var $div = $("#loaded_content");
+     var divBottom = $div.offset().top + parseInt($div.height());
+     
+     
     $(window).bind('scroll.load_more',function () {
-                
-   if (($(window).scrollTop() >= $(document).height() - $(window).height())) {
-  
-    //if there's already no more, exit here
+        
+        // Calculate how far down the user has scrolled
+    var screenBottom = $(this).scrollTop() + parseInt($(window).height());
+
+    // Test if the div has been revealed
+    if(screenBottom > divBottom)
+    {
+        //if there's already no more, exit here
         if ($('.no-more').length > 0){
         return;
         }
@@ -57,11 +67,9 @@ function graylien_infinite_scroll($){
       
             process_filter_scroll($,postoffset, category_type, tag_type, body_type);
             isLoadingData=true;
+    }
+       
 
-           // setTimeout(function(){isotopes_modal($);}, 2000);
-
-
-   }
 });
 
     
