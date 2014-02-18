@@ -26,7 +26,7 @@ private function connect_database(){
     
   $DB_USER= 'root';
   $DB_NAME='lgwp';
-  $DB_PASS='jinkster2312';
+  $DB_PASS='Jinkstron3042';
   $DB_HOST='localhost';
   //set class database connection
   $this->wpdb= new wpdb( $DB_USER, $DB_PASS, $DB_NAME, $DB_HOST);

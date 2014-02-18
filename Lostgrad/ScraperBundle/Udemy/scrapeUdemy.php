@@ -40,7 +40,7 @@ require_once('../../../wp-load.php' );
 
 $DB_USER= 'root';
 $DB_NAME='lgwp';
-$DB_PASS='jinkster2312';
+$DB_PASS='Jinkstron3042';
 $DB_HOST='localhost';
 
 
