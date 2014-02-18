@@ -90,7 +90,7 @@ function isotopes_modal($){
        {//if it isnt the active post
            $("#main-overlay").fadeIn();
            
-           $(this).css({"z-index": "-1", "visibility":"hidden"});
+           $(this).css({"z-index": "-1"});
            $(this).siblings(".pop-out").show();
            $(this).siblings(".entry").hide();
 
@@ -158,7 +158,7 @@ function closeActiveBox($){
            $(".clickme").closest(".activepost").children('.pop-out').hide();
            $(".clickme").closest(".activepost").children('.entry').show();
 
-           $(".clickme").closest(".activepost").children('.clickme').css({"z-index":"1", "visibility":"visible"});
+           $(".clickme").closest(".activepost").children('.clickme').css({"z-index":"1"});
            $(".close_box").remove();   
 
 
@@ -189,7 +189,7 @@ $('.close_box').bind('click',function(){
 
            $(this).parent(".item").removeClass("activepost").removeClass("activepost_edge");
            $(this).parent(".item").removeClass("activepost_edger").removeClass("activepost_edge");
-            $(this).siblings(".clickme").css({"z-index":"1", "visibility":"visible"});
+            $(this).siblings(".clickme").css({"z-index":"1"});
 
             $(this).siblings(".pop-out").hide();
             $(this).siblings(".entry").show();
