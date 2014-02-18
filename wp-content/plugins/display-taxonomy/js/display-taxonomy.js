@@ -312,6 +312,7 @@ function process_filter($, category_type, tag_type, body_type){
        // resetCurrentActiveBox($);
         //reinitiate ratings plugin
         reset_filter_listener($);
+        graylien_infinite_scroll($);
 
         $('#ajax-loader-check-box').remove();
        
