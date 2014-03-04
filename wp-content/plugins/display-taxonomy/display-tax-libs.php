@@ -96,27 +96,21 @@ class Display_Taxonomy{
             
        echo '<option value="'.$tag->slug.'" name="'.$tag->name.'">'.$tag->name.'</option>'; 
        
-    }
-        ?>
+    }?>
             </select>
           <button class="btn" id="<?php echo $this->grouped_taxonomy_short;?>_search" type="button">
               <i class="glyphicon glyphicon-search"></i>
             </button>
           </div>
         </div>
-      </div> 
-  
-    
-    <?php
-        
-    }
+      </div>     
+    <?php }
     
     /*
      * display_main_select2_box
      * Giant select search box at the top
      */
-      public function display_main_select2_box(){
-               ?>
+      public function display_main_select2_box(){ ?>
     <div class="control-group">
         <label for="<?php echo $this->grouped_taxonomy_short;?>-main-filter" class="control-label"><?php echo $title?>: </label>
         <div class="controls">
@@ -149,8 +143,7 @@ class Display_Taxonomy{
                     echo '</optgroup>"';
            
            
-       }
-        ?>
+       }?>
             </select>
           <button class="btn" id="main_search_filter_button" type="button">
               <i class="glyphicon glyphicon-search"></i>
@@ -165,10 +158,7 @@ class Display_Taxonomy{
         $('#' + $(this).data('select2-open')).select2('open');
       });
     </script>
-    
-    <?php
-        
-    }
+    <?php }
     /*
      * display_linked_taxonomy_hierarchy_list
      * 
@@ -203,7 +193,6 @@ class Display_Taxonomy{
               }
           }
           echo '</div>';
-        
     }
     
     /*
@@ -287,9 +276,7 @@ class Display_Taxonomy{
      *     <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
 
      */
-    public function display_meta_group_select_box($meta_key){
-        
-        ?>
+    public function display_meta_group_select_box($meta_key){?>
     <div class="control-group">
         <label for="<?php echo $meta_key;?>-filter" class="control-label">Select Location(s): </label>
         <div class="controls">
@@ -310,8 +297,7 @@ class Display_Taxonomy{
             
        echo '<option value="'.$location_name[0].'">'.$location_name[0].'</option>'; 
        
-    }
-        ?>
+    }?>
             </select>
           <button class="btn" id="location_search" type="button">
               <i class="glyphicon glyphicon-search"></i>
@@ -328,12 +314,7 @@ class Display_Taxonomy{
         $('#' + $(this).data('select2-open')).select2('open');
       });
     </script>
-    
-    <?php
-    
-        
-    }
-    
+    <?php }
     /*
      * meta_query
      * @param: meta_key - e.g. 'location'

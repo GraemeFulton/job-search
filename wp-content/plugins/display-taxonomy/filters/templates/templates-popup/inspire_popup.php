@@ -1,6 +1,5 @@
 <div class="datagrid">
-    <table class="pop-out-tbl">
-       
+    <table class="pop-out-tbl">       
         <?php echo $full_content;?>
     </table>
 </div>

@@ -463,3 +463,4 @@ function wpfp_get_option($opt) {
     $wpfp_options = wpfp_get_options();
     return htmlspecialchars_decode( stripslashes ( $wpfp_options[$opt] ) );
 }
+?>

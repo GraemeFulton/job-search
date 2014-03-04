@@ -1,14 +1,11 @@
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
- <?php    
+<?php if (have_posts()) : while (have_posts()) : the_post();
                                               $tree= display_taxonomy_tree('topic', 'inspire-tag');
 
 //set up page variables
 $post_id=get_the_ID();
 //subject/grouped taxonomy
 $subject=$tree->grouped_taxonomy_name($post_id);
-?>                            
-
-	<div id="<?php echo $post_id; ?>" <?php post_class(); ?>>
+?>	<div id="<?php echo $post_id; ?>" <?php post_class(); ?>>
                         <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>">
 
           <div class="item">
@@ -30,13 +27,6 @@ $subject=$tree->grouped_taxonomy_name($post_id);
         </div><!--item-->
 
 	</div>
-	
-
-
-			<?php comments_template(); ?>
-
-			<?php endwhile; endif; ?>
-                                                        
-
-                                                
+<?php comments_template(); ?>
+<?php endwhile; endif; ?>
 <?php do_action( 'bp_after_blog_page' ); ?>

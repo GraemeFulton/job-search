@@ -47,7 +47,5 @@ Author URI: http://gfulton.me.uk
 //       return $class;
 //    }   
 //    add_filter('post_class', 'additional_classes');
-
-   
+ 
 ?>
-

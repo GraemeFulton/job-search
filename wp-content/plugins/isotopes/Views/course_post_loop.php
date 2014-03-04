@@ -1,27 +1,19 @@
 <!--course post loop template-->
 
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-                    
+			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>                    
     <?php $id= get_the_ID(); $ID=  settype($id, "integer");; ?>
 				<div id="post-<?php echo get_the_ID(); ?>" <?php post_class(); ?>>
 				<h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-
-                                
 					<div class="entry">
-
 						<?php the_excerpt( __( '<p class="serif">Read the rest of this page &rarr;</p>', 'buddypress' ) ); ?>
-
 						<?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) ); ?>
-						
 <?php //addition: company name
-
 $linked_company= get_field('Company') ;
 //var_dump($linked_company);
 $linked_co = $linked_company[0];
 if ($linked_co)
 echo 'Institution: <a href="'. $linked_co->guid.'">'. $linked_co->post_title.'</a> ';
-?>
-                                         
+?> 
 <?php //addition: course type field
  
 $course_type = types_render_field("course-type", array("output"=>"normal"));
@@ -78,12 +70,8 @@ printf("| Course Type: %s",$course_type);
 </div>
 
 </div>
-
-
-<?php endwhile; endif; ?>
-                                                                
+<?php endwhile; endif; ?>                                                          
 <?php do_action( 'bp_after_blog_page' ); ?>
-
 <div class="nav-more">
      <div style="width:100px; height:100px; background:blue;float:right;"id="blog-more"></div>
 </div>
