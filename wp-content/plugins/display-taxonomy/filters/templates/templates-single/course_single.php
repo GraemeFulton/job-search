@@ -1,4 +1,3 @@
-         
  <div class='single_post_content'>
    
      
@@ -17,13 +16,12 @@
                        <tr><td>Length:</td><td><?php echo $course_length;?></td></tr>
                        <tr class="alt"><td>Course Rating: </td><td><?php echo $ratings;?></td></tr>
                    </table>
-                <?php echo '<a class="btn btn-success btn-large enroll" target="_blank" href="'.$link.'">Enroll</a>';?>     
+                <?php echo '<a class="btn btn-success btn-large enroll" target="_blank" href="'.$link.'">Enroll</a>';?> 
                 <button id='review_button' class='btn btn-success btn-large' style='background:goldenrod; border-color:goldenrod'>Write a Review</button>
                                            <?php wpfp_link(); ?>
-               
                <div id='single_ratings'>
                      <h5>Reviews</h5>
-                     <?php   echo do_shortcode('[WPCR_INSERT]' )?> 
+                     <?php   echo do_shortcode('[WPCR_INSERT]' )?>
                </div>
             </div>
            
@@ -34,7 +32,6 @@
 
                <h4>Description</h4>
               <?php echo $the_content?>
-
         </div>
 
 </div>
@@ -54,6 +51,3 @@
             jQuery('body').scrollTo('#wpcr_commentform ');
         })
    </script>
-     
-     
-     

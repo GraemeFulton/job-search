@@ -1,4 +1,3 @@
-         
  <div class='single_post_content'>
      
       <div class='single_post_content'>
@@ -18,17 +17,15 @@
                                         <?php wpfp_link(); ?>
                        <div id='single_ratings'>
                   <h5>Reviews</h5>
-                  <?php   echo do_shortcode('[WPCR_INSERT]' )?> 
+                  <?php   echo do_shortcode('[WPCR_INSERT]' )?>
             </div>
             </div>          
 
-          
             <div class="single_cont">
                   <div id="single_youtube_player"><?php echo $video?></div>
 
             <h4>Description</h4>
            <?php echo $the_content?>
-
             </div>
      </div>
  </div>
@@ -46,4 +43,3 @@
             jQuery('body').scrollTo('#single_ratings');
         })
    </script>
-     

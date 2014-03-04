@@ -22,8 +22,5 @@ Author URI: http://gfulton.me.uk
          wp_register_style( 'select2-bootstrap', plugins_url('select2-bootstrap.css', __FILE__) );
         wp_enqueue_style( 'select2-bootstrap' );
     }
-    add_action( 'wp_enqueue_scripts', 'select2_scripts' );
-
-   
+    add_action( 'wp_enqueue_scripts', 'select2_scripts' ); 
 ?>
-

@@ -1,8 +1,5 @@
-			<?php if (have_posts()) : while (have_posts()) : the_post();
-                        $tree= display_taxonomy_tree('subject', 'uni');
-                        ?>
-                    
-<?php                    
+<?php if (have_posts()) : while (have_posts()) : the_post();
+          $tree= display_taxonomy_tree('subject', 'uni');
 //set up page variables
 $post_id=get_the_ID();
 //post image
@@ -18,9 +15,8 @@ $post_object_id = wp_get_post_terms($post_id, 'uni', array("fields" => "ids"));
 $uni_name= $tree->get_linked_taggroup_or_tag($post_id, $post_object_id, $group_parent_id); 
 
 $ratings= show_ratings($post_id);
-?>                            
-				<div id="<?php echo $post_id; ?>" <?php post_class(); ?>>
-                                    <div class="item">
+?><div id="<?php echo $post_id; ?>" <?php post_class(); ?>>
+            <div class="item">
     
                                          <div class="post_image post_image_<?php echo $post_id?> is-loading">
                                             <img class="course_post_image advert_image" src=""/> 
@@ -31,7 +27,7 @@ $ratings= show_ratings($post_id);
                                 	<div class="entry">                                    
                                        <i class="ico fa fa-building"></i> <?php echo $uni_name;?> <br>
                                           <i class="ico fa fa-book"></i> <?php echo $subject;?>
-                                           <?php// echo $ratings;?>      
+                                           <?php// echo $ratings;?>
                                         </div>
                                 
                                       <div class="pop-out"></div>  
@@ -39,9 +35,6 @@ $ratings= show_ratings($post_id);
 				</div><!--item-->
 
 				</div>
-
 			<?php comments_template(); ?>
-
 			<?php endwhile; endif; ?>
-                                                
 <?php do_action( 'bp_after_blog_page' ); ?>

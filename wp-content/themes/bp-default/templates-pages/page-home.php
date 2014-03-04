@@ -35,12 +35,12 @@ include (TEMPLATEPATH . '/templates-headers/header-home.php');
                     
                     <div id="social_box">
                                 <!--facebook login-->
-                  <a href="http://localhost/LGWP/login/?loginFacebook=1&redirect=http://localhost/LGWP" onclick="window.location = 'http://localhost/LGWP/login/?loginFacebook=1&redirect='+window.location.href; return false;">
+                  <a href="http://lostgrad.com/login/?loginFacebook=1&redirect=http://localhost/LGWP" onclick="window.location = 'http://lostgrad.com/login/?loginFacebook=1&redirect='+window.location.href; return false;">
 
                       <div class="new-fb-btn new-fb-4 new-fb-default-anim"><div class="new-fb-4-1"><div class="new-fb-4-1-1">Log In with facebook</div></div></div>                
                  </a>
                                 <br>
-                <a href="http://localhost/LGWP/login/?loginTwitter=1&redirect=http://localhost/LGWP" onclick="window.location = 'http://localhost/LGWP/login/?loginTwitter=1&redirect='+window.location.href; return false;"> 
+                <a href="http://lostgrad.com/login/?loginTwitter=1&redirect=http://localhost/LGWP" onclick="window.location = 'http://lostgrad.com/login/?loginTwitter=1&redirect='+window.location.href; return false;"> 
                     <div class="new-twitter-btn new-twitter-4 new-twitter-default-anim"><div class="new-twitter-4-1"><div class="new-twitter-4-1-1">Log In with twitter</div></div></div>
 
                 </a>

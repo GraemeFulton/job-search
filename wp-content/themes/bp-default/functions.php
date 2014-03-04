@@ -470,7 +470,6 @@ function bp_dtheme_blog_comments( $comment, $args, $depth ) {
 	else
 		$avatar_size = 25;
 	?>
-
 	<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
 		<div class="comment-avatar-box">
 			<div class="avb">
@@ -769,7 +768,6 @@ function bp_dtheme_add_nojs_body_class( $classes ) {
 	return array_unique( $classes );
 }
 add_filter( 'bp_get_the_body_class', 'bp_dtheme_add_nojs_body_class' );
-
 /**
  * Dynamically removes the no-js class from the <body> element.
  *
@@ -792,14 +790,12 @@ function bp_dtheme_remove_nojs_body_class() {
 <?php
 }
 add_action( 'bp_before_header', 'bp_dtheme_remove_nojs_body_class' );
-
-
 /*****************
 BOOTSTRAP NAVIGATION
 ********************/
 add_action( 'after_setup_theme', 'wpt_setup' );
     if ( ! function_exists( 'wpt_setup' ) ):
-        function wpt_setup() {  
+        function wpt_setup() {
             register_nav_menu( 'primary', __( 'Primary navigation', 'wptuts' ) );
         } endif;
         function wpt_register_js() {
@@ -815,9 +811,7 @@ add_action( 'wp_enqueue_scripts', 'wpt_register_css' );
 ?>
 <?php // Register custom navigation walker
     require_once('wp_bootstrap_navwalker.php');
-    
 ?>
-
 <?php
 /*****************
 SHOW RATINGS
@@ -856,7 +850,6 @@ function inspired_record_more_types( $types ) {
 	$types[] = 'course';
 	$types[] = 'travel';
 	$types[] = 'post';
-	
 
 	return $types;
 }
@@ -867,7 +860,6 @@ add_filter( 'bp_blogs_record_post_post_types', 'inspired_record_more_types');
  * SELECT 2 SEARCH FILTER
  */
 function select_2_search($title){
-    
     $id= strtolower($title);
                ?>
     <div class="control-group">
@@ -895,13 +887,9 @@ function select_2_search($title){
             </select>
           </div>
         </div>
-      </div> 
-  
-    
+      </div>
     <?php
-        
     }
-    
     /*
      * BLOG INFO SHORTCODE
      */
@@ -917,17 +905,14 @@ add_shortcode('bloginfo', 'digwp_bloginfo_shortcode');
  * print the profile in the sidebar
  */
 function graylien_profile_hub(){
-    
     if ( is_user_logged_in() ) : ?>
 		<?php do_action( 'bp_before_sidebar_me' ); ?>
-
 		<div id="sidebar-me" class="mobile-profile-hub">
 
 			<a id="provatar" href="<?php echo bp_loggedin_user_domain(); ?>">
 				<?php bp_loggedin_user_avatar( 'type=thumb&width=40&height=40' ); ?>
-			</a>	
+			</a>
                                 <div class="clear_both"></div>
-
                          <div class="profile-buttons">
               	<?php echo '<p class="profile-button"><a href="'.bp_loggedin_user_domain().'profile/edit"><i class="fa fa-edit"></i> Edit Profile</a></p>' ?>
                 <br>  <?php echo '<p class="profile-button"><a href="'.bp_loggedin_user_domain().'profile/change-avatar"><i class="fa fa-camera"></i> Change Avatar</a></p>' ?>
@@ -938,23 +923,15 @@ function graylien_profile_hub(){
 			<?php do_action( 'bp_sidebar_me' ); ?>
 		</div>
             <div class="clear_both"></div>
-
 		<?php do_action( 'bp_after_sidebar_me' ); ?>
-
-	
 		<?php endif;
-    
-    
-echo do_shortcode('[widgets_on_pages id="Login Widget"]'); 
-
+echo do_shortcode('[widgets_on_pages id="Login Widget"]');
 }
 add_action('bp_before_directory_members_search_form', 'graylien_profile_hub', 0);
 add_action('bp_before_activity_type_tab_all', 'graylien_profile_hub');
 add_action('bp_before_single_members_nav', 'graylien_profile_hub');
 add_action('bp_before_directory_groups_nav', 'graylien_profile_hub');
 add_action('bp_group_start_nav', 'graylien_profile_hub');
-
-
 /*
  * LOGO LOGIN PAGE
  */
@@ -965,7 +942,6 @@ function my_login_logo() { ?>
             padding-bottom: 30px;
         }
     </style>
-    
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
 

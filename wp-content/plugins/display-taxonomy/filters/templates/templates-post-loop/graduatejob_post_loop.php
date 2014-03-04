@@ -1,8 +1,5 @@
-		<?php if (have_posts()) : while (have_posts()) : the_post();
-                        $tree= display_taxonomy_tree('profession', 'company');
-                        ?>
-                    
-<?php                    
+<?php if (have_posts()) : while (have_posts()) : the_post();
+                        $tree= display_taxonomy_tree('profession', 'company'); 
 //set up page variables
 $post_id=get_the_ID();
 //post image
@@ -17,7 +14,7 @@ $post_object_id = wp_get_post_terms($post_id, 'company', array("fields" => "ids"
 $company_name= $tree->get_linked_taggroup_or_tag($post_id, $post_object_id, ''); 
 //location
 $location= wp_get_post_terms($post_id, 'location', array("fields" => "names"));
-?>                                   
+?>
 				<div id="<?php echo $post_id ?>" <?php post_class(); ?>>
                                     
                                     <div class="item">
@@ -41,11 +38,6 @@ $location= wp_get_post_terms($post_id, 'location', array("fields" => "names"));
 				</div><!--item-->
 
 				</div>
-
 			<?php comments_template(); ?>
-
 			<?php endwhile; endif; ?>
-                                                        
-
-                                
 <?php do_action( 'bp_after_blog_page' ); ?>

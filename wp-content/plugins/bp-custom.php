@@ -1,5 +1,4 @@
 <?php
-
 /*
  * put custom post types in the activity stream (when commented on)
  */
@@ -13,7 +12,10 @@ add_filter( 'bp_blogs_record_comment_post_types', 'bbg_record_my_custom_post_typ
 
 /* Add a new activity stream item for when people change their Profile Picute */
 function xprofile_new_bookmark_activity($post_ID, $post) {
+
 	global $bp;
+
+if ( is_user_logged_in() ){
 	$user_id = $bp->loggedin_user->id;
 	$userlink = $bp->loggedin_user->domain;
 	$username= $bp->loggedin_user->fullname;
@@ -33,6 +35,7 @@ function xprofile_new_bookmark_activity($post_ID, $post) {
         '<img class="activity-bookmark-image" src="'.$image.'"/>'.
         "</a>"
 	) );
+}
 }
 add_action( 'wpfp_after_add', 'xprofile_new_bookmark_activity', 10, 2 );
 

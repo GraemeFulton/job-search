@@ -61,6 +61,4 @@ Author URI: http://gfulton.me.uk
 
     add_action('wp_ajax_nopriv_popup_filter', 'popup_filter');
     add_action('wp_ajax_popup_filter', 'popup_filter');
-
 ?>
-

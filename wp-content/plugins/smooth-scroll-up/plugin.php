@@ -298,3 +298,4 @@ class ScrollUp {
 	}
 
 	new ScrollUp();
+?>

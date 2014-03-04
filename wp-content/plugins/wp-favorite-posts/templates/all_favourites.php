@@ -86,3 +86,4 @@ if ($favorite_post_ids):
         })
         .isotope('insert',$favepage.find('.post-favourite-group'));
  </script>
+

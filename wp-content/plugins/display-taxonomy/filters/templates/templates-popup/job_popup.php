@@ -1,7 +1,6 @@
 <?php 
 $location= $this->get_jobs_location($tree);
 ?>
-
 <div class="datagrid">
     <table class="pop-out-tbl">
         <!--<div id="youtube_player-<?php //echo $this->post_id?>"><?php //echo $video?></div>-->
@@ -22,10 +21,8 @@ $location= $this->get_jobs_location($tree);
             
         if($date>$today)
         {
-            ?><tr class="alt"><td>Display Until: </td><td><span class="job-expiry">Expired!</span></td></tr><?php
-         
-        }else{ ?><tr class="alt"><td>Display Until: </td><td><?php echo $expiry;?></td></tr><?php } ?>
-        
+            ?><tr class="alt"><td>Display Until: </td><td><span class="job-expiry">Expired!</span></td></tr><?php       
+        }else{ ?><tr class="alt"><td>Display Until: </td><td><?php echo $expiry;?></td></tr><?php } ?>        
     </table>
 </div>
 <?php echo '<a class="btn btn-success btn-large" href="'.get_permalink( $this->post_id ).'">Read More</a>';?>

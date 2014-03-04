@@ -1,4 +1,4 @@
-<?php 
+<?php
 $location= $this->get_jobs_location($tree);
 ?>
  <div class='single_post_content'>
@@ -15,7 +15,7 @@ $location= $this->get_jobs_location($tree);
                         <tr><td>Job Provider:</td><td><img style="float:left; position:relative; max-height:35px; max-width:80px;" src="<?php echo $provider['src']?>"/></td></tr>
                         <tr class="alt"><td>Excerpt: </td><td><?php echo $excerpt;?></td></tr>
                          <tr><td>Date Posted: </td><td><?php echo $post_date=get_the_time('Y-m-d', $this->post_id);?></td></tr>
-        <?php 
+        <?php
         $date= strtotime("+30 days", strtotime($post_date)); $expiry=date("Y-m-d", $date);
         
         list($d,$m,$y)=explode("/",$datestring);
@@ -32,11 +32,10 @@ $location= $this->get_jobs_location($tree);
                     </table>
 <?php echo ' <a class="btn btn-success btn-large apply" target="_blank" href="'.$link.'">Apply Now</a>';?>
                     <button id='review_button' class='btn btn-success btn-large' style='background:goldenrod; border-color:goldenrod'>Write a Review</button>
-                            <?php wpfp_link(); ?>
-                    
+                            <?php wpfp_link(); ?> 
                       <div id='single_ratings'>
            <h5>Reviews</h5>
-           <?php   echo do_shortcode('[WPCR_INSERT]' )?> 
+           <?php   echo do_shortcode('[WPCR_INSERT]' )?>
      </div>
                     
                 </div>
@@ -50,8 +49,6 @@ $location= $this->get_jobs_location($tree);
      
      <h4>Description</h4>
     <?php echo $the_content?>
-    
-   
             </div>
  </div>
 
@@ -68,5 +65,3 @@ $location= $this->get_jobs_location($tree);
             jQuery('body').scrollTo('#wpcr_commentform ');
         })
    </script>
-     
-     

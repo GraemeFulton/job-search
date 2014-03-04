@@ -52,3 +52,4 @@
  * This guide explain what the developer can do.
  *
  */
+?>
