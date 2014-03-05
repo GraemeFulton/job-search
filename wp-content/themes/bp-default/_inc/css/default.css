@@ -3416,7 +3416,7 @@ margin-top:-5px !important;
 	.navbar-inverse .navbar-brand:hover{color:rgb(26, 143, 124) !important}
 	.nav > li > a:hover{color:rgb(26, 143, 124) !important}
 	
-	.home-navbar{ border-bottom:5px solid rgb(10, 221, 187) !important}
+	.home-navbar{ border-bottom:5px solid #52C1AE !important}
 /*	.home-navbar a.navbar-brand { font-size:40px;}*/
 	.promo_slider{
 	height:349px !important;
@@ -3424,7 +3424,7 @@ margin-top:-5px !important;
 	
 	}
 	.home-slider-area{
-	background:#13D5C4;padding:20px;
+	background:#52C1AE;padding:20px;
 	float: left;
 	width: 100%;
 	}
@@ -3433,7 +3433,7 @@ margin-top:-5px !important;
 	
 max-width: 100% !important;}
         
-        img.navbar-logo {width:29px; margin-top:-8px;float:left;}
+        img.navbar-logo {margin-top:-11px;float:left;}
         .nav-brand-text{font-size:40px; line-height: 10px !important;margin-left:3px;}
 
 .home-content .post-favourite-group-title h4{font-size:16px;}
@@ -3800,10 +3800,10 @@ li.course-menu a{color:rgb(23, 171, 255) !important;}
 background:rgb(10, 221, 187) !important;
 color:#222 !important;
 }
-.home-menu{border-top:3px solid rgb(10, 221, 187)!important;}
+.home-menu{border-top:3px solid #52C1AE!important;}
 li.current-menu-item.home-menu a{color:#fff !important;background:rgba(255, 134, 39, 1) !important;}
-li.home-menu a{color:rgb(10, 221, 187)!important;}
-li.home-menu  .dropdown-menu a{color:rgb(10, 221, 187)!important;}
+li.home-menu a{color:#52C1AE!important;}
+li.home-menu  .dropdown-menu a{color:#52C1AE!important;}
 .home-menu.current-menu-ancestor{color:#fff !important;background:rgb(10, 221, 187) !important;}
 .home-menu.current-menu-ancestor a{color:#222 !important;}
 
