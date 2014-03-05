@@ -3411,7 +3411,7 @@ width:521px;
 margin-top:-5px !important;
 	}
 	.promo_slider_nav{margin:0px !important; z-index:95 !important;}
-	.navbar > .container .navbar-brand{ margin-top:5px;}
+	.navbar > .container .navbar-brand{ margin-top:9px;}
 	.navbar-inverse .navbar-nav > li{}
 	.navbar-inverse .navbar-brand:hover{color:rgb(26, 143, 124) !important}
 	.nav > li > a:hover{color:rgb(26, 143, 124) !important}
@@ -3432,6 +3432,9 @@ margin-top:-5px !important;
 	.home-page-container{
 	
 max-width: 100% !important;}
+        
+        img.navbar-logo {width:29px; margin-top:-8px;float:left;}
+        .nav-brand-text{font-size:40px; line-height: 10px !important;margin-left:3px;}
 
 .home-content .post-favourite-group-title h4{font-size:16px;}
 .home-content .favourite-course .post-favourite-group-title{color:rgb(23, 171, 255); }
