@@ -42,6 +42,7 @@ Hello, this is the BuddyPress Responsive theme stylesheet
   }
         
 .nav-brand-text{display:none;}
+        img.navbar-logo {width:150px;}
 
         /********LOGIN******************/
          
