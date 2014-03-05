@@ -34,7 +34,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-<a class="navbar-brand" href="<?php bloginfo('url')?>"><?php bloginfo('name')?></a>        </div>
+            <a class="navbar-brand" href="<?php bloginfo('url')?>"><img class="navbar-logo"src="<?php echo get_bloginfo('template_directory');?>/_inc/images/lgicon.png"/>
+                <span class="nav-brand-text"><?php bloginfo('name')?></span>
+            </a>         
+        </div>
         <div class="navbar-collapse collapse">
          <?php /* Primary navigation */
    wp_nav_menu( array(
