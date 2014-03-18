@@ -1,4 +1,5 @@
 <?php if (have_posts()) : while (have_posts()) : the_post();
+
   $tree= display_taxonomy_tree('destination', 'destination');
 //set up page variables
 $post_id=get_the_ID();
@@ -32,5 +33,5 @@ $ratings= show_ratings($post_id);
 
 				</div>
 			<?php comments_template(); ?>
-			<?php endwhile; endif; ?>
+	<?php endwhile; endif; ?>
 <?php do_action( 'bp_after_blog_page' ); ?>

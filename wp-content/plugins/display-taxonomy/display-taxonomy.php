@@ -39,8 +39,11 @@ Author URI: http://gfulton.me.uk
     {
         wp_enqueue_script('display-taxonomy', plugins_url('/js/display-taxonomy.js',__FILE__) );
         wp_enqueue_script('listeners', plugins_url('/js/listeners.js',__FILE__) );
-
-        echo '<script> templateUrl = "'.plugins_url("display-taxonomy").'"</script>';
+        echo '<script> homeUrl = "'.home_url().'"</script>';
+        
+        if(!is_user_logged_in()){
+            lg_user_is_unregistered();
+        }
     }
     add_action('enable_isotopes','load_js');
 
@@ -61,4 +64,15 @@ Author URI: http://gfulton.me.uk
 
     add_action('wp_ajax_nopriv_popup_filter', 'popup_filter');
     add_action('wp_ajax_popup_filter', 'popup_filter');
+    
+    
+    /*
+     * 
+     */
+    function lg_user_is_unregistered(){
+            
+        if (! is_user_logged_in() ) {
+             wp_enqueue_script('user_unregistered', plugins_url('/js/user_unregistered.js',__FILE__) );
+        } 
+    }
 ?>

@@ -33,7 +33,7 @@ function isotopes_init($,colWidth,offset,topOffset)
         $('#content').prepend('<div id="ajax-loader-check-box" style="margin:10px 0 0 10px;"></div>');
 
     // cache container    
-     var $blogpage = $('#blog-page');
+     var $blogpage = $('#lg-grid-view');
   var $container = $('#loaded_content');
 
     // initialize isotope
@@ -55,7 +55,7 @@ function isotopes_init($,colWidth,offset,topOffset)
     })           
 
    .isotope( 'insert', $blogpage.find('.hentry') );
-   $('#blog-page').show();
+   $('#lg-grid-view').show();
     //         setTimeout(function(){$('#blog-more').fadeIn(1000);}, 750);
     setTimeout(function(){$('.post_image').removeClass('is-loading');}, 1000);
     setTimeout(function(){$container.isotope('reLayout');}, 1050);
@@ -88,7 +88,7 @@ function isotopes_modal($){
 
        if(! $(this).closest(".isotope-item").hasClass("activepost"))
        {//if it isnt the active post
-           $("#main-overlay").fadeIn();
+           $("#main-overlay").hide().show();
            
            $(this).css({"z-index": "-1"});
            $(this).siblings(".pop-out").show();
@@ -282,3 +282,26 @@ function resetCurrentActiveBox($){
     
    
 }
+
+//function active_post_follow_scroll($){
+//       active_post_follow_scroll_unbind($);
+//
+//    var $sidebar   = $(".activepost"), 
+//        $window    = $(window),
+//        offset     = $sidebar.offset(),
+//        topPadding = 120;
+//
+//
+//    $window.bind("scroll.active", function(){
+//       
+//            $sidebar.stop().animate({
+//                marginTop: $window.scrollTop() - offset.top + topPadding
+//            });
+//       
+//    });
+//    
+//}
+//
+//function active_post_follow_scroll_unbind($){
+//    $(window).unbind("scroll.active");
+//}

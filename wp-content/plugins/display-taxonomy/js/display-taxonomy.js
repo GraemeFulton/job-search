@@ -10,7 +10,7 @@ jQuery(document).ready(function ($) {
 //load_more_button_listener($);
 });
 
-var ajax_url='/wp-admin/admin-ajax.php';
+var ajax_url= homeUrl+'/wp-admin/admin-ajax.php';
 /*
  * var url_string
  * 
@@ -30,6 +30,7 @@ var all_selections={};
 
 var order_by='rand';
 var sort_a_z=[];
+var scroll_more=false;
 /*
  * graylien_infinite_scroll
  * @param {type} $
@@ -61,9 +62,19 @@ function graylien_infinite_scroll($){
         }
 
             var postoffset = $('.hentry').length;
-            var category_type= $('#content').attr('category_type');
-            var tag_type= $('#content').attr('tag_type');
-            var body_type= $('#content').attr('body_type');
+            
+            //if user is not registered, exit to unregistered script
+            if ($.isFunction(window.lg_registration_popup)) { 
+               var no_more= lg_registration_popup($,postoffset, scroll_more);
+                if(no_more==true){
+                    scroll_more=true;
+                    return false;
+                }
+            }
+            
+            var category_type= $('#lg-gridview-container').attr('category_type');
+            var tag_type= $('#lg-gridview-container').attr('tag_type');
+            var body_type= $('#lg-gridview-container').attr('body_type');
 
       
             process_filter_scroll($,postoffset, category_type, tag_type, body_type);
@@ -88,9 +99,9 @@ function load_more_button_listener($){
      $('#blog-more').hide();
        event.preventDefault();
         var postoffset = $('.hentry').length;
-        var category_type= $('#content').attr('category_type');
-        var tag_type= $('#content').attr('tag_type');
-        var body_type= $('#content').attr('body_type');
+        var category_type= $('#lg-gridview-container').attr('category_type');
+        var tag_type= $('#lg-gridview-container').attr('tag_type');
+        var body_type= $('#lg-gridview-container').attr('body_type');
 
  // console.log("offset: "+postoffset);
 
@@ -115,9 +126,9 @@ function apply_filter($){
     
   //  $("html, body").animate({ scrollTop: 0 }, 500);
     //filter for the url_string
-    var category_type= $('#content').attr('category_type');
-    var tag_type= $('#content').attr('tag_type');
-    var body_type= $('#content').attr('body_type');
+    var category_type= $('#lg-gridview-container').attr('category_type');
+    var tag_type= $('#lg-gridview-container').attr('tag_type');
+    var body_type= $('#lg-gridview-container').attr('body_type');
 
        
         //add filter value to process filter, and collect it in the php file, then use it to filter the post
@@ -180,7 +191,7 @@ function process_cat_filter($){
 
     //loading gif
     $('.hentry').empty();
-    $('#content').prepend('<div id="ajax-loader-check-box" style="margin:10px 0 0 10px;"></div>');
+    $('#lg-gridview-container').prepend('<div id="ajax-loader-check-box" style="margin:10px 0 0 10px;"></div>');
 
     $.ajax({
      url: ajax_url, 
@@ -255,7 +266,7 @@ function process_filter($, category_type, tag_type, body_type){
     //loading gif
     $('.hentry').children().fadeOut(250, function() {
 });
-    $('#content').prepend('<div id="ajax-loader-check-box" style="margin:10px 0 0 10px;"></div>');
+    $('#lg-gridview-container').prepend('<div id="ajax-loader-check-box" style="margin:10px 0 0 10px;"></div>');
 
     $.ajax({
      url: ajax_url, 
@@ -341,7 +352,7 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
  if(isLoadingData===true) return;
      //loading gif
     $('.sorry-message').remove();
-    $('#content').append('<div id="ajax-loader-scroll"></div>');
+    $('#lg-gridview-container').append('<div id="ajax-loader-scroll"></div>');
     
     $(" .clickme").unbind('click');
 
@@ -413,7 +424,7 @@ function process_filter_scroll($, postoffset, category_type, tag_type, body_type
  * @param {type} postoffset
  * @returns {undefined} */
 function process_popup_data($, popup, category, tag_type,body_type, post_id){
-        $('#content').prepend('<div id="ajax-loader-popup" style="margin:10px 0 0 10px;"></div>');
+        $('#lg-gridview-container').prepend('<div id="ajax-loader-popup" style="margin:10px 0 0 10px;"></div>');
 
     $.ajax({
      url: ajax_url, 

@@ -74,7 +74,7 @@ Class Popup_Filter{
                   $this->template = 'job';
 
          }
-         elseif($this->category=='inspire-posts'){
+         elseif($this->category=='inspire'){
                     
                   $this->template = 'inspire';
          }
@@ -121,13 +121,21 @@ Class Popup_Filter{
          }
          
          //return html view
-         if($page==true){
+         if($page=='content'){
              $video = $this->get_video_url($tree);
              $the_content= $this->get_content_by_id($this->post_id);
              $post_image = $this->show_post_image($tree);
                            $ratings = $this->show_ratings($this->post_id);
 
-              include('templates/templates-single/'.$this->template.'_single.php');
+              include('templates/templates-single/'.$this->template.'_single_content.php');
+         }
+         elseif($page=='table'){
+             $video = $this->get_video_url($tree);
+             $the_content= $this->get_content_by_id($this->post_id);
+             $post_image = $this->show_post_image($tree);
+                           $ratings = $this->show_ratings($this->post_id);
+
+              include('templates/templates-single/'.$this->template.'_single_table.php');
          }
          else{
          include('templates/templates-popup/'.$this->template.'_popup.php');exit;
@@ -189,7 +197,7 @@ Class Popup_Filter{
          }
          else{
              
-             return '<object width="400" height="225" data="'.$video_url.'"></object>';
+             return '<object width="630" height="400" data="'.$video_url.'"></object>';
              
          }
     }
@@ -333,8 +341,8 @@ function youtubeUrlToEmbedCode($url){
             );
         $id = $matches[1];
 
-        $width = '450';
-        $height = '315';
+        $width = '630';
+        $height = '400';
         return '<object width="' . $width . '" height="' . $height . '"><param name="movie" value="http://www.youtube.com/v/' . $id . '&amp;hl=en_US&amp;fs=1?rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/' . $id . '&amp;hl=en_US&amp;fs=1?rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="' . $width . '" height="' . $height . '"></embed></object>';
     
     }

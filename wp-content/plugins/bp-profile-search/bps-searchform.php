@@ -25,6 +25,8 @@ function bps_display_form ($name, $form_id='bps_action')
 	$action = bp_get_root_domain (). '/'. bp_get_members_root_slug (). '/';
 
 echo "\n<!-- $bps_globals->plugin $bps_globals->version - start -->\n";
+if ($form_id != 'bps_auto')  echo "<div id='buddypress'>";
+
 	if ($form_id == 'bps_auto' || $form_id == 'bps_action')
 	{
 ?>	
@@ -187,6 +189,7 @@ echo "<input type='submit' value='". __('Search', 'buddypress'). "' />";
 echo '</div>';
 echo "<input type='hidden' name='bp_profile_search' value='true' />";
 echo '</form>';
+if ($form_id != 'bps_auto')  echo '</div>';
 echo "\n<!-- $bps_globals->plugin $bps_globals->version - end -->\n";
 
 	return true;
@@ -198,6 +201,7 @@ function bps_your_search ()
 	global $bps_options;
 
 	$posted = $_POST;
+	$action = bp_get_root_domain (). '/'. bp_get_members_root_slug (). '/';
 
 echo '<p>';
 	if (bp_has_profile ('hide_empty_fields=0'))  while (bp_profile_groups ())
@@ -263,6 +267,7 @@ echo "<strong>{$bps_options['agelabel']}:</strong> $from <strong>-</strong> $to<
 		}
 	}
 
+echo "<a href='$action'>". __('Clear', 'buddypress'). "</a><br/>";
 echo '</p>';
 	return true;
 }

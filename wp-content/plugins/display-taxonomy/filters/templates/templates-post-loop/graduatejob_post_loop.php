@@ -2,6 +2,19 @@
                         $tree= display_taxonomy_tree('profession', 'company'); 
 //set up page variables
 $post_id=get_the_ID();
+
+
+$post_date=get_the_time('Y-m-d', $post_id);
+
+
+      $e_date= strtotime("+30 days", strtotime($post_date)); 
+      $expiry=date("Y-m-d", $e_date);
+         
+        $today=mktime(0,0,0,date("m"),date("d"),date("Y"));
+               
+        if(($e_date>$today)) : 
+
+
 //post image
 $post_image=$tree->get_post_image($group_parent_id, $post_id); 
 //subject/grouped taxonomy
@@ -39,5 +52,8 @@ $location= wp_get_post_terms($post_id, 'location', array("fields" => "names"));
 
 				</div>
 			<?php comments_template(); ?>
+  <?php
+      $counter++;
+    endif; ?>
 			<?php endwhile; endif; ?>
 <?php do_action( 'bp_after_blog_page' ); ?>

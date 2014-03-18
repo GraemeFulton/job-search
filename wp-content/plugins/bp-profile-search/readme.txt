@@ -2,8 +2,8 @@
 Contributors: dontdream
 Tags: buddypress, member, members, user, users, friend, friends, profile, profiles, search, filter
 Requires at least: BP 1.8
-Tested up to: BP 1.9.1
-Stable tag: 3.5.3
+Tested up to: BP 1.9.2
+Stable tag: 3.5.6
 
 Adds a configurable search form to your BuddyPress site, so visitors can find site members searching their extended profiles.
 
@@ -17,9 +17,10 @@ In all three cases when visitors click the 'Search' button, they are redirected 
 
 = Translations =
 
-* Spanish (es_ES), by [Andrew Kurtis, WebHostingHub](http://www.webhostinghub.com/)
-* Russian (ru_RU), by [Ivan](http://olymproject.org/)
 * Italian (it_IT)
+* Russian (ru_RU), by [Ivan](http://olymproject.org/)
+* Serbo-Croatian (sr_RS), by [Borisa Djuraskovic, WebHostingHub](http://www.webhostinghub.com/)
+* Spanish (es_ES), by [Andrew Kurtis, WebHostingHub](http://www.webhostinghub.com/)
 
 == Installation ==
 
@@ -57,6 +58,13 @@ There are three different ways to integrate your BP Profile Search form in your 
 
 == Changelog ==
 
+= 3.5.6 =
+* Replaced deprecated $wpdb->escape() with esc_sql()
+* Added 'Clear' link to reset the search filters
+= 3.5.5 =
+* Fixed the CSS for widget forms and shortcode generated forms
+= 3.5.4 =
+* Added the Serbo-Croatian translation
 = 3.5.3 =
 * Added Spanish, Russian and Italian translations
 = 3.5.2 =

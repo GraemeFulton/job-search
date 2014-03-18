@@ -1,0 +1,121 @@
+/**
+ * Dark CSS
+ *
+ * @package klein
+ * @since 2.0
+ *
+ */
+ 
+label span, legend span { color: #BDC3C7; }
+ 
+legend,
+table th,
+li.feed > a,
+input[type="text"], input[type="password"], input[type="email"], textarea, select,
+body,
+div.bbp-template-notice, div.indicator-hint, 
+div.bbp-template-notice.info,div.bbp-template-notice.error,
+div.bbp-template-notice.important,
+.widget,
+.blog-content-title a,
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited,
+.pmpro_checkout thead th,
+.woocommerce .quantity input.qty, .woocommerce-page .quantity input.qty, .woocommerce #content .quantity input.qty, .woocommerce-page #content .quantity input.qty,
+.woocommerce .cart-subtotal .amount, .woocommerce table.shop_table.cart td, .woocommerce .cart_totals .shipping td, .woocommerce .cart_totals .total td, .woocommerce .product-subtotal,
+#whats-new { color: #ECF0F1; }
+ 
+.breadcrumb-separator { color: #444; }
+ 
+.widget a,
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus,
+#whats-new:focus,
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus, select:focus { color: #fff; }
+ 
+#front-page-widgets-section-c .widget,
+.widget_display_stats dt,
+.widget { background: #191919; }
+ 
+.panel,
+.fluid, .boxed,
+.woocommerce-checkout .form-row .chzn-container .chzn-drop,
+#bbpress-forums li.bbp-header,
+#bbpress-forums div.even, #bbpress-forums ul.even,
+#bbpress-forums div.odd, #bbpress-forums ul.odd { background: #222; }
+ 
+div.pp_woocommerce .pp_content_container,
+.woocommerce #comments div[itemprop=aggregateRating],
+.profile-fields td, #message-threads td { background: #222!important; }
+ 
+#pmpro_levels_table,
+.woocommerce .quantity input.qty, .woocommerce-page .quantity input.qty, .woocommerce #content .quantity input.qty, .woocommerce-page #content .quantity input.qty,
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active, .woocommerce-page div.product .woocommerce-tabs ul.tabs li.active, .woocommerce #content div.product .woocommerce-tabs ul.tabs li.active, .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li.active { background: #333; }
+ 
+ .modal-content,
+.blog-author { background: #444; }
+ 
+.activity-header, .acomment-meta, .activity-meta, .acomment-options { color: #BDC3C7; }
+ 
+.entry-title a:visited, .entry-title a,
+.widget.widget_bp_groups_widget .widget-title a, .widget.widget_bp_core_members_widget .widget-title a,
+#front-page-widgets-section-a .widget.widget_bp_groups_widget .widget-title, #front-page-widgets-section-a .widget.widget_bp_core_members_widget .widget-title, .widget.widget_bp_groups_widget .widget-title, .widget.widget_bp_core_members_widget .widget-title { color: #ECF0F1; }
+ 
+.bp-groups-carousel li.carousel-item a img, .bp-members-carousel li.carousel-item a img { border-color: #7F8C8D; }
+ 
+.wpb_separator, .vc_text_separator {
+	background: #95A5A6;
+	background: -webkit-gradient(linear, 0 0, 100% 0, from(#222), to(#222), color-stop(50%, #444));
+	border-bottom: #222; }
+ 
+blockquote,
+.vc_text_separator div,
+.bx-wrapper .bx-loading,
+.wpb_content_element .wpb_tabs_nav li,
+.wpb_content_element .wpb_accordion_wrapper .wpb_accordion_header, .wpb_content_element.wpb_tabs .wpb_tour_tabs_wrapper .wpb_tab { background-color: #444; }
+ 
+#whats-new,
+input[type="text"], input[type="password"], input[type="email"], textarea, select,
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus,
+.wpb_content_element .wpb_tabs_nav li.ui-tabs-active, .wpb_content_element .wpb_tabs_nav li:hover { background-color: #333; }
+ 
+hr,
+table th, table td,
+blockquote,
+input[type="text"], input[type="password"], input[type="email"], textarea, select,
+div.bbp-forum-header, div.bbp-topic-header, div.bbp-reply-header,
+li.comment,
+.modal-header,
+.modal-footer,
+.page-header,
+.wp-editor-container,
+.activity.gears-module .activity-content,
+.bp-groups-list-item, .bp-members-list-item,
+.buddypress .activity-meta a,
+.woocommerce .woocommerce-tabs,
+.woocommerce #comments div[itemprop=aggregateRating],
+.woocommerce #payment ul.payment_methods, .woocommerce-page #payment ul.payment_methods,
+.woocommerce div.product .woocommerce-tabs ul.tabs:before, .woocommerce-page div.product .woocommerce-tabs ul.tabs:before, .woocommerce #content div.product .woocommerce-tabs ul.tabs:before, .woocommerce-page #content div.product .woocommerce-tabs ul.tabs:before,
+.woocommerce div.product .woocommerce-tabs ul.tabs li, .woocommerce-page div.product .woocommerce-tabs ul.tabs li, .woocommerce #content div.product .woocommerce-tabs ul.tabs li, .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li,
+.woocommerce .quantity .plus, .woocommerce-page .quantity .plus, .woocommerce #content .quantity .plus, .woocommerce-page #content .quantity .plus, .woocommerce .quantity .minus, .woocommerce-page .quantity .minus, .woocommerce #content .quantity .minus, .woocommerce-page #content .quantity .minus,
+.woocommerce .quantity input.qty, .woocommerce-page .quantity input.qty, .woocommerce #content .quantity input.qty, .woocommerce-page #content .quantity input.qty,
+.woocommerce .shop_table.cart thead tr, .woocommerce .shop_table.cart tr.cart_table_item,
+.woocommerce .widget_shopping_cart .total, .woocommerce-page .widget_shopping_cart .total,
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus,
+.blog-pad,
+.comments-area,
+.blog-content,
+#bbpress-forums ul.bbp-lead-topic,#bbpress-forums ul.bbp-topics,#bbpress-forums ul.bbp-forums,#bbpress-forums ul.bbp-replies,#bbpress-forums ul.bbp-search-results,
+#bbpress-forums li.bbp-body ul.forum, #bbpress-forums li.bbp-body ul.topic,
+#bbpress-forums li.bbp-header, #bbpress-forums li.bbp-footer,
+#whats-new,
+#front-page-widgets-section-c .widget .widget-title,
+#front-page-widgets-section-c .widget,
+#pmpro_account .pmpro_box { border-color: #333!important; }
+ 
+.activity.gears-module .activity-content:before,
+.activity.gears-module .activity-content:after { border-right-color: #333; }
+.klein .login-facebook-connect .btn {
+	background: #3B5A9B;
+	border: none;
+	padding: 7px 10px;
+	margin-top: 0px;
+}
