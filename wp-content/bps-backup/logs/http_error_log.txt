@@ -1,0 +1,143 @@
+BPS SECURITY / HTTP ERROR LOG
+==============================
+==============================
+
+>>>>>>>>>>> 403 GET or Other Request Error Logged - March 18, 2014 1:35 am <<<<<<<<<<<
+REMOTE_ADDR: 173.255.233.124
+Host Name: sitecheck2.sucuri.net
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /readme.html
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6
+
+>>>>>>>>>>> 403 GET or Other Request Error Logged - March 18, 2014 10:03 am <<<<<<<<<<<
+REMOTE_ADDR: 82.132.228.222
+Host Name: dab-ntm1-h-1-2.dab.02.net
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 10.144.111.32
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://lostgrad.com/learn/
+REQUEST_URI: /login/?loginFacebook=1&redirect=http://lostgrad.com/learn/
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.136 Mobile Safari/537.36
+
+>>>>>>>>>>> 403 GET or Other Request Error Logged - March 18, 2014 10:04 am <<<<<<<<<<<
+REMOTE_ADDR: 82.132.228.222
+Host Name: dab-ntm1-h-1-2.dab.02.net
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 10.144.111.32
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://lostgrad.com/learn/
+REQUEST_URI: /login/?loginTwitter=1&redirect=http://lostgrad.com/learn/
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.136 Mobile Safari/537.36
+
+>>>>>>>>>>> 403 GET or Other Request Error Logged - March 18, 2014 10:04 am <<<<<<<<<<<
+REMOTE_ADDR: 82.132.228.222
+Host Name: dab-ntm1-h-1-2.dab.02.net
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 10.144.111.32
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: 
+REQUEST_URI: /?loginTwitter=1&redirect=http://lostgrad.com/learn/
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.136 Mobile Safari/537.36
+
+>>>>>>>>>>> 403 GET or Other Request Error Logged - March 18, 2014 10:09 am <<<<<<<<<<<
+REMOTE_ADDR: 82.132.231.154
+Host Name: dab-ntm1-h-78-9.dab.02.net
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 10.144.111.32
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://lostgrad.com/work/
+REQUEST_URI: /login/?loginFacebook=1&redirect=http://lostgrad.com/work/
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.136 Mobile Safari/537.36
+
+>>>>>>>>>>> 403 GET or Other Request Error Logged - March 18, 2014 10:40 am <<<<<<<<<<<
+REMOTE_ADDR: 109.146.141.245
+Host Name: host109-146-141-245.range109-146.btcentralplus.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://localhost/LGWP/travel/
+REQUEST_URI: /login/?loginFacebook=1&redirect=http://localhost/LGWP/travel/
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.146 Safari/537.36
+
+>>>>>>>>>>> 403 GET or Other Request Error Logged - March 18, 2014 10:40 am <<<<<<<<<<<
+REMOTE_ADDR: 109.146.141.245
+Host Name: host109-146-141-245.range109-146.btcentralplus.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://lostgrad.com/travel/
+REQUEST_URI: /login/?loginFacebook=1&redirect=http://lostgrad.com/travel/
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.146 Safari/537.36
+
+>>>>>>>>>>> 403 GET or Other Request Error Logged - March 18, 2014 12:16 pm <<<<<<<<<<<
+REMOTE_ADDR: 109.146.141.245
+Host Name: host109-146-141-245.range109-146.btcentralplus.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://lostgrad.com/learn/
+REQUEST_URI: /login/?loginFacebook=1&redirect=http://lostgrad.com/learn/
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.146 Safari/537.36
+
+>>>>>>>>>>> 403 GET or Other Request Error Logged - March 18, 2014 12:25 pm <<<<<<<<<<<
+REMOTE_ADDR: 109.146.141.245
+Host Name: host109-146-141-245.range109-146.btcentralplus.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://lostgrad.com/
+REQUEST_URI: /login/?loginFacebook=1&redirect=http://lostgrad.com/
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.146 Safari/537.36
+
+>>>>>>>>>>> 403 GET or Other Request Error Logged - March 18, 2014 12:26 pm <<<<<<<<<<<
+REMOTE_ADDR: 109.146.141.245
+Host Name: host109-146-141-245.range109-146.btcentralplus.com
+SERVER_PROTOCOL: HTTP/1.1
+HTTP_CLIENT_IP: 
+HTTP_FORWARDED: 
+HTTP_X_FORWARDED_FOR: 
+HTTP_X_CLUSTER_CLIENT_IP: 
+REQUEST_METHOD: GET
+HTTP_REFERER: http://lostgrad.com/register/
+REQUEST_URI: /login/?loginFacebook=1&redirect=http://lostgrad.com/register/
+QUERY_STRING: 
+HTTP_USER_AGENT: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.146 Safari/537.36
