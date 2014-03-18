@@ -1,0 +1,159 @@
+/*--------------------------------------------------------------
+3.0 - LG Sidebar-left
+--------------------------------------------------------------*/
+#lg-sidebar-filter{
+    position: relative;
+    float: left;
+    width:20%;
+    height:100%;
+    border-radius:3px;
+    background:#fff;
+    border:none;
+}
+
+.widgets_on_page{
+    border-bottom:3px solid #52C1AE;
+}
+
+.dtree a{
+    color: #2C2C2C !important;
+    cursor: pointer;
+    font-size:12px;
+vertical-align: top;
+}
+.dtree .clip {
+}
+::-webkit-scrollbar {
+    width: 14px;
+}
+
+.dtNode input{margin-right:3px;}
+ 
+.dtNode{margin-bottom:2px;}
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 1px;
+    border-radius: 1px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 1px;
+    border-radius: 1px;
+    background: rgba(255, 255, 255, 0.3); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(255, 255, 255, 0.3); 
+}
+
+
+/*--------------------------------------------------------------
+3.0 - RESPONSIVE POPOUT SIDEBAR
+--------------------------------------------------------------*/
+@media only screen and (max-width: 1025px) {
+   /****************
+        ***popout menu***
+        http://www.youtube.com/watch?v=m52OcJhaaZU
+        ****************/
+         .mobile-menu{
+         
+             position:relative;
+            left:0;
+            
+        }
+        
+         .mobile-menu-open {
+            left:247px;
+            
+        }
+        div.dir-search{margin-top:2px !important;}
+        
+        .mobile-menu-open #lg-sidebar-filter.mobile-menu-side,
+        .mobile-menu-open #item-nav.mobile-menu-side{
+            left:0;
+        }
+        
+      
+        #whats-new-options{
+            overflow:auto;
+        }
+        #lg-sidebar-filter.mobile-menu-side,
+         #item-nav.mobile-menu-side
+        {
+            background:#333; 
+            position:fixed;
+            color:#fff;
+            top:0px;
+            left:-248px;
+            width:247px;
+            height:100%;
+            padding:10px;
+            overflow-y:scroll;
+            
+        }
+        
+             div#lg-sidebar-filter h3.widgettitle{
+        
+        background:#555;
+        }
+        .mobile-menu-side, .mobile-menu{
+             -webkit-transition: left 0.2s ease;
+              -moz-transition: left 0.2s ease;
+            transition: left 0.2s ease;
+        }
+        #wpadminbar{display:none;}
+   
+}
+/*******************
+FILTER TAB STYLE 
+*******************/
+
+
+.filter-tab{float:left;padding:5px; width:50%;border-left:1px solid #ccc;border-bottom:1px solid #ccc;background:#DDDDDD; height:100%;}
+.filter-tab {color:#999}
+.filter-tab-1, .filter-tab-2{
+    margin: 0px 0px 0px;
+
+padding: 10px 20px 10px;
+
+}
+
+
+
+.sidebar-options{background:#f8f8f8;border-right:1px solid #eaeaea;}
+
+.filter-tabs{background:#f8f8f8;width: 100%;margin-bottom:20px;text-align: center; height:56px;}
+.filter-tabs:hover{color:#222 !important; cursor: pointer;}
+
+
+.active-filter h4{color:#333}
+
+.active-filter{
+    background:#f8f8f8;border-color:#f8f8f8;
+}
+
+/*.selected-options-padding{margin-top:70px !important;}*/
+#selected-options-container{
+    width: 100%;
+float: left;
+padding: 8px;
+margin-bottom:25px;
+background:#fff;
+}
+.options-title{
+    margin-bottom:0px;
+}
+.filter-tab-2{display:none;}
+
+.parent-selected-checkbox{background:#f8f8f8}
+.filter-title{margin-bottom: -18px;}
+/*
+*sort by box
+*/
+.sort-by-container{float:right;padding:10px;z-index:5;}
+.sort-active{background:#4CB6A1;}
+.order-by{float:left;}
+.sort-a-z{float:left;}
+.alpha-sort{display:none;}

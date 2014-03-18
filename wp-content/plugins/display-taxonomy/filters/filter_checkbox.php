@@ -122,6 +122,9 @@ Class Super_Filter{
     elseif($this->tax_or_cat=='cat'){
       $args= $this->category_handler($args);
     }   
+    
+   query_posts( $args);
+
    $qp= query_posts($args);
     
  //  return $this->load_post_loop_view($filter_type);
@@ -152,7 +155,8 @@ Class Super_Filter{
             $this->printable_name= "courses";
       }
       elseif($this->category_type=='graduate-job' || $this->category_type=='work-experience-job'){
-        
+            add_filter( 'posts_where', 'wpa57065_filter_where' );
+
             $args= $this->regular_taxonomy_filter('job-provider', 3, $this->selected_provider, $args);  
             $args= $this->regular_taxonomy_filter('company', 2,$this->selected_institutions, $args);
             $args= $this->regular_taxonomy_filter('location', 4, $this->location, $args);  

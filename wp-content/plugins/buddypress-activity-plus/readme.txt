@@ -2,8 +2,8 @@
 Contributors: WPMUDEV
 Tags: BuddyPress, activity, embed, media, youtube, photos, facebook
 Requires at least: 3.1
-Tested up to: 3.5.1
-Stable tag: 1.5
+Tested up to: 3.8.1
+Stable tag: 1.6
 
 BuddyPress Activity Plus allows for embedding of oEmbed videos and media in your activities.
 
@@ -45,6 +45,11 @@ We provide comprehensive and guaranteed support on the <a href='http://premium.w
 4. Video in your activity stream
 
 == Changelog ==
+
+= 1.6 =
+- Added themes and the settings page.
+- Added EXIF orientation support.
+- Better OpenGraph support for link sharing.
 
 = 1.5 =
 - Trimming images for auto-innjected breaks.

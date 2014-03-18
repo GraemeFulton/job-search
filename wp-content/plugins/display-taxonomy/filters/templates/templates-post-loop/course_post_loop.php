@@ -1,4 +1,5 @@
 <?php if (have_posts()) : while (have_posts()) : the_post();
+
           $tree= display_taxonomy_tree('subject', 'uni');
 //set up page variables
 $post_id=get_the_ID();
@@ -14,7 +15,7 @@ $post_object_id = wp_get_post_terms($post_id, 'uni', array("fields" => "ids"));
 //get company name
 $uni_name= $tree->get_linked_taggroup_or_tag($post_id, $post_object_id, $group_parent_id); 
 
-$ratings= show_ratings($post_id);
+//$ratings= show_ratings($post_id);
 ?><div id="<?php echo $post_id; ?>" <?php post_class(); ?>>
             <div class="item">
     

@@ -154,7 +154,7 @@ function bps_search ($posted)
 					}
 				case 'textarea':
 					$value = $posted["field_$id"];
-					$escaped = '%'. like_escape ($wpdb->escape ($posted["field_$id"])). '%';
+					$escaped = '%'. esc_sql (like_escape ($posted["field_$id"])). '%';
 					if ($bps_options['searchmode'] == 'Partial Match')
 						$sql .= $wpdb->prepare (" WHERE field_id = %d AND value LIKE %s", $id, $escaped);
 					else					
@@ -179,7 +179,7 @@ function bps_search ($posted)
 					$like = array ();
 					foreach ($values as $value)
 					{
-						$escaped = '%"'. like_escape ($wpdb->escape ($value)). '"%';
+						$escaped = '%"'. esc_sql (like_escape ($value)). '"%';
 						$like[] = $wpdb->prepare ("value = %s OR value LIKE %s", $value, $escaped);
 					}	
 					$sql .= ' AND ('. implode (' OR ', $like). ')';	

@@ -1,0 +1,295 @@
+/*--------------------------------
+ADMIN BAR - BOOTSTRAP/WP MERGE
+----------------------------------*/
+.navbar-fixed-top { top: 0px; }
+/*.container {
+color:#fff;
+width:93%;
+}*/
+.nav-bar-end{
+    float: left;
+height: 55px;
+position: relative;
+width: 100%;
+}
+
+.wide-nav #menu-top-menu li{
+    margin-left:auto!important;
+    width:105px;
+}
+.dropdown-menu li{
+    width:auto !important;
+    list-style: none;
+}
+.wide-nav .container{max-width:93%!important; width:93% !important;height:63px;}
+.wide-nav{height:63px;}
+
+#wpadminbar *{text-shadow: none;color:#777;}
+#wpadminbar .quicklinks{float:right;}
+#wpadminbar .quicklinks ul{float:left;}
+#wpadminbar .quicklinks>ul>li>a, #wpadminbar .quicklinks>ul>li>.ab-empty-item{border-right:none;}
+#wpadminbar {
+direction: ltr;
+color: #777;
+font: 400 13px/28px sans-serif;
+height: 0px;
+position: fixed;
+top: 0;
+right: 0 !important;
+min-width: 450px;
+z-index: 99999;
+background: transparent;
+}
+#wpadminbar .quicklinks>ul>li{border-color:#dadada !important;}
+#wp-admin-bar-wp-logo{display:none}
+#wp-admin-bar-site-name{display:none}
+#wpadminbar .ab-top-secondary{background:transparent;}
+#wpadminbar .quicklinks .ab-top-secondary>li>a, #wpadminbar .quicklinks .ab-top-secondary>li>.ab-empty-item{border-color:#fff !important;}
+#main_search_category{width:500px; margin:15px auto;}
+#wpadminbar .quicklinks .ab-top-secondary>li{border-color:#dadada !important;}
+.hover{background:#dadada !important;}x
+#wpadminbar .ab-top-menu>li.menupop.hover>.ab-item{background: #dadada !important;}
+#wpadminbar #adminbarsearch .adminbar-input:focus{border:1px solid #ccc;margin-top:1px;}
+
+#main_search{width:225px; margin:4px auto;float:left}
+#main_search .input-group{z-index:4;}
+#main_search .sf_search span.sf_block{width:500px; height:48px !important;-webkit-box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);
+-moz-box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);
+box-shadow: 1px 2px 13px 11px rgba(0,0,0,0.33);}
+#main_search .screen-reader-text{display:none;}
+#main_search .sf_search .sf_input {height:46px !important; font-size:18px;font-style: normal;}
+
+#main_search .sf_search .sf_button, .sf_search .searchsubmit {
+height: 45px !important;
+width: 45px !important;
+margin: 0px 0px 0px 0px !important;
+font-size: 11px !important;
+-webkit-box-shadow: 0 0 0 0 !important;
+-moz-box-shadow: 0 0 0 0 !important;
+box-shadow: 0 0 0 0 !important;
+z-index:4;
+}
+/*#main_search .input-group-btn{
+    display:block;
+}*/
+.mobile-search{display:none;}
+.sf_search{z-index:4}
+
+.navbar-logo{margin-top:-4px;}
+.page .sf_container .sf_block{height:40px !important}
+.page .sf_container .sf_block .sf_input{height:38px !important}
+.page .sf_container .sf_block .sf_button{height:38px !important; width:38px !important;margin: 0px !important;}
+
+.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group{height:34px;}
+/*--------------------------------
+ADMIN BAR - BOOTSTRAP/WP MERGE
+----------------------------------*/
+
+/*--------------------------------
+TRIM
+----------------------------------*/
+.home-line{position:fixed; top:63px; width:100%; height:7px; background:#52C1AE;z-index: 50;box-shadow: 0 2px 2px -2px rgba(0,0,0,0.8);}
+.travel-line{position:fixed; top:63px; width:100%; height:7px; background:rgb(87, 189, 87);z-index: 50;box-shadow: 0 2px 2px -2px rgba(0,0,0,0.8);}
+.course-line{position:fixed; top:63px; width:100%; height:7px; background:rgb(23, 171, 255);z-index: 50; box-shadow: 0 2px 2px -2px rgba(0,0,0,0.8);}
+.inspire-line{position:fixed; top:63px; width:100%; height:7px; background:rgb(238, 186, 56);z-index: 50;box-shadow: 0 2px 2px -2px rgba(0,0,0,0.8);}
+.graduatejob-line{position:fixed; top:63px; width:100%; height:7px; background:rgba(255, 134, 39, 1);z-index: 50;box-shadow: 0 2px 2px -2px rgba(0,0,0,0.8);}
+.work-experience-line{position:fixed; top:63px; width:100%; height:7px; background: rgb(228, 104, 228);z-index: 50;box-shadow: 0 2px 2px -2px rgba(0,0,0,0.8);}
+#wp-admin-bar-search{display:none;}
+/*--------------------------------
+TRIM
+----------------------------------*/
+
+
+/*--------------------------------
+NAV BUTTONS AND BUTTON TRIM
+----------------------------------*/
+.navbar{border-bottom:none;
+background: #1b1b1b;
+background: -webkit-gradient(linear,0% 0%,0% 100%,from(#353535),to(#010101));
+background: -webkit-linear-gradient(0% 0%,0% 100%,from(#353535),to(#010101));
+background: -moz-linear-gradient(center top,#353535,#010101);
+background: linear-gradient(#353535,#010101);
+box-shadow: 0 2px 2px -2px rgba(0,0,0,0.8);
+}
+
+li.current-menu-item a{background: #52C1AE;}
+
+li.current-menu-item.course-menu a{color:#fff !important;background:rgb(23, 171, 255)!important;
+}
+
+.home-menu .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus{
+background:#52C1AE !important;
+color:#222 !important;
+}
+li.current-menu-item.home-menu a{color:#fff !important;background:rgba(255, 134, 39, 1) !important;}
+li.home-menu a{color:#52C1AE!important;}
+li.home-menu  .dropdown-menu a{color:#52C1AE!important;}
+.home-menu.current-menu-ancestor{color:#fff !important;background:#52C1AE !important;}
+.home-menu.current-menu-ancestor a{color:#222 !important;}
+
+.navbar-nav .open .dropdown-menu > li > a, .navbar-nav .open .dropdown-menu .dropdown-header{
+    background:#222;
+}
+.dropdown-menu li.current-menu-item a{color:#222 !important;
+background:#52C1AE!important;
+}
+
+.dropdown-menu{margin-top:-2px !important;background:#222 !important;}
+
+
+li.current-menu-item.job-menu a{color:#fff !important;background:rgba(255, 134, 39, 1) !important;}
+.job-menu.current-menu-ancestor{color:#fff !important;background:rgba(255, 134, 39, 1) !important;}
+.job-menu.current-menu-ancestor a{color:#fff !important;}
+
+.we-menu.current-menu-ancestor{color:#fff !important;background:rgb(228, 104, 228) !important;}
+.we-menu.current-menu-ancestor a{color:#fff !important;}
+li.current-menu-item.we-menu a{color:#fff !important;background: rgb(228, 104, 228) !important; }
+
+li.current-menu-item.travel-menu a{color:#fff !important;background:rgb(87, 189, 87) !important;}
+
+li.current-menu-item.inspire-menu a{color:#fff !important;background:rgb(238, 186, 56)!important; }
+
+
+/*
+BUTTON TEXT COLOUR
+*/
+/*li.inspire-menu a {color: rgb(238, 186, 56)!important;}
+li.travel-menu a {color: rgb(87, 189, 87) !important;}
+li.we-menu a {color:  rgb(228, 104, 228) !important;}
+li.job-menu a{color:rgba(255, 134, 39, 1)!important;}
+li.course-menu a{color:rgb(23, 171, 255) !important;}*/
+.navbar-inverse .navbar-nav > li > a{}
+/*
+BUTTON TRIM COLOURS
+*/
+/*.we-menu{border-top:3px solid rgb(228, 104, 228) !important;}
+.job-menu{border-top:3px solid rgba(255, 134, 39, 1)!important;}
+.home-menu{border-top:3px solid #52C1AE!important;}
+.course-menu{border-top:3px solid rgb(23, 171, 255) !important;}
+.travel-menu{border-top:3px solid rgb(87, 189, 87) !important;}
+.inspire-menu{border-top:3px solid rgb(238, 186, 56)!important;}*/
+
+
+/*
+
+*/
+.tagline{margin-left:18px;}
+
+.home-tag-line h4{line-height:22px;}
+.home-tag-line .ico{color:#fff; font-size:25px;}
+
+.navbar-inverse .navbar-brand{color:#fff}
+/*.navbar-inverse .navbar-brand{color:#141823}*/
+.menu-text a{padding-top:10px !important; padding-bottom:10px !important;}
+.navbar-brand{font-size:20px;}
+.navbar-inverse .navbar-nav > li > a{border-left:1px solid #3F3F3F; text-align:center; height:63px;
+font-size:13.5px;
+}
+.home-page .navbar-nav > li > a .fa-2x{margin-top:-10px !important; display:block; margin:0 auto;}
+.navbar-nav > li > a .fa-2x{margin-top:-10px !important; display:block; margin:0 auto;}
+.fa-lightbulb-o{margin-right:-8px;}
+
+
+/*--------------------------------
+NAV BUTTONS AND BUTTON TRIM
+----------------------------------*/
+
+
+
+/*--------------
+SIDEBAR TOGGLE
+---------------*/
+#sidebar-toggle:hover{cursor: pointer;}
+#sidebar-toggle{
+    display:none;
+    float: left;
+    margin-top: 13px;
+}
+/*--------------
+SIDEBAR TOGGLE
+---------------*/
+
+
+/***************************
+RESPONSIVE NAV-BAR SETTINGS
+****************************/
+@media only screen and (max-width: 1025px) {
+.nav-brand-text{display:none;}
+img.navbar-logo {width:150px;
+margin-top: -10px;}
+
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form{
+    background:#222;
+}
+.navbar-collapse #menu-top-menu li{
+    width:auto !important;
+}
+
+.navbar > .container .navbar-brand{
+margin-top: 5px;
+margin-right: 8px;
+margin-left: -5px;
+}
+
+.navbar-nav{margin:0px -15px;}
+        
+.navbar-nav > li > a .fa-2x, .home-page .navbar-nav > li > a .fa-2x {
+ margin-top: -5px !important;
+ }
+.navbar{position:fixed !important;}
+.navbar-inverse .navbar-nav > li > a{color:#fff}
+
+ .course-line, .travel-line, .inspire-line, .home-line, .graduatejob-line, .work-experience-line{
+            top:49px;
+            z-index: 500;
+            height: 5px;
+            position:fixed !important;
+        }
+        
+         .navbar-collapse #loaded_content{
+                        margin: 150px auto !important;
+
+        }
+       
+/************
+TOGGLE BUTTON
+*************/
+  .toggle-title{
+            background:#52C1AE;
+            padding: 4px;
+            margin-top: 2px;
+            margin-bottom: -10px;
+            color: #fff;
+            border-radius: 4px;
+            font-size:13px;
+            display:inline;
+        }
+   .toggle-title .fa-2x{
+    font-size:18px;
+   }
+   #sidebar-toggle{
+            display:inline; margin-top:8px !important;
+            margin-left:8px;
+        }
+      
+        #toggle-icon{
+            margin-top: 1px;
+        }
+        #toggle-icon .btn{
+            padding: 3px 9px;
+        }
+            .mobile-search{display:inline;float:left;width:100%;margin:0 auto;}
+        .mobile-search #Search_Term{width:100%;}
+        .mobile-search .input-group{
+            width:94%;
+        }
+        
+        div#container{margin-top:33px !important;}
+        .mobile-search{margin-top:20px !important;}
+        .desktop-search{display:none;}
+}
+/************/
+.caret{
+margin-top:-15px;
+}
