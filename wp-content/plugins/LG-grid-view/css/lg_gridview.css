@@ -36,9 +36,9 @@ box-shadow: 0 0 25px rgba(0,0,0,0.06);
 margin-bottom: 0px;
 margin-top:4px;
 background:#EBEBEB;
-/*border-top-left-radius: 0px;
-border-top-right-radius: 0px;*/
-/*border-radius:8px;*/
+border-top-left-radius: 0px!important;
+border-top-right-radius: 0px!important;
+border-radius:8px;
 }
 .entry a{color:#666}
 
@@ -349,11 +349,11 @@ text-align: center;
     z-index:50;
     
 }
-/*.item{
-    width: 100%;
-color: #222;
+.item{
+/*    width: 100%;
+color: #222;*/
 border-radius:8px;
-}*/
+}
 
 
 inactivepost{position:relative;}
@@ -379,8 +379,8 @@ inactivepost{position:relative;}
     text-align: center;
     border-top:1px solid #e0e0e0;
     border-bottom:1px solid #e0e0e0;
-/*    border-top-right-radius: 8px;
-border-top-left-radius: 8px;*/
+    border-top-right-radius: 8px;
+border-top-left-radius: 8px;
 }
 
 .activepost .post_image{height:auto;}
