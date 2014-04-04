@@ -153,21 +153,21 @@ li.current-menu-item.inspire-menu a{color:#fff !important;background:rgb(238, 18
 /*
 BUTTON TEXT COLOUR
 */
-/*li.inspire-menu a {color: rgb(238, 186, 56)!important;}
+li.inspire-menu a {color: rgb(238, 186, 56)!important;}
 li.travel-menu a {color: rgb(87, 189, 87) !important;}
 li.we-menu a {color:  rgb(228, 104, 228) !important;}
 li.job-menu a{color:rgba(255, 134, 39, 1)!important;}
-li.course-menu a{color:rgb(23, 171, 255) !important;}*/
-.navbar-inverse .navbar-nav > li > a{}
+li.course-menu a{color:rgb(23, 171, 255) !important;}
+.navbar-inverse .navbar-nav > li > a{height:60px !important;}
 /*
 BUTTON TRIM COLOURS
 */
-/*.we-menu{border-top:3px solid rgb(228, 104, 228) !important;}
+.we-menu{border-top:3px solid rgb(228, 104, 228) !important;}
 .job-menu{border-top:3px solid rgba(255, 134, 39, 1)!important;}
 .home-menu{border-top:3px solid #52C1AE!important;}
 .course-menu{border-top:3px solid rgb(23, 171, 255) !important;}
 .travel-menu{border-top:3px solid rgb(87, 189, 87) !important;}
-.inspire-menu{border-top:3px solid rgb(238, 186, 56)!important;}*/
+.inspire-menu{border-top:3px solid rgb(238, 186, 56)!important;}
 
 
 /*
