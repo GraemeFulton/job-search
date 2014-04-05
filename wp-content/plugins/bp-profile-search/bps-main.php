@@ -2,16 +2,11 @@
 /*
 Plugin Name: BP Profile Search
 Plugin URI: http://www.dontdream.it/bp-profile-search/
-Description: Search BuddyPress Members Directory.
-Version: 3.5.6
+Description: Search your BuddyPress Members Directory.
+Version: 3.6
 Author: Andrea Tarantini
 Author URI: http://www.dontdream.it/
 */
-
-global $bps_globals;
-$bps_globals = new stdClass;
-$bps_globals->plugin = 'BP Profile Search';
-$bps_globals->version = '3.5.6';
 
 include 'bps-functions.php';
 
@@ -24,6 +19,14 @@ function bps_translate ()
 register_activation_hook (__FILE__, 'bps_activate');
 function bps_activate ()
 {
+	global $bps_options;
+
+	bps_init ();
+	if (isset ($bps_options['version']) && version_compare ($bps_options['version'], '3.6', 'ge'))  return true;
+
+	bps_init_form ();
+	bps_active_for_network ()? update_site_option ('bps_options', $bps_options): update_option ('bps_options', $bps_options);
+
 	return true;
 }
 
@@ -59,7 +62,9 @@ function bps_admin_url ($tab=false)
 add_action (bps_active_for_network ()? 'network_admin_menu': 'admin_menu', 'bps_add_pages', 20);
 function bps_add_pages ()
 {
-	add_submenu_page ('users.php', __('Profile Search Setup', 'bps'), __('Profile Search', 'bps'), 'manage_options', 'bp-profile-search', 'bps_admin');
+	$page = add_submenu_page ('users.php', __('Profile Search', 'bps'), __('Profile Search', 'bps'), 'manage_options', 'bp-profile-search', 'bps_admin');
+	add_action ('load-'. $page, 'bps_help');
+	add_action ('load-'. $page, 'bps_admin_js');
 
 	return true;
 }
@@ -79,17 +84,16 @@ function bps_init_form ()
 {
 	global $bps_options;
 
+	$bps_options = array ();
+	$bps_options['version'] = '3.6';
+	$bps_options['field_name'] = array ();
+	$bps_options['field_label'] = array ();
+	$bps_options['field_desc'] = array ();
+	$bps_options['field_range'] = array ();
+	$bps_options['directory'] = 'No';
 	$bps_options['header'] = __('<h4>Advanced Search</h4>', 'bps');
 	$bps_options['show'] = array ('Enabled');
 	$bps_options['message'] = __('Toggle Form', 'bps');
-	$bps_options['fields'] = array ();
-	$bps_options['numrange'] = 0;
-	$bps_options['numlabel'] = __('Value Range', 'bps');
-	$bps_options['numdesc'] = __('minimum and maximum value', 'bps');
-	$bps_options['agerange'] = 0;
-	$bps_options['agelabel'] = __('Age Range', 'bps');
-	$bps_options['agedesc'] = __('minimum and maximum age', 'bps');
-	$bps_options['directory'] = 'No';
 	$bps_options['searchmode'] = 'Partial Match';
 
 	return true;
@@ -98,15 +102,11 @@ function bps_init_form ()
 function bps_admin ()
 {
 	$tabs = array ('main' => __('Form Configuration', 'bps'), 'options' => __('Advanced Options', 'bps'));
-
-	$tab = $_GET['tab'];
-	if (empty ($tab) || !isset ($tabs[$tab]))  $tab = 'main';
+	$tab = (isset ($_GET['tab']) && isset ($tabs[$_GET['tab']]))? $_GET['tab']: 'main';
 ?>
 
 <div class="wrap">
-  <?php screen_icon (); ?>
-
-  <h2><?php _e('Profile Search Setup', 'bps'); ?></h2>
+  <h2><?php _e('Profile Search', 'bps'); ?></h2>
 
   <ul class="subsubsub">
 <?php
@@ -127,93 +127,60 @@ function bps_admin ()
 ?>
 </div>
 <?php
+	global $wpdb;
 }
 
 function bps_admin_main ()
 {
 	global $bps_options;
 
-	if ($_POST['action'] == 'update')
-		$message = bps_update_form (array ('header', 'show', 'message', 'fields', 'numrange', 'numlabel', 'numdesc', 'agerange', 'agelabel', 'agedesc', 'directory'));
+	if (isset ($_POST['action']) && $_POST['action'] == 'update')
+	{
+		bps_update_fields ();
+		$message = bps_update_form (array ('directory', 'header', 'message'), array ('show'));
+	}	
 ?>
 
-<?php if ($message) : ?>
+<?php if (isset ($message)) : ?>
   <div id="message" class="updated fade"><p><?php echo $message; ?></p></div>
 <?php endif; ?>
 
   <form method="post" action="<?php echo bps_admin_url ('main'); ?>">
 	<?php wp_nonce_field ('bps_admin_main'); ?>
 	<input type="hidden" name="action" value="update" />
-	
-	<h3><?php _e('Form Header and Fields', 'bps'); ?></h3>
 
-	<p><?php _e('Select the header text and the profile fields to include in your search form.', 'bps'); ?></p>
+	<h3><?php _e('Form Fields', 'bps'); ?></h3>
+
 	<p>
-	<?php _e('After you configure your form, you can display it:', 'bps'); ?>
-	<ul>
-	<li><?php _e('a) In your Members Directory page, selecting the relevant option below', 'bps'); ?></li>
-	<li><?php printf (__('b) In a sidebar or widget area, using the %s widget', 'bps'), '<em>'. __('BP Profile Search', 'bps'). '</em>'); ?></li>
-	<li><?php printf (__('c) In a post or page, using the shortcode %s', 'bps'), '<strong>[bp_profile_search_form]</strong>'); ?></li>
-	</ul>
-	<?php _e('Please note that the Form Header and the Toggle Form feature apply to case a) only.', 'bps'); ?>
+	<?php _e('Select the profile fields to show in your search form.', 'bps'); ?>
+	<?php _e('Click the <em>Help</em> tab for more information.', 'bps'); ?>
 	</p>
-	<p><?php _e('<a href="http://dontdream.it/bp-profile-search/">See the plugin documentation</a> for more detailed instructions.', 'bps'); ?></p>
 
 	<table class="form-table">
+	<tr valign="top"><th scope="row"><?php _e('Form Fields:', 'bps'); ?></th><td>
+		<?php bps_form_fields (); ?>
+	</td></tr>
+	</table>
+
+	<h3><?php _e('Add to Directory', 'bps'); ?></h3>
+
+	<p><?php _e('Insert your search form in your Members Directory page.', 'bps'); ?></p>
+
+	<table class="form-table">
+	<tr valign="top"><th scope="row"><?php _e('Add to Directory:', 'bps'); ?></th><td>
+	<fieldset>
+		<label><input type="radio" name="bps_options[directory]" value="Yes"<?php if ('Yes' == $bps_options['directory']) echo ' checked="checked"'; ?> /> <span><?php _e('Yes', 'bps'); ?></span></label><br />
+		<label><input type="radio" name="bps_options[directory]" value="No"<?php if ('No' == $bps_options['directory']) echo ' checked="checked"'; ?> /> <span><?php _e('No', 'bps'); ?></span></label><br />
+	</fieldset>
+	</td></tr>
 	<tr valign="top"><th scope="row"><?php _e('Form Header:', 'bps'); ?></th><td>
 		<textarea name="bps_options[header]" class="large-text code" rows="4"><?php echo $bps_options['header']; ?></textarea>
 	</td></tr>
 	<tr valign="top"><th scope="row"><?php _e('Toggle Form:', 'bps'); ?></th><td>
-		<label><input type="checkbox" name="bps_options[show][]" value="Enabled"<?php if (in_array ('Enabled', (array)$bps_options['show'])) echo ' checked="checked"'; ?> /> <?php _e('Enabled', 'bps'); ?></label><br />
+		<label><input type="checkbox" name="bps_options[show][]" value="Enabled"<?php if (in_array ('Enabled', $bps_options['show'])) echo ' checked="checked"'; ?> /> <?php _e('Enabled', 'bps'); ?></label><br />
 	</td></tr>
-	<tr valign="top"><th scope="row"><?php _e('Toggle Form Message:', 'bps'); ?></th><td>
+	<tr valign="top"><th scope="row"><?php _e('Toggle Form Button:', 'bps'); ?></th><td>
 		<input type="text" name="bps_options[message]" value="<?php echo $bps_options['message']; ?>"  />
-	</td></tr>
-	<tr valign="top"><th scope="row"><?php _e('Selected Profile Fields:', 'bps'); ?></th><td>
-		<?php bps_fields ('bps_options[fields]', $bps_options['fields']); ?>
-	</td></tr>
-	</table>
-	
-	<h3><?php _e('Value Range Search', 'bps'); ?></h3>
-
-	<p><?php _e('If user profiles include a numeric field, you can enable the Value Range Search option. To enable, select the numeric field below.', 'bps'); ?></p>
-
-	<table class="form-table">
-	<tr valign="top"><th scope="row"><?php _e('Numeric Field:', 'bps'); ?></th><td>
-		<?php bps_numrange ('bps_options[numrange]', $bps_options['numrange']); ?>
-	</td></tr>
-	<tr valign="top"><th scope="row"><?php _e('Field Label:', 'bps'); ?></th><td>
-		<input type="text" name="bps_options[numlabel]" value="<?php echo $bps_options['numlabel']; ?>"  />
-	</td></tr>
-	<tr valign="top"><th scope="row"><?php _e('Field Description:', 'bps'); ?></th><td>
-		<input type="text" name="bps_options[numdesc]" value="<?php echo $bps_options['numdesc']; ?>" class="large-text" />
-	</td></tr>
-	</table>
-	
-	<h3><?php _e('Age Range Search', 'bps'); ?></h3>
-
-	<p><?php _e('If user profiles include a birth date field, you can enable the Age Range Search option. To enable, select the birth date field below.', 'bps'); ?></p>
-
-	<table class="form-table">
-	<tr valign="top"><th scope="row"><?php _e('Birth Date Field:', 'bps'); ?></th><td>
-		<?php bps_agerange ('bps_options[agerange]', $bps_options['agerange']); ?>
-	</td></tr>
-	<tr valign="top"><th scope="row"><?php _e('Field Label:', 'bps'); ?></th><td>
-		<input type="text" name="bps_options[agelabel]" value="<?php echo $bps_options['agelabel']; ?>"  />
-	</td></tr>
-	<tr valign="top"><th scope="row"><?php _e('Field Description:', 'bps'); ?></th><td>
-		<input type="text" name="bps_options[agedesc]" value="<?php echo $bps_options['agedesc']; ?>" class="large-text" />
-	</td></tr>
-	</table>
-	
-	<h3><?php _e('Add to Members Directory page', 'bps'); ?></h3>
-
-	<p><?php _e('Automatically add your form to the Members Directory page.', 'bps'); ?></p>
-
-	<table class="form-table">
-	<tr valign="top"><th scope="row"><?php _e('Add to Members Directory:', 'bps'); ?></th><td>
-		<label><input type="radio" name="bps_options[directory]" value="Yes"<?php if ('Yes' == $bps_options['directory']) echo ' checked="checked"'; ?> /> <?php _e('Yes', 'bps'); ?></label><br />
-		<label><input type="radio" name="bps_options[directory]" value="No"<?php if ('No' == $bps_options['directory']) echo ' checked="checked"'; ?> /> <?php _e('No', 'bps'); ?></label><br />
 	</td></tr>
 	</table>
 
@@ -229,11 +196,11 @@ function bps_admin_options ()
 {
 	global $bps_options;
 
-	if ($_POST['action'] == 'update')
-		$message = bps_update_form (array ('searchmode'));
+	if (isset ($_POST['action']) && $_POST['action'] == 'update')
+		$message = bps_update_form (array ('searchmode'), array ());
 ?>
 
-<?php if ($message) : ?>
+<?php if (isset ($message)) : ?>
   <div id="message" class="updated fade"><p><?php echo $message; ?></p></div>
 <?php endif; ?>
 
@@ -243,12 +210,17 @@ function bps_admin_options ()
 	
 	<h3><?php _e('Text Search Mode', 'bps'); ?></h3>
 
-	<p><?php _e('Select your text search mode here. Choose between partial match (a search for <em>John</em> matches <em>John</em>, <em>Johnson</em>, <em>Long John Silver</em>, and so on) and exact match (a search for <em>John</em> matches <em>John</em> only). In both modes the wildcard characters <em>% (percent sign)</em>, matching zero or more characters, and <em>_ (underscore)</em>, matching exactly one character, may be used.', 'bps'); ?></p>
+	<p>
+	<?php _e('Select your text search mode.', 'bps'); ?>
+	<?php _e('Click the <em>Help</em> tab for more information.', 'bps'); ?>
+	</p>
 
 	<table class="form-table">
 	<tr valign="top"><th scope="row"><?php _e('Text Search Mode:', 'bps'); ?></th><td>
-		<label><input type="radio" name="bps_options[searchmode]" value="Partial Match"<?php if ('Partial Match' == $bps_options['searchmode']) echo ' checked="checked"'; ?> /> <?php _e('Partial Match', 'bps'); ?></label><br />
-		<label><input type="radio" name="bps_options[searchmode]" value="Exact Match"<?php if ('Exact Match' == $bps_options['searchmode']) echo ' checked="checked"'; ?> /> <?php _e('Exact Match', 'bps'); ?></label><br />
+	<fieldset>
+		<label><input type="radio" name="bps_options[searchmode]" value="Partial Match"<?php if ('Partial Match' == $bps_options['searchmode']) echo ' checked="checked"'; ?> /> <span><?php _e('Partial Match', 'bps'); ?></span></label><br />
+		<label><input type="radio" name="bps_options[searchmode]" value="Exact Match"<?php if ('Exact Match' == $bps_options['searchmode']) echo ' checked="checked"'; ?> /> <span><?php _e('Exact Match', 'bps'); ?></span></label><br />
+	</fieldset>
 	</td></tr>
 	</table>
 
@@ -260,12 +232,18 @@ function bps_admin_options ()
 <?php
 }
 
-function bps_update_form ($vars)
+function bps_update_form ($vars, $arrays)
 {
 	global $bps_options;
 
 	foreach ($vars as $var)
-		$bps_options[$var] = stripslashes_deep ($_POST['bps_options'][$var]);
+		$bps_options[$var] = stripslashes ($_POST['bps_options'][$var]);
+
+	foreach ($arrays as $array)
+		if (isset ($_POST['bps_options'][$array]))
+			$bps_options[$array] = stripslashes_deep ($_POST['bps_options'][$array]);
+		else
+			$bps_options[$array] = array ();
 
 	bps_active_for_network ()? update_site_option ('bps_options', $bps_options): update_option ('bps_options', $bps_options);
 
