@@ -4,7 +4,7 @@ require( '../../../wp-load.php' );
 
 class Job
 {
-    
+   
     /*
      * protected properties - single values
      */
@@ -103,8 +103,7 @@ class Job
 //                $job_location,
 //                array( '%d', '%s', '%s' )
 //            );
-            
-           
+          
             $this->setObjectTerms($last_insert_id);
   }
   
@@ -136,23 +135,31 @@ class Job
   public function isJobRecorded($wpdb)
   {
       
-        $sql = "SELECT * FROM wp_postmeta where meta_key='wpcf-job-url' and meta_value='%s'";
-       $query = $wpdb->prepare($sql, $this->job_url);
-                
-	$recorded = $wpdb->get_var($query); 
-        
-        if($recorded)
-        {
-            return $recorded;
-        } 
-        else{
+//        $sql = "SELECT * FROM wp_postmeta where meta_key='wpcf-job-url' and meta_value='%s'";
+//       $query = $wpdb->prepare($sql, $this->job_url);
+//                
+//	$recorded = $wpdb->get_var($query); 
+//        
+//        if($recorded)
+//        {            
+//              return true;
+//        } 
+//        else{
             
             $sql = "SELECT ID FROM wp_posts WHERE post_content LIKE '%s'";
-            $query = $wpdb->prepare($sql, $this->job_desc);
+            $query = $wpdb->prepare($sql, "%".$this->job_desc."%");
 
-            return $recorded = $wpdb->get_var($query);
+            $recorded = $wpdb->get_var($query);
             
-        }
+              if($recorded)
+              {            
+              return true;
+             }
+             else{
+                 return false;
+             }
+            
+     //   }
       
       
   }

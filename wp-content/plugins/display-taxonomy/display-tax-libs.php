@@ -539,6 +539,16 @@ class Display_Taxonomy{
     return $deepest_category;
         
     }
+     /*
+     * get subject field
+     */
+    public function grouped_taxonomy_slug($post_id){
+             
+    $category = wp_get_post_terms($post_id, $this->category_type_short, array("fields" => "slugs"));    
+    $deepest_category= end($category);
+    return $deepest_category;
+        
+    }
     
     
      /*
@@ -626,6 +636,12 @@ class Display_Taxonomy{
     return $image[0]; 
     
      }
+     //else get random category image
+     if($this->grouped_taxonomy_short=='company'){
+     $name= $this->grouped_taxonomy_slug($post_id);
+     $image= $this->get_random_image($name);
+     if($image!=null)return $image;
+     }
      
   //else use anything associated to the tag:
              
@@ -670,6 +686,52 @@ if($this->grouped_taxonomy_short!='company'){
         $dummy="http://localhost/LGWP/wp-content/uploads/post_images/dummy-job.png";
         return $dummy; 
     }
+    
+    	/**
+	 * Gets a random category header image
+	 *
+	 * @since 1.2
+	 * @author  WP Theme Tutorial, Curtis McHale
+	 * @access public
+	 *
+	 * @uses get_template_directory()		Returns the file path to the currently active parent theme
+	 * @uses $this->make_file_path_uri()	Turns the file path in to a URI for the image HTML
+	 */
+	private function get_random_image($name){
+                
+                $path = plugin_dir_path( __FILE__ )."images/random/".$name."/";
+
+		$images =  glob( $path . '*.{jpg}', GLOB_BRACE );
+
+		$random_image = $images[ array_rand( $images ) ];
+
+		$random_image = $this->make_file_path_uri( $name, $random_image );
+
+		return $random_image;
+
+	} // get_random_image
+    
+    /**
+	 * Changes a filepath in to a URI
+	 *
+	 * @param   string  $file_path  req     The filepath for our image
+	 * @return  string  $uri                The URI determined from the provided filepath
+	 *
+	 * @uses pathinfo()                         Returns array of information about our filepath
+	 * @uses get_stylesheet_directory_uri()     Returns the URI for the stylesheet director
+	 */
+	private function make_file_path_uri( $name,$file_path ){
+
+		$path_info = pathinfo( $file_path );
+
+                if($path_info["basename"]!=''){
+		$uri = plugins_url()."/display-taxonomy/images/random/".$name."/". $path_info["basename"];
+                
+		return $uri;
+                }
+                else return null;
+	} // make_file_path_uri
+
     
     
     public function show_embedded_video($post_id){

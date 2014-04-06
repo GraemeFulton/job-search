@@ -6,6 +6,11 @@ protected $post_type;
 protected $post_type_meta;
 protected $post_type_taxonomy;
 
+    private $File = "job_output.txt"; 
+    private $Handle;
+    private $data="";
+
+
 public function Setup($API, $initiativeURL, $category, $post_type, $post_type_meta, $post_type_taxonomy){
     
     $this->urlToScrape = $API;
@@ -15,6 +20,9 @@ public function Setup($API, $initiativeURL, $category, $post_type, $post_type_me
     $this->post_type_meta= $post_type_meta;
     $this->post_type_taxonomy = $post_type_taxonomy;
 
+            $this->Handle = fopen($this->File, 'a');       
+
+    
 }
     
 public function updateJobDetails
@@ -32,7 +40,8 @@ public function updateJobDetails
             $tags,
             $provider,
             $post_type,
-            $post_type_meta
+            $post_type_meta,
+            $publish_date
            )
   {
     
@@ -50,24 +59,29 @@ public function updateJobDetails
         //if the course already exists, just break here
        $exists= $job->isJobRecorded($wpdb);					
         
-       if (!$exists) 
+       if ($exists==false) 
        {
         //otherwise carry on, and populate database:
-            $imageURL= $this->getImageURL($jobimage);
+            //$imageURL= $this->getImageURL($jobimage);
+           $imageURL="";
 
         //post content requires as much detail as possible, for accurate searches
         $post_content=$job_desc.$this->build_additional_content($employer_name, $location, $profession, $provider);
         
-            
+       
             //add to database:
-            $this->submitPost($wpdb, $job_title, $post_content,$job_exerpt, $imageURL, $tags,$this->post_type, $job);
+            $this->submitPost($wpdb, $job_title, $post_content,$job_exerpt, $imageURL, $tags,$this->post_type, $job, $publish_date);
 
             $job->addJob($wpdb,$this->last_insert_id); 
              echo "<h4 style='color:green;'> Job Inserted</h4>";       
+             
+               $this->data.="job inserted \n";
+            fwrite($this->Handle, $this->data); 
        }
-       else
-       echo "<p style='color:red;'>Job: '".$job_title." | ".$employer_name."' already exists!</p><hr>";
-    
+       else{
+        $this->data.="job rejected \n";
+            fwrite($this->Handle, $this->data); ;
+       }
     
   }
     
