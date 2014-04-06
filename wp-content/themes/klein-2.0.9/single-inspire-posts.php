@@ -41,7 +41,7 @@ get_header(); ?>
 	</div>
 	<div id="secondary" class="widget-area col-md-4 col-sm-4" role="complementary">
 		<?php 
-                $popup->template_response('t');
+                $popup->template_response('table');
 
                 get_sidebar(); ?>
 	</div>

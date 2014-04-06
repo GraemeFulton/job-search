@@ -18,19 +18,23 @@ public function Setup($API, $initiativeURL, $category){
 
 public abstract function getArray();
 
-public abstract function scrape($wpdb);    
+public abstract function scrape($wpdb, $feed_type);    
     
   
-public function submitPost($wpdb, $post_title, $content,$excerpt,$photo, $tags, $post_type, $entity)
+public function submitPost($wpdb, $post_title, $content,$excerpt,$photo, $tags, $post_type, $entity, $publish_date)
 {        
 
-    
+          if($publish_date==""){
+              
+              $publish_date = date('Y-m-d H:i:s');
+              
+          }
           $slug = $this->sluggify($post_title);
         
            $post = array(
            'post_author' => 1,
-           'post_date' => date('Y-m-d H:i:s'),
-           'post_date_gmt' => date('Y-m-d H:i:s'),
+           'post_date' => $publish_date,
+           'post_date_gmt' => $publish_date,
            'post_content' => $content,
            'post_title' => $post_title,
            'post_name' => $slug,
@@ -38,8 +42,8 @@ public function submitPost($wpdb, $post_title, $content,$excerpt,$photo, $tags, 
            'post_status' => 'publish',
            'comment_status' => 'open',
            'ping_status' => 'open',
-           'post_modified' => date('Y-m-d H:i:s'),
-           'post_modified_gmt' => date('Y-m-d H:i:s'),
+           'post_modified' =>$publish_date,
+           'post_modified_gmt' =>$publish_date,
            'post_parent' => 0,
            'post_type' => $post_type,
            'comment_count' => 0
@@ -80,6 +84,10 @@ public function checkPostExists($wpdb,$post_title){
  * inserts an image for the post
  */
 public function insert_post_image($wpdb, $image_title, $photoUrl, $entity){
+    
+    if ($photoUrl=="")
+        return false;
+    
       $LOCALPATH= "/var/www/LGWP/wp-content/uploads/post_images/";
       $URLPATH ="http://localhost/LGWP/wp-content/uploads/post_images/";
     

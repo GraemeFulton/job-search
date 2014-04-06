@@ -4,11 +4,23 @@ require "./IndeedScraper.class.php";
 
 Class Indeed_Post_Gen{
    
+//      private $cities=array( "",
+//          "Aberdeen","Bath","Belfast","Birmingham","Bournemouth","Bradford","Brighton","Bristol","Cambridge","Cardiff"
+//       ,"Chester","Coventry","Derby","Derry","Dundee","Edinburgh","Essex","Exeter","Falkirk"
+//       ,"Gateshead","Glasgow","Gloucestershire","Hull","Ipswich","Jersey","Leeds","Leicester","Lincolnshire"
+//       ,"Liverpool","London","Kent","Manchester","Milton Keynes"
+//       ,"Newcastle","Northampton","Norwich","Nottingham","Oxford","Peterborough","Plymouth","Portsmouth","Preston","Lancashire"
+//        ,"Reading","Sheffield","Southampton","Stoke","Surrey","Swansea","Swindon","Teesside","Watford","Wolverhampton"
+//       ,"Worcestershire","York"
+//       );
+    
     protected $job_type;
     protected $job_type_search_terms;
     protected $job_type_taxonomy;
     protected $page_type;
     protected $wpdb;
+    private $feed_type='RSS';
+    
     
   public function __construct($job_type, $job_type_search_terms, $job_type_taxonomy, $page_type)
     {
@@ -26,7 +38,7 @@ private function connect_database(){
     
   $DB_USER= 'root';
   $DB_NAME='lgwp';
-  $DB_PASS='Jinkstron3042';
+  $DB_PASS='jinkster2312';
   $DB_HOST='localhost';
   //set class database connection
   $this->wpdb= new wpdb( $DB_USER, $DB_PASS, $DB_NAME, $DB_HOST);
@@ -57,31 +69,32 @@ private function gather_category_terms(){
 
 
 /*
- * perform_scrape 
+ * perform_scrape - Scrapes by category
  * loops through each category provided, and performs a scrape
  */
   private function perform_scrape($categories){
-             
-         if (!$categories){echo '<p style="background:#eaeaea;">No tags to search for.</p><hr>'; return;}
+      
+         if (!$categories){return;}
          
          foreach($categories as $category)
-         {  
-            echo '<li>'.$category->name.'<br>';//indeed search terms
-            echo '<br>Search String: '.$search_term=  (str_replace(' ', '%20', $category->name));
-                        
-            $API= $this->build_search_string($category);
-            if ($API){
-                echo '<p style="background:#FDFFC2;">API Search: '.$API.'</p><hr>';
-
+         {   
+             $city='';
+//            foreach($this->cities as $city){
+             
+                $API= $this->build_search_string($category, $city, $this->feed_type);
+               if ($API){
                 //do the api search!
                 $initiativeURL='http://www.indeed.com';  
 
                 $scraper = new IndeedScraper();
                 $scraper->Setup($API, $initiativeURL, $category->name, $this->page_type, $this->job_type, $this->job_type_taxonomy);
-                $scraper->scrape($this->wpdb);            
-            }
-         }   
-             
+                $scraper->scrape($this->wpdb, $this->feed_type);  
+                
+                }//do scrape (if api exists)
+         
+//            }//foreach city
+            
+         }//foreach category    
    }
    
    
@@ -91,8 +104,15 @@ private function gather_category_terms(){
     *@param: search_term - takes a search term from the perform_scrape loop
     *@return: API - returns an api search string formatted depending on search term 
     */
-   private function build_search_string($category){
+   private function build_search_string($category, $city){
        
+       $feed_url='';
+       if($this->feed_type=='API'){
+          $feed_url = 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&co=gb&userip=1.2.3.4&v=2&l='.$city.'&';           
+       }
+       elseif($this->feed_type=='RSS'){
+          $feed_url = 'http://indeed.co.uk/rss?l='.$city.'&';           
+       }
             //string manipulation to create title and search
             $category_no_space= str_replace(' ', '+', $category->description);
             $category_indeed_format= str_replace(',', '+or', $category_no_space);
@@ -101,24 +121,21 @@ private function gather_category_terms(){
             //title and search
             $title= substr($chunks[0], 0, -1);//remove trailing +
             $search= substr($chunks[1], 1);//remove +from beginning
-            
+            echo 'SEARCH: '.$search;
             //get rid of all parents (they dont have search chunk)
-           
-            echo '<br><b>Title</b>: '.$title.' <b>Search</b>: '.$search.'<br>';
-       
+                  
                     //if graduate jobs
                   if($this->job_type=='Graduate Scheme'){
 
                       $withTitle="title%3A((".$title.")+(".$this->job_type_search_terms."))";
-                     return $API= 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q='.$withTitle.'&co=gb&userip=1.2.3.4&v=2';//st=employer'; 
-
-
+                      
+                      return $API=$feed_url.'&q='.$withTitle;//st=employer'; 
+                      
                   }
                   
                   //if entry level
                   elseif($this->job_type=='Entry Level'){
                      
-                                                      echo "<h1>read".$category->name."</h1>";
                        //in entry level, skip over engineering cos it doesnt work well
                       if (strpos($category->name,'Civil') !== false ||
                              strpos($category->name,'Electrical') !== false  ||
@@ -127,36 +144,35 @@ private function gather_category_terms(){
                              strpos($category->name,'Energy') !== false
 
                               ) {
-                          
-                          echo "Ignoring ".$category->name."<br>";
-                          
+                                                    
                         return;
                         }
                         ///////////////////////////////////////////////////////////////
-                      elseif ($search!==''){
-                            $withTitle="title%3A((".$search.")+(".$this->job_type_search_terms."))";//put search term in title
-                           return $API= 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q='."+".$withTitle.'&co=gb&userip=1.2.3.4&v=2&st=employer'; 
-                        }
+                     // elseif ($search!==''){
+                       //     $withTitle="title%3A((".$search.")+(".$this->job_type_search_terms."))";//put search term in title
+                        $withTitle="title%3A((".$search.")+(".$this->job_type_search_terms."))";//put search term in title
+                           return $API= $feed_url.'q='."+".$withTitle;//.'&st=employer'; 
+                      //  }
                   }
                   
                   elseif($this->job_type=='Internship'){
 
                       $withTitle="title%3A((".$title.")+(".$this->job_type_search_terms."))";
-                     return $API= 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q='.$withTitle.'&co=gb&userip=1.2.3.4&v=2';//st=employer'; 
+                     return $API= $feed_url.'q='.$withTitle;//st=employer'; 
 
                   }
                   
                   elseif($this->job_type=='Volunteer'){
 
                       $withTitle="title%3A((".$title.")+(".$this->job_type_search_terms."))";
-                     return $API= 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q='.$withTitle.'&co=gb&userip=1.2.3.4&v=2';//st=employer'; 
+                     return $API= $feed_url.'q='.$withTitle;//st=employer'; 
 
                   }
                   
                      elseif($this->job_type=='Student Jobs'){
 
                       $withTitle="title%3A((".$title.")+(".$this->job_type_search_terms."))";
-                     return $API= 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&q='.$withTitle.'&co=gb&userip=1.2.3.4&v=2';//st=employer'; 
+                     return $API= $feed_url.'q='.$withTitle;//st=employer'; 
 
                   }
                   
