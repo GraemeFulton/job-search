@@ -636,13 +636,7 @@ class Display_Taxonomy{
     return $image[0]; 
     
      }
-     //else get random category image
-     if($this->grouped_taxonomy_short=='company'){
-     $name= $this->grouped_taxonomy_slug($post_id);
-     $image= $this->get_random_image($name);
-     if($image!=null)return $image;
-     }
-     
+         
   //else use anything associated to the tag:
              
          $term_id = wp_get_post_terms($post_id, $this->grouped_taxonomy_short, array("fields" => "ids"));
@@ -661,6 +655,12 @@ if($this->grouped_taxonomy_short!='company'){
           return $pic;
         }
 }
+ //else get random category image
+     if($this->grouped_taxonomy_short=='company'){
+     $name= $this->grouped_taxonomy_slug($post_id);
+     $image= $this->get_random_image($name);
+     if($image!=null)return $image;
+     }
            
  //else use the category (accounting image):
         if($this->grouped_taxonomy_short=='company'){
