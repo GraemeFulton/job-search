@@ -16,6 +16,7 @@ class Job
     protected $job_profession="";
     protected $job_desc=""; //used for existance check
     protected $job_type="";
+    protected $post_date='';
     
     /*protected properties - taxonomies
      * 
@@ -146,8 +147,8 @@ class Job
 //        } 
 //        else{
             
-            $sql = "SELECT ID FROM wp_posts WHERE post_content LIKE '%s'";
-            $query = $wpdb->prepare($sql, "%".$this->job_desc."%");
+            $sql = "SELECT ID FROM wp_posts WHERE post_content LIKE '%s' AND post_date LIKE '%s'";
+            $query = $wpdb->prepare($sql, "%".$this->job_desc."%", "%".$this->post_date."%");
 
             $recorded = $wpdb->get_var($query);
             

@@ -1,4 +1,5 @@
  <?php
+//require('config.php');
 
 abstract Class ScraperAbstract{
 
@@ -6,6 +7,8 @@ protected $urlToScrape;
 protected $initiativeURL;   
 protected $last_insert_id;
 protected $category;
+protected $wpdb;
+
 
 public function Setup($API, $initiativeURL, $category){
     
@@ -15,11 +18,17 @@ public function Setup($API, $initiativeURL, $category){
 
 }
 
-
 public abstract function getArray();
 
 public abstract function scrape($wpdb, $feed_type);    
+
+public function connectToDatabase(){
     
+    $connector = new Database_Connect();
+    $this->wpdb = $connector->connect_database();
+    
+}
+
   
 public function submitPost($wpdb, $post_title, $content,$excerpt,$photo, $tags, $post_type, $entity, $publish_date)
 {        

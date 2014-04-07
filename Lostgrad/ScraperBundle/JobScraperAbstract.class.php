@@ -55,6 +55,7 @@ public function updateJobDetails
         $job->job_profession=$profession;
         $job->job_type = $post_type_meta;
         $job->job_type_taxonomy = $this->post_type_taxonomy;
+        $job->post_date = $publish_date;
         
         //if the course already exists, just break here
        $exists= $job->isJobRecorded($wpdb);					
