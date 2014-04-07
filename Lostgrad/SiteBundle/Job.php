@@ -1,6 +1,6 @@
 <?php
 //this is required to utilize wp_set_object_terms
-require( '../../../wp-load.php' );
+//require( '../../../wp-load.php' );
 
 class Job
 {
