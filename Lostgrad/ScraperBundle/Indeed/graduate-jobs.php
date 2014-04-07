@@ -1,16 +1,16 @@
 <?php
 #include hotaru
-//require "../../SiteBundle/Job.php";;
-//
-//# create and load the HTML
-//require "../ScraperAbstract.class.php"; 
-//require "../JobScraperAbstract.class.php";
-////require "./IndeedScraper.class.php";
-//require "./IndeedPostsGenerator.class.php";
+require "../../SiteBundle/Job.php";;
+
+# create and load the HTML
+require "../ScraperAbstract.class.php"; 
+require "../JobScraperAbstract.class.php";
+//require "./IndeedScraper.class.php";
+require "./IndeedPostsGenerator.class.php";
 
 
 define( 'SHORTINIT', true );
-//require_once('../../../wp-load.php' );
+require_once('../../../wp-load.php' );
 ?>
 <html>
 <body>
