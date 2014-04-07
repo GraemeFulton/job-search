@@ -10,6 +10,8 @@ require "ScraperBundle/JobScraperAbstract.class.php";
 //require "./IndeedScraper.class.php";
 require "ScraperBundle/Indeed/IndeedPostsGenerator.class.php";
 
+require_once('../wp-load.php' );
+
 
 scrape('graduate_job', 'Graduate Scheme');
 scrape('graduate_job', 'Entry Level');
