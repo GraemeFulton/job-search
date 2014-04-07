@@ -1,6 +1,8 @@
 <?php
 require_once('../../../wp-load.php' );
 require "./IndeedScraper.class.php";
+require('../config.php');
+
 
 Class Indeed_Post_Gen{
    
@@ -18,9 +20,8 @@ Class Indeed_Post_Gen{
     protected $job_type_search_terms;
     protected $job_type_taxonomy;
     protected $page_type;
-    protected $wpdb;
     private $feed_type='RSS';
-    
+    protected $wpdb;
     
   public function __construct($job_type, $job_type_search_terms, $job_type_taxonomy, $page_type)
     {
@@ -36,12 +37,10 @@ Class Indeed_Post_Gen{
   
 private function connect_database(){
     
-  $DB_USER= 'root';
-  $DB_NAME='lgwp';
-  $DB_PASS='jinkster2312';
-  $DB_HOST='localhost';
+  $connector = new Database_Connect();
   //set class database connection
-  $this->wpdb= new wpdb( $DB_USER, $DB_PASS, $DB_NAME, $DB_HOST);
+ // $connector->ssh_connection();
+  $this->wpdb= $connector->connect_database();
     
 }
 

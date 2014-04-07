@@ -42,6 +42,16 @@ if(isset($_GET['action'])=='generatePosts') {
     
 }
 
+/*
+ * name= name of form
+ * value = value of form
+ */
+function scrape($name, $value){
+    
+    $_POST[$name]=$value;
+      $handler= new Form_Handler();
+    $handler->start_scraper();
+}
 
 Class Form_Handler{
 
