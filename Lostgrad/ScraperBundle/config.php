@@ -25,11 +25,15 @@ Class Database_Connect{
     
     public function connect_database(){
         
-
           $DB_USER= 'graylien89';
           $DB_NAME='lgwp';
           $DB_PASS='jinkstron3042';
           $DB_HOST='localhost';
+          
+//           $DB_USER= 'root';
+//          $DB_NAME='lgwp';
+//          $DB_PASS='jinkster2312';
+//          $DB_HOST='localhost';
            //set class database connection
           return new wpdb( $DB_USER, $DB_PASS, $DB_NAME, $DB_HOST);
           
