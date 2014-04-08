@@ -35,7 +35,7 @@ Author URI: http://twitter.com/salzano
                     echo '<image>'.$image.'</image>';
                     
                     //show job source
-                    $source = $job_tree->get_linked_taggroup_or_tag($this->post_id, '', ''); 
+                    $source = $job_tree->get_linked_taggroup_or_tag($post->ID, '', ''); 
                     if($source){
                       echo '<source>'.$source.'</source>';
                     }
@@ -47,7 +47,7 @@ Author URI: http://twitter.com/salzano
                     }
                     
                     //show profession
-                    $profession = $job_tree->grouped_taxonomy_name($post->ID);
+                  $profession = $job_tree->grouped_taxonomy_name($post->ID);
                     if ($profession){
                         echo '<profession>'.$profession.'</profession>';
                     }                    
