@@ -7,14 +7,14 @@ require('../config.php');
 Class Indeed_Post_Gen{
    
 //      private $cities=array( "",
-//          "Aberdeen","Bath","Belfast","Birmingham","Bournemouth","Bradford","Brighton","Bristol","Cambridge","Cardiff"
-//       ,"Chester","Coventry","Derby","Derry","Dundee","Edinburgh","Essex","Exeter","Falkirk"
-//       ,"Gateshead","Glasgow","Gloucestershire","Hull","Ipswich","Jersey","Leeds","Leicester","Lincolnshire"
-//       ,"Liverpool","London","Kent","Manchester","Milton Keynes"
-//       ,"Newcastle","Northampton","Norwich","Nottingham","Oxford","Peterborough","Plymouth","Portsmouth","Preston","Lancashire"
-//        ,"Reading","Sheffield","Southampton","Stoke","Surrey","Swansea","Swindon","Teesside","Watford","Wolverhampton"
-//       ,"Worcestershire","York"
-//       );
+  //        "Aberdeen","Bath","Belfast","Birmingham","Bournemouth","Bradford","Brighton","Bristol","Cambridge","Cardiff"
+    //   ,"Chester","Coventry","Derby","Derry","Dundee","Edinburgh","Essex","Exeter","Falkirk"
+ //      ,"Gateshead","Glasgow","Gloucestershire","Hull","Ipswich","Jersey","Leeds","Leicester","Lincolnshire"
+ //      ,"Liverpool","London","Kent","Manchester","Milton Keynes"
+ //      ,"Newcastle","Northampton","Norwich","Nottingham","Oxford","Peterborough","Plymouth","Portsmouth","Preston","Lancashire"
+ //       ,"Reading","Sheffield","Southampton","Stoke","Surrey","Swansea","Swindon","Teesside","Watford","Wolverhampton"
+ //      ,"Worcestershire","York"
+ //      );
     
     protected $job_type;
     protected $job_type_search_terms;
@@ -78,7 +78,7 @@ private function gather_category_terms(){
          foreach($categories as $category)
          {   
              $city='';
-//            foreach($this->cities as $city){
+   //         foreach($this->cities as $city){
              
                 $API= $this->build_search_string($category, $city, $this->feed_type);
                if ($API){
@@ -91,7 +91,7 @@ private function gather_category_terms(){
                 
                 }//do scrape (if api exists)
          
-//            }//foreach city
+     //       }//foreach city
             
          }//foreach category    
    }
