@@ -305,6 +305,8 @@ display:none;
     font-size:21px;
     margin-bottom:0px;
 }
+.posttitle a{
+color:#444 ;font-weight:normal;}
 
 .travel-opportunities .item{
     border-bottom:2px solid green;
@@ -553,3 +555,8 @@ color:#ffffff !important;
 .blog-content-excerpt.custom-tax-archive{
     width:auto !important;
 }
+#bp-klein-top-bar{
+background:#afafaf !important;
+}
+#footer{
+background:#949494!important;}
