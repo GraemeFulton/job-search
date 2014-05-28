@@ -15,12 +15,16 @@ Class Indeed_Post_Gen{
  //       ,"Reading","Sheffield","Southampton","Stoke","Surrey","Swansea","Swindon","Teesside","Watford","Wolverhampton"
  //      ,"Worcestershire","York"
  //      );
-    
+
+//regions
+private $cities=array("", ",North%20West", ",North%20East", ",Midlands", ",East%20Midlands", ",Eastern", ",Yorkshire", ",South%East", ",South%West", ",Scotland", ",Wales");
+  
+//private $cities = array(",Yorkshire", ",South%20East", ",South%20West");  
     protected $job_type;
     protected $job_type_search_terms;
     protected $job_type_taxonomy;
     protected $page_type;
-    private $feed_type='RSS';
+    private $feed_type='API';
     protected $wpdb;
     
   public function __construct($job_type, $job_type_search_terms, $job_type_taxonomy, $page_type)
@@ -77,8 +81,8 @@ private function gather_category_terms(){
          
          foreach($categories as $category)
          {   
-             $city='';
-   //         foreach($this->cities as $city){
+   //          $city='';
+            foreach($this->cities as $city){
              
                 $API= $this->build_search_string($category, $city, $this->feed_type);
                if ($API){
@@ -91,7 +95,7 @@ private function gather_category_terms(){
                 
                 }//do scrape (if api exists)
          
-     //       }//foreach city
+            }//foreach city
             
          }//foreach category    
    }
@@ -107,7 +111,7 @@ private function gather_category_terms(){
        
        $feed_url='';
        if($this->feed_type=='API'){
-          $feed_url = 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&co=gb&userip=1.2.3.4&v=2&l='.$city.'&';           
+          $feed_url = 'http://api.indeed.com/ads/apisearch?publisher=2878078796677777&co=gb&userip=1.2.3.4&v=2&limit=25&l='.$city.'&';           
        }
        elseif($this->feed_type=='RSS'){
           $feed_url = 'http://indeed.co.uk/rss?l='.$city.'&';           

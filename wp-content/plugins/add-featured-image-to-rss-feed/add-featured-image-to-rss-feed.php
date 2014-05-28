@@ -50,8 +50,7 @@ Author URI: http://twitter.com/salzano
                   $profession = $job_tree->grouped_taxonomy_name($post->ID);
                     if ($profession){
                         echo '<profession>'.$profession.'</profession>';
-                    }                    
-                    
+                    }
                     
                 }
                 

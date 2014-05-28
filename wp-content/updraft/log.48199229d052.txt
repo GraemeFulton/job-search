@@ -1,0 +1,603 @@
+0000.003 (0) Opened log file at time: Mon, 14 Apr 2014 07:10:34 +0000 on http://lostgrad.com
+0000.015 (0) UpdraftPlus WordPress backup plugin (http://updraftplus.com): 1.9.0 WP: 3.8.1 PHP: 5.5.3-1ubuntu2.1 (Linux lostgrad 3.11.0-12-generic #19-Ubuntu SMP Wed Oct 9 16:20:46 UTC 2013 x86_64) MySQL: 5.5.35-0ubuntu0.13.10.2 Server: Apache/2.4.6 (Ubuntu) safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 9M | 10M) multisite: N mcrypt: N ZipArchive::addFile: Y W3TC/ObjectCache: N
+0000.019 (0) Free space on disk containing Updraft's temporary directory: 25996.7 Mb
+0000.027 (0) Tasks: Backup files: 1 (schedule: manual) Backup DB: 1 (schedule: manual)
+0000.036 (0) Requesting semaphore lock (fd)
+0000.070 (0) Set semaphore last lock (fd) time to 2014-04-14 07:10:35
+0000.074 (0) Semaphore lock (fd) complete
+0000.135 (0) Backup run: resumption=0, nonce=48199229d052, begun at=1397459434 (1s ago), job type=backup
+0000.147 (0) Scheduling a resumption (1) after 300 seconds (1397459735) in case this run gets aborted
+0000.158 (0) Checking if we have a zip executable available
+0000.179 (0) Creation of backups of directories: beginning
+0000.207 (0) Beginning creation of dump of plugins (split every: 800 Mb)
+0000.499 (0) Total entities for the zip file: 665 directories, 4088 files, 48.1 Mb
+0000.535 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 100 files added (on-disk size: 0 Kb)
+0000.556 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 200 files added (on-disk size: 0 Kb)
+0000.590 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 300 files added (on-disk size: 0 Kb)
+0000.617 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 400 files added (on-disk size: 0 Kb)
+0000.642 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 500 files added (on-disk size: 0 Kb)
+0000.656 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (5.4 Mb, 4088 files batched, 501 (501) added so far); re-opening (prior size: 0 Kb)
+0001.544 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 600 files added (on-disk size: 2494.5 Kb)
+0001.553 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 700 files added (on-disk size: 2494.5 Kb)
+0001.562 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 800 files added (on-disk size: 2494.5 Kb)
+0001.572 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 900 files added (on-disk size: 2494.5 Kb)
+0001.582 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 1000 files added (on-disk size: 2494.5 Kb)
+0001.591 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (3.8 Mb, 4088 files batched, 501 (1002) added so far); re-opening (prior size: 2494.5 Kb)
+0001.958 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 1100 files added (on-disk size: 4405.2 Kb)
+0001.980 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 1200 files added (on-disk size: 4405.2 Kb)
+0002.022 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 1300 files added (on-disk size: 4405.2 Kb)
+0002.043 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 1400 files added (on-disk size: 4405.2 Kb)
+0002.065 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 1500 files added (on-disk size: 4405.2 Kb)
+0002.068 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (5.6 Mb, 4088 files batched, 501 (1503) added so far); re-opening (prior size: 4405.2 Kb)
+0003.116 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 1600 files added (on-disk size: 6824 Kb)
+0003.143 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 1700 files added (on-disk size: 6824 Kb)
+0003.170 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 1800 files added (on-disk size: 6824 Kb)
+0003.202 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 1900 files added (on-disk size: 6824 Kb)
+0003.232 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 2000 files added (on-disk size: 6824 Kb)
+0003.235 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (8.7 Mb, 4088 files batched, 501 (2004) added so far); re-opening (prior size: 6824 Kb)
+0005.130 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 2100 files added (on-disk size: 10006.5 Kb)
+0005.163 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 2200 files added (on-disk size: 10006.5 Kb)
+0005.195 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 2300 files added (on-disk size: 10006.5 Kb)
+0005.220 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 2400 files added (on-disk size: 10006.5 Kb)
+0005.235 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 2500 files added (on-disk size: 10006.5 Kb)
+0005.237 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (7.2 Mb, 4088 files batched, 501 (2505) added so far); re-opening (prior size: 10006.5 Kb)
+0005.932 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 2600 files added (on-disk size: 15587 Kb)
+0005.961 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 2700 files added (on-disk size: 15587 Kb)
+0005.996 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 2800 files added (on-disk size: 15587 Kb)
+0006.025 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 2900 files added (on-disk size: 15587 Kb)
+0006.063 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 3000 files added (on-disk size: 15587 Kb)
+0006.070 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (4.4 Mb, 4088 files batched, 501 (3006) added so far); re-opening (prior size: 15587 Kb)
+0006.763 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 3100 files added (on-disk size: 17290.2 Kb)
+0006.798 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 3200 files added (on-disk size: 17290.2 Kb)
+0006.830 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 3300 files added (on-disk size: 17290.2 Kb)
+0006.866 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 3400 files added (on-disk size: 17290.2 Kb)
+0006.919 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 3500 files added (on-disk size: 17290.2 Kb)
+0006.922 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (5.5 Mb, 4088 files batched, 501 (3507) added so far); re-opening (prior size: 17290.2 Kb)
+0008.019 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 3600 files added (on-disk size: 19222.6 Kb)
+0008.082 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 3700 files added (on-disk size: 19222.6 Kb)
+0008.123 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 3800 files added (on-disk size: 19222.6 Kb)
+0008.167 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 3900 files added (on-disk size: 19222.6 Kb)
+0008.207 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip.tmp: 4000 files added (on-disk size: 19222.6 Kb)
+0008.213 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (5.8 Mb, 4088 files batched, 501 (4008) added so far); re-opening (prior size: 19222.6 Kb)
+0010.800 (0) Created plugins zip (0) - 21651.1 Kb in 10.6 s (2044.7 Kb/s) (SHA1 checksum: f176fb0306d2c469cfeec5d18b810b1b004c2f02)
+0010.820 (0) Beginning creation of dump of themes (split every: 800 Mb)
+0010.897 (0) Total entities for the zip file: 123 directories, 767 files, 6.1 Mb
+0010.912 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip.tmp: 100 files added (on-disk size: 0 Kb)
+0010.922 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip.tmp: 200 files added (on-disk size: 0 Kb)
+0010.932 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip.tmp: 300 files added (on-disk size: 0 Kb)
+0010.947 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip.tmp: 400 files added (on-disk size: 0 Kb)
+0010.953 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip.tmp: 500 files added (on-disk size: 0 Kb)
+0010.957 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (4.2 Mb, 767 files batched, 501 (501) added so far); re-opening (prior size: 0 Kb)
+0011.263 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip.tmp: 600 files added (on-disk size: 2347.9 Kb)
+0011.271 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip.tmp: 700 files added (on-disk size: 2347.9 Kb)
+0011.470 (0) Created themes zip (0) - 3245.6 Kb in 0.6 s (5069.1 Kb/s) (SHA1 checksum: 38a34a3186a150ed30abd70df41d0ca40222e1b5)
+0011.475 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone
+0011.480 (0) Looking for candidates to back up in: /var/www/LGWP/wp-content/uploads
+0011.490 (0) finding files: lgsquare.png: adding to list (1)
+0011.492 (0) finding files: group-avatars: adding to list (2)
+0011.499 (0) finding files: bpfb: adding to list (3)
+0011.501 (0) finding files: avatars: adding to list (4)
+0011.503 (0) finding files: post_images: adding to list (5)
+0011.504 (0) finding files: index.php: adding to list (6)
+0011.511 (0) finding files: study-anywhere-top-of-a-mountain-andreusK.jpg: adding to list (7)
+0011.513 (0) finding files: quarantine: adding to list (8)
+0011.515 (0) finding files: 2013: adding to list (9)
+0011.516 (0) finding files: 2014: adding to list (10)
+0011.522 (0) Beginning creation of dump of uploads (split every: 800 Mb)
+0011.600 (0) Total entities for the zip file: 27 directories, 2709 files, 105.8 Mb
+0011.605 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 100 files added (on-disk size: 0 Kb)
+0011.614 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 200 files added (on-disk size: 0 Kb)
+0011.624 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 300 files added (on-disk size: 0 Kb)
+0011.639 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 400 files added (on-disk size: 0 Kb)
+0011.646 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 500 files added (on-disk size: 0 Kb)
+0011.652 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (24.5 Mb, 2709 files batched, 501 (501) added so far); re-opening (prior size: 0 Kb)
+0014.144 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 600 files added (on-disk size: 23172.8 Kb)
+0014.152 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 700 files added (on-disk size: 23172.8 Kb)
+0014.160 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 800 files added (on-disk size: 23172.8 Kb)
+0014.189 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 900 files added (on-disk size: 23172.8 Kb)
+0014.199 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 25 Mb added on this batch (25 Mb, 2709 files batched, 498 (999) added so far); re-opening (prior size: 23172.8 Kb)
+0018.752 (0) A useful amount of data was added after this amount of zip processing: 4.7 s (normalised: 4.7 s, rate: 5473.7 Kb/s)
+0018.772 (0) Performance is good - will increase the amount of data we attempt to batch (time=4.6857171058655, normalised_time=4.6768833655182, max_time=-1, data points known=0, old_max_bytes=26214400, new_max_bytes=33630601)
+0018.798 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 1000 files added (on-disk size: 47353.9 Kb)
+0018.838 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 1100 files added (on-disk size: 47353.9 Kb)
+0018.877 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 1200 files added (on-disk size: 47353.9 Kb)
+0018.926 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 1300 files added (on-disk size: 47353.9 Kb)
+0018.963 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 1400 files added (on-disk size: 47353.9 Kb)
+0018.992 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (18.3 Mb, 2709 files batched, 501 (1500) added so far); re-opening (prior size: 47353.9 Kb)
+0023.042 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 1500 files added (on-disk size: 65664.3 Kb)
+0023.072 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 1600 files added (on-disk size: 65664.3 Kb)
+0023.097 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 1700 files added (on-disk size: 65664.3 Kb)
+0023.123 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 1800 files added (on-disk size: 65664.3 Kb)
+0023.151 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 1900 files added (on-disk size: 65664.3 Kb)
+0023.178 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 2000 files added (on-disk size: 65664.3 Kb)
+0023.190 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (11.4 Mb, 2709 files batched, 501 (2001) added so far); re-opening (prior size: 65664.3 Kb)
+0026.612 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 2100 files added (on-disk size: 76633.6 Kb)
+0026.650 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 2200 files added (on-disk size: 76633.6 Kb)
+0026.695 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 2300 files added (on-disk size: 76633.6 Kb)
+0026.733 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 2400 files added (on-disk size: 76633.6 Kb)
+0026.774 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 2500 files added (on-disk size: 76633.6 Kb)
+0026.799 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (20.1 Mb, 2709 files batched, 501 (2502) added so far); re-opening (prior size: 76633.6 Kb)
+0031.758 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 2600 files added (on-disk size: 96676.5 Kb)
+0031.794 (0) Zip: backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip.tmp: 2700 files added (on-disk size: 96676.5 Kb)
+0034.164 (0) Created uploads zip (0) - 103315.4 Kb in 22.6 s (4563.6 Kb/s) (SHA1 checksum: 367f9a965280f505ebf64d9185f80002d21cfb84)
+0034.170 (0) Beginning backup of other directories found in the content directory (index: 0)
+0034.171 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups
+0034.178 (0) Looking for candidates to back up in: /var/www/LGWP/wp-content
+0034.199 (0) finding files: themes: skipping: this is the themes directory
+0034.201 (0) finding files: gd-star-rating: adding to list (1)
+0034.203 (0) finding files: w3tc-config: adding to list (2)
+0034.205 (0) finding files: plugins: skipping: this is the plugins directory
+0034.211 (0) finding files: index.php: adding to list (3)
+0034.213 (0) finding files: updraft: skipping: this is the updraft directory
+0034.215 (0) finding files: uploads: skipping: this is the uploads directory
+0034.217 (0) finding files: bps-backup: adding to list (4)
+0034.221 (0) finding files: upgrade: skipping: excluded by options
+0034.223 (0) finding files: cache: skipping: excluded by options
+0034.227 (0) Total entities for the zip file: 6 directories, 9 files, 0 Mb
+0034.244 (0) Created others zip (0) - 16 Kb in 0 s (889.1 Kb/s) (SHA1 checksum: c50bf3afe3ea0fc797b0cd81bb6111db8e6fdf6e)
+0034.255 (0) Saving backup status to database (elements: 8)
+0034.266 (0) Beginning creation of database dump
+0034.270 (0) Testing: /usr/bin/mysqldump
+0034.328 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0034.354 (0) Table wp_options: Total expected rows (approximate): 14850
+0034.371 (0) Binary mysqldump: error (code: 2)
+0034.783 (0) Table wp_options: Total rows added: 5368 in 0.37 seconds
+0034.791 (0) Table wp_options: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_options.table.gz - 280 Kb)
+0034.803 (0) Table wp_users: Total expected rows (approximate): 39
+0034.811 (0) Table wp_users: Total rows added: 39 in 0.01 seconds
+0034.812 (0) Table wp_users: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_users.table.gz - 0 Kb)
+0034.825 (0) Table wp_usermeta: Total expected rows (approximate): 626
+0034.856 (0) Table wp_usermeta: Total rows added: 786 in 0.03 seconds
+0034.864 (0) Table wp_usermeta: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_usermeta.table.gz - 0 Kb)
+0034.874 (0) Table wp_commentmeta: Total expected rows (approximate): 50
+0034.888 (0) Table wp_commentmeta: Total rows added: 48 in 0.01 seconds
+0034.891 (0) Table wp_commentmeta: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_commentmeta.table.gz - 0 Kb)
+0034.902 (0) Table wp_comments: Total expected rows (approximate): 15
+0034.907 (0) Table wp_comments: Total rows added: 15 in 0.00 seconds
+0034.909 (0) Table wp_comments: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_comments.table.gz - 0 Kb)
+0034.920 (0) Table wp_links: Total expected rows (approximate): 0
+0034.925 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0034.927 (0) Table wp_links: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_links.table.gz - 0 Kb)
+0034.941 (0) Table wp_postmeta: Total expected rows (approximate): 32815
+0035.376 (0) Table wp_postmeta: binary mysqldump finished (writes: 36) in 0.43 seconds
+0035.394 (0) Table wp_postmeta: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_postmeta.table.gz - 536 Kb)
+0035.407 (0) Table wp_posts: Total expected rows (approximate): 7432
+0037.235 (0) Table wp_posts: Total rows added: 9285 in 1.82 seconds
+0037.246 (0) Table wp_posts: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_posts.table.gz - 1008 Kb)
+0037.271 (0) Table wp_term_relationships: Total expected rows (approximate): 52092
+0037.615 (0) Table wp_term_relationships: binary mysqldump finished (writes: 30) in 0.32 seconds
+0037.622 (0) Table wp_term_relationships: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_term_relationships.table.gz - 112 Kb)
+0037.645 (0) Table wp_term_taxonomy: Total expected rows (approximate): 3759
+0037.932 (0) Table wp_term_taxonomy: Total rows added: 3714 in 0.28 seconds
+0037.936 (0) Table wp_term_taxonomy: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_term_taxonomy.table.gz - 24 Kb)
+0037.952 (0) Table wp_terms: Total expected rows (approximate): 3454
+0038.142 (0) Table wp_terms: Total rows added: 3684 in 0.19 seconds
+0038.149 (0) Table wp_terms: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_terms.table.gz - 48 Kb)
+0038.162 (0) Table wp_bp_activity: Total expected rows (approximate): 113
+0038.211 (0) Table wp_bp_activity: Total rows added: 91 in 0.05 seconds
+0038.214 (0) Table wp_bp_activity: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_activity.table.gz - 0 Kb)
+0038.228 (0) Table wp_bp_activity_meta: Total expected rows (approximate): 3
+0038.236 (0) Table wp_bp_activity_meta: Total rows added: 3 in 0.00 seconds
+0038.239 (0) Table wp_bp_activity_meta: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_activity_meta.table.gz - 0 Kb)
+0038.251 (0) Table wp_bp_friends: Total expected rows (approximate): 19
+0038.259 (0) Table wp_bp_friends: Total rows added: 19 in 0.00 seconds
+0038.261 (0) Table wp_bp_friends: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_friends.table.gz - 0 Kb)
+0038.274 (0) Table wp_bp_groups: Total expected rows (approximate): 3
+0038.307 (0) Table wp_bp_groups: Total rows added: 3 in 0.00 seconds
+0038.310 (0) Table wp_bp_groups: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_groups.table.gz - 0 Kb)
+0038.326 (0) Table wp_bp_groups_groupmeta: Total expected rows (approximate): 9
+0038.331 (0) Table wp_bp_groups_groupmeta: Total rows added: 9 in 0.00 seconds
+0038.333 (0) Table wp_bp_groups_groupmeta: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_groups_groupmeta.table.gz - 0 Kb)
+0038.349 (0) Table wp_bp_groups_members: Total expected rows (approximate): 7
+0038.353 (0) Table wp_bp_groups_members: Total rows added: 7 in 0.00 seconds
+0038.356 (0) Table wp_bp_groups_members: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_groups_members.table.gz - 0 Kb)
+0038.371 (0) Table wp_bp_messages_messages: Total expected rows (approximate): 3
+0038.410 (0) Table wp_bp_messages_messages: Total rows added: 3 in 0.00 seconds
+0038.412 (0) Table wp_bp_messages_messages: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_messages_messages.table.gz - 0 Kb)
+0038.426 (0) Table wp_bp_messages_notices: Total expected rows (approximate): 0
+0038.430 (0) Table wp_bp_messages_notices: Total rows added: 0 in 0.00 seconds
+0038.433 (0) Table wp_bp_messages_notices: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_messages_notices.table.gz - 0 Kb)
+0038.445 (0) Table wp_bp_messages_recipients: Total expected rows (approximate): 4
+0038.449 (0) Table wp_bp_messages_recipients: Total rows added: 4 in 0.00 seconds
+0038.451 (0) Table wp_bp_messages_recipients: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_messages_recipients.table.gz - 0 Kb)
+0038.465 (0) Table wp_bp_notifications: Total expected rows (approximate): 33
+0038.471 (0) Table wp_bp_notifications: Total rows added: 33 in 0.00 seconds
+0038.473 (0) Table wp_bp_notifications: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_notifications.table.gz - 0 Kb)
+0038.494 (0) Table wp_bp_user_blogs: Total expected rows (approximate): 1
+0038.501 (0) Table wp_bp_user_blogs: Total rows added: 1 in 0.00 seconds
+0038.503 (0) Table wp_bp_user_blogs: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_user_blogs.table.gz - 0 Kb)
+0038.512 (0) Table wp_bp_user_blogs_blogmeta: Total expected rows (approximate): 3
+0038.519 (0) Table wp_bp_user_blogs_blogmeta: Total rows added: 3 in 0.01 seconds
+0038.521 (0) Table wp_bp_user_blogs_blogmeta: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_user_blogs_blogmeta.table.gz - 0 Kb)
+0038.531 (0) Table wp_bp_xprofile_data: Total expected rows (approximate): 77
+0038.538 (0) Table wp_bp_xprofile_data: Total rows added: 77 in 0.01 seconds
+0038.544 (0) Table wp_bp_xprofile_data: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_xprofile_data.table.gz - 0 Kb)
+0038.591 (0) Table wp_bp_xprofile_fields: Total expected rows (approximate): 22
+0038.611 (0) Table wp_bp_xprofile_fields: Total rows added: 22 in 0.01 seconds
+0038.619 (0) Table wp_bp_xprofile_fields: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_xprofile_fields.table.gz - 0 Kb)
+0038.631 (0) Table wp_bp_xprofile_groups: Total expected rows (approximate): 3
+0038.640 (0) Table wp_bp_xprofile_groups: Total rows added: 3 in 0.00 seconds
+0038.643 (0) Table wp_bp_xprofile_groups: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_xprofile_groups.table.gz - 0 Kb)
+0038.658 (0) Table wp_bp_xprofile_meta: Total expected rows (approximate): 14
+0038.662 (0) Table wp_bp_xprofile_meta: Total rows added: 14 in 0.00 seconds
+0038.664 (0) Table wp_bp_xprofile_meta: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_xprofile_meta.table.gz - 0 Kb)
+0038.724 (0) Table wp_bpspro_login_security: Total expected rows (approximate): 0
+0038.731 (0) Table wp_bpspro_login_security: Total rows added: 0 in 0.00 seconds
+0038.733 (0) Table wp_bpspro_login_security: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bpspro_login_security.table.gz - 0 Kb)
+0038.788 (0) Table wp_bpspro_seclog_ignore: Total expected rows (approximate): 0
+0038.816 (0) Table wp_bpspro_seclog_ignore: Total rows added: 0 in 0.01 seconds
+0038.824 (0) Table wp_bpspro_seclog_ignore: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bpspro_seclog_ignore.table.gz - 0 Kb)
+0038.862 (0) Table wp_cp: Total expected rows (approximate): 3
+0038.912 (0) Table wp_cp: Total rows added: 3 in 0.04 seconds
+0038.929 (0) Table wp_cp: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_cp.table.gz - 0 Kb)
+0038.975 (0) Table wp_cpvg_list_views: Total expected rows (approximate): 0
+0039.026 (0) Table wp_cpvg_list_views: Total rows added: 0 in 0.02 seconds
+0039.041 (0) Table wp_cpvg_list_views: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_cpvg_list_views.table.gz - 0 Kb)
+0039.149 (0) Table wp_cpvg_post_views: Total expected rows (approximate): 0
+0039.169 (0) Table wp_cpvg_post_views: Total rows added: 0 in 0.01 seconds
+0039.204 (0) Table wp_cpvg_post_views: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_cpvg_post_views.table.gz - 0 Kb)
+0039.244 (0) Table wp_dtree_cache: Total expected rows (approximate): 0
+0039.299 (0) Table wp_dtree_cache: Total rows added: 0 in 0.05 seconds
+0039.309 (0) Table wp_dtree_cache: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_dtree_cache.table.gz - 0 Kb)
+0039.355 (0) Table wp_frm_fields: Total expected rows (approximate): 7
+0039.415 (0) Table wp_frm_fields: Total rows added: 7 in 0.04 seconds
+0039.429 (0) Table wp_frm_fields: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_frm_fields.table.gz - 0 Kb)
+0039.466 (0) Table wp_frm_forms: Total expected rows (approximate): 2
+0039.531 (0) Table wp_frm_forms: Total rows added: 2 in 0.04 seconds
+0039.541 (0) Table wp_frm_forms: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_frm_forms.table.gz - 0 Kb)
+0039.603 (0) Table wp_frm_item_metas: Total expected rows (approximate): 0
+0039.611 (0) Table wp_frm_item_metas: Total rows added: 0 in 0.00 seconds
+0039.613 (0) Table wp_frm_item_metas: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_frm_item_metas.table.gz - 0 Kb)
+0039.630 (0) Table wp_frm_items: Total expected rows (approximate): 0
+0039.637 (0) Table wp_frm_items: Total rows added: 0 in 0.00 seconds
+0039.640 (0) Table wp_frm_items: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_frm_items.table.gz - 0 Kb)
+0039.657 (0) Table wp_groups_rs: Total expected rows (approximate): 8
+0039.663 (0) Table wp_groups_rs: Total rows added: 8 in 0.00 seconds
+0039.666 (0) Table wp_groups_rs: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_groups_rs.table.gz - 0 Kb)
+0039.719 (0) Table wp_lb_links: Total expected rows (approximate): 1621
+0039.935 (0) Table wp_lb_links: Total rows added: 1812 in 0.21 seconds
+0039.944 (0) Table wp_lb_links: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_lb_links.table.gz - 96 Kb)
+0039.959 (0) Table wp_lb_related: Total expected rows (approximate): 2484
+0040.044 (0) Table wp_lb_related: Total rows added: 2557 in 0.08 seconds
+0040.048 (0) Table wp_lb_related: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_lb_related.table.gz - 0 Kb)
+0040.066 (0) Table wp_popover: Total expected rows (approximate): 1
+0040.071 (0) Table wp_popover: Total rows added: 1 in 0.00 seconds
+0040.074 (0) Table wp_popover: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_popover.table.gz - 0 Kb)
+0040.102 (0) Table wp_popover_ip_cache: Total expected rows (approximate): 0
+0040.107 (0) Table wp_popover_ip_cache: Total rows added: 0 in 0.00 seconds
+0040.109 (0) Table wp_popover_ip_cache: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_popover_ip_cache.table.gz - 0 Kb)
+0040.125 (0) Table wp_popup_meta: Total expected rows (approximate): 75
+0040.135 (0) Table wp_popup_meta: Total rows added: 75 in 0.01 seconds
+0040.138 (0) Table wp_popup_meta: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_popup_meta.table.gz - 0 Kb)
+0040.150 (0) Table wp_popup_visits: Total expected rows (approximate): 602
+0040.193 (0) Table wp_popup_visits: Total rows added: 523 in 0.04 seconds
+0040.196 (0) Table wp_popup_visits: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_popup_visits.table.gz - 0 Kb)
+0040.207 (0) Table wp_popup_windows: Total expected rows (approximate): 1
+0040.211 (0) Table wp_popup_windows: Total rows added: 1 in 0.00 seconds
+0040.214 (0) Table wp_popup_windows: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_popup_windows.table.gz - 0 Kb)
+0040.224 (0) Table wp_query_override_terms: Total expected rows (approximate): 0
+0040.228 (0) Table wp_query_override_terms: Total rows added: 0 in 0.00 seconds
+0040.232 (0) Table wp_query_override_terms: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_query_override_terms.table.gz - 0 Kb)
+0040.243 (0) Table wp_query_wrangler: Total expected rows (approximate): 0
+0040.247 (0) Table wp_query_wrangler: Total rows added: 0 in 0.00 seconds
+0040.250 (0) Table wp_query_wrangler: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_query_wrangler.table.gz - 0 Kb)
+0040.261 (0) Table wp_quotescollection: Total expected rows (approximate): 42
+0040.268 (0) Table wp_quotescollection: Total rows added: 42 in 0.00 seconds
+0040.271 (0) Table wp_quotescollection: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_quotescollection.table.gz - 0 Kb)
+0040.298 (0) Table wp_remove_handled: Total expected rows (approximate): 441
+0040.337 (0) Table wp_remove_handled: Total rows added: 421 in 0.04 seconds
+0040.341 (0) Table wp_remove_handled: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_remove_handled.table.gz - 0 Kb)
+0040.354 (0) Table wp_revslider_css: Total expected rows (approximate): 47
+0040.360 (0) Table wp_revslider_css: Total rows added: 47 in 0.00 seconds
+0040.363 (0) Table wp_revslider_css: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_revslider_css.table.gz - 0 Kb)
+0040.373 (0) Table wp_revslider_layer_animations: Total expected rows (approximate): 0
+0040.377 (0) Table wp_revslider_layer_animations: Total rows added: 0 in 0.00 seconds
+0040.390 (0) Table wp_revslider_layer_animations: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_revslider_layer_animations.table.gz - 0 Kb)
+0040.397 (0) Table wp_revslider_settings: Total expected rows (approximate): 0
+0040.400 (0) Table wp_revslider_settings: Total rows added: 0 in 0.00 seconds
+0040.402 (0) Table wp_revslider_settings: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_revslider_settings.table.gz - 0 Kb)
+0040.409 (0) Table wp_revslider_sliders: Total expected rows (approximate): 1
+0040.412 (0) Table wp_revslider_sliders: Total rows added: 1 in 0.00 seconds
+0040.413 (0) Table wp_revslider_sliders: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_revslider_sliders.table.gz - 0 Kb)
+0040.420 (0) Table wp_revslider_slides: Total expected rows (approximate): 1
+0040.423 (0) Table wp_revslider_slides: Total rows added: 1 in 0.00 seconds
+0040.425 (0) Table wp_revslider_slides: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_revslider_slides.table.gz - 0 Kb)
+0040.431 (0) Table wp_richreviews: Total expected rows (approximate): 0
+0040.434 (0) Table wp_richreviews: Total rows added: 0 in 0.00 seconds
+0040.436 (0) Table wp_richreviews: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_richreviews.table.gz - 0 Kb)
+0040.442 (0) Table wp_role_scope_rs: Total expected rows (approximate): 0
+0040.445 (0) Table wp_role_scope_rs: Total rows added: 0 in 0.00 seconds
+0040.447 (0) Table wp_role_scope_rs: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_role_scope_rs.table.gz - 0 Kb)
+0040.453 (0) Table wp_slp_rep_query: Total expected rows (approximate): 0
+0040.456 (0) Table wp_slp_rep_query: Total rows added: 0 in 0.00 seconds
+0040.458 (0) Table wp_slp_rep_query: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_slp_rep_query.table.gz - 0 Kb)
+0040.464 (0) Table wp_slp_rep_query_results: Total expected rows (approximate): 0
+0040.467 (0) Table wp_slp_rep_query_results: Total rows added: 0 in 0.00 seconds
+0040.469 (0) Table wp_slp_rep_query_results: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_slp_rep_query_results.table.gz - 0 Kb)
+0040.476 (0) Table wp_social_users: Total expected rows (approximate): 18
+0040.492 (0) Table wp_social_users: Total rows added: 18 in 0.00 seconds
+0040.494 (0) Table wp_social_users: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_social_users.table.gz - 0 Kb)
+0040.501 (0) Table wp_store_locator: Total expected rows (approximate): 0
+0040.505 (0) Table wp_store_locator: Total rows added: 0 in 0.00 seconds
+0040.507 (0) Table wp_store_locator: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_store_locator.table.gz - 0 Kb)
+0040.514 (0) Table wp_user2group_rs: Total expected rows (approximate): 0
+0040.516 (0) Table wp_user2group_rs: Total rows added: 0 in 0.00 seconds
+0040.518 (0) Table wp_user2group_rs: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_user2group_rs.table.gz - 0 Kb)
+0040.525 (0) Table wp_user2role2object_rs: Total expected rows (approximate): 28
+0040.530 (0) Table wp_user2role2object_rs: Total rows added: 28 in 0.00 seconds
+0040.533 (0) Table wp_user2role2object_rs: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_user2role2object_rs.table.gz - 0 Kb)
+0040.540 (0) Table wp_wpcreviews: Total expected rows (approximate): 7
+0040.543 (0) Table wp_wpcreviews: Total rows added: 7 in 0.00 seconds
+0040.545 (0) Table wp_wpcreviews: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_wpcreviews.table.gz - 0 Kb)
+0040.552 (0) Table wp_wpuf_customfields: Total expected rows (approximate): 0
+0040.555 (0) Table wp_wpuf_customfields: Total rows added: 0 in 0.00 seconds
+0040.557 (0) Table wp_wpuf_customfields: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_wpuf_customfields.table.gz - 0 Kb)
+0040.563 (0) Table wp_wpuf_subscription: Total expected rows (approximate): 1
+0040.566 (0) Table wp_wpuf_subscription: Total rows added: 1 in 0.00 seconds
+0040.568 (0) Table wp_wpuf_subscription: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_wpuf_subscription.table.gz - 0 Kb)
+0040.574 (0) Table wp_wpuf_transaction: Total expected rows (approximate): 9
+0040.579 (0) Table wp_wpuf_transaction: Total rows added: 9 in 0.00 seconds
+0040.590 (0) Table wp_wpuf_transaction: finishing file (backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_wpuf_transaction.table.gz - 0 Kb)
+0040.597 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_options.table.gz (1/66): adding to final database dump
+0040.677 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_users.table.gz (2/66): adding to final database dump
+0040.697 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_usermeta.table.gz (3/66): adding to final database dump
+0040.710 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_commentmeta.table.gz (4/66): adding to final database dump
+0040.717 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_comments.table.gz (5/66): adding to final database dump
+0040.722 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_links.table.gz (6/66): adding to final database dump
+0040.724 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_postmeta.table.gz (7/66): adding to final database dump
+0041.042 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_posts.table.gz (8/66): adding to final database dump
+0041.967 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_term_relationships.table.gz (9/66): adding to final database dump
+0042.087 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_term_taxonomy.table.gz (10/66): adding to final database dump
+0042.152 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_terms.table.gz (11/66): adding to final database dump
+0042.200 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_activity.table.gz (12/66): adding to final database dump
+0042.210 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_activity_meta.table.gz (13/66): adding to final database dump
+0042.212 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_friends.table.gz (14/66): adding to final database dump
+0042.214 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_groups.table.gz (15/66): adding to final database dump
+0042.220 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_groups_groupmeta.table.gz (16/66): adding to final database dump
+0042.222 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_groups_members.table.gz (17/66): adding to final database dump
+0042.224 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_messages_messages.table.gz (18/66): adding to final database dump
+0042.227 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_messages_notices.table.gz (19/66): adding to final database dump
+0042.229 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_messages_recipients.table.gz (20/66): adding to final database dump
+0042.231 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_notifications.table.gz (21/66): adding to final database dump
+0042.236 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_user_blogs.table.gz (22/66): adding to final database dump
+0042.239 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_user_blogs_blogmeta.table.gz (23/66): adding to final database dump
+0042.241 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_xprofile_data.table.gz (24/66): adding to final database dump
+0042.244 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_xprofile_fields.table.gz (25/66): adding to final database dump
+0042.248 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_xprofile_groups.table.gz (26/66): adding to final database dump
+0042.251 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bp_xprofile_meta.table.gz (27/66): adding to final database dump
+0042.255 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bpspro_login_security.table.gz (28/66): adding to final database dump
+0042.259 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_bpspro_seclog_ignore.table.gz (29/66): adding to final database dump
+0042.262 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_cp.table.gz (30/66): adding to final database dump
+0042.268 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_cpvg_list_views.table.gz (31/66): adding to final database dump
+0042.269 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_cpvg_post_views.table.gz (32/66): adding to final database dump
+0042.271 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_dtree_cache.table.gz (33/66): adding to final database dump
+0042.275 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_frm_fields.table.gz (34/66): adding to final database dump
+0042.300 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_frm_forms.table.gz (35/66): adding to final database dump
+0042.303 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_frm_item_metas.table.gz (36/66): adding to final database dump
+0042.307 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_frm_items.table.gz (37/66): adding to final database dump
+0042.310 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_groups_rs.table.gz (38/66): adding to final database dump
+0042.311 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_lb_links.table.gz (39/66): adding to final database dump
+0042.356 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_lb_related.table.gz (40/66): adding to final database dump
+0042.378 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_popover.table.gz (41/66): adding to final database dump
+0042.401 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_popover_ip_cache.table.gz (42/66): adding to final database dump
+0042.403 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_popup_meta.table.gz (43/66): adding to final database dump
+0042.407 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_popup_visits.table.gz (44/66): adding to final database dump
+0042.418 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_popup_windows.table.gz (45/66): adding to final database dump
+0042.421 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_query_override_terms.table.gz (46/66): adding to final database dump
+0042.422 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_query_wrangler.table.gz (47/66): adding to final database dump
+0042.440 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_quotescollection.table.gz (48/66): adding to final database dump
+0042.452 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_remove_handled.table.gz (49/66): adding to final database dump
+0042.474 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_revslider_css.table.gz (50/66): adding to final database dump
+0042.505 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_revslider_layer_animations.table.gz (51/66): adding to final database dump
+0042.518 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_revslider_settings.table.gz (52/66): adding to final database dump
+0042.527 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_revslider_sliders.table.gz (53/66): adding to final database dump
+0042.536 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_revslider_slides.table.gz (54/66): adding to final database dump
+0042.546 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_richreviews.table.gz (55/66): adding to final database dump
+0042.562 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_role_scope_rs.table.gz (56/66): adding to final database dump
+0042.571 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_slp_rep_query.table.gz (57/66): adding to final database dump
+0042.608 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_slp_rep_query_results.table.gz (58/66): adding to final database dump
+0042.615 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_social_users.table.gz (59/66): adding to final database dump
+0042.628 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_store_locator.table.gz (60/66): adding to final database dump
+0042.640 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_user2group_rs.table.gz (61/66): adding to final database dump
+0042.650 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_user2role2object_rs.table.gz (62/66): adding to final database dump
+0042.662 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_wpcreviews.table.gz (63/66): adding to final database dump
+0042.730 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_wpuf_customfields.table.gz (64/66): adding to final database dump
+0042.756 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_wpuf_subscription.table.gz (65/66): adding to final database dump
+0042.788 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db-table-wp_wpuf_transaction.table.gz (66/66): adding to final database dump
+0042.805 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db.gz: finished writing out complete database file (2264 Kb)
+0042.951 (0) Total database tables backed up: 66 (backup_2014-04-14-0710_Lostgrad_48199229d052-db.gz, size: 2349904, checksum (SHA1): b1be274a26829987ef0587039c1a8662649a49b7)
+0042.980 (0) Saving backup history
+0043.032 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0043.035 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0043.039 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0043.043 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-others.zip: others: This file has not yet been successfully uploaded: will queue
+0043.052 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-db.gz: db: This file has not yet been successfully uploaded: will queue
+0043.093 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0043.115 (0) Cloud backup selection: email
+0043.120 (0) Beginning dispatch of backup to remote (email)
+0043.123 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip: email to: admin...
+0161.554 (0) Mails were not sent successfully
+0161.599 (0) An error condition has occurred for the first time during this job
+0161.608 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip: email to: admin...
+0182.630 (0) Recording as successfully uploaded: backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip (bc0267f4dab4eb6c5612e124fe4c2905)
+0182.663 (0) Deleting local file: backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip: OK
+0182.667 (0) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: email to: admin...
+0301.545 (1) Opened log file at time: Mon, 14 Apr 2014 07:15:36 +0000 on http://lostgrad.com
+0301.547 (1) UpdraftPlus WordPress backup plugin (http://updraftplus.com): 1.9.0 WP: 3.8.1 PHP: 5.5.3-1ubuntu2.1 (Linux lostgrad 3.11.0-12-generic #19-Ubuntu SMP Wed Oct 9 16:20:46 UTC 2013 x86_64) MySQL: 5.5.35-0ubuntu0.13.10.2 Server: Apache/2.4.6 (Ubuntu) safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 9.1M | 10M) multisite: N mcrypt: N ZipArchive::addFile: Y
+0301.551 (1) Free space on disk containing Updraft's temporary directory: 25871.8 Mb
+0301.555 (1) Backup run: resumption=1, nonce=48199229d052, begun at=1397459434 (302s ago), job type=backup, previous check-in=40.6s
+0301.559 (1) Scheduling a resumption (2) after 300 seconds (1397460036) in case this run gets aborted
+0301.563 (1) Checking if we have a zip executable available
+0301.567 (1) Creation of backups of directories: already finished
+0301.569 (1) Saving backup status to database (elements: 8)
+0301.586 (1) Database dump: Creation was completed already
+0301.589 (1) Saving backup history
+0301.601 (1) backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0301.603 (1) backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip: themes: This file has already been successfully uploaded
+0301.607 (1) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0301.609 (1) backup_2014-04-14-0710_Lostgrad_48199229d052-others.zip: others: This file has not yet been successfully uploaded: will queue
+0301.610 (1) backup_2014-04-14-0710_Lostgrad_48199229d052-db.gz: db: This file has not yet been successfully uploaded: will queue
+0301.616 (1) Requesting upload of the files that have not yet been successfully uploaded (4)
+0301.618 (1) Cloud backup selection: email
+0301.619 (1) Beginning dispatch of backup to remote (email)
+0301.623 (1) backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip: email to: admin...
+0422.345 (1) Mails were not sent successfully
+0422.354 (1) An error condition has occurred for the first time during this job
+0422.360 (1) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: email to: admin...
+0603.319 (2) Opened log file at time: Mon, 14 Apr 2014 07:20:38 +0000 on http://lostgrad.com
+0603.321 (2) UpdraftPlus WordPress backup plugin (http://updraftplus.com): 1.9.0 WP: 3.8.1 PHP: 5.5.3-1ubuntu2.1 (Linux lostgrad 3.11.0-12-generic #19-Ubuntu SMP Wed Oct 9 16:20:46 UTC 2013 x86_64) MySQL: 5.5.35-0ubuntu0.13.10.2 Server: Apache/2.4.6 (Ubuntu) safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 9.1M | 10M) multisite: N mcrypt: N ZipArchive::addFile: Y
+0603.323 (2) Free space on disk containing Updraft's temporary directory: 25871.4 Mb
+0603.329 (2) Backup run: resumption=2, nonce=48199229d052, begun at=1397459434 (604s ago), job type=backup
+0603.330 (2) Scheduling a resumption (3) after 300 seconds (1397460338) in case this run gets aborted
+0603.334 (2) Checking if we have a zip executable available
+0603.340 (2) Creation of backups of directories: already finished
+0603.342 (2) Saving backup status to database (elements: 8)
+0603.348 (2) Database dump: Creation was completed already
+0603.350 (2) Saving backup history
+0603.363 (2) backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0603.367 (2) backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip: themes: This file has already been successfully uploaded
+0603.369 (2) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0603.370 (2) backup_2014-04-14-0710_Lostgrad_48199229d052-others.zip: others: This file has not yet been successfully uploaded: will queue
+0603.382 (2) backup_2014-04-14-0710_Lostgrad_48199229d052-db.gz: db: This file has not yet been successfully uploaded: will queue
+0603.386 (2) Requesting upload of the files that have not yet been successfully uploaded (4)
+0603.388 (2) Cloud backup selection: email
+0603.394 (2) Beginning dispatch of backup to remote (email)
+0603.396 (2) backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip: email to: admin...
+0723.811 (2) Mails were not sent successfully
+0723.822 (2) An error condition has occurred for the first time during this job
+0723.824 (2) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: email to: admin...
+0905.487 (3) Opened log file at time: Mon, 14 Apr 2014 07:25:40 +0000 on http://lostgrad.com
+0905.488 (3) UpdraftPlus WordPress backup plugin (http://updraftplus.com): 1.9.0 WP: 3.8.1 PHP: 5.5.3-1ubuntu2.1 (Linux lostgrad 3.11.0-12-generic #19-Ubuntu SMP Wed Oct 9 16:20:46 UTC 2013 x86_64) MySQL: 5.5.35-0ubuntu0.13.10.2 Server: Apache/2.4.6 (Ubuntu) safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 9.1M | 10M) multisite: N mcrypt: N ZipArchive::addFile: Y
+0905.491 (3) Free space on disk containing Updraft's temporary directory: 25870.9 Mb
+0905.495 (3) Backup run: resumption=3, nonce=48199229d052, begun at=1397459434 (906s ago), job type=backup
+0905.499 (3) Scheduling a resumption (4) after 300 seconds (1397460640) in case this run gets aborted
+0905.503 (3) Checking if we have a zip executable available
+0905.505 (3) Creation of backups of directories: already finished
+0905.507 (3) Saving backup status to database (elements: 8)
+0905.514 (3) Database dump: Creation was completed already
+0905.515 (3) Saving backup history
+0905.524 (3) backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0905.526 (3) backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip: themes: This file has already been successfully uploaded
+0905.531 (3) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0905.533 (3) backup_2014-04-14-0710_Lostgrad_48199229d052-others.zip: others: This file has not yet been successfully uploaded: will queue
+0905.534 (3) backup_2014-04-14-0710_Lostgrad_48199229d052-db.gz: db: This file has not yet been successfully uploaded: will queue
+0905.545 (3) Requesting upload of the files that have not yet been successfully uploaded (4)
+0905.546 (3) Cloud backup selection: email
+0905.551 (3) Beginning dispatch of backup to remote (email)
+0905.553 (3) backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip: email to: admin...
+1026.633 (3) Recording as successfully uploaded: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip (e10892c515ef196211cf2a91187ca6f1)
+1026.659 (3) Deleting local file: backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip: OK
+1026.663 (3) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: email to: admin...
+1207.397 (4) Opened log file at time: Mon, 14 Apr 2014 07:30:42 +0000 on http://lostgrad.com
+1207.401 (4) UpdraftPlus WordPress backup plugin (http://updraftplus.com): 1.9.0 WP: 3.8.1 PHP: 5.5.3-1ubuntu2.1 (Linux lostgrad 3.11.0-12-generic #19-Ubuntu SMP Wed Oct 9 16:20:46 UTC 2013 x86_64) MySQL: 5.5.35-0ubuntu0.13.10.2 Server: Apache/2.4.6 (Ubuntu) safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 9.1M | 10M) multisite: N mcrypt: N ZipArchive::addFile: Y
+1207.404 (4) Free space on disk containing Updraft's temporary directory: 25891.6 Mb
+1207.411 (4) Backup run: resumption=4, nonce=48199229d052, begun at=1397459434 (1208s ago), job type=backup
+1207.415 (4) Scheduling a resumption (5) after 300 seconds (1397460942) in case this run gets aborted
+1207.423 (4) Checking if we have a zip executable available
+1207.426 (4) Creation of backups of directories: already finished
+1207.430 (4) Saving backup status to database (elements: 8)
+1207.437 (4) Database dump: Creation was completed already
+1207.441 (4) Saving backup history
+1207.453 (4) backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip: plugins: This file has already been successfully uploaded
+1207.457 (4) backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip: themes: This file has already been successfully uploaded
+1207.460 (4) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+1207.474 (4) backup_2014-04-14-0710_Lostgrad_48199229d052-others.zip: others: This file has not yet been successfully uploaded: will queue
+1207.477 (4) backup_2014-04-14-0710_Lostgrad_48199229d052-db.gz: db: This file has not yet been successfully uploaded: will queue
+1207.484 (4) Requesting upload of the files that have not yet been successfully uploaded (3)
+1207.488 (4) Cloud backup selection: email
+1207.492 (4) Beginning dispatch of backup to remote (email)
+1207.495 (4) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: email to: admin...
+1509.385 (5) Opened log file at time: Mon, 14 Apr 2014 07:35:44 +0000 on http://lostgrad.com
+1509.389 (5) UpdraftPlus WordPress backup plugin (http://updraftplus.com): 1.9.0 WP: 3.8.1 PHP: 5.5.3-1ubuntu2.1 (Linux lostgrad 3.11.0-12-generic #19-Ubuntu SMP Wed Oct 9 16:20:46 UTC 2013 x86_64) MySQL: 5.5.35-0ubuntu0.13.10.2 Server: Apache/2.4.6 (Ubuntu) safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 9.1M | 10M) multisite: N mcrypt: N ZipArchive::addFile: Y
+1509.392 (5) Free space on disk containing Updraft's temporary directory: 25891.6 Mb
+1509.399 (5) Backup run: resumption=5, nonce=48199229d052, begun at=1397459434 (1510s ago), job type=backup
+1509.402 (5) Scheduling a resumption (6) after 300 seconds (1397461244) in case this run gets aborted
+1509.410 (5) Checking if we have a zip executable available
+1509.413 (5) Creation of backups of directories: already finished
+1509.416 (5) Saving backup status to database (elements: 8)
+1509.423 (5) Database dump: Creation was completed already
+1509.427 (5) Saving backup history
+1509.441 (5) backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip: plugins: This file has already been successfully uploaded
+1509.444 (5) backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip: themes: This file has already been successfully uploaded
+1509.447 (5) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+1509.450 (5) backup_2014-04-14-0710_Lostgrad_48199229d052-others.zip: others: This file has not yet been successfully uploaded: will queue
+1509.454 (5) backup_2014-04-14-0710_Lostgrad_48199229d052-db.gz: db: This file has not yet been successfully uploaded: will queue
+1509.471 (5) Requesting upload of the files that have not yet been successfully uploaded (3)
+1509.476 (5) Cloud backup selection: email
+1509.481 (5) Beginning dispatch of backup to remote (email)
+1509.485 (5) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: email to: admin...
+1811.345 (6) Opened log file at time: Mon, 14 Apr 2014 07:40:46 +0000 on http://lostgrad.com
+1811.348 (6) UpdraftPlus WordPress backup plugin (http://updraftplus.com): 1.9.0 WP: 3.8.1 PHP: 5.5.3-1ubuntu2.1 (Linux lostgrad 3.11.0-12-generic #19-Ubuntu SMP Wed Oct 9 16:20:46 UTC 2013 x86_64) MySQL: 5.5.35-0ubuntu0.13.10.2 Server: Apache/2.4.6 (Ubuntu) safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 9.1M | 10M) multisite: N mcrypt: N ZipArchive::addFile: Y
+1811.350 (6) Free space on disk containing Updraft's temporary directory: 25891.5 Mb
+1811.355 (6) Backup run: resumption=6, nonce=48199229d052, begun at=1397459434 (1812s ago), job type=backup
+1811.366 (6) Scheduling a resumption (7) after 300 seconds (1397461546) in case this run gets aborted
+1811.372 (6) Checking if we have a zip executable available
+1811.374 (6) Creation of backups of directories: already finished
+1811.377 (6) Saving backup status to database (elements: 8)
+1811.383 (6) Database dump: Creation was completed already
+1811.386 (6) Saving backup history
+1811.396 (6) backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip: plugins: This file has already been successfully uploaded
+1811.399 (6) backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip: themes: This file has already been successfully uploaded
+1811.401 (6) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+1811.403 (6) backup_2014-04-14-0710_Lostgrad_48199229d052-others.zip: others: This file has not yet been successfully uploaded: will queue
+1811.406 (6) backup_2014-04-14-0710_Lostgrad_48199229d052-db.gz: db: This file has not yet been successfully uploaded: will queue
+1811.412 (6) Requesting upload of the files that have not yet been successfully uploaded (3)
+1811.415 (6) Cloud backup selection: email
+1811.417 (6) Beginning dispatch of backup to remote (email)
+1811.420 (6) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: email to: admin...
+2113.208 (7) Opened log file at time: Mon, 14 Apr 2014 07:45:48 +0000 on http://lostgrad.com
+2113.212 (7) UpdraftPlus WordPress backup plugin (http://updraftplus.com): 1.9.0 WP: 3.8.1 PHP: 5.5.3-1ubuntu2.1 (Linux lostgrad 3.11.0-12-generic #19-Ubuntu SMP Wed Oct 9 16:20:46 UTC 2013 x86_64) MySQL: 5.5.35-0ubuntu0.13.10.2 Server: Apache/2.4.6 (Ubuntu) safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 9.1M | 10M) multisite: N mcrypt: N ZipArchive::addFile: Y
+2113.215 (7) Free space on disk containing Updraft's temporary directory: 25891.4 Mb
+2113.223 (7) Backup run: resumption=7, nonce=48199229d052, begun at=1397459434 (2114s ago), job type=backup
+2113.226 (7) Scheduling a resumption (8) after 300 seconds (1397461848) in case this run gets aborted
+2113.234 (7) Checking if we have a zip executable available
+2113.238 (7) Creation of backups of directories: already finished
+2113.243 (7) Saving backup status to database (elements: 8)
+2113.264 (7) Database dump: Creation was completed already
+2113.268 (7) Saving backup history
+2113.281 (7) backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip: plugins: This file has already been successfully uploaded
+2113.284 (7) backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip: themes: This file has already been successfully uploaded
+2113.287 (7) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+2113.290 (7) backup_2014-04-14-0710_Lostgrad_48199229d052-others.zip: others: This file has not yet been successfully uploaded: will queue
+2113.294 (7) backup_2014-04-14-0710_Lostgrad_48199229d052-db.gz: db: This file has not yet been successfully uploaded: will queue
+2113.301 (7) Requesting upload of the files that have not yet been successfully uploaded (3)
+2113.304 (7) Cloud backup selection: email
+2113.307 (7) Beginning dispatch of backup to remote (email)
+2113.311 (7) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: email to: admin...
+2415.327 (8) Opened log file at time: Mon, 14 Apr 2014 07:50:50 +0000 on http://lostgrad.com
+2415.330 (8) UpdraftPlus WordPress backup plugin (http://updraftplus.com): 1.9.0 WP: 3.8.1 PHP: 5.5.3-1ubuntu2.1 (Linux lostgrad 3.11.0-12-generic #19-Ubuntu SMP Wed Oct 9 16:20:46 UTC 2013 x86_64) MySQL: 5.5.35-0ubuntu0.13.10.2 Server: Apache/2.4.6 (Ubuntu) safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 9.1M | 10.3M) multisite: N mcrypt: N ZipArchive::addFile: Y
+2415.333 (8) Free space on disk containing Updraft's temporary directory: 25891.3 Mb
+2415.338 (8) Backup run: resumption=8, nonce=48199229d052, begun at=1397459434 (2416s ago), job type=backup
+2415.341 (8) Scheduling a resumption (9) after 300 seconds (1397462150) in case this run gets aborted
+2415.358 (8) Checking if we have a zip executable available
+2415.360 (8) Creation of backups of directories: already finished
+2415.363 (8) Saving backup status to database (elements: 8)
+2415.369 (8) Database dump: Creation was completed already
+2415.372 (8) Saving backup history
+2415.382 (8) backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip: plugins: This file has already been successfully uploaded
+2415.385 (8) backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip: themes: This file has already been successfully uploaded
+2415.387 (8) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+2415.389 (8) backup_2014-04-14-0710_Lostgrad_48199229d052-others.zip: others: This file has not yet been successfully uploaded: will queue
+2415.392 (8) backup_2014-04-14-0710_Lostgrad_48199229d052-db.gz: db: This file has not yet been successfully uploaded: will queue
+2415.398 (8) Requesting upload of the files that have not yet been successfully uploaded (3)
+2415.401 (8) Cloud backup selection: email
+2415.403 (8) Beginning dispatch of backup to remote (email)
+2415.406 (8) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: email to: admin...
+2717.426 (9) Opened log file at time: Mon, 14 Apr 2014 07:55:52 +0000 on http://lostgrad.com
+2717.430 (9) UpdraftPlus WordPress backup plugin (http://updraftplus.com): 1.9.0 WP: 3.8.1 PHP: 5.5.3-1ubuntu2.1 (Linux lostgrad 3.11.0-12-generic #19-Ubuntu SMP Wed Oct 9 16:20:46 UTC 2013 x86_64) MySQL: 5.5.35-0ubuntu0.13.10.2 Server: Apache/2.4.6 (Ubuntu) safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 9.1M | 10M) multisite: N mcrypt: N ZipArchive::addFile: Y
+2717.435 (9) Free space on disk containing Updraft's temporary directory: 25891.2 Mb
+2717.453 (9) Backup run: resumption=9, nonce=48199229d052, begun at=1397459434 (2718s ago), job type=backup
+2717.456 (9) The current run is resumption number 9, and there was nothing useful done on the last run (last useful run: 0) - will not schedule a further attempt until we see something useful happening this time
+2717.460 (9) Creation of backups of directories: already finished
+2717.463 (9) Saving backup status to database (elements: 8)
+2717.470 (9) Database dump: Creation was completed already
+2717.475 (9) Saving backup history
+2717.487 (9) backup_2014-04-14-0710_Lostgrad_48199229d052-plugins.zip: plugins: This file has already been successfully uploaded
+2717.491 (9) backup_2014-04-14-0710_Lostgrad_48199229d052-themes.zip: themes: This file has already been successfully uploaded
+2717.494 (9) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+2717.498 (9) backup_2014-04-14-0710_Lostgrad_48199229d052-others.zip: others: This file has not yet been successfully uploaded: will queue
+2717.501 (9) backup_2014-04-14-0710_Lostgrad_48199229d052-db.gz: db: This file has not yet been successfully uploaded: will queue
+2717.509 (9) Requesting upload of the files that have not yet been successfully uploaded (3)
+2717.512 (9) Cloud backup selection: email
+2717.516 (9) Beginning dispatch of backup to remote (email)
+2717.519 (9) backup_2014-04-14-0710_Lostgrad_48199229d052-uploads.zip: email to: admin...
