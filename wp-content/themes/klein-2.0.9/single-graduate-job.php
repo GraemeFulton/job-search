@@ -29,7 +29,9 @@ get_header(); ?>
 
          $post_id= get_the_ID();
          $popup= new Popup_Filter($post_id, 'graduate-job', 'profession', 'company');
-         $popup->template_response('content');
+
+	echo '<h5 style="background:#333;color:rgba(255, 134, 39, 1);padding:5px;margin-bottom:0px;"><span style="margin-right:5px;"class="glyphicon fa fa-bullseye fa-2x"></span>Job Fact File</h3>';
+	$popup->template_response('table');
                 
 	echo '<hr><h3 style="margin-bottom:-20px;">Similar Jobs</h3>'.do_shortcode('[widgets_on_pages id="Related Taxonomy Widget"]');
 ?>		
@@ -42,10 +44,8 @@ get_header(); ?>
 	<div id="secondary" class="widget-area col-md-4 col-sm-4" role="complementary">
             
 		<?php 
-			echo '<h5 style="background:#333;color:rgba(255, 134, 39, 1);padding:5px;margin-bottom:0px;"><span style="margin-right:5px;"class="glyphicon fa fa-bullseye fa-2x"></span>Job Fact File</h5>';
-                         $popup->template_response('table');
-		
-                get_sidebar(); ?>
+		echo do_shortcode('[widgets_on_pages id="Related Job Sidebar"]');
+               get_sidebar(); ?>
 	</div>
 </div>
                                   
