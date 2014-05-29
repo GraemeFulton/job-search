@@ -14,6 +14,8 @@ $course_type=$lg_tree->get_taxonomy_field($post_id, 'travel-type');
 $ratings= show_ratings($post_id);
 ?>                            
 				<div id="<?php echo $post_id; ?>" <?php post_class(); ?>>
+				  <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>">
+
                                     <div class="item">
     
                                         <div class="post_image is-loading">
@@ -28,7 +30,8 @@ $ratings= show_ratings($post_id);
                                         </div>
                                 
                                       <div class="pop-out"></div>  
-                                <div class="clickme"></div><!--overlay -->
-				</div><!--item-->
-
+                                <!-- <div class="clickme"></div> --><!--overlay -->
+			
+					</div><!--item-->
+					</a>
 				</div>

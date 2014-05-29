@@ -18,8 +18,9 @@ $company_name= $lg_tree->get_linked_taggroup_or_tag($post_id, $post_object_id, '
 $location= wp_get_post_terms($post_id, 'location', array("fields" => "names"));
 ?>                                   
 				<div id="<?php echo $post_id ?>" <?php post_class(); ?>>
-                                    
+                                
                                     <div class="item">
+  <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>">
                                         
                                          <div class="post_image is-loading">
                                             <img class="job_post_image advert_image" src="<?php echo $post_image?>"/> 
@@ -36,7 +37,7 @@ $location= wp_get_post_terms($post_id, 'location', array("fields" => "names"));
                                 
                                         <div class="pop-out"></div>
 					
-                                            <div class="clickme"></div><!--overlay -->
 				</div><!--item-->
-
+				
+				</a>
 				</div>

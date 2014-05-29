@@ -31,6 +31,7 @@ $location= wp_get_post_terms($post_id, 'location', array("fields" => "names"));
 				<div id="<?php echo $post_id ?>" <?php post_class(); ?>>
                                     
                                     <div class="item">
+  <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>">
                                         
                                           <div class="post_image post_image_<?php echo $post_id?> is-loading">
                                             <img class="job_post_image advert_image" src=""/> 
@@ -47,9 +48,8 @@ $location= wp_get_post_terms($post_id, 'location', array("fields" => "names"));
                                 
                                         <div class="pop-out"></div>
 					
-                                            <div class="clickme"></div><!--overlay -->
 				</div><!--item-->
-
+</a>
 				</div>
 			<?php comments_template(); ?>
   <?php

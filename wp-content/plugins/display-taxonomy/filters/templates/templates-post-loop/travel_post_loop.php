@@ -15,6 +15,7 @@ $ratings= show_ratings($post_id);
 ?>
 				<div id="<?php echo $post_id; ?>" <?php post_class(); ?>>
                                     <div class="item">
+  <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>">
 
                                               <div class="post_image post_image_<?php echo $post_id?> is-loading">
                                             <img class="travel_post_image advert_image" src=""/> 
@@ -28,9 +29,8 @@ $ratings= show_ratings($post_id);
                                         </div>
                                 
                                       <div class="pop-out"></div>  
-                                <div class="clickme"></div><!--overlay -->
 				</div><!--item-->
-
+</a>
 				</div>
 			<?php comments_template(); ?>
 	<?php endwhile; endif; ?>

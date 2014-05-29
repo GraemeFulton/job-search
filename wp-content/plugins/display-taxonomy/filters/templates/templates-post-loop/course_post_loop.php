@@ -18,7 +18,8 @@ $uni_name= $tree->get_linked_taggroup_or_tag($post_id, $post_object_id, $group_p
 //$ratings= show_ratings($post_id);
 ?><div id="<?php echo $post_id; ?>" <?php post_class(); ?>>
             <div class="item">
-    
+      <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>">
+
                                          <div class="post_image post_image_<?php echo $post_id?> is-loading">
                                             <img class="course_post_image advert_image" src=""/> 
                                          </div>
@@ -32,9 +33,9 @@ $uni_name= $tree->get_linked_taggroup_or_tag($post_id, $post_object_id, $group_p
                                         </div>
                                 
                                       <div class="pop-out"></div>  
-                                <div class="clickme"></div><!--overlay -->
+                               <!-- <div class="clickme"></div> --><!--overlay -->
 				</div><!--item-->
-
+</a>
 				</div>
 			<?php comments_template(); ?>
 			<?php endwhile; endif; ?>
