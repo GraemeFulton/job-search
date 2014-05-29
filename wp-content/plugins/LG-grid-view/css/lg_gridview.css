@@ -236,7 +236,7 @@ margin-bottom: 0px;
 
 #single_ratings{float:left; width:100%; position:relative;margin-top:10px;}
 #single_youtube_player{ position:relative; margin-bottom: 20px;}
-.single_datagrid{float:left; position:relative; margin:0px 0px 10px 0px;}
+.single_datagrid{float:left; position:relative; margin:0px 0px 10px 0px; width:100%}
 .single_post_content .single_datagrid{
     
     z-index:1 !important;
