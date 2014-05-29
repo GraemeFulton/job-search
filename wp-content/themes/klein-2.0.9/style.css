@@ -871,3 +871,41 @@ label.visuallyhidden-with-placeholder{
 	padding: 6px 10px;
 	margin-top: 0px;
 }
+
+/**RELATED ITEMS**/
+.taxonomy_related_img{
+	margin-right:5px;
+	width:100%;
+}
+
+#related-posts-via-taxonomies-list li {width:45%;float:left;height:200px;list-style:none;font-size:18px;background:#f8f8f8;padding:5px;overflow:hidden;}
+
+.related-item-box{
+float:left;
+float: left;
+height: 100px;
+overflow: hidden;
+border:1px solid #ececec;
+}
+.related-item-image-box{
+float: left;
+width: 100px;
+height:100%;
+overflow:hidden;
+margin-right: 5px;
+margin-top: 0px;
+padding:1px;
+border-right:1px solid #ececec}
+.related-item-image{
+height:100%;
+display:block;
+margin-left:auto;
+margin-right:auto;
+}
+.related_posts_by_taxonomy p{font-size:12px;color:#7C7C7C}
+.related_posts_by_taxonomy a{color:#5a5a5a!important;font-size:18px;margin-top:5px; width:100%}
+#Related_Taxonomy_Widget, #Related_Experience{float:left;}
+.related-item-text{margin-top:12px;}
+
+.related_posts_by_taxonomy h2.widgettitle{float:left;font-size:18px;margin-top:20px;}
+#Related_Taxonomy_Widget ul, #Related_Experience ul{float:left;}
