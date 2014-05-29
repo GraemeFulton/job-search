@@ -909,3 +909,11 @@ margin-right:auto;
 
 .related_posts_by_taxonomy h2.widgettitle{float:left;font-size:18px;margin-top:20px;}
 #Related_Taxonomy_Widget ul, #Related_Experience ul{float:left;}
+#primary .pop-out-tbl td p{max-width:none !important;}
+#primary #single_post_image{display:none;}
+#primary #single_ratings{display:none;}
+#primary #review_button{display:none;}
+
+#Related_Experience_Sidebar, #Related_Job_Sidebar{border:none;margin-left:-20px;}
+#Related_Experience_Sidebar h2, #Related_Job_Sidebar h2{margin-top:-40px;}
+
