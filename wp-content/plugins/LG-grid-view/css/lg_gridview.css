@@ -216,6 +216,7 @@ margin-bottom: 0px;
 
 /**********Box animation*****************/
 .item .pop-out {display:none; padding:25px;padding-top:5px;}
+.pop-out-tbl td p {max-width:154px;}
 .datagrid{margin-bottom:8px;}
 .datagrid table { border-collapse: collapse; text-align: left; width: 100%; } 
 .datagrid {font: normal 12px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; border: 1px solid #8C8C8C; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }

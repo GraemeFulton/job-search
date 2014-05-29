@@ -33,7 +33,7 @@ get_header(); ?>
          $popup= new Popup_Filter($post_id, 'work-experience-job', 'profession', 'company');
 
          $popup->template_response('content');
-                
+                echo '<hr><h3 style="margin-bottom:-20px;">Similar Jobs</h3>'.do_shortcode('[widgets_on_pages id="Related Experience"]');
             ?>
                     <?php
                         // If comments are open or we have at least one comment, load up the comment template
@@ -43,6 +43,7 @@ get_header(); ?>
 	</div>
 	<div id="secondary" class="widget-area col-md-4 col-sm-4" role="complementary">
 		<?php 
+		 echo '<h5 style="background:#333;color:rgb(228, 104, 228);padding:5px;margin-bottom:0px;"><span style="margin-right:10px;"class="glyphicon fa fa-gears fa-2x"></span>Job Fact File</h5>';
                 $popup->template_response('table');
 
                 get_sidebar(); ?>

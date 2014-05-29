@@ -1,0 +1,167 @@
+# LANGUAGE (LOCALE) translation for Related Posts via Taxonomies.
+# Copyright (C) alphasis ( http://alphasis.info/ ).
+# This file is distributed under the same license as the WordPress package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Related Posts via Taxonomies 1.0.0 \n"
+"POT-Creation-Date: 2012/07/03 \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Related Posts via Taxonomies"
+msgstr ""
+
+msgid "Official page"
+msgstr ""
+
+msgid "English"
+msgstr ""
+
+msgid "Japanese"
+msgstr ""
+
+msgid "Updated Failed"
+msgstr ""
+
+msgid "Updated"
+msgstr ""
+
+msgid "Related Posts via Taxonomies - Options"
+msgstr ""
+
+msgid "Display"
+msgstr ""
+
+msgid "Order"
+msgstr ""
+
+msgid "Exclude"
+msgstr ""
+
+msgid "Post types"
+msgstr ""
+
+msgid "Promotion"
+msgstr ""
+
+msgid "Auto display"
+msgstr ""
+
+msgid "This option automatically displays the related posts list after the content on any single post page."
+msgstr ""
+
+msgid "If this option is off, you will need to manually insert \"display_related_posts_via_taxonomies()\" into your theme files."
+msgstr ""
+
+msgid "Maximum number of related posts"
+msgstr ""
+
+msgid "If you do not enter anything"
+msgstr ""
+
+msgid "For example"
+msgstr ""
+
+msgid "Related posts title"
+msgstr ""
+
+msgid "Before related posts title and related posts"
+msgstr ""
+
+msgid "After related posts title and related posts"
+msgstr ""
+
+msgid "Before related posts title"
+msgstr ""
+
+msgid "After related posts title"
+msgstr ""
+
+msgid "Before related posts"
+msgstr ""
+
+msgid "After related posts"
+msgstr ""
+
+msgid "Before each related post"
+msgstr ""
+
+msgid "After each related post"
+msgstr ""
+
+msgid "Order By"
+msgstr ""
+
+msgid "Speedy"
+msgstr ""
+
+msgid "Default setting"
+msgstr ""
+
+msgid " Related Scores : High"
+msgstr ""
+
+msgid " Related Scores : Low"
+msgstr ""
+
+msgid " Date Published : New"
+msgstr ""
+
+msgid " Date Published : Old"
+msgstr ""
+
+msgid " Date Modified : New"
+msgstr ""
+
+msgid " Date Modified : Old"
+msgstr ""
+
+msgid "Exclude (Posts)"
+msgstr ""
+
+msgid "The IDs of any posts you want to exclude, separated by commas."
+msgstr ""
+
+msgid "Exclude (Categories)"
+msgstr ""
+
+msgid "The IDs of any categories you want to exclude, separated by commas."
+msgstr ""
+
+msgid "Exclude (Tags)"
+msgstr ""
+
+msgid "Check all"
+msgstr ""
+
+msgid "Uncheck all"
+msgstr ""
+
+msgid "Invert selection"
+msgstr ""
+
+msgid "post"
+msgstr ""
+
+msgid "Could you promote this plugin?"
+msgstr ""
+
+msgid "If this option is enabled, displays the link to the official page of this plugin after the related posts list."
+msgstr ""
+
+msgid "Link text"
+msgstr ""
+
+msgid "Language of the official page"
+msgstr ""
+
+msgid "Save changes"
+msgstr ""
+
+msgid "Please pay if you like this plugin."
+msgstr ""
+

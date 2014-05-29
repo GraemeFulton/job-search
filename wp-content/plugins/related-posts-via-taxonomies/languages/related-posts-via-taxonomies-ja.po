@@ -1,0 +1,170 @@
+# LANGUAGE (LOCALE) translation for Related Posts via Taxonomies.
+# Copyright (C) alphasis ( http://alphasis.info/ ).
+# This file is distributed under the same license as the WordPress package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Related Posts via Taxonomies 1.0.0\n"
+"POT-Creation-Date: 2012/07/03\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: alphasis.info\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Japanese\n"
+"X-Poedit-Country: JAPAN\n"
+
+msgid "Related Posts via Taxonomies"
+msgstr "分類抽出関連記事"
+
+msgid "Official page"
+msgstr "公式ページ"
+
+msgid "English"
+msgstr "英語"
+
+msgid "Japanese"
+msgstr "日本語"
+
+msgid "Updated Failed"
+msgstr "更新失敗"
+
+msgid "Updated"
+msgstr "更新しました"
+
+msgid "Related Posts via Taxonomies - Options"
+msgstr "Related Posts via Taxonomies （分類抽出関連記事） - オプション"
+
+msgid "Display"
+msgstr "表示"
+
+msgid "Order"
+msgstr "並び順"
+
+msgid "Exclude"
+msgstr "除外"
+
+msgid "Post types"
+msgstr "投稿タイプ"
+
+msgid "Promotion"
+msgstr "普及に協力"
+
+msgid "Auto display"
+msgstr "自動表示"
+
+msgid "This option automatically displays the related posts list after the content on any single post page."
+msgstr "このオプションを有効にすると、投稿ページの内容の後に、関連記事リストを、自動的に表示します。"
+
+msgid "If this option is off, you will need to manually insert \"display_related_posts_via_taxonomies()\" into your theme files."
+msgstr "このオプションを無効にした場合、投稿記事を個別表示させるテーマファイルに、\"display_related_posts_via_taxonomies()\"を挿入する必要があります。"
+
+msgid "Maximum number of related posts"
+msgstr "表示する関連記事の最大数"
+
+msgid "If you do not enter anything"
+msgstr "何も入力しなかった場合"
+
+msgid "For example"
+msgstr "例"
+
+msgid "Related posts title"
+msgstr "タイトル"
+
+msgid "Before related posts title and related posts"
+msgstr "全体を覆う前のタグ"
+
+msgid "After related posts title and related posts"
+msgstr "全体を覆う後のタグ"
+
+msgid "Before related posts title"
+msgstr "タイトルの前のタグ"
+
+msgid "After related posts title"
+msgstr "タイトルの後のタグ"
+
+msgid "Before related posts"
+msgstr "関連記事群の前のタグ"
+
+msgid "After related posts"
+msgstr "関連記事群の後のタグ"
+
+msgid "Before each related post"
+msgstr "各関連記事タイトルの前のタグ"
+
+msgid "After each related post"
+msgstr "各関連記事タイトルの後のタグ"
+
+msgid "Order By"
+msgstr "並び順を決める基準"
+
+msgid "Speedy"
+msgstr "速い"
+
+msgid "Default setting"
+msgstr "初期設定値"
+
+msgid " Related Scores : High"
+msgstr " 関連スコア : 高い"
+
+msgid " Related Scores : Low"
+msgstr " 関連スコア : 低い"
+
+msgid " Date Published : New"
+msgstr " 公開日 : 新しい"
+
+msgid " Date Published : Old"
+msgstr " 公開日 : 古い"
+
+msgid " Date Modified : New"
+msgstr " 更新日 : 新しい"
+
+msgid " Date Modified : Old"
+msgstr " 更新日 : 古い"
+
+msgid "Exclude (Posts)"
+msgstr "除外（投稿）"
+
+msgid "The IDs of any posts you want to exclude, separated by commas."
+msgstr "除外したい投稿のIDを、カンマ区切りで。"
+
+msgid "Exclude (Categories)"
+msgstr "除外（カテゴリ）"
+
+msgid "The IDs of any categories you want to exclude, separated by commas."
+msgstr "除外したいカテゴリのIDを、カンマ区切りで。"
+
+msgid "Exclude (Tags)"
+msgstr "除外（タグ）"
+
+msgid "Check all"
+msgstr "すべて選択"
+
+msgid "Uncheck all"
+msgstr "すべて解除"
+
+msgid "Invert selection"
+msgstr "すべて反転"
+
+msgid "post"
+msgstr "投稿"
+
+msgid "Could you promote this plugin?"
+msgstr "このプラグインを宣伝してくれますか？"
+
+msgid "If this option is enabled, displays the link to the official page of this plugin after the related posts list."
+msgstr "このオプションを有効にすると、関連記事リストの後に、公式ページへのリンクを表示します。"
+
+msgid "Link text"
+msgstr "リンクテキスト"
+
+msgid "Language of the official page"
+msgstr "公式ページの言語"
+
+msgid "Save changes"
+msgstr "変更を保存"
+
+msgid "Please pay if you like this plugin."
+msgstr "\"Related Posts via Taxonomies （分類抽出関連記事）\"を気に入って頂けましたら、お気持ちの金額を、お支払下さい。"
+
