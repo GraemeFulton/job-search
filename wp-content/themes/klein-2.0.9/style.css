@@ -917,3 +917,6 @@ margin-right:auto;
 #Related_Experience_Sidebar, #Related_Job_Sidebar{border:none;margin-left:-20px;}
 #Related_Experience_Sidebar h2, #Related_Job_Sidebar h2{margin-top:-40px;}
 
+
+/**FAVOURITE**/
+.wpfp-span{display:none;}
