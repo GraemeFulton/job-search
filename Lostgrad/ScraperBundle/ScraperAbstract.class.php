@@ -98,7 +98,7 @@ public function insert_post_image($wpdb, $image_title, $photoUrl, $entity){
         return false;
     
       $LOCALPATH= "/var/www/LGWP/wp-content/uploads/post_images/";
-      $URLPATH ="http://localhost/LGWP/wp-content/uploads/post_images/";
+      $URLPATH ="http://lostgrad.com/wp-content/uploads/post_images/";
     
       $image_prefix= $image_title;
       
