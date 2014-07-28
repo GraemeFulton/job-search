@@ -1,7 +1,6 @@
 <?php
 require "../../SiteBundle/Course.php";
-
-require_once "../ScraperAbstract.class.php"; 
+require "../ScraperAbstract.class.php"; 
 require "../CourseScraperAbstract.class.php";
 require "./CourseraScraper.class.php";
 ////////////////////////////////////////////////////////////
@@ -23,7 +22,6 @@ require "./CourseraScraper.class.php";
 
 
 
-
 <?php
 
 if(isset($_GET['action'])=='generatePosts') {
@@ -41,13 +39,14 @@ $initURL='http://www.coursera.org';
 /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 
-
+echo "connecting1";
 define( 'SHORTINIT', true );
 require_once('../../../wp-load.php' );
 
-$DB_USER= 'root';
+echo "connecting...";
+$DB_USER= 'graylien89';
 $DB_NAME='lgwp';
-$DB_PASS='Jinkstron3042';
+$DB_PASS='jinkstron3042';
 $DB_HOST='localhost';
 $wpdb = new wpdb( $DB_USER, $DB_PASS, $DB_NAME, $DB_HOST);
 

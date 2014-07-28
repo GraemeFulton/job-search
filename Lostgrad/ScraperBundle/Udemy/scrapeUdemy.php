@@ -38,9 +38,9 @@ $initiativeURL='http://www.udemy.com';
 define( 'SHORTINIT', true );
 require_once('../../../wp-load.php' );
 
-$DB_USER= 'root';
+$DB_USER= 'graylien89';
 $DB_NAME='lgwp';
-$DB_PASS='Jinkstron3042';
+$DB_PASS='jinkstron3042';
 $DB_HOST='localhost';
 
 

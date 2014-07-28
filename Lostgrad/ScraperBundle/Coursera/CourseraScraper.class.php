@@ -2,7 +2,7 @@
 
 class CourseraScraper extends CourseScraperAbstract  {
     
-public function scrape($wpdb)
+public function scrape($wpdb, $feed_type)
 {    
     
     //get all the course data in an array

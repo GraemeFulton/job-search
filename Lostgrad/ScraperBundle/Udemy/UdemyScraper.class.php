@@ -4,7 +4,7 @@ Class UdemyScraper extends CourseScraperAbstract{
 
     protected $course_type;
     
-    public function scrape($wpdb) {
+    public function scrape($wpdb, $fileType) {
           $courseHTML = $this->getArray();
           
           $courseID= array();
