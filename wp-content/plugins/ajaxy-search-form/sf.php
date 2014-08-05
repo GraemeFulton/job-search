@@ -1287,7 +1287,7 @@ class AjaxyLiveSearch {
 					<label class="screen-reader-text" for="s">' . __('Search for:') . '</label>'.$image.'
 					<div class="sf_search">
 						<span class="sf_block">
-							<input style="width:'.($settings['width']).'px;" class="sf_input" autocomplete="off" type="text" value="' . (get_search_query() == '' ? $settings['label'] : get_search_query()). '" name="s"/>
+							<input style="width:'.($settings['width']).'px;margin-left:0px;" class="sf_input" autocomplete="off" type="text" value="' . (get_search_query() == '' ? $settings['label'] : get_search_query()). '" name="s"/>
 							<button class="sf_button searchsubmit" type="submit"><span class="sf_hidden">'. esc_attr__(__('Search')) .'</span></button>
 						</span>
 					</div>
