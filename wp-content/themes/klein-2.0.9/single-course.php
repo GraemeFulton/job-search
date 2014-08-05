@@ -10,7 +10,7 @@ get_header(); ?>
 <?php global $post; ?>
 <div class="row">
       <?php                
-        $content='[ajaxy-live-search post_types="course" label="Search for Courses" width="500" delay="200" width="500" url="http://localhost/LGWP/?s=%s" border="1px solid #eee"]';
+        $content='[ajaxy-live-search post_types="course" label="Search for Courses" width="500" delay="300" width="500" url="http://localhost/LGWP/?s=%s" border="1px solid #eee"]';
         echo do_shortcode($content);
         
         ?>
