@@ -122,7 +122,7 @@ padding: 10px 20px 10px;
 
 
 
-.sidebar-options{background:#f8f8f8;border-right:1px solid #eaeaea;}
+.sidebar-options{background:#fff;border-right:1px solid #eaeaea;}
 
 .filter-tabs{background:#f8f8f8;width: 100%;margin-bottom:20px;text-align: center; height:56px;}
 .filter-tabs:hover{color:#222 !important; cursor: pointer;}

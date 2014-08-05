@@ -128,28 +128,35 @@ Author URI: http://gfulton.me.uk
     			$this->placeholder_text='Courses';
     			$this->mobile_nav_toggle_icon='book';
     			$this->colour='rgb(23, 171, 255)';
-    			$this->search=true;
+    			//$this->search=true;
         }
         elseif($post_type=='graduate-job'){
         	$this->header_css_class='graduatejob';
     			$this->placeholder_text='Work';
     			$this->mobile_nav_toggle_icon='bullseye';
     			$this->colour='rgba(255, 134, 39, 1)';
-    			$this->search=true;
+    			//$this->search=true;
         }
         elseif($post_type=='work-experience-job'){
             	$this->header_css_class='work-experience';
     			$this->placeholder_text='Experience';
     			$this->mobile_nav_toggle_icon='cogs';
     			$this->colour='rgb(228, 104, 228)';
-    			$this->search=true;
+    			//$this->search=true;
         }
         elseif($post_type=='travel-opportunities'){
           		$this->header_css_class='travel';
     			$this->placeholder_text='Travel';
     			$this->mobile_nav_toggle_icon='plane';
     			$this->colour='rgb(87, 189, 87)';
-    			$this->search=true;
+    			//$this->search=true;
+        }
+        elseif($post_type=='inspire-posts'){
+          		$this->header_css_class='inspire';
+    			$this->placeholder_text='Inspire';
+    			$this->mobile_nav_toggle_icon='light-bulb';
+    			$this->colour='golden-rod';
+    			//$this->search=true;
         }
         
         }

@@ -9,7 +9,11 @@
 get_header(); ?>
 <?php global $post; ?>
 <div class="row">
-
+  <?php                
+        $content='[ajaxy-live-search post_types="graduate-job" label="Search for Graduate Jobs" width="500" delay="300" width="500" url="http://localhost/LGWP/?s=%s" border="1px solid #eee"]';
+        echo do_shortcode($content);
+        
+        ?>
 	<div class="col-md-12" id="content-header">
 		<h1 class="entry-title" id="bp-klein-page-title">
 			<?php the_title(); ?>
