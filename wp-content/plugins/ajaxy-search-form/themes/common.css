@@ -133,9 +133,6 @@
 .sf_search .sf_input{
 	border:0 none !important;
 	padding:5px !important;
-	box-shadow:none !important;
-	-webkit-box-shadow:none !important;
-	-moz-box-shadow:none !important;
 	width:90%;
 	margin-left:2px;
 	height:28px !important;
@@ -274,10 +271,6 @@
 
 .home-page .sf_search .sf_input{height:38px !important;font-size:20px;}
 .home-page .sf_search .sf_button, .home-page .sf_search .searchsubmit{margin-top:6px !important;}
-.home-page .sf_container {
-background: #53AA9B;
-padding: 30px;
-padding-bottom: 40px;
-}
+
 .home-page #container{background:#ffffff}
 .home-page #footer{background:#ffffff!important;}
