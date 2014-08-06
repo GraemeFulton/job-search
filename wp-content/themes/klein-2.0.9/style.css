@@ -146,7 +146,7 @@ Tags: custom-header, custom-background, threaded-comments, sticky-post, translat
 	h1, h2, h3{ letter-spacing: -1px; }
 	legend, label,caption,h1, h2, h3, h4, h5, h6 {
 		font-family: "Open Sans","Helvetica", "Times New Roman", serif;
-		font-weight: 700; 
+		font-weight: 310; 
 		}
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
 	h1 { font-size: 38px; line-height: 120%; margin: 0px 0px 20px 0px; }
