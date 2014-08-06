@@ -11,7 +11,7 @@
         echo do_shortcode($content);
         
         ?>
-<center><h1 style="margin-top:12px">Discover the Opportunities.</h1></center>
+<div class="discover"><center><h1 style="margin-top:12px">Discover the Opportunities.</h1></center></div>
 	<?php
         
         $post_types=array(
@@ -23,7 +23,7 @@
             );
         
         foreach($post_types as $post_type){
-        echo'<div class="home-box-container">';
+        echo'<div class="home-box-container" style="border-top:3px solid '.$post_type[2].'">';
             echo get_title($post_type[0]);
         $myposts = get_posts(array(
             'showposts' => 3,
