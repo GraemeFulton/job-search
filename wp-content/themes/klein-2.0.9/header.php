@@ -30,6 +30,9 @@
 <!-- custom typography settings end -->
 <?php wp_head(); ?>
 <link rel="stylesheet" type="text/css"href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"/>
+<script type="text/javascript"
+src="http://gdc.indeed.com/ads/apiresults.js"></script>
+                                    
 </head>
 <body <?php body_class(); ?>>
 <?php

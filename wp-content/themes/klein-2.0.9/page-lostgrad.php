@@ -18,6 +18,9 @@ do_action('enable_isotopes');
     
     
 <?php do_action('lostgrad_gridview');?>
+    
+    <?php do_action('lostgrad_sidebar_adverts');?>
+
 </div>
 
 <?php get_footer(); ?>

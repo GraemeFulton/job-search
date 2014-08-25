@@ -11,13 +11,15 @@ margin-top:-18px;
 @media (min-width: 600px) {
     #lg-gridview-container{
         float:left;
-        width:80%;
+        width:60%;
         margin-top:5px;
     }
     
+
+    
 #lg-grid-view.hentry, #loaded_content .hentry, #blog-page-standard .hentry, #loaded_content .hentry
 {
-width:22%;
+width:30%;
 padding: 0px;
 margin: 12px 1.6% 12px 1.6%;
 border-radius:8px;
@@ -390,8 +392,9 @@ border-top-left-radius: 8px;
 
 
 #selected-options{height:auto;position:relative; float:right;
-background: rgba(0, 0, 0, 0.35); /* Old browsers */
+background: rgba(255, 255, 255, 0.35);
 z-index:5;
+width:23%;
 /*border-radius:8px;*/
 
 
@@ -509,7 +512,6 @@ max-height: 200px;
        -moz-border-radius: 8px;
             border-radius: 8px;
 }
-
 .btn-signup-xlarge {
     padding: 18px 28px;
     font-size: 25px; 
@@ -607,3 +609,32 @@ background:#e9e9e9!important;}
 color: #5E5E5E !important;
 }
 .discover{background:#52C1AE;color:#fff; padding:3px;border-bottom:2px solid #777;}
+
+@media only screen and (max-width:767px){
+    
+        .home-page .sf_search .sf_input {
+    width:250px !important;
+    }
+    .sidebar-options{background:#333 !important;color:#eaeaea;margin-top: 30%;}
+    #selected-options-container{background:#444 !important;}
+    .lg-sidebar-right{display:none;}
+
+    .isotope, .isotope .isotope-item {
+    margin-bottom:10px;
+    width: 98%;
+    border-bottom: 1px solid #eaeaea;
+    border-radius: 8px;
+    
+    }
+            .active-filter {
+        background: #333!important;
+        border-color: #444!important;
+        }
+        .dtree a{color:#f7f7f7 !important;}
+        .active-filter h4{
+                    color:#eaeaea!important;
+
+        }
+    #loaded_content{background:gray;padding:5px;padding-right: 8px;}
+    #selected-options{width:100%;}
+}
