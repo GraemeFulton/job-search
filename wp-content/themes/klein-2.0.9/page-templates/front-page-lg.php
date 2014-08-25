@@ -23,7 +23,7 @@
             );
         
         foreach($post_types as $post_type){
-        echo'<div class="home-box-container" style="border-top:3px solid '.$post_type[2].'">';
+        echo'<div class="home-box-container hide-on-phones hide-on-tablet" style="border-top:3px solid '.$post_type[2].'">';
             echo get_title($post_type[0]);
         $myposts = get_posts(array(
             'showposts' => 3,

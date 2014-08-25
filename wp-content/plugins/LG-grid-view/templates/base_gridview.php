@@ -12,11 +12,10 @@ $args= array(
 query_posts( $args);
 
 ?>
-
 <div id="lg-gridview-container"  class='main-content mobile-menu' category_type='<?php echo $post_category;?>' tag_type='<?php echo $tag_type;?>' body_type="<?php echo $body_type;?>">
-                            <?php include('filter_bar.php');?>
    
 		<div class="padder">
+                            <?php include('filter_bar.php');?>
 
 		<?php do_action( 'bp_before_blog_page' ); ?>
 
