@@ -204,10 +204,12 @@ function wpfp_lostgrad_widget_control() {
 		$username=$args['user'];
                 if($username=="me"){
                       global $bp;
-                    $username=$bp->displayed_user->fullname;
+                    $id= $bp->displayed_user->id ;
+                                    $userdata = get_userdata($id);
+                                    $username=$userdata->user_login;
+
                 }
     	$favorite_post_ids = wpfp_get_users_favorites($username);
-        
     	include("templates/tab_favourites.php");
     }
     add_shortcode('profile_favourites','wpfp_lostgrad_favourites');

@@ -496,8 +496,7 @@ max-height: 200px;
 }
 
 .profile-bookmark-image-box{
-    float:none !important;
-    height:200px;
+/*    height:200px;*/
 }
 .profile-bookmark-image{
     width:260px;
