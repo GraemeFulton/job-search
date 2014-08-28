@@ -20,14 +20,9 @@
 }
 
 .tab-post-favourite-group{
-	
-	width: 908px;
-	float: left;
-	padding: 20px;
-        margin:20px;
-	border: 1px solid #eaeaea;
-	background:#fff;
-        border-radius: 20px;
+width: 100%;
+float: left;
+
 }
 
 
@@ -44,7 +39,7 @@
 	margin-bottom:-4px;
 }
 .profile-bookmark-image-box{
-	height: 86px;
+/*	height: 86px;*/
 	float: left;
 	overflow: hidden;
 }
@@ -55,7 +50,7 @@ float:left;
 }
 .profile-bookmark-item{
 	width: 140px;
-height: 136px;
+/*height: 136px;*/
 position: relative;
 float: left;
 margin: 3px;

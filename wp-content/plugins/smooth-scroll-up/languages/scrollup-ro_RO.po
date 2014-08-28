@@ -1,0 +1,126 @@
+#
+# Translators:
+# Alex Cristache <alex@qbkl.net>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: Smooth Scroll Up\n"
+"POT-Creation-Date: 2014-08-13 12:59+0200\n"
+"PO-Revision-Date: 2014-08-25 17:35+0200\n"
+"Last-Translator: Konstantinos Kouratoras <kouratoras@gmail.com>\n"
+"Language-Team: Romanian (Romania) (http://www.transifex.com/projects/p/"
+"smooth-scroll-up/language/ro_RO/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ro_RO\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
+"2:1));\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: lib/options.php:6 lib/options.php:64
+msgid "Scroll Up Options"
+msgstr "Opţiuni Scroll Up"
+
+#: lib/options.php:56
+msgid "Options saved."
+msgstr "Opțiuni salvate."
+
+#: lib/options.php:68
+msgid "Text"
+msgstr "Text"
+
+#: lib/options.php:72
+msgid "Type"
+msgstr "Tip"
+
+#: lib/options.php:74
+msgid "Image"
+msgstr "Imagine"
+
+#: lib/options.php:75
+msgid "Text link"
+msgstr "Legătură text"
+
+#: lib/options.php:76
+msgid "Pill"
+msgstr "Bulină"
+
+#: lib/options.php:77
+msgid "Tab"
+msgstr "Filă"
+
+#: lib/options.php:81
+msgid "Position"
+msgstr "Aliniere"
+
+#: lib/options.php:83
+msgid "Left"
+msgstr "Stânga"
+
+#: lib/options.php:84
+msgid "Right"
+msgstr "Dreapta"
+
+#: lib/options.php:85
+msgid "Center"
+msgstr "Centru"
+
+#: lib/options.php:89
+msgid "Show in homepage"
+msgstr "Afişează pe pagina principală"
+
+#: lib/options.php:91 lib/options.php:98
+msgid "No"
+msgstr "Nu"
+
+#: lib/options.php:92 lib/options.php:99
+msgid "Yes"
+msgstr "Da"
+
+#: lib/options.php:96
+msgid "Show in mobile devices"
+msgstr "Afişează în echipamentele mobile"
+
+#: lib/options.php:103
+msgid "Distance from top before showing scroll up element"
+msgstr ""
+"Distanța de parcurs de sus până la afișarea elementului de scroll în sus"
+
+#: lib/options.php:107
+msgid "Show animation"
+msgstr "Arată animaţia"
+
+#: lib/options.php:109
+msgid "Fade"
+msgstr "Opacitate"
+
+#: lib/options.php:110
+msgid "Slide"
+msgstr "Alunecare"
+
+#: lib/options.php:111
+msgid "None"
+msgstr "Nespecificat"
+
+#: lib/options.php:115
+msgid "Onclick event"
+msgstr "Eveniment la click"
+
+#: lib/options.php:119
+#, php-format
+msgid "example: type %s in order to add an event %s"
+msgstr "exemplu: tastaţi %s pentru a adăuga un eveniment %s"
+
+#: lib/options.php:125
+msgid "Save Changes"
+msgstr "Salvează modificări"
+
+#: plugin.php:93
+msgid "Settings"
+msgstr "Setări"
