@@ -14,6 +14,7 @@ get_header(); ?>
         echo do_shortcode($content);
         
         ?>
+
 	<div class="col-md-12" id="content-header">
 		<h1 class="entry-title" id="bp-klein-page-title">
 			<?php the_title(); ?>
@@ -36,9 +37,13 @@ get_header(); ?>
 
 	echo '<h5 style="background:#333;color:rgba(255, 134, 39, 1);padding:5px;margin-bottom:0px;"><span style="margin-right:5px;"class="glyphicon fa fa-bullseye fa-2x"></span>Job Fact File</h3>';
 	$popup->template_response('table');
-                
+?>
+<?php the_content(); ?>
+
+<?php                
 	echo '<hr><h3 style="margin-bottom:-20px;">Similar Jobs</h3>'.do_shortcode('[widgets_on_pages id="Related Taxonomy Widget"]');
-?>		
+?>
+		
                     <?php
                         // If comments are open or we have at least one comment, load up the comment template
 			if ( comments_open() || '0' != get_comments_number() )
