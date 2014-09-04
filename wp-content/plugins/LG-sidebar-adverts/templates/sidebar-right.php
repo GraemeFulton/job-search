@@ -1,12 +1,7 @@
 <div class="lg-sidebar-right">
     
     <h3 style="color:rgb(175, 175, 175)">Our Sponsors</h3>
-    
-<!--UDEMY-->
-<a href="http://click.linksynergy.com/fs-bin/click?id=NIlJQJJlzVU&offerid=323058.46&subid=0&type=4"><IMG style="display:inline-block;" width=250 border="0"   alt="Learn about language today!" src="http://ad.linksynergy.com/fs-bin/show?id=NIlJQJJlzVU&bids=323058.46&subid=0&type=4&gridnum=13"></a>    
-<br><a href="http://click.linksynergy.com/fs-bin/click?id=NIlJQJJlzVU&offerid=323058.48&subid=0&type=4"><IMG width="250" border="0"   alt="Udemy" src="http://ad.linksynergy.com/fs-bin/show?id=NIlJQJJlzVU&bids=323058.48&subid=0&type=4&gridnum=13"></a>
-<br>
-    
+        
 <!--GOOGEL-->
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Lostgrad -->
@@ -18,7 +13,10 @@
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
+<!--UDEMY-->
+<a href="http://click.linksynergy.com/fs-bin/click?id=NIlJQJJlzVU&offerid=323058.46&subid=0&type=4"><IMG style="display:inline-block;" width=250 border="0"   alt="Learn about language today!" src="http://ad.linksynergy.com/fs-bin/show?id=NIlJQJJlzVU&bids=323058.46&subid=0&type=4&gridnum=13"></a>
+<br><a href="http://click.linksynergy.com/fs-bin/click?id=NIlJQJJlzVU&offerid=323058.48&subid=0&type=4"><IMG width="250" border="0"   alt="Udemy" src="http://ad.linksynergy.com/fs-bin/show?id=NIlJQJJlzVU&bids=323058.48&subid=0&type=4&gridnum=13"></a>
+<br>
 </div>
 
 

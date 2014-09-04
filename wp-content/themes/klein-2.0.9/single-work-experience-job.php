@@ -38,6 +38,12 @@ get_header(); ?>
 
 	echo '<h5 style="background:#333;color:rgb(228, 104, 228);padding:5px;margin-bottom:0px;"><span style="margin-right:10px;"class="glyphicon fa fa-gears fa-2x"></span>Job Fact File</h5>';
                 $popup->template_response('table');
+
+?>
+
+<?php the_content(); ?>
+
+<?php
  echo '<hr><h3 style="margin-bottom:-20px;">Similar Jobs</h3>'.do_shortcode('[widgets_on_pages id="Related Experience"]');
 
             ?>

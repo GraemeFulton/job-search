@@ -637,3 +637,5 @@ color: #5E5E5E !important;
     #loaded_content{background:gray;padding:5px;padding-right: 8px;}
     #selected-options{width:100%;}
 }
+#related-posts-via-taxonomies{float:left; margin-top:20px;}
+.addthis_toolbox{float:left; margin-top:8px;}
