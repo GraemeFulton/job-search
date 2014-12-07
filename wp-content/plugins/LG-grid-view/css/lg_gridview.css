@@ -593,10 +593,13 @@ background:#e9e9e9!important;}
 }
 
 .home-page .sf_container{
-    background-image: url('https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xfp1/t31.0-8/10339422_705287866212197_159914627008619680_o.jpg') !important;
+    background-image: url('https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/10847964_779645135443136_6234492486723526613_n.jpg?oh=c5c1f0b378fdc74a5962e6ba633405c8&oe=54FA9DF1&__gda__=1427162953_f657bc35e14fc85fe9f34dfee55f5d48') !important;
     height:400px;
-    background-position: center -320px !important;
     margin-bottom: -12px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
     
 }
 .home-page .searchform{
