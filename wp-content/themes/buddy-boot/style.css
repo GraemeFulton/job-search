@@ -1,0 +1,253 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 03-Dec-2014, 14:19:07
+    Author     : Graeme
+*/
+.multiselect-container.dropdown-menu {
+  background: #ffffff !important; }
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 03-Dec-2014, 14:19:07
+    Author     : Graeme
+*/
+/*# sourceMappingURL=style.css.map */
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+body {
+  color: #5a5a5a; }
+
+body {
+  font-family: ubuntu !important; }
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20; }
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0; }
+
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px; }
+
+.navbar-wrapper .navbar .container {
+  width: auto; }
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+/* Carousel base class */
+.carousel {
+  height: 500px;
+  margin-bottom: 60px; }
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10; }
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 500px;
+  background-color: #777; }
+
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px; }
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center; }
+
+.marketing h2 {
+  font-weight: normal; }
+
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px; }
+
+/* Featurettes
+------------------------- */
+.featurette-divider {
+  margin: 80px 0;
+  /* Space out the Bootstrap <hr> more */ }
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px; }
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px; }
+
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px; }
+
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0; }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px; }
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4; }
+
+  .featurette-heading {
+    font-size: 50px; } }
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px; } }
+.spacer {
+  height: 100px; }
+
+.carousel-control.left, .carousel-control.right {
+  background-image: none; }
+
+.multiselect-container.dropdown-menu {
+  background: #ffffff !important; }
+
+/**SIGN UP/JOB ROLL PAGE**/
+.theme-grey {
+  padding-top: 15px;
+  background: #f4f4f4; }
+  .theme-grey .content-block {
+    background: #fff; }
+  .theme-grey .post {
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #f0f0f0; }
+  .theme-grey a {
+    color: #50978B; }
+  .theme-grey .current-selections {
+    padding: 10px;
+    background: #fff;
+    margin-bottom: 10px;
+    border: 1px solid #f0f0f0; }
+  .theme-grey .search-criteria {
+    padding: 0px;
+    background: #fff;
+    margin-bottom: 10px !important; }
+  .theme-grey .btn-next {
+    background-color: #44A897;
+    border-color: #44A897; }
+  .theme-grey .btn-next:hover, .theme-grey .btn-next:focus, .theme-grey .btn-next:active, .theme-grey .btn-next.active, .theme-grey .open .dropdown-toggle.btn-next {
+    background-color: #44A897;
+    border-color: #44A897; }
+  .theme-grey .btn-custom {
+    background-color: #616161 !important;
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#707070", endColorstr="#606060");
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#707070), to(#606060));
+    background-image: -moz-linear-gradient(top, #707070, #606060);
+    background-image: -ms-linear-gradient(top, #707070, #606060);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #707070), color-stop(100%, #606060));
+    background-image: -webkit-linear-gradient(top, #707070, #606060);
+    background-image: -o-linear-gradient(top, #707070, #606060);
+    background-image: linear-gradient(#707070, #606060);
+    border-color: #606060 #606060 #5d5d5d;
+    color: #fff !important;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.09);
+    -webkit-font-smoothing: antialiased; }
+  .theme-grey .register-pg-social a {
+    color: #fff; }
+  .theme-grey .btn-fb {
+    background: #39559f;
+    margin-bottom: 8px;
+    margin-top: 8px; }
+  .theme-grey .btn-twitter {
+    background: #55ACEE; }
+  .theme-grey .btn-outlined {
+    background: #fff;
+    color: #5a5a5a;
+    border-color: #7cb8ae; }
+  .theme-grey .selected {
+    color: #44a897; }
+  .theme-grey .box-head {
+    color: #919191; }
+  .theme-grey .avatar-circle {
+    margin-bottom: 8px; }
+    .theme-grey .avatar-circle img {
+      border-radius: 30px; }
+
+.welcome-profile ul {
+  margin-left: -40px; }
+.welcome-profile li {
+  list-style: none;
+  line-height: 1.7; }
+.welcome-profile h2 {
+  margin-top: 0px; }
+
+/**for 3 equal sized boxes**/
+.row-flex, .row-flex > div[class*='col-'] {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex: 1 1 auto; }
+
+.row-flex-wrap {
+  -webkit-flex-flow: row wrap;
+  align-content: flex-start;
+  flex: 0; }
+
+.row-flex > div[class*='col-'], .container-flex > div[class*='col-'] {
+  margin: -0.8px -18px; }
+
+.container-flex > div[class*='col-'] div, .row-flex > div[class*='col-'] div {
+  width: 100%; }
+
+.flex-col {
+  display: flex;
+  display: -webkit-flex;
+  flex: 1 100%;
+  flex-flow: column nowrap; }
+
+.flex-col.panel {
+  padding: 28px;
+  margin-bottom: 0px;
+  border-radius: 0px;
+  box-shadow: none; }
+  .flex-col.panel h1, .flex-col.panel h2, .flex-col.panel h3, .flex-col.panel h4 {
+    margin-top: 0px; }
+
+.flex-grow {
+  display: flex;
+  -webkit-flex: 2;
+  flex: 2; }
+
+/*# sourceMappingURL=style.css.map */
