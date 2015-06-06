@@ -31,19 +31,37 @@ $profession = json_encode($_GET['Profession']);
                                                 $link= $job_tree->types_post_type($this->post_id, 'opportunity-url', 'raw');
                                                 ?>
 						<div class="the-content job-feed-content">
-                                                    
-                                                    <?php if ($paged==1){
-                                                        ?>
-                                                   <a class='job-link' href="<?php echo $link; ?>"><h4 class="title"><?php the_title(); // Display the title of the page ?></h4></a>
-                                                    
-                                                    <?php
-                                                    }
-                                                    else{
-                                                        ?>
-                                                   <a data-toggle="modal" id="add-cover-photo" data-target="#myModal" href="<?php the_permalink(); ?>">	<h4 class="title"><?php the_title(); // Display the title of the page ?></h4></a>
-                                                    <?php
-                                                        
-                                                    }
+
+
+                                            <?php
+                                            //if user is not logged in, show popup links
+                                            if(is_user_logged_in()==false) {
+
+                                                 if ($paged == 1) {
+                                                    ?>
+                                                    <a class='job-link' href="<?php echo $link; ?>"><h4
+                                                            class="title"><?php the_title(); // Display the title of the page ?></h4>
+                                                    </a>
+
+                                                <?php
+                                                } else {
+                                                    ?>
+                                                    <a data-toggle="modal" id="add-cover-photo" data-target="#myModal"
+                                                       data-href="<?php the_permalink(); ?>"><h4
+                                                            class="title"><?php the_title(); // Display the title of the page
+                                                            ?></h4></a>
+                                                <?php
+
+                                                }
+                                            }
+                                            //else show lostgrad links
+                                            else{
+                                                ?>
+                                                <a href="<?php the_permalink(); ?>"><h4
+                                                        class="title"><?php the_title(); // Display the title of the page
+                                                        ?></h4></a>
+                                            <?php
+                                            }
                                                   ?>
 							<?php the_content(); 
 							// This call the main content of the page, the stuff in the main text box while composing.

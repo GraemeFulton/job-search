@@ -1413,7 +1413,7 @@ msgid "%s Error: Failed to download"
 msgstr "Errore %s: download fallito"
 
 #: addons/sftp.php:260
-msgid "Resuming partial uploads is not supported, so you will need to ensure that your webserver allows PHP processes to run long enough to upload your largest backup file."
+msgid "Resuming partials uploads is not supported, so you will need to ensure that your webserver allows PHP processes to run long enough to upload your largest backup file."
 msgstr "Non è possibile riprendere upload parziali, è quindi necessario assicurarsi che il vostro server web permetta ai processi PHP di funzionare abbastanza a lungo per caricare il vostro file di backup più grande."
 
 #: addons/sftp.php:265

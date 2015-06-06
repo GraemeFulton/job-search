@@ -628,7 +628,7 @@
             }
           }
         }
-        // Clear the buffer since there are no partial matches.
+        // Clear the buffer since there are no partials matches.
         inputState.keyBuffer = [];
         return null;
       },

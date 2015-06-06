@@ -1844,7 +1844,7 @@ msgstr "%s hiba: Nem sikerült a letöltés"
 
 #: addons/sftp.php:172
 msgid ""
-"Resuming partial uploads is not supported, so you will need to ensure that "
+"Resuming partials uploads is not supported, so you will need to ensure that "
 "your webserver allows PHP processes to run long enough to upload your "
 "largest backup file."
 msgstr ""

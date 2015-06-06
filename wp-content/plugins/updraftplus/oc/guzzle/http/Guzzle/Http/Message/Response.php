@@ -351,7 +351,7 @@ class Response extends AbstractMessage implements \Serializable
     /**
      * Get the Accept-Ranges HTTP header
      *
-     * @return string Returns what partial content range types this server supports.
+     * @return string Returns what partials content range types this server supports.
      */
     public function getAcceptRanges()
     {
@@ -498,7 +498,7 @@ class Response extends AbstractMessage implements \Serializable
     /**
      * Get the Content-Range HTTP header
      *
-     * @return string Returns where in a full body message this partial message belongs (e.g. bytes 21010-47021/47022).
+     * @return string Returns where in a full body message this partials message belongs (e.g. bytes 21010-47021/47022).
      */
     public function getContentRange()
     {

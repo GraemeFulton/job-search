@@ -1,21 +1,25 @@
+
+/*
+Clickable map js
+ */
 $(document).ready(function(){
-    
-    var div = document.getElementById("map");      
+
+    var div = document.getElementById("map");
 var width=div.offsetWidth;
 original_width=400;
 original_height=400;
 scale_factor=width/original_width;
-var height=original_height*scale_factor;                    
-var transformation='S'+scale_factor+','+scale_factor+',0,0'; 
+var height=original_height*scale_factor;
+var transformation='S'+scale_factor+','+scale_factor+',0,0';
 
       var rsr = new ScaleRaphael("map",400,400);
-      
+
       function resizePaper(){
         var win = $(this);
         rsr.changeSize(win.width()-100, win.height()-100, true, true);
       }
       resizePaper();
-      $(window).resize(resizePaper); 
+      $(window).resize(resizePaper);
 
 
 
@@ -147,12 +151,12 @@ East.attr({'id': 'East','name': 'East'});
 
 var rsrGroups = [Isle_of_Man_1_,North_West,Midlands,Northern_Ireland,Ireland,Scotland,Wales,North_East,South_West,South_East,London,Yorkshire,East];
 Isle_of_Man_1_.push(
-	Isle_of_Man 
+	Isle_of_Man
 );
 North_West.push(
 	path_a ,
 	path_b ,
-	path_c 
+	path_c
 );
 Midlands.push(
 	path_d ,
@@ -161,7 +165,7 @@ Midlands.push(
 	path_g ,
 	path_h ,
 	path_i ,
-	path_j 
+	path_j
 );
 Northern_Ireland.push(
 	path_k ,
@@ -169,7 +173,7 @@ Northern_Ireland.push(
 	path_m ,
 	path_n ,
 	path_o ,
-	path_p 
+	path_p
 );
 Ireland.push(
 	path_q ,
@@ -184,7 +188,7 @@ Ireland.push(
 	path_z ,
 	path_aa ,
 	path_ab ,
-	path_ac 
+	path_ac
 );
 Scotland.push(
 	path_ad ,
@@ -211,7 +215,7 @@ Scotland.push(
 	path_ay ,
 	path_az ,
 	path_ba ,
-	path_bb 
+	path_bb
 );
 Wales.push(
 	path_bc ,
@@ -223,12 +227,12 @@ Wales.push(
 	path_bi ,
 	path_bj ,
 	path_bk ,
-	path_bl 
+	path_bl
 );
 North_East.push(
 	path_bm ,
 	path_bn ,
-	path_bo 
+	path_bo
 );
 South_West.push(
 	path_bp ,
@@ -241,7 +245,7 @@ South_West.push(
 	path_bw ,
 	path_bx ,
 	path_by ,
-	path_bz 
+	path_bz
 );
 South_East.push(
 	path_ca ,
@@ -250,16 +254,16 @@ South_East.push(
 	path_cd ,
 	path_ce ,
 	path_cf ,
-	path_cg 
+	path_cg
 );
 London.push(
-	path_ch 
+	path_ch
 );
 Yorkshire.push(
 	path_ci ,
 	path_cj ,
 	path_ck ,
-	path_cl 
+	path_cl
 );
 East.push(
 	path_cm ,
@@ -268,25 +272,25 @@ East.push(
 	path_cp ,
 	path_cq ,
 	path_cr ,
-	path_cs 
+	path_cs
 );
-	
-	
-	
-	
-	
+
+
+
+
+
 //MAIN
 //loop through each group
 for(var x=0;x<rsrGroups.length;x++){
     var group = rsrGroups[x];
     //each group has individual boxes - loop them and colour them
     $.each(group, function(i, val) {
-                
+
         var elem = group[i];
         //hover
-        group.mouseover(mouse_in(elem, group));  
+        group.mouseover(mouse_in(elem, group));
         group.mouseout(mouse_out(elem));
-        
+
         //click
         group.click(mouse_click(elem,group));
     });
@@ -300,14 +304,14 @@ var selection="";
 function mouse_in(elem, group) {
 
     return function() {
-                            
-                setTexts(group)  
-                
+
+                setTexts(group)
+
                  elem.node.style.opacity= 0.7
                  colour= elem.attrs.fill
-                // elem.node.setAttribute('fill','#21ddbb');  
-                 elem.node.setAttribute('stroke','#fff');                    
-                 elem.node.setAttribute('stroke-width','2');   
+                // elem.node.setAttribute('fill','#21ddbb');
+                 elem.node.setAttribute('stroke','#fff');
+                 elem.node.setAttribute('stroke-width','2');
                  elem.node.style.cursor= "pointer"
            };
 }
@@ -315,8 +319,8 @@ function mouse_in(elem, group) {
 function mouse_out(elem) {
     return function() {
                  elem.node.style.opacity= 1
-                 //elem.node.setAttribute('fill',colour);  
-                 elem.node.setAttribute('stroke-width','0');   
+                 //elem.node.setAttribute('fill',colour);
+                 elem.node.setAttribute('stroke-width','0');
                  $('#selection').empty()
 
            };
@@ -329,12 +333,12 @@ function mouse_click(elem,group){
         var col = elem.node.getAttribute('fill')
 
         if(col==highlightColour){
-            elem.node.setAttribute('fill',elem.attrs.fill);  
+            elem.node.setAttribute('fill',elem.attrs.fill);
             setSelected(group, 'off');
-            
+
         }
         else{
-            elem.node.setAttribute('fill',highlightColour);  
+            elem.node.setAttribute('fill',highlightColour);
             elem.node.setAttribute('stroke-width','1');
             setSelected(group, 'on');
         }
@@ -342,11 +346,11 @@ function mouse_click(elem,group){
 }
 
 function setTexts(group){
-    if(group == Isle_of_Man_1_) 
+    if(group == Isle_of_Man_1_)
             selection="Isle of Man"
-    else if(group == North_West) 
+    else if(group == North_West)
         selection="North West"
-    else if(group==Midlands) 
+    else if(group==Midlands)
             selection="Midlands"
     else if(group == Northern_Ireland)
             selection="Northern Ireland"
@@ -354,21 +358,21 @@ function setTexts(group){
             selection="Ireland"
     else if(group == Scotland)
             selection="Scotland"
-    else if(group == Wales) 
+    else if(group == Wales)
             selection="Wales"
-    else if(group == North_East) 
+    else if(group == North_East)
             selection="North East"
-    else if(group == South_West) 
+    else if(group == South_West)
             selection="South West"
     else if(group == South_East)
             selection="South East"
-    else if(group == London) 
+    else if(group == London)
             selection="London"
-    else if(group == Yorkshire) 
+    else if(group == Yorkshire)
             selection="Yorkshire"
     else if(group==East)
             selection="East"
-        
+
     $('#selection').text(selection)
 }
 
@@ -376,11 +380,11 @@ function setTexts(group){
 var selected='';
 var places = [];
 function setSelected(group, toggle){
-        if(group == Isle_of_Man_1_) 
+        if(group == Isle_of_Man_1_)
           selected='Isle of Man'
-    else if(group == North_West) 
+    else if(group == North_West)
         selected="North West"
-    else if(group==Midlands) 
+    else if(group==Midlands)
             selected="Midlands"
     else if(group == Northern_Ireland)
             selected="Northern Ireland"
@@ -388,32 +392,32 @@ function setSelected(group, toggle){
             selected="Ireland"
     else if(group == Scotland)
             selected="Scotland"
-    else if(group == Wales) 
+    else if(group == Wales)
             selected="Wales"
-    else if(group == North_East) 
+    else if(group == North_East)
             selected="North East"
-    else if(group == South_West) 
+    else if(group == South_West)
             selected="South West"
     else if(group == South_East)
             selected="South East"
-    else if(group == London) 
+    else if(group == London)
             selected="London"
-    else if(group == Yorkshire) 
+    else if(group == Yorkshire)
             selected="Yorkshire"
     else if(group==East)
             selected="East"
-        
+
 if(toggle=='on'){
 
     if ($.inArray(selected, places) == -1)
     {
       places.push(selected)
       var tag_list = '';
-      
+
       for(var x=0;x<places.length;x++){
           tag_list+='<span class="tag-selected"><input type="hidden" name="Location[]" value="'+places[x]+'">'+places[x]+'</span>'
       }
-      
+
       $('#selected').empty().append(tag_list);
     }
 }
@@ -422,11 +426,11 @@ if(toggle=='off'){
     {
         removeA(places,selected)
       var tag_list = '';
-      
+
       for(var x=0;x<places.length;x++){
           tag_list+='<span class="tag-selected"><input type="hidden" name="Location[]" value="'+places[x]+'">'+places[x]+'</span>'
       }
-      
+
       $('#selected').empty().append(tag_list);
     if($.trim($('#selected').text()) == "") {
       $('#selected').empty().append('<span class="nowhere">Nothing</span>');
@@ -434,7 +438,7 @@ if(toggle=='off'){
     }
 
 }
-     
+
 }
 
 //Remove element from array

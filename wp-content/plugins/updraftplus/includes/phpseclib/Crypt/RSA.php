@@ -2061,7 +2061,7 @@ class Crypt_RSA {
      * 
      *    Note.  Care must be taken to ensure that an opponent cannot
      *    distinguish the different error conditions in Step 3.g, whether by
-     *    error message or timing, or, more generally, learn partial
+     *    error message or timing, or, more generally, learn partials
      *    information about the encoded message EM.  Otherwise an opponent may
      *    be able to obtain useful information about the decryption of the
      *    ciphertext C, leading to a chosen-ciphertext attack such as the one
