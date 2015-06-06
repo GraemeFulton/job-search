@@ -87,3 +87,26 @@ function LG_bootstrap_scripts()  {
   
 }
 add_action( 'wp_enqueue_scripts', 'LG_bootstrap_scripts' ); // Register this fxn and allow Wordpress to call it automatcally in the header
+
+
+//on registration we need to store the user's preferences as x-profile-fields
+function LG_save_preferences($ID) {
+
+    if($ID=NULL){
+    global $current_user;
+    get_currentuserinfo();
+    $ID= $current_user->id;
+    }
+    
+    $Location = $_SESSION['Location'];
+
+    xprofile_set_field_data('Location', $current_user->id,  $Location);
+
+}
+add_action( 'user_register', 'LG_save_preferences' ); // Register this fxn and allow Wordpress to call it automatcally in the header
+
+
+function LG_hi(){
+    echo '<script>alert("hi"); console.log($.cookie("Location"));</script>';
+}
+add_shortcode('sessionvars', 'LG_hi');

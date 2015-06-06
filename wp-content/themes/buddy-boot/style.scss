@@ -177,14 +177,42 @@ body {
 .theme-grey{
     padding-top: 15px;
     background: #f4f4f4;
+}
+
+.job-feed-content{
+    padding-right:52px;
+}
+    .sign-up-panel{
+        background:#fafafa;
+        padding:25px;
+        .search-criteria{
+            margin-bottom:40px!important;
+        }
+    }
+    .paginating{
+        padding:30px;
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-bottom: 10px;
+        margin-top: -10px;
+    }
+        .pagi-button{
+        padding:5px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background:#fff;
+        width:100px;
+        text-align: center;
+        border:1px solid;
+    }
     
     .content-block{background:#fff;}
     
     .post{
         background: #fff;
-        padding:10px;
-        margin-bottom: 10px;
-        border:1px solid #f0f0f0;
+        padding:15px;
+        margin-bottom: 15px;
+        border:1px solid #e7e7e7;
     }
     a{color:#50978B}
     
@@ -257,7 +285,7 @@ color:#fff;
     }
 }
 
-}
+
 .welcome-profile{
 
     ul{
@@ -286,7 +314,7 @@ color:#fff;
 }
 
 .row-flex > div[class*='col-'], .container-flex > div[class*='col-'] {
-    margin: -0.8px -18px;
+    margin: -0.8px -15.5px;
 }
 
 .container-flex > div[class*='col-'] div,.row-flex > div[class*='col-'] div {
@@ -301,6 +329,9 @@ color:#fff;
 	flex-flow: column nowrap;
 }
 
+.panel-default{
+    border-color: #eaeaea;
+}
 .flex-col.panel{
     h1,h2,h3,h4{
         margin-top: 0px;
@@ -315,4 +346,45 @@ color:#fff;
 	display: flex;
     -webkit-flex: 2;
     flex: 2;
+}
+
+
+
+.go-to-page{
+position: absolute;
+top: 0px;
+right: 0px;
+height: 100%;
+background: #e6e6e6;
+width: 50px;
+}
+.go-to-page-arrow{
+ position: relative;
+top: 45%;
+left: 37%;
+color: #fafafa;
+}
+
+.post.container{
+    position:relative;
+}
+
+.sign-up-next-link:hover, .sign-up-next-link:active{
+    text-decoration: none;
+}
+.sign-up-next{
+    padding:25px;
+    margin-top: 24px;
+    border:1px solid #7AB0A7;
+    background:#fff;
+    margin-bottom:20px;
+    
+    h4{
+        color:#7AB0A7;
+        margin-top:0px;
+        margin-bottom: 0px;
+    }
+    
+ 
+    
 }

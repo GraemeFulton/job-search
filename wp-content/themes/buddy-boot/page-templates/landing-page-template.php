@@ -1,7 +1,15 @@
 <?php
 /**
- * Template Name: Front Page LG
+ * Template Name: Landing page
  */
+
+//if user logged in don't bother
+if(is_user_logged_in()==true){
+            wp_redirect( home_url( '/job-roll/' ) ); exit;
+
+}
+
+
 ?>
 <?php get_header(); ?>
 <script src="<?php echo get_template_directory_uri()?>/js/scaleRaphael.js"></script>
@@ -16,15 +24,15 @@
 <div class="container-fluid content-container" id="fullpage">
     <section class='pagi-menu'>
         <ul id="pagi-menu">
-	<li data-menuanchor="firstPage" class=""><a href="#firstPage">First section</a></li>
-	<li data-menuanchor="secondPage" class="active"><a href="#secondPage">Second section</a></li>
-	<li data-menuanchor="3rdPage" class=""><a href="#3rdPage">Third section</a></li>
-	<li data-menuanchor="4thpage"><a href="#4thpage">Fourth section</a></li>
+	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">Welcome</a></li>
+	<li data-menuanchor="secondPage" class=""><a href="#secondPage">Step 1</a></li>
+	<li data-menuanchor="3rdPage" class=""><a href="#3rdPage">Step 2</a></li>
+	<li data-menuanchor="4thpage"><a href="#4thpage">Step 3</a></li>
         </ul>
     </section>
-    <form method="post" action='sign-up'>
+    <form method="get" action='sign-up'>
 
-    <section class="welcome-row row section">
+    <section class="welcome-row row section" id="section0">
         <div class='text-center'>
             <h1>Hello</h1>
             <p>Take these 3 simple steps, and we'll suggest some jobs for you:</p>
@@ -36,13 +44,12 @@
         </div>
     </section>
 
-                <section class='row interest-row section'>
+                <section class='row interest-row section' id="section1">
                      <div class='text-center'>
 
                          <h2>What do you want to do?</h2>
 
-                    <div class='slide'>
-
+                <div class="slide" data-anchor="slide1" id="slide1">
                     <p>Choose as many as you like!</p>
                     <div class='side'>
                     <div class='col-lg-1 col-md-2 col-sm-3 col-xs-4 col-lg-offset-4 col-md-offset-2 col-xs-offset-2 col-sm-offset-1 image-box'>
@@ -110,12 +117,12 @@
                         </div>
   
                 </div>
-            </div>
-                    
-            <div class='slide'>
+                </div>
+        <div class='slide' data-anchor="slide2" id="slide2">
   <div class='text-center'>
       <h5>Choose some more:</h5>
                     <div class='side'>
+                        <div class="side-pad">
                     <div class='col-lg-1 col-md-2 col-sm-3 col-xs-4 col-lg-offset-4 col-md-offset-2 col-xs-offset-2 col-sm-offset-1 image-box'>
                         <div class="box-container">
                         <div class='check' style=''><input type="checkbox" name="Profession[]" value="Media"></div>
@@ -177,16 +184,19 @@
                     <div class='col-sm-12 col-xs-12 next-action'>
                         <button class='btn-large btn-custom btn'>Prev</button>
                                                 <button class='btn-large btn-custom btn'>Next</button>
+                                                
 
 <!--                        <button class='btn-success btn-next btn'>Next Step</button>-->
                     </div>
                         </div>
+                    </div>
   
                 </div>
             </div>
+                    
         </section>
    
-        <section class='row location-row section'>
+        <section class='row location-row section' id="section3">
             <div class='text-center'>
             <h2>Where would you like to work?</h2>
 
@@ -204,7 +214,7 @@
             </div>
         </section>
     
-            <section class='container degree-row section'>
+            <section class='container degree-row section' id="section4">
             <div class='text-center'>
 
              <h2>What's your degree classification?</h2>

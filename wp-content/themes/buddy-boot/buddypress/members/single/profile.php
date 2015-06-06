@@ -51,6 +51,5 @@
 endswitch; ?>
 
 </div><!-- .profile -->
-        <?php    do_action('profile_job_recommendation_loop')?>
 
 <?php do_action( 'bp_after_profile_content' ); ?>

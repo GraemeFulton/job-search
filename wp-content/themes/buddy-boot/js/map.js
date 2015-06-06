@@ -1,4 +1,6 @@
-var div = document.getElementById("map");      
+$(document).ready(function(){
+    
+    var div = document.getElementById("map");      
 var width=div.offsetWidth;
 original_width=400;
 original_height=400;
@@ -446,4 +448,6 @@ while(L> 1 && arr.length){
 }
 return arr;
 }
+
+})
 
