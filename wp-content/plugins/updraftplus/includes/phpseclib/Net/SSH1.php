@@ -1263,7 +1263,7 @@ class Net_SSH1 {
         */
 
         // To quote from protocol-1.5.txt:
-        // The most significant byte (which is only partial as the value must be
+        // The most significant byte (which is only partials as the value must be
         // less than the public modulus, which is never a power of two) is zero.
         //
         // The next byte contains the value 2 (which stands for public-key

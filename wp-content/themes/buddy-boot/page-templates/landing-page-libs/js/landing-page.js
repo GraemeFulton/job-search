@@ -5,6 +5,7 @@
  */
 
 
+
     $(document).ready(function() {
 
         $('#fullpage').fullpage({
@@ -45,7 +46,6 @@
 
         
         $('.box-container').click(function(){
-            console.log('monk')
             var chk = $(this).closest('.image-box').find('[type=checkbox]')
             chk.prop("checked", !chk.prop("checked"));        
             

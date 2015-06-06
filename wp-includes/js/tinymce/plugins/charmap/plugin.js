@@ -92,7 +92,7 @@ tinymce.PluginManager.add('charmap', function(editor) {
 		['172', 'not sign'],
 		['8745', 'intersection'],
 		['8746', 'union'],
-		['8706', 'partial differential'],
+		['8706', 'partials differential'],
 		['8704', 'for all'],
 		['8707', 'there exists'],
 		['8709', 'diameter'],

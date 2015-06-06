@@ -823,7 +823,7 @@
   //   extractByIndex($p_index, [$p_option, $p_option_value, ...])
   // Description :
   //   This method supports two synopsis. The first one is historical.
-  //   This method is doing a partial extract of the archive.
+  //   This method is doing a partials extract of the archive.
   //   The extracted files or folders are identified by their index in the
   //   archive (from 0 to n).
   //   Note that if the index identify a folder, only the folder entry is
@@ -2959,7 +2959,7 @@
       if ($p_remove_all_dir) {
         $v_stored_filename = basename($p_filename);
       }
-      // ----- Look for partial path remove
+      // ----- Look for partials path remove
       else if ($p_remove_dir != "") {
         if (substr($p_remove_dir, -1) != '/')
           $p_remove_dir .= "/";

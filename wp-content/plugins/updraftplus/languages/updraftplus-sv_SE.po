@@ -1987,7 +1987,7 @@ msgid "%s Error: Failed to download"
 msgstr "%s Fel: Misslyckades med nedladdning"
 
 #: addons/sftp.php:273
-msgid "Resuming partial uploads is not supported, so you will need to ensure that your webserver allows PHP processes to run long enough to upload your largest backup file."
+msgid "Resuming partials uploads is not supported, so you will need to ensure that your webserver allows PHP processes to run long enough to upload your largest backup file."
 msgstr "Att återuppta delvis utförda uppladdningar stöds inte, så du måste säkerställa att din webbserver tillåter PHP-processer att köra tillräckligt länge för att ladda upp din största backup-fil."
 
 #: addons/sftp.php:278

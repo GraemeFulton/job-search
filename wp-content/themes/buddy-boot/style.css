@@ -324,4 +324,11 @@ a {
     margin-top: 0px;
     margin-bottom: 0px; }
 
+span.selected {
+  background: #f2f2f2;
+  color: #666;
+  padding: 3px;
+  font-size: 11px;
+  margin-right: 2px; }
+
 /*# sourceMappingURL=style.css.map */
