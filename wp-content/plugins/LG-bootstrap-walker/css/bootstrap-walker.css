@@ -39,13 +39,9 @@ background: transparent;
 /*--------------------------------
 NAV BUTTONS AND BUTTON TRIM
 ----------------------------------*/
-.navbar{border-bottom:none;
-background: #1b1b1b;
-background: -webkit-gradient(linear,0% 0%,0% 100%,from(#353535),to(#010101));
-background: -webkit-linear-gradient(0% 0%,0% 100%,from(#353535),to(#010101));
-background: -moz-linear-gradient(center top,#353535,#010101);
-background: linear-gradient(#353535,#010101);
-box-shadow: 0 2px 2px -2px rgba(0,0,0,0.8);
+.navbar{border-bottom:none!important;
+background: #383838!important;
+
 }
 
 

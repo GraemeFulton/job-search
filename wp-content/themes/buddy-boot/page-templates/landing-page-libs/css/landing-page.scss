@@ -10,6 +10,15 @@
      background:#9ED4C9!important;
        
     }
+    #section1,
+#section1 .fp-slide,
+#section1 .fp-tableCell{
+    height: 95% !important;
+}
+fp-slidesNav{display:none}
+.fp-slidesNav.show{
+    display:inline
+}
 .box-container{
             background:#f9f9f9;
             margin:0 5px 0 5px;
@@ -80,6 +89,21 @@ margin-top:10px;
     .next-action{
         padding:20px;
     }
+    
+    .navbar{
+        .menu-item{
+            display:none;
+        }
+    }
+            #wp-toolbar{display:none;}
+
+    
+/*    .theme-grey{
+        padding-top:0px;
+    }
+    html{
+        margin-top:0px!important;
+    }*/
     
 #map{
     overflow:hidden;
@@ -250,7 +274,6 @@ and (max-width : 1224px){
 
 
 }
-
     
 #pagi-menu li {
 	display:inline-block;
@@ -286,11 +309,14 @@ and (max-width : 1224px){
 }
 #pagi-menu{
 	position:fixed;
-	top:0;
+	bottom:30px;
 	left:0;
 	height: 40px;
 	z-index: 70;
 	width: 100%;
 	padding: 0;
 	margin:0;
+}
+.navbar .container{
+    width:100%!Important
 }

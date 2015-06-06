@@ -6,6 +6,7 @@
 ?>
 
 <footer class="site-footer container" role="contentinfo">
+    
 <p>© 
 <a href="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></p>
 <br>

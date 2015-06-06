@@ -8,18 +8,39 @@
     $(document).ready(function() {
 
         $('#fullpage').fullpage({
-verticalCentered:false,
-
-afterLoad: function(anchorLink, index){
+            verticalCentered:false,
+            anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+	menu: '#menu',
+        slidesNavigation: true,
+        	navigation: true,
+				navigationPosition: 'right',
+        
+        afterLoad: function(anchorLink, index){
             //using index
-            if(index == '2'){
-        }
+             //using anchorLink
+             var offset = $('.next-action').offset();
+            var height = $('.next-action').height();
+            var width = $('.next-action').width();
+            var top = offset.top + height + "px";
+            var right = offset.left + width + "px";
+
+            $('.fp-slidesNav').css( {
+                'position': 'absolute',
+                'right': right,
+                'top': top,
+                'width':'100%'
+            });
+  
+         
         },
-                resize : false,
-                menu: '#pagi-menu',
+                resize : true,
+                menu: '#pagi-menu'
 
 
     });
+
+
+
 
 
         

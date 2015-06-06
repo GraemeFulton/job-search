@@ -62,7 +62,13 @@ class Job_Recommendations{
                 //custom action
                 add_action('job_recommendation_loop', array($this,'recommend_jobs'));
                 add_action('profile_job_recommendation_loop', array($this,'profile_recommend_jobs'));
-
+                
+                //user profile fields
+//                add_action( 'show_user_profile', array($this,'user_interests_fields') );
+//                add_action( 'edit_user_profile', array($this,'user_interests_fields') );
+                add_action('bp_init', array($this,'create_profile_field_group'));
+                
+                add_action('bp_after_profile_field_content', array($this, 'profession_list'));
 
 	}
 
@@ -139,137 +145,318 @@ class Job_Recommendations{
         
      public function recommend_jobs(){
             
+
         //WP_QUERY
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
+        if($paged==1){
+            $posts_per_page='4';
+        }
+        else ($posts_per_page='8');
+        
         $args= array
        (
            'post_type'=>'graduate-job',
            'paged'=>$paged,
-           'posts_per_page'=>$offset,
+           'posts_per_page'=>$posts_per_page,
        );
 
 
         //add '-jobs' suffix to professions so query by slug works
-        if(isset($_POST['Profession'])){
-        array_walk($_POST['Profession'], function(&$value, $key) {  $value =$this->create_slug($value); });
+        if(isset($_GET['Profession'])){
+            
+            $_COOKIE['Profession']= $_GET['Profession'];
+        
+         array_walk($_GET['Profession'], function(&$value, $key) {  $value =$this->create_slug($value); });
         //profession
-         $args['tax_query'][0]['terms']=$_POST['Profession'];
+         $args['tax_query'][0]['terms']=$_GET['Profession'];
          $args['tax_query'][0]['taxonomy']='profession';
          $args['tax_query'][0]['field']='slug';
         }
 
-        if(isset($_POST['Location'])){
+        if(isset($_GET['Location'])){
+
+            $_COOKIE['Location']= $_GET['Location'];
+
          //location
-         $args['tax_query'][1]['terms']=$_POST['Location'];
+         $args['tax_query'][1]['terms']=$_GET['Location'];
          $args['tax_query'][1]['taxonomy']='location';
          $args['tax_query'][1]['field']='slug';  
         }
          $qp= query_posts($args);
 
          require_once 'views/template-job-recommendations.php';
+         //set cookies using js
+
          wp_reset_query();
                   
      }
      
      
-     public function profile_recommend_jobs(){
-                
-    global $bp;
-    $id=$bp->loggedin_user->id ;
-    
-    //set up a custom query for paginating
-    $custom_query_args = array(
-    // Custom query parameters go here
-         'post_type'=>'graduate-job',
-        'posts_per_page'=>"3"
-    );
-    
-    //WP_QUERY
-    // $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+     public function profile_jobs(){
+         
+         
+        //WP_QUERY
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-   $custom_query_args['paged'] = get_query_var( 'page' ) 
-    ? get_query_var( 'page' ) 
-    : 1;
-
-
-     
-//     $selections = xprofile_get_field_data('Subjects', $id);
-//     //add '-jobs' suffix to professions so query by slug works
-//     if(isset($selections)){
-//     array_walk($selections, function(&$value, $key) {  $value =$this->create_slug($value); });
-//     //profession
-//      $custom_query_args['tax_query'][0]['terms']=$selections;
-//      $custom_query_args['tax_query'][0]['taxonomy']='profession';
-//      $custom_query_args['tax_query'][0]['field']='slug';
-//     }
-//     
-//     if(isset($_POST['Location'])){
-//      //location
-//      $custom_query_args['tax_query'][1]['terms']=$_POST['Location'];
-//      $custom_query_args['tax_query'][1]['taxonomy']='location';
-//      $custom_query_args['tax_query'][1]['field']='slug';  
-//     }
-    // Instantiate custom query
-    $custom_query = new WP_Query( $custom_query_args );
-    //cache the old query
-    $temp_query = $wp_query;
-    $wp_query = NULL;
-    $wp_query = $custom_query;
-    
-?>
-<h1>Latest Job Recommendations</h1>
-  <?php 	 if ( $custom_query->have_posts() ) : 
-			// Do we have any posts/pages in the databse that match our query?
-			?>
-
-				<?php while ( $custom_query->have_posts() ) : $custom_query->the_post(); 
-				// If we have a page to show, start a loop that will display it
-				?>
-
-					<div class="post container" >
-					
-                                            <a href="<?php the_permalink(); ?>">	<h4 class="title"><?php the_title(); // Display the title of the page ?></h4></a>
-						
-						<div class="the-content">
-							<?php the_content(); 
-							// This call the main content of the page, the stuff in the main text box while composing.
-							// This will wrap everything in p tags
-							?>
-							
-							<?php wp_link_pages(); // This will display pagination links, if applicable to the page ?>
-						</div><!-- the-content -->
-						
-					</div>
-
-				<?php endwhile; // OK, let's stop the page loop once we've displayed it ?>
-
-			<?php else : // Well, if there are no posts to display and loop through, let's apologize to the reader (also your 404 error) ?>
-				
-				<article class="post error">
-					<h1 class="404">Nothing posted yet</h1>
-				</article>
-
-			<?php endif; // OK, I think that takes care of both scenarios (having a page or not having a page to show)
-                      
-                        ?>
-
-
-<?php
- // Reset postdata
-wp_reset_postdata();
-
-// Custom query loop pagination
-previous_posts_link( 'Older Posts' );
-next_posts_link( 'Newer Posts', $custom_query->max_num_pages );
-
-// Reset main query object
-$wp_query = NULL;
-$wp_query = $temp_query;
-
-
-     }
+        if($paged==1){
+            $posts_per_page='4';
+        }
+        else ($posts_per_page='8');
         
+        $args= array
+       (
+           'post_type'=>'graduate-job',
+           'paged'=>$paged,
+           'posts_per_page'=>$posts_per_page,
+       );
+
+
+        //add '-jobs' suffix to professions so query by slug works
+        if(isset($_GET['Profession'])){
+            
+            $_COOKIE['Profession']= $_GET['Profession'];
+        
+         array_walk($_GET['Profession'], function(&$value, $key) {  $value =$this->create_slug($value); });
+        //profession
+         $args['tax_query'][0]['terms']=$_GET['Profession'];
+         $args['tax_query'][0]['taxonomy']='profession';
+         $args['tax_query'][0]['field']='slug';
+        }
+
+        if(isset($_GET['Location'])){
+
+            $_COOKIE['Location']= $_GET['Location'];
+
+         //location
+         $args['tax_query'][1]['terms']=$_GET['Location'];
+         $args['tax_query'][1]['taxonomy']='location';
+         $args['tax_query'][1]['field']='slug';  
+        }
+         $qp= query_posts($args);
+
+         require_once 'views/template-job-recommendations.php';
+         //set cookies using js
+
+         wp_reset_query();
+         
+         
+     }
+     
+     public function create_profile_field_group(){
+       
+         $this->create_group('Search Preferences');
+         
+             
+     }
+     
+     
+     private function create_group($group_name){
+               global $wpdb;
+            $group_args = array(
+                'name' => $group_name
+                );
+            $sqlStr = "SELECT `id` FROM `wp_bp_xprofile_groups` WHERE `name` = '$group_name'";
+            $groups = $wpdb->get_results($sqlStr);
+            if(count($groups) > 0)
+            {
+                // The group exist so we exit the function
+                return;
+            }
+            // The group does not exist so we create is
+            $group_id = xprofile_insert_field_group( $group_args );
+                                
+            $this->add_options($group_id, 'Professions', 'profession');
+            $this->add_options_only_parents($group_id, 'Location', 'location');
+         
+     }
+     
+     private function add_options($group_id, $field_group_name, $taxonomy){
+        $parent_id= xprofile_get_field_id_from_name($field_group_name);      
+          global $bp;
+              global $wpdb;
+        
+        
+                    $args = array(
+               'taxonomy'      => $taxonomy,
+               'parent'        => 0, // get top level categories
+               'orderby'       => 'name',
+               'order'         => 'ASC',
+               'hierarchical'  => 1,
+               'pad_counts'    => 0
+           );
+
+           $categories = get_categories( $args );
+              
+           $counter = 1;
+
+           foreach ( $categories as $category ){
+               
+                  if(!in_array(xprofile_get_field_id_from_name($category->name), $group_id)){
+                global $bp;
+                $xfield_args =  array (
+                    field_group_id  => $group_id,
+                    name            => $category->name,
+                    can_delete      => false,
+                    field_order     => 1,
+                    is_required     => false,
+                    type            => 'checkbox'
+                    );
+
+                  $parent_id=  xprofile_insert_field( $xfield_args );
+                    // add options
+                   if ( !$wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->profile->table_name_fields} (group_id, parent_id, type, name, description, is_required, option_order, is_default_option) VALUES (%d, %d, 'option', %s, '', 0, %d, %d)", $group_id, $parent_id, $category->name, $counter, $is_default ) ) ) {
+                
+                    return false;
+                    }
+                    
+                    
+                            $counter+=1;
+                     $sub_args = array(
+                         'taxonomy'      => 'profession',
+                         'parent'        => $category->term_id, // get child categories
+                         'orderby'       => 'name',
+                         'order'         => 'ASC',
+                         'hierarchical'  => 1,
+                         'pad_counts'    => 0
+                     );
+                             $sub_categories = get_categories( $sub_args );
+
+                            foreach ( $sub_categories as $sub_category ){
+
+                                 if ( !$wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->profile->table_name_fields} (group_id, parent_id, type, name, description, is_required, option_order, is_default_option) VALUES (%d, %d, 'option', %s, '', 0, %d, %d)", $group_id, $parent_id, $sub_category->name, $counter, $is_default ) ) ) {
+
+                                     return false;
+                                 }
+
+                                 $counter+=1;
+                            }
+                }  
+               
+               
+                
+              
+
+       
+
+           }
+        
+     }
+     
+          private function add_options_only_parents($group_id, $field_group_name, $taxonomy){
+        $parent_id= xprofile_get_field_id_from_name($field_group_name);      
+          global $bp;
+              global $wpdb;
+        
+        
+                    $args = array(
+               'taxonomy'      => $taxonomy,
+               'parent'        => 0, // get top level categories
+               'orderby'       => 'name',
+               'order'         => 'ASC',
+               'hierarchical'  => 1,
+               'pad_counts'    => 0
+           );
+
+           $categories = get_categories( $args );
+              
+           $counter = 1;
+
+           foreach ( $categories as $category ){
+               
+                  if(!in_array(xprofile_get_field_id_from_name($category->name), $group_id)){
+                global $bp;
+                $xfield_args =  array (
+                    field_group_id  => $group_id,
+                    name            => $category->name,
+                    can_delete      => false,
+                    field_order     => 1,
+                    is_required     => false,
+                    type            => 'checkbox'
+                    );
+$childs=  get_term_children($category->term_id, $taxonomy);
+            if(sizeof($childs)>0){
+                
+                        $parent_id=  xprofile_insert_field( $xfield_args );
+                    // add options
+                   if ( !$wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->profile->table_name_fields} (group_id, parent_id, type, name, description, is_required, option_order, is_default_option) VALUES (%d, %d, 'option', %s, '', 0, %d, %d)", $group_id, $parent_id, $category->name, $counter, $is_default ) ) ) {
+                
+                    return false;
+                    }
+                    
+                    
+                            $counter+=1;
+                     $sub_args = array(
+                         'taxonomy'      => 'profession',
+                         'parent'        => $category->term_id, // get child categories
+                         'orderby'       => 'name',
+                         'order'         => 'ASC',
+                         'hierarchical'  => 1,
+                         'pad_counts'    => 0
+                     );
+                             $sub_categories = get_categories( $sub_args );
+
+                            foreach ( $sub_categories as $sub_category ){
+
+                                 if ( !$wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->profile->table_name_fields} (group_id, parent_id, type, name, description, is_required, option_order, is_default_option) VALUES (%d, %d, 'option', %s, '', 0, %d, %d)", $group_id, $parent_id, $sub_category->name, $counter, $is_default ) ) ) {
+
+                                     return false;
+                                 }
+
+                                 $counter+=1;
+                            }
+                }  
+            }
+
+          
+               
+               
+                
+              
+
+       
+
+           }
+        
+     }
+
+     public function profession_list(){
+
+                    $args = array(
+               'taxonomy'      => 'profession',
+               'parent'        => 0, // get top level categories
+               'orderby'       => 'name',
+               'order'         => 'ASC',
+               'hierarchical'  => 1,
+               'pad_counts'    => 0
+           );
+
+           $categories = get_categories( $args );
+
+           foreach ( $categories as $category ){
+
+               echo '<h3>'. $category->name . '</h3>';
+
+               $sub_args = array(
+                   'taxonomy'      => 'profession',
+                   'parent'        => $category->term_id, // get child categories
+                   'orderby'       => 'name',
+                   'order'         => 'ASC',
+                   'hierarchical'  => 1,
+                   'pad_counts'    => 0
+               );
+
+               $sub_categories = get_categories( $sub_args );
+
+               foreach ( $sub_categories as $sub_category ){
+
+                   echo '<label><input type="checkbox" id="type-'. $sub_category->name . '" rel="'. $sub_category->name . '">'. $sub_category->name . '</label>';
+
+               }
+
+           }
+     }
+     
         
     private function create_slug($value){
     
