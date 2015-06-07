@@ -25,5 +25,10 @@
             <file>file:/Applications/MAMP/htdocs/lostgrad/Lostgrad/ScraperBundle/Indeed/IndeedScraper.class.php</file>
             <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/plugins/buddypress/bp-members/bp-members-template.php</file>
         </group>
+        <group name="Workspace">
+            <file>file:/Applications/MAMP/htdocs/Workspace/lostgrad/wp-content/themes/buddy-boot/page-templates/user-signed-in.php</file>
+            <file>file:/Applications/MAMP/htdocs/Workspace/lostgrad/wp-content/themes/buddy-boot/page-templates/partials/job-role/job-role-title.php</file>
+            <file>file:/Applications/MAMP/htdocs/Workspace/lostgrad/wp-content/plugins/job-recommendations/public/class-job-recommendations.php</file>
+        </group>
     </open-files>
 </project-private>

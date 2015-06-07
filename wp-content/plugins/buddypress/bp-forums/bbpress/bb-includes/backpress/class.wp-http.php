@@ -1148,7 +1148,7 @@ class WP_Http_ExtHTTP {
 		else
 			$strResponse = http_request($r['method'], $url, $r['body'], $options, $info); //Emits warning level notices for max redirects and timeouts
 
-		// Error may still be set, Response may return headers or partial document, and error
+		// Error may still be set, Response may return headers or partials document, and error
 		// contains a reason the request was aborted, eg, timeout expired or max-redirects reached.
 		if ( false === $strResponse || ! empty($info['error']) )
 			return new WP_Error('http_request_failed', $info['response_code'] . ': ' . $info['error']);

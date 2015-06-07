@@ -1,0 +1,23 @@
+article footer  .post-like{
+    margin-top:1em
+}
+ 
+article footer .like{
+    background:url(images/icons.png) no-repeat;
+    width: 15px;
+    height: 16px;
+    display: block;
+    float:left;
+    margin-right: 4px;
+    -moz-transition: all 0.2s ease-out 0.1s;
+    -webkit-transition: all 0.2s ease-out 0.1s;
+    -o-transition: all 0.2s ease-out 0.1s
+}
+ 
+article footer .post-like a:hover .like{
+    background-position:-16px 0;
+}
+ 
+article footer .voted .like, article footer .post-like.alreadyvoted{
+    background-position:-32px 0;
+}

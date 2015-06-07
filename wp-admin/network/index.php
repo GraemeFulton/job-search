@@ -39,7 +39,7 @@ $quick_tasks = '<p>' . __( 'The Right Now widget on this screen provides current
 $quick_tasks .= '<ul><li>' . __( 'To add a new user, <strong>click Create a New User</strong>.' ) . '</li>';
 $quick_tasks .= '<li>' . __( 'To add a new site, <strong>click Create a New Site</strong>.' ) . '</li></ul>';
 $quick_tasks .= '<p>' . __( 'To search for a user or site, use the search boxes.' ) . '</p>';
-$quick_tasks .= '<ul><li>' . __( 'To search for a user, <strong>enter an email address or username</strong>. Use a wildcard to search for a partial username, such as user&#42;.' ) . '</li>';
+$quick_tasks .= '<ul><li>' . __( 'To search for a user, <strong>enter an email address or username</strong>. Use a wildcard to search for a partials username, such as user&#42;.' ) . '</li>';
 $quick_tasks .= '<li>' . __( 'To search for a site, <strong>enter the path or domain</strong>.' ) . '</li></ul>';
 
 get_current_screen()->add_help_tab( array(

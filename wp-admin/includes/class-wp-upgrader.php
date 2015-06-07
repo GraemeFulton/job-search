@@ -1408,7 +1408,7 @@ class Core_Upgrader extends WP_Upgrader {
 			$partial = false;
 
 		/*
-		 * If partial update is returned from the API, use that, unless we're doing
+		 * If partials update is returned from the API, use that, unless we're doing
 		 * a reinstall. If we cross the new_bundled version number, then use
 		 * the new_bundled zip. Don't though if the constant is set to skip bundled items.
 		 * If the API returns a no_content zip, go with it. Finally, default to the full zip.
@@ -1416,7 +1416,7 @@ class Core_Upgrader extends WP_Upgrader {
 		if ( $parsed_args['do_rollback'] && $current->packages->rollback )
 			$to_download = 'rollback';
 		elseif ( $current->packages->partial && 'reinstall' != $current->response && $wp_version == $current->partial_version && $partial )
-			$to_download = 'partial';
+			$to_download = 'partials';
 		elseif ( $current->packages->new_bundled && version_compare( $wp_version, $current->new_bundled, '<' )
 			&& ( ! defined( 'CORE_UPGRADE_SKIP_NEW_BUNDLED' ) || ! CORE_UPGRADE_SKIP_NEW_BUNDLED ) )
 			$to_download = 'new_bundled';
@@ -2002,7 +2002,7 @@ class WP_Automatic_Updater {
 		// Boom, This sites about to get a whole new splash of paint!
 		$upgrade_result = $upgrader->upgrade( $upgrader_item, array(
 			'clear_update_cache' => false,
-			'pre_check_md5'      => false, /* always use partial builds if possible for core updates */
+			'pre_check_md5'      => false, /* always use partials builds if possible for core updates */
 			'attempt_rollback'   => true, /* only available for core updates */
 		) );
 
