@@ -35,7 +35,7 @@ if(is_user_logged_in()==true){
             <h1><a class='btn-success btn-next btn btn-scroll-down'>Find me a job!</a></h1>
 
         </div>
-    </section>
+    </section> 
 
                 <section class='row interest-row section' id="section1">
                 					<div class='col-sm-12 col-xs-12 next-action'>
