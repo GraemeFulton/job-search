@@ -38,6 +38,11 @@ if(is_user_logged_in()==true){
     </section>
 
                 <section class='row interest-row section' id="section1">
+                					<div class='col-sm-12 col-xs-12 next-action'>
+                        <a class='btn-large btn-custom btn btn-scroll-left'><i class="fa fa-arrow-left"></i></a>
+                        <a class='btn-large btn-custom btn btn-scroll-right'><i class="fa fa-arrow-right"></i></a>                
+                    </div>
+  
                      <div class='text-center'>
 
                          <h2>What do you want to do?</h2>
@@ -102,13 +107,6 @@ if(is_user_logged_in()==true){
                             <p class='tag'>Retail</p>
                         </div>                            
                     </div>
-
-                    <div class='col-sm-12 col-xs-12 next-action'>
-                        <a class='btn-large btn-custom btn btn-scroll-right'>Other Categories</a>
-<!--                        <button class='btn-success btn-next btn'>Next Step</button>-->
-                    </div>
-                        </div>
-  
                 </div>
                 </div>
         <div class='slide' data-anchor="slide2" id="slide2">
@@ -174,13 +172,6 @@ if(is_user_logged_in()==true){
                         </div>                            
                     </div>
 
-                    <div class='col-sm-12 col-xs-12 next-action'>
-                        <a class='btn-large btn-custom btn btn-scroll-left'><i class="fa fa-arrow-left"></i></a>
-                        <a class='btn-large btn-custom btn btn-scroll-right'><i class="fa fa-arrow-right"></i></a>
-                                                
-
-<!--                        <button class='btn-success btn-next btn'>Next Step</button>-->
-                    </div>
                         </div>
                     </div>
   

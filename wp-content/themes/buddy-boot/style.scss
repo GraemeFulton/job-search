@@ -436,3 +436,22 @@ span.selected{
 	#fp-nav ul, .fp-slidesNav ul{
 	margin-left:50%!important;
 	}
+	
+.btn-scroll-right{
+	    position: absolute;
+    top: 20%;
+    right:15px;
+}	
+.btn-scroll-left{
+	    position: absolute;
+    top: 20%;
+    left:15px;
+}	
+.col-sm-12.col-xs-12.next-action{
+	top: 45%;
+    position: absolute;
+    z-index: 999999;
+}
+.fp-controlArrow{
+	display:none;
+}
