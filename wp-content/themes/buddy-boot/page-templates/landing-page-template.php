@@ -22,14 +22,7 @@ if(is_user_logged_in()==true){
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri()?>/page-templates/landing-page-libs/css/landing-page.css">
 
 <div class="container-fluid content-container" id="fullpage">
-    <section class='pagi-menu'>
-        <ul id="pagi-menu">
-	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">Welcome</a></li>
-	<li data-menuanchor="secondPage" class=""><a href="#secondPage">Step 1</a></li>
-	<li data-menuanchor="3rdPage" class=""><a href="#3rdPage">Step 2</a></li>
-	<li data-menuanchor="4thpage"><a href="#4thpage">Step 3</a></li>
-        </ul>
-    </section>
+    <div class="to-next-step" id="moveDown"><a class="btn-success btn-next btn btn-scroll-down">Next</a></div>
     <form method="get" action='sign-up'>
 
     <section class="welcome-row row section" id="section0">
@@ -37,9 +30,9 @@ if(is_user_logged_in()==true){
             <h1>Hello</h1>
             <p>Take these 3 simple steps, and we'll suggest some jobs for you:</p>
             <h4>Already a member?</h4>
-            <button class='btn-success btn-next btn'>Log In</button>
+            <a href="login" class='btn-success btn-next btn btn-login'>Log In</a>
              <h4>Want to get started?</h4>
-            <h1><button class='btn-success btn-next btn'>Find me a job!</button></h1>
+            <h1><a class='btn-success btn-next btn btn-scroll-down'>Find me a job!</a></h1>
 
         </div>
     </section>
@@ -111,7 +104,7 @@ if(is_user_logged_in()==true){
                     </div>
 
                     <div class='col-sm-12 col-xs-12 next-action'>
-                        <button class='btn-large btn-custom btn'>More Suggestions?</button>
+                        <a class='btn-large btn-custom btn btn-scroll-right'>Other Categories</a>
 <!--                        <button class='btn-success btn-next btn'>Next Step</button>-->
                     </div>
                         </div>
@@ -120,7 +113,7 @@ if(is_user_logged_in()==true){
                 </div>
         <div class='slide' data-anchor="slide2" id="slide2">
   <div class='text-center'>
-      <h5>Choose some more:</h5>
+      <h5>Here's some more categories:</h5>
                     <div class='side'>
                         <div class="side-pad">
                     <div class='col-lg-1 col-md-2 col-sm-3 col-xs-4 col-lg-offset-4 col-md-offset-2 col-xs-offset-2 col-sm-offset-1 image-box'>
@@ -182,8 +175,8 @@ if(is_user_logged_in()==true){
                     </div>
 
                     <div class='col-sm-12 col-xs-12 next-action'>
-                        <button class='btn-large btn-custom btn'>Prev</button>
-                                                <button class='btn-large btn-custom btn'>Next</button>
+                        <a class='btn-large btn-custom btn btn-scroll-left'><i class="fa fa-arrow-left"></i></a>
+                        <a class='btn-large btn-custom btn btn-scroll-right'><i class="fa fa-arrow-right"></i></a>
                                                 
 
 <!--                        <button class='btn-success btn-next btn'>Next Step</button>-->

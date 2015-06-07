@@ -306,4 +306,10 @@ fp-slidesNav {
 .navbar .container {
   width: 100% !important; }
 
+.btn-scroll-left, .btn-scroll-right {
+  background: #eaeaea !important;
+  background-image: none;
+  color: #666 !important;
+  border: none; }
+
 /*# sourceMappingURL=landing-page.css.map */

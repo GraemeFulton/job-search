@@ -396,3 +396,43 @@ span.selected{
   font-size: 11px;
   margin-right:2px;
 }
+
+#moveDown{
+    position: fixed;
+    bottom: 40px;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+}
+#moveUp{
+	position:fixed;
+	left:50%;
+	right:50%;
+	top:55px; 
+	font-size:30px;
+}
+#fp-nav {
+    position: fixed;
+    z-index: 100;
+    top: 96.3%!important;
+    opacity: 1;
+    width: 100%;
+    
+}
+    #fp-nav ul li, .fp-slidesNav ul li {
+    display: block;
+    width: 14px;
+    height: 13px;
+    margin: 7px;
+    position: relative;
+    float: left;
+	}
+#fp-nav.right {
+    right: inherit!important;
+    display: table;
+    margin: 0 auto!important;
+    margin-left:-55px!important;
+}
+	#fp-nav ul, .fp-slidesNav ul{
+	margin-left:50%!important;
+	}

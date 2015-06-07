@@ -270,7 +270,7 @@ and (max-width : 1224px){
         left: -12%;
         top: 20%;
      }
-    svg { height: 30%!important;}
+    svg { height: 30%!important;} 
 
 
 }
@@ -319,4 +319,11 @@ and (max-width : 1224px){
 }
 .navbar .container{
     width:100%!Important
+}
+.btn-scroll-left, .btn-scroll-right{
+	
+	background:#eaeaea!important;
+	background-image:none;
+	color:#666!important;
+	border:none;
 }
