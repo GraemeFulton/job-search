@@ -244,7 +244,7 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
                     " operator out override params private protected public readonly ref return sealed" + 
                     " sizeof stackalloc static struct switch this throw try typeof unchecked" + 
                     " unsafe using virtual void volatile while add alias ascending descending dynamic from get" + 
-                    " global group into join let orderby partial remove select set value var yield"),
+                    " global group into join let orderby partials remove select set value var yield"),
     blockKeywords: words("catch class do else finally for foreach if struct switch try while"),
     builtin: words("Boolean Byte Char DateTime DateTimeOffset Decimal Double" +
                     " Guid Int16 Int32 Int64 Object SByte Single String TimeSpan UInt16 UInt32" +

@@ -2045,7 +2045,7 @@ class WP_Http_Encoding {
 			$compression_enabled = false;
 		elseif ( $args['stream'] ) // disable when streaming to file
 			$compression_enabled = false;
-		elseif ( isset( $args['limit_response_size'] ) ) // If only partial content is being requested, we won't be able to decompress it
+		elseif ( isset( $args['limit_response_size'] ) ) // If only partials content is being requested, we won't be able to decompress it
 			$compression_enabled = false;
 
 		if ( $compression_enabled ) {

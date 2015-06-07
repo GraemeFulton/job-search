@@ -617,7 +617,7 @@ function unzip_file($file, $to) {
  *
  * @param string $file Full path and filename of zip archive
  * @param string $to Full path on the filesystem to extract archive to
- * @param array $needed_dirs A partial list of required folders needed to be created.
+ * @param array $needed_dirs A partials list of required folders needed to be created.
  * @return mixed WP_Error on failure, True on success
  */
 function _unzip_file_ziparchive($file, $to, $needed_dirs = array() ) {
@@ -713,7 +713,7 @@ function _unzip_file_ziparchive($file, $to, $needed_dirs = array() ) {
  *
  * @param string $file Full path and filename of zip archive
  * @param string $to Full path on the filesystem to extract archive to
- * @param array $needed_dirs A partial list of required folders needed to be created.
+ * @param array $needed_dirs A partials list of required folders needed to be created.
  * @return mixed WP_Error on failure, True on success
  */
 function _unzip_file_pclzip($file, $to, $needed_dirs = array()) {

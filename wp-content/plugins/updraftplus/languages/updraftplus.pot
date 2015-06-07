@@ -3752,7 +3752,7 @@ msgid "The key provided was not in a valid format, or was corrupt."
 msgstr ""
 
 #: addons/sftp.php:315
-msgid "Resuming partial uploads is not supported, so you will need to ensure that your webserver allows PHP processes to run long enough to upload your largest backup file."
+msgid "Resuming partials uploads is not supported, so you will need to ensure that your webserver allows PHP processes to run long enough to upload your largest backup file."
 msgstr ""
 
 #: addons/sftp.php:320
