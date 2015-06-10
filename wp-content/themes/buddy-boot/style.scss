@@ -160,6 +160,13 @@ body {
   }
 }
 
+@media  (min-width : 320px) 
+and (max-width : 610px) { 
+	.additional_content{
+	        display:none; 
+	   }
+ }
+
 .spacer{height:100px;}
 
 .carousel-control.left, .carousel-control.right{

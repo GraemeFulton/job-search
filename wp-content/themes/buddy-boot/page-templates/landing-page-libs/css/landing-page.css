@@ -221,6 +221,9 @@ fp-slidesNav {
     width: 50px; }
 
   #selection, .spacey {
+    display: none; }
+
+  .additional_content {
     display: none; } }
 /* Desktops and laptops ----------- */
 @media only screen and (min-width: 1224px) {

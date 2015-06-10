@@ -201,16 +201,19 @@ and (max-width : 480px) {
     .box-image{
         width:65px!important;
     }
-        #selection, .spacey{display:none}
-        .additional_content{
+        
+    #selection, .spacey{display:none}
+       
+   .additional_content{
         display:none; 
-        }
+   }
 
 }
+
 /* iPads (portrait and landscape) ----------- */
 @media only screen 
 and (min-width : 768px) 
-and (max-width : 1024px) {
+and (max-width : 1024px) 	{
 /* Styles */
     .box-image{
         cursor: pointer;
@@ -230,6 +233,10 @@ only screen and (min-device-pixel-ratio : 1.5) {
         width:50px;
     }
         #selection, .spacey{display:none}
+          
+        .additional_content{
+        display:none; 
+        }
 }
 /* Desktops and laptops ----------- */
 @media only screen 
