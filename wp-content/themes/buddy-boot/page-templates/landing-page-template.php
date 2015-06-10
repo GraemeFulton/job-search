@@ -42,8 +42,7 @@ if(is_user_logged_in()==true){
   
                      <div class='text-center'>
 
-                         <h2>What interests you?</h2>
-
+                      <h2>What interests you?</h2>
                 <div class="slide" data-anchor="slide1" id="slide1">
                     <p>Choose as many as you like!</p>
                     <div class='side'>

@@ -202,6 +202,9 @@ and (max-width : 480px) {
         width:65px!important;
     }
         #selection, .spacey{display:none}
+        .additional_content{
+        display:none; 
+        }
 
 }
 /* iPads (portrait and landscape) ----------- */
