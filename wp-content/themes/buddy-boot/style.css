@@ -130,9 +130,30 @@ body {
 @media (min-width: 992px) {
   .featurette-heading {
     margin-top: 120px; } }
-@media (min-width: 320px) and (max-width: 610px) {
+@media (min-width: 100px) and (max-width: 610px) {
   .additional_content {
-    display: none; } }
+    display: none; }
+
+  .job-feed-content {
+    padding-right: 52px;
+    font-size: 12px; }
+
+  .slide p {
+    font-size: 14px; }
+
+  h2 {
+    font-size: 20px; }
+
+  h4, .h4 {
+    font-size: 16px; }
+
+  h3 {
+    font-size: 20px; }
+
+  .panel p {
+    font-size: 12px; }
+  .panel .btn, .panel li {
+    font-size: 14px; } }
 .spacer {
   height: 100px; }
 

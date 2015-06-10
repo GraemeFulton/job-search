@@ -195,12 +195,9 @@ fp-slidesNav {
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   /* Styles */
   .box-image {
-    width: 65px !important; }
+    width: 55px !important; }
 
   #selection, .spacey {
-    display: none; }
-
-  .additional_content {
     display: none; } }
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
@@ -221,9 +218,6 @@ fp-slidesNav {
     width: 50px; }
 
   #selection, .spacey {
-    display: none; }
-
-  .additional_content {
     display: none; } }
 /* Desktops and laptops ----------- */
 @media only screen and (min-width: 1224px) {
