@@ -61,25 +61,6 @@
 					navigationPosition: 'right',
 					css3: true,
 			        controlArrows: true,
-		        
-		        afterLoad: function(anchorLink, index){
-		            //using index
-		             //using anchorLink
-//		             var offset = $('.next-action').offset();
-//		            var height = $('.next-action').height();
-//		            var width = $('.next-action').width();
-//		            var top = offset.top + height + "px";
-//		            var right = offset.left + width + "px";
-//		
-//		            $('.fp-slidesNav').css( {
-//		                'position': 'absolute',
-//		                'right': right,
-//		                'top': top,
-//		                'width':'100%'
-//		            });
-		  
-		         
-		        },
 		        resize : true,
 		        menu: '#pagi-menu',
 		        fixedElements: '#moveDown, #moveUp'
