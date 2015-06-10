@@ -13,6 +13,8 @@
     	
     	hookButtons();
 
+    	
+    	nextButtonTextUpdater();
 
 
 
@@ -106,5 +108,67 @@
     		$.fn.fullpage.moveSlideLeft();
     	})
     	
+    	
+    }
+    
+    
+    /*
+     * update the text on the next button 
+     * depending on the hash in the url
+     */
+    function nextButtonTextUpdater(){
+    	
+    	
+    	
+      	if(window.location.hash) {
+      		
+          	$('#moveDown').children('.btn-scroll-down').fadeIn();
+
+    	      var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
+    	      console.log(hash)
+    	      if(hash=='firstPage'){
+    	    	  
+    	    	  $('#moveDown').children('.btn-scroll-down').text('Find me a job!');  	  
+    	    	  
+    	    	  
+    	      }
+    	  }
+      	else{
+          	$('#moveDown').children('.btn-scroll-down').text('Find me a job!');
+      	}
+      	
+      	$(window).bind('hashchange', function() {
+          	$('#moveDown').children('.btn-scroll-down').text('Next step');
+          	$('#moveDown').children('.btn-scroll-down').unbind('click',showJobsClickHandler)
+          	
+          	var newHash = location.hash;
+              
+              // hide or show button (don't show on first page)
+              if(newHash=='#firstPage'){
+                	$('#moveDown').children('.btn-scroll-down').text('Find me a job!');
+              }
+              else{
+              	$('#moveDown').children('.btn-scroll-down').text('Next step');
+              }
+              
+              //change the text
+              
+              if(newHash=='#3rdPage'){
+              	$('#moveDown').children('.btn-scroll-down').text('To the final step');
+              }
+              if(newHash=='#4thpage'){
+                	$('#moveDown').children('.btn-scroll-down').text('Show me the jobs!');
+                	$('#moveDown').children('.btn-scroll-down').click(showJobsClickHandler);
+
+                }
+              
+          });
+      	
+      		function showJobsClickHandler(event){
+      			
+          		$('.btn-submit').click();
+
+      		}
+      	
     	
     }

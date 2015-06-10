@@ -300,16 +300,12 @@ color:#fff;
 }
 /**for 3 equal sized boxes**/
 .row-flex, .row-flex > div[class*='col-'] {  
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
     flex:1 1 auto;
 }
 
 .row-flex-wrap {
-	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
     align-content: flex-start;
     flex:0;
 }
@@ -325,7 +321,6 @@ color:#fff;
 
 .flex-col {
     display: flex;
-    display: -webkit-flex;
     flex: 1 100%;
 	flex-flow: column nowrap;
 }
@@ -345,7 +340,6 @@ color:#fff;
 
 .flex-grow {
 	display: flex;
-    -webkit-flex: 2;
     flex: 2;
 }
 

@@ -28,12 +28,9 @@ if(is_user_logged_in()==true){
     <section class="welcome-row row section" id="section0">
         <div class='text-center'>
             <h1>Hello</h1>
-            <p>Take these 3 simple steps, and we'll suggest some jobs for you:</p>
             <h4>Already a member?</h4>
             <a href="login" class='btn-success btn-next btn btn-login'>Log In</a>
-             <h4>Want to get started?</h4>
-            <h1><a class='btn-success btn-next btn btn-scroll-down'>Find me a job!</a></h1>
-
+     
         </div>
     </section> 
 
@@ -212,7 +209,7 @@ if(is_user_logged_in()==true){
                     <p style='margin-top:20px;'> <small>Don't worry, you can change these again later!</small></p>
                     <br>
 
-                     <input type="submit" name="submit" Value="Show me the jobs!" class='btn-success btn-next btn'>
+                     <input type="submit" style="display:none;" name="submit" Value="Show me the jobs!" class='btn-success btn-next btn btn-submit'>
 
             </div>
         </section>
