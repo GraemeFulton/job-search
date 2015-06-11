@@ -44,7 +44,6 @@ fp-slidesNav {
 .map-selector {
   width: 600px;
   max-width: 100%;
-  /*        background: #f8f8f8;*/
   margin-top: 10px; }
 
 .welcome-row {
@@ -96,12 +95,6 @@ fp-slidesNav {
 #wp-toolbar {
   display: none; }
 
-/*    .theme-grey{
-        padding-top:0px;
-    }
-    html{
-        margin-top:0px!important;
-    }*/
 #map {
   overflow: hidden;
   margin: 0 auto;
@@ -219,8 +212,22 @@ fp-slidesNav {
 
   #selection, .spacey {
     display: none; } }
+/**small laptop screen**/
+@media only screen and (min-width: 800px) and (max-width: 1280px) {
+  /* Styles */
+  #selection, .spacey {
+    display: inline-block; }
+
+  #selection {
+    display: inline-block;
+    position: absolute;
+    left: -5%;
+    top: 18%; }
+
+  svg {
+    height: 28% !important; } }
 /* Desktops and laptops ----------- */
-@media only screen and (min-width: 1224px) {
+@media only screen and (min-width: 1281px) {
   /* Styles */
   .box-image {
     cursor: pointer;
