@@ -2,6 +2,7 @@
 /**
  * Template Name: Signed In
  */
+$page_number = get_query_var('paged');
 
 //if user logged in don't bother
 if(is_user_logged_in()!==true){

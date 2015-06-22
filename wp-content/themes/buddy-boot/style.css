@@ -405,4 +405,7 @@ span.selected {
 .fp-controlArrow {
   display: none; }
 
+.box-head {
+  padding-bottom: 25px; }
+
 /*# sourceMappingURL=style.css.map */

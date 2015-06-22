@@ -1,13 +1,15 @@
-<section class="container-fluid sign-up-panel">    
-    <div class='container box-head'>
-            <?php if ($page_number==0){ ?>
+
+            <?php 
+            $user_ID = get_current_user_id();
+            $subjects = xprofile_get_field_data('Subjects', $user_ID);
+            if ($page_number>0){ ?>
+                <div class='container box-head'>
             <h3><i class="fa fa-cog"></i> Search settings
     </h3>
 
 
             <?php 
-     $user_ID = get_current_user_id();
-    $subjects = xprofile_get_field_data('Subjects', $user_ID);
+    
               echo "Professions:"; 
 
                foreach ($subjects as $subject){
@@ -35,14 +37,14 @@
 
 
     ?>
+        </div>
             <?php }
             else { ?>
                
                
                
-            <?php };?>
-        </div>
-    </section>
+           
+    
 
     <div class='container-fluid sign-up-panel'>
         <div class='container box-head'> <h3 style='margin-top:10px;'><i class="fa fa-cog"></i> Search settings</h3></div>
@@ -96,5 +98,5 @@
                 </div>
             </div>    
         </section>
-    
+     <?php };?>
     </div>
