@@ -221,7 +221,7 @@ class Taxonomy_Profile_Fields{
         
                     $args = array(
                'taxonomy'      => $taxonomy,
-               'child_of'        => 292, // make sure they're a child of united kingdom
+               'child_of'        => 292, // make sure they're a child of united kingdon
                'orderby'       => 'name',
                'order'         => 'ASC',
                'hierarchical'  => 1,
@@ -245,7 +245,8 @@ class Taxonomy_Profile_Fields{
                     type            => 'checkbox'
                     );
 $childs=  get_term_children($category->term_id, $taxonomy);
-            if(sizeof($childs)>0){
+            if(sizeof($childs)>1){
+            	
                 
                         $parent_id=  xprofile_insert_field( $xfield_args );
                     // add options
@@ -265,15 +266,15 @@ $childs=  get_term_children($category->term_id, $taxonomy);
                      );
                              $sub_categories = get_categories( $sub_args );
 
-                            foreach ( $sub_categories as $sub_category ){
+//                             foreach ( $sub_categories as $sub_category ){
 
-                                 if ( !$wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->profile->table_name_fields} (group_id, parent_id, type, name, description, is_required, option_order, is_default_option) VALUES (%d, %d, 'option', %s, '', 0, %d, %d)", $group_id, $parent_id, $sub_category->name, $counter, $is_default ) ) ) {
+//                                  if ( !$wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->profile->table_name_fields} (group_id, parent_id, type, name, description, is_required, option_order, is_default_option) VALUES (%d, %d, 'option', %s, '', 0, %d, %d)", $group_id, $parent_id, $sub_category->name, $counter, $is_default ) ) ) {
 
-                                     return false;
-                                 }
+//                                      return false;
+//                                  }
 
-                                 $counter+=1;
-                            }
+//                                  $counter+=1;
+//                             }
                 }  
             }
 
