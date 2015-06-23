@@ -110,8 +110,8 @@ class Taxonomy_Profile_Fields{
      
      public function create_profile_field_group(){
        
-         $this->create_group('Search Preferences');
-         
+         $this->create_group('Profession');
+     	   $this->create_group('Location');
              
      }
      
@@ -131,13 +131,18 @@ class Taxonomy_Profile_Fields{
             // The group does not exist so we create is
             $group_id = xprofile_insert_field_group( $group_args );
                                 
-            $this->add_options($group_id, 'Professions', 'profession');
-            $this->add_options_only_parents($group_id, 'Location', 'location');
+            if($group_name=='Profession'){
+             $this->add_options($group_id, $group_name, strtolower($group_name));
+            }
+            else{
+            	$this->add_options_only_parents($group_id, $group_name, strtolower($group_name));    
+			}
          
      }
      
      private function add_options($group_id, $field_group_name, $taxonomy){
-        $parent_id= xprofile_get_field_id_from_name($field_group_name);      
+
+     	$parent_id= xprofile_get_field_id_from_name($field_group_name);      
           global $bp;
               global $wpdb;
         
@@ -178,7 +183,7 @@ class Taxonomy_Profile_Fields{
                     
                             $counter+=1;
                      $sub_args = array(
-                         'taxonomy'      => 'profession',
+                         'taxonomy'      => $taxonomy,
                          'parent'        => $category->term_id, // get child categories
                          'orderby'       => 'name',
                          'order'         => 'ASC',
@@ -216,7 +221,7 @@ class Taxonomy_Profile_Fields{
         
                     $args = array(
                'taxonomy'      => $taxonomy,
-               'parent'        => 0, // get top level categories
+               'child_of'        => 292, // make sure they're a child of united kingdom
                'orderby'       => 'name',
                'order'         => 'ASC',
                'hierarchical'  => 1,
@@ -252,12 +257,11 @@ $childs=  get_term_children($category->term_id, $taxonomy);
                     
                             $counter+=1;
                      $sub_args = array(
-                         'taxonomy'      => 'profession',
+                         'taxonomy'      => $taxonomy,
                          'parent'        => $category->term_id, // get child categories
                          'orderby'       => 'name',
                          'order'         => 'ASC',
-                         'hierarchical'  => 1,
-                         'pad_counts'    => 0
+                         'hierarchical'  => 1
                      );
                              $sub_categories = get_categories( $sub_args );
 
