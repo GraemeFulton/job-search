@@ -52,10 +52,10 @@ class Taxonomy_Profile_Fields{
 	 */
 	private function __construct() {
 
-// 		// Load plugin text domain
-// 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
+		// Load plugin text domain
+		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
-// 		add_action('bp_init', array($this,'create_profile_field_group'));
+		add_action('bp_init', array($this,'create_profile_field_group'));
                 
         
 	}
@@ -266,15 +266,6 @@ $childs=  get_term_children($category->term_id, $taxonomy);
                      );
                              $sub_categories = get_categories( $sub_args );
 
-//                             foreach ( $sub_categories as $sub_category ){
-
-//                                  if ( !$wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->profile->table_name_fields} (group_id, parent_id, type, name, description, is_required, option_order, is_default_option) VALUES (%d, %d, 'option', %s, '', 0, %d, %d)", $group_id, $parent_id, $sub_category->name, $counter, $is_default ) ) ) {
-
-//                                      return false;
-//                                  }
-
-//                                  $counter+=1;
-//                             }
                 }  
             }
 

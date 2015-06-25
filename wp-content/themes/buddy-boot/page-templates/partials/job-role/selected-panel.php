@@ -21,14 +21,37 @@
                         
             $subjects=array();
             foreach ( $categories as $category ){
-            	var_dump( xprofile_get_field_data($category->name, $user_ID));
             	array_push($subjects, xprofile_get_field_data($category->name, $user_ID));
-            	 
-            	
             }
             
-        //   $subjects= bp_member_profile_data('field=Profession');
+			$args = array(
+               'taxonomy'      => 'location',
+               'child_of'        => 292, // make sure they're a child of united kingdon
+               'orderby'       => 'name',
+               'order'         => 'ASC',
+               'hierarchical'  => 1,
+               'pad_counts'    => 0
+           );
+			
+			
             
+            $categories = get_categories( $args );
+			$locations = array(); 
+            foreach ( $categories as $category ){
+            	
+            	$sub_args = array(
+            			'taxonomy'      => 'location',
+            			'parent'        => $category->term_id, // get child categories
+            			'orderby'       => 'name',
+            			'order'         => 'ASC',
+            			'hierarchical'  => 1
+            	);
+            	$sub_categories = get_categories( $sub_args );
+            	array_push($locations, xprofile_get_field_data($category->name, $user_ID));
+            	 
+            }
+	
+                        
             
             if ($page_number>0){ ?>
                 <div class='container box-head'>
@@ -41,11 +64,13 @@
               echo "Professions:"; 
 
                foreach ($subjects as $subject){
+               	foreach($subject as $s){
 
                ?>
-               <span class='selected'><?php echo $subject;?> </span>
+               <span class='selected'><?php echo $s;?> </span>
 
                <?php
+               	}
 
                }
 
@@ -53,12 +78,14 @@
                //Locations
                   echo "<br>Locations:"; 
 
-               foreach ($subjects as $subject){
+               foreach ($locations as $location){
+               	foreach($location as $l){
 
                ?>
-               <span class='selected'><?php echo $subject;?> </span>
+               <span class='selected'><?php echo $l;?> </span>
 
                <?php
+               	}
 
                }
 
@@ -76,7 +103,6 @@
 
     <div class='container-fluid sign-up-panel'>
     
-    <?php var_dump($subjects);?>
         <div class='container box-head'> <h3 style='margin-top:10px;'><i class="fa fa-cog"></i> Search settings</h3></div>
 
         <section class='search-criteria container text-center row-flex row-flex-wrap'>           
@@ -101,12 +127,14 @@
          <h4><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;What</h4>
                     <?php 
             foreach ($subjects as $subject){
+            	
+            	foreach($subject as $s){
 
                ?>
-               <span class='selected'><?php echo $subject;?> </span>
+               <span class='selected'><?php echo $s;?> </span>
 
                <?php
-
+            	}
                }
            ?>
          </div>
@@ -115,14 +143,16 @@
             <div class='col-sm-4 welcome-profile'>
                 <div class="panel panel-default flex-col">
                 <h4><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Where</h4>
-                      <?php 
-            foreach ($subjects as $subject){
+                   <?php 
+            foreach ($locations as $location){
+            	
+            	foreach($location as $l){
 
                ?>
-               <span class='selected'><?php echo $subject;?> </span>
+               <span class='selected'><?php echo $l;?> </span>
 
                <?php
-
+            	}
                }
            ?>
                 </div>
