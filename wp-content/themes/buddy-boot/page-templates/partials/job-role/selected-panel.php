@@ -1,7 +1,35 @@
 
+           
             <?php 
             $user_ID = get_current_user_id();
-            $subjects = xprofile_get_field_data('Subjects', $user_ID);
+            
+           $parent_id= xprofile_get_field_id_from_name('Profession');      
+          global $bp;
+              global $wpdb;
+        
+        
+                    $args = array(
+               'taxonomy'      => 'profession',
+               'parent'        => 0, // get top level categories
+               'orderby'       => 'name',
+               'order'         => 'ASC',
+               'hierarchical'  => 1,
+               'pad_counts'    => 0
+           );
+            
+            $categories = get_categories( $args );
+                        
+            $subjects=array();
+            foreach ( $categories as $category ){
+            	var_dump( xprofile_get_field_data($category->name, $user_ID));
+            	array_push($subjects, xprofile_get_field_data($category->name, $user_ID));
+            	 
+            	
+            }
+            
+        //   $subjects= bp_member_profile_data('field=Profession');
+            
+            
             if ($page_number>0){ ?>
                 <div class='container box-head'>
             <h3><i class="fa fa-cog"></i> Search settings
@@ -47,6 +75,8 @@
     
 
     <div class='container-fluid sign-up-panel'>
+    
+    <?php var_dump($subjects);?>
         <div class='container box-head'> <h3 style='margin-top:10px;'><i class="fa fa-cog"></i> Search settings</h3></div>
 
         <section class='search-criteria container text-center row-flex row-flex-wrap'>           

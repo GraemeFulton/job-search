@@ -52,10 +52,10 @@ class Taxonomy_Profile_Fields{
 	 */
 	private function __construct() {
 
-		// Load plugin text domain
-		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
+// 		// Load plugin text domain
+// 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
-		add_action('bp_init', array($this,'create_profile_field_group'));
+// 		add_action('bp_init', array($this,'create_profile_field_group'));
                 
         
 	}

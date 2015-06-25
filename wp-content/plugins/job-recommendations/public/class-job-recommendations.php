@@ -1,6 +1,6 @@
 <?php
 /**
- * Job Recommendations.
+ * .
  *
  * @package   Job Recommendations
  * @author    Graeme Fulton <graeme@lostgrad.com>
