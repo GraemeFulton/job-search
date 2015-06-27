@@ -100,6 +100,9 @@ body {
   line-height: 1;
   letter-spacing: -1px; }
 
+.mobile-show {
+  display: none; }
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 @media (min-width: 768px) {
@@ -130,6 +133,15 @@ body {
 @media (min-width: 992px) {
   .featurette-heading {
     margin-top: 120px; } }
+@media (min-width: 100px) and (max-width: 771px) {
+  .mobile-show {
+    display: block !important;
+    text-align: center;
+    padding-top: 20px;
+    clear: both; }
+
+  .desktop-show {
+    display: none !important; } }
 @media (min-width: 100px) and (max-width: 610px) {
   .additional_content {
     display: none; }
@@ -215,6 +227,17 @@ a {
   padding: 0px;
   background: #fff;
   margin-bottom: 10px !important; }
+
+.container-fluid.theme-grey .post.container {
+  max-width: 100%; }
+.container-fluid.theme-grey .container.paginating {
+  max-width: 100%;
+  position: relative; }
+.container-fluid.theme-grey .page-navi {
+  text-align: center; }
+
+.field-visibility-settings-toggle {
+  display: none; }
 
 .btn-next {
   background-color: #44A897;

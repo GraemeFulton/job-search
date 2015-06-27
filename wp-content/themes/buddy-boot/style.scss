@@ -119,7 +119,9 @@ body {
   letter-spacing: -1px;
 }
 
-
+	.mobile-show{
+	display:none;
+	}
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
@@ -161,7 +163,23 @@ body {
 }
 
 @media  (min-width : 100px) 
+and (max-width : 771px) { 
+	.mobile-show{
+	display:block!important;
+	text-align:center;
+	padding-top:20px;
+	clear:both;
+	}
+	.desktop-show{
+	display:none!Important;
+	}
+	
+	}
+
+
+@media  (min-width : 100px) 
 and (max-width : 610px) { 
+
 	.additional_content{
 	        display:none; 
 	   }
@@ -261,6 +279,26 @@ and (max-width : 610px) {
          padding:0px;
         background: #fff;
                 margin-bottom: 10px!important;
+    }
+    
+    .container-fluid.theme-grey{
+    	.post.container{
+    		max-width:100%;
+    	}
+    	.container.paginating{
+    	max-width:100%;
+    	position:relative;
+    	}
+    	.wp-pagenavi{
+    	  		
+    		
+    	}
+    	.page-navi{
+    		text-align:center;
+    	}
+    }
+    .field-visibility-settings-toggle{
+    display:none;
     }
 .btn-next{
     background-color:#44A897;

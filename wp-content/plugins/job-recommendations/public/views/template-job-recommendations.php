@@ -90,7 +90,34 @@ $profession = json_encode($_GET['Profession']);
 
 
  <?php }else{ ?>
+ 
+ 
+<?php 
+$big = 999999999; // need an unlikely integer
 
-        <div class="container paginating"><?php posts_nav_link('&nbsp;&nbsp;','<div class="pull-left pagi-button"> Previous</div>','<div class="pull-right pagi-button">Next</div>'); ?></div>
+echo paginate_links( array(
+		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+		'format' => '?paged=%#%',
+		'current' => max( 1, get_query_var('paged') ),
+		'total' => $the_query->max_num_pages
+) );
+?>
+ 
+        <div class="container paginating">
+	        <div class="col-sm-2">
+	        <?php previous_posts_link('<div class="pull-left pagi-button"> Previous</div>'); ?>
+	        </div>
+	        <div class="col-sm-8 page-navi mobile-hide desktop-show">
+	         <?php wp_pagenavi(); ?>
+	         </div>
+	         <div class="col-sm-2">
+			<?php next_posts_link( '<div class="pull-right pagi-button">Next</div>'); ?>
+			</div>
+			<div class="mobile-show">
+			<?php wp_pagenavi_dropdown();?>
+			</div>
+        </div>
 
+        
+       
  <?php } ?>
