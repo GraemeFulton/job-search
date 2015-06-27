@@ -149,10 +149,10 @@ class Job_Recommendations{
         //WP_QUERY
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-        if($paged==1){
+        if(!is_user_logged_in() && $paged==1){
             $posts_per_page='4';
         }
-        else ($posts_per_page='8');
+        else ($posts_per_page='6');
         
         $args= array
        (
@@ -199,10 +199,10 @@ class Job_Recommendations{
         //WP_QUERY
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-        if($paged==1){
+        if(is_user_logged_in() && $paged==1){
             $posts_per_page='4';
         }
-        else ($posts_per_page='8');
+        else ($posts_per_page='6');
         
         $args= array
        (

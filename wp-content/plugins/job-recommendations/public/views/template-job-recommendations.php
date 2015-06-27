@@ -84,24 +84,12 @@ $profession = json_encode($_GET['Profession']);
 
 			<?php endif; // OK, I think that takes care of both scenarios (having a page or not having a page to show)
                         ?>
- <?php if ($paged==1){  ?>
+ <?php if (!is_user_logged_in() && $paged==1){  ?>
 
       <?php echo get_next_posts_link( '<p class="sign-up-next-link"><div class="container text-center sign-up-next"><h4>Show me more!</h4></div></p>', $qp->max_num_pages ); // display older posts link ?>
 
 
  <?php }else{ ?>
- 
- 
-<?php 
-$big = 999999999; // need an unlikely integer
-
-echo paginate_links( array(
-		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-		'format' => '?paged=%#%',
-		'current' => max( 1, get_query_var('paged') ),
-		'total' => $the_query->max_num_pages
-) );
-?>
  
         <div class="container paginating">
 	        <div class="col-sm-2">
