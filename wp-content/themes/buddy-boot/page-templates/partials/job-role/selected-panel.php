@@ -55,13 +55,13 @@
             
             if ($page_number>0){ ?>
                 <div class='container box-head'>
-            <h3><i class="fa fa-cog"></i> Search settings
+            <h3><i class="fa fa-cog"></i> Your search preferences
     </h3>
 
 
             <?php 
     
-              echo "Professions:"; 
+              echo '<i class="fa fa-check-square-o"></i>'; 
 
                foreach ($subjects as $subject){
                	foreach($subject as $s){
@@ -76,7 +76,7 @@
 
 
                //Locations
-                  echo "<br>Locations:"; 
+                  echo '<br><i class="fa fa-map-marker"></i>'; 
 
                foreach ($locations as $location){
                	foreach($location as $l){
@@ -103,20 +103,20 @@
 
     <div class='container-fluid sign-up-panel'>
     
-        <div class='container box-head'> <h3 style='margin-top:10px;'><i class="fa fa-cog"></i> Search settings</h3></div>
+        <div class='container box-head'> <h3 style='margin-top:10px;'><i class="fa fa-search"></i> Your search preferences</h3></div>
 
         <section class='search-criteria container text-center row-flex row-flex-wrap'>           
             
             <div class='col-sm-4 welcome-profile'>
                 <div class="panel panel-default flex-col">
-                <h4><i class="fa fa-search"></i> Your preferences</h4>
+                <h4><i class="fa fa-cog"></i> Profile settings</h4>
                 <div class='avatar-circle'>
-                <?php  echo get_avatar( '', $size = '60' );?>
+					<?php global $userdata; get_currentuserinfo(); echo get_avatar( $userdata->ID, 46 ); ?>
                 </div>
                 <p>Job recommendations are based on the selections you make. </p>
 
                <div class="refine">
-                           <button class='btn-success btn-outlined btn'>Refine your preferences</button> 
+                           <button class='btn-success btn-outlined btn'>Refine your settings</button> 
                </div>
             </div>
             </div>
@@ -125,38 +125,54 @@
      <div class='col-sm-4 welcome-profile'>
          <div class="panel panel-default flex-col">
          <h4><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;What</h4>
-                    <?php 
-            foreach ($subjects as $subject){
-            	
-            	foreach($subject as $s){
-
-               ?>
-               <span class='selected'><?php echo $s;?> </span>
-
-               <?php
-            	}
-               }
-           ?>
+         <div class="vertical-align">
+         		<div class="selected-options">
+		                    <?php 
+		            foreach ($subjects as $subject){
+		            	
+		            	foreach($subject as $s){
+		
+		               ?>
+		               <span class='selected'><?php echo $s;?> </span>
+		
+		               <?php
+		            	}
+		               }
+		           ?>
+         	  	</div>
+         	  	     <div class="refine">
+					<button class="btn-success btn-outlined btn">+</button> 
+	           </div>
+		</div>
          </div>
       </div>
             
             <div class='col-sm-4 welcome-profile'>
-                <div class="panel panel-default flex-col">
+              <div class="panel panel-default flex-col">
                 <h4><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Where</h4>
-                   <?php 
-            foreach ($locations as $location){
-            	
-            	foreach($location as $l){
-
-               ?>
-               <span class='selected'><?php echo $l;?> </span>
-
-               <?php
-            	}
-               }
-           ?>
-                </div>
-            </div>    
+              <div class="vertical-align">
+		         	<div class="selected-options">
+		                
+		                   <?php 
+		            foreach ($locations as $location){
+		            	
+		            	foreach($location as $l){
+		
+		               ?>
+		               <span class='selected'><?php echo $l;?> </span>
+		
+		               <?php
+		            	}
+		               }
+		           ?>
+		           </div>
+	           <div class="refine">
+					<button class="btn-success btn-outlined btn">+</button> 
+	           </div>
+           
+         	</div>
+         </div>
+       </div>    
         </section>
      <?php };?>
     </div>

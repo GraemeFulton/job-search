@@ -11,8 +11,8 @@ get_header();?>
 <?php
 $page_number = get_query_var('paged');
 if($page_number==0){
-?>  
-<?php } ?>
+	include('partials/page-sign-up/sign-up-selected-panel.php');
+} ?>
 
 
 

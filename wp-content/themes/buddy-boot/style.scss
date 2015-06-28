@@ -258,7 +258,23 @@ and (max-width : 610px) {
         border:1px solid;
     }
     
-    .content-block{background:#fff;}
+    
+    .content-block{
+    	padding:0px;
+    	
+    }
+    .selected-options{
+	    width: 100%;
+	    border: 1px solid #DCDCDC;
+	    padding: 10px;
+	
+    }
+    .vertical-align{
+    	    margin: auto 0px; 
+        .refine{
+	    	margin-top:25px;
+	    }
+    }
     
     .post{
         background: #fff;
@@ -281,13 +297,33 @@ and (max-width : 610px) {
                 margin-bottom: 10px!important;
     }
     
+    .profile-fields{
+    	.label{
+    		color:#444;
+    	}
+    }
+    
+    
+    #buddypress{
+	    .search-criteria{
+	    	max-width:100%;	
+	    }
+	    .bp-widget.profession, .bp-widget.location{
+	    
+	    	display:none;
+	    }
+	}
+    
     .container-fluid.theme-grey{
-    	.post.container{
+    	.post.container, .profile.container{
     		max-width:100%;
     	}
     	.container.paginating{
     	max-width:100%;
     	position:relative;
+	    	.col-sm-2{
+	    		padding:0px;
+	    	}
     	}
     	.wp-pagenavi{
     	  		
@@ -353,7 +389,11 @@ color:#fff;
     margin-bottom:8px;
     
     img{
-    border-radius: 30px;
+
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+
     }
 }
 
@@ -368,7 +408,28 @@ color:#fff;
         line-height: 1.7;
     }
     h2{margin-top:0px;}
+    
+    .selected{
+		background: #44a897;
+	    color: #fff;
+	    padding: 5px;
+	    font-size: 13px;
+	    margin-right: 8px;
+	    border: 1px solid #eaeaea;
+	    font-weight: 100;
+    }
 }
+.box-head{
+	  .selected{
+		background: #f8f8f8;
+	    color: #666;
+	    padding: 5px;
+	    font-size: 13px;
+	    margin-right: 8px;
+	    border: 1px solid #eaeaea;
+	}
+}
+
 /**for 3 equal sized boxes**/
 .row-flex, .row-flex > div[class*='col-'] {  
     display: flex;
@@ -391,9 +452,9 @@ color:#fff;
 
 
 .flex-col {
-    display: flex;
     flex: 1 100%;
 	flex-flow: column nowrap;
+	display: inline-flex;
 }
 
 .panel-default{
