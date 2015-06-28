@@ -8,6 +8,7 @@ $(document).ready(function(){
 		//populate fields
 		var opts = populate_ajax_fields();
 		var json_data = JSON.stringify(opts, null, 2);
+console.log(json_data)
 
 		//async save
 		$.ajax({
