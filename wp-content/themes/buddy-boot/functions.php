@@ -66,7 +66,7 @@ function LG_bootstrap_scripts()  {
 
         
 	// get the theme directory style.css and link to it in the header
-	wp_enqueue_style( 'LG-style', get_template_directory_uri() . '/style.css', '10000', 'all' );
+		wp_enqueue_style( 'LG-style', get_template_directory_uri() . '/style.css', '10000', 'all' );
         wp_enqueue_script('jquery');
 
         //bootstrap js
