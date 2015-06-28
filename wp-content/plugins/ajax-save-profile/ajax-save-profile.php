@@ -17,6 +17,14 @@ add_action('wp_ajax_nopriv_ajax_save', 'ajax_save');
 function ajax_save(){
 	
 	echo 'hola';
+	
+	$data = str_replace('&quot;', '"', $_POST['selected']);
+	//$data=json_decode(substr($_POST['selected'], 3));
+	
+	var_dump($data);
+	
+	
+
 	exit();
 }
 
