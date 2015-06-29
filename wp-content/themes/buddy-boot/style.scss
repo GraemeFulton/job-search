@@ -584,3 +584,26 @@ span.selected{
 .box-head{
 	padding-bottom:25px; 
 }
+
+.standard-form{
+	
+	background:#fff;
+	padding:20px;
+	
+	span.label{
+		color:#9DC5BF;
+	}
+	
+	.radio, .checkbox {
+    display: block;
+    min-height: 22px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: left;
+    height: 220px;
+    padding: 25px;
+    padding-top:5px;
+    border: 1px solid #ccc;
+    margin-right: 20px;
+	}
+}
