@@ -17,7 +17,7 @@
 
 <?php do_action( 'bp_before_profile_content' ); ?>
 
-<div class="profile container content-block" role="main">
+<div class="profile  content-block" role="main">
 
 <?php switch ( bp_current_action() ) :
 

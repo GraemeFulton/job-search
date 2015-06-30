@@ -6,7 +6,7 @@ $groups = $wpdb->get_results($sqlStr);
 
 if ( bp_has_profile( 'profile_group_id=' . $groups[0] ) ) :
 	while ( bp_profile_groups() ) : bp_the_profile_group(); ?>
-
+<section class="container">
 <form action="<?php bp_the_profile_group_edit_form_action(); ?>" method="post" id="profile-edit-form" data-group="<? bp_the_profile_group_name();?>"class="standard-form <?php bp_the_profile_group_slug(); ?>">
 
 	<?php do_action( 'bp_before_profile_field_content' ); ?>
@@ -151,7 +151,7 @@ if ( bp_has_profile( 'profile_group_id=' . $groups[0] ) ) :
 	<?php wp_nonce_field( 'bp_xprofile_edit' ); ?>
 
 </form>
-
+</section>
 <?php endwhile; endif; ?>
 
 <?php do_action( 'bp_after_profile_edit_content' ); ?>

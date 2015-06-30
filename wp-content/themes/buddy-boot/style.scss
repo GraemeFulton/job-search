@@ -226,6 +226,17 @@ and (max-width : 610px) {
 }
 
 /**SIGN UP/JOB ROLL PAGE**/
+#primary.container{
+	width:100%;
+	padding:0px;
+	margin:0px;
+	
+}
+.container-fluid.theme-grey{
+	padding-left:0px;
+	padding-right:0px;
+	
+}
 .theme-grey{
     padding-top: 15px;
     background: #f4f4f4;
@@ -259,10 +270,14 @@ and (max-width : 610px) {
     }
     
     
-    .content-block{
+    .content-block, .container.content-block{
     	padding:0px;
+    	padding-left:0px;
+    	padding-right:0px;
     	
     }
+    
+
     .selected-options{
 	    width: 100%;
 	    border: 1px solid #DCDCDC;
@@ -383,7 +398,9 @@ color:#fff;
 }
 .box-head{
     color:#919191;
+
 }
+
 
 .avatar-circle{
     margin-bottom:8px;

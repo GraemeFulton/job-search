@@ -176,6 +176,15 @@ body {
   background: #ffffff !important; }
 
 /**SIGN UP/JOB ROLL PAGE**/
+#primary.container {
+  width: 100%;
+  padding: 0px;
+  margin: 0px; }
+
+.container-fluid.theme-grey {
+  padding-left: 0px;
+  padding-right: 0px; }
+
 .theme-grey {
   padding-top: 15px;
   background: #f4f4f4; }
@@ -205,8 +214,10 @@ body {
   text-align: center;
   border: 1px solid; }
 
-.content-block {
-  padding: 0px; }
+.content-block, .container.content-block {
+  padding: 0px;
+  padding-left: 0px;
+  padding-right: 0px; }
 
 .selected-options {
   width: 100%;
