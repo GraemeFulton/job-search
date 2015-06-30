@@ -57,30 +57,34 @@
                 <div class='container box-head'>
             <h3><i class="fa fa-cog"></i> Your search preferences
     </h3>
-
+<div class="selections-table-container">
 	<table class="selections-table">
-	<tr>
-	<th align="right"><i class="fa fa-check-square-o"></i></th>
-	<td>
-            <?php 
-    
-               foreach ($subjects as $subject){
-               	foreach($subject as $s){
-
-               ?>
-               <span class='selected'><?php echo $s;?> </span>
-
-               <?php
-               	}
-
-               }
-               
-               ?>
-	</td>
-	</tr>
-	<tr>
-	<th align="right"><i class="fa fa-map-marker"></i></th>
-	<td>
+		<tr>
+			<th align="right"><i class="fa fa-check-square-o"></i></th>
+			<td>
+		            <?php 
+		    
+		               foreach ($subjects as $subject){
+		               	foreach($subject as $s){
+		
+		               ?>
+		               <span class='selected'><?php echo $s;?> </span>
+		
+		               <?php
+		               	}
+		
+		               }
+		               
+		               ?>
+			</td>	
+			<td class="no-left-pad"rowspan="2">					
+				<button class="btn-success btn-outlined btn">+</button> 
+			</td>
+		</tr>
+	
+		<tr>
+			<th align="right"><i class="fa fa-map-marker"></i></th>
+		<td>
                <?php 
 
 
@@ -104,6 +108,7 @@
     </td>
     </tr>
     </table>
+    </div>
         </div>
             <?php }
             else { ?>

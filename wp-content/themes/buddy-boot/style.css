@@ -486,8 +486,19 @@ span.selected {
     border: 1px solid #ccc;
     margin-right: 20px; }
 
-.selections-table td {
-  padding: 12px; }
+.selections-table-container {
+  padding: 12px;
+  background-color: #FBFBFB;
+  border: 1px solid #F3F3F3;
+  float: left; }
+  .selections-table-container .selections-table td {
+    padding: 12px;
+    padding-right: 6px; }
+  .selections-table-container .selections-table td.no-left-pad {
+    padding-left: 0px; }
+  .selections-table-container .selections-table th {
+    padding-right: 1px;
+    padding-left: 12px; }
 
 .standard-form.location .radio, .standard-form.location .checkbox {
   height: 90px; }

@@ -608,11 +608,26 @@ span.selected{
 	}
 }
 
+.selections-table-container{
+	padding: 12px;
+    background-color: #FBFBFB;
+    border:1px solid #F3F3F3;
+    float: left;
+
 .selections-table{
-	
 	td{
 		padding:12px;
+		padding-right:6px;
 	}
+	    
+    td.no-left-pad{
+    	padding-left:0px;
+    }
+	th{
+		padding-right: 1px;
+	    padding-left: 12px;
+	}
+}
 }
 
 .standard-form.location{
