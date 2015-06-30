@@ -250,6 +250,7 @@ and (max-width : 610px) {
         padding:25px;
         .search-criteria{
             margin-bottom:40px!important;
+            max-width:100%;
         }
     }
     .paginating{
@@ -282,6 +283,9 @@ and (max-width : 610px) {
 	    width: 100%;
 	    border: 1px solid #DCDCDC;
 	    padding: 10px;
+	    float:left;
+	    margin-bottom:12px;
+	    padding-bottom:4px;
 	
     }
     .vertical-align{
@@ -394,6 +398,7 @@ color:#fff;
 
 .selected{
     color: rgb(68, 168, 151);
+    margin-bottom:6px;
 
 }
 .box-head{
@@ -532,12 +537,14 @@ color: #fafafa;
     
 }
 
-span.selected{
+div.selected{
   background:#f2f2f2;
   color:#666;
   padding:3px;
   font-size: 11px;
   margin-right:2px;
+  width:auto!important;
+      display: inline-block;
 }
 
 #moveDown{
@@ -627,13 +634,14 @@ span.selected{
 
 .selections-table-container{
 	padding: 12px;
+	padding-bottom:6px;
     background-color: #FBFBFB;
     border:1px solid #F3F3F3;
     float: left;
 
 .selections-table{
 	td{
-		padding:12px;
+		padding:3px;
 		padding-right:6px;
 	}
 	    
@@ -641,8 +649,8 @@ span.selected{
     	padding-left:0px;
     }
 	th{
-		padding-right: 1px;
-	    padding-left: 12px;
+		padding-right: 6px;
+	    padding-left: 6px;
 	}
 }
 }

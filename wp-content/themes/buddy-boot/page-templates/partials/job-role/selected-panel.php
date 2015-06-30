@@ -68,7 +68,7 @@
 		               	foreach($subject as $s){
 		
 		               ?>
-		               <span class='selected'><?php echo $s;?> </span>
+		               <div class='selected'><?php echo $s;?> </div>
 		
 		               <?php
 		               	}
@@ -95,7 +95,7 @@
                	foreach($location as $l){
 
                ?>
-               <span class='selected'><?php echo $l;?> </span>
+               <div class='selected'><?php echo $l;?> </div>
 
                <?php
                	}
@@ -119,7 +119,7 @@
     
 
     <div class='container-fluid sign-up-panel'>
-    
+    <div class="container">
         <div class='container box-head'> <h3 style='margin-top:10px;'><i class="fa fa-search"></i> Your search preferences</h3></div>
 
         <section class='search-criteria container text-center row-flex row-flex-wrap'>           
@@ -150,17 +150,18 @@
 		            	foreach($subject as $s){
 		
 		               ?>
-		               <span class='selected'><?php echo $s;?> </span>
+		               <div class='selected'><?php echo $s;?> </div>
 		
 		               <?php
 		            	}
 		               }
 		           ?>
          	  	</div>
-         	  	     <div class="refine">
+         	  	    
+		</div>
+		 <div class="refine">
 					<button class="btn-success btn-outlined btn">+</button> 
 	           </div>
-		</div>
          </div>
       </div>
             
@@ -176,20 +177,22 @@
 		            	foreach($location as $l){
 		
 		               ?>
-		               <span class='selected'><?php echo $l;?> </span>
+		               <div class='selected'><?php echo $l;?> </div>
 		
 		               <?php
 		            	}
 		               }
 		           ?>
 		           </div>
-	           <div class="refine">
-					<button class="btn-success btn-outlined btn">+</button> 
-	           </div>
+	      
            
          	</div>
+         	     <div class="refine">
+					<button class="btn-success btn-outlined btn">+</button> 
+	           </div>
          </div>
        </div>    
         </section>
      <?php };?>
+    </div>
     </div>
