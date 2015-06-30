@@ -58,11 +58,12 @@
             <h3><i class="fa fa-cog"></i> Your search preferences
     </h3>
 
-
+	<table class="selections-table">
+	<tr>
+	<th align="right"><i class="fa fa-check-square-o"></i></th>
+	<td>
             <?php 
     
-              echo '<i class="fa fa-check-square-o"></i>'; 
-
                foreach ($subjects as $subject){
                	foreach($subject as $s){
 
@@ -73,10 +74,18 @@
                	}
 
                }
+               
+               ?>
+	</td>
+	</tr>
+	<tr>
+	<th align="right"><i class="fa fa-map-marker"></i></th>
+	<td>
+               <?php 
 
 
                //Locations
-                  echo '<br><i class="fa fa-map-marker"></i>'; 
+                  echo ''; 
 
                foreach ($locations as $location){
                	foreach($location as $l){
@@ -92,6 +101,9 @@
 
 
     ?>
+    </td>
+    </tr>
+    </table>
         </div>
             <?php }
             else { ?>

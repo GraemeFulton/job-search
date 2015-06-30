@@ -425,7 +425,7 @@ color:#fff;
 	    color: #666;
 	    padding: 5px;
 	    font-size: 13px;
-	    margin-right: 8px;
+	    margin-right: 12px;
 	    border: 1px solid #eaeaea;
 	}
 }
@@ -605,6 +605,13 @@ span.selected{
     padding-top:5px;
     border: 1px solid #ccc;
     margin-right: 20px;
+	}
+}
+
+.selections-table{
+	
+	td{
+		padding:12px;
 	}
 }
 
