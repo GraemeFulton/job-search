@@ -36,7 +36,7 @@
 
 		// Display XProfile
 		if ( bp_is_active( 'xprofile' ) ){
-			include(get_stylesheet_directory().'/page-templates/partials/job-role/selected-panel.php');
+			include(get_stylesheet_directory().'/page-templates/partials/job-role/selected-panel-old.php');
 				
 			bp_get_template_part( 'members/single/profile/profile-loop' );
 		}

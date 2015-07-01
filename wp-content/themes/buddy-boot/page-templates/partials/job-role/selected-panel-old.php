@@ -52,7 +52,8 @@
             }
 	
                         
- ?>
+            
+            if ($page_number>0){ ?>
                 <div class='container box-head'>
             <h3><i class="fa fa-cog"></i> Your search preferences
     </h3>
@@ -109,4 +110,89 @@
     </table>
     </div>
         </div>
-          
+            <?php }
+            else { ?>
+               
+               
+               
+           
+    
+
+    <div class='container-fluid sign-up-panel'>
+    <div class="container">
+        <div class='container box-head'> <h3 style='margin-top:10px;'><i class="fa fa-search"></i> Your search preferences</h3></div>
+
+        <section class='search-criteria container text-center row-flex row-flex-wrap'>           
+            
+            <div class='col-sm-4 welcome-profile'>
+                <div class="panel panel-default flex-col">
+                <h4><i class="fa fa-cog"></i> Profile settings</h4>
+                <div class='avatar-circle'>
+					<?php global $userdata; get_currentuserinfo(); echo get_avatar( $userdata->ID, 46 ); ?>
+                </div>
+                <p>Job recommendations are based on the selections you make. </p>
+
+               <div class="refine">
+                           <button class='btn-success btn-outlined btn'>Refine your settings</button> 
+               </div>
+            </div>
+            </div>
+            
+            
+     <div class='col-sm-4 welcome-profile'>
+         <div class="panel panel-default flex-col">
+         <h4><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;What</h4>
+         <div class="vertical-align">
+         		<div class="selected-options">
+		                    <?php 
+		            foreach ($subjects as $subject){
+		            	
+		            	foreach($subject as $s){
+		
+		               ?>
+		               <div class='selected'><?php echo $s;?> </div>
+		
+		               <?php
+		            	}
+		               }
+		           ?>
+         	  	</div>
+         	  	    
+		</div>
+		 <div class="refine">
+					<button class="btn-success btn-outlined btn">+</button> 
+	           </div>
+         </div>
+      </div>
+            
+            <div class='col-sm-4 welcome-profile'>
+              <div class="panel panel-default flex-col">
+                <h4><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Where</h4>
+              <div class="vertical-align">
+		         	<div class="selected-options">
+		                
+		                   <?php 
+		            foreach ($locations as $location){
+		            	
+		            	foreach($location as $l){
+		
+		               ?>
+		               <div class='selected'><?php echo $l;?> </div>
+		
+		               <?php
+		            	}
+		               }
+		           ?>
+		           </div>
+	      
+           
+         	</div>
+         	     <div class="refine">
+					<button class="btn-success btn-outlined btn">+</button> 
+	           </div>
+         </div>
+       </div>    
+        </section>
+     <?php };?>
+    </div>
+    </div>
