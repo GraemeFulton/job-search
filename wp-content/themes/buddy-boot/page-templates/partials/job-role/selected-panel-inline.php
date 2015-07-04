@@ -96,6 +96,6 @@
     </table>
     
     </div>
-				<button class="btn-success btn-outlined btn pull-right btn-settings"><i class="fa fa-cog"></i></button> 
+				<a href="<?php echo get_site_url() .'/members/'. bp_core_get_username( get_current_user_id() ) . '/profile/edit';?>" class="btn-success btn-outlined btn pull-right btn-settings"><i class="fa fa-cog"></i></a> 
         </div>
           

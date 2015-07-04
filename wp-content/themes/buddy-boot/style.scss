@@ -638,7 +638,6 @@ div.selected{
 .box-head{
 	padding-bottom:3px; 
 	    padding-top: 3px;
-    background:#f8f8f8;
 	p{
 	    padding: 0;
 	    margin-top: 3px;
@@ -657,22 +656,52 @@ div.selected{
 	
 	span.label{
 		color:#9DC5BF;
+		color: #B1B1B1;
+    background-color: #eaeaea;
+    padding: 3px;
+
+    
 	}
 	
 	.radio, .checkbox {
     display: block;
-    min-height: 22px;
-    margin-top: 10px;
-    margin-bottom: 10px;
     float: left;
-    height: 220px;
-    padding: 25px;
-    padding-top:5px;
-    border: 1px solid #ccc;
-    margin-right: 20px;
+    padding: 0 0 0 0;
+    max-width:100%;
+        display: block;
+     min-height:0px;
+    margin-top: 0px;
+    margin-bottom: 0px; 
+    padding-left: 10px;
+    padding-right:10px;
 	}
+	.radio input[type=radio], .radio-inline input[type=radio], .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox] {
+    	float: left;
+    	margin-left: 0px;
+    	margin-right:6px;
+	}
+	
 }
-
+.standard-form.location{
+	span.label{display:none!important;}
+	
+}
+#buddypress .standard-form div.submit input {
+    margin-right: 15px;
+    float: left;
+    bottom: 10px;
+}
+#buddypress .standard-form div.checkbox label, #buddypress .standard-form div.radio label {
+    color: #888;
+    font-size: 100%;
+    font-weight: normal;
+    margin: 5px 0 0 0;
+    padding: 5px;
+    border:1px solid;
+	border-color:rgb(124, 184, 174);
+	font-size:12px;
+	background:#f8f8f8;
+}
 .selections-table-container{
 	padding: 12px;
 	padding-bottom:6px;
@@ -706,7 +735,6 @@ div.selected{
 .standard-form.location{
 	
 	.radio, .checkbox{
-		height:90px;
 	}
 	
 }
