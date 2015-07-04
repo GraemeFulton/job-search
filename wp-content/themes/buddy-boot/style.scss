@@ -179,7 +179,7 @@ and (max-width : 771px) {
 
 @media  (min-width : 100px) 
 and (max-width : 610px) { 
-
+.selections-table{display:none;}
 	.additional_content{
 	        display:none; 
 	   }
@@ -638,8 +638,6 @@ div.selected{
 .box-head{
 	padding-bottom:3px; 
 	    padding-top: 3px;
-    padding-left: 15px;
-    padding-right: 4px;
     background:#f8f8f8;
 	p{
 	    padding: 0;

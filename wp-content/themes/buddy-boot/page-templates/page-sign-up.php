@@ -11,14 +11,14 @@ get_header();?>
 <?php
 $page_number = get_query_var('paged');
 if($page_number==0){
-	include('partials/page-sign-up/sign-up-selected-panel.php');
 } ?>
 
 
 
 <div class="container-fluid theme-grey">
 
-    <?php include('partials/page-sign-up/sign-up-page-title.php') ?>
+    <?php     
+    include('partials/page-sign-up/sign-up-page-title.php') ?>
 
     <?php  do_action('job_recommendation_loop')?>
            
