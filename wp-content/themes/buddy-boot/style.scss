@@ -395,7 +395,11 @@ color:#fff;
      color:#5a5a5a;
      border-color:rgb(124, 184, 174);
 }
-
+.btn-settings{
+	font-size:13px;
+	background:#f8f8f8;
+	border-radius:0px;
+}
 .selected{
     color: rgb(68, 168, 151);
     margin-bottom:6px;
@@ -403,7 +407,12 @@ color:#fff;
 }
 .box-head{
     color:#919191;
+    max-width:100%;
+    padding:0px;
 
+	h4{
+		float:left;
+	}
 }
 
 
@@ -446,10 +455,31 @@ color:#fff;
 		background: #f8f8f8;
 	    color: #666;
 	    padding: 5px;
-	    font-size: 13px;
-	    margin-right: 12px;
+	    font-size: 11px;
+	    margin-right: 2px;
 	    border: 1px solid #eaeaea;
 	}
+	.selected.location{
+	}
+	.selected.profession{		
+	}
+}
+.wp-pagenavi a, .wp-pagenavi span {
+    text-decoration: none;
+    border: 1px solid #BFBFBF;
+    padding: 5px 8px;
+    margin: 2px;
+    font-size: 13px;
+    color: #888;
+}
+.wp-pagenavi a:hover, .wp-pagenavi span.current {
+    border-color: #50978B;
+}
+.page-num{
+	
+	padding:2px 4px 2px 4px;
+	border:1px solid #eaeaea;
+
 }
 
 /**for 3 equal sized boxes**/
@@ -606,7 +636,20 @@ div.selected{
 	display:none;
 }
 .box-head{
-	padding-bottom:25px; 
+	padding-bottom:3px; 
+	    padding-top: 3px;
+    padding-left: 15px;
+    padding-right: 4px;
+    background:#f8f8f8;
+	p{
+	    padding: 0;
+	    margin-top: 3px;
+	    margin-right: 2px;
+	    font-size: 13px;
+	    padding: 2px;
+	    margin-bottom:0px;
+	}
+	
 }
 
 .standard-form{
@@ -640,10 +683,7 @@ div.selected{
     float: left;
 
 .selections-table{
-	td{
-		padding:3px;
-		padding-right:6px;
-	}
+
 	    
     td.no-left-pad{
     	padding-left:0px;
@@ -654,6 +694,16 @@ div.selected{
 	}
 }
 }
+
+.selections-table-inline{
+	padding: 0px;;
+    padding-bottom: 0px;
+    background-color: transparent;
+    border: none; 
+    float: left;
+	
+}
+
 
 .standard-form.location{
 	

@@ -3,7 +3,6 @@
 $sqlStr = "SELECT * `id` FROM `wp_bp_xprofile_groups`";
 $groups = $wpdb->get_results($sqlStr);
 
-
 if ( bp_has_profile( 'profile_group_id=' . $groups[0] ) ) :
 	while ( bp_profile_groups() ) : bp_the_profile_group(); ?>
 <section class="container">

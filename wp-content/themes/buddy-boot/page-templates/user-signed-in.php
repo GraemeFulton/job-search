@@ -3,6 +3,7 @@
  * Template Name: Signed In
  */
 $page_number = get_query_var('paged');
+$total = get_query_var('total');
 
 //if user logged in don't bother
 if(is_user_logged_in()!==true){
@@ -14,8 +15,6 @@ if(is_user_logged_in()!==true){
 ?>
 <?php get_header(); ?>
 
-
-        <?php include('partials/job-role/selected-panel.php') ?>
 
 <div class="container-fluid theme-grey">
     <section class="container">

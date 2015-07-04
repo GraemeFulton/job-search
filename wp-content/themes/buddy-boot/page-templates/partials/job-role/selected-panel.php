@@ -54,7 +54,6 @@
                         
  ?>
                 <div class='container box-head'>
-            <h3><i class="fa fa-cog"></i> Your search preferences
     </h3>
 <div class="selections-table-container">
 	<table class="selections-table">
@@ -76,9 +75,7 @@
 		               
 		               ?>
 			</td>	
-			<td class="no-left-pad"rowspan="2">					
-				<button class="btn-success btn-outlined btn">+</button> 
-			</td>
+			
 		</tr>
 	
 		<tr>
@@ -107,6 +104,8 @@
     </td>
     </tr>
     </table>
+    
     </div>
+				<button class="btn-success btn-outlined btn"><i class="fa fa-cog"></i></button> 
         </div>
           
