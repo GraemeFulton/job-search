@@ -3,7 +3,7 @@
 
 if ( bp_has_profile( 'profile_group_id=' . '' ) ) :
 	while ( bp_profile_groups() ) : bp_the_profile_group(); ?>
-	<?php echo '<h1>'.bp_the_profile_group_name();?></h1>
+	<div class="container header-container"><h3><?php echo bp_the_profile_group_name();?></h3></div>
 <section class="container">
 <form action="<?php bp_the_profile_group_edit_form_action(); ?>" method="post" id="profile-edit-form" data-group="<? bp_the_profile_group_name();?>"class="standard-form <?php bp_the_profile_group_slug(); ?>">
 <div class="item-container">
@@ -138,15 +138,14 @@ if ( bp_has_profile( 'profile_group_id=' . '' ) ) :
 
 	<?php do_action( 'bp_after_profile_field_content' ); ?>
 
-
+	<div class="submit">
+		<input type="submit" class="ajax-submit" name="profile-group-edit-submit" id="profile-group-edit-submit" value="<?php _e( 'Save Changes', 'buddypress' ); ?> " />
+	</div>
 
 	<input type="hidden" name="field_ids" id="field_ids" value="<?php bp_the_profile_group_field_ids(); ?>" />
 
 	<?php wp_nonce_field( 'bp_xprofile_edit' ); ?>
 </div>
-	<div class="submit">
-		<input type="submit" class="ajax-submit" name="profile-group-edit-submit" id="profile-group-edit-submit" value="<?php _e( 'Save Changes', 'buddypress' ); ?> " />
-	</div>
 </form>
 </section>
 <?php endwhile; endif; ?>

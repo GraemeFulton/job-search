@@ -522,6 +522,10 @@ div.selected {
     padding: 2px;
     margin-bottom: 0px; }
 
+.header-container {
+  padding-left: 15px;
+  padding-right: 15px; }
+
 .standard-form {
   background: #fff;
   padding: 20px; }
@@ -553,6 +557,18 @@ div.selected {
   margin-right: 15px;
   float: left;
   bottom: 10px; }
+
+.profession .submit, .location .submit {
+  position: absolute;
+  bottom: -35px;
+  left: 10px; }
+
+.profession.standard-form, .location.standard-form {
+  padding-bottom: 55px; }
+
+.standard-form {
+  float: left;
+  width: 100%; }
 
 #buddypress .standard-form div.checkbox label, #buddypress .standard-form div.radio label {
   color: #888;
