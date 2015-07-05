@@ -385,7 +385,8 @@ a {
     float: left; }
 
 .avatar-circle {
-  margin-bottom: 8px; }
+  margin-bottom: 8px;
+  margin-top: 10px; }
   .avatar-circle img {
     border-radius: 100%;
     width: 80px;

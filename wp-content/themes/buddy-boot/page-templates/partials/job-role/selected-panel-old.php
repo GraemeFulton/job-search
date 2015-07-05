@@ -132,7 +132,7 @@
                 <p>Job recommendations are based on the selections you make. </p>
 
                <div class="refine">
-                           <button class='btn-success btn-outlined btn'>Refine your settings</button> 
+                           <a href="<?php echo bp_loggedin_user_domain().'/profile/edit';?>" class='btn-success btn-outlined btn'>Refine your settings</a> 
                </div>
             </div>
             </div>
@@ -159,8 +159,8 @@
          	  	    
 		</div>
 		 <div class="refine">
-					<button class="btn-success btn-outlined btn">+</button> 
-	           </div>
+					<a href = "<?php echo bp_loggedin_user_domain().'/profile/edit/group/1/#edit-Profession'?>"class="btn-success btn-outlined btn">+</a> 
+		 	           </div>
          </div>
       </div>
             
@@ -187,7 +187,7 @@
            
          	</div>
          	     <div class="refine">
-					<button class="btn-success btn-outlined btn">+</button> 
+					<a href = "<?php echo bp_loggedin_user_domain().'/profile/edit/group/1/#edit-Location'?>"class="btn-success btn-outlined btn">+</a> 
 	           </div>
          </div>
        </div>    

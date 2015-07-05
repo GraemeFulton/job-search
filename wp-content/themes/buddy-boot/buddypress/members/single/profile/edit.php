@@ -3,7 +3,7 @@
 
 if ( bp_has_profile( 'profile_group_id=' . '' ) ) :
 	while ( bp_profile_groups() ) : bp_the_profile_group(); ?>
-	<div class="container header-container edit-header-container">
+	<div class="container header-container edit-header-container" id="edit-<?php echo bp_the_profile_group_name();?>">
 		<h1>
 			<?php echo bp_get_the_profile_group_name()?>
 		</h1>
