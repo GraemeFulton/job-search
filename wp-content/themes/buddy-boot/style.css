@@ -59,7 +59,9 @@ body {
 
 .profile-link {
   float: left;
-  padding: 5px; }
+  padding: 5px;
+  height: 33px;
+  padding-top: 7px; }
 
 .profile-link.active {
   background: #fff; }
@@ -72,7 +74,8 @@ body {
   background: #F1F0F0;
   float: left;
   width: 100%;
-  border: 1px solid #E8E8E8; }
+  border: 1px solid #E8E8E8;
+  height: 35px; }
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
@@ -344,7 +347,10 @@ a {
 .btn-settings {
   font-size: 13px;
   background: #f8f8f8;
-  border-radius: 0px; }
+  border-radius: 0px;
+  padding: 4px 8px 4px 8px;
+  margin-top: 3px;
+  color: #238E7C; }
 
 .selected {
   color: #44a897;
@@ -353,7 +359,8 @@ a {
 .box-head {
   color: #919191;
   max-width: 100%;
-  padding: 0px; }
+  padding: 0px;
+  height: 35px; }
   .box-head h4 {
     float: left; }
 
@@ -401,7 +408,7 @@ a {
 
 .page-num {
   padding: 2px 4px 2px 4px;
-  border: 1px solid #eaeaea; }
+  border: 1px solid #CECECE; }
 
 /**for 3 equal sized boxes**/
 .row-flex, .row-flex > div[class*='col-'] {
