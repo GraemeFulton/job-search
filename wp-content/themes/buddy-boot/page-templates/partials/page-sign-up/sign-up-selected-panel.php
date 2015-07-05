@@ -1,5 +1,5 @@
 
-                <div class='container box-head'>
+                <div class='container '>
             <h3><i class="fa fa-search"></i> Your search preferences
     </h3>
 

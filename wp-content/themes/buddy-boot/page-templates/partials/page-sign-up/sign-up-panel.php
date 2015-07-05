@@ -1,5 +1,5 @@
     <div class='container-fluid sign-up-panel'>
-        <div class='container box-head'> <h3 style='margin-top:10px;'>Get free full access now</h3></div>
+        <div class='container'> <h3 style='margin-top:10px; color:#999'>Get free full access now</h3></div>
 
         <section class='search-criteria container text-center row-flex row-flex-wrap'>
 

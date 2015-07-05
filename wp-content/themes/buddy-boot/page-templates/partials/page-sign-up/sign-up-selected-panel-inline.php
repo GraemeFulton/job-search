@@ -1,5 +1,5 @@
 
-                <div class='container box-head'>
+                <div class='container'>
 <div class="selections-table-container selections-table-inline">
 	<table class="selections-table">
 		<tr>
