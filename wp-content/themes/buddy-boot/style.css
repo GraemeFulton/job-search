@@ -77,6 +77,25 @@ body {
   border: 1px solid #E8E8E8;
   height: 35px; }
 
+.search-criteria.container {
+  margin-top: 25px; }
+
+table.profile-fields {
+  float: left;
+  width: auto !important; }
+
+.container .bp-table-module {
+  padding: 20px;
+  background: #f8f8f8;
+  border: 1px solid #eaeaea;
+  margin-top: 20px;
+  height: auto;
+  float: left;
+  width: 100%; }
+  .container .bp-table-module h4 {
+    margin-top: 0px !important;
+    margin-bottom: 10px !important; }
+
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 /* Carousel base class */
@@ -224,7 +243,8 @@ body {
 .sign-up-panel {
   background: #fafafa;
   padding: 25px;
-  padding-top: 12px; }
+  padding-top: 12px;
+  padding-bottom: 0px; }
   .sign-up-panel .search-criteria {
     margin-bottom: 40px !important;
     max-width: 100%; }
@@ -252,7 +272,7 @@ body {
 
 .selected-options {
   width: 100%;
-  border: 1px solid #DCDCDC;
+  border: 1px solid #F3EFEF;
   padding: 10px;
   float: left;
   margin-bottom: 12px;

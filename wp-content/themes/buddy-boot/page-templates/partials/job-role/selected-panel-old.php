@@ -54,7 +54,7 @@
                         
             
             if ($page_number>0){ ?>
-                <div class='container box-head'>
+                <div class='container'>
             <h3><i class="fa fa-cog"></i> Your search preferences
     </h3>
 <div class="selections-table-container">
@@ -120,7 +120,6 @@
 
     <div class='container-fluid sign-up-panel'>
     <div class="container">
-        <div class='container box-head'> <h3 style='margin-top:10px;'><i class="fa fa-search"></i> Your search preferences</h3></div>
 
         <section class='search-criteria container text-center row-flex row-flex-wrap'>           
             
