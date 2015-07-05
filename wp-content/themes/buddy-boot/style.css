@@ -51,6 +51,29 @@ body {
 .navbar-wrapper .navbar .container {
   width: auto; }
 
+.field-visibility-settings-notoggle {
+  display: none; }
+
+#buddypress {
+  margin-top: -12px; }
+
+.profile-link {
+  float: left;
+  padding: 5px; }
+
+.profile-link.active {
+  background: #fff; }
+
+.profile.content-block {
+  background: #f7f7f7; }
+
+.profile-link-container {
+  font-size: 13px;
+  background: #F1F0F0;
+  float: left;
+  width: 100%;
+  border: 1px solid #E8E8E8; }
+
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 /* Carousel base class */
@@ -197,7 +220,8 @@ body {
 
 .sign-up-panel {
   background: #fafafa;
-  padding: 25px; }
+  padding: 25px;
+  padding-top: 12px; }
   .sign-up-panel .search-criteria {
     margin-bottom: 40px !important;
     max-width: 100%; }
@@ -512,8 +536,12 @@ div.selected {
   display: none; }
 
 .box-head {
-  padding-bottom: 3px;
-  padding-top: 3px; }
+  padding-top: 2px;
+  background-color: #ECECEC;
+  border: 1px solid #E8E6E6;
+  padding-left: 6px;
+  padding-right: 6px;
+  margin-bottom: 10px; }
   .box-head p {
     padding: 0;
     margin-top: 3px;
@@ -526,9 +554,17 @@ div.selected {
   padding-left: 15px;
   padding-right: 15px; }
 
+.edit-header-container h1 {
+  font-size: 26px;
+  color: #adadad; }
+
+#item-header {
+  display: none; }
+
 .standard-form {
   background: #fff;
-  padding: 20px; }
+  padding: 20px;
+  border: 1px solid #F1F1F1; }
   .standard-form span.label {
     color: #9DC5BF;
     color: #B1B1B1;
@@ -569,6 +605,10 @@ div.selected {
 .standard-form {
   float: left;
   width: 100%; }
+  .standard-form h3 {
+    color: #555;
+    font-size: 20px;
+    margin-top: 5px; }
 
 #buddypress .standard-form div.checkbox label, #buddypress .standard-form div.radio label {
   color: #888;
@@ -595,6 +635,7 @@ div.selected {
 
 .selections-table-inline {
   padding: 0px;
+  padding-top: 2px;
   padding-bottom: 0px;
   background-color: transparent;
   border: none;

@@ -53,7 +53,7 @@
 	
                         
  ?>
-                <div class=' box-head'>
+                <div>
     </h3>
 <div class="selections-table-container selections-table-inline">
 	<table class="selections-table">
