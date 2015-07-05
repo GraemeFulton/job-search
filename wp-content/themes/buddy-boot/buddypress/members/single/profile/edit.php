@@ -3,13 +3,37 @@
 
 if ( bp_has_profile( 'profile_group_id=' . '' ) ) :
 	while ( bp_profile_groups() ) : bp_the_profile_group(); ?>
-	<div class="container header-container"><h3><?php echo bp_the_profile_group_name();?></h3></div>
+	<div class="container header-container"></div>
 <section class="container">
 <form action="<?php bp_the_profile_group_edit_form_action(); ?>" method="post" id="profile-edit-form" data-group="<? bp_the_profile_group_name();?>"class="standard-form <?php bp_the_profile_group_slug(); ?>">
+
+<?php 
+$group_name = bp_get_the_profile_group_name();
+
+if($group_name == 'Profession'){
+	
+	echo '<h3><i class="fa fa-check-square-o"></i> What do you want to do?</h3>';
+}
+
+elseif($group_name == 'Location'){
+	
+	echo '<h3><i class="fa fa-map-marker"></i> Where would you work?</h3>';
+	
+}
+elseif($group_name == 'Basic Information'){
+	
+	echo '<h3><i class="fa fa-user"></i> Basic info</h3>';
+}
+elseif($group_name == 'Contact Information'){
+	
+	echo '<h3><i class="fa fa-envelope-o"></i> Contact details</h3>';
+}?>
+
 <div class="item-container">
 	<?php do_action( 'bp_before_profile_field_content' ); ?>
 
 		<div class="clear"></div>
+		
 
 		<?php while ( bp_profile_fields() ) : bp_the_profile_field(); ?>
 
