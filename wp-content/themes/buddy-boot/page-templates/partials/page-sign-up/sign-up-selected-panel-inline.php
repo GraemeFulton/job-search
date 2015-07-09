@@ -57,6 +57,6 @@
     </table>
     
     </div>
-				<button class="btn-success btn-outlined btn pull-right btn-settings"><i class="fa fa-cog"></i></button> 
+				<a href="<?php echo site_url().'/register'?>" class="btn-success btn-outlined btn pull-right btn-settings"><i class="fa fa-cog"></i></a> 
         </div>
           
