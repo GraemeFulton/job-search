@@ -22,14 +22,9 @@ $location= $this->get_jobs_location($tree);
         {
             ?><tr class="alt"><td>Display Until: </td><td><?php echo $expiry;?></td></tr><?php       
         }else{ ?><tr class="alt"><td>Display Until: </td><td><span class="job-expiry">Expired!</span></td></tr><?php } ?> 
-                        <tr><td>Rating: </td><td><?php echo $ratings;?></td></tr>
                     </table>
-<?php echo ' <a class="btn btn-success btn-large apply" target="_blank" href="'.$link.'">Apply Now</a>';?>
-                    <button id='review_button' class='btn btn-success btn-large' style='background:goldenrod; border-color:goldenrod'>Write a Review</button>
-                            <?php wpfp_link(); ?> 
-                      <div id='single_ratings'>
-           <h5>Reviews</h5>
-           <?php   echo do_shortcode('[WPCR_INSERT]' )?>
-     </div>
+<?php echo ' <a class="btn-success btn-outlined btn apply" target="_blank" href="'.$link.'">Apply Now</a>';?>
+
+                     
                     
                 </div>

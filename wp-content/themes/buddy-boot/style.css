@@ -670,4 +670,27 @@ div.selected {
   border: none;
   float: left; }
 
+.entry-title {
+  font-size: 28px;
+  color: #50978B; }
+
+.small-title {
+  color: #999; }
+
+.custom-tax-single, .widget-area {
+  background: #fff;
+  float: left;
+  margin-bottom: 40px;
+  padding: 20px;
+  border: 1px solid #eaeaea; }
+
+.widget-area {
+  background: #fdfdfd; }
+  .widget-area .side-title {
+    color: #999;
+    font-size: 16px; }
+
+.btn.apply {
+  margin-top: 20px; }
+
 /*# sourceMappingURL=style.css.map */
