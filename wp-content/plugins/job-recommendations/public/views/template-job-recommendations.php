@@ -5,6 +5,7 @@
 
 $location =  json_encode( $_GET['Location']);
 $profession = json_encode($_GET['Profession']);
+
 ?>
 <script>       
    $.cookie("Location",'<?php echo $lo;?>' , {path:"/"});

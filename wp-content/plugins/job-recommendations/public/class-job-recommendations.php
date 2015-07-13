@@ -43,6 +43,8 @@ class Job_Recommendations{
 	 */
 	protected static $instance = null;
 
+	protected $subjects;
+	protected $locations;
 	
 	/**
 	 * Initialize the plugin by setting localization and loading public scripts
@@ -193,8 +195,66 @@ class Job_Recommendations{
      }
      
      
-     public function profile_jobs(){
+     private function set_profile_preferences(){
+     	
+     	$user_ID = get_current_user_id();
+     	
+     	$parent_id= xprofile_get_field_id_from_name('Profession');
+     	global $bp;
+     	global $wpdb;
+     	
+     	
+     	$args = array(
+     			'taxonomy'      => 'profession',
+     			'parent'        => 0, // get top level categories
+     			'orderby'       => 'name',
+     			'order'         => 'ASC',
+     			'hierarchical'  => 1,
+     			'pad_counts'    => 0
+     	);
+     	
+     	$categories = get_categories( $args );
+     	
+     	$subjects=array();
+     	foreach ( $categories as $category ){
+     		array_push($subjects, xprofile_get_field_data($category->name, $user_ID));
+     	}
+     	
+     	$this->subjects = $subjects;
+     	
+     	$args = array(
+     			'taxonomy'      => 'location',
+     			'child_of'        => 292, // make sure they're a child of united kingdon
+     			'orderby'       => 'name',
+     			'order'         => 'ASC',
+     			'hierarchical'  => 1,
+     			'pad_counts'    => 0
+     	);
+     		
+     		
+     	
+     	$categories = get_categories( $args );
+     	$locations = array();
+     	foreach ( $categories as $category ){
+     		 
+     		$sub_args = array(
+     				'taxonomy'      => 'location',
+     				'parent'        => $category->term_id, // get child categories
+     				'orderby'       => 'name',
+     				'order'         => 'ASC',
+     				'hierarchical'  => 1
+     		);
+     		$sub_categories = get_categories( $sub_args );
+     		array_push($locations, xprofile_get_field_data($category->name, $user_ID));
+     	
+     	}
+     	$this->locations = $locations;
+     	
+     }
+     
+     public function profile_recommend_jobs(){
          
+     	$this->set_profile_preferences();
          
         //WP_QUERY
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -213,23 +273,26 @@ class Job_Recommendations{
 
 
         //add '-jobs' suffix to professions so query by slug works
-        if(isset($_GET['Profession'])){
-            
-            $_COOKIE['Profession']= $_GET['Profession'];
-        
-         array_walk($_GET['Profession'], function(&$value, $key) {  $value =$this->create_slug($value); });
+        if(isset($this->subjects)){
+        	
+        	$professions_arr = array();
+        	foreach ($this->subjects as $subject){
+        		foreach($subject as $s){
+        			array_push($professions_arr, $s);
+        			
+        		}
+        			
+        }
         //profession
-         $args['tax_query'][0]['terms']=$_GET['Profession'];
+         $args['tax_query'][0]['terms']=$professions_arr;
          $args['tax_query'][0]['taxonomy']='profession';
          $args['tax_query'][0]['field']='slug';
         }
 
-        if(isset($_GET['Location'])){
-
-            $_COOKIE['Location']= $_GET['Location'];
+        if(isset($this->locations)){
 
          //location
-         $args['tax_query'][1]['terms']=$_GET['Location'];
+         $args['tax_query'][1]['terms']=$this->locations;
          $args['tax_query'][1]['taxonomy']='location';
          $args['tax_query'][1]['field']='slug';  
         }

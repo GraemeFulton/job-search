@@ -20,7 +20,7 @@ if(is_user_logged_in()!==true){
     <section class="container">
         <?php include('partials/job-role/job-role-title.php') ?>
 
-        <?php  do_action('job_recommendation_loop')?>
+        <?php  do_action('profile_job_recommendation_loop')?>
 </section>
 </div>
 <?php get_footer(); ?>
