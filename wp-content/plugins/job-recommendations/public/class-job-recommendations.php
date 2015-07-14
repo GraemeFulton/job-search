@@ -252,6 +252,22 @@ class Job_Recommendations{
      	
      }
      
+     private function create_search_param($s, $type){
+
+     	if($type=='profession'){
+	     	$s=str_replace(' ', '-', $s);
+	     	return strtolower($s.'-jobs');
+     	}
+     	if($type=='location'){
+     		
+     		$s = str_replace('The ', '', $s);
+     		return strtolower($s);
+     		
+     	}
+     	
+     	
+     }
+     
      public function profile_recommend_jobs(){
          
      	$this->set_profile_preferences();
@@ -278,7 +294,7 @@ class Job_Recommendations{
         	$professions_arr = array();
         	foreach ($this->subjects as $subject){
         		foreach($subject as $s){
-        			array_push($professions_arr, strtolower($s.'-jobs'));
+        			array_push($professions_arr, $this->create_search_param($s, 'profession'));
         			
         		}
         		
@@ -290,22 +306,23 @@ class Job_Recommendations{
          $args['tax_query'][0]['taxonomy']='profession';
          $args['tax_query'][0]['field']='slug';
         }
-
+        $locations_arr = array();
+        
         if(isset($this->locations)){
         	
-        	$locations_arr = array();
         	foreach ($this->locations as $location){
         		foreach($location as $l){
-        			array_push($locations_arr, strtolower($l));
+        			array_push($locations_arr, $this->create_search_param($l, 'location'));
         			 
         		}
         	}
         
-
-         //location
-         $args['tax_query'][1]['terms']=$locations_arr;
-         $args['tax_query'][1]['taxonomy']='location';
-         $args['tax_query'][1]['field']='slug';  
+        }
+        if(count($locations_arr)>0){
+        //location
+        $args['tax_query'][1]['terms']=$locations_arr;
+        $args['tax_query'][1]['taxonomy']='location';
+        $args['tax_query'][1]['field']='slug';
         }
          $qp= query_posts($args);
 

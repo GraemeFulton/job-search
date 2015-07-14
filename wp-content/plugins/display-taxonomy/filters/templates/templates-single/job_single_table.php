@@ -2,7 +2,7 @@
 $location= $this->get_jobs_location($tree);
 ?>
                 <div class="single_datagrid">
-                             <?php echo $post_image?>
+                             <?php //echo $post_image?>
                     <table class="pop-out-tbl">
                         <tr><td>Offered By: </td><td><?php echo $institution;?></td></tr>
                         <tr class="alt"><td>Profession: </td><td><?php echo $subject;?></td></tr>
