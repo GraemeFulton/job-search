@@ -278,11 +278,13 @@ class Job_Recommendations{
         	$professions_arr = array();
         	foreach ($this->subjects as $subject){
         		foreach($subject as $s){
-        			array_push($professions_arr, $s);
+        			array_push($professions_arr, strtolower($s.'-jobs'));
         			
         		}
+        		
         			
         }
+		
         //profession
          $args['tax_query'][0]['terms']=$professions_arr;
          $args['tax_query'][0]['taxonomy']='profession';
@@ -290,9 +292,18 @@ class Job_Recommendations{
         }
 
         if(isset($this->locations)){
+        	
+        	$locations_arr = array();
+        	foreach ($this->locations as $location){
+        		foreach($location as $l){
+        			array_push($locations_arr, strtolower($l));
+        			 
+        		}
+        	}
+        
 
          //location
-         $args['tax_query'][1]['terms']=$this->locations;
+         $args['tax_query'][1]['terms']=$locations_arr;
          $args['tax_query'][1]['taxonomy']='location';
          $args['tax_query'][1]['field']='slug';  
         }
