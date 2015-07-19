@@ -3,8 +3,34 @@ $(document).ready(function(){
 	
 	$(':checkbox').change(function() {
 
-    $(this).val($.trim($(this).parent().text()))
-    $(':checkbox:not(:checked)').attr('value', 'blank');
+		    $(this).val($.trim($(this).parent().text()))
+		    $(':checkbox:not(:checked)').attr('value', 'blank');
+		    
+			//async save
+		    
+			//populate fields
+			var opts = populate_ajax_fields();
+			var json_data = JSON.stringify(opts, null, 2);
+		    
+			$.ajax({
+				type:'post',
+				url:ajax_var.url,
+				datatype:'json',
+		
+				data: {
+					'action':'ajax_save',
+					'selected':json_data
+					},
+				success:function(data){
+					
+					console.log(data);
+					
+				}
+			
+				
+				
+			})
+	
 	}); 
 	
 	$('.ajax-submit').click(function(e){

@@ -844,7 +844,10 @@ div.selected{
 	color:$green;
 }
 .small-title{
-	color:#999; 
+	color:#D2D2D2; 
+	margin-top:0px;
+	margin-bottom:0px;
+	font-size:18px;
 }
 .custom-tax-single, .widget-area{
 	background:#fff;
@@ -866,6 +869,17 @@ div.selected{
 
 .pop-out-tbl{
 	td{
-	padding:3.5px;
+	padding-bottom:10px;
+	padding-left:10px;
+	
 	} 
+	
+	th {
+		font-weight:400;
+		color:#999;
+	    white-space: nowrap;
+	    vertical-align: top;
+	    text-align:right;
+	    padding-bottom:10px;
+	}
 }

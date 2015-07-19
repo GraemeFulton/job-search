@@ -33,7 +33,6 @@ get_header(); ?>
          $post_id= get_the_ID();
          $popup= new Popup_Filter($post_id, 'graduate-job', 'profession', 'company');
 
-	echo '<h5 class="small-title">Job Fact File</h5>';
 	$popup->template_response('table');
 ?>
 <?php the_content(); ?>

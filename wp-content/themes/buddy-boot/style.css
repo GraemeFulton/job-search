@@ -675,7 +675,10 @@ div.selected {
   color: #50978B; }
 
 .small-title {
-  color: #999; }
+  color: #D2D2D2;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 18px; }
 
 .custom-tax-single, .widget-area {
   background: #fff;
@@ -694,6 +697,14 @@ div.selected {
   margin-top: 20px; }
 
 .pop-out-tbl td {
-  padding: 3.5px; }
+  padding-bottom: 10px;
+  padding-left: 10px; }
+.pop-out-tbl th {
+  font-weight: 400;
+  color: #999;
+  white-space: nowrap;
+  vertical-align: top;
+  text-align: right;
+  padding-bottom: 10px; }
 
 /*# sourceMappingURL=style.css.map */
