@@ -1,4 +1,6 @@
-#Lostgrad Job Search Website
+#Lostgrad Job Search Web site
+
+##The problem
 
 Lostgrad.com was created to help students discover opportunities from 4 categories: courses, work experience, graduate jobs, and travel. It was essentially a community site.
 
