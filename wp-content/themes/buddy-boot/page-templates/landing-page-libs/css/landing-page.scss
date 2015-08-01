@@ -2,6 +2,7 @@
     .image-box{
         padding:0px;
         overflow:hidden;
+        height:85px;
     }    
     .box-container:hover{
     background:#9ED4C9;
@@ -15,6 +16,7 @@
 #section1 .fp-tableCell{
     height: 95% !important;
 }
+
 fp-slidesNav{display:none}
 .fp-slidesNav.show{
     display:inline
@@ -191,22 +193,38 @@ padding-right: 8px;
 and (min-width : 320px) 
 and (max-width : 480px) {
 /* Styles */
+h2.margin-b{
+	margin-bottom:20px;
+	margin-top:35px;
+}
+#fullpage{
+	margin-top:-20px;
+}
+
     .box-image{
-        width:55px!important;
+        height:55px!important;
     }
+      .image-box{
+        height:85px!important;
+    }    
        
    #selection, .spacey{display:none}
         
 
 }
+div#slide1{
+	padding-left:10px;
+	padding-right:10px;
+	
+}
 /* iPads (portrait and landscape) ----------- */
 @media only screen 
 and (min-width : 768px) 
 and (max-width : 1024px) {
+	
 /* Styles */
     .box-image{
         cursor: pointer;
-        width:100px!important;
     }
         #selection, .spacey{display:none}
             svg { height: 35%!important;}
@@ -219,8 +237,10 @@ only screen and (-webkit-min-device-pixel-ratio : 1.5),
 only screen and (min-device-pixel-ratio : 1.5) {
 /* Styles */
     .box-image{
-        width:50px;
+        height:80px;
     }
+    .image-box{
+    height:110px;}
         #selection, .spacey{display:none}
 }
 
@@ -237,6 +257,22 @@ and (min-width : 800px) and (max-width:1280px) {
         top: 18%;
      }
     svg { height: 28%!important;}
+    
+    #section3{
+	
+	.fp-section.active{
+	
+	.text-center{
+		margin-top:-20px;
+	}
+}
+	
+	h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 0px;
+	}
+	.container{
+	margin-bottom:-20px;}
+}
 
 }
 
@@ -273,7 +309,6 @@ and (max-width : 1224px){
 /* Styles */
     .box-image{
         cursor: pointer;
-        width:100%!important;
     }
     .section{
         padding-top: 20px;

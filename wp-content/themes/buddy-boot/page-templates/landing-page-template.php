@@ -35,145 +35,99 @@ if(is_user_logged_in()==true){
     </section> 
 
                 <section class='row interest-row section' id="section1">
-                					<div class='col-sm-12 col-xs-12 next-action'>
-                        <a class='btn-large btn-custom btn btn-scroll-left'><i class="fa fa-arrow-left"></i></a>
-                        <a class='btn-large btn-custom btn btn-scroll-right'><i class="fa fa-arrow-right"></i></a>                
-                    </div>
   
                      <div class='text-center'>
 
-                      <h2>What interests you?</h2>
+                      <h2 class='margin-b'>What interests you?</h2>
                 <div class="slide" data-anchor="slide1" id="slide1">
-                    <p>Choose as many as you like!</p>
                     <div class='side'>
-                    <div class='col-lg-1 col-md-2 col-sm-3 col-xs-4 col-lg-offset-4 col-md-offset-2 col-xs-offset-2 col-sm-offset-1 image-box'>
+                    <div class='col-xs-4 image-box '>
+                        <div class="box-container">
+                        <div class='check'><input type="checkbox" name="Profession[]" value="Computing"></div>
+                         <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icon-pack/computing.svg'?>'/>
+                            <p class='tag'>Computing</p>
+                        </div>
+                    </div>   
+                    <div class='col-xs-4 image-box'>
+                        <div class="box-container">                             
+                        <div class='check'><input type="checkbox" name="Profession[]" value="Engineering"></div>
+                         <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icon-pack/engineering.svg'?>'/>
+                            <p class='tag'>Engineering</p>
+                        </div>                            
+                    </div>                                     
+                    <div class='col-xs-4 image-box'>
                         <div class="box-container">
                         <div class='check' style=''><input type="checkbox" name="Profession[]" value="Finance"></div>
-                        <img class="box-image" src='<?php echo get_template_directory_uri().'/images/icons/pound.svg'?>'/>
+                        <img class="box-image" src='<?php echo get_template_directory_uri().'/images/icon-pack/accounting.svg'?>'/>
                             <p class='tag'>Finance</p>
                         </div>
                     </div>
-                    <div class='col-lg-1 col-md-2 col-sm-3 col-xs-4 image-box '>
+                    <div class='col-xs-4 image-box '>
+                        <div class="box-container">                        
+                        <div class='check'><input type="checkbox" name="Profession[]" value="Law"></div>
+                         <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icon-pack/law.svg'?>'/>
+                            <p class='tag'>Law</p>
+                        </div>                            
+                    </div>                    
+                    <div class='col-xs-4 image-box '>
                          <div class="box-container">
                         <div class='check'><input type="checkbox" name="Profession[]" value="Management"></div>
-                       <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icons/case.svg'?>'/>
+                       <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icon-pack/business.svg'?>'/>
                             <p class='tag'>Management</p>
                          </div>
                     </div>
-                    <div class='col-lg-1 col-md-2 col-sm-3 col-xs-4 image-box col-xs-offset-2 col-lg-offset-0 col-md-offset-0 col-sm-offset-0'>
-                        <div class="box-container">
-                        <div class='check'><input type="checkbox" name="Profession[]" value="Computing"></div>
-                         <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icons/computing.svg'?>'/>
-                            <p class='tag'>Computing</p>
-                        </div>
-                    </div>
-                    <div class='col-lg-1 col-md-2 col-sm-3 col-xs-4 image-box col-sm-offset-1 col-lg-offset-0 col-md-offset-0 col-xs-offset-0'>
+                    <div class='col-xs-4 image-box'>
                         <div class="box-container">                        
                         <div class='check'><input type="checkbox" name="Profession[]" value="Marketing"></div>
-                         <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icons/target.svg'?>'/>
+                         <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icon-pack/marketing.svg'?>'/>
                             <p class='tag'>Marketing</p>
                         </div>                            
                     </div>
-                    
-                         <div class='col-lg-1 col-md-2 col-md-offset-2 col-sm-3 col-xs-4 col-lg-offset-4 image-box col-sm-offset-0 col-xs-offset-2 '>
-                        <div class="box-container">                             
-                        <div class='check'><input type="checkbox" name="Profession[]" value="Engineering"></div>
-                         <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icons/gears.svg'?>'/>
-                            <p class='tag'>Engineering</p>
-                        </div>                            
-                    </div>
-                    <div class='col-lg-1 col-md-2 col-sm-3 col-xs-4 image-box '>
-                        <div class="box-container">                        
-                        <div class='check'><input type="checkbox" name="Profession[]" value="Law"></div>
-                         <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icons/law.svg'?>'/>
-                            <p class='tag'>Law</p>
-                        </div>                            
-                    </div>
-                    <div class='col-lg-1 col-md-2 col-sm-3 col-xs-4 image-box col-xs-offset-2 col-lg-offset-0 col-md-offset-0 col-sm-offset-1'>
+                    <div class='col-xs-4 image-box'>
                         <div class="box-container">                        
                         <div class='check'><input type="checkbox" name="Profession[]" value="Media"></div>
-                         <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icons/thumb2.svg'?>'/>
+                         <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icon-pack/media.svg'?>'/>
                             <p class='tag'>Media</p>
                         </div>                            
                     </div>
-                    <div class='col-lg-1 col-md-2 col-sm-3 col-xs-4 image-box'>
+                    <div class='col-xs-4 image-box'>
                         <div class="box-container">                        
                         <div class='check'><input type="checkbox" name="Profession[]" value="Retail"></div>
-                         <img class="box-image" src='<?php echo get_template_directory_uri().'/images/icons/hanger.svg'?>'/>
+                         <img class="box-image" src='<?php echo get_template_directory_uri().'/images/icon-pack/property.svg'?>'/>
+                            <p class='tag'>Property</p>
+                        </div>                            
+                    </div>
+                      <div class='col-xs-4 image-box'>
+                        <div class="box-container">                        
+                        <div class='check'><input type="checkbox" name="Profession[]" value="Retail"></div>
+                         <img class="box-image" src='<?php echo get_template_directory_uri().'/images/icon-pack/recruiting.svg'?>'/>
+                            <p class='tag'>Recruiting</p>
+                        </div>                            
+                    </div>
+                      <div class='col-xs-4 image-box'>
+                        <div class="box-container">                        
+                        <div class='check'><input type="checkbox" name="Profession[]" value="Retail"></div>
+                         <img class="box-image" src='<?php echo get_template_directory_uri().'/images/icon-pack/fashion.svg'?>'/>
                             <p class='tag'>Retail</p>
                         </div>                            
                     </div>
-                </div>
-                </div>
-        <div class='slide' data-anchor="slide2" id="slide2">
-  <div class='text-center'>
-      <h5>Here's some more categories:</h5>
-                    <div class='side'>
-                        <div class="side-pad">
-                    <div class='col-lg-1 col-md-2 col-sm-3 col-xs-4 col-lg-offset-4 col-md-offset-2 col-xs-offset-2 col-sm-offset-1 image-box'>
-                        <div class="box-container">
-                        <div class='check' style=''><input type="checkbox" name="Profession[]" value="Media"></div>
-                        <img class="box-image" src='<?php echo get_template_directory_uri().'/images/icons/pound.svg'?>'/>
-                            <p class='tag'>Media</p>
-                        </div>
-                    </div>
-                    <div class='col-lg-1 col-md-2 col-sm-3 col-xs-4 image-box '>
-                         <div class="box-container">
-                        <div class='check'><input type="checkbox" name="Profession[]" value="Property"></div>
-                       <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icons/case.svg'?>'/>
-                            <p class='tag'>Property</p>
-                         </div>
-                    </div>
-                    <div class='col-lg-1 col-md-2 col-sm-3 col-xs-4 image-box col-xs-offset-2 col-lg-offset-0 col-md-offset-0 col-sm-offset-0'>
-                        <div class="box-container">
-                        <div class='check'><input type="checkbox" name="Profession[]" value="Recruiting"></div>
-                         <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icons/computing.svg'?>'/>
-                            <p class='tag'>Recruiting</p>
-                        </div>
-                    </div>
-                    <div class='col-lg-1 col-md-2 col-sm-3 col-xs-4 image-box col-sm-offset-1 col-lg-offset-0 col-md-offset-0 col-xs-offset-0'>
+                      <div class='col-xs-4 image-box'>
                         <div class="box-container">                        
-                        <div class='check'><input type="checkbox" name="Profession[]" value="BiScienceke"></div>
-                         <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icons/target.svg'?>'/>
+                        <div class='check'><input type="checkbox" name="Profession[]" value="Retail"></div>
+                         <img class="box-image" src='<?php echo get_template_directory_uri().'/images/icon-pack/science.svg'?>'/>
                             <p class='tag'>Science</p>
                         </div>                            
                     </div>
-                    
-                         <div class='col-lg-1 col-md-2 col-md-offset-2 col-sm-3 col-xs-4 col-lg-offset-4 image-box col-sm-offset-0 col-xs-offset-2 '>
-                        <div class="box-container">                             
-                        <div class='check'><input type="checkbox" name="Profession[]" value="Teaching"></div>
-                         <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icons/gears.svg'?>'/>
+                      <div class='col-xs-4 image-box'>
+                        <div class="box-container">                        
+                        <div class='check'><input type="checkbox" name="Profession[]" value="Retail"></div>
+                         <img class="box-image" src='<?php echo get_template_directory_uri().'/images/icon-pack/teaching.svg'?>'/>
                             <p class='tag'>Teaching</p>
                         </div>                            
                     </div>
-                    <div class='col-lg-1 col-md-2 col-sm-3 col-xs-4 image-box '>
-                        <div class="box-container">                        
-                        <div class='check'><input type="checkbox" name="Profession[]" value="Catering"></div>
-                         <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icons/law.svg'?>'/>
-                            <p class='tag'>Catering</p>
-                        </div>                            
-                    </div>
-                    <div class='col-lg-1 col-md-2 col-sm-3 col-xs-4 image-box col-xs-offset-2 col-lg-offset-0 col-md-offset-0 col-sm-offset-1'>
-                        <div class="box-container">                        
-                        <div class='check'><input type="checkbox" name="Profession[]" value="Media"></div>
-                         <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icons/thumb2.svg'?>'/>
-                            <p class='tag'>Media</p>
-                        </div>                            
-                    </div>
-                    <div class='col-lg-1 col-md-2 col-sm-3 col-xs-4 image-box'>
-                        <div class="box-container">                        
-                        <div class='check'><input type="checkbox" name="Profession[]" value="Retail"></div>
-                         <img class="box-image" src='<?php echo get_template_directory_uri().'/images/icons/hanger.svg'?>'/>
-                            <p class='tag'>Retail</p>
-                        </div>                            
-                    </div>
-
-                        </div>
-                    </div>
-  
                 </div>
-            </div>
-                    
+                </div>
+  
         </section>
    
         <section class='row location-row section' id="section3">
@@ -197,7 +151,7 @@ if(is_user_logged_in()==true){
             <section class='container degree-row section' id="section4">
             <div class='text-center'>
 
-             <h2>What's your degree classification?</h2>
+             <h2 class='margin-b'>What's your degree classification?</h2>
                 
                     <p>This can be you predicted grade, or what you've already achieved</p>
                     <div class="btn-group" role="group" aria-label="...">

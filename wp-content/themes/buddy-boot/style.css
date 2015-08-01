@@ -187,7 +187,26 @@ table.profile-fields {
 
   .desktop-show {
     display: none !important; } }
+.container-fluid.theme-grey {
+  padding-left: 0px;
+  padding-right: 0px; }
+
 @media (min-width: 100px) and (max-width: 610px) {
+  .container-fluid.theme-grey {
+    padding-left: 15px;
+    padding-right: 15px;
+    float: left;
+    margin-top: -6px; }
+
+  .wpuf-fields input {
+    max-width: 100%; }
+
+  ul.wpuf-form {
+    padding-left: 0px !important; }
+
+  .required {
+    display: none; }
+
   .selections-table {
     display: none; }
 
@@ -228,10 +247,6 @@ table.profile-fields {
   width: 100%;
   padding: 0px;
   margin: 0px; }
-
-.container-fluid.theme-grey {
-  padding-left: 0px;
-  padding-right: 0px; }
 
 .theme-grey {
   padding-top: 15px;
