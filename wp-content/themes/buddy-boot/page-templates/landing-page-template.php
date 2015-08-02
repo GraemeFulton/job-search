@@ -92,35 +92,35 @@ if(is_user_logged_in()==true){
                     </div>
                     <div class='col-xs-4 image-box'>
                         <div class="box-container">                        
-                        <div class='check'><input type="checkbox" name="Profession[]" value="Retail"></div>
+                        <div class='check'><input type="checkbox" name="Profession[]" value="Property"></div>
                          <img class="box-image" src='<?php echo get_template_directory_uri().'/images/icon-pack/property.svg'?>'/>
                             <p class='tag'>Property</p>
                         </div>                            
                     </div>
                       <div class='col-xs-4 image-box'>
                         <div class="box-container">                        
-                        <div class='check'><input type="checkbox" name="Profession[]" value="Retail"></div>
+                        <div class='check'><input type="checkbox" name="Profession[]" value="Recruiting"></div>
                          <img class="box-image" src='<?php echo get_template_directory_uri().'/images/icon-pack/recruiting.svg'?>'/>
                             <p class='tag'>Recruiting</p>
                         </div>                            
                     </div>
                       <div class='col-xs-4 image-box'>
                         <div class="box-container">                        
-                        <div class='check'><input type="checkbox" name="Profession[]" value="Retail"></div>
+                        <div class='check'><input type="checkbox" name="Profession[]" value="Fashion"></div>
                          <img class="box-image" src='<?php echo get_template_directory_uri().'/images/icon-pack/fashion.svg'?>'/>
                             <p class='tag'>Retail</p>
                         </div>                            
                     </div>
                       <div class='col-xs-4 image-box'>
                         <div class="box-container">                        
-                        <div class='check'><input type="checkbox" name="Profession[]" value="Retail"></div>
+                        <div class='check'><input type="checkbox" name="Profession[]" value="Science"></div>
                          <img class="box-image" src='<?php echo get_template_directory_uri().'/images/icon-pack/science.svg'?>'/>
                             <p class='tag'>Science</p>
                         </div>                            
                     </div>
                       <div class='col-xs-4 image-box'>
                         <div class="box-container">                        
-                        <div class='check'><input type="checkbox" name="Profession[]" value="Retail"></div>
+                        <div class='check'><input type="checkbox" name="Profession[]" value="Teaching"></div>
                          <img class="box-image" src='<?php echo get_template_directory_uri().'/images/icon-pack/teaching.svg'?>'/>
                             <p class='tag'>Teaching</p>
                         </div>                            

@@ -5,6 +5,9 @@ body {
   padding: 0px;
   overflow: hidden;
   height: 85px; }
+  .image-box p {
+    margin-top: -10px;
+    padding-bottom: 10px; }
 
 .box-container:hover {
   background: #9ED4C9;

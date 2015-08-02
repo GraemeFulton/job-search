@@ -152,6 +152,10 @@ table.profile-fields {
 -------------------------------------------------- */
 @media (min-width: 768px) {
   /* Navbar positioning foo */
+  ul.wpuf-form li .wpuf-label {
+    float: left;
+    width: 15%; }
+
   .navbar-wrapper {
     margin-top: 20px; }
 
@@ -186,7 +190,15 @@ table.profile-fields {
     clear: both; }
 
   .desktop-show {
-    display: none !important; } }
+    display: none !important; }
+
+  .container-fluid.sign-up-panel {
+    padding: 0px;
+    padding-left: 0px;
+    padding-right: 0px; }
+
+  .search-criteria.container {
+    margin-top: 15px; } }
 .container-fluid.theme-grey {
   padding-left: 0px;
   padding-right: 0px; }
@@ -195,7 +207,6 @@ table.profile-fields {
   .container-fluid.theme-grey {
     padding-left: 15px;
     padding-right: 15px;
-    float: left;
     margin-top: -6px; }
 
   .wpuf-fields input {
@@ -721,5 +732,8 @@ div.selected {
   vertical-align: top;
   text-align: right;
   padding-bottom: 10px; }
+
+.register-pg-social {
+  padding: 0px 0px 0px 0px !important; }
 
 /*# sourceMappingURL=style.css.map */
