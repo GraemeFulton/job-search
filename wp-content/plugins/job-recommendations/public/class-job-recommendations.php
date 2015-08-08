@@ -194,10 +194,10 @@ class Job_Recommendations{
         $wp_query = new WP_Query();
         $wp_query->query($args);
         
-        //get the overall total using -1
-        echo "<h3>Found $wp_query->found_posts jobs in your preferred location</h3>";
+        $found = $wp_query->found_posts;
         
-        if( $wp_query->found_posts > 8){
+        
+        if( $wp_query->found_posts > 22){
         require_once 'views/template-job-recommendations.php';
         }
         else{

@@ -1,5 +1,8 @@
      <?php 	 if ( $wp_query->have_posts() ) : 
 			// Do we have any posts/pages in the databse that match our query?
+     if($paged==1){
+     	echo "<h3>Found $found jobs</h3>";
+     }
 			?>
 
 

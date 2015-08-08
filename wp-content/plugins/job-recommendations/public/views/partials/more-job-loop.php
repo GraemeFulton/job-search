@@ -1,3 +1,4 @@
+				
 					<div class="post container">
 					
                                            <?php 
@@ -6,7 +7,7 @@
                                                 $job_tree=display_taxonomy_tree('profession', 'company');
                                                 $link= $job_tree->types_post_type($this->post_id, 'opportunity-url', 'raw');
                                                 ?>
-						<div class="the-content job-feed-content">
+							<div class="the-content job-feed-content">
 
 
                                             <?php
