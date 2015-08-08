@@ -19,7 +19,7 @@ body {
 #section1,
 #section1 .fp-slide,
 #section1 .fp-tableCell {
-  height: 95% !important; }
+  height: 101% !important; }
 
 fp-slidesNav {
   display: none; }
@@ -65,7 +65,6 @@ fp-slidesNav {
   background: #fff; }
 
 .box-image {
-  width: 100%;
   cursor: pointer; }
 
 .box-image {
@@ -243,8 +242,7 @@ div#slide1 {
 @media only screen and (min-width: 1281px) {
   /* Styles */
   .box-image {
-    cursor: pointer;
-    width: 100% !important; }
+    cursor: pointer; }
 
   .section {
     padding-top: 20px; }

@@ -7,7 +7,7 @@
      //First do the primary loop to grab the first few
      if ( $wp_query->have_posts() ) : 
      if($paged==1){
-     echo "<h3>Found $found jobs in your preferred location</h3>";
+     echo '<div class="container"><h3>Found '.$found.' jobs in your preferred location</h3></div>';
      }
 			// Do we have any posts/pages in the databse that match our query?
 			?>
@@ -49,34 +49,8 @@
 
      <?php 
      if($start_second_loop==true){
-     //then do the second loop for the suggested posts
-     
-     //clear the location
-      //location
-     unset($args['tax_query'][1]); 
-     $paged2 = isset( $_GET['paged2'] ) ? (int) $_GET['paged2'] : 1;
       
-     $wp_query->query($args);
-     	
-     if ( $wp_query->have_posts() ) : 
-			// Do we have any posts/pages in the databse that match our query?
-			?>
-			
-
-				<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); 
-				// If we have a page to show, start a loop that will display it
-
-				//then do another search for all locations
-				 include('partials/more-job-loop.php');
-				?>
-				
-				<?php endwhile; // OK, let's stop the page loop once we've displayed it ?>
-
-			<?php else : // Well, if there are no posts to display and loop through, let's apologize to the reader (also your 404 error) 
-			include('template-job-none-found.php');
-				
-			endif; // OK, I think that takes care of both scenarios (having a page or not having a page to show)
-                       
+     	include('partials/secondary-job-loop.php');
 			
      }?>			
 			

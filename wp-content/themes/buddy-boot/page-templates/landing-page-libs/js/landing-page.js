@@ -30,14 +30,14 @@
         $('#fullpage').fullpage({
             verticalCentered:false,
             anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+
 					
 			        
 			        //Scrolling
 			        css3: true,
-			        scrollingSpeed: 700,
 			        autoScrolling: true,
 			        fitToSection: true,
-			        scrollBar: false,
+			        scrollBar: true,
 			        easing: 'easeInOutCubic',
 			        easingcss3: 'ease',
 			        loopBottom: false,

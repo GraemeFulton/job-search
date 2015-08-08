@@ -39,7 +39,7 @@ if(is_user_logged_in()==true){
                      <div class='text-center'>
 
                       <h2 class='margin-b'>What interests you?</h2>
-                <div class="slide" data-anchor="slide1" id="slide1">
+                <div class="container" data-anchor="slide1" id="slide1">
                     <div class='side'>
                     <div class='col-xs-4 image-box '>
                         <div class="box-container">
