@@ -1,4 +1,3 @@
 <article class="post container">
-					<p class="404">We haven't found any jobs in your location, but what about these?</p>
-					
-				</article>
+ 	<p class="404">We've found X jobs, but none in your preferred location, what about these?</p>
+</article> 
