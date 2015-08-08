@@ -68,29 +68,20 @@ fp-slidesNav {
   width: 100%;
   cursor: pointer; }
 
+.box-image {
+  height: 80px; }
+
+.image-box {
+  height: 110px; }
+
 .check {
   position: absolute;
   right: 12px; }
-
-.section {
-  /*        padding-top:60px;*/ }
 
 #selection {
   height: 20px;
   color: #52c1ae; }
 
-/*    .tag{
-        position: absolute;
-        bottom: 0px;
-        background: rgba(0,0,0,0.7);
-        color: #fff;
-        margin-bottom: 0px;
-        width: 100%;
-        text-align: center;
-        padding-left: 0px;
-        padding-right: 15px;
-        opacity:0.8;
-    }*/
 .next-action {
   padding: 20px; }
 
@@ -225,12 +216,6 @@ div#slide1 {
 /* iPhone 4 ----------- */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
   /* Styles */
-  .box-image {
-    height: 80px; }
-
-  .image-box {
-    height: 110px; }
-
   #selection, .spacey {
     display: none; } }
 /**small laptop screen**/

@@ -147,20 +147,16 @@ class Job_Recommendations{
         
      public function recommend_jobs(){
             
-
+     	global $paged, $wp_query;
+     	
         //WP_QUERY
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-        if(!is_user_logged_in() && $paged==1){
-            $posts_per_page='4';
-        }
-        else ($posts_per_page='6');
         
         $args= array
        (
            'post_type'=>'graduate-job',
            'paged'=>$paged,
-           'posts_per_page'=>$posts_per_page,
        );
 
 
@@ -185,12 +181,31 @@ class Job_Recommendations{
          $args['tax_query'][1]['taxonomy']='location';
          $args['tax_query'][1]['field']='slug';  
         }
-         $qp= query_posts($args);
-
-         require_once 'views/template-job-recommendations.php';
-         //set cookies using js
-
-         wp_reset_query();
+        
+        //show 4 results on first page
+        if(!is_user_logged_in() && $paged==1){
+        	$args['posts_per_page']=4;
+        }
+        //otherwise show 6
+        else $args['posts_per_page']=6;
+         	        
+        $temp = $wp_query;
+        $wp_query = null;
+        $wp_query = new WP_Query();
+        $wp_query->query($args);
+        
+        //get the overall total using -1
+        echo "<h2>Found: $wp_query->found_posts</h2>";
+        
+        if( $wp_query->found_posts > 8){
+        require_once 'views/template-job-recommendations.php';
+        }
+        else{
+        	require_once 'views/template-job-suggest-more.php';
+        }
+         //reset query
+         $wp_query = null; 
+  		 $wp_query = $temp;  // Reset
                   
      }
      

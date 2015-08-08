@@ -1,4 +1,8 @@
-     <?php 	 if ( $wp_query->have_posts() ) : 
+     <?php 	
+     echo hi;
+     global $paged, $wp_query;
+     
+     if ( $wp_query->have_posts() ) : 
 			// Do we have any posts/pages in the databse that match our query?
 			?>
 
@@ -63,8 +67,10 @@
 				<?php endwhile; // OK, let's stop the page loop once we've displayed it ?>
 
 			<?php else : // Well, if there are no posts to display and loop through, let's apologize to the reader (also your 404 error) 
-			include('template-job-none-found.php');
+			
 				
+				include('template-job-none-found.php');
+
 			endif; // OK, I think that takes care of both scenarios (having a page or not having a page to show)
                         ?>
  <?php if (!is_user_logged_in() && $paged==1){  ?>
