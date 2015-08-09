@@ -9,6 +9,8 @@
  */
 $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
 global $paged;
+global $wp_query;
+
 
 get_header(); // This fxn gets the header.php file and renders it ?>
 
@@ -19,7 +21,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
         	$paged=1;
      	 }
         
-         echo '<div style="float:left;"><p>Page <span class="page-num">'.$paged.'</span> for jobs @ '.$term->name.' </p></div>';?>
+         echo '<div style="float:left;"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span> for jobs @ '.$term->name.' </p></div>';?>
         
     </div>
 

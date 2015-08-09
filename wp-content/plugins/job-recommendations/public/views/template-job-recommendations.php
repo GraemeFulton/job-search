@@ -5,7 +5,18 @@
      }
 			?>
 
-
+   <div class='container box-head'>
+        <?php 
+        global $wp_query;
+        if ($paged==0){ 
+        	$paged=1;
+     	 }
+        
+         echo '<div style="float:left;"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span> for your selections </p></div>';?>
+               <?php include('partials/selections-tags.php') ;
+                ?>
+        
+    </div>
 
 				<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); 
 				// If we have a page to show, start a loop that will display it
