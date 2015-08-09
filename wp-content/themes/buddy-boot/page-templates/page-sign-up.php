@@ -17,9 +17,6 @@ if($page_number==0){
 
 <div class="container-fluid theme-grey">
 
-    <?php     
-    include('partials/page-sign-up/sign-up-page-title.php') ?>
-
     <?php  do_action('job_recommendation_loop')?>
            
 </div>

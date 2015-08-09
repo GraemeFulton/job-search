@@ -1,4 +1,76 @@
+<?php 
+if(!is_user_logged_in()){
+	
+	?>
+	
+                <div class='container'>
+<div class="selections-table-container selections-table-inline">
+	<table class="selections-table">
+		<tr>
+		<td>
+		            <?php 
+		            if(isset($_GET['Profession'])) {
+		            	foreach ($_GET["Profession"] as $selected_profession) {
+		            
+		            		?>
+		                                     <div class='selected profession'><?php echo ucfirst(str_replace("-jobs","",$selected_profession));?>
+		                          </div>
+		                                  <?php
+		                          
+		                                  }
+		                              }
+		                              else{
+		                              	
+		                              	?>
+		                              	  <div class='selected profession'>
+		                              	  No profession selected
+		                          </div>
+		                              	
+		                              	<?php 
+		                              }
+		               
+		               ?>	
+		</td>		
+		<td>	
+               <?php 
 
+
+               //Locations
+               if(isset($_GET['Location'])){
+               	foreach ($_GET["Location"] as $selected_location){
+               
+               		?>
+               				     <div class='selected location'> <?php echo $selected_location;?>
+               				       </div>
+               				        <?php
+               				
+               				        }
+               				    }
+    else{
+		                              	
+		                              	?>
+		                              	  <div class='selected profession'>
+		                              	  No location selected
+		                          </div>
+		                              	
+		                              	<?php 
+		                              }
+    ?>
+    </td>
+    </tr>
+    </table>
+    
+    </div>
+				<a href="<?php echo site_url().'/register'?>" class="btn-success btn-outlined btn pull-right btn-settings"><i class="fa fa-cog"></i></a> 
+        </div>
+          
+	
+	
+	<?php 
+	
+}
+else {
+?>
            
             <?php 
             $user_ID = get_current_user_id();
@@ -98,4 +170,6 @@
     </div>
 				<a href="<?php echo get_site_url() .'/members/'. bp_core_get_username( get_current_user_id() ) . '/profile/edit';?>" class="btn-success btn-outlined btn pull-right btn-settings"><i class="fa fa-cog"></i></a> 
         </div>
+        
+<?php } ?>
           
