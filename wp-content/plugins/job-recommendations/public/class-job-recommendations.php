@@ -191,6 +191,8 @@ class Job_Recommendations{
          $args['tax_query'][1]['taxonomy']='location';
          $args['tax_query'][1]['field']='slug';  
         }
+        //clear tax args if both none set
+        $args = $this->clear_tax_args($args);
         
         //show 4 results on first page
         if(!is_user_logged_in() && $paged==1){
@@ -315,6 +317,7 @@ class Job_Recommendations{
          $args['tax_query'][0]['taxonomy']='profession';
          $args['tax_query'][0]['field']='slug';
         }
+        
         $locations_arr = array();
         
         if(isset($this->locations)){
@@ -333,6 +336,9 @@ class Job_Recommendations{
         $args['tax_query'][1]['taxonomy']='location';
         $args['tax_query'][1]['field']='slug';
         }
+        
+        //clear tax args if both none set
+       $args = $this->clear_tax_args($args);
         
           //show 4 results on first page
         if( $paged==1){
@@ -389,6 +395,17 @@ class Job_Recommendations{
 			$slug = $term->slug;
 			
 			return $slug;		
+	
+	}
+	
+	/**
+	 * clear tax args
+	 */
+	private function clear_tax_args($args){
+		if(empty($args['tax_query'][0]['terms']) && empty($args['tax_query'][1]['terms'])){
+			unset($args['tax_query']);
+		}
+		return $args;
 	
 	}
         

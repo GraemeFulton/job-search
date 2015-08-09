@@ -747,4 +747,12 @@ div.selected {
 .container-margin-bottom {
   margin-bottom: 20px; }
 
+#buddypress input[type=submit], #buddypress a.button {
+  font-size: 14px;
+  margin-top: 10px;
+  border: 1px solid #50978B; }
+
+h4, .h4 {
+  font-size: 18px; }
+
 /*# sourceMappingURL=style.css.map */

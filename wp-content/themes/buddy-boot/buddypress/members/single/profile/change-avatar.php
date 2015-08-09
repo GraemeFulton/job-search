@@ -1,10 +1,14 @@
-<h4><?php _e( 'Change Avatar', 'buddypress' ); ?></h4>
+<div class="container avatar-page">
 
-<?php do_action( 'bp_before_profile_avatar_upload_content' ); ?>
+<div style="margin-top:20px;"class="container post">
+	<h4 style="margin-top:5px;"><?php _e( 'Change Avatar', 'buddypress' ); ?></h4>
+	<br>
+	<?php do_action( 'bp_before_profile_avatar_upload_content' ); ?>
 
-<?php if ( !(int)bp_get_option( 'bp-disable-avatar-uploads' ) ) : ?>
+	<?php if ( !(int)bp_get_option( 'bp-disable-avatar-uploads' ) ) : ?>
 
 	<p><?php _e( 'Your avatar will be used on your profile and throughout the site. If there is a <a href="http://gravatar.com">Gravatar</a> associated with your account email we will use that, or you can upload an image from your computer.', 'buddypress' ); ?></p>
+</div>
 
 	<form action="" method="post" id="avatar-upload-form" class="standard-form" enctype="multipart/form-data">
 
@@ -57,3 +61,4 @@
 <?php endif; ?>
 
 <?php do_action( 'bp_after_profile_avatar_upload_content' ); ?>
+</div>
