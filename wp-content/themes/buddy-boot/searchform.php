@@ -1,6 +1,8 @@
-<form action="<?php bloginfo('siteurl'); ?>" id="searchform" method="get"  >
-                <div class="input-append">
-                    <input type="search" id="s" name="s" required placeholder="Search Products..." class="span6 search-query search-input-box">
-                    <button id="searchsubmit" type="submit" class="btn btn-primary">Search</button>
-                </div>
-        </form>
+
+<form class="container form-inline" role="form">
+  <div class="form-group has-success has-feedback">
+    <label class="control-label" for="s"></label>
+    <input type="text" class="form-control" value="<?php echo get_search_query(); ?>" name="s" id="s" >
+    <span class="fa fa-search form-control-feedback"></span>
+  </div>
+</form>

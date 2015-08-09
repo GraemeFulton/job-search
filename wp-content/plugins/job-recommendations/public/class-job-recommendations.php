@@ -61,17 +61,15 @@ class Job_Recommendations{
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
                 
-                //custom action
-                add_action('job_recommendation_loop', array($this,'recommend_jobs'));
-                add_action('profile_job_recommendation_loop', array($this,'profile_recommend_jobs'));
+		//custom action
+		add_action('job_recommendation_loop', array($this,'recommend_jobs'));
+		add_action('profile_job_recommendation_loop', array($this,'profile_recommend_jobs'));
+		add_action('job_search_results_loop', array($this, 'search_results_loop'));
+		add_action('archive_job_loop', array($this, 'archive_loop'));
+		
+		//user profile fields
+		add_action('bp_init', array($this,'create_profile_field_group'));
                 
-                //user profile fields
-//                add_action( 'show_user_profile', array($this,'user_interests_fields') );
-//                add_action( 'edit_user_profile', array($this,'user_interests_fields') );
-                add_action('bp_init', array($this,'create_profile_field_group'));
-                
-            //    add_action('bp_after_profile_field_content', array($this, 'profession_list'));
-
 	}
 
 	/**
@@ -143,6 +141,18 @@ class Job_Recommendations{
                 ));
                  
 	}
+	
+	/**
+	 * include template file for search results
+	 */
+	public function search_results_loop(){
+		include('views/partials/primary-job-loop.php');	
+	}
+	
+	public function archive_loop(){
+		include('views/partials/primary-job-loop.php');
+		
+	}
         
         
      public function recommend_jobs(){
@@ -209,7 +219,9 @@ class Job_Recommendations{
                   
      }
      
-     
+     /**
+      * set_profile_preferences
+      */
      private function set_profile_preferences(){
      	
      	$user_ID = get_current_user_id();
@@ -267,22 +279,9 @@ class Job_Recommendations{
      	
      }
      
-     private function create_search_param($s, $type){
-
-     	if($type=='profession'){
-	     	$s=str_replace(' ', '-', $s);
-	     	return strtolower($s.'-jobs');
-     	}
-     	if($type=='location'){
-     		
-     		$s = str_replace('The ', '', $s);
-     		return strtolower($s);
-     		
-     	}
-     	
-     	
-     }
-     
+     /**
+      * Recommend jobs within user profile
+      */
      public function profile_recommend_jobs(){
      	global $paged, $wp_query;
      	
@@ -364,15 +363,34 @@ class Job_Recommendations{
      }
     
      
-        
+    /**
+     * Create slug
+     * @param unknown $value
+     */
     private function create_slug($value){
     
-    if($value=='Finance'){
-       $value='accounting';
-    }
+     $term = get_term_by( 'name',$value, 'profession' ); 
      
-    return $value .= '-jobs';
-}
+     $slug = $term->slug;
+    	
+   	return $slug;
+	}
+	
+	/**
+	 * Create search param
+	 * @param unknown $s
+	 * @param unknown $type
+	 * @return string
+	 */
+	private function create_search_param($s, $type){
+	
+			$term = get_term_by( 'name',$s, $type );
+			 
+			$slug = $term->slug;
+			
+			return $slug;		
+	
+	}
         
   
  
