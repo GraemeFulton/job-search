@@ -1,8 +1,5 @@
      <?php 	 if ( $wp_query->have_posts() ) : 
 			// Do we have any posts/pages in the databse that match our query?
-     if($paged==1){
-     echo '<div class="container"><h3 style="color:#999;"><i class="fa fa-thumbs-o-up"></i> We\'ve found '.$found.' jobs for you</h3></div>';
-     }
 			?>
 
    <div class='container box-head'>
@@ -17,6 +14,13 @@
                 ?>
         
     </div>
+    
+    <?php 
+    if($paged==1){
+    	echo '<div class="container"><h3 style="color:#999;"><i class="fa fa-thumbs-o-up"></i> We\'ve found '.$found.' jobs for you</h3></div>';
+    }
+    
+    ?>
 
 				<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); 
 				// If we have a page to show, start a loop that will display it

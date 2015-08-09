@@ -6,8 +6,26 @@
       
      //First do the primary loop to grab the first few
      if ( $wp_query->have_posts() ) : 
+     
+     ?>
+        <div class='container box-head'>
+        <?php 
+        global $wp_query;
+        if ($paged==0){ 
+        	$paged=1;
+     	 }
+        
+         echo '<div style="float:left;"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span> for your selections </p></div>'
+               .'<a href="'.get_site_url() .'/members/'. bp_core_get_username( get_current_user_id() ) . '/profile/edit" class="btn-success btn-outlined btn pull-right btn-settings"><i class="fa fa-cog"></i></a>';
+         ?>
+        
+    </div>
+     
+     <?php 
+     
      if($paged==1){
-     echo '<div class="container"><h3>Found '.$found.' jobs in your preferred location</h3></div>';
+     	
+     echo '<div class="container"><h3 style="color:#999;"><i class="fa fa-thumbs-o-up"></i> We\'ve found '.$found.' jobs in your preferred location</h3></div>';
      }
 			// Do we have any posts/pages in the databse that match our query?
 			?>
@@ -32,8 +50,10 @@
 					// I'm the last post in the Loop
 					$start_second_loop=true;
 					?>
-					<h2>Here's some more!</h2>					
-					<?php 
+	<div class="container container-margin-bottom">
+		<h3 style="color:#999;"><i class="fa fa-hand-o-right"></i> Here's some related jobs elsewhere in the UK</h3>	
+	   <p style="color:#999;"><i class="fa fa-info-circle"></i> There are no more jobs in the location you selected</p>
+    </div>					<?php 
 					endif;
 				?>
 				
