@@ -37,14 +37,15 @@
 				
 				//echo $paged;
 				if($paged==2){
-					$current_post_number=$wp_query->current_post+4+1;
+					$current_post_number=$wp_query->current_post+4+1+2;
 				}
 				elseif($paged>2){
-					$current_post_number=$wp_query->current_post+4+(6*($paged-2))+1;
+					$current_post_number=$wp_query->current_post+4+(6*($paged-2))+1+2;
 				}
 				else{
-					$current_post_number=$wp_query->current_post+1;
+					$current_post_number=$wp_query->current_post+1+2;
 				}
+				//echo $current_post_number;
 
 					if ($current_post_number == $found) :
 					// I'm the last post in the Loop

@@ -349,7 +349,7 @@ class Job_Recommendations{
         $found = $wp_query->found_posts;
         
         
-        if( $wp_query->found_posts > 22){
+        if( $wp_query->found_posts > 30){
         require_once 'views/template-job-recommendations.php';
         }
         else{
