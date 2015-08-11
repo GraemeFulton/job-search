@@ -33,18 +33,4 @@ padding:25px;
 [wpuf_profile type="registration" id="10323"]
 </div>
 
-<?php 
-$arr_ser = StripSlashes($_COOKIE["profession"]);
-
-$professions = unserialize($arr_ser);
-var_dump ( $professions);
-
-$arr_ser = StripSlashes($_COOKIE["location"]);
-
-$professions = unserialize($arr_ser);
-var_dump ( $professions);
-?>
-
-
-
 </div>
