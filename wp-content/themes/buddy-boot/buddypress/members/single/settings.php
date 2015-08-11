@@ -8,7 +8,7 @@
  */
 
 ?>
-
+<div class="container">
 <div class="item-list-tabs no-ajax" id="subnav" role="navigation">
 	<ul>
 		<?php if ( bp_core_can_edit_settings() ) : ?>
@@ -18,7 +18,6 @@
 		<?php endif; ?>
 	</ul>
 </div>
-
 <?php
 
 switch ( bp_current_action() ) :
@@ -38,3 +37,5 @@ switch ( bp_current_action() ) :
 		bp_get_template_part( 'members/single/plugins'                 );
 		break;
 endswitch;
+?>
+</div>

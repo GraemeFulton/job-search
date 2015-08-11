@@ -2,7 +2,7 @@
 /**
  * .
  *
- * @package   Job Recommendations
+ * @package   Job Recommendation Local Storage
  * @author    Graeme Fulton <graeme@lostgrad.com>
  * @license   GPL-2.0+
  * @link      http://example.com
@@ -21,7 +21,7 @@
  * @package Job_Recommendations
  * @author  Your Name <email@example.com>
  */
-class Job_Recommendations{
+class Local_Storage{
 
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
@@ -173,9 +173,8 @@ class Job_Recommendations{
         //add '-jobs' suffix to professions so query by slug works
         if(isset($_GET['Profession'])){
             
-           // $_COOKIE['profession']= $_GET['Profession'];
-		//	setcookie("profession", $_GET['Profession'], time()+3600 , '/' );
-        	
+            $_COOKIE['Profession']= $_GET['Profession'];
+        
          array_walk($_GET['Profession'], function(&$value, $key) {  $value =$this->create_slug($value); });
         //profession
          $args['tax_query'][0]['terms']=$_GET['Profession'];

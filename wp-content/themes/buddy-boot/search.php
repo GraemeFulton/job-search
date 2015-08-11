@@ -37,8 +37,10 @@ global $wp_query;
 
 			<?php else : // Well, if there are no posts to display and loop through, let's apologize to the reader (also your 404 error) ?>
 				
-				<article class="post error">
-					<h1 class="404">Nothing posted yet</h1>
+				<article class="post error container" style="padding:20px;">
+					<h3 style="margin-top:0px;">Sorry, nothing found</h3>
+                                        <p>Try searching for something else, or browse recommended jobs:</p>
+                                        <a class="btn-success btn-outlined btn" href="<?php echo get_site_url; ?>/job-roll">Recommended Jobs</a>
 				</article>
 
 			<?php endif; // OK, I think that takes care of both scenarios (having a page or not having a page to show) ?>

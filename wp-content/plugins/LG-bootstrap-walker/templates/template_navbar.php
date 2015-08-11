@@ -11,7 +11,7 @@
             <span class="icon-bar"></span>
           </button>
 
-        <a class="navbar-brand" href="<?php bloginfo('url')?>"><img class="navbar-logo"src="<?php echo plugins_url('images/LG.png', __FILE__);?>"/></a>        
+        <a class="navbar-brand" style="color:#fff; background:#51968B" href="<?php bloginfo('url')?>">GJ</a>        
     
         </div>
         <div class="navbar-collapse collapse">

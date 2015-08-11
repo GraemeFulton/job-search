@@ -29,9 +29,7 @@ function ajax_save(){
 	
 	$obj = stripslashes($_POST['selected']);
 	$object = json_decode($obj);
-	
-	//var_dump($object);
-	
+		
 	foreach ($object as $item) {
 		
 		$item->value = str_replace('&', '&amp;', $item->value);
@@ -56,7 +54,6 @@ function ajax_save(){
 		
 	}
 	
-	var_dump($object);
 	$new_array = array();
 	foreach ($object as $item)
 	    $new_array[$item->group][] = $item;
@@ -71,15 +68,15 @@ function ajax_save(){
 			array_push($insert, $item->value);
 			
 		}
-// 		var_dump($key);
-//		var_dump($insert);
+
 		$putin=array();
 		foreach($insert as $ins){
 			array_push($putin,$ins);
 			
 			
 		}
-		var_dump($putin);
+                var_dump($key);
+                var_dump($putin);
 		xprofile_set_field_data($key, $current_user->id,$putin);
 		
 	}

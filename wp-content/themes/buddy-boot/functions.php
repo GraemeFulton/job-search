@@ -89,24 +89,61 @@ function LG_bootstrap_scripts()  {
 add_action( 'wp_enqueue_scripts', 'LG_bootstrap_scripts' ); // Register this fxn and allow Wordpress to call it automatcally in the header
 
 
-//on registration we need to store the user's preferences as x-profile-fields
-function LG_save_preferences($ID) {
 
-    if($ID=NULL){
-    global $current_user;
-    get_currentuserinfo();
-    $ID= $current_user->id;
+
+/**
+ * Store cookies for user registration
+ */
+add_action('init', function() {
+	// yes, this is a PHP 5.3 closure, deal with it
+    
+    //couldn't set cookies because you need to serialize the array first!
+		if(isset($_GET['Profession'])){
+			setcookie("profession", serialize($_GET['Profession']), time()+3600 , '/' );
+		}
+		if(isset($_GET['Location'])){
+			setcookie("location", serialize($_GET['Location']), time()+3600 , '/' );
+		}
+});
+
+/**
+ * after user registers, insert the extra profile fields from cookies
+ */
+add_action( 'wpuf_after_register', 'myplugin_registration_save', 10, 1 );
+
+function myplugin_registration_save(  $user_id, $userdata, $form_id, $form_settings ) {
+
+     //@TODO: filter cookies before inserting into db
+    
+    //grab the professions the user has selected from the cookies
+    $selected_professions= StripSlashes($_COOKIE["profession"]);
+    //unserialize them
+    $professions = unserialize($selected_professions);
+    
+    
+    foreach ($professions as $profession){
+        
+        $field_id = xprofile_get_field_id_from_name($profession);
+         
+        //xprofile_set_field_data must take an array
+        //we're only ever dealing with one category per checkbox group,e.g. ['Computing'])
+        xprofile_set_field_data($field_id, $user_id,[$profession]);
     }
     
-    $Location = $_SESSION['Location'];
-
-    xprofile_set_field_data('Location', $current_user->id,  $Location);
+     $selected_locations= StripSlashes($_COOKIE["location"]);
+    //unserialize them
+    $locations = unserialize($selected_locations);
+    
+    
+    foreach ($locations as $location){
+        
+        $field_id = xprofile_get_field_id_from_name($location);
+         
+        //xprofile_set_field_data must take an array
+        //we're only ever dealing with one category per checkbox group,e.g. ['Computing'])
+        xprofile_set_field_data($field_id, $user_id,[$location]);
+    }
 
 }
-add_action( 'user_register', 'LG_save_preferences' ); // Register this fxn and allow Wordpress to call it automatcally in the header
 
-
-function LG_hi(){
-    echo '<script>alert("hi"); console.log($.cookie("Location"));</script>';
-}
-add_shortcode('sessionvars', 'LG_hi');
+?>

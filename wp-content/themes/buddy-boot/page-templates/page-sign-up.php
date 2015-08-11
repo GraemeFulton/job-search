@@ -25,8 +25,6 @@ if($page_number==0){
            
     <?php include('partials/page-sign-up/sign-up-modal.php') ?>
 
-
-
 <?php  get_footer(); ?>
 
 </body>
