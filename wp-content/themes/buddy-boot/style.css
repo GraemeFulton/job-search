@@ -647,7 +647,22 @@ div.selected {
 #buddypress .standard-form div.submit input {
   margin-right: 15px;
   float: left;
-  bottom: 10px; }
+  bottom: 5px;
+  margin-top: 0px;
+  z-index: -1; }
+
+.bottom-left {
+  padding-left: 20px;
+  display: none; }
+
+.profession #profile-group-edit-submit, .location #profile-group-edit-submit {
+  display: none; }
+
+#buddypress .standard-form div.submit {
+  padding: 0 0 0 0; }
+
+#field_11614, #field_8 {
+  margin-bottom: 20px; }
 
 .profession .submit, .location .submit {
   position: absolute;

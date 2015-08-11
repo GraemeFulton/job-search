@@ -1,4 +1,24 @@
 $(document).ready(function(){
+    ;(function($){
+    var dontSubmit = false,
+        $form = $('#profile-edit-form');
+
+    // Prevent the trigger a false submission on link click
+    window.addEventListener("beforeunload", function (e) {
+        dontSubmit = true;
+        $form.trigger('submit');
+    });
+
+    $form.on('submit', function(event){
+        if (dontSubmit) {
+            event.preventDefault();
+            return;
+        }
+
+        // Continue on as normal
+    });
+})(jQuery);
+    
 	$(':checkbox:not(:checked)').attr('value', 'blank');
 	
 	$(':checkbox').change(function() {
@@ -7,7 +27,9 @@ $(document).ready(function(){
 		    $(':checkbox:not(:checked)').attr('value', 'blank');
 		    
 			//async save
-		    
+                        $bottomleft = $(this).parents('#profile-edit-form').find('.bottom-left');
+                        $bottomleft.fadeIn()
+                        $bottomleft.empty().append('Saving')		    
 			//populate fields
 			var opts = populate_ajax_fields();
 			var json_data = JSON.stringify(opts, null, 2);
@@ -23,7 +45,10 @@ $(document).ready(function(){
 					},
 				success:function(data){
 					
-					console.log(data);
+					 $bottomleft.empty().append('Saved').delay(2000).queue(function(next){
+                                                $bottomleft.fadeOut();
+                                                next();
+                                            });
 					
 				}
 			
@@ -35,6 +60,8 @@ $(document).ready(function(){
 	
 	$('.ajax-submit').click(function(e){
 		
+                $button = $(this);
+                $button.val('Saving')
 		//prevent form submitting
 		e.preventDefault();
 		
@@ -53,9 +80,11 @@ $(document).ready(function(){
 				'selected':json_data
 				},
 			success:function(data){
-				
-				console.log(data);
-				
+				console.log($button)
+                                $button.val('Saved').delay(2000).queue(function(next){
+                                    $button.val("Save Changes");
+                                    next();
+                                });
 			}
 		
 			

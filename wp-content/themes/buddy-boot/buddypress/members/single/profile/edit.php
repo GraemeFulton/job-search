@@ -174,7 +174,10 @@ elseif($group_name == 'Contact Information'){
 
 	<?php wp_nonce_field( 'bp_xprofile_edit' ); ?>
 </div>
+                <div class="bottom-left"></div>
+
 </form>
+
 </section>
 <?php endwhile; endif; ?>
 

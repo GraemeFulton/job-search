@@ -905,7 +905,7 @@ jq(document).ready( function() {
 		
 		window.onbeforeunload = function(e) {
 			if ( shouldconfirm ) {
-				return BP_DTheme.unsaved_changes;
+			//	return BP_DTheme.unsaved_changes;
 			}
 		};
 	});
