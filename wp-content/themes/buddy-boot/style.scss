@@ -182,7 +182,8 @@ table.profile-fields{
 }
 
 .time.pull-right{
-    font-size:13px;
+    font-size:12px;
+    color:#b7b7b7;
 }
 /* RESPONSIVE CSS
 -------------------------------------------------- */
@@ -195,7 +196,7 @@ table.profile-fields{
     }
     .container.no-pad, col-xs-12.no-pad, .container-fluid.theme-grey .post.container .col-xs-4.pull-right, .container-fluid.theme-grey .profile.container .col-xs-4.pull-right {
     padding-left: 0px;
-    padding-right: 15px!important;
+    padding-right: 0px;
 }
 .container.no-pad, col-xs-12.no-pad{
     p{
@@ -241,6 +242,7 @@ table.profile-fields{
 and (max-width : 771px) { 
     .container.list-main-content{
         padding-right:0px;
+        max-width:100%;
     }
     .mobile-show{
         display:block!important;
@@ -453,10 +455,13 @@ a{color:#50978B}
 }
 .container.list-main-content{
     padding-left:0px;
+    max-width:100%;
+    padding-right:0px;
 }
 .container.no-pad, col-xs-12.no-pad{
     padding-left:0px;
     padding-right:0px;
+    max-width:100%;
 }
 .container-fluid.theme-grey{
     .post.container, .profile.container{
@@ -692,18 +697,29 @@ a{color:#50978B}
     border:0px;
     border-bottom:1px solid #e7e7e7;
     margin-bottom:0px;
-    padding-bottom:20px;
     h4{
         margin-top: 0px;
         margin-bottom: 10px;
         font-size:16px;
         max-height: 17.5px;
         overflow: hidden;
+        color:#55827A;
     }
     p, a, span{
         font-size:14px;
         max-height: 40px;
         overflow:hidden;
+    }
+    p{
+        margin-bottom:3px;
+    }
+    span, i{
+        
+        font-size:12px!important;
+        a{
+                    font-size:12px!important;
+
+        }
     }
 }
 .container.list-container{
@@ -711,6 +727,7 @@ a{color:#50978B}
     padding-right:0px;
     border:1px solid #e7e7e7;
     border-bottom:0px;
+    max-width:100%;
 }
 
 .sign-up-next-link:hover, .sign-up-next-link:active{
@@ -1050,4 +1067,9 @@ div.selected{
 }
 h4, .h4{
     font-size:18px;
+}
+.meta-info{
+    span, i, a{
+        color:#999;
+    }
 }

@@ -153,7 +153,8 @@ table.profile-fields {
   margin-bottom: 18px; }
 
 .time.pull-right {
-  font-size: 13px; }
+  font-size: 12px;
+  color: #b7b7b7; }
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
@@ -165,7 +166,7 @@ table.profile-fields {
 
   .container.no-pad, col-xs-12.no-pad, .container-fluid.theme-grey .post.container .col-xs-4.pull-right, .container-fluid.theme-grey .profile.container .col-xs-4.pull-right {
     padding-left: 0px;
-    padding-right: 15px !important; }
+    padding-right: 0px; }
 
   .container.no-pad p, col-xs-12.no-pad p {
     padding-right: 15px; }
@@ -198,7 +199,8 @@ table.profile-fields {
     margin-top: 120px; } }
 @media (min-width: 100px) and (max-width: 771px) {
   .container.list-main-content {
-    padding-right: 0px; }
+    padding-right: 0px;
+    max-width: 100%; }
 
   .mobile-show {
     display: block !important;
@@ -360,11 +362,14 @@ a {
   padding-left: 0; }
 
 .container.list-main-content {
-  padding-left: 0px; }
+  padding-left: 0px;
+  max-width: 100%;
+  padding-right: 0px; }
 
 .container.no-pad, col-xs-12.no-pad {
   padding-left: 0px;
-  padding-right: 0px; }
+  padding-right: 0px;
+  max-width: 100%; }
 
 .container-fluid.theme-grey .post.container, .container-fluid.theme-grey .profile.container {
   max-width: 100%; }
@@ -551,24 +556,31 @@ a {
   position: relative;
   border: 0px;
   border-bottom: 1px solid #e7e7e7;
-  margin-bottom: 0px;
-  padding-bottom: 20px; }
+  margin-bottom: 0px; }
   .post.container h4 {
     margin-top: 0px;
     margin-bottom: 10px;
     font-size: 16px;
     max-height: 17.5px;
-    overflow: hidden; }
+    overflow: hidden;
+    color: #55827A; }
   .post.container p, .post.container a, .post.container span {
     font-size: 14px;
     max-height: 40px;
     overflow: hidden; }
+  .post.container p {
+    margin-bottom: 3px; }
+  .post.container span, .post.container i {
+    font-size: 12px !important; }
+    .post.container span a, .post.container i a {
+      font-size: 12px !important; }
 
 .container.list-container {
   padding-left: 0px;
   padding-right: 0px;
   border: 1px solid #e7e7e7;
-  border-bottom: 0px; }
+  border-bottom: 0px;
+  max-width: 100%; }
 
 .sign-up-next-link:hover, .sign-up-next-link:active {
   text-decoration: none; }
@@ -855,5 +867,8 @@ div.selected {
 
 h4, .h4 {
   font-size: 18px; }
+
+.meta-info span, .meta-info i, .meta-info a {
+  color: #999; }
 
 /*# sourceMappingURL=style.css.map */

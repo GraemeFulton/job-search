@@ -49,7 +49,9 @@
     ?>
 <div class="container no-pad">
    <? echo $excerpt;?>
+    <div class="meta-info">
          <i class="fa fa-building-o"></i> <span><?php echo $institution;?></span>&nbsp;
     <i class="fa fa-map-marker"></i> <span><?php echo $location;?></span>&nbsp; 
+    </div>
 </div>
 
