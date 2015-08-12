@@ -502,7 +502,7 @@ color:#fff;
     color:#919191;
     max-width:100%;
     padding:0px;
-    height:45px;
+    min-height:45px;
     padding-top:8px!important;
 
 	h4{
@@ -510,7 +510,11 @@ color:#fff;
 	}
 }
 
-
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open .dropdown-toggle.btn-success {
+    color: #fff;
+    background-color: #51968B;
+    border-color: #51968B;
+}
 .avatar-circle{
     margin-bottom:8px;
     margin-top:10px;
@@ -807,8 +811,20 @@ div.selected{
     z-index: -1;
 }
 .bottom-left{
-    padding-left:20px;
-    display:none;
+    display: none; 
+    margin-top: 20px;
+    background: #fff;
+    margin-left:5px;
+    color: #fff;
+    border: 1px solid #7cb8ae;
+    background-color: #7cb8ae;
+    float: left;
+    padding: 5px;
+}
+.profile{
+    .item-container{
+        visibility:hidden;
+    }
 }
 .profession, .location{
     #profile-group-edit-submit{

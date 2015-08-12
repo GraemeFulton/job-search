@@ -7,7 +7,7 @@
                         <p>Members get full access and will never be charged a penny</p>
 
           <div class='welcome-profile'>
-                <div class="panel panel-default flex-col">
+                <!--<div class="panel panel-default flex-col">-->
                 <div class='avatar-circle'>
                 <?php  echo get_avatar( '', $size = '60' );?>
                 </div>

@@ -1,24 +1,8 @@
 $(document).ready(function(){
-    ;(function($){
-    var dontSubmit = false,
-        $form = $('#profile-edit-form');
-
-    // Prevent the trigger a false submission on link click
-    window.addEventListener("beforeunload", function (e) {
-        dontSubmit = true;
-        $form.trigger('submit');
-    });
-
-    $form.on('submit', function(event){
-        if (dontSubmit) {
-            event.preventDefault();
-            return;
-        }
-
-        // Continue on as normal
-    });
-})(jQuery);
     
+    $('.profile .item-container').css('visibility', 'visible');
+
+ 
 	$(':checkbox:not(:checked)').attr('value', 'blank');
 	
 	$(':checkbox').change(function() {

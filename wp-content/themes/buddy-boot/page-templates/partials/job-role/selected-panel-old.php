@@ -126,9 +126,11 @@
             <div class='col-sm-4 welcome-profile'>
                 <div class="panel panel-default flex-col">
                 <h4><i class="fa fa-cog"></i> Profile settings</h4>
+                <a href="<?php echo bp_loggedin_user_domain()?>/profile/change-avatar/">
                 <div class='avatar-circle'>
 					<?php global $userdata; get_currentuserinfo(); echo get_avatar( $userdata->ID, 46 ); ?>
                 </div>
+                </a>
                 <p>Job recommendations are based on the selections you make. </p>
 
                <div class="refine">
