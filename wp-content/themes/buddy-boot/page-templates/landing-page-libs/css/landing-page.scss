@@ -214,13 +214,33 @@ h2.margin-b{
     }    
        
    #selection, .spacey{display:none}
-        
+   #section3{
+       padding-top:5px!important;
+   }
+   #map{
+        margin-top:5px;
+        margin-bottom:-15px
+    }
+    .tag-selected{
+        font-size:10px;
+    }
+    .btn-next{
+        font-size:12px;
+    }
+    .image-box p{
+        font-size:12px;
+        padding-top:5px;
+    }
 
 }
 div#slide1{
 	padding-left:50px;
 	padding-right:50px;
 	
+}
+#section3{
+    padding-top:20px;
+
 }
 /* iPads (portrait and landscape) ----------- */
 @media only screen 
@@ -255,9 +275,11 @@ and (min-width : 800px) and (max-width:1280px) {
          display: inline-block;
         position: absolute;
         left: -5%;
-        top: 18%;
+        top: 15%;
      }
-    svg { height: 28%!important;}
+    svg { height: 26%!important;
+    margin-top:20px
+    }
     
     #section3{
 	
@@ -275,6 +297,12 @@ and (min-width : 800px) and (max-width:1280px) {
 	margin-bottom:-20px;}
 }
 
+}
+.fp-section{
+    overflow-x: hidden;
+}
+div#slide1{
+    margin-bottom:-15px;
 }
 
 /* Desktops and laptops ----------- */
