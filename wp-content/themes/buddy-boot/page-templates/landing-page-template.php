@@ -18,15 +18,20 @@ if(is_user_logged_in()==true){
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri()?>/page-templates/landing-page-libs/css/animations.css">
 
 <div class="container-fluid content-container" id="fullpage">
-    <div class="to-next-step" id="moveDown"><a class="btn-success btn-next btn btn-scroll-down">Next</a></div>
     <form method="get" action='sign-up'>
 
     <section class="animatedParent welcome-row row section" id="section0">
+        <div class="row">
+
         <div class='text-center'>
             <h1 class="animated bounceIn delay-250">Hello</h1>
             <h4 class="animated bounceIn delay-500">Already a member?</h4>
             <a href="login" class='delay-1000 animated bounceIn btn-success btn-next btn btn-login'>Log In</a>
      
+        </div>
+        </div>
+        <div class="row text-center">
+            <div class="to-next-step"><a class="btn-success btn-next btn btn-scroll-down">Find me a job!</a></div>
         </div>
     </section> 
 
@@ -123,11 +128,13 @@ if(is_user_logged_in()==true){
                     </div>
                 </div>
                 </div>
-  
+          <div class="row text-center">
+            <div class="to-next-step"><a class="btn-success btn-next btn btn-scroll-down">To the next step</a></div>
+        </div>
         </section>
    
         <section class='row location-row section' id="section3">
-            <div class='text-center'>
+            <div class='row text-center'>
             <h2>Where would you like to work?</h2>
 
                                      <div class="container">You have selected: <div id="selected"><span class='nowhere'>Nothing</span></div>
@@ -142,6 +149,9 @@ if(is_user_logged_in()==true){
 
                  
             </div>
+        <div class="row text-center">
+            <div class="to-next-step"><a class="btn-success btn-next btn btn-scroll-down">To the next step</a></div>
+        </div>   
         </section>
     
             <section class='container degree-row section' id="section4">
@@ -158,9 +168,11 @@ if(is_user_logged_in()==true){
                     <p style='margin-top:20px;'> <small>Don't worry, you can change these again later!</small></p>
                     <br>
 
-                     <input type="submit" style="display:none;" name="submit" Value="Show me the jobs!" class='btn-success btn-next btn btn-submit'>
 
             </div>
+          <div class="row text-center">
+             <input type="submit" name="submit" Value="Show me the jobs!" class='btn-success btn-next btn btn-submit'>
+        </div>                
         </section>
     
 </form>

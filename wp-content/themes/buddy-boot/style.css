@@ -539,20 +539,6 @@ div.selected {
   width: auto !important;
   display: inline-block; }
 
-#moveDown {
-  position: fixed;
-  bottom: 15px;
-  font-size: 18px;
-  width: 100%;
-  text-align: center; }
-
-#moveUp {
-  position: fixed;
-  left: 50%;
-  right: 50%;
-  top: 55px;
-  font-size: 30px; }
-
 #fp-nav li a {
   width: 12px;
   height: 12px;
