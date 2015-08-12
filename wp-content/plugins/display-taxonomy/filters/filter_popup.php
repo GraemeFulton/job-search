@@ -80,6 +80,27 @@ Class Popup_Filter{
          }
      }
        
+     protected $tree;
+     public $institution;
+     protected $subject;
+     protected $provider;
+     protected $post_type;
+     protected $excerpt;
+     protected $link;
+     
+     public function set_properties($tree ,$pid){
+         $this->tree = $this->get_institution_name($tree);  
+         
+         $this->institution = $this->get_institution_name($tree);
+
+         $this->subject= $this->get_subject($tree);
+         
+         $this->provider= $this->get_provider_logo();
+         
+         $this->post_type=$this->get_post_type($tree);
+         
+         $this->excerpt = $this->get_excerpt_by_id($pid);
+     }
      /*
       * template_response
       * @param $page = bool value. if false, exit (for ajax); if true, use for page
@@ -87,8 +108,8 @@ Class Popup_Filter{
       */
      public function template_response($page){
          
-         $tree= $this->get_taxonomy_tree();
-        
+         $tree= $this->get_taxonomy_tree(); 
+
          $institution = $this->get_institution_name($tree);
          
          $subject= $this->get_subject($tree);
@@ -136,6 +157,10 @@ Class Popup_Filter{
                            $ratings = $this->show_ratings($this->post_id);
 
               include('templates/templates-single/'.$this->template.'_single_table.php');
+         }
+         elseif($page=='post_loop'){
+              $the_content= $this->get_content_by_id($this->post_id);   
+              include('templates/templates-post-loop/'.$this->template.'_post_loop.php');
          }
          else{
          include('templates/templates-popup/'.$this->template.'_popup.php');exit;
