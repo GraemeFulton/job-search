@@ -12,43 +12,39 @@ if(is_user_logged_in()==true){
 
 ?>
 <?php get_header(); ?>
-<script src="<?php echo get_template_directory_uri()?>/js/scaleRaphael.js"></script>
-<script src="<?php echo get_template_directory_uri()?>/libs/fullpage/vendors/jquery.slimscroll.min.js"></script>
-<script src="<?php echo get_template_directory_uri()?>/libs/fullpage/vendors/jquery.easings.min.js"></script>
-<script src="<?php echo get_template_directory_uri()?>/libs/fullpage/jquery.fullPage.min.js"></script>
-<script src="<?php echo get_template_directory_uri()?>/page-templates/landing-page-libs/js/landing-page.js"></script>
 
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri()?>/libs/fullpage/jquery.fullPage.css">
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri()?>/page-templates/landing-page-libs/css/landing-page.css">
+<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri()?>/page-templates/landing-page-libs/css/animations.css">
 
 <div class="container-fluid content-container" id="fullpage">
     <div class="to-next-step" id="moveDown"><a class="btn-success btn-next btn btn-scroll-down">Next</a></div>
     <form method="get" action='sign-up'>
 
-    <section class="welcome-row row section" id="section0">
+    <section class="animatedParent welcome-row row section" id="section0">
         <div class='text-center'>
-            <h1>Hello</h1>
-            <h4>Already a member?</h4>
-            <a href="login" class='btn-success btn-next btn btn-login'>Log In</a>
+            <h1 class="animated bounceIn delay-250">Hello</h1>
+            <h4 class="animated bounceIn delay-500">Already a member?</h4>
+            <a href="login" class='delay-1000 animated bounceIn btn-success btn-next btn btn-login'>Log In</a>
      
         </div>
     </section> 
 
-                <section class='row interest-row section' id="section1">
+                <section class='animatedParent row interest-row section' id="section1">
   
                      <div class='text-center'>
 
                       <h2 class='margin-b'>What interests you?</h2>
                 <div class="container" data-anchor="slide1" id="slide1">
                     <div class='side'>
-                    <div class='col-xs-4 image-box '>
+                    <div class='col-xs-4 image-box animated bounceIn'>
                         <div class="box-container">
                         <div class='check'><input type="checkbox" name="Profession[]" value="Computing"></div>
                          <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icon-pack/computing.svg'?>'/>
                             <p class='tag'>Computing</p>
                         </div>
                     </div>   
-                    <div class='col-xs-4 image-box'>
+                    <div class='col-xs-4 image-box animated bounceIn'>
                         <div class="box-container">                             
                         <div class='check'><input type="checkbox" name="Profession[]" value="Engineering"></div>
                          <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icon-pack/engineering.svg'?>'/>
@@ -173,6 +169,12 @@ if(is_user_logged_in()==true){
 
 
 <?php get_footer(); ?>
+<script src="<?php echo get_template_directory_uri()?>/js/scaleRaphael.js"></script>
+<script src="<?php echo get_template_directory_uri()?>/libs/fullpage/vendors/jquery.slimscroll.min.js"></script>
+<script src="<?php echo get_template_directory_uri()?>/libs/fullpage/vendors/jquery.easings.min.js"></script>
+<script src="<?php echo get_template_directory_uri()?>/libs/fullpage/jquery.fullPage.min.js"></script>
+<script src="<?php echo get_template_directory_uri()?>/page-templates/landing-page-libs/js/landing-page.js"></script>
+<script src="<?php echo get_template_directory_uri()?>/page-templates/landing-page-libs/js//css3-animate-it.js"></script>
 <script src="<?php echo get_template_directory_uri()?>/js/map.js"></script>
 
 </body>

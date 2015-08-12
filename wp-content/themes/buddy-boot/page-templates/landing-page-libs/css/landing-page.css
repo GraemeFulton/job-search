@@ -16,6 +16,12 @@ body {
 .box-active {
   background: #9ED4C9 !important; }
 
+.animated {
+  visibility: hidden; }
+
+.animated.go {
+  visibility: visible; }
+
 #section1,
 #section1 .fp-slide,
 #section1 .fp-tableCell {

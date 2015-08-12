@@ -553,6 +553,36 @@ div.selected {
   top: 55px;
   font-size: 30px; }
 
+#fp-nav li a {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #DDD;
+  background: #FFF;
+  display: block;
+  margin: 10px 0;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease; }
+
+#fp-nav li a.active {
+  background: #999; }
+
+#fp-nav ul li a span, .fp-slidesNav ul li a span {
+  width: 0px !important;
+  height: 0px !important;
+  border: 0px solid #000 !important; }
+
+.check-inview.fadeup {
+  opacity: 1 !important;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0); }
+
 /*#fp-nav {
     position: fixed;
     z-index: 100;
