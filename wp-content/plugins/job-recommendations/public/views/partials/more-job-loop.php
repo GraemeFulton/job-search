@@ -9,6 +9,7 @@
                                                 ?>
 							<div class="the-content job-feed-content">
 
+                                        <div class="list-main-content">
 
                                             <?php
                                             //if user is not logged in, show popup links
@@ -37,16 +38,20 @@
                                                 <a href="<?php the_permalink(); ?>"><h4
                                                         class="title"><?php the_title(); // Display the title of the page
                                                         ?></h4></a>
-                                            <?php
+                                               <?php
                                             }
                                                   ?>
-							<?php the_content(); 
-							// This call the main content of the page, the stuff in the main text box while composing.
-							// This will wrap everything in p tags
+                                        </div>
+							<?php 
+                                                        
+                                                        $popup= new Popup_Filter($post->ID, 'graduate-job', 'profession', 'company');
+
+                                                        $popup->template_response('post_loop');
 							?>
+                                                    
 							
 							<?php wp_link_pages(); // This will display pagination links, if applicable to the page ?>
 						</div><!-- the-content -->
-						 <div class='pull-right go-to-page'><i class="fa fa-chevron-right go-to-page-arrow"></i></div>
+<!--						 <div class='pull-right go-to-page'><i class="fa fa-chevron-right go-to-page-arrow"></i></div>-->
 
 					</div>

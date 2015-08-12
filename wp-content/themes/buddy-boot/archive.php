@@ -31,6 +31,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 	</div>
      	<div id="primary" class="container">
 <!--		<div id="content" role="main" class="span12">-->
+		<section class="container list-container">
 
 			<?php if ( have_posts() ) : 
 			// Do we have any posts/pages in the databse that match our query?
@@ -45,7 +46,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 					
 
 				<?php endwhile; // OK, let's stop the page loop once we've displayed it ?>
-
+                </section>
 			<?php else : // Well, if there are no posts to display and loop through, let's apologize to the reader (also your 404 error) ?>
 				
 				<article class="post error">

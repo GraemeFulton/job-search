@@ -21,11 +21,12 @@
     }
     
     ?>
+				<section class="container list-container">
 
 				<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); 
 				// If we have a page to show, start a loop that will display it
-				
 				include('partials/primary-job-loop.php');
+                                
 				?>
 				
 				<?php endwhile; // OK, let's stop the page loop once we've displayed it ?>
@@ -35,6 +36,8 @@
 				
 			endif; // OK, I think that takes care of both scenarios (having a page or not having a page to show)
                         ?>
+                                 </section>
+
  <?php if (!is_user_logged_in() && $paged==1){  ?>
 
       <?php echo get_next_posts_link( '<p class="sign-up-next-link"><div class="container text-center sign-up-next"><h4>Show me more!</h4></div></p>', $qp->max_num_pages ); // display older posts link ?>

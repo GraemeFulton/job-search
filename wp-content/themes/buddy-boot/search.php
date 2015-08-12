@@ -24,10 +24,12 @@ global $wp_query;
 
      	<div id="primary" class="container">
 <!--		<div id="content" role="main" class="span12">-->
+		<section class="container list-container">
 
 			<?php if ( have_posts() ) : 
 			// Do we have any posts/pages in the databse that match our query?
 			?>
+
 
 				<?php while ( have_posts() ) : the_post(); 
 				// If we have a page to show, start a loop that will display it
@@ -44,7 +46,7 @@ global $wp_query;
 				</article>
 
 			<?php endif; // OK, I think that takes care of both scenarios (having a page or not having a page to show) ?>
-
+                </section>
 <!--		</div> #content .site-content -->
 	</div><!-- #primary .content-area -->
 	

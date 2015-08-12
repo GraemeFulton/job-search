@@ -29,6 +29,8 @@
      }
 			// Do we have any posts/pages in the databse that match our query?
 			?>
+				<section class="container list-container">
+
 				<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); 
 				// If we have a page to show, start a loop that will display it
 				
@@ -73,7 +75,8 @@
       
      	include('partials/secondary-job-loop.php');
 			
-     }?>			
+     }?>	
+                                </section>
 			
  <?php if (!is_user_logged_in() && $paged==1){  ?>
 

@@ -152,6 +152,9 @@ table.profile-fields {
   margin-top: 18px;
   margin-bottom: 18px; }
 
+.time.pull-right {
+  font-size: 13px; }
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 @media (min-width: 768px) {
@@ -159,6 +162,13 @@ table.profile-fields {
   ul.wpuf-form li .wpuf-label {
     float: left;
     width: 15%; }
+
+  .container.no-pad, col-xs-12.no-pad, .container-fluid.theme-grey .post.container .col-xs-4.pull-right, .container-fluid.theme-grey .profile.container .col-xs-4.pull-right {
+    padding-left: 0px;
+    padding-right: 15px !important; }
+
+  .container.no-pad p, col-xs-12.no-pad p {
+    padding-right: 15px; }
 
   .navbar-wrapper {
     margin-top: 20px; }
@@ -187,11 +197,22 @@ table.profile-fields {
   .featurette-heading {
     margin-top: 120px; } }
 @media (min-width: 100px) and (max-width: 771px) {
+  .container.list-main-content {
+    padding-right: 0px; }
+
   .mobile-show {
     display: block !important;
     text-align: center;
     padding-top: 20px;
     clear: both; }
+
+  .post.container h4 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    max-height: 17.5px;
+    margin-right: 25px;
+    overflow: hidden; }
 
   .desktop-show {
     display: none !important; }
@@ -209,8 +230,6 @@ table.profile-fields {
 
 @media (min-width: 100px) and (max-width: 610px) {
   .container-fluid.theme-grey {
-    padding-left: 15px;
-    padding-right: 15px;
     margin-top: -6px; }
 
   .wpuf-fields input {
@@ -229,7 +248,6 @@ table.profile-fields {
     display: none; }
 
   .job-feed-content {
-    padding-right: 52px;
     font-size: 12px; }
 
   .slide p {
@@ -266,9 +284,6 @@ table.profile-fields {
 .theme-grey {
   padding-top: 15px;
   background: #f4f4f4; }
-
-.job-feed-content {
-  padding-right: 52px; }
 
 .sign-up-panel {
   background: #fafafa;
@@ -341,8 +356,23 @@ a {
 #buddypress .bp-widget.profession, #buddypress .bp-widget.location {
   display: none; }
 
+.pull-left.col-xs-8 {
+  padding-left: 0; }
+
+.container.list-main-content {
+  padding-left: 0px; }
+
+.container.no-pad, col-xs-12.no-pad {
+  padding-left: 0px;
+  padding-right: 0px; }
+
 .container-fluid.theme-grey .post.container, .container-fluid.theme-grey .profile.container {
   max-width: 100%; }
+  .container-fluid.theme-grey .post.container .col-xs-4.pull-right, .container-fluid.theme-grey .profile.container .col-xs-4.pull-right {
+    padding-right: 0px; }
+  .container-fluid.theme-grey .post.container .list-main-content.col-xs-8, .container-fluid.theme-grey .profile.container .list-main-content.col-xs-8 {
+    padding-left: 0px;
+    padding-right: 5px; }
 .container-fluid.theme-grey .container.paginating {
   max-width: 100%;
   position: relative; }
@@ -518,7 +548,27 @@ a {
   color: #fafafa; }
 
 .post.container {
-  position: relative; }
+  position: relative;
+  border: 0px;
+  border-bottom: 1px solid #e7e7e7;
+  margin-bottom: 0px;
+  padding-bottom: 20px; }
+  .post.container h4 {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    max-height: 17.5px;
+    overflow: hidden; }
+  .post.container p, .post.container a, .post.container span {
+    font-size: 14px;
+    max-height: 40px;
+    overflow: hidden; }
+
+.container.list-container {
+  padding-left: 0px;
+  padding-right: 0px;
+  border: 1px solid #e7e7e7;
+  border-bottom: 0px; }
 
 .sign-up-next-link:hover, .sign-up-next-link:active {
   text-decoration: none; }
@@ -588,16 +638,16 @@ div.selected {
     margin: 7px;
     position: relative;
     float: left;
-	}
+        }
 #fp-nav.right {
     right: inherit!important;
     display: table;
     margin: 0 auto!important;
     margin-left:-55px!important;
 }
-	#fp-nav ul, .fp-slidesNav ul{
-	margin-left:50%!important;
-	}*/
+        #fp-nav ul, .fp-slidesNav ul{
+        margin-left:50%!important;
+        }*/
 .btn-scroll-right {
   position: absolute;
   top: 20%;
