@@ -198,8 +198,8 @@ fp-slidesNav {
   #selection, .spacey {
     display: none; } }
 div#slide1 {
-  padding-left: 10px;
-  padding-right: 10px; }
+  padding-left: 50px;
+  padding-right: 50px; }
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
