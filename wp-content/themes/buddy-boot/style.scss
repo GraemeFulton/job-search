@@ -588,6 +588,14 @@ a{color:#50978B}
     margin-top:0px;
     margin-right:15px;
 }
+.pager li>a, .pager li>span {
+    width: 100;
+    text-align: center;
+}
+.pager {
+   margin:0 0;
+}
+
 .selected{
     color: rgb(68, 168, 151);
     margin-bottom:6px;

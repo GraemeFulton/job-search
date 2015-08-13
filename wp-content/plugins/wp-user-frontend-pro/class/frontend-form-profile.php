@@ -100,10 +100,10 @@ class WPUF_Frontend_Form_Profile extends WPUF_Render_Form {
 
             <?php if ( is_user_logged_in() ) { ?>
                 <input type="hidden" name="action" value="wpuf_update_profile">
-                <input type="submit" class="btn" name="submit" value="<?php echo $form_settings['update_text']; ?>" />
+                <input type="submit" class="btn btn-primary" name="submit" value="<?php echo $form_settings['update_text']; ?>" />
             <?php } else { ?>
                 <input type="hidden" name="action" value="wpuf_submit_register">
-                <input type="submit"  class="btn" name="submit" value="<?php echo $form_settings['submit_text']; ?>" />
+                <input type="submit"  class="btn btn-primary" name="submit" value="<?php echo $form_settings['submit_text']; ?>" />
             <?php } ?>
         </li>
         <?php

@@ -227,7 +227,7 @@ class WPUF_Render_Form {
             </div>
 
             <div class="wpuf-fields">
-                <input type="text" required="required" data-required="yes" data-type="text" name="guest_name" value="" size="40">
+                <input class='form-control'type="text" required="required" data-required="yes" data-type="text" name="guest_name" value="" size="40">
             </div>
         </li>
 
@@ -237,7 +237,7 @@ class WPUF_Render_Form {
             </div>
 
             <div class="wpuf-fields">
-                <input type="email" required="required" data-required="yes" data-type="email" name="guest_email" value="" size="40">
+                <input class='form-control' type="email" required="required" data-required="yes" data-type="email" name="guest_email" value="" size="40">
             </div>
         </li>
         <?php
@@ -433,7 +433,7 @@ class WPUF_Render_Form {
         
         if( $hidden_fields ) {
             foreach($hidden_fields as $field) {
-                printf( '<input type="hidden" name="%s" value="%s">', esc_attr( $field['name'] ), esc_attr( $field['meta_value'] ) );
+                printf( '<input class="form-control" type="hidden" name="%s" value="%s">', esc_attr( $field['name'] ), esc_attr( $field['meta_value'] ) );
                 echo "\r\n";
             }
         }
@@ -666,7 +666,7 @@ class WPUF_Render_Form {
         ?>
 
         <div class="wpuf-fields">
-            <input class="textfield<?php echo $this->required_class( $attr ); ?>" id="<?php echo $attr['name']; ?>" type="text" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="<?php echo esc_attr( $attr['name'] ); ?>" placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>" value="<?php echo esc_attr( $value ) ?>" size="<?php echo esc_attr( $attr['size'] ) ?>" <?php echo $username ? 'disabled' : ''; ?> />
+            <input class="textfield form-control <?php echo $this->required_class( $attr ); ?>" id="<?php echo $attr['name']; ?>" type="text" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="<?php echo esc_attr( $attr['name'] ); ?>" placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>" value="<?php echo esc_attr( $value ) ?>" size="<?php echo esc_attr( $attr['size'] ) ?>" <?php echo $username ? 'disabled' : ''; ?> />
             <span class="wpuf-help"><?php echo $attr['help']; ?></span>
             
             <?php if ( $taxonomy ) { ?>
@@ -1044,7 +1044,7 @@ class WPUF_Render_Form {
         ?>
 
         <div class="wpuf-fields">
-            <input id="wpuf-<?php echo $attr['name']; ?>" type="email" class="email" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="<?php echo esc_attr( $attr['name'] ); ?>" placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>" value="<?php echo esc_attr( $value ) ?>" size="<?php echo esc_attr( $attr['size'] ) ?>" />
+            <input id="wpuf-<?php echo $attr['name']; ?>" type="email" class="email form-control" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="<?php echo esc_attr( $attr['name'] ); ?>" placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>" value="<?php echo esc_attr( $value ) ?>" size="<?php echo esc_attr( $attr['size'] ) ?>" />
             <span class="wpuf-help"><?php echo $attr['help']; ?></span>
         </div>
 
@@ -1063,7 +1063,7 @@ class WPUF_Render_Form {
         ?>
 
         <div class="wpuf-fields">
-            <input id="pass1" type="password" class="password" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="pass1" placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>" value="" size="<?php echo esc_attr( $attr['size'] ) ?>" />
+            <input id="pass1" type="password" class="password form-control" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="pass1" placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>" value="" size="<?php echo esc_attr( $attr['size'] ) ?>" />
             <span class="wpuf-help"><?php echo $attr['help']; ?></span>
         </div>
 
@@ -1076,7 +1076,7 @@ class WPUF_Render_Form {
             ?>
 
             <div class="wpuf-fields">
-                <input id="pass2" type="password" class="password" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="pass2" value="" size="<?php echo esc_attr( $attr['size'] ) ?>" placeholder ="Confirm Password" />
+                <input id="pass2" type="password" class="password form-control" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="pass2" value="" size="<?php echo esc_attr( $attr['size'] ) ?>" placeholder ="Confirm Password" />
             </div>
 
             <?php
@@ -1309,7 +1309,7 @@ class WPUF_Render_Form {
                 case 'text':
                     ?>
             
-                    <input class="textfield<?php echo $this->required_class( $attr ); ?>" id="<?php echo $attr['name']; ?>" type="text" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="<?php echo esc_attr( $attr['name'] ); ?>" value="<?php echo esc_attr( implode( ', ', $terms ) ); ?>" size="40" />
+                    <input class="textfield form-control <?php echo $this->required_class( $attr ); ?>" id="<?php echo $attr['name']; ?>" type="text" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="<?php echo esc_attr( $attr['name'] ); ?>" value="<?php echo esc_attr( implode( ', ', $terms ) ); ?>" size="40" />
                     
                     <script type="text/javascript">
                         jQuery(function($) {

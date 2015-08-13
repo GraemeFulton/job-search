@@ -45,17 +45,21 @@
         </div>
 
  <?php }else{ ?>
- 
+
         <div class="container paginating">
-	        <div class="col-sm-2">
-	        <?php previous_posts_link('<div class="pull-left pagi-button"> Previous</div>'); ?>
+	        <div class="col-sm-2 pager pull-left">
+                    <li class='pull-left'>
+	        <?php previous_posts_link('Previous'); ?>                        
+                    </li>
 	        </div>
 	        <div class="col-sm-8 page-navi mobile-hide desktop-show">
 	         <?php wp_pagenavi(); ?>
 	         </div>
-	         <div class="col-sm-2">
-			<?php next_posts_link( '<div class="pull-right pagi-button">Next</div>'); ?>
-			</div>
+	        <div class="col-sm-2 pager pull-right">
+                    <li class='pull-right'>
+	        <?php next_posts_link('Next'); ?>                        
+                    </li>
+	        </div>
 			<div class="mobile-show">
 			<?php wp_pagenavi_dropdown();?>
 			</div>
