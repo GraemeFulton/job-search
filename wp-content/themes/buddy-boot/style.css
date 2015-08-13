@@ -439,10 +439,40 @@ a {
 .btn-twitter {
   background: #55ACEE; }
 
+.btn-fb, .btn-twitter {
+  width: 250px;
+  text-align: center; }
+
+.wpuf-help, .wpuf-label {
+  display: none; }
+
+.alternate-reg {
+  max-width: 500px; }
+
 .btn-outlined {
   background: #fff;
   color: #5a5a5a;
   border-color: #7cb8ae; }
+
+#pass-strength-result {
+  margin-bottom: 20px; }
+
+.wpuf-submit .btn {
+  margin-top: -52px;
+  float: left;
+  clear: both; }
+
+#pass-strength-result {
+  visibility: hidden;
+  float: right;
+  margin-top: 15px; }
+
+#pass-strength-result.short {
+  visibility: visible;
+  background-color: #fff;
+  border-color: #fff !important;
+  color: #f04040;
+  width: 75px; }
 
 .btn-settings {
   font-size: 22px;
@@ -864,5 +894,8 @@ h4, .h4 {
 .btn-white {
   background: #fff;
   color: #666; }
+
+.icon-large {
+  font-size: 32px; }
 
 /*# sourceMappingURL=style.css.map */

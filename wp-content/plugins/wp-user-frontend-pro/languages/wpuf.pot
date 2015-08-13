@@ -194,7 +194,7 @@ msgid ""
 msgstr ""
 
 #: ../wpuf.php:256 ../class/admin-form.php:965
-msgid "Register"
+msgid "Sign Up"
 msgstr ""
 
 #: ../admin/settings-options.php:46
@@ -1497,7 +1497,7 @@ msgstr ""
 #, php-format
 msgid ""
 "Insert your public key and private key in <a href='%s'>plugin settings</a>. "
-"<a href='https://www.google.com/recaptcha/' target='_blank'>Register</a> "
+"<a href='https://www.google.com/recaptcha/' target='_blank'>Sign up</a> "
 "first if you don't have any keys."
 msgstr ""
 

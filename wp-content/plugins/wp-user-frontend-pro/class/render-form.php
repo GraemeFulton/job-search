@@ -459,9 +459,9 @@ class WPUF_Render_Form {
                 <input type="hidden" name="post_date" value="<?php echo esc_attr( $cur_post->post_date ); ?>">
                 <input type="hidden" name="comment_status" value="<?php echo esc_attr( $cur_post->comment_status ); ?>">
                 <input type="hidden" name="post_author" value="<?php echo esc_attr( $cur_post->post_author ); ?>">
-                <input type="submit" name="submit" value="<?php echo $form_settings['update_text']; ?>" />
+                <input type="submit" class="btn" name="submit" value="<?php echo $form_settings['update_text']; ?>" />
             <?php } else { ?>
-                <input type="submit" name="submit" value="<?php echo $form_settings['submit_text']; ?>" />
+                <input type="submit" class="btn" name="submit" value="<?php echo $form_settings['submit_text']; ?>" />
                 <input type="hidden" name="wpuf_form_status" value="new">
             <?php } ?>
 
@@ -1076,7 +1076,7 @@ class WPUF_Render_Form {
             ?>
 
             <div class="wpuf-fields">
-                <input id="pass2" type="password" class="password" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="pass2" value="" size="<?php echo esc_attr( $attr['size'] ) ?>" />
+                <input id="pass2" type="password" class="password" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="pass2" value="" size="<?php echo esc_attr( $attr['size'] ) ?>" placeholder ="Confirm Password" />
             </div>
 
             <?php
@@ -1091,12 +1091,12 @@ class WPUF_Render_Form {
             </div>
 
             <div class="wpuf-fields">
-                <div id="pass-strength-result"><?php _e( 'Strength indicator' ); ?></div>
+                <div id="pass-strength-result"><?php _e( 'Mismatch' ); ?></div>
                 <script src="<?php echo admin_url( 'js/password-strength-meter.js' ); ?>"></script>
                 <script src="<?php echo admin_url( 'js/user-profile.js' ); ?>"></script>
                 <script type="text/javascript">
                     var pwsL10n = {
-                        empty: "Strength indicator",
+                        empty: "Mismatch",
                         short: "Very weak",
                         bad: "Weak",
                         good: "Medium",

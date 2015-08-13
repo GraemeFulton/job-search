@@ -222,7 +222,7 @@ class WPUF_Edit_Profile {
                 <p class="submit">
                     <input type="hidden" name="action" value="update" />
                     <input type="hidden" name="user_id" id="user_id" value="<?php echo esc_attr( $user_id ); ?>" />
-                    <input type="submit" class="wpuf-submit" value="<?php _e( 'Update Profile', 'wpuf' ); ?>" name="submit" />
+                    <input type="submit" class="btn wpuf-submit" value="<?php _e( 'Update Profile', 'wpuf' ); ?>" name="submit" />
                 </p>
             </form>
         </div>

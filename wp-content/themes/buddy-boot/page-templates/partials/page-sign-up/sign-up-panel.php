@@ -5,7 +5,7 @@
 
             <div class='col-sm-4 welcome-profile'>
                 <div class="panel panel-default flex-col">
-                    <h2 class=""><i class="material-icons">trending_up</i></h2>
+                    <h2 class=""><i class="material-icons icon-large">trending_up</i></h2>
                 <h4>Get better recommendations</h4>
                 <div class='avatar-circle'>
                 <?php  echo get_avatar( '', $size = '60' );?>
@@ -23,20 +23,20 @@
 
      <div class='col-sm-4 welcome-profile'>
          <div class="panel panel-default flex-col">
-                    <h2 class=""><i class="material-icons">mood</i></h2>
+                    <h2 class=""><i class="material-icons icon-large">mood</i></h2>
              
          <h4>It's free to use</h4>         
          <p>It will be free forever to search and discover job opportunities.</p>
-                 <a href="<?php echo site_url()?>/register"><button class='btn btn-white' style="margin-bottom:20px;">Sign in with email</button></a>         
+                 <a href="<?php echo site_url()?>/register"><button class='btn btn-white' style="margin-bottom:20px;">Sign up with email</button></a>         
          <p>Or sign up using a social media account: </p>
           <!--SOCIAL MEDIA-->
              <div class="register-pg-social">
                  <a href="http://lostgrad.com/login/?loginFacebook=1&amp;redirect=http://localhost/LGWP" onclick="window.location = 'http://lostgrad.com/login/?loginFacebook=1&amp;redirect='+window.location.href; return false;">
-                 	<button class='btn btn-fb'>Sign in with facebook</button>
+                 	<button class='btn btn-fb'>Sign up with facebook</button>
                  </a>
                  <br>
                  <a href="http://lostgrad.com/login/?loginTwitter=1&amp;redirect=http://localhost/LGWP" onclick="window.location = 'http://lostgrad.com/login/?loginTwitter=1&amp;redirect='+window.location.href; return false;">
-                 	<button class='btn btn-twitter'>Sign in with twitter</button>
+                 	<button class='btn btn-twitter'>Sign up with twitter</button>
                  </a>
              </div>
          </div>
@@ -44,10 +44,12 @@
 
             <div class='col-sm-4 welcome-profile'>
                 <div class="panel panel-default flex-col">
-                    <h2 class=""><i class="material-icons">search</i></h2>
+                    <h2 class=""><i class="material-icons icon-large">search</i></h2>
                     
-                <h4>Access the search</h4>
-                <p><a href="<?php echo site_url();?>/register">Sign up</a> to use the search:</p>
+                <h4>Try the search</h4>
+                <p>Try out the search feature below, make sure you <a href="<?php echo site_url();?>/register">sign up</a> to see all results.</p>
+                <?php get_search_form(); ?>
+
                 </div>
             </div>
         </section>
