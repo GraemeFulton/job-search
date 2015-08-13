@@ -1,6 +1,3 @@
-body {
-  font-family: ubuntu !important; }
-
 .image-box {
   padding: 0px;
   overflow: hidden;
@@ -167,13 +164,9 @@ fp-slidesNav {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   -webkit-box-shadow: none;
   box-shadow: none;
-  font-family: ubuntu;
   height: 30px;
   padding-top: 7px;
   padding-right: 8px; }
-
-.select2-input.select2-default {
-  font-family: ubuntu; }
 
 /*.image-box:after {
     content:'\A';

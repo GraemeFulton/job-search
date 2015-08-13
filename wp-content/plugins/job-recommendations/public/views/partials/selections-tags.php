@@ -56,7 +56,7 @@ if(!is_user_logged_in()){
 
     
     </div>
-				<a href="<?php echo site_url().'/register'?>" class="btn-success btn-outlined btn pull-right btn-settings"><i class="fa fa-cog"></i></a> 
+				<a href="<?php echo site_url().'/register'?>" class="btn-primary btn-raised btn pull-right btn-settings"><i class="fa fa-cog"></i></a> 
         </div>
           
 	

@@ -30,6 +30,10 @@
 // Removing this fxn call will disable all kinds of plugins and Wordpress default insertions. 
 // Move it if you like, but I would keep it around.
 ?>
+<script>
+$(function() {
+    $.material.init();
+});</script>
 </head>
 
 <body 

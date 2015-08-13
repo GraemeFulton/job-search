@@ -65,17 +65,25 @@ function LG_bootstrap_scripts()  {
         wp_enqueue_script('jquery');
 
         //bootstrap js
+        wp_enqueue_script( 'LG-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js' );
 
         //RAPHAEL
         wp_enqueue_script( 'raphael', get_template_directory_uri() . '/js/raphael.min.js' );
         
         //materialize
         wp_enqueue_style( 'materialize-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons' );        
-        wp_enqueue_style( 'materialize-css', get_template_directory_uri() . '/css/materialize/css/materialize.css' );
-        wp_enqueue_script( 'materialize-js', get_template_directory_uri() . '/css/materialize/js/materialize.min.js' );
-	// get the theme directory style.css and link to it in the header
+         wp_enqueue_style( 'materialize-roboto', get_template_directory_uri() . '/css/dist/css/roboto.min.css' );
+         wp_enqueue_style( 'materialize-fullpalette', get_template_directory_uri() . '/css/dist/css/material-fullpalette.min.css' );
+         wp_enqueue_style( 'materialize-ripples', get_template_directory_uri() . '/css/dist/css/ripples.min.css' );
+
+
+        // wp_enqueue_style( 'materialize', get_template_directory_uri() . '/css/dist/css/material.min.css' );
+
+         wp_enqueue_script( 'materialize-ripples', get_template_directory_uri() . '/css/dist/js/ripples.min.js' );        
+         wp_enqueue_script( 'materialize', get_template_directory_uri() . '/css/dist/js/material.min.js' );        
+
+    // get the theme directory style.css and link to it in the header
         wp_enqueue_style( 'LG-style', get_template_directory_uri() . '/style.css', '10000', 'all' );
-        wp_enqueue_script( 'LG-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js' );
 
 }
 add_action( 'wp_enqueue_scripts', 'LG_bootstrap_scripts' ); // Register this fxn and allow Wordpress to call it automatcally in the header

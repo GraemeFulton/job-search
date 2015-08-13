@@ -26,9 +26,6 @@ and open the template in the editor.
 body {
   color: #5a5a5a; }
 
-body {
-  font-family: ubuntu !important; }
-
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
@@ -87,9 +84,6 @@ body {
   width: 100%;
   border: 1px solid #E8E8E8;
   height: 35px; }
-
-.search-criteria.container {
-  margin-top: 25px; }
 
 table.profile-fields {
   float: left;
@@ -299,7 +293,7 @@ table.profile-fields {
   background: #f4f4f4; }
 
 .sign-up-panel {
-  background: #fafafa;
+  background: #fff;
   padding: 25px;
   padding-top: 12px;
   padding-bottom: 0px; }
@@ -432,16 +426,17 @@ a {
   color: #fff; }
 
 .btn-fb {
-  background: #39559f;
+  background: #39559f !important;
   margin-bottom: 8px;
   margin-top: 8px; }
 
 .btn-twitter {
-  background: #55ACEE; }
+  background: #55ACEE !important; }
 
 .btn-fb, .btn-twitter {
   width: 250px;
-  text-align: center; }
+  text-align: center;
+  color: #fff !important; }
 
 .wpuf-help, .wpuf-label {
   display: none; }
@@ -475,11 +470,7 @@ a {
   width: 75px; }
 
 .btn-settings {
-  font-size: 22px;
-  background: #f8f8f8;
-  border-radius: 0px;
-  margin-top: -2px;
-  color: #238E7C;
+  margin-top: 0px;
   margin-right: 15px; }
 
 .selected {
