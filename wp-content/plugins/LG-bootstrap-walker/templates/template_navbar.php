@@ -1,7 +1,6 @@
       <!-- Fixed navbar -->
     <div class="navbar wide-nav navbar-inverse navbar-fixed-top mobile-menu" role="navigation">
         
-      <div class="container">
         <div class="navbar-header">
             
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -26,21 +25,6 @@
         'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
         'walker'            => new wp_bootstrap_navwalker())
     );?>
-
-<!--                  <div id="search-bar" class="desktop-search" role="search">
-                            <div id="main_search">
-                                <form class="navbar-form" role="search">
-                                    <div class="input-group">
-                                     <input type="text" class="form-control Search_Term" id='Search_Term' placeholder="Search for <?php echo $placeholder;?>" name="srch-term">
-                                        <div class="input-group-btn">
-                                        <button class="btn btn-default Search_Filter" id='Search_Filter'type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                                    </div>
-                                </div>
-                               
-                                </form> 
-                            </div>
-			</div> #search-bar -->
  
         </div><!--/.nav-collapse -->
-      </div>
     </div>

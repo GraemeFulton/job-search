@@ -6,7 +6,8 @@
 
 get_header(); // This fxn gets the header.php file and renders it ?>
 <div class="container-fluid theme-grey">
-     	<div id="primary" class="container">
+    <? include(get_stylesheet_directory().'/partials/side-nav.php');?>
+     	<div id="primary" class="col-md-9 col-xs-12">
 <!--		<div id="content" role="main" class="span12">-->
 
 			<?php if ( have_posts() ) : 
@@ -44,5 +45,6 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 
 <!--		</div> #content .site-content -->
 	</div><!-- #primary .content-area -->
-<?php get_footer(); // This fxn gets the footer.php file and renders it ?>
+        
 </div>
+<?php get_footer(); // This fxn gets the footer.php file and renders it ?>

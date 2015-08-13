@@ -896,4 +896,18 @@ h4, .h4 {
 .icon-large {
   font-size: 32px; }
 
+.menu {
+  padding-left: 0px; }
+  .menu ul {
+    padding-left: 0px; }
+    .menu ul li {
+      list-style: none;
+      padding: 20px 0 20px 50px;
+      font-size: 15px;
+      font-weight: normal;
+      cursor: pointer; }
+    .menu ul li.active {
+      background-color: #dedede;
+      position: relative; }
+
 /*# sourceMappingURL=style.css.map */

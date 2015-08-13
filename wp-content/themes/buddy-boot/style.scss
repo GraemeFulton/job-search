@@ -1114,3 +1114,24 @@ h4, .h4{
 .icon-large{
     font-size:32px;
 }
+.menu 
+{
+    padding-left:0px;
+    ul{
+       padding-left:0px;
+       
+       li {
+        list-style: none;
+        padding: 20px 0 20px 50px;
+        font-size: 15px;
+        font-weight: normal;
+        cursor: pointer;
+        }
+        li.active {
+        background-color: #dedede;
+        position: relative;
+        }
+       }
+    
+    
+}

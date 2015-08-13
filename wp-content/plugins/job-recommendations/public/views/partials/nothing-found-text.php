@@ -6,9 +6,8 @@
      	 }
         
          echo '<div style="float:left;"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span> jobs in other locations matching your preferences </p></div>'
-               .'<a href="'.get_site_url() .'/members/'. bp_core_get_username( get_current_user_id() ) . '/profile/edit" class="btn-success btn-outlined btn pull-right btn-settings"><i class="fa fa-cog"></i></a>';
+               .'<a href="'.get_site_url() .'/members/'. bp_core_get_username( get_current_user_id() ) . '/profile/edit" class="btn-primary btn-raised btn pull-right btn-settings"><i class="fa fa-cog"></i></a>';
          ?>
-        
     </div>
 
     <?php if ($paged<3){?>
