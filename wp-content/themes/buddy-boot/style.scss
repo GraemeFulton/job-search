@@ -211,6 +211,14 @@ table.profile-fields{
         padding-left:0px;
         padding-right:0px;
     }
+    .no-pad-bottom{
+        padding-bottom:0px;
+        margin-bottom: 0px;
+        p{
+         padding-bottom:0px;
+        margin-bottom: 0px;   
+        }
+    }
     .col-md-9.col-xs-12{
         padding-left:0px;
         padding-right:0px;
@@ -812,7 +820,6 @@ a{color:#50978B}
 .post.container{
     position:relative;
     border:0px;
-    border-bottom:1px solid #e7e7e7;
     margin-bottom:0px;
     h4{
         margin-top: 0px;

@@ -12,12 +12,15 @@ global $wp_query;
 <div class="container-fluid theme-grey">
  <? include(get_stylesheet_directory().'/partials/side-nav.php');?>
     <div class='no-pad box-head'>
-        <?php if ($paged==0){ 
-        	$paged=1;
-     	 }
-        
-         echo '<div style="float:left;"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span> for your search </p></div>';?>
-        
+         <?php if(!is_user_logged_in()){
+        $link = get_site_url().'/register';
+    }else{
+        $link = get_site_url() .'/members/'.bp_core_get_username( get_current_user_id() ) . '/profile/edit';
+    }
+    
+    ?>
+     <a href="<?php echo $link;?>" class="btn-primary btn-raised btn pull-right btn-settings"><i class="fa fa-cog"></i></a> 
+    
     </div>
     
     <section class="col-md-9 col-xs-12">
@@ -29,8 +32,17 @@ global $wp_query;
              </div>
 <!--		<div id="content" role="main" class="span12">-->
 		<section class="container list-container">
-
+                        
 			<?php if ( have_posts() ) : 
+                              global $wp_query;
+        if ($paged==0){ 
+        	$paged=1;
+     	 }
+        
+         echo '<div class="pagi-top container no-pad-bottom no-pad"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span> for your search</p>';?>
+               <?php include('partials/selections-tags.php') ;
+               echo '</div>';
+                
 			// Do we have any posts/pages in the databse that match our query?
 			?>
 
