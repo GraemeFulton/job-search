@@ -18,9 +18,7 @@ if($page_number==0){
 <div class="container-fluid theme-grey">
     <? include(get_stylesheet_directory().'/partials/side-nav.php');?>
     
-    <section class="col-md-9 col-xs-12">
     <?php  do_action('job_recommendation_loop')?>
-    </section>  
 </div>
 
     <?php include('partials/page-sign-up/sign-up-panel.php') ?>

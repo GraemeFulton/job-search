@@ -209,11 +209,16 @@ class Job_Recommendations{
         
         $found = $wp_query->found_posts;
         
-        
+
         if( $wp_query->found_posts > 22){
-        require_once 'views/template-job-recommendations.php';
+            $message='for your selections';	
+            require_once 'views/partials/app-bar.php';
+            require_once 'views/template-job-recommendations.php';
         }
         else{
+                $suggest_more = true;
+                $message='for your selections';
+                include('partials/app-bar.php');
         	require_once 'views/template-job-suggest-more.php';
         }
          //reset query
@@ -356,10 +361,16 @@ class Job_Recommendations{
         $found = $wp_query->found_posts;
         
         
-        if( $wp_query->found_posts > 30){
-        require_once 'views/template-job-recommendations.php';
+        if( $wp_query->found_posts > 30){      
+            
+            $message='for your selections';	
+            require_once 'views/partials/app-bar.php';
+            require_once 'views/template-job-recommendations.php';
         }
         else{
+                 $suggest_more = true;
+                $message='for your selections';
+                include('partials/app-bar.php');
         	require_once 'views/template-job-suggest-more.php';
         }
          //reset query

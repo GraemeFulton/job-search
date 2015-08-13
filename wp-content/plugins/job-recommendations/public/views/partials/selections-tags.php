@@ -50,13 +50,7 @@ if(!is_user_logged_in()){
 		                              	
 		                              	<?php 
 		                              }
-    ?>
-
-    
-				<a href="<?php echo site_url().'/register'?>" class="btn-primary btn-raised btn pull-right btn-settings"><i class="fa fa-cog"></i></a> 
-          
-	
-	
+    ?>          
 	<?php 
 	
 }
@@ -148,7 +142,5 @@ else {
                }
     ?>
     
-				<a href="<?php echo get_site_url() .'/members/'. bp_core_get_username( get_current_user_id() ) . '/profile/edit';?>" class="btn-primary btn-raised btn pull-right btn-settings"><i class="fa fa-cog"></i></a>
-
 <?php } ?>
           

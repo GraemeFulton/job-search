@@ -1,23 +1,31 @@
-     <?php 	
+<section class='col-md-9 col-xs-12'>    
+ <?php 	
      global $paged;
       
      $start_second_loop = false;
      $current_post_number=-1;
       
      //First do the primary loop to grab the first few
-     if ( $wp_query->have_posts() ) : 
-     
-     $message='for your selections';
-     include('/partials/app-bar.php');
+     if ( $wp_query->have_posts() ) :
      ?>
-
-
-    <section class="container list-container">
 
       <?php if($paged==1){
      	
-     echo '<div class="container"><h3 style="color:#999;"><i class="fa fa-thumbs-o-up"></i> We\'ve found '.$found.' jobs in your preferred location</h3></div>';
+     echo '<h3><i class="material-icons icon-large">thumb_up</i> Found '.$found.' jobs in your preferred location</h3>';
      } ?>
+
+    <section class="container list-container">
+
+    <?php 
+        global $wp_query;
+        if ($paged==0){ 
+        	$paged=1;
+     	 }
+        
+         echo '<div class="pagi-top"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span>'.$message.'</p>';?>
+               <?php include('selections-tags.php');
+               echo '</div>';
+                ?>
 
 				<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); 
 				// If we have a page to show, start a loop that will display it
@@ -43,9 +51,9 @@
 					?>
                                 </section>
         
-	<div class="container container-margin-bottom">
-		<h3 style="color:#999;"><i class="fa fa-hand-o-right"></i> Here's some related jobs elsewhere in the UK</h3>	
-	   <p style="color:#999;"><i class="fa fa-info-circle"></i> There are no more jobs in the location you selected</p>
+	<div class="container-margin-bottom">
+		<h3><i class="material-icons icon-large">thumb_up</i> Here's some related jobs elsewhere in the UK</h3>	
+	   <p><i class="fa fa-info-circle"></i> There are no more jobs in the location you selected</p>
     </div>					<?php 
 					endif;
 				?>
@@ -99,3 +107,4 @@
         
        
  <?php } ?>
+</section>

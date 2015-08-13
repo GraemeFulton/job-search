@@ -26,7 +26,7 @@ get_header(); ?>
 <?php } ?>
 	
 </div>
-<div class="row custom-tax-single col-md-8 col-sm-8">
+<div class="row custom-tax-single shadow-z-2 col-md-8 col-sm-8">
 	<div id="primary">
 <?php 
 
@@ -49,7 +49,7 @@ get_header(); ?>
 	</div>
 
 </div>
-	<div id="secondary" class="widget-area col-md-4 col-sm-4 pull-right" role="complementary">
+	<div id="secondary" class="shadow-z-1 widget-area col-md-4 col-sm-4 pull-right" role="complementary">
             
 		<?php 
 // 		echo do_shortcode('[widgets_on_pages id="Related Job Sidebar"]');

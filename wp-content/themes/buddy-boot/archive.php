@@ -18,10 +18,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 <div class="container-fluid theme-grey">
     
         <? include(get_stylesheet_directory().'/partials/side-nav.php');?>
-    
-    <section class="col-md-9 col-xs-12">
-    
-    <div class='container box-head'>
+      <div class='no-pad box-head'>
         <?php if ($paged==0){ 
         	$paged=1;
      	 }
@@ -30,9 +27,12 @@ get_header(); // This fxn gets the header.php file and renders it ?>
         
     </div>
 
+    
+    
+    <section class="col-md-9 col-xs-12">
 
 	<div class="container archive-title">
-		<h2>Jobs @ <?php  echo $term->name; ?></h2>
+		<h3>Jobs @ <?php  echo $term->name; ?></h3>
 	</div>
      	<div id="primary" class="container">
 <!--		<div id="content" role="main" class="span12">-->

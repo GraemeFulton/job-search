@@ -11,9 +11,7 @@ global $wp_query;
 
 <div class="container-fluid theme-grey">
  <? include(get_stylesheet_directory().'/partials/side-nav.php');?>
-    
-    <section class="col-md-9 col-xs-12">
-    <div class='container box-head'>
+    <div class='no-pad box-head'>
         <?php if ($paged==0){ 
         	$paged=1;
      	 }
@@ -21,6 +19,9 @@ global $wp_query;
          echo '<div style="float:left;"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span> for your search </p></div>';?>
         
     </div>
+    
+    <section class="col-md-9 col-xs-12">
+
 
      	<div id="primary" class="container">
             <div class='container'>

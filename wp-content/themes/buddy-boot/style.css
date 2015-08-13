@@ -177,9 +177,25 @@ table.profile-fields {
 .col-md-9.col-xs-12 {
   padding-left: 0px;
   padding-right: 0px; }
+  .col-md-9.col-xs-12 h3 {
+    box-sizing: border-box;
+    cursor: default;
+    font-size: 23px;
+    font-weight: 100;
+    margin: -5px 50px 20px 0px; }
+  .col-md-9.col-xs-12 .icon-large {
+    font-size: 28px; }
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
+@media (min-width: 1120px) {
+  .col-md-9.col-xs-12 {
+    max-width: 720px;
+    margin-left: 60px;
+    margin-top: 25px; }
+
+  .col-xs-0 {
+    display: block; } }
 @media (min-width: 768px) {
   /* Navbar positioning foo */
   ul.wpuf-form li .wpuf-label {
@@ -220,6 +236,9 @@ table.profile-fields {
   .featurette-heading {
     margin-top: 120px; } }
 @media (min-width: 100px) and (max-width: 771px) {
+  .col-xs-0 {
+    display: none; }
+
   .container.list-main-content {
     padding-right: 0px;
     max-width: 100%; }
@@ -307,6 +326,15 @@ table.profile-fields {
 
 .multiselect-container.dropdown-menu {
   background: #ffffff !important; }
+
+.material-box-shadow {
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.27);
+  -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.27);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.27);
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  margin-bottom: 100px; }
 
 /**SIGN UP/JOB ROLL PAGE**/
 #primary.container {
@@ -651,9 +679,25 @@ a {
 .container.list-container {
   padding-left: 0px;
   padding-right: 0px;
-  border: 1px solid #e7e7e7;
-  border-bottom: 0px;
+  border-bottom: 1px solid #e7e7e7;
   max-width: 100%; }
+  .container.list-container .post.container {
+    border-top: 1px solid #e7e7e7;
+    border-left: 1px solid #e7e7e7;
+    border-right: 1px solid #e7e7e7; }
+
+.pagi-top {
+  font-size: 13px;
+  padding-bottom: 5px; }
+  .pagi-top p {
+    float: left;
+    margin-right: 5px; }
+  .pagi-top div.selected {
+    padding: 0px;
+    font-size: 13px;
+    background: #e7e7e7; }
+  .pagi-top .page-num {
+    margin-right: 2px; }
 
 .sign-up-next-link:hover, .sign-up-next-link:active {
   text-decoration: none; }
@@ -890,10 +934,11 @@ div.selected {
 .register-pg-social {
   padding: 0px 0px 0px 0px !important; }
 
+.width-constrained {
+  max-width: 720px; }
+
 .archive-title {
-  padding-left: 0px;
-  margin-bottom: 15px;
-  color: #888; }
+  padding-left: 0px; }
 
 .container.form-inline {
   padding-left: 0px; }

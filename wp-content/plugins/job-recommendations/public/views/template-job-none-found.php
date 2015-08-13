@@ -1,3 +1,5 @@
+<section class='col-md-9 col-xs-12'>    
+
 <?php 
       
      include('partials/secondary-job-loop.php');
@@ -31,3 +33,4 @@
         
        
  <?php } ?>
+</section>
