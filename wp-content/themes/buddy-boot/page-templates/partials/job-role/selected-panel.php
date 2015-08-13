@@ -53,7 +53,7 @@
 	
                         
  ?>
-                <div class='container box-head'>
+                <div class='no-pad box-head'>
     </h3>
 <div class="selections-table-container">
 	<table class="selections-table">

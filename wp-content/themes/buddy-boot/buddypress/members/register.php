@@ -1,6 +1,7 @@
 <style>
-.title{
-display:none;}
+    h1.title{
+        display:none;
+    }
 .alternate-reg .wpuf-el, .alternate-reg li{
 list-style:none;
 }
@@ -17,8 +18,7 @@ margin-top:0px;
 padding:25px;
 }
 </style>
-
-
+    
 <div class="container post">
 <div class="register-pg-social">
      <a href="http://lostgrad.com/login/?loginFacebook=1&amp;redirect=http://localhost/LGWP" onclick="window.location = 'http://lostgrad.com/login/?loginFacebook=1&amp;redirect='+window.location.href; return false;">

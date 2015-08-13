@@ -1,5 +1,5 @@
 
-<form class="container form-inline" role="form"  action="<?php echo home_url( '/' ); ?>">
+<form class="form-inline" role="form"  action="<?php echo home_url( '/' ); ?>">
   <div class="input-field form-group has-success has-feedback">
     <label class="control-label" for="s"></label>
     <label for="s">Search</label>    

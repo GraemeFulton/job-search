@@ -1,6 +1,4 @@
-
-
-    <?php 
+<?php 
       
      include('partials/secondary-job-loop.php');
 			

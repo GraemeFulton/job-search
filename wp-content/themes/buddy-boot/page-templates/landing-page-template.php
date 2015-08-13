@@ -26,12 +26,12 @@ if(is_user_logged_in()==true){
         <div class='text-center'>
             <h1 class="animated bounceIn delay-250">Hello</h1>
             <h4 class="animated bounceIn delay-500">Already a member?</h4>
-            <a href="login" class='delay-1000 animated bounceIn btn-success btn-next btn btn-login'>Log In</a>
+            <a href="login" class='delay-1000 animated bounceIn btn-primary btn-next btn btn-login'>Log In</a>
      
         </div>
         </div>
         <div class="row text-center">
-            <div class="to-next-step"><a class="btn-success btn-next btn btn-scroll-down">Find me a job!</a></div>
+            <div class="to-next-step"><a class="btn-primary btn-next btn btn-scroll-down">Find me a job!</a></div>
         </div>
     </section> 
 
@@ -129,7 +129,7 @@ if(is_user_logged_in()==true){
                 </div>
                 </div>
           <div class="row text-center">
-            <div class="to-next-step"><a class="btn-success btn-next btn btn-scroll-down">To the next step</a></div>
+            <div class="to-next-step"><a class="btn-primary btn-next btn btn-scroll-down">To the next step</a></div>
         </div>
         </section>
    
@@ -150,7 +150,7 @@ if(is_user_logged_in()==true){
                  
             </div>
         <div class="row text-center">
-            <div class="to-next-step"><a class="btn-success btn-next btn btn-scroll-down">To the next step</a></div>
+            <div class="to-next-step"><a class="btn-primary btn-next btn btn-scroll-down">To the next step</a></div>
         </div>   
         </section>
     
@@ -171,7 +171,7 @@ if(is_user_logged_in()==true){
 
             </div>
           <div class="row text-center">
-             <input type="submit" name="submit" Value="Show me the jobs!" class='btn-success btn-next btn btn-submit'>
+             <input type="submit" name="submit" Value="Show me the jobs!" class='btn-primary btn-next btn btn-submit'>
         </div>                
         </section>
     

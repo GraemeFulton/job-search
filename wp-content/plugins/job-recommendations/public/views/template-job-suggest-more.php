@@ -7,29 +7,17 @@
      //First do the primary loop to grab the first few
      if ( $wp_query->have_posts() ) : 
      
+     $message='for your selections';
+     include('/partials/app-bar.php');
      ?>
-        <div class='container box-head'>
-        <?php 
-        global $wp_query;
-        if ($paged==0){ 
-        	$paged=1;
-     	 }
-        
-         echo '<div style="float:left;"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span> for your selections </p></div>'
-               .'<a href="'.get_site_url() .'/members/'. bp_core_get_username( get_current_user_id() ) . '/profile/edit" class="btn-success btn-outlined btn pull-right btn-settings"><i class="fa fa-cog"></i></a>';
-         ?>
-        
-    </div>
-     
-     <?php 
-     
-     if($paged==1){
+
+
+    <section class="container list-container">
+
+      <?php if($paged==1){
      	
      echo '<div class="container"><h3 style="color:#999;"><i class="fa fa-thumbs-o-up"></i> We\'ve found '.$found.' jobs in your preferred location</h3></div>';
-     }
-			// Do we have any posts/pages in the databse that match our query?
-			?>
-				<section class="container list-container">
+     } ?>
 
 				<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); 
 				// If we have a page to show, start a loop that will display it
@@ -53,6 +41,8 @@
 					// I'm the last post in the Loop
 					$start_second_loop=true;
 					?>
+                                </section>
+        
 	<div class="container container-margin-bottom">
 		<h3 style="color:#999;"><i class="fa fa-hand-o-right"></i> Here's some related jobs elsewhere in the UK</h3>	
 	   <p style="color:#999;"><i class="fa fa-info-circle"></i> There are no more jobs in the location you selected</p>
@@ -76,13 +66,14 @@
      	include('partials/secondary-job-loop.php');
 			
      }?>	
-                                </section>
 			
  <?php if (!is_user_logged_in() && $paged==1){  ?>
 
-       <div class="container no-pad pad-top">
+       <div class="col-md-9 pull-right no-pad pad-top">
+           <div class='container no-pad pad-top'>
       <?php echo get_next_posts_link( '<p><button class="btn btn-primary btn-large btn-raised">View more jobs</button></p>', $qp->max_num_pages ); // display older posts link ?>
-        </div>
+            </div>
+       </div>
 
  <?php }else{ ?>
 

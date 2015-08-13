@@ -16,6 +16,11 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 
 
 <div class="container-fluid theme-grey">
+    
+        <? include(get_stylesheet_directory().'/partials/side-nav.php');?>
+    
+    <section class="col-md-9 col-xs-12">
+    
     <div class='container box-head'>
         <?php if ($paged==0){ 
         	$paged=1;
@@ -88,5 +93,6 @@ get_header(); // This fxn gets the header.php file and renders it ?>
         
        
  <?php } ?>
-<?php get_footer(); // This fxn gets the footer.php file and renders it ?>
+    </section>
 </div>
+    <?php get_footer(); // This fxn gets the footer.php file and renders it ?>

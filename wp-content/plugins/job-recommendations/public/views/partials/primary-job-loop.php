@@ -14,7 +14,4 @@
                                                         $popup->template_response('post_loop');
 							?>
                                                     
-							
-<!--						 <div class='pull-right go-to-page'><i class="fa fa-chevron-right go-to-page-arrow"></i></div>-->
-
 					</div>

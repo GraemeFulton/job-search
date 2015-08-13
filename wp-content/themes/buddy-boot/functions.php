@@ -145,5 +145,33 @@ function myplugin_registration_save(  $user_id, $userdata, $form_id, $form_setti
     }
 
 }
+    function check_active_link($link){
+        //if job page
+         if(strpos($link,'job') !== false){
+             if(strpos($_SERVER['REQUEST_URI'],'company')||strpos($_SERVER['REQUEST_URI'],'job-roll') ){
+             
+                 return $active = 'active';    
+             }  
+             elseif(strpos($_SERVER['REQUEST_URI'],'sign-up')){
+                 return $active = 'active';    
+             }
+         }
+         //if profile page
+         if(strpos($link,'members') !== false){
+             if(strpos($_SERVER['REQUEST_URI'],'profile')||strpos($_SERVER['REQUEST_URI'],'members') ){
+                return $active = 'active';    
+             }     
+             
+         }
+          //if profile page
+         if(strpos($link,'register') !== false){
+             if(strpos($_SERVER['REQUEST_URI'],'register') ){
+                return $active = 'active';    
+             }     
+             
+         }
+         else
+         return $active = '';   
+    }
 
 ?>

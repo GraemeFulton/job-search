@@ -6,6 +6,7 @@
 //clear the location
 //location
 unset($args['tax_query'][1]);
+//message used in app-bar.php
 
 $wp_query->query($args);
 
@@ -13,7 +14,9 @@ if ( $wp_query->have_posts() ) :
 // Do we have any posts/pages in the databse that match our query?
 
 if($current_post_number ==-1){
-	include('nothing-found-text.php');
+        $nothing_found = true;
+        $message = 'jobs in other locations matching your preferences';
+	include('app-bar.php');
 }
 ?>
 			
@@ -28,7 +31,9 @@ if($current_post_number ==-1){
 				<?php endwhile; // OK, let's stop the page loop once we've displayed it ?>
 
 			<?php else : // Well, if there are no posts to display and loop through, let's apologize to the reader (also your 404 error) 
-			include('nothing-found-text.php');
+			$nothing_found = true;
+                        $message = 'jobs in other locations matching your preferences';
+                        include('app-bar.php');
 			
 			endif; // OK, I think that takes care of both scenarios (having a page or not having a page to show)
                     
