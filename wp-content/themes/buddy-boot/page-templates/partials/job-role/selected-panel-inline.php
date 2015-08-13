@@ -56,9 +56,6 @@
                 <div>
     </h3>
 <div class="selections-table-container selections-table-inline">
-	<table class="selections-table">
-		<tr>
-		<td>
 		            <?php 
 		    
 		               foreach ($subjects as $subject){
@@ -72,9 +69,7 @@
 		
 		               }
 		               
-		               ?>	
-		</td>		
-		<td>	
+		               ?>		
                <?php 
 
 
@@ -91,10 +86,7 @@
 
                }
     ?>
-    </td>
-    </tr>
-    </table>
-    
+ 
     </div>
 				<a href="<?php echo get_site_url() .'/members/'. bp_core_get_username( get_current_user_id() ) . '/profile/edit';?>" class="btn-success btn-outlined btn pull-right btn-settings"><i class="fa fa-cog"></i></a> 
         </div>

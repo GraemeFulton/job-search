@@ -254,7 +254,7 @@ table.profile-fields {
   .required {
     display: none; }
 
-  .selections-table {
+  .selections-table-container {
     display: none; }
 
   .additional_content {

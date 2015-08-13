@@ -5,9 +5,7 @@ if(!is_user_logged_in()){
 	
                 <div class='container'>
 <div class="selections-table-container selections-table-inline">
-	<table class="selections-table">
-		<tr>
-		<td>
+	
 		            <?php 
 		            if(isset($_GET['Profession'])) {
 		            	foreach ($_GET["Profession"] as $selected_profession) {
@@ -30,8 +28,7 @@ if(!is_user_logged_in()){
 		                              }
 		               
 		               ?>	
-		</td>		
-		<td>	
+
                <?php 
 
 
@@ -56,9 +53,7 @@ if(!is_user_logged_in()){
 		                              	<?php 
 		                              }
     ?>
-    </td>
-    </tr>
-    </table>
+
     
     </div>
 				<a href="<?php echo site_url().'/register'?>" class="btn-success btn-outlined btn pull-right btn-settings"><i class="fa fa-cog"></i></a> 
@@ -128,9 +123,6 @@ else {
                 <div>
     </h3>
 <div class="selections-table-container selections-table-inline">
-	<table class="selections-table">
-		<tr>
-		<td>
 		            <?php 
 		    
 		               foreach ($subjects as $subject){
@@ -145,8 +137,6 @@ else {
 		               }
 		               
 		               ?>	
-		</td>		
-		<td>	
                <?php 
 
 
@@ -163,9 +153,6 @@ else {
 
                }
     ?>
-    </td>
-    </tr>
-    </table>
     
     </div>
 				<a href="<?php echo get_site_url() .'/members/'. bp_core_get_username( get_current_user_id() ) . '/profile/edit';?>" class="btn-success btn-outlined btn pull-right btn-settings"><i class="fa fa-cog"></i></a> 
