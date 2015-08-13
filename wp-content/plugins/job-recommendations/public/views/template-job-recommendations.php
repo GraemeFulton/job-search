@@ -39,9 +39,10 @@
                                  </section>
 
  <?php if (!is_user_logged_in() && $paged==1){  ?>
-
-      <?php echo get_next_posts_link( '<p class="sign-up-next-link"><div class="container text-center sign-up-next"><h4>Show me more!</h4></div></p>', $qp->max_num_pages ); // display older posts link ?>
-
+    
+        <div class="container no-pad pad-top">
+      <?php echo get_next_posts_link( '<p><div class="waves-effect waves-light btn-large">View more jobs</div></p>', $qp->max_num_pages ); // display older posts link ?>
+        </div>
 
  <?php }else{ ?>
  

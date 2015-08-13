@@ -58,33 +58,25 @@ function LG_bootstrap_scripts()  {
 
         
         //bootstrap css
-       // wp_enqueue_style( 'LG-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
         wp_enqueue_style( 'LG-bootstrap',  get_template_directory_uri() . '/css/bootstrap.min.css' );
         
         //fontawesome
         wp_enqueue_style( 'LG-fontawesome', get_template_directory_uri() . '/css/font-awesome/css/font-awesome.min.css' );
-
-        
-	// get the theme directory style.css and link to it in the header
-		wp_enqueue_style( 'LG-style', get_template_directory_uri() . '/style.css', '10000', 'all' );
         wp_enqueue_script('jquery');
 
         //bootstrap js
-        wp_enqueue_script( 'LG-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js' );
 
         //RAPHAEL
         wp_enqueue_script( 'raphael', get_template_directory_uri() . '/js/raphael.min.js' );
-
         
-        //bootstrap multi-select
-        wp_enqueue_style( 'multi-select',  get_template_directory_uri() . '/libs/bootstrap-multiselect/css/bootstrap-multiselect.css' );
-        wp_enqueue_script( 'mult-select-js', get_template_directory_uri() . '/libs/bootstrap-multiselect/js/bootstrap-multiselect.js' );
-        //select2
-        wp_enqueue_style( 'select2-css',  get_template_directory_uri() . '/libs/select2/select2.css' );
-        wp_enqueue_style( 'select2-bootstrap-css',  get_template_directory_uri() . '/libs/select2/select2bootstrap.css' );
-        wp_enqueue_script( 'select2-js', get_template_directory_uri() . '/libs/select2/select2.min.js' );
+        //materialize
+        wp_enqueue_style( 'materialize-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons' );        
+        wp_enqueue_style( 'materialize-css', get_template_directory_uri() . '/css/materialize/css/materialize.css' );
+        wp_enqueue_script( 'materialize-js', get_template_directory_uri() . '/css/materialize/js/materialize.min.js' );
+	// get the theme directory style.css and link to it in the header
+        wp_enqueue_style( 'LG-style', get_template_directory_uri() . '/style.css', '10000', 'all' );
+        wp_enqueue_script( 'LG-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js' );
 
-  
 }
 add_action( 'wp_enqueue_scripts', 'LG_bootstrap_scripts' ); // Register this fxn and allow Wordpress to call it automatcally in the header
 
