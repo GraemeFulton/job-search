@@ -13,7 +13,7 @@ $(document).ready(function(){
     if(!$item.parents('.menu-group').hasClass('active')){
 
       $('.menu li.active').removeClass('active');
-      $(this).addClass('active');      
+      $(this).addClass('active');
       swapsies($item.parents('.menu-group'), $('.menu-group.active'))
       $item.parents('.menu-group').addClass('active');
       $item.parents('.menu-group').find('li').first().addClass('active')
@@ -41,7 +41,7 @@ function swapsies(menugroup, replacegroup){
 
     var clickedDiv = menugroup,
         prevDiv = replacegroup,
-        distance = replacegroup.outerHeight();
+        distance = $(menugroup).offset().top - $('.menu').offset().top;
 
     if (prevDiv.length) {
         animating = true;
