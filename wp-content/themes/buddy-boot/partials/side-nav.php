@@ -22,7 +22,7 @@
         $parent_id = $item->ID;
     ?>
 
-    <div class="menu-group">
+    <div class="menu-group <?php echo $active;?>">
     <a href="<?php echo $link; ?>" class="title">
 
     <li class="withripple <?php echo $active;?>">
@@ -38,7 +38,8 @@
             <ul class="sub-menu">
             <?php endif; ?>
             <a href="<?php echo $link; ?>" class="title">
-                <li class="withripple">
+              <? $active=check_active_link($link); ?>
+                <li class="withripple <?php echo $active;?>">
                   <?php echo $title; ?>
                     <div class="ripple-wrapper"></div>
                 </li>

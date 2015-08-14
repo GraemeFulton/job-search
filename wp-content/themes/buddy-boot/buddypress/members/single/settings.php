@@ -8,16 +8,8 @@
  */
 
 ?>
-<div class="container">
-<div class="item-list-tabs no-ajax" id="subnav" role="navigation">
-	<ul>
-		<?php if ( bp_core_can_edit_settings() ) : ?>
+<div class="container no-pad card">
 
-			<?php bp_get_options_nav(); ?>
-
-		<?php endif; ?>
-	</ul>
-</div>
 <?php
 
 switch ( bp_current_action() ) :

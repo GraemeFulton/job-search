@@ -519,7 +519,7 @@ a {
   width: 75px; }
 
 .btn-settings {
-  margin-top: 0px;
+  margin-top: 7px;
   margin-right: 15px; }
 
 .pager li > a, .pager li > span {
@@ -532,20 +532,6 @@ a {
 .selected {
   color: #44a897;
   margin-bottom: 6px; }
-
-.box-head {
-  color: #919191;
-  margin-bottom: 20px;
-  max-width: 100%;
-  padding-top: 8px !important;
-  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
-  background: #fff;
-  height: 48px;
-  position: relative;
-  top: 0; }
-  .box-head h4 {
-    float: left; }
 
 .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open .dropdown-toggle.btn-success {
   color: #fff;
@@ -578,13 +564,55 @@ a {
   border: 1px solid #eaeaea;
   font-weight: 100; }
 
-.box-head .selected {
-  background: #f8f8f8;
-  color: #666;
-  padding: 5px;
-  font-size: 11px;
-  margin-right: 2px;
-  border: 1px solid #eaeaea; }
+.menu a {
+  text-decoration: none; }
+
+.menu li:hover {
+  background-color: #e5e5e5;
+  background-color: rgba(0, 0, 0, 0.05); }
+
+.box-head {
+  margin-bottom: 20px;
+  max-width: 100%;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+  background: #fff;
+  height: 48px;
+  position: relative;
+  top: 0; }
+  .box-head .current {
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    color: #4caf50;
+    font-weight: 500; }
+  .box-head h4 {
+    float: left; }
+  .box-head li:hover {
+    background-color: #e5e5e5;
+    background-color: rgba(0, 0, 0, 0.05); }
+    .box-head li:hover a {
+      text-decoration: none; }
+  .box-head li {
+    -webkit-font-smoothing: antialiased;
+    color: #737373;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    height: 48px;
+    line-height: 48px;
+    text-decoration: none;
+    vertical-align: top; }
+    .box-head li a {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      color: #737373;
+      display: block;
+      font-weight: 400;
+      height: 100%;
+      padding: 0 14px;
+      text-align: left;
+      width: 100%; }
 
 .wp-pagenavi a, .wp-pagenavi span {
   text-decoration: none;
@@ -763,14 +791,6 @@ div.selected {
 
 .fp-controlArrow {
   display: none; }
-
-.box-head p {
-  padding: 0;
-  margin-top: 3px;
-  margin-right: 2px;
-  font-size: 13px;
-  padding: 2px;
-  margin-bottom: 0px; }
 
 .header-container {
   padding-left: 15px;
@@ -977,8 +997,12 @@ h4, .h4 {
       font-weight: normal;
       cursor: pointer; }
     .menu ul li.active {
-      background-color: #dedede;
+      background-color: #689f38;
+      color: #f8f8f8;
       position: relative; }
+    .menu ul .sub-menu li.active {
+      background-color: #dedede;
+      color: inherit; }
 
 .width-100 {
   width: 100%; }
