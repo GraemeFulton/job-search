@@ -45,7 +45,7 @@ class Job_Recommendations{
 
 	protected $subjects;
 	protected $locations;
-	
+
 	/**
 	 * Initialize the plugin by setting localization and loading public scripts
 	 * and styles.
@@ -60,16 +60,16 @@ class Job_Recommendations{
 		// Load public-facing style sheet and JavaScript.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-                
+
 		//custom action
 		add_action('job_recommendation_loop', array($this,'recommend_jobs'));
 		add_action('profile_job_recommendation_loop', array($this,'profile_recommend_jobs'));
 		add_action('job_search_results_loop', array($this, 'search_results_loop'));
 		add_action('archive_job_loop', array($this, 'archive_loop'));
-		
+
 		//user profile fields
 		add_action('bp_init', array($this,'create_profile_field_group'));
-                
+
 	}
 
 	/**
@@ -131,38 +131,38 @@ class Job_Recommendations{
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-            
+
                 wp_enqueue_script('job_recommendations', plugins_url('/assets/js/public.js', __FILE__), array('jquery'), '1.0', true );
-                
+
                 //localize the script
                 wp_localize_script('job_recommendations', 'ajax_var', array(
                     'url' => admin_url('admin-ajax.php'),
                     'nonce' => wp_create_nonce('ajax-nonce')
                 ));
-                 
+
 	}
-	
+
 	/**
 	 * include template file for search results
 	 */
 	public function search_results_loop(){
-		include('views/partials/primary-job-loop.php');	
+		include('views/partials/primary-job-loop.php');
 	}
-	
+
 	public function archive_loop(){
 		include('views/partials/primary-job-loop.php');
-		
+
 	}
-        
-        
+
+
      public function recommend_jobs(){
-            
+
      	global $paged, $wp_query;
-     	
+
         //WP_QUERY
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-        
+
         $args= array
        (
            'post_type'=>'graduate-job',
@@ -172,10 +172,10 @@ class Job_Recommendations{
 
         //add '-jobs' suffix to professions so query by slug works
         if(isset($_GET['Profession'])){
-            
+
            // $_COOKIE['profession']= $_GET['Profession'];
 		//	setcookie("profession", $_GET['Profession'], time()+3600 , '/' );
-        	
+
          array_walk($_GET['Profession'], function(&$value, $key) {  $value =$this->create_slug($value); });
         //profession
          $args['tax_query'][0]['terms']=$_GET['Profession'];
@@ -190,28 +190,28 @@ class Job_Recommendations{
          //location
          $args['tax_query'][1]['terms']=$_GET['Location'];
          $args['tax_query'][1]['taxonomy']='location';
-         $args['tax_query'][1]['field']='slug';  
+         $args['tax_query'][1]['field']='slug';
         }
         //clear tax args if both none set
         $args = $this->clear_tax_args($args);
-        
+
         //show 4 results on first page
         if(!is_user_logged_in() && $paged==1){
         	$args['posts_per_page']=4;
         }
         //otherwise show 6
         else $args['posts_per_page']=6;
-         	        
+
         $temp = $wp_query;
         $wp_query = null;
         $wp_query = new WP_Query();
         $wp_query->query($args);
-        
+
         $found = $wp_query->found_posts;
-        
+
 
         if( $wp_query->found_posts > 22){
-            $message='for your selections';	
+            $message='for your selections';
             require_once 'views/partials/app-bar.php';
             require_once 'views/template-job-recommendations.php';
         }
@@ -222,23 +222,23 @@ class Job_Recommendations{
         	require_once 'views/template-job-suggest-more.php';
         }
          //reset query
-         $wp_query = null; 
+         $wp_query = null;
   		 $wp_query = $temp;  // Reset
-                  
+
      }
-     
+
      /**
       * set_profile_preferences
       */
      private function set_profile_preferences(){
-     	
+
      	$user_ID = get_current_user_id();
-     	
+
      	$parent_id= xprofile_get_field_id_from_name('Profession');
      	global $bp;
      	global $wpdb;
-     	
-     	
+
+
      	$args = array(
      			'taxonomy'      => 'profession',
      			'parent'        => 0, // get top level categories
@@ -247,16 +247,16 @@ class Job_Recommendations{
      			'hierarchical'  => 1,
      			'pad_counts'    => 0
      	);
-     	
+
      	$categories = get_categories( $args );
-     	
+
      	$subjects=array();
      	foreach ( $categories as $category ){
      		array_push($subjects, xprofile_get_field_data($category->name, $user_ID));
      	}
-     	
+
      	$this->subjects = $subjects;
-     	
+
      	$args = array(
      			'taxonomy'      => 'location',
      			'child_of'        => 292, // make sure they're a child of united kingdon
@@ -265,13 +265,13 @@ class Job_Recommendations{
      			'hierarchical'  => 1,
      			'pad_counts'    => 0
      	);
-     		
-     		
-     	
+
+
+
      	$categories = get_categories( $args );
      	$locations = array();
      	foreach ( $categories as $category ){
-     		 
+
      		$sub_args = array(
      				'taxonomy'      => 'location',
      				'parent'        => $category->term_id, // get child categories
@@ -281,23 +281,23 @@ class Job_Recommendations{
      		);
      		$sub_categories = get_categories( $sub_args );
      		array_push($locations, xprofile_get_field_data($category->name, $user_ID));
-     	
+
      	}
      	$this->locations = $locations;
-     	
+
      }
-     
+
      /**
       * Recommend jobs within user profile
       */
      public function profile_recommend_jobs(){
      	global $paged, $wp_query;
-     	
+
      	$this->set_profile_preferences();
-         
+
         //WP_QUERY
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-        
+
         $args= array
        (
            'post_type'=>'graduate-job',
@@ -307,34 +307,34 @@ class Job_Recommendations{
 
         //add '-jobs' suffix to professions so query by slug works
         if(isset($this->subjects)){
-        	
+
         	$professions_arr = array();
         	foreach ($this->subjects as $subject){
         		foreach($subject as $s){
         			array_push($professions_arr, $this->create_search_param($s, 'profession'));
-        			
+
         		}
-        		
-        			
+
+
         }
-		
+
         //profession
          $args['tax_query'][0]['terms']=$professions_arr;
          $args['tax_query'][0]['taxonomy']='profession';
          $args['tax_query'][0]['field']='slug';
         }
-        
+
         $locations_arr = array();
-        
+
         if(isset($this->locations)){
-        	
+
         	foreach ($this->locations as $location){
         		foreach($location as $l){
         			array_push($locations_arr, $this->create_search_param($l, 'location'));
-        			 
+
         		}
         	}
-        
+
         }
         if(count($locations_arr)>0){
         //location
@@ -342,28 +342,28 @@ class Job_Recommendations{
         $args['tax_query'][1]['taxonomy']='location';
         $args['tax_query'][1]['field']='slug';
         }
-        
+
         //clear tax args if both none set
        $args = $this->clear_tax_args($args);
-        
+
           //show 4 results on first page
         if( $paged==1){
         	$args['posts_per_page']=4;
         }
         //otherwise show 6
         else $args['posts_per_page']=6;
-         	        
+
         $temp = $wp_query;
         $wp_query = null;
         $wp_query = new WP_Query();
         $wp_query->query($args);
-        
+
         $found = $wp_query->found_posts;
-        
-        
-        if( $wp_query->found_posts > 30){      
-            
-            $message='for your selections';	
+
+
+        if( $wp_query->found_posts > 30){
+
+            $message='for your selections';
             require_once 'views/partials/app-bar.php';
             require_once 'views/template-job-recommendations.php';
         }
@@ -374,26 +374,26 @@ class Job_Recommendations{
         	require_once 'views/template-job-suggest-more.php';
         }
          //reset query
-         $wp_query = null; 
+         $wp_query = null;
   		 $wp_query = $temp;  // Reset
-         
-         
+
+
      }
-    
-     
+
+
     /**
      * Create slug
      * @param unknown $value
      */
     private function create_slug($value){
-    
-     $term = get_term_by( 'name',$value, 'profession' ); 
-     
+
+     $term = get_term_by( 'name',$value, 'profession' );
+
      $slug = $term->slug;
-    	
+
    	return $slug;
 	}
-	
+
 	/**
 	 * Create search param
 	 * @param unknown $s
@@ -401,15 +401,15 @@ class Job_Recommendations{
 	 * @return string
 	 */
 	private function create_search_param($s, $type){
-	
+
 			$term = get_term_by( 'name',$s, $type );
-			 
+
 			$slug = $term->slug;
-			
-			return $slug;		
-	
+
+			return $slug;
+
 	}
-	
+
 	/**
 	 * clear tax args
 	 */
@@ -418,10 +418,10 @@ class Job_Recommendations{
 			unset($args['tax_query']);
 		}
 		return $args;
-	
+
 	}
-        
-  
- 
+
+
+
 
 }

@@ -39,6 +39,8 @@ if ( ! defined( 'WPINC' ) ) {
  */
 require_once( plugin_dir_path( __FILE__ ) . 'public/class-job-recommendations.php' );
 
+define( 'JOB_RECOMMENDATIONS', plugin_dir_path( __FILE__ ) );
+
 /*
  *Instantiate the Vlearn Google news
  */

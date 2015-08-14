@@ -187,35 +187,27 @@ fp-slidesNav {
   h2.margin-b {
     margin-bottom: 20px;
     margin-top: 35px; }
-
   #fullpage {
     margin-top: -20px; }
-
   .box-image {
     height: 55px !important; }
-
   .image-box {
     height: 85px !important; }
-
   #selection, .spacey {
     display: none; }
-
   #section3 {
     padding-top: 5px !important; }
-
   #map {
     margin-top: 5px;
     margin-bottom: -15px; }
-
   .tag-selected {
     font-size: 10px; }
-
   .btn-next {
     font-size: 12px; }
-
   .image-box p {
     font-size: 12px;
     padding-top: 5px; } }
+
 div#slide1 {
   padding-left: 50px;
   padding-right: 50px; }
@@ -228,39 +220,37 @@ div#slide1 {
   /* Styles */
   .box-image {
     cursor: pointer; }
-
   #selection, .spacey {
     display: none; }
-
   svg {
     height: 35% !important; } }
+
 /* iPhone 4 ----------- */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
   /* Styles */
   #selection, .spacey {
     display: none; } }
+
 /**small laptop screen**/
 @media only screen and (min-width: 800px) and (max-width: 1280px) {
   /* Styles */
   #selection, .spacey {
     display: inline-block; }
-
   #selection {
     display: inline-block;
     position: absolute;
     left: -5%;
     top: 15%; }
-
   svg {
     height: 26% !important;
     margin-top: 20px; }
-
   #section3 .fp-section.active .text-center {
     margin-top: -20px; }
   #section3 h1, #section3 .h1, #section3 h2, #section3 .h2, #section3 h3, #section3 .h3 {
     margin-top: 0px; }
   #section3 .container {
     margin-bottom: -20px; } }
+
 .fp-section {
   overflow-x: hidden; }
 
@@ -272,41 +262,35 @@ div#slide1 {
   /* Styles */
   .box-image {
     cursor: pointer; }
-
   .section {
     padding-top: 20px; }
-
   #selection, .spacey {
     display: inline-block; }
-
   #selection {
     display: inline-block;
     position: absolute;
     left: 5%;
     top: 18%; }
-
   svg {
     height: 35% !important; } }
+
 /**Between Laptop and Tablet**/
 @media only screen and (min-width: 1024px) and (max-width: 1224px) {
   /* Styles */
   .box-image {
     cursor: pointer; }
-
   .section {
     padding-top: 20px; }
-
   #selection, .spacey {
     display: inline-block; }
-
   #selection {
     display: inline-block;
     position: absolute;
     left: -12%;
     top: 20%; }
-
   svg {
     height: 30% !important; } }
+
 #pagi-menu li {
   display: inline-block;
   margin: 10px;
@@ -357,5 +341,3 @@ div#slide1 {
   background-image: none;
   color: #666 !important;
   border: none; }
-
-/*# sourceMappingURL=landing-page.css.map */

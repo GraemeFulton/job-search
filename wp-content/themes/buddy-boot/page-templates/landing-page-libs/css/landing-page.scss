@@ -6,18 +6,18 @@
         	margin-top:-10px;
         	padding-bottom:10px;
         }
-    }    
+    }
     .to-next-step{
         padding:20px;
     }
     .box-container:hover{
     background:#9ED4C9;
             cursor: pointer;
-    
+
     }
     .box-active{
      background:#9ED4C9!important;
-       
+
     }
     .animated{
         visibility:hidden;
@@ -45,21 +45,21 @@ fp-slidesNav{display:none}
         display: inline-block;
         border:1px solid #eaeaea;
         padding:3px;
-        margin-right:5px;   
+        margin-right:5px;
     }
     .spacey{
         height:30px;
     }
     .interest-row{
-        background: #fff; 
+        background: #fff;
         color:#666;
     }
-    
+
     .map-selector{
         width:600px; max-width: 100%;
 		margin-top:10px;
     }
-    
+
     .welcome-row{
         background:#52c1ae;
         color:#fff;
@@ -81,7 +81,7 @@ fp-slidesNav{display:none}
     }
     .image-box{
     height:110px;}
-    
+
     .check{
         position:absolute;right:12px
     }
@@ -89,11 +89,11 @@ fp-slidesNav{display:none}
         height: 20px;
         color:#52c1ae;
     }
-    
+
     .next-action{
         padding:20px;
     }
-    
+
     .navbar{
         .menu-item{
             display:none;
@@ -101,14 +101,14 @@ fp-slidesNav{display:none}
     }
             #wp-toolbar{display:none;}
 
-    
-    
+
+
 #map{
     overflow:hidden;
     margin:-20px auto -35px auto;
     position: relative!important; width:auto!important; height:auto!important; overflow: hidden; left: auto!important; top: auto!important;
 }
-    
+
 .btn{border-radius: 0px;}
 .btn-custom {
   background-color: hsl(0, 0%, 38%) !important;
@@ -144,7 +144,7 @@ fp-slidesNav{display:none}
 .btn-next:hover, .btn-next:focus, .btn-next:active, .btn-next.active, .open .dropdown-toggle.btn-next{
     background-color:#44A897;
     border-color: #44A897;
-    
+
 }
 
 .select2-container{width:100%;}
@@ -162,7 +162,7 @@ border-color: #52c1ae;
     background-color: #9ED4C9;
     border:1px solid #ccc;
     padding:3px;
-    margin-right:5px;    
+    margin-right:5px;
 }
 
 .select2-container-multi .select2-choices .select2-search-choice {
@@ -192,8 +192,8 @@ padding-right: 8px;
 }*/
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen 
-and (min-width : 320px) 
+@media only screen
+and (min-width : 320px)
 and (max-width : 480px) {
 /* Styles */
 h2.margin-b{
@@ -209,8 +209,8 @@ h2.margin-b{
     }
       .image-box{
         height:85px!important;
-    }    
-       
+    }
+
    #selection, .spacey{display:none}
    #section3{
        padding-top:5px!important;
@@ -234,7 +234,7 @@ h2.margin-b{
 div#slide1{
 	padding-left:50px;
 	padding-right:50px;
-	
+
 }
 #section3{
     padding-top:16px;
@@ -242,10 +242,10 @@ div#slide1{
 }
 
 /* iPads (portrait and landscape) ----------- */
-@media only screen 
-and (min-width : 768px) 
+@media only screen
+and (min-width : 768px)
 and (max-width : 1024px) {
-	
+
 /* Styles */
     .box-image{
         cursor: pointer;
@@ -265,7 +265,7 @@ only screen and (min-device-pixel-ratio : 1.5) {
 }
 
 /**small laptop screen**/
-@media only screen 
+@media only screen
 and (min-width : 800px) and (max-width:1280px) {
 /* Styles */
 
@@ -279,16 +279,16 @@ and (min-width : 800px) and (max-width:1280px) {
     svg { height: 26%!important;
     margin-top:20px
     }
-    
+
     #section3{
-	
+
 	.fp-section.active{
-	
+
 	.text-center{
 		margin-top:-20px;
 	}
 }
-	
+
 	h1, .h1, h2, .h2, h3, .h3 {
     margin-top: 0px;
 	}
@@ -305,7 +305,7 @@ div#slide1{
 }
 
 /* Desktops and laptops ----------- */
-@media only screen 
+@media only screen
 and (min-width : 1281px) {
 /* Styles */
     .box-image{
@@ -330,8 +330,8 @@ and (min-width : 1281px) {
 
 
 /**Between Laptop and Tablet**/
-@media only screen 
-and (min-width : 1024px) 
+@media only screen
+and (min-width : 1024px)
 and (max-width : 1224px){
 /* Styles */
     .box-image{
@@ -347,11 +347,11 @@ and (max-width : 1224px){
         left: -12%;
         top: 20%;
      }
-    svg { height: 30%!important;} 
+    svg { height: 30%!important;}
 
 
 }
-    
+
 #pagi-menu li {
 	display:inline-block;
 	margin: 10px;
@@ -395,10 +395,10 @@ and (max-width : 1224px){
 	margin:0;
 }
 .navbar .container{
-    width:100%!Important
+    width:100%!important
 }
 .btn-scroll-left, .btn-scroll-right{
-	
+
 	background:#eaeaea!important;
 	background-image:none;
 	color:#666!important;

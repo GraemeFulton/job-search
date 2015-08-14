@@ -1,5 +1,5 @@
 <?php do_action( 'bp_before_profile_loop_content' ); ?>
-            
+
 <?php if ( bp_has_profile() ) : ?>
 
 	<?php while ( bp_profile_groups() ) : bp_the_profile_group(); ?>
@@ -8,7 +8,7 @@
 
 			<?php do_action( 'bp_before_profile_field_content' ); ?>
 
-			<div class="bp-widget container <?php bp_the_profile_group_slug(); ?>">
+			<div class="bp-widget width-100 <?php bp_the_profile_group_slug(); ?>">
 				<div class="bp-table-module">
 				<h4><?php bp_the_profile_group_name(); ?></h4>
 

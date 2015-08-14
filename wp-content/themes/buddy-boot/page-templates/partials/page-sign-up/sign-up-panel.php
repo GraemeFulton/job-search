@@ -1,9 +1,10 @@
-    <div class='container-fluid sign-up-panel'>
+    <div class='container-fluid sign-up-panel row-flex row-flex-wrap'>
         <div class='container no-pad'> <h3 style='margin-top:10px; color:#999'>Get free full access now</h3></div>
 
         <section class='search-criteria container'>
 
             <div class='col-md-4 col-xs-12'>
+                <div class="panel panel-default flex-col">
                     <h2 class=""><i class="material-icons icon-large">trending_up</i></h2>
                 <h4>Get better recommendations</h4>
                 <div class='avatar-circle'>
@@ -16,15 +17,17 @@
                            Refine your preferences
                         </a>
                </div>
+             </div>
             </div>
 
 
      <div class='col-md-4 col-xs-12'>
-                    <h2 class=""><i class="material-icons icon-large">mood</i></h2>
-             
-         <h4>It's free to use</h4>         
+         <div class="panel panel-default flex-col">
+            <h2 class=""><i class="material-icons icon-large">mood</i></h2>
+
+         <h4>It's free to use</h4>
          <p>It's free forever to search and discover job opportunities.</p>
-                 <a href="<?php echo site_url()?>/register"><button class='btn btn-raised' style="margin-bottom:20px;">Sign up with email</button></a>         
+                 <a href="<?php echo site_url()?>/register"><button class='btn btn-raised' style="margin-bottom:20px;">Sign up with email</button></a>
          <p>Or sign up using a social media account: </p>
           <!--SOCIAL MEDIA-->
              <div class="register-pg-social">
@@ -36,19 +39,22 @@
                  	<button class='btn btn-raised btn-twitter'>Sign up with twitter</button>
                  </a>
              </div>
+           </div>
       </div>
 
             <div class='col-md-4 col-xs-12'>
+                <div class="panel panel-default flex-col">
                     <h2 class=""><i class="material-icons icon-large">search</i></h2>
-                    
+
                 <h4>Try the search</h4>
-                <p>The search feature lets you use key word searches to discover jobs from all over the UK based.</p>
+                <p>Use key word searches to discover jobs from all over the UK.</p>
                 <br>
                     <?php get_search_form(); ?>
                 <br>
                 <p>Members can see full sets of results from their searches, so <a href="<?php echo site_url();?>/register">sign up</a> now.</p>
 
             </div>
+          </div>
         </section>
 
     </div>

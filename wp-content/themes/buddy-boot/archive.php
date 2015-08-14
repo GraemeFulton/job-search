@@ -16,22 +16,13 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 
 
 <div class="container-fluid theme-grey">
-    
-        <? include(get_stylesheet_directory().'/partials/side-nav.php');?>
-      <div class='no-pad box-head'>
-   <?php if(!is_user_logged_in()){
-        $link = get_site_url().'/register';
-    }else{
-        $link = get_site_url() .'/members/'.bp_core_get_username( get_current_user_id() ) . '/profile/edit';
-    }
-    
-    ?>
-     <a href="<?php echo $link;?>" class="btn-primary btn-raised btn pull-right btn-settings"><i class="fa fa-cog"></i></a> 
-    
-    </div>
 
-    
-    
+        <?php include(get_stylesheet_directory().'/partials/side-nav.php');?>
+
+        <?php require(JOB_RECOMMENDATIONS.'/public/views/partials/app-bar.php'); ?>
+
+
+
     <section class="col-md-9 col-xs-12">
 
 	<div class="archive-title">
@@ -40,32 +31,32 @@ get_header(); // This fxn gets the header.php file and renders it ?>
      	<div id="primary" class="">
 <!--		<div id="content" role="main" class="span12">-->
 		<section class="container list-container">
- <?php 
+ <?php
         global $wp_query;
-        if ($paged==0){ 
+        if ($paged==0){
         	$paged=1;
      	 }
-        
+
          echo '<div class="pagi-top container no-pad no-pad-bottom"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span> for jobs @ '.$term->name.'</p>';?>
                <?php include('partials/selections-tags.php') ;
                echo '</div>';
                 ?>
-			<?php if ( have_posts() ) : 
+			<?php if ( have_posts() ) :
 			// Do we have any posts/pages in the databse that match our query?
 			?>
 
-				<?php while ( have_posts() ) : the_post(); 
+				<?php while ( have_posts() ) : the_post();
 				// If we have a page to show, start a loop that will display it
-				
+
 				do_action('archive_job_loop');
 				?>
 
-					
+
 
 				<?php endwhile; // OK, let's stop the page loop once we've displayed it ?>
                 </section>
 			<?php else : // Well, if there are no posts to display and loop through, let's apologize to the reader (also your 404 error) ?>
-				
+
 				<article class="post error">
 					<h1 class="404">Nothing posted yet</h1>
 				</article>
@@ -74,7 +65,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 
 <!--		</div> #content .site-content -->
 	</div><!-- #primary .content-area -->
-	
+
 		<?php if (!is_user_logged_in() && $paged==1){  ?>
 
        <div class="container no-pad pad-top">
@@ -86,7 +77,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
         <div class="container paginating">
 	        <div class="col-sm-2 pager pull-left">
                     <li class='pull-left'>
-	        <?php previous_posts_link('Previous'); ?>                        
+	        <?php previous_posts_link('Previous'); ?>
                     </li>
 	        </div>
 	        <div class="col-sm-8 page-navi mobile-hide desktop-show">
@@ -94,7 +85,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 	         </div>
 	        <div class="col-sm-2 pager pull-right">
                     <li class='pull-right'>
-	        <?php next_posts_link('Next'); ?>                        
+	        <?php next_posts_link('Next'); ?>
                     </li>
 	        </div>
 			<div class="mobile-show">
@@ -102,8 +93,8 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 			</div>
         </div>
 
-        
-       
+
+
  <?php } ?>
     </section>
 </div>

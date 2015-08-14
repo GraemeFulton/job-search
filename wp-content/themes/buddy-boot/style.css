@@ -3,7 +3,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 03-Dec-2014, 14:19:07
     Author     : Graeme
 */
@@ -15,7 +15,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 03-Dec-2014, 14:19:07
     Author     : Graeme
 */
@@ -200,62 +200,53 @@ table.profile-fields {
     max-width: 720px;
     margin-left: 60px;
     margin-top: 25px; }
-
   .col-xs-0 {
     display: block; } }
+
 @media (min-width: 768px) {
   /* Navbar positioning foo */
   ul.wpuf-form li .wpuf-label {
     float: left;
     width: 15%; }
-
   .container.no-pad, col-xs-12.no-pad, .container-fluid.theme-grey .post.container .col-xs-4.pull-right, .container-fluid.theme-grey .profile.container .col-xs-4.pull-right {
     padding-left: 0px;
     padding-right: 0px; }
-
   .container.no-pad p, col-xs-12.no-pad p {
     padding-right: 15px; }
-
   .navbar-wrapper {
     margin-top: 20px; }
-
   .navbar-wrapper .container {
     padding-right: 15px;
     padding-left: 15px; }
-
   .navbar-wrapper .navbar {
     padding-right: 0;
     padding-left: 0; }
-
   /* The navbar becomes detached from the top, so we round the corners */
   .navbar-wrapper .navbar {
     border-radius: 4px; }
-
   /* Bump up size of carousel content */
   .carousel-caption p {
     margin-bottom: 20px;
     font-size: 21px;
     line-height: 1.4; }
-
   .featurette-heading {
     font-size: 50px; } }
+
 @media (min-width: 992px) {
   .featurette-heading {
     margin-top: 120px; } }
+
 @media (min-width: 100px) and (max-width: 771px) {
   .col-xs-0 {
     display: none; }
-
   .container.list-main-content {
     padding-right: 0px;
     max-width: 100%; }
-
   .mobile-show {
     display: block !important;
     text-align: center;
     padding-top: 20px;
     clear: both; }
-
   .post.container h4 {
     margin-top: 5px;
     margin-bottom: 10px;
@@ -263,20 +254,17 @@ table.profile-fields {
     max-height: 17.5px;
     margin-right: 25px;
     overflow: hidden; }
-
   .desktop-show {
     display: none !important; }
-
   .container-fluid.sign-up-panel {
     padding: 0px;
     padding-left: 0px;
     padding-right: 0px; }
-
   .sign-up-panel {
     max-width: 100%; }
-
   .search-criteria.container {
     margin-top: 15px; } }
+
 .container-fluid.theme-grey {
   padding-left: 0px;
   padding-right: 0px; }
@@ -284,47 +272,35 @@ table.profile-fields {
 @media (min-width: 100px) and (max-width: 610px) {
   .col-xs-0 {
     display: none; }
-
   .navbar-nav {
     display: block; }
-
   .container-fluid.theme-grey {
     margin-top: -6px; }
-
   .wpuf-fields input {
     max-width: 100%; }
-
   ul.wpuf-form {
     padding-left: 0px !important; }
-
   .required {
     display: none; }
-
   .selections-table-container {
     display: none; }
-
   .additional_content {
     display: none; }
-
   .job-feed-content {
     font-size: 12px; }
-
   .slide p {
     font-size: 14px; }
-
   h2 {
     font-size: 20px; }
-
   h4, .h4 {
     font-size: 16px; }
-
   h3 {
     font-size: 20px; }
-
   .panel p {
     font-size: 12px; }
   .panel .btn, .panel li {
     font-size: 14px; } }
+
 .spacer {
   height: 100px; }
 
@@ -421,6 +397,7 @@ a {
 
 #buddypress .search-criteria {
   max-width: 100%; }
+
 #buddypress .bp-widget.profession, #buddypress .bp-widget.location {
   display: none; }
 
@@ -448,11 +425,13 @@ a {
   .container-fluid.theme-grey .post.container .list-main-content.col-xs-8, .container-fluid.theme-grey .profile.container .list-main-content.col-xs-8 {
     padding-left: 0px;
     padding-right: 5px; }
+
 .container-fluid.theme-grey .container.paginating {
   max-width: 100%;
   position: relative; }
   .container-fluid.theme-grey .container.paginating .col-sm-2 {
     padding: 0px; }
+
 .container-fluid.theme-grey .page-navi {
   text-align: center; }
 
@@ -574,11 +553,14 @@ a {
 
 .welcome-profile ul {
   margin-left: -40px; }
+
 .welcome-profile li {
   list-style: none;
   line-height: 1.7; }
+
 .welcome-profile h2 {
   margin-top: 0px; }
+
 .welcome-profile .selected {
   color: #A9A9A9;
   padding: 5px;
@@ -929,6 +911,7 @@ div.selected {
 .pop-out-tbl td {
   padding-bottom: 10px;
   padding-left: 10px; }
+
 .pop-out-tbl th {
   font-weight: 400;
   color: #999;
@@ -995,4 +978,6 @@ h4, .h4 {
       background-color: #dedede;
       position: relative; }
 
-/*# sourceMappingURL=style.css.map */
+.width-100 {
+  width: 100%;
+  float: left; }

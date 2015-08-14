@@ -3,7 +3,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 03-Dec-2014, 14:19:07
     Author     : Graeme
 */
@@ -17,7 +17,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 03-Dec-2014, 14:19:07
     Author     : Graeme
 */
@@ -42,9 +42,9 @@ body {
     right: 0;
     left: 0;
     z-index: 20;
-    
-    
-    
+
+
+
 }
 
 /* Flip around the padding for proper display in narrow viewports */
@@ -55,11 +55,11 @@ body {
 .navbar-wrapper .navbar {
     padding-right: 15px;
     padding-left: 15px;
-    
+
 }
 .navbar-wrapper .navbar .container {
     width: auto;
-    
+
 }
 
 .navbar-inverse{
@@ -68,7 +68,7 @@ body {
     right: 0;
     z-index: 1;
     position: fixed;
-    
+
         height: 64px;
     top: 0;
     z-index: 2;
@@ -79,7 +79,7 @@ body {
     display:none;
 }
 #buddypress{
-    margin-top:-12px;	
+    margin-top:-12px;
 }
 
 .profile-link{
@@ -199,7 +199,7 @@ table.profile-fields{
 }
 
   .navbar-nav{
-     display:none;   
+     display:none;
     }
     #wpadminbar{
         display:none;
@@ -216,7 +216,7 @@ table.profile-fields{
         margin-bottom: 0px;
         p{
          padding-bottom:0px;
-        margin-bottom: 0px;   
+        margin-bottom: 0px;
         }
     }
     .col-md-9.col-xs-12{
@@ -246,7 +246,7 @@ table.profile-fields{
     }
 }
 @media (min-width: 768px) {
-  
+
 
     /* Navbar positioning foo */
     ul.wpuf-form li .wpuf-label {
@@ -297,8 +297,8 @@ table.profile-fields{
     }
 }
 
-@media  (min-width : 100px) 
-and (max-width : 771px) { 
+@media  (min-width : 100px)
+and (max-width : 771px) {
         .col-xs-0{
         display:none;
     }
@@ -321,7 +321,7 @@ and (max-width : 771px) {
         overflow: hidden;
     }
     .desktop-show{
-        display:none!Important;
+        display:none!important;
     }
 
     .container-fluid.sign-up-panel{
@@ -347,13 +347,13 @@ and (max-width : 771px) {
 
 }
 
-@media  (min-width : 100px) 
-and (max-width : 610px) { 
+@media  (min-width : 100px)
+and (max-width : 610px) {
     .col-xs-0{
         display:none;
     }
     .navbar-nav{
-     display:block;   
+     display:block;
     }
     .container-fluid.theme-grey{
 
@@ -375,7 +375,7 @@ and (max-width : 610px) {
     }
     .selections-table-container{display:none;}
     .additional_content{
-        display:none; 
+        display:none;
     }
     .job-feed-content {
         font-size: 12px;
@@ -485,7 +485,7 @@ and (max-width : 610px) {
 
 }
 .vertical-align{
-    margin: auto 0px; 
+    margin: auto 0px;
     .refine{
         margin-top:25px;
     }
@@ -521,7 +521,7 @@ a{color:#50978B}
 
 #buddypress{
     .search-criteria{
-        max-width:100%;	
+        max-width:100%;
     }
     .bp-widget.profession, .bp-widget.location{
 
@@ -648,7 +648,7 @@ a{color:#50978B}
     border-color:#fff!important;
     color:#f04040;
     width:75px;
-    
+
 }
 .btn-settings{
     margin-top:0px;
@@ -672,7 +672,7 @@ a{color:#50978B}
     margin-bottom:20px;
     max-width:100%;
     padding-top:8px!important;
-    
+
     -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.05);
     box-shadow: 0 1px 0 rgba(0,0,0,0.05);
     background: #fff;
@@ -734,7 +734,7 @@ a{color:#50978B}
     }
     .selected.location{
     }
-    .selected.profession{		
+    .selected.profession{
     }
 }
 .wp-pagenavi a, .wp-pagenavi span {
@@ -756,7 +756,7 @@ a{color:#50978B}
 }
 
 /**for 3 equal sized boxes**/
-.row-flex, .row-flex > div[class*='col-'] {  
+.row-flex, .row-flex > div[class*='col-'] {
     display: flex;
     flex:1 1 auto;
 }
@@ -791,7 +791,7 @@ a{color:#50978B}
     }
     padding:28px;
     margin-bottom: 0px;
-    border-radius: 0px; 
+    border-radius: 0px;
     box-shadow: none;
 }
 
@@ -838,7 +838,7 @@ a{color:#50978B}
         margin-bottom:3px;
     }
     span, i{
-        
+
         font-size:12px!important;
         a{
                     font-size:12px!important;
@@ -852,7 +852,7 @@ a{color:#50978B}
     border-bottom:1px solid #e7e7e7;
     max-width:100%;
     .post.container{
-            
+
         border-top:1px solid #e7e7e7;
         border-left:1px solid #e7e7e7;
         border-right:1px solid #e7e7e7;
@@ -923,9 +923,9 @@ div.selected{
     background: #999;
 }
 #fp-nav ul li a span, .fp-slidesNav ul li a span {
-    width: 0px!important; 
-    height: 0px!important; 
-    border: 0px solid #000!important; 
+    width: 0px!important;
+    height: 0px!important;
+    border: 0px solid #000!important;
 }
 .check-inview.fadeup{opacity:1!important;-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0)}
 
@@ -933,12 +933,12 @@ div.selected{
     position: absolute;
     top: 20%;
     right:15px;
-}	
+}
 .btn-scroll-left{
     position: absolute;
     top: 20%;
     left:15px;
-}	
+}
 .col-sm-12.col-xs-12.next-action{
     top: 45%;
     position: absolute;
@@ -996,7 +996,7 @@ div.selected{
         display: block;
         min-height:0px;
         margin-top: 0px;
-        margin-bottom: 0px; 
+        margin-bottom: 0px;
         padding-left: 10px;
         padding-right:10px;
     }
@@ -1019,7 +1019,7 @@ div.selected{
     z-index: -1;
 }
 .bottom-left{
-    display: none; 
+    display: none;
     margin-top: 20px;
     background: #fff;
     margin-left:5px;
@@ -1105,7 +1105,7 @@ div.selected{
     padding-top:2px;
     padding-bottom: 0px;
     background-color: transparent;
-    border: none; 
+    border: none;
     float: left;
 
 }
@@ -1123,7 +1123,7 @@ div.selected{
     color:$green;
 }
 .small-title{
-    color:#D2D2D2; 
+    color:#D2D2D2;
     margin-top:0px;
     margin-bottom:0px;
     font-size:18px;
@@ -1132,10 +1132,10 @@ div.selected{
     background:#fff;
     float:left;
     margin-bottom:40px;
-    padding:20px;	
+    padding:20px;
     border:1px solid #eaeaea;
 }
-.widget-area{ 
+.widget-area{
     background:#fdfdfd;
     .side-title{
         color:#999;
@@ -1151,7 +1151,7 @@ div.selected{
         padding-bottom:10px;
         padding-left:10px;
 
-    } 
+    }
 
     th {
         font-weight:400;
@@ -1203,7 +1203,7 @@ h4, .h4{
 .icon-large{
     font-size:32px;
 }
-.menu 
+.menu
 {
     padding-left:0px;
     box-shadow: 0 1px 6px rgba(0,0,0,0.1);
@@ -1212,7 +1212,7 @@ h4, .h4{
     background: rgba(245,245,245,0.95);
     float: left;
     z-index: 1;
-    
+
     ul{
        padding-left:0px;
        a{
@@ -1230,7 +1230,11 @@ h4, .h4{
         position: relative;
         }
        }
-       
-    
-    
+
+
+
+}
+.width-100{
+  width:100%;
+  float:left;
 }

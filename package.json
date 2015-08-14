@@ -1,0 +1,19 @@
+{
+  "name": "grad-jobs",
+  "version": "1.0.0",
+  "description": "grad job site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://graylien@bitbucket.org/graylien/lostgrad.git"
+  },
+  "author": "graeme fulton",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/graylien/lostgrad#readme",
+  "dependencies": {
+    "gulp-sass": "^2.0.4"
+  }
+}

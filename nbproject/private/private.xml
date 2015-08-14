@@ -2,33 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/plugins/wp-favorite-posts/wpfp.css</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/plugins/wp-favorite-posts/wp-favorite-posts.php</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/plugins/wp-favorite-posts/wpfp-your-favs-widget.php</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/plugins/wp-favorite-posts/templates/all_favourites.php</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/plugins/LG-grid-view/css/lg_gridview.css</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/plugins/isotopes/js/isotopes_action.js</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/plugins/wp-favorite-posts/templates/tab_favourites.php</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/Lostgrad/ScraperBundle/Indeed/graduate-jobs.php</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/plugins/isotopes/css/isotopes_css.css</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/plugins/display-taxonomy/js/display-taxonomy.js</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/plugins/LG-grid-view/LG-grid-view.php</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/themes/klein-2.0.9/style.css</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/plugins/wp-favorite-posts/lang/wp-favorite-posts.pot</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/plugins/display-taxonomy/js/listeners.js</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/plugins/wp-favorite-posts/wpfp-page-template.php</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/plugins/LG-grid-view/css/loading.gif</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/Lostgrad/ScraperBundle/Indeed/execute.php</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/plugins/isotopes/js/imagesloaded.js</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/plugins/wp-favorite-posts/wpfp-widgets.php</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/Lostgrad/ScraperBundle/Indeed/IndeedScraper.class.php</file>
-            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/plugins/buddypress/bp-members/bp-members-template.php</file>
-        </group>
         <group name="Workspace">
             <file>file:/Applications/MAMP/htdocs/Workspace/lostgrad/wp-content/themes/buddy-boot/page-templates/user-signed-in.php</file>
             <file>file:/Applications/MAMP/htdocs/Workspace/lostgrad/wp-content/themes/buddy-boot/page-templates/partials/job-role/job-role-title.php</file>
             <file>file:/Applications/MAMP/htdocs/Workspace/lostgrad/wp-content/plugins/job-recommendations/public/class-job-recommendations.php</file>
+        </group>
+        <group>
+            <file>file:/Applications/MAMP/htdocs/lostgrad/wp-content/themes/buddy-boot/archive.php</file>
         </group>
     </open-files>
 </project-private>

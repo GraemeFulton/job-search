@@ -4,25 +4,16 @@
  *
  */
 
-get_header(); // This fxn gets the header.php file and renders it 
+get_header(); // This fxn gets the header.php file and renders it
 global $paged;
 global $wp_query;
 ?>
 
 <div class="container-fluid theme-grey">
  <? include(get_stylesheet_directory().'/partials/side-nav.php');?>
-    <div class='no-pad box-head'>
-         <?php if(!is_user_logged_in()){
-        $link = get_site_url().'/register';
-    }else{
-        $link = get_site_url() .'/members/'.bp_core_get_username( get_current_user_id() ) . '/profile/edit';
-    }
-    
-    ?>
-     <a href="<?php echo $link;?>" class="btn-primary btn-raised btn pull-right btn-settings"><i class="fa fa-cog"></i></a> 
-    
-    </div>
-    
+ <?php require(JOB_RECOMMENDATIONS.'/public/views/partials/app-bar.php'); ?>
+
+
     <section class="col-md-9 col-xs-12">
 
 
@@ -32,29 +23,30 @@ global $wp_query;
              </div>
 <!--		<div id="content" role="main" class="span12">-->
 		<section class="container list-container">
-                        
-			<?php if ( have_posts() ) : 
-                              global $wp_query;
-        if ($paged==0){ 
+
+			<?php if ( have_posts() ) :
+
+      global $wp_query;
+        if ($paged==0){
         	$paged=1;
      	 }
-        
+
          echo '<div class="pagi-top container no-pad-bottom no-pad"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span> for your search</p>';?>
                <?php include('partials/selections-tags.php') ;
                echo '</div>';
-                
+
 			// Do we have any posts/pages in the databse that match our query?
 			?>
 
 
-				<?php while ( have_posts() ) : the_post(); 
+				<?php while ( have_posts() ) : the_post();
 				// If we have a page to show, start a loop that will display it
 				?>
 				<?php do_action('job_search_results_loop'); ?>
 				<?php endwhile; // OK, let's stop the page loop once we've displayed it ?>
 
 			<?php else : // Well, if there are no posts to display and loop through, let's apologize to the reader (also your 404 error) ?>
-				
+
 				<article class="post error container" style="padding:20px;">
 					<h3 style="margin-top:0px;">Sorry, nothing found</h3>
                                         <p>Try searching for something else, or browse recommended jobs:</p>
@@ -65,7 +57,7 @@ global $wp_query;
                 </section>
 <!--		</div> #content .site-content -->
 	</div><!-- #primary .content-area -->
-	
+
 	<?php if (!is_user_logged_in() && $paged==1){  ?>
    <div class="container no-pad pad-top">
       <?php echo get_next_posts_link( '<p><button class="btn btn-primary btn-large btn-raised">View more jobs</button></p>', $qp->max_num_pages ); // display older posts link ?>
@@ -76,7 +68,7 @@ global $wp_query;
         <div class="container paginating">
 	        <div class="col-sm-2 pager pull-left">
                     <li class='pull-left'>
-	        <?php previous_posts_link('Previous'); ?>                        
+	        <?php previous_posts_link('Previous'); ?>
                     </li>
 	        </div>
 	        <div class="col-sm-8 page-navi mobile-hide desktop-show">
@@ -84,17 +76,17 @@ global $wp_query;
 	         </div>
 	        <div class="col-sm-2 pager pull-right">
                     <li class='pull-right'>
-	        <?php next_posts_link('Next'); ?>                        
+	        <?php next_posts_link('Next'); ?>
                     </li>
 	        </div>
 			<div class="mobile-show">
 			<?php wp_pagenavi_dropdown();?>
 			</div>
         </div>
-        
-       
+
+
  <?php } ?>
-	
+
     </section>
 </div>
 <?php get_footer(); // This fxn gets the footer.php file and renders it ?>
