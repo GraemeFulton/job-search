@@ -980,4 +980,5 @@ h4, .h4 {
 
 .width-100 {
   width: 100%;
-  float: left; }
+  float: left;
+  background: #fff; }

@@ -14,6 +14,8 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/graylien/lostgrad#readme",
   "dependencies": {
-    "gulp-sass": "^2.0.4"
+    "gulp-livereload": "^3.8.0",
+    "gulp-sass": "^2.0.4",
+    "livereload": "^0.3.7"
   }
 }
