@@ -85,6 +85,10 @@ function LG_bootstrap_scripts()  {
     // get the theme directory style.css and link to it in the header
         wp_enqueue_style( 'LG-style', get_template_directory_uri() . '/style.css', '10000', 'all' );
 
+				//main js
+				wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js' );
+
+
 }
 add_action( 'wp_enqueue_scripts', 'LG_bootstrap_scripts' ); // Register this fxn and allow Wordpress to call it automatcally in the header
 

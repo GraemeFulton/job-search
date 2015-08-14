@@ -1096,17 +1096,7 @@ div.selected{
     }
 
 }
-#buddypress .standard-form div.checkbox label, #buddypress .standard-form div.radio label {
-    color: #888;
-    font-size: 100%;
-    font-weight: normal;
-    margin: 5px 0 0 0;
-    padding: 5px;
-    border:1px solid;
-    border-color:rgb(124, 184, 174);
-    font-size:12px;
-    background:#f8f8f8;
-}
+
 .selections-table-container{
     padding: 12px;
     padding-bottom:6px;
@@ -1234,8 +1224,12 @@ h4, .h4{
 .icon-large{
     font-size:32px;
 }
+
 .menu
 {
+  .menu-group{
+    position:relative;
+  }
     padding-left:0px;
     box-shadow: 0 1px 6px rgba(0,0,0,0.1);
     -webkit-user-select: none;

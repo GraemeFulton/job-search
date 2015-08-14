@@ -869,17 +869,6 @@ div.selected {
     font-size: 20px;
     margin-top: 5px; }
 
-#buddypress .standard-form div.checkbox label, #buddypress .standard-form div.radio label {
-  color: #888;
-  font-size: 100%;
-  font-weight: normal;
-  margin: 5px 0 0 0;
-  padding: 5px;
-  border: 1px solid;
-  border-color: #7cb8ae;
-  font-size: 12px;
-  background: #f8f8f8; }
-
 .selections-table-container {
   padding: 12px;
   padding-bottom: 6px;
@@ -986,6 +975,8 @@ h4, .h4 {
   background: rgba(245, 245, 245, 0.95);
   float: left;
   z-index: 1; }
+  .menu .menu-group {
+    position: relative; }
   .menu ul {
     padding-left: 0px; }
     .menu ul a {
