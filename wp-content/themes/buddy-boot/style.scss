@@ -211,6 +211,9 @@ table.profile-fields{
         padding-left:0px;
         padding-right:0px;
     }
+    .container.no-pad{
+      max-width: 100%;
+    }
     .no-pad-bottom{
         padding-bottom:0px;
         margin-bottom: 0px;
@@ -522,6 +525,10 @@ a{color:#50978B}
     .search-criteria{
         max-width:100%;
     }
+    .bp-widget{
+      margin-bottom: 25px;
+      padding:20px
+    }
     .bp-widget.profession, .bp-widget.location{
 
         display:none;
@@ -635,6 +642,9 @@ a{color:#50978B}
         float: left;
         clear: both;
     }
+}
+.field-visibility-settings{
+  display:none!important;
 }
 #pass-strength-result{
     visibility:hidden;
@@ -1031,7 +1041,7 @@ div.selected{
 }
 .profession, .location{
     #profile-group-edit-submit{
-        display:none;
+        margin-left:10px;
     }
 }
 #buddypress .standard-form div.submit{
@@ -1040,17 +1050,17 @@ div.selected{
 #field_11614, #field_8{
     margin-bottom:20px;
 }
-.profession .submit, .location .submit {
-
-
-    position:absolute;
-    bottom:-35px;
-    left:10px;
-}
-.profession.standard-form, .location.standard-form{
-
-    padding-bottom:55px;
-}
+// .profession .submit, .location .submit {
+//
+//
+//     position:absolute;
+//     bottom:-35px;
+//     left:10px;
+// }
+// .profession.standard-form, .location.standard-form{
+//
+//     padding-bottom:55px;
+// }
 
 .standard-form{
 
@@ -1172,11 +1182,15 @@ div.selected{
 .container-margin-bottom{
     margin-bottom:20px;
 }
+.container-margin-top{
+  margin-top:20px;
+}
 
 #buddypress input[type=submit], #buddypress a.button{
     font-size:14px;
-    margin-top:10px;
+    margin-top:25px;
     border:1px solid $green;
+    margin-bottom: 0px
 }
 h4, .h4{
     font-size:18px;
@@ -1255,7 +1269,7 @@ h4, .h4{
     }
   }
 }
-.bp-widget.width-100{
+.bp-widget{
     float:left;
     background:#fff;
     padding: 20px;

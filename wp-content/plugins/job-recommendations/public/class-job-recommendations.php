@@ -370,7 +370,7 @@ class Job_Recommendations{
         else{
                  $suggest_more = true;
                 $message='for your selections';
-                include('partials/app-bar.php');
+                include('views/partials/app-bar.php');
         	require_once 'views/template-job-suggest-more.php';
         }
          //reset query

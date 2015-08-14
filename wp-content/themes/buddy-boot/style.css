@@ -174,6 +174,9 @@ table.profile-fields {
   padding-left: 0px;
   padding-right: 0px; }
 
+.container.no-pad {
+  max-width: 100%; }
+
 .no-pad-bottom {
   padding-bottom: 0px;
   margin-bottom: 0px; }
@@ -397,6 +400,10 @@ a {
 #buddypress .search-criteria {
   max-width: 100%; }
 
+#buddypress .bp-widget {
+  margin-bottom: 25px;
+  padding: 20px; }
+
 #buddypress .bp-widget.profession, #buddypress .bp-widget.location {
   display: none; }
 
@@ -495,6 +502,9 @@ a {
   margin-top: -52px;
   float: left;
   clear: both; }
+
+.field-visibility-settings {
+  display: none !important; }
 
 #pass-strength-result {
   visibility: hidden;
@@ -823,21 +833,13 @@ div.selected {
   visibility: hidden; }
 
 .profession #profile-group-edit-submit, .location #profile-group-edit-submit {
-  display: none; }
+  margin-left: 10px; }
 
 #buddypress .standard-form div.submit {
   padding: 0 0 0 0; }
 
 #field_11614, #field_8 {
   margin-bottom: 20px; }
-
-.profession .submit, .location .submit {
-  position: absolute;
-  bottom: -35px;
-  left: 10px; }
-
-.profession.standard-form, .location.standard-form {
-  padding-bottom: 55px; }
 
 .standard-form {
   float: left;
@@ -931,10 +933,14 @@ div.selected {
 .container-margin-bottom {
   margin-bottom: 20px; }
 
+.container-margin-top {
+  margin-top: 20px; }
+
 #buddypress input[type=submit], #buddypress a.button {
   font-size: 14px;
-  margin-top: 10px;
-  border: 1px solid #50978B; }
+  margin-top: 25px;
+  border: 1px solid #50978B;
+  margin-bottom: 0px; }
 
 h4, .h4 {
   font-size: 18px; }
@@ -995,9 +1001,9 @@ h4, .h4 {
   #buddypress .sign-up-panel .panel.panel-default.flex-col {
     padding: 5px; }
 
-.bp-widget.width-100 {
+.bp-widget {
   float: left;
   background: #fff;
   padding: 20px; }
-  .bp-widget.width-100 table.profile-fields .label {
+  .bp-widget table.profile-fields .label {
     background-color: #fff; }

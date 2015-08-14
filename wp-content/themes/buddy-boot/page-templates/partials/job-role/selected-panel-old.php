@@ -1,13 +1,13 @@
 
-           
-            <?php 
+
+            <?php
             $user_ID = get_current_user_id();
-            
-           $parent_id= xprofile_get_field_id_from_name('Profession');      
+
+           $parent_id= xprofile_get_field_id_from_name('Profession');
           global $bp;
               global $wpdb;
-        
-        
+
+
                     $args = array(
                'taxonomy'      => 'profession',
                'parent'        => 0, // get top level categories
@@ -16,14 +16,14 @@
                'hierarchical'  => 1,
                'pad_counts'    => 0
            );
-            
+
             $categories = get_categories( $args );
-                        
+
             $subjects=array();
             foreach ( $categories as $category ){
             	array_push($subjects, xprofile_get_field_data($category->name, $user_ID));
             }
-            
+
 			$args = array(
                'taxonomy'      => 'location',
                'child_of'        => 292, // make sure they're a child of united kingdon
@@ -32,13 +32,13 @@
                'hierarchical'  => 1,
                'pad_counts'    => 0
            );
-			
-			
-            
+
+
+
             $categories = get_categories( $args );
-			$locations = array(); 
+			$locations = array();
             foreach ( $categories as $category ){
-            	
+
             	$sub_args = array(
             			'taxonomy'      => 'location',
             			'parent'        => $category->term_id, // get child categories
@@ -48,11 +48,11 @@
             	);
             	$sub_categories = get_categories( $sub_args );
             	array_push($locations, xprofile_get_field_data($category->name, $user_ID));
-            	 
+
             }
-	
-                        
-            
+
+
+
             if ($page_number>0){ ?>
                 <div class='container'>
             <h3><i class="fa fa-cog"></i> Your search preferences
@@ -62,34 +62,34 @@
 		<tr>
 			<th align="right"><i class="fa fa-check-square-o"></i></th>
 			<td>
-		            <?php 
-		    
+		            <?php
+
 		               foreach ($subjects as $subject){
 		               	foreach($subject as $s){
-		
+
 		               ?>
 		               <div class='selected'><?php echo $s;?> </div>
-		
+
 		               <?php
 		               	}
-		
+
 		               }
-		               
+
 		               ?>
-			</td>	
-			<td class="no-left-pad"rowspan="2">					
-				<button class="btn-success btn-outlined btn">+</button> 
+			</td>
+			<td class="no-left-pad"rowspan="2">
+				<button class="btn-success btn-outlined btn">+</button>
 			</td>
 		</tr>
-	
+
 		<tr>
 			<th align="right"><i class="fa fa-map-marker"></i></th>
 		<td>
-               <?php 
+               <?php
 
 
                //Locations
-                  echo ''; 
+                  echo '';
 
                foreach ($locations as $location){
                	foreach($location as $l){
@@ -112,17 +112,16 @@
         </div>
             <?php }
             else { ?>
-               
-               
-               
-           
-    
 
-    <div class='container-fluid sign-up-panel'>
-    <div class="container">
 
-        <section class='search-criteria container text-center row-flex row-flex-wrap'>           
-            
+
+
+
+
+    <div class='container-fluid card sign-up-panel'>
+
+        <section class='search-criteria container text-center row-flex row-flex-wrap'>
+
             <div class='col-sm-4 welcome-profile'>
                 <div class="panel panel-default flex-col">
                 <h4><i class="fa fa-cog"></i> Profile settings</h4>
@@ -134,66 +133,65 @@
                 <p>Job recommendations are based on the selections you make. </p>
 
                <div class="refine">
-                           <a href="<?php echo bp_loggedin_user_domain().'/profile/edit';?>" class='btn-success btn-outlined btn'>Refine your settings</a> 
+                           <a href="<?php echo bp_loggedin_user_domain().'/profile/edit';?>" class='btn-success btn-outlined btn'>Refine your settings</a>
                </div>
             </div>
             </div>
-            
-            
+
+
      <div class='col-sm-4 welcome-profile'>
          <div class="panel panel-default flex-col">
          <h4><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;What</h4>
          <div class="vertical-align">
          		<div class="selected-options">
-		                    <?php 
+		                    <?php
 		            foreach ($subjects as $subject){
-		            	
+
 		            	foreach($subject as $s){
-		
+
 		               ?>
 		               <div class='selected'><?php echo $s;?> </div>
-		
+
 		               <?php
 		            	}
 		               }
 		           ?>
          	  	</div>
-         	  	    
+
 		</div>
 		 <div class="refine">
-					<a href = "<?php echo bp_loggedin_user_domain().'/profile/edit/group/1/#edit-Profession'?>"class="btn-success btn-outlined btn">+</a> 
+					<a href = "<?php echo bp_loggedin_user_domain().'/profile/edit/group/1/#edit-Profession'?>"class="btn-success btn-outlined btn">+</a>
 		 	           </div>
          </div>
       </div>
-            
+
             <div class='col-sm-4 welcome-profile'>
               <div class="panel panel-default flex-col">
                 <h4><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Where</h4>
               <div class="vertical-align">
 		         	<div class="selected-options">
-		                
-		                   <?php 
+
+		                   <?php
 		            foreach ($locations as $location){
-		            	
+
 		            	foreach($location as $l){
-		
+
 		               ?>
 		               <div class='selected'><?php echo $l;?> </div>
-		
+
 		               <?php
 		            	}
 		               }
 		           ?>
 		           </div>
-	      
-           
+
+
          	</div>
          	     <div class="refine">
-					<a href = "<?php echo bp_loggedin_user_domain().'/profile/edit/group/1/#edit-Location'?>"class="btn-success btn-outlined btn">+</a> 
+					<a href = "<?php echo bp_loggedin_user_domain().'/profile/edit/group/1/#edit-Location'?>"class="btn-success btn-outlined btn">+</a>
 	           </div>
          </div>
-       </div>    
+       </div>
         </section>
      <?php };?>
-    </div>
     </div>
