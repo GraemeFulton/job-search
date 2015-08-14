@@ -335,7 +335,6 @@ table.profile-fields {
   padding-top: 12px;
   padding-bottom: 0px; }
   .sign-up-panel .search-criteria {
-    margin-bottom: 40px !important;
     max-width: 100%; }
 
 .paginating {
@@ -604,9 +603,6 @@ a {
 
 .row-flex > div[class*='col-'], .container-flex > div[class*='col-'] {
   margin: -0.8px -15.5px; }
-
-.container-flex > div[class*='col-'] div, .row-flex > div[class*='col-'] div {
-  width: 100%; }
 
 .flex-col {
   flex: 1 100%;
@@ -979,6 +975,29 @@ h4, .h4 {
       position: relative; }
 
 .width-100 {
-  width: 100%;
+  width: 100%; }
+
+.profile.content-block {
+  max-width: 100%;
+  background: #f4f4f4;
+  margin-bottom: 60px; }
+
+#buddypress .sign-up-panel {
+  margin-bottom: 25px;
   float: left;
-  background: #fff; }
+  max-width: 100%; }
+  #buddypress .sign-up-panel .welcome-profile {
+    padding: 0px; }
+  #buddypress .sign-up-panel .container {
+    max-width: 100%;
+    padding-left: 0px;
+    padding-right: 0px; }
+  #buddypress .sign-up-panel .panel.panel-default.flex-col {
+    padding: 5px; }
+
+.bp-widget.width-100 {
+  float: left;
+  background: #fff;
+  padding: 20px; }
+  .bp-widget.width-100 table.profile-fields .label {
+    background-color: #fff; }
