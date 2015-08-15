@@ -13,6 +13,8 @@ get_header(); ?>
 	<?php require(JOB_RECOMMENDATIONS.'/public/views/partials/app-bar.php'); ?>
 
 		<div id="primary" class="col-md-9 col-xs-12">
+			<?php  include(get_stylesheet_directory().'/partials/loader.php');?>
+
 <div class="row">
 
 

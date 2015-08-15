@@ -1,4 +1,6 @@
 <section class='col-md-9 col-xs-12'>
+  <?php  include(get_stylesheet_directory().'/partials/loader.php');?>
+
  <?php
      global $paged;
 

@@ -15,6 +15,7 @@ global $wp_query;
 
 
     <section class="col-md-9 col-xs-12">
+      <?php  include(get_stylesheet_directory().'/partials/loader.php');?>
 
 
      	<div id="primary" class="container">
