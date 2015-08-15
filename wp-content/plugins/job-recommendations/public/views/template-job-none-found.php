@@ -12,7 +12,7 @@
 
  <?php }else{ ?>
 
-        <div class="container paginating">
+        <div class="col-md-12 paginating">
 	        <div class="col-sm-2 pager pull-left">
                     <li class='pull-left'>
 	        <?php previous_posts_link('Previous'); ?>

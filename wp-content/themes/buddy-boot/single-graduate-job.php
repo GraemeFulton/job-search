@@ -8,7 +8,6 @@
 
 get_header(); ?>
 <?php global $post; ?>
-<div class="container-fluid theme-grey">
 	<? include(get_stylesheet_directory().'/partials/side-nav.php');?>
 	<?php require(JOB_RECOMMENDATIONS.'/public/views/partials/app-bar.php'); ?>
 
@@ -60,7 +59,6 @@ get_header(); ?>
 // 		echo do_shortcode('[widgets_on_pages id="Related Job Sidebar"]');
                get_sidebar(); ?>
 	</div>
-</div>
 </div>
 
 <?php get_footer(); ?>

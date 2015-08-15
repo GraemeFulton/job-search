@@ -8,8 +8,6 @@ get_header(); // This fxn gets the header.php file and renders it
 global $paged;
 global $wp_query;
 ?>
-
-<div class="container-fluid theme-grey">
  <? include(get_stylesheet_directory().'/partials/side-nav.php');?>
  <?php require(JOB_RECOMMENDATIONS.'/public/views/partials/app-bar.php'); ?>
 
@@ -66,7 +64,7 @@ global $wp_query;
 
  <?php }else{ ?>
 
-        <div class="container paginating">
+        <div class="container col-md-12 paginating">
 	        <div class="col-sm-2 pager pull-left">
                     <li class='pull-left'>
 	        <?php previous_posts_link('Previous'); ?>
@@ -89,5 +87,4 @@ global $wp_query;
  <?php } ?>
 
     </section>
-</div>
 <?php get_footer(); // This fxn gets the footer.php file and renders it ?>

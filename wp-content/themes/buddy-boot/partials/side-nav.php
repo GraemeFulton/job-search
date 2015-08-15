@@ -70,11 +70,13 @@
 
 <?php
 usort($group, function($a, $b) {
+  if($a['active']==NULL)
+  $a['active']=2;
+
   $c = $a['active'] - $b['active'];
   $c .= $a['order'] - $b['order'];
   return $c;
 });
-//var_dump($group);
 foreach ($group as $menu_group) {
   echo $menu_group['output'];
 }

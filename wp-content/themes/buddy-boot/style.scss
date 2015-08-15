@@ -863,6 +863,7 @@ a{color:#50978B}
     position:relative;
     border:0px;
     margin-bottom:0px;
+    max-width: 100%;
     h4{
         margin-top: 0px;
         margin-bottom: 10px;
@@ -1318,8 +1319,8 @@ LOADER
   height: 80px;
   border-radius: 40px;
   -webkit-box-sizing: border-box;
-  border: solid 10px #999;
-  border-top-color: #222;
+  border: solid 10px #ccc;
+  border-top-color: #0dc5c1;
   -webkit-animation: spin 1s infinite linear;
 }@-webkit-keyframes spin {
   100% {

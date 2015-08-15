@@ -15,12 +15,9 @@ if(is_user_logged_in()!==true){
 ?>
 <?php get_header(); ?>
 
-
-<div class="container-fluid theme-grey">
     <? include(get_stylesheet_directory().'/partials/side-nav.php');?>
-    
+
         <?php  do_action('profile_job_recommendation_loop')?>
-</div>
 <?php get_footer(); ?>
 
 </body>

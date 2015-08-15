@@ -5,7 +5,6 @@
  */
 
 get_header(); // This fxn gets the header.php file and renders it ?>
-<div class="container-fluid theme-grey">
     <? include(get_stylesheet_directory().'/partials/side-nav.php');?>
     <?php require(JOB_RECOMMENDATIONS.'/public/views/partials/app-bar.php'); ?>
 
@@ -49,6 +48,4 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 
 <!--		</div> #content .site-content -->
 	</div><!-- #primary .content-area -->
-
-</div>
 <?php get_footer(); // This fxn gets the footer.php file and renders it ?>

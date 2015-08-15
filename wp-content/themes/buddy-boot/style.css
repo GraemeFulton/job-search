@@ -24,7 +24,9 @@ and open the template in the editor.
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 body {
-  color: #5a5a5a; }
+  color: #5a5a5a;
+  padding-top: 40px;
+}
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
@@ -265,6 +267,7 @@ table.profile-fields {
     padding-left: 0px;
     padding-right: 0px; }
   .sign-up-panel {
+    float:left;
     max-width: 100%; }
   .search-criteria.container {
     margin-top: 15px; } }
@@ -683,7 +686,8 @@ a {
 .post.container {
   position: relative;
   border: 0px;
-  margin-bottom: 0px; }
+  margin-bottom: 0px;
+  max-width: 100%; }
   .post.container h4 {
     margin-top: 0px;
     margin-bottom: 10px;
@@ -1035,8 +1039,8 @@ LOADER
   height: 80px;
   border-radius: 40px;
   -webkit-box-sizing: border-box;
-  border: solid 10px #999;
-  border-top-color: #222;
+  border: solid 10px #ccc;
+  border-top-color: #0dc5c1;
   -webkit-animation: spin 1s infinite linear; }
 
 @-webkit-keyframes spin {
