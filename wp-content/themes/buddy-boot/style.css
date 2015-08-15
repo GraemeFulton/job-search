@@ -1076,3 +1076,9 @@ LOADER
   margin-top: 25px; }
   .post.error.container h3 a {
     font-size: 23px; }
+
+.avatar-page .post {
+  border: 0px; }
+
+.avatar-page .standard-form {
+  border: 0px; }
