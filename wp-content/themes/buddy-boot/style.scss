@@ -471,6 +471,11 @@ and (max-width : 610px) {
   margin-top: 0px;
   margin-bottom: 0px;
 }
+#buddypress .standard-form label, #buddypress .standard-form span.label {
+    font-weight: normal;
+     margin: 15px 0px 15px 0px!important;
+     color:inherit!important;
+}
 
 .theme-grey{
     padding-top: 25px;
