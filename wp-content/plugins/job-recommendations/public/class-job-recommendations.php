@@ -171,24 +171,25 @@ class Job_Recommendations{
 
 
         //add '-jobs' suffix to professions so query by slug works
-        if(isset($_GET['Profession'])){
+        if(isset($_COOKIE["profession"])){
 
-           // $_COOKIE['profession']= $_GET['Profession'];
-		//	setcookie("profession", $_GET['Profession'], time()+3600 , '/' );
+					$selected_professions= StripSlashes($_COOKIE["profession"]);
+					//unserialize them
+					$professions = unserialize($selected_professions);
 
-         array_walk($_GET['Profession'], function(&$value, $key) {  $value =$this->create_slug($value); });
+         array_walk($professions, function(&$value, $key) {  $value =$this->create_slug($value); });
         //profession
-         $args['tax_query'][0]['terms']=$_GET['Profession'];
+         $args['tax_query'][0]['terms']=$professions;
          $args['tax_query'][0]['taxonomy']='profession';
          $args['tax_query'][0]['field']='slug';
         }
 
-        if(isset($_GET['Location'])){
-
-            $_COOKIE['Location']= $_GET['Location'];
-
+        if(isset($_COOKIE["location"])){
+					$selected_locations= StripSlashes($_COOKIE["location"]);
+					//unserialize them
+					$locations = unserialize($selected_locations);
          //location
-         $args['tax_query'][1]['terms']=$_GET['Location'];
+         $args['tax_query'][1]['terms']=$locations;
          $args['tax_query'][1]['taxonomy']='location';
          $args['tax_query'][1]['field']='slug';
         }

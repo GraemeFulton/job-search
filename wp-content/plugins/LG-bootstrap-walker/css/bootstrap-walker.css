@@ -50,7 +50,7 @@ background: #383838!important;
 /***THIS IS THE BIT**/
 /*.menu-text a{padding-top:10px !important; padding-bottom:10px !important;}*/
 /*.navbar-brand{font-size:20px;}*/
-.navbar-inverse .navbar-nav > li > a{border-left:1px solid #3F3F3F; text-align:center; 
+.navbar-inverse .navbar-nav > li > a{border-left:1px solid #3F3F3F; text-align:center;
 /*height:63px;*/
 font-size:13.5px;
 }
