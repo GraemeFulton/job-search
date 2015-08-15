@@ -28,7 +28,9 @@ body {
   padding-top: 40px; }
 
 footer {
-  visibility: hidden; }
+  visibility: hidden;
+  float: left;
+  clear: both; }
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
