@@ -335,6 +335,28 @@ table.profile-fields {
   padding: 0px;
   margin: 0px; }
 
+#primary h1.title {
+  margin-top: 0px;
+  margin-bottom: 20px; }
+
+.bp-widget h4 {
+  margin-top: 0px; }
+
+#settings-form {
+  padding-top: 10px;
+  margin-bottom: 0; }
+
+#buddypress .standard-form {
+  margin-bottom: 0px;
+  margin-top: 0px; }
+
+#buddypress div#message {
+  margin-bottom: 0px !important; }
+
+#buddypress div#message p, #sitewide-notice p {
+  margin-top: 0px;
+  margin-bottom: 0px; }
+
 .theme-grey {
   padding-top: 25px;
   background: #f4f4f4; }
