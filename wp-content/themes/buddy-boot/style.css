@@ -571,6 +571,9 @@ a {
   background-color: #e5e5e5;
   background-color: rgba(0, 0, 0, 0.05); }
 
+.box-head > li:first-child {
+  margin-left: 60px; }
+
 .box-head {
   margin-bottom: 20px;
   max-width: 100%;

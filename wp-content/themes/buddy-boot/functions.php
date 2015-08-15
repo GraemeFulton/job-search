@@ -152,18 +152,18 @@ function myplugin_registration_save(  $user_id, $userdata, $form_id, $form_setti
     function check_active_link($link){
         //if job page
          if(strpos($link,'job') !== false){
-             if(strpos($_SERVER['REQUEST_URI'],'company')||strpos($_SERVER['REQUEST_URI'],'job-roll') ){
+             if(strpos($_SERVER['REQUEST_URI'],'company')||strpos($_SERVER['REQUEST_URI'],'job-roll')||strpos($_SERVER['REQUEST_URI'],'graduate-job') ){
 
-                 return $active = 'active';
+                 return $active = 1;
              }
              elseif(strpos($_SERVER['REQUEST_URI'],'sign-up')){
-                 return $active = 'active';
+                 return $active = 1;
              }
          }
          //if profile page
          if((strpos($link,'members') !== false)&& (strpos($link,'edit')== false) && (strpos($link,'setting')== false)){
              if(strpos($_SERVER['REQUEST_URI'],'profile')||strpos($_SERVER['REQUEST_URI'],'members') ){
-                return $active = 'active';
+                return $active = 1;
              }
 
          }
@@ -171,26 +171,26 @@ function myplugin_registration_save(  $user_id, $userdata, $form_id, $form_setti
 				 //profile edit link
 				 if(strpos($link,'edit') !== false){
 						 if(strpos($_SERVER['REQUEST_URI'],'edit') ){
-								return $active = 'active';
+								return $active = 1;
 						 }
 
 				 }
 				 //settings profile link	 //profile edit link
 	 				 if(strpos($link,'settings') !== false){
 	 						 if(strpos($_SERVER['REQUEST_URI'],'settings') ){
-	 								return $active = 'active';
+	 								return $active = 1;
 	 						 }
 
 	 				 }
           //if profile page
          if(strpos($link,'register') !== false){
              if(strpos($_SERVER['REQUEST_URI'],'register') ){
-                return $active = 'active';
+                return $active = 1;
              }
 
          }
          else
-         return $active = '';
+         return $active = 2;
     }
 
 ?>

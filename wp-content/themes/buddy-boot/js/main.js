@@ -1,9 +1,13 @@
 $(document).ready(function(){
 
-  $('.menu-group.active').parent().prepend($('.menu-group.active'));
+  horizontal_menu_listener();
+  side_nav_listener();
 
+})
+
+function side_nav_listener(){
   $('.menu li').click(function(){
-
+    $('.box-head').children().fadeOut();
 
     $(this).addClass('active');
     $item = $(this)
@@ -22,14 +26,17 @@ $(document).ready(function(){
     else{
       $('.sub-menu .active').removeClass('active');
       $(this).addClass('active');
-
     }
-
-
-
   })
+}
 
-})
+function horizontal_menu_listener(){
+
+    $('.box-head li').click(function(){
+      $('.box-head li.current').removeClass('current')
+      $(this).addClass('current');
+    })
+}
 
 var animating=false;
 

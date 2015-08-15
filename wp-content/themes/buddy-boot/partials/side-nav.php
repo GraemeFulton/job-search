@@ -8,55 +8,76 @@
 <nav class="col-xs-0 col-md-2 menu no-pad">
 <ul>
     <?php
-
     $count = 0;
+    $group_count = 0;
+    $group = array();
     $submenu = false;
     foreach( $menuitems as $item ):
         $link = $item->url;
+
+        $activeClass='';
         $active=check_active_link($link);
+        if($active==1){
+          $activeClass='active';
+        }
+
 
         $title = $item->title;
         // item does not have a parent so menu_item_parent equals 0 (false)
         if ( !$item->menu_item_parent ):
         // save this id for later comparison with sub-menu items
-        $parent_id = $item->ID;
+          $parent_id = $item->ID;
+          $group_item['active']=$active;
+
+
+          $output= '<div class="menu-group '.$activeClass.'">';
+          $output.='<a href="'.$link.'" class="title">';
+          $output.='<li class="withripple '.$activeClass.'">'.$title;
+          $output.='<div class="ripple-wrapper"></div></li></a>';
+          $group_count+=1;
+        endif;
+
+        if ( $parent_id == $item->menu_item_parent ):
+           if ( !$submenu ):
+             $submenu = true;
+             $output.='<ul class="sub-menu">';
+           endif;
+
+           $output.=  '<a href="'.$link.'" class="title">';
+           $output.='<li class="withripple '.$activeClass.'">'.$title;
+           $output.='<div class="ripple-wrapper"></div></li></a>';
+
+           if ( $menuitems[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ):
+             $output.='</ul>';
+            $submenu = false;
+          endif;
+        endif;
+
+        if ( $menuitems[ $count + 1 ]->menu_item_parent != $parent_id ):
+          $output.='</div>';
+          $submenu = false;
+        endif;
+        $group_item['output']=$output;
+        $group_item['order']=$count;
+
+        $group[$group_count]=$group_item;
+        $count++;
+      endforeach;
+
+    //  echo $output;
+
     ?>
 
-    <div class="menu-group <?php echo $active;?>">
-    <a href="<?php echo $link; ?>" class="title">
-
-    <li class="withripple <?php echo $active;?>">
-            <?php echo $title; ?>
-        <div class="ripple-wrapper"></div>
-      </li>
-      </a>
-    <?php endif; ?>
-
-        <?php if ( $parent_id == $item->menu_item_parent ): ?>
-
-            <?php if ( !$submenu ): $submenu = true; ?>
-            <ul class="sub-menu">
-            <?php endif; ?>
-            <a href="<?php echo $link; ?>" class="title">
-              <? $active=check_active_link($link); ?>
-                <li class="withripple <?php echo $active;?>">
-                  <?php echo $title; ?>
-                    <div class="ripple-wrapper"></div>
-                </li>
-            </a>
-
-            <?php if ( $menuitems[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ): ?>
-            </ul>
-            <?php $submenu = false; endif; ?>
-
-        <?php endif; ?>
-
-    <?php if ( $menuitems[ $count + 1 ]->menu_item_parent != $parent_id ): ?>
-</div>
-
-    <?php $submenu = false; endif; ?>
-
-<?php $count++; endforeach; ?>
-
+<?php
+usort($group, function($a, $b) {
+  $c = $a['active'] - $b['active'];
+  $c .= $a['order'] - $b['order'];
+  return $c;
+});
+//var_dump($group);
+foreach ($group as $menu_group) {
+  echo $menu_group['output'];
+}
+?>
 </ul>
 </nav>
