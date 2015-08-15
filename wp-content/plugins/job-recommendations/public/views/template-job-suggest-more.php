@@ -53,7 +53,7 @@
 					// I'm the last post in the Loop
 					$start_second_loop=true;
 					?>
-                                </section>
+  </section>
 
 	<div class="container-margin-bottom container-margin-top">
 		<h3><i class="material-icons icon-large">thumb_up</i> Here's some related jobs elsewhere in the UK</h3>
@@ -79,36 +79,6 @@
 
      }?>
 
- <?php if (!is_user_logged_in() && $paged==1){  ?>
+     <?php include(get_stylesheet_directory().'/partials/pagination.php');?>
 
-       <div class="col-md-12 pull-right no-pad pad-top">
-           <div class='col-md-12 no-pad pad-top'>
-      <?php echo get_next_posts_link( '<p><button class="btn btn-primary btn-large btn-raised">View more jobs</button></p>', $qp->max_num_pages ); // display older posts link ?>
-            </div>
-       </div>
-
- <?php }else{ ?>
-
-        <div class="container col-md-12 paginating">
-	        <div class="col-sm-2 pager pull-left">
-                    <li class='pull-left'>
-	        <?php previous_posts_link('Previous'); ?>
-                    </li>
-	        </div>
-	        <div class="col-sm-8 page-navi mobile-hide desktop-show">
-	         <?php wp_pagenavi(); ?>
-	         </div>
-	        <div class="col-sm-2 pager pull-right">
-                    <li class='pull-right'>
-	        <?php next_posts_link('Next'); ?>
-                    </li>
-	        </div>
-			<div class="mobile-show">
-			<?php wp_pagenavi_dropdown();?>
-			</div>
-        </div>
-
-
-
- <?php } ?>
 </section>

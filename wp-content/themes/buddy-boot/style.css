@@ -28,7 +28,7 @@ body {
   padding-top: 40px; }
 
 footer {
-  display: none; }
+  visibility: hidden; }
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
@@ -337,12 +337,14 @@ table.profile-fields {
   padding-top: 25px;
   background: #f4f4f4; }
 
-.sign-up-panel {
+.sign-up-page.sign-up-panel {
+  margin-top: 60px;
+  visibility: hidden;
   background: #fff;
   padding: 25px;
   padding-top: 12px;
   padding-bottom: 0px; }
-  .sign-up-panel .search-criteria {
+  .sign-up-page.sign-up-panel .search-criteria {
     max-width: 100%; }
 
 .paginating {
@@ -686,7 +688,7 @@ a {
 
 .post.container {
   position: relative;
-  border: 0px;
+  border-top: 0px;
   margin-bottom: 0px;
   max-width: 100%; }
   .post.container h4 {
@@ -713,7 +715,6 @@ a {
   border-bottom: 1px solid #e7e7e7;
   max-width: 100%; }
   .container.list-container .post.container {
-    border-top: 1px solid #e7e7e7;
     border-left: 1px solid #e7e7e7;
     border-right: 1px solid #e7e7e7; }
 
@@ -1061,3 +1062,15 @@ LOADER
   z-index: 1;
   width: 100%;
   height: 100%; }
+
+.btn.btn-primary.btn-large.btn-raised {
+  margin-top: 25px;
+  margin-bottom: 20px; }
+
+.checkbox-material {
+  opacity: 0; }
+
+.post.error.container {
+  margin-top: 25px; }
+  .post.error.container h3 a {
+    font-size: 23px; }

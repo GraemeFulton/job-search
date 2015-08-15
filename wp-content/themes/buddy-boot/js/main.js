@@ -85,8 +85,16 @@ function showProgress() {
 }
 
 function pageLoaded(){
-    $('.col-md-9.col-xs-12').fadeIn();
-    $('footer').fadeIn();
+    $('.col-md-9.col-xs-12').fadeIn("100", function () {
+      $('footer').css('visibility', 'visible');
+      $('.sign-up-page.sign-up-panel').css('visibility', 'visible');
+      setTimeout(function(){
+        $('.checkbox-material').fadeTo("slow", 1);
+      }, 150)
+
+
+    })
+
     //$('.btn-settings').fadeIn();
 
 }

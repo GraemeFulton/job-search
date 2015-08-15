@@ -152,7 +152,7 @@ function myplugin_registration_save(  $user_id, $userdata, $form_id, $form_setti
     function check_active_link($link){
         //if job page
          if(strpos($link,'job') !== false){
-             if(strpos($_SERVER['REQUEST_URI'],'company')||strpos($_SERVER['REQUEST_URI'],'job-roll')||strpos($_SERVER['REQUEST_URI'],'graduate-job') ){
+             if(strpos($_SERVER['REQUEST_URI'],'company')||strpos($_SERVER['REQUEST_URI'],'job-roll')||strpos($_SERVER['REQUEST_URI'],'graduate-job')||strpos($_SERVER['REQUEST_URI'],'?s=') ){
 
                  return $active = 1;
              }

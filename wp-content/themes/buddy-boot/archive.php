@@ -63,36 +63,25 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 
 <!--		</div> #content .site-content -->
 	</div><!-- #primary .content-area -->
+    <?php if(!is_user_logged_in()){
+      ?>
+      <article class="post error container" style="padding:20px;">
+        <h3 style="margin-top:0px;"><a href="<?php echo get_site_url; ?>/register">Sign up</a> to see all <?php echo $results?> jobs @ <?php echo $term->name;?></h3>
+                                      <p>There are more jobs @ <?php echo $term->name; ?> - sign up to see them all.</p>
+      </article>
+      <?php
+    }
+    ?>
 
-		<?php if (!is_user_logged_in() && $paged==1){  ?>
-
-       <div class="col-md-12 no-pad pad-top">
-      <?php echo get_next_posts_link( '<p><button class="btn btn-primary btn-large btn-raised">View more jobs</button></p>', $qp->max_num_pages ); // display older posts link ?>
-        </div>
-
- <?php }else{ ?>
-
-        <div class="container col-md-12 paginating">
-	        <div class="col-sm-2 pager pull-left">
-                    <li class='pull-left'>
-	        <?php previous_posts_link('Previous'); ?>
-                    </li>
-	        </div>
-	        <div class="col-sm-8 page-navi mobile-hide desktop-show">
-	         <?php wp_pagenavi(); ?>
-	         </div>
-	        <div class="col-sm-2 pager pull-right">
-                    <li class='pull-right'>
-	        <?php next_posts_link('Next'); ?>
-                    </li>
-	        </div>
-			<div class="mobile-show">
-			<?php wp_pagenavi_dropdown();?>
-			</div>
-        </div>
-
-
-
- <?php } ?>
     </section>
+    <?php
+    if(is_user_logged_in()){
+     include(get_stylesheet_directory().'/partials/pagination.php');
+     }
+    else {
+
+       include('page-templates/partials/page-sign-up/sign-up-panel.php');
+
+        include('page-templates/partials/page-sign-up/sign-up-modal.php');
+     }?>
     <?php get_footer(); // This fxn gets the footer.php file and renders it ?>

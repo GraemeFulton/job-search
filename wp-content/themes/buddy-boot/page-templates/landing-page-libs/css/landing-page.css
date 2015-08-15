@@ -344,3 +344,6 @@ div#slide1 {
 
 .navbar .form-control.col-lg-8, .navbar .fa-search {
   display: none; }
+
+body {
+  padding-top: 30px; }
