@@ -404,3 +404,9 @@ and (max-width : 1224px){
 	color:#666!important;
 	border:none;
 }
+
+.navbar{
+  .form-control.col-lg-8, .fa-search{
+    display:none;
+  }
+}

@@ -1,3 +1,5 @@
+<?php include('partials/app-bar.php');?>
+
 <section class='col-md-9 col-xs-12'>
   <?php  include(get_stylesheet_directory().'/partials/loader.php');?>
 
@@ -79,8 +81,8 @@
 
  <?php if (!is_user_logged_in() && $paged==1){  ?>
 
-       <div class="col-md-9 pull-right no-pad pad-top">
-           <div class='container no-pad pad-top'>
+       <div class="col-md-12 pull-right no-pad pad-top">
+           <div class='col-md-12 no-pad pad-top'>
       <?php echo get_next_posts_link( '<p><button class="btn btn-primary btn-large btn-raised">View more jobs</button></p>', $qp->max_num_pages ); // display older posts link ?>
             </div>
        </div>

@@ -86,6 +86,7 @@ function showProgress() {
 
 function pageLoaded(){
     $('.col-md-9.col-xs-12').fadeIn();
+    $('footer').fadeIn();
     //$('.btn-settings').fadeIn();
 
 }

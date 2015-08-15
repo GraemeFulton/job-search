@@ -38,7 +38,7 @@
 
  <?php if (!is_user_logged_in() && $paged==1){  ?>
 
-        <div class="container no-pad pad-top">
+        <div class="col-md-12 no-pad pad-top">
       <?php echo get_next_posts_link( '<p><button class="btn btn-primary btn-large btn-raised">View more jobs</button></p>', $qp->max_num_pages ); // display older posts link ?>
         </div>
 

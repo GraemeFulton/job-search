@@ -341,3 +341,6 @@ div#slide1 {
   background-image: none;
   color: #666 !important;
   border: none; }
+
+.navbar .form-control.col-lg-8, .navbar .fa-search {
+  display: none; }

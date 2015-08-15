@@ -25,8 +25,10 @@ and open the template in the editor.
 /* Padding below the footer and lighter body text */
 body {
   color: #5a5a5a;
-  padding-top: 40px;
-}
+  padding-top: 40px; }
+
+footer {
+  display: none; }
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
@@ -267,7 +269,6 @@ table.profile-fields {
     padding-left: 0px;
     padding-right: 0px; }
   .sign-up-panel {
-    float:left;
     max-width: 100%; }
   .search-criteria.container {
     margin-top: 15px; } }
