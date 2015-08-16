@@ -107,9 +107,9 @@ function stickyNavbars(){
 
     $(window).bind('scroll', function () {
         if ($(window).scrollTop() > num) {
-            $('.menu').addClass('fixed');
+            $('.menu, .box-head').addClass('fixed');
         } else {
-            $('.menu').removeClass('fixed');
+            $('.menu, .box-head').removeClass('fixed');
         }
     });
 }

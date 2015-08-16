@@ -248,7 +248,7 @@ table.profile-fields{
 @media (min-width: 1120px) {
     .col-md-9.col-xs-12{
         max-width:720px;
-        margin-top:25px;
+        margin-top:120px;
     }
     .col-xs-0{
         display:block;
@@ -256,6 +256,9 @@ table.profile-fields{
 }
 @media (min-width: 768px) {
 
+    .col-md-9.col-xs-12{
+        margin-top:105px;
+    }
 
     /* Navbar positioning foo */
     ul.wpuf-form li .wpuf-label {
@@ -318,6 +321,9 @@ table.profile-fields{
 
 @media  (min-width : 100px)
 and (max-width : 771px) {
+  .col-md-9.col-xs-12{
+      margin-top:90px;
+  }
         .col-xs-0{
         display:none;
     }
@@ -788,8 +794,7 @@ a{color:#50978B}
   box-shadow: 0 1px 0 rgba(0,0,0,0.05);
   background: #fff;
   height: 48px;
-  position: relative;
-  top: 0;
+  position: fixed;
 
   .current{
     border-bottom-style: solid;
@@ -1459,7 +1464,7 @@ LOADER
 
 .fixed {
     position:fixed;
-    top:0;
+    top:64;
 }
 .col-md-2.menu{
   position: fixed;
