@@ -46,13 +46,15 @@ get_header();
               {
                 if($profession->parent==0)//if there is no parent, it is a top-level category
                 {
+                  if($profession->name=='Business &amp; Management')
+                    $profession->name = 'Business';
                 ?>
                   <div class='col-xs-4 image-box animated bounceIn'>
-                    <div class="box-container">
+                    <div class="btn btn-sup btn-default btn-raised box-container">
                       <div class='check'>
-                        <input type="checkbox" name="Profession[]" value="<?php echo $profession->name; ?>">
+                        <input type="checkbox" name="Profession[]" value="<?php echo $profession->slug; ?>">
                       </div>
-                        <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icon-pack/'.strtolower($profession->name).'.svg'?>'/>
+                        <img class="box-image"  src='<?php echo get_template_directory_uri().'/images/icon-pack/'.str_replace(' &amp; ', '', strtolower($profession->name)).'.svg'?>'/>
                           <p class='tag'><?php echo $profession->name;?></p>
                     </div>
                   </div>

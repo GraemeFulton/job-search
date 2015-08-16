@@ -71,10 +71,15 @@ fp-slidesNav {
   background: #fff; }
 
 .box-image {
-  cursor: pointer; }
-
-.box-image {
+  cursor: pointer;
+  margin-top: -5px;
   height: 80px; }
+
+.btn.box-container {
+  width: 95%;
+  height: 95%; }
+  .btn.box-container .check {
+    display: none; }
 
 .image-box {
   height: 110px; }
@@ -190,6 +195,7 @@ fp-slidesNav {
   #fullpage {
     margin-top: -20px; }
   .box-image {
+    margin-top: 5px;
     height: 55px !important; }
   .image-box {
     height: 85px !important; }
@@ -204,13 +210,24 @@ fp-slidesNav {
     font-size: 10px; }
   .btn-next {
     font-size: 12px; }
-  .image-box p {
-    font-size: 12px;
-    padding-top: 5px; } }
+  .image-box {
+    margin-bottom: 5px !important; }
+    .image-box p {
+      font-size: 12px;
+      padding-top: 5px;
+      font-size: 12px !important; }
+  .navbar-form {
+    display: none; }
+  .btn.box-container {
+    padding: 0px;
+    width: 90%; }
+    .btn.box-container .check {
+      display: none; } }
 
 div#slide1 {
   padding-left: 50px;
-  padding-right: 50px; }
+  padding-right: 50px;
+  margin-top: -8px; }
 
 #section3 {
   padding-top: 16px; }
@@ -347,3 +364,10 @@ div#slide1 {
 
 body {
   padding-top: 30px; }
+
+.image-box p {
+  margin-bottom: 0px !important;
+  font-size: 14px; }
+
+.image-box {
+  margin-bottom: 10px; }

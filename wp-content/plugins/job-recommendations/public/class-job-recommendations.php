@@ -177,7 +177,6 @@ class Job_Recommendations{
 					//unserialize them
 					$professions = unserialize($selected_professions);
 
-         array_walk($professions, function(&$value, $key) {  $value =$this->create_slug($value); });
         //profession
          $args['tax_query'][0]['terms']=$professions;
          $args['tax_query'][0]['taxonomy']='profession';

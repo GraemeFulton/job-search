@@ -1111,3 +1111,10 @@ LOADER
 
 .avatar-page .standard-form {
   border: 0px; }
+
+.single_datagrid h1 {
+  font-size: 22px;
+  margin-top: 2px;
+  line-height: 1.4em;
+  font-weight: 100;
+  margin-bottom: 15px; }
