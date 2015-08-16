@@ -11,7 +11,7 @@ get_header(); ?>
 	<? include(get_stylesheet_directory().'/partials/side-nav.php');?>
 	<?php require(JOB_RECOMMENDATIONS.'/public/views/partials/app-bar.php'); ?>
 
-<div id="primary" class="col-md-9 col-xs-12">
+<div id="primary" class="col-md-9 main-content-area  col-md-offset-2  col-xs-12">
 	<?php  include(get_stylesheet_directory().'/partials/loader.php');?>
 
 	<div class="pagi-top container col-sm-8 no-pad">

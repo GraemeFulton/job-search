@@ -1,6 +1,6 @@
 <?php include('partials/app-bar.php');?>
 
-<section class='col-md-9 col-xs-12'>
+<section class='col-md-9 main-content-area  col-md-offset-2 col-xs-12'>
   <?php  include(get_stylesheet_directory().'/partials/loader.php');?>
 
  <?php

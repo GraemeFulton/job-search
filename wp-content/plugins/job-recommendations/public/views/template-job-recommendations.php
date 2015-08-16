@@ -1,4 +1,4 @@
-<section class='col-md-9 col-xs-12'>
+<section class='col-md-9 col-md-offset-2 col-xs-12 main-content-area'>
 <?php  include(get_stylesheet_directory().'/partials/loader.php');?>
  <?php 	 if ( $wp_query->have_posts() ) :
 			// Do we have any posts/pages in the databse that match our query?

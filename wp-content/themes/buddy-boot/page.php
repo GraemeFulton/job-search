@@ -8,7 +8,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
     <? include(get_stylesheet_directory().'/partials/side-nav.php');?>
     <?php require(JOB_RECOMMENDATIONS.'/public/views/partials/app-bar.php'); ?>
 
-     	<div id="primary" class="col-md-9 col-xs-12">
+     	<div id="primary" class="col-md-9 main-content-area col-md-offset-2  col-xs-12">
         <?php  include(get_stylesheet_directory().'/partials/loader.php');?>
 
 <!--		<div id="content" role="main" class="span12">-->

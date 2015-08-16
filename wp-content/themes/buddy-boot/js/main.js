@@ -1,5 +1,6 @@
 $(document).ready(function(){
-  pageLoaded()
+  pageLoaded();
+  stickyNavbars();
   window.onbeforeunload = showProgress;
 
   horizontal_menu_listener();
@@ -94,7 +95,21 @@ function pageLoaded(){
 
 
     })
+}
 
-    //$('.btn-settings').fadeIn();
+function stickyNavbars(){
 
+  /* Dynamic top menu positioning
+ *
+ */
+
+  var num = 20; //number of pixels before modifying styles
+
+    $(window).bind('scroll', function () {
+        if ($(window).scrollTop() > num) {
+            $('.menu').addClass('fixed');
+        } else {
+            $('.menu').removeClass('fixed');
+        }
+    });
 }

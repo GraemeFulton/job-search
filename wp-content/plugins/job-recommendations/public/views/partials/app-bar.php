@@ -1,7 +1,7 @@
 <!--template-job-recommendations-->
 <?php if($suggest_more == true){
     ?>
-  <div class='no-pad box-head col-xs-12 col-md-10'>
+  <div class='no-pad box-head col-xs-12  col-md-offset-2  col-md-10'>
       <div style="float:left;">
           <p>Job Results</p>
       </div>
@@ -12,7 +12,7 @@
 }
 else{
 ?>
-   <div class='no-pad box-head col-xs-12 col-md-10'>
+   <div class='no-pad box-head col-xs-12 col-md-offset-2 col-md-10'>
     <?php if(!is_user_logged_in()){
         $link = get_site_url().'/register';
     }else{
