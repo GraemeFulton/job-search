@@ -1,5 +1,6 @@
 $(document).ready(function(){
   pageLoaded();
+
   stickyNavbars();
   window.onbeforeunload = showProgress;
 

@@ -25,7 +25,7 @@ and open the template in the editor.
 /* Padding below the footer and lighter body text */
 body {
   color: #5a5a5a;
-  padding-top: 40px; }
+  padding-top: 32px; }
 
 footer {
   visibility: hidden;
@@ -1054,8 +1054,7 @@ h4, .h4 {
 
 #buddypress .sign-up-panel {
   margin-bottom: 25px;
-  padding-top: 25px;
-  padding-bottom: 5px;
+  padding-bottom: 0px;
   float: left;
   max-width: 100%; }
   #buddypress .sign-up-panel .welcome-profile {
@@ -1063,9 +1062,8 @@ h4, .h4 {
   #buddypress .sign-up-panel .container {
     max-width: 100%;
     padding-left: 0px;
-    padding-right: 0px; }
-  #buddypress .sign-up-panel .panel.panel-default.flex-col {
-    padding: 5px; }
+    padding-right: 0px;
+    margin-bottom: 0px !important; }
 
 .bp-widget {
   float: left;
@@ -1099,10 +1097,12 @@ LOADER
 .loader-container {
   display: none;
   opacity: 0.8;
-  position: absolute;
+  position: fixed;
   z-index: 1;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  top: 40%;
+  left: 0; }
 
 .btn.btn-primary.btn-large.btn-raised {
   margin-top: 25px;
@@ -1154,6 +1154,13 @@ LOADER
   position: fixed;
   top: 64; }
 
+.fixed.box-head {
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 3; }
+
 .col-md-2.menu {
   position: fixed; }
 
@@ -1162,3 +1169,9 @@ LOADER
 
 .navbar-toggle, .navbar-nav {
   display: block; }
+
+.copy-card, .container.list-container {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); }

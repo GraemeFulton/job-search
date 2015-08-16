@@ -8,7 +8,7 @@
  */
 
 ?>
-<div class="container no-pad card">
+<div class="container no-pad copy-card">
 
 <?php
 

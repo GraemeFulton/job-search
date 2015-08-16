@@ -118,7 +118,7 @@
 
 
 
-    <div class='container-fluid card sign-up-panel'>
+    <div class='container-fluid copy-card sign-up-panel'>
 
         <section class='search-criteria container text-center row-flex row-flex-wrap'>
 

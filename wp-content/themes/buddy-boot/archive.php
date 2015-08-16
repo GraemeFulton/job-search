@@ -27,19 +27,19 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 		<h3>Jobs @ <?php  echo $term->name; ?></h3>
 	</div>
      	<div id="primary" class="">
+        <?php   global $wp_query;
+          if ($paged==0){
+          	$paged=1;
+       	 }
+
+           echo '<div class="pagi-top container no-pad no-pad-bottom"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span> for jobs @ '.$term->name.'</p>';?>
+                 <?php include('partials/selections-tags.php') ;
+                 echo '</div>';
+                  ?>
 <!--		<div id="content" role="main" class="span12">-->
 		<section class="container list-container">
- <?php
-        global $wp_query;
-        if ($paged==0){
-        	$paged=1;
-     	 }
 
-         echo '<div class="pagi-top container no-pad no-pad-bottom"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span> for jobs @ '.$term->name.'</p>';?>
-               <?php include('partials/selections-tags.php') ;
-               echo '</div>';
-                ?>
-			<?php if ( have_posts() ) :
+      <?php if ( have_posts() ) :
 			// Do we have any posts/pages in the databse that match our query?
 			?>
 

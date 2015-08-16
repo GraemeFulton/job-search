@@ -1,4 +1,4 @@
-<div class="col-md-12 card avatar-page">
+<div class="col-md-12 copy-card avatar-page">
 
 <div style="margin-top:20px;"class="container post">
 	<h4 style="margin-top:5px;"><?php _e( 'Change Avatar', 'buddypress' ); ?></h4>

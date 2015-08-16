@@ -21,7 +21,7 @@ get_header(); ?>
 		</a>
 
   </div>
-	<div class="row custom-tax-single shadow-z-2 col-md-8 col-sm-8">
+	<div class="row custom-tax-single copy-card col-md-8 col-sm-8">
 		<div id="primary">
 			<?php
 	    	$post_id= get_the_ID();
