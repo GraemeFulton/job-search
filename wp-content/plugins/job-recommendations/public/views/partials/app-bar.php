@@ -5,9 +5,10 @@
       <div style="float:left;">
           <p>Job Results</p>
       </div>
-          <a href="<?php echo get_site_url() .'/members/'. bp_core_get_username( get_current_user_id() ) . '/profile/edit/group/14';?>" class="btn-primary btn-raised btn pull-right btn-settings"><i class="fa fa-cog"></i></a>
 
     </div>
+    <a href="<?php echo get_site_url() .'/members/'. bp_core_get_username( get_current_user_id() ) . '/profile/edit/group/14';?>" class="btn-primary btn-raised btn pull-right btn-settings"><i class="fa fa-cog"></i></a>
+
 <?php
 }
 else{
@@ -34,8 +35,8 @@ else{
     }
     ?>
 
-     <a href="<?php echo $link;?>" class="btn-primary btn-raised btn pull-right btn-settings"><i class="fa fa-cog"></i></a>
     </div>
+    <a href="<?php echo $link;?>" class="btn-primary btn-raised btn pull-right btn-settings"><i class="fa fa-cog"></i></a>
 
 <?php
 if($nothing_found==true){

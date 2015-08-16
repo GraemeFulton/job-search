@@ -49,6 +49,6 @@ $(function() {
 
 <?php  do_action('bp_after_header'); ?>
 
-	
+
 
 </header><!-- #masthead .site-header -->
