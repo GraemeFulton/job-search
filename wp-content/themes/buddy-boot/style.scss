@@ -383,6 +383,10 @@ and (max-width:767px){
 
 @media  (min-width : 100px)
 and (max-width : 771px) {
+  #buddypress.container{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 .col-md-12.container.no-pad.pad-top{
   margin-left: 15px;
   margin-right: 15px;
@@ -946,7 +950,7 @@ a{color:#50978B}
   }
 }
 .box-head > li:first-child {
-    margin-left:60px;
+    margin-left:6.2%;
   }
 .box-head{
 
