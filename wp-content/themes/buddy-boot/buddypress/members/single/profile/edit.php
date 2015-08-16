@@ -15,7 +15,7 @@ if ( bp_has_profile( 'profile_group_id=' . bp_get_current_profile_group_id() ) )
 
 		<?php while ( bp_profile_fields() ) : bp_the_profile_field(); ?>
 
-			<div class="editfield col-sm-3 no-pad">
+			<div class="editfield col-md-3 col-xs-12 no-pad">
 
 				<?php if ( 'textbox' == bp_get_the_profile_field_type() ) : ?>
 
@@ -75,7 +75,7 @@ if ( bp_has_profile( 'profile_group_id=' . bp_get_current_profile_group_id() ) )
 
 				<?php if ( 'checkbox' == bp_get_the_profile_field_type() ) : ?>
 
-					<div class="checkbox no-pad">
+					<div class="checkbox col-xs-12 no-pad">
 						<span class="label"><?php bp_the_profile_field_name(); ?> <?php if ( bp_get_the_profile_field_is_required() ) : ?><?php _e( '(required)', 'buddypress' ); ?><?php endif; ?></span>
 
 						<?php bp_the_profile_field_options(); ?>
