@@ -30,7 +30,15 @@ body {
 footer {
   visibility: hidden;
   float: left;
-  clear: both; }
+  clear: both;
+  clear: left;
+  height: 96px;
+  position: relative;
+  width: 100%;
+  z-index: 0;
+  background-color: #03a9f4;
+  padding: 40px;
+  margin-top: 80px; }
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
@@ -65,6 +73,12 @@ footer {
   z-index: 2;
   position: fixed; }
 
+.navbar .navbar-brand {
+  position: relative;
+  height: 63px !important;
+  line-height: 30px !important;
+  padding: 18px 15px !important; }
+
 .field-visibility-settings-notoggle {
   display: none; }
 
@@ -97,9 +111,6 @@ table.profile-fields {
 
 .container .bp-table-module {
   padding: 20px;
-  background: #f8f8f8;
-  border: 1px solid #eaeaea;
-  margin-top: 20px;
   height: auto;
   float: left;
   width: 100%; }
@@ -213,6 +224,11 @@ table.profile-fields {
     display: block; } }
 
 @media (min-width: 768px) {
+  .navbar .navbar-toggle {
+    display: none; }
+  .navbar li a {
+    height: 63px;
+    line-height: 36px; }
   .col-md-9.col-xs-12 {
     margin-top: 105px; }
   /* Navbar positioning foo */
@@ -254,6 +270,8 @@ table.profile-fields {
     display: none !important; } }
 
 @media (min-width: 100px) and (max-width: 771px) {
+  body {
+    padding-top: 18px; }
   .col-md-9.col-xs-12 {
     margin-top: 90px; }
   .col-xs-0 {
@@ -289,6 +307,14 @@ table.profile-fields {
   padding-right: 0px; }
 
 @media (min-width: 100px) and (max-width: 610px) {
+  .nav > li {
+    height: inherit !important;
+    line-height: 36px;
+    text-align: center; }
+  .navbar-inverse.navbar .dropdown-menu li > a {
+    font-size: 14px; }
+  footer {
+    margin-top: 25px !important; }
   .col-md-9.main-content-area {
     margin-left: 0 !important; }
   .col-xs-0 {
@@ -346,9 +372,11 @@ table.profile-fields {
   padding: 0px;
   margin: 0px; }
 
-#primary h1.title {
-  margin-top: 0px;
-  margin-bottom: 20px; }
+#primary {
+  min-height: 70%; }
+  #primary h1.title {
+    margin-top: 0px;
+    margin-bottom: 20px; }
 
 .bp-widget h4 {
   margin-top: 0px; }
@@ -357,9 +385,11 @@ table.profile-fields {
   padding-top: 10px;
   margin-bottom: 0; }
 
-#buddypress .standard-form {
-  margin-bottom: 0px;
-  margin-top: 0px; }
+#buddypress {
+  max-width: 100%; }
+  #buddypress .standard-form {
+    margin-bottom: 0px;
+    margin-top: 0px; }
 
 #buddypress div#message {
   margin-bottom: 0px !important; }
@@ -386,6 +416,12 @@ table.profile-fields {
   padding-bottom: 0px; }
   .sign-up-page.sign-up-panel .search-criteria {
     max-width: 100%; }
+
+.sign-up-page.card {
+  z-index: 4; }
+
+.navbar {
+  z-index: 5; }
 
 .paginating {
   padding: 30px;
@@ -449,7 +485,8 @@ a {
 
 #buddypress .bp-widget {
   margin-bottom: 25px;
-  padding: 20px; }
+  padding: 20px;
+  clear: both; }
 
 #buddypress .bp-widget.profession, #buddypress .bp-widget.location {
   display: none; }

@@ -72,13 +72,14 @@ get_header(); // This fxn gets the header.php file and renders it ?>
       <?php
     }
     ?>
-
-    </section>
     <?php
     if(is_user_logged_in()){
      include(get_stylesheet_directory().'/partials/pagination.php');
      }
-    else {
+     ?>
+    </section>
+
+    <?php if(!is_user_logged_in()){
 
        include('page-templates/partials/page-sign-up/sign-up-panel.php');
 

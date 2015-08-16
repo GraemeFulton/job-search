@@ -2,20 +2,18 @@
 <?php  include(get_stylesheet_directory().'/partials/loader.php');?>
  <?php 	 if ( $wp_query->have_posts() ) :
 			// Do we have any posts/pages in the databse that match our query?
-
-      ?>
-   <?php
-    if($paged==1){
-    	echo '<h3><i class="material-icons icon-large">thumb_up</i> Found '.$found.' jobs for you</h3>';
-    }
-    ?>
+?>
     <?php
         global $wp_query;
         if ($paged==0){
           $paged=1;
        }
 
-         echo '<div class="pagi-top container no-pad"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span>'.$message.'</p>';?>
+         echo '<div class="pagi-top container no-pad">';
+         if($paged==1){
+           echo '<h3><i class="material-icons icon-large">thumb_up</i> Found '.$found.' jobs for you</h3>';
+         }
+        echo '<p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span>'.$message.'</p>';?>
                <?php include('partials/selections-tags.php') ;
                echo '</div>';
                 ?>

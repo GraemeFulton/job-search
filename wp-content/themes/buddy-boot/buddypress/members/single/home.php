@@ -1,4 +1,4 @@
-<div id="buddypress">
+<div id="buddypress" class="container">
 
 	<?php do_action( 'bp_before_member_home_content' ); ?>
 

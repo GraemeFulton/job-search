@@ -1,4 +1,4 @@
-    <div class='sign-up-page container-fluid col-md-12 sign-up-panel row-flex row-flex-wrap'>
+    <div class='sign-up-page card container-fluid col-md-12 sign-up-panel row-flex row-flex-wrap'>
         <div class='container no-pad'> <h3 style='margin-top:10px; color:#999'>Get free full access now</h3></div>
 
         <section class='search-criteria container'>

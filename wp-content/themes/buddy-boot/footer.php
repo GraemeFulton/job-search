@@ -5,7 +5,7 @@
 	/*-----------------------------------------------------------------------------------*/
 ?>
 
-<footer class="col-md-12 site-footer container" role="contentinfo">
+<footer class="site-footer" role="contentinfo">
 
 <p>©
 <a href="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></p>
