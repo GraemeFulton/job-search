@@ -468,6 +468,11 @@ and (max-width : 771px) {
 
 @media  (min-width : 100px)
 and (max-width : 510px) {
+  .page-template-page-templatespage-sign-up-php, .page-template-page-templatesuser-signed-in-php, .single-graduate-job{
+    .col-md-9.col-xs-12{
+      margin-top: 60px!important;
+    }
+  }
   .box-head > li a{
     font-size: 10px;
     padding: 0px 5px!important;
@@ -1647,4 +1652,9 @@ LOADER
   border-radius: 2px;
   -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.page-template-page-templatespage-sign-up-php, .page-template-page-templatesuser-signed-in-php, .single-graduate-job{
+  .col-md-9.col-xs-12{
+    margin-top: 75px!important;
+  }
 }
