@@ -1118,3 +1118,24 @@ LOADER
   line-height: 1.4em;
   font-weight: 100;
   margin-bottom: 15px; }
+
+.pagi-top.container.no-pad {
+  padding-bottom: 0px;
+  margin-bottom: 0px; }
+  .pagi-top.container.no-pad p {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    padding-right: 0px; }
+
+.single .pagi-top.container.no-pad {
+  padding-bottom: 5px;
+  margin-bottom: 5px; }
+  .single .pagi-top.container.no-pad .pagi-back-arrow {
+    font-size: 20px !important;
+    vertical-align: bottom;
+    margin-left: -10px;
+    color: #bbb; }
+  .single .pagi-top.container.no-pad .pull-right {
+    padding-right: 20px; }
+  .single .pagi-top.container.no-pad a {
+    color: #bbb; }

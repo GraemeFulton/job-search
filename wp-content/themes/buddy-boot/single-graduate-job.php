@@ -14,6 +14,13 @@ get_header(); ?>
 <div id="primary" class="col-md-9 col-xs-12">
 	<?php  include(get_stylesheet_directory().'/partials/loader.php');?>
 
+	<div class="pagi-top container col-sm-8 no-pad">
+		<a class='pull-right' href="javascript:history.go(-1)">
+			<i class="material-icons pagi-back-arrow icon-large">arrow_back</i>
+			Go back
+		</a>
+
+  </div>
 	<div class="row custom-tax-single shadow-z-2 col-md-8 col-sm-8">
 		<div id="primary">
 			<?php
