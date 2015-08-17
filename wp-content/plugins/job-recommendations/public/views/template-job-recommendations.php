@@ -14,9 +14,9 @@
            echo '<h3><i class="material-icons icon-large">thumb_up</i> Found '.$found.' jobs for you</h3>';
          }
         echo '<p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span>'.$message.'</p>';?>
-               <?php include('partials/selections-tags.php') ;
-               echo '</div>';
-                ?>
+        <?php include('partials/selections-tags.php') ;
+          echo '</div>';
+      ?>
     <section class="container list-container">
 
 				<?php while ( $wp_query->have_posts() ) : $wp_query->the_post();

@@ -360,6 +360,8 @@ table.profile-fields {
   .container.list-main-content {
     padding-right: 0px;
     max-width: 100%; }
+    .container.list-main-content a p {
+      color: #222; }
   .mobile-show {
     display: block !important;
     text-align: center;
@@ -908,8 +910,11 @@ a {
     font-size: 14px;
     max-height: 40px;
     overflow: hidden; }
+  .post.container p:hover, .post.container a:hover, .post.container span:hover {
+    text-decoration: none; }
   .post.container p {
-    margin-bottom: 3px; }
+    margin-bottom: 3px;
+    color: #444; }
   .post.container span, .post.container i {
     font-size: 12px !important; }
     .post.container span a, .post.container i a {
@@ -1161,7 +1166,8 @@ div.selected {
   margin-bottom: 20px; }
 
 .container-margin-top {
-  margin-top: 20px; }
+  margin-top: 20px;
+  padding-left: 5px; }
 
 #buddypress input[type=submit], #buddypress a.button {
   font-size: 15px;
@@ -1323,6 +1329,7 @@ LOADER
 
 .pagi-top.container.no-pad {
   padding-bottom: 0px;
+  padding-left: 5px;
   margin-bottom: 5px; }
   .pagi-top.container.no-pad p {
     padding-bottom: 0px;
@@ -1407,3 +1414,6 @@ LOADER
   display: block !important;
   width: 200px;
   margin-left: -210px; }
+
+.box-head {
+  z-index: 9; }

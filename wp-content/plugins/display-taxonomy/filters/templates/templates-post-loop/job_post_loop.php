@@ -1,27 +1,21 @@
+<?php
+if(is_user_logged_in()==false) {
+    if ($paged == 1) {
+      $ahref = '<a class="job-link post-link" href="'. $link.'">';
+    }
+    else{
+      $ahref = '<a data-toggle="modal" class="post-link" id="add-cover-photo" data-target="#myModal" data-href="'.get_permalink().'">';
+    }
+  }
+  else {
+    $ahref= '<a class="post-link" href="'.get_permalink().'">';
+  }
+?>
+
+<?php echo $ahref; ?>
 <div class="container list-main-content">
     <div class="pull-left col-xs-8">
-    <?php   //if user is not logged in, show popup links
-        if(is_user_logged_in()==false) {
-            if ($paged == 1) {?>
-            <a class='job-link' href="<?php echo $link; ?>">
-                <h4 class="title"><?php the_title(); // Display the title of the page ?></h4>
-            </a>
-    <?php } else { ?>
-            <a data-toggle="modal" id="add-cover-photo" data-target="#myModal" data-href="<?php the_permalink(); ?>">
-                <h4 class="title">
-                    <?php the_title(); // Display the title of the page ?>
-                </h4>
-            </a>
-    <?php }
-    }//else show lostgrad links
-    else{ ?>
-    <a href="<?php the_permalink(); ?>">
-        <h4 class="title">
-        <?php the_title(); // Display the title of the page
-    ?></h4>
-    </a>
-    <?php
-    } ?>
+      <h4 class="title"><?php the_title(); // Display the title of the page ?></h4>
     </div>
     <div class="col-xs-4 pull-right">
         <!--<div id="youtube_player-<?php //echo $this->post_id?>"><?php //echo $video?></div>-->
@@ -39,19 +33,19 @@
                '<div class="time pull-right">'. $days_ago = ''.$total_days.' days ago</div>';
             }
             echo $days_ago;
-            ?>     
+            ?>
     </div>
 </div>
-    
-    
-    <?php 
+
+
+    <?php
     $location= $this->get_jobs_location($tree);
     ?>
 <div class="container no-pad">
    <? echo $excerpt;?>
     <div class="meta-info">
          <i class="fa fa-building-o"></i> <span><?php echo $institution;?></span>&nbsp;
-    <i class="fa fa-map-marker"></i> <span><?php echo $location;?></span>&nbsp; 
+    <i class="fa fa-map-marker"></i> <span><?php echo $location;?></span>&nbsp;
     </div>
 </div>
-
+</a>

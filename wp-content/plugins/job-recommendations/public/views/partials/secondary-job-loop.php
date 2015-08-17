@@ -22,6 +22,7 @@ echo '<div class="pagi-top container no-pad"><p>Page <span class="page-num">'.$p
       <?php include('selections-tags.php');
       echo '</div>';
 ?>
+<section class="container list-container">
 
 
 				<?php while ( $wp_query->have_posts() ) : $wp_query->the_post();
@@ -41,3 +42,4 @@ echo '<div class="pagi-top container no-pad"><p>Page <span class="page-num">'.$p
 			endif; // OK, I think that takes care of both scenarios (having a page or not having a page to show)
 
 ?>
+</section>

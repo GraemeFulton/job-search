@@ -457,6 +457,9 @@ and (max-width : 771px) {
         display:none;
     }
     .container.list-main-content{
+      a p{
+        color:#222
+      }
         padding-right:0px;
         max-width:100%;
     }
@@ -466,6 +469,7 @@ and (max-width : 771px) {
         padding-top:20px;
         clear:both;
     }
+
     .post.container h4 {
         margin-top: 5px;
         margin-bottom: 10px;
@@ -1151,9 +1155,14 @@ a{color:#50978B}
         font-size:14px;
         max-height: 40px;
         overflow:hidden;
+
+    }
+    p:hover,a:hover,span:hover{
+      text-decoration: none;
     }
     p{
         margin-bottom:3px;
+        color:#444;
     }
     span, i{
 
@@ -1477,6 +1486,7 @@ div.selected{
 }
 .container-margin-top{
   margin-top:20px;
+  padding-left: 5px;
 }
 
 #buddypress input[type=submit], #buddypress a.button{
@@ -1690,6 +1700,7 @@ LOADER
 
 .pagi-top.container.no-pad{
   padding-bottom: 0px;
+  padding-left: 5px;
   margin-bottom: 5px;
   p{
     padding-bottom: 0px;
@@ -1788,4 +1799,7 @@ padding-left: 25px;
   display:block!important;
   width:200px;
   margin-left: -210px;
+}
+.box-head{
+  z-index: 9;
 }
