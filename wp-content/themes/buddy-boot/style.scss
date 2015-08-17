@@ -700,7 +700,7 @@ and (max-width : 610px) {
 }
 
 .sign-up-page.sign-up-panel{
-    margin-top:60px;
+    margin-top:10px;
     visibility:hidden;
     background:#fff;
     padding:25px;
@@ -710,8 +710,11 @@ and (max-width : 610px) {
         max-width:100%;
     }
     h3{
-      margin-left: 38px;
+      margin-left: 15px;
     }
+}
+.col-sm-2.pager.pull-left.no-pad{
+  margin-bottom: 50px;
 }
 .sign-up-page.card{
   z-index: 4;
@@ -1151,11 +1154,16 @@ a{color:#50978B}
         overflow: hidden;
         color:#55827A;
     }
-    p, a, span{
+    p, a{
         font-size:14px;
-        max-height: 40px;
-        overflow:hidden;
-
+        overflow: hidden;
+        float: left;
+        padding:0px;
+        position: relative;
+        width: 100%;
+    }
+    a{
+      padding:15px;
     }
     p:hover,a:hover,span:hover{
       text-decoration: none;
@@ -1179,13 +1187,14 @@ a{color:#50978B}
     border-bottom:1px solid #e7e7e7;
     max-width:100%;
     .post.container{
-
+        padding:0px;
         border-left:1px solid #e7e7e7;
         border-right:1px solid #e7e7e7;
 
     }
     .post.container:hover{
       cursor: pointer;
+      background: #f3f3f3;
     }
 }
 .pagi-top{
@@ -1802,4 +1811,7 @@ padding-left: 25px;
 }
 .box-head{
   z-index: 9;
+}
+.post.error{
+  margin-bottom: 40px;
 }

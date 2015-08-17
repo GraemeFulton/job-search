@@ -2,7 +2,7 @@
 <?php if($suggest_more == true){
     ?>
   <div class='no-pad box-head col-xs-12  col-md-offset-2  col-md-10'>
-    
+
 
     </div>
     <a href="<?php echo get_site_url() .'/members/'. bp_core_get_username( get_current_user_id() ) . '/profile/edit/group/14';?>" class="btn-primary btn-raised btn pull-right btn-settings"><i class="material-icons">settings</i></a>
@@ -20,17 +20,8 @@ else{
 
     ?>
     <?php
-    if(bp_is_my_profile()){
-
-      if(bp_is_profile_edit()){
-        bp_profile_group_tabs();
-      }
-      if(bp_is_settings_component()){
-        if ( bp_core_can_edit_settings() ) {
-          bp_get_options_nav();
-        }
-      }
-    }
+    include('menus/buddypress-menu.php');
+    include('menus/jobpage-menu.php');
     ?>
 
     </div>

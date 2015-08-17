@@ -529,7 +529,7 @@ table.profile-fields {
   background: #f4f4f4; }
 
 .sign-up-page.sign-up-panel {
-  margin-top: 60px;
+  margin-top: 10px;
   visibility: hidden;
   background: #fff;
   padding: 25px;
@@ -538,7 +538,10 @@ table.profile-fields {
   .sign-up-page.sign-up-panel .search-criteria {
     max-width: 100%; }
   .sign-up-page.sign-up-panel h3 {
-    margin-left: 38px; }
+    margin-left: 15px; }
+
+.col-sm-2.pager.pull-left.no-pad {
+  margin-bottom: 50px; }
 
 .sign-up-page.card {
   z-index: 4; }
@@ -906,10 +909,15 @@ a {
     max-height: 17.5px;
     overflow: hidden;
     color: #55827A; }
-  .post.container p, .post.container a, .post.container span {
+  .post.container p, .post.container a {
     font-size: 14px;
-    max-height: 40px;
-    overflow: hidden; }
+    overflow: hidden;
+    float: left;
+    padding: 0px;
+    position: relative;
+    width: 100%; }
+  .post.container a {
+    padding: 15px; }
   .post.container p:hover, .post.container a:hover, .post.container span:hover {
     text-decoration: none; }
   .post.container p {
@@ -926,10 +934,12 @@ a {
   border-bottom: 1px solid #e7e7e7;
   max-width: 100%; }
   .container.list-container .post.container {
+    padding: 0px;
     border-left: 1px solid #e7e7e7;
     border-right: 1px solid #e7e7e7; }
   .container.list-container .post.container:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    background: #f3f3f3; }
 
 .pagi-top {
   font-size: 13px;
@@ -1417,3 +1427,6 @@ LOADER
 
 .box-head {
   z-index: 9; }
+
+.post.error {
+  margin-bottom: 40px; }
