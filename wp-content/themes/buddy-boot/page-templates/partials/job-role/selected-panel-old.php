@@ -54,14 +54,13 @@
 
 
             if ($page_number>0){ ?>
-                <div class='container'>
-            <h3><i class="fa fa-cog"></i> Your search preferences
-    </h3>
+<div class='container'>
+    <h3><i class="fa fa-cog"></i> Your search preferences </h3>
 <div class="selections-table-container">
 	<table class="selections-table">
 		<tr>
 			<th align="right"><i class="fa fa-check-square-o"></i></th>
-			<td>
+		<td>
 		            <?php
 
 		               foreach ($subjects as $subject){
@@ -112,18 +111,13 @@
         </div>
             <?php }
             else { ?>
+<div class="container profile-card copy-card max-width">
 
+<section class="welcome-selected-box no-pad col-xs-12">
 
+    <div class='container-fluid no-pad sign-up-panel'>
 
-
-
-
-    <div class='container-fluid copy-card sign-up-panel'>
-
-        <section class='search-criteria container text-center row-flex row-flex-wrap'>
-
-            <div class='col-sm-4 welcome-profile'>
-                <div class="panel panel-default flex-col">
+            <div class='welcome-profile'>
                 <h4><i class="fa fa-cog"></i> Profile settings</h4>
                 <a href="<?php echo bp_loggedin_user_domain()?>/profile/change-avatar/">
                 <div class='avatar-circle'>
@@ -136,62 +130,60 @@
                            <a href="<?php echo bp_loggedin_user_domain().'/profile/edit';?>" class='btn-success btn-outlined btn'>Refine your settings</a>
                </div>
             </div>
+
+    </div>
+</section>
+
+<section class="selected-box no-pad col-xs-12">
+    <div class='welcome-profile no-pad margin-b-25'>
+        <h4><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;What</h4>
+        <div class="vertical-align">
+           <div class="selected-options">
+                       <?php
+               foreach ($subjects as $subject){
+
+                 foreach($subject as $s){
+
+                  ?>
+                  <div class='selected'><?php echo $s;?> </div>
+
+                  <?php
+                 }
+                  }
+              ?>
+             </div>
+
+   </div>
+    <div class="refine">
+         <a href = "<?php echo bp_loggedin_user_domain().'/profile/edit/group/1/#edit-Profession'?>"class="btn-success btn-outlined btn">+</a>
+                </div>
+     </div>
+
+           <div class='no-pad welcome-profile margin-b-25'>
+               <h4><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Where</h4>
+             <div class="vertical-align">
+             <div class="selected-options">
+
+                      <?php
+               foreach ($locations as $location){
+
+                 foreach($location as $l){
+
+                  ?>
+                  <div class='selected'><?php echo $l;?> </div>
+
+                  <?php
+                 }
+                  }
+              ?>
+              </div>
+
+
+         </div>
+              <div class="refine">
+         <a href = "<?php echo bp_loggedin_user_domain().'/profile/edit/group/1/#edit-Location'?>"class="btn-success btn-outlined btn">+</a>
             </div>
-
-
-     <div class='col-sm-4 welcome-profile'>
-         <div class="panel panel-default flex-col">
-         <h4><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;What</h4>
-         <div class="vertical-align">
-         		<div class="selected-options">
-		                    <?php
-		            foreach ($subjects as $subject){
-
-		            	foreach($subject as $s){
-
-		               ?>
-		               <div class='selected'><?php echo $s;?> </div>
-
-		               <?php
-		            	}
-		               }
-		           ?>
-         	  	</div>
-
-		</div>
-		 <div class="refine">
-					<a href = "<?php echo bp_loggedin_user_domain().'/profile/edit/group/1/#edit-Profession'?>"class="btn-success btn-outlined btn">+</a>
-		 	           </div>
-         </div>
       </div>
-
-            <div class='col-sm-4 welcome-profile'>
-              <div class="panel panel-default flex-col">
-                <h4><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Where</h4>
-              <div class="vertical-align">
-		         	<div class="selected-options">
-
-		                   <?php
-		            foreach ($locations as $location){
-
-		            	foreach($location as $l){
-
-		               ?>
-		               <div class='selected'><?php echo $l;?> </div>
-
-		               <?php
-		            	}
-		               }
-		           ?>
-		           </div>
-
-
-         	</div>
-         	     <div class="refine">
-					<a href = "<?php echo bp_loggedin_user_domain().'/profile/edit/group/1/#edit-Location'?>"class="btn-success btn-outlined btn">+</a>
-	           </div>
-         </div>
-       </div>
-        </section>
-     <?php };?>
+    </section>
+      <?php };?>
     </div>

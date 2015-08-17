@@ -110,7 +110,7 @@ table.profile-fields {
   width: auto !important; }
 
 .container .bp-table-module {
-  padding: 20px;
+  padding: 5px;
   height: auto;
   float: left;
   width: 100%; }
@@ -574,7 +574,7 @@ a {
 
 #buddypress .bp-widget {
   margin-bottom: 25px;
-  padding: 20px;
+  padding: 25px;
   clear: both; }
 
 #buddypress .bp-widget.profession, #buddypress .bp-widget.location {
@@ -733,10 +733,10 @@ a {
 
 .welcome-profile .selected {
   color: #A9A9A9;
-  padding: 5px;
+  /* padding: 5px; */
   font-size: 13px;
   margin-right: 8px;
-  border: 1px solid #eaeaea;
+  /* border: 1px solid #eaeaea; */
   font-weight: 100; }
 
 .menu a {
@@ -1308,3 +1308,17 @@ LOADER
 
 .page-template-page-templatespage-sign-up-php .col-md-9.col-xs-12, .page-template-page-templatesuser-signed-in-php .col-md-9.col-xs-12, .single-graduate-job .col-md-9.col-xs-12 {
   margin-top: 75px !important; }
+
+.max-width {
+  width: 100%; }
+
+.profile-card {
+  padding: 25px 25px 25px 25px;
+  background: #fff;
+  margin-bottom: 25px; }
+  .profile-card h4 {
+    margin-top: 5px;
+    margin-bottom: 20px; }
+
+.margin-b-25 {
+  margin-bottom: 25px !important; }

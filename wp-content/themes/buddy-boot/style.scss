@@ -132,7 +132,7 @@ table.profile-fields{
     width:auto!important;
 }
 .container .bp-table-module{
-    padding:20px;
+    padding:5px;
     height:auto;
     float:left;
     width:100%;
@@ -750,7 +750,7 @@ a{color:#50978B}
     }
     .bp-widget{
       margin-bottom: 25px;
-      padding:20px;
+      padding:25px;
       clear:both;
     }
     .bp-widget.profession, .bp-widget.location{
@@ -933,12 +933,12 @@ a{color:#50978B}
     h2{margin-top:0px;}
 
     .selected{
-        color: #A9A9A9;
-        padding: 5px;
-        font-size: 13px;
-        margin-right: 8px;
-        border: 1px solid #eaeaea;
-        font-weight: 100;
+      color: #A9A9A9; 
+          /* padding: 5px; */
+          font-size: 13px;
+          margin-right: 8px;
+          /* border: 1px solid #eaeaea; */
+          font-weight: 100;
     }
 }
 
@@ -1661,4 +1661,19 @@ LOADER
   .col-md-9.col-xs-12{
     margin-top: 75px!important;
   }
+}
+.max-width{
+  width:100%;
+}
+.profile-card{
+  padding:25px 25px 25px 25px;
+  background: #fff;
+  margin-bottom: 25px;
+  h4{
+    margin-top:5px;
+    margin-bottom: 20px;
+  }
+}
+.margin-b-25{
+  margin-bottom: 25px!important;
 }
