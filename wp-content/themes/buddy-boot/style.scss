@@ -1480,10 +1480,19 @@ div.selected{
 }
 
 #buddypress input[type=submit], #buddypress a.button{
-    font-size:14px;
-    margin-top:25px;
-    border:1px solid $green;
-    margin-bottom: 0px
+  font-size: 15px;
+      margin-top: 25px;
+      border: 0px;
+      padding: 10px;
+    margin-bottom: 0px;
+    background: #4caf50;
+    color: rgba(255,255,255,.84);
+    box-shadow: 0 1px 6px 0 rgba(0,0,0,.12),0 1px 6px 0 rgba(0,0,0,.12);
+    transition: box-shadow .28s cubic-bezier(.4,0,.2,1);
+}
+#buddypress input[type=submit]:hover, #buddypress a.button:hover{
+      box-shadow: 0 1px 6px 0 rgba(0,0,0,.12),0 1px 6px 0 rgba(0,0,0,.12);
+        background: inherit!important;
 }
 h4, .h4{
     font-size:18px;
