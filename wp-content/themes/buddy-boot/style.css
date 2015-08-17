@@ -931,12 +931,10 @@ a {
 .container.list-container {
   padding-left: 0px;
   padding-right: 0px;
-  border-bottom: 1px solid #e7e7e7;
+  border: 0px;
   max-width: 100%; }
   .container.list-container .post.container {
-    padding: 0px;
-    border-left: 1px solid #e7e7e7;
-    border-right: 1px solid #e7e7e7; }
+    padding: 0px; }
   .container.list-container .post.container:hover {
     cursor: pointer;
     background: #f3f3f3; }
