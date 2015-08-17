@@ -183,9 +183,20 @@ fp-slidesNav {
 .image-box:hover:after {
     opacity:1;
 }*/
+@media (max-width: 782px) and (min-width: 481px) {
+  .navbar-form.navbar-left {
+    display: none !important; }
+  body {
+    padding-top: 18px !important; } }
+
+.navbar-toggle {
+  display: none; }
+
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   /* Styles */
+  .navbar-form.navbar-left {
+    display: none !important; }
   h2.margin-b {
     margin-bottom: 20px;
     margin-top: 35px; }

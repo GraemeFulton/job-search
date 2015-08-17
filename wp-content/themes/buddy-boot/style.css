@@ -379,6 +379,8 @@ table.profile-fields {
 @media (min-width: 100px) and (max-width: 510px) {
   .page-template-page-templatespage-sign-up-php .col-md-9.col-xs-12, .page-template-page-templatesuser-signed-in-php .col-md-9.col-xs-12, .single-graduate-job .col-md-9.col-xs-12 {
     margin-top: 60px !important; }
+  .page-template-page-templatespage-sign-up-php .site-footer, .page-template-page-templatesuser-signed-in-php .site-footer, .single-graduate-job .site-footer {
+    margin-top: 0px !important; }
   .box-head > li a {
     font-size: 10px;
     padding: 0px 5px !important;
@@ -394,7 +396,9 @@ table.profile-fields {
     padding: 15px;
     font-size: 26px;
     width: 56px;
-    height: 56px; } }
+    height: 56px; }
+    .btn-settings .material-icons {
+      font-size: 24px !important; } }
 
 @media (min-width: 100px) and (max-width: 610px) {
   .navbar-form.navbar-left {
@@ -445,12 +449,8 @@ table.profile-fields {
     font-size: 20px; }
   h4, .h4 {
     font-size: 16px; }
-  h3 {
-    font-size: 20px; }
-  .panel p {
-    font-size: 12px; }
-  .panel .btn, .panel li {
-    font-size: 14px; } }
+  .sign-up-panel h3 {
+    margin-top: 30px !important; } }
 
 .spacer {
   height: 100px; }
@@ -1330,6 +1330,9 @@ LOADER
 .page-template-page-templatespage-sign-up-php .col-md-9.col-xs-12, .page-template-page-templatesuser-signed-in-php .col-md-9.col-xs-12, .single-graduate-job .col-md-9.col-xs-12 {
   margin-top: 75px !important; }
 
+.page-template-page-templatespage-sign-up-php .site-footer, .page-template-page-templatesuser-signed-in-php .site-footer, .single-graduate-job .site-footer {
+  margin-top: 0px; }
+
 .max-width {
   width: 100%; }
 
@@ -1343,3 +1346,6 @@ LOADER
 
 .margin-b-25 {
   margin-bottom: 25px !important; }
+
+.registration .btn-settings {
+  display: none; }
