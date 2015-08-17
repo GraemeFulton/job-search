@@ -1,6 +1,6 @@
 $(document).ready(function(){
   pageLoaded();
-
+  navbar_toggle();
   stickyNavbars();
   window.onbeforeunload = showProgress;
 
@@ -113,4 +113,11 @@ function stickyNavbars(){
             $('.menu, .box-head').removeClass('fixed');
         }
     });
+}
+
+function navbar_toggle(){
+  $('.navbar-toggle').click(function(){
+    $('.menu').toggleClass('toggle-active');
+    $('body').toggleClass('menu-activated');
+  })
 }

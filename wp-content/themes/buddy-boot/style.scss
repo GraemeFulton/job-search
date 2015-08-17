@@ -30,6 +30,11 @@ and open the template in the editor.
 body {
     color: #5a5a5a;
     padding-top:32px;
+    -webkit-transition: margin-left 0.08s linear;
+    -moz-transition: margin-left 0.08s linear;
+    -o-transition: margin-left 0.08s linear;
+    -ms-transition: margin-left 0.08s linear;
+    transition: margin-left 0.08s linear;
 }
 footer{
   visibility:hidden;
@@ -285,12 +290,15 @@ and (max-width:782px){
 }
 @media (min-width: 768px)
 and (max-width:991px){
+  .navbar .navbar-toggle{
+    display: block!important;
+  }
   .navbar-form.navbar-left{
     position: fixed;
   display: inline-block;
   top: 0px;
   width: 300px;
-  right: 15px;
+  left: 195px;
   overflow: hidden;
   z-index: 9;
     input{
@@ -308,7 +316,7 @@ and (max-width:767px){
   display: inline-block;
   top: -10px;
   width: 300px;
-  left: 140px;
+  left: 212px;
   overflow: hidden;
   z-index: 9;
     input{
@@ -378,12 +386,18 @@ and (max-width:767px){
         font-size: 50px;
     }
 }
-
+@media (min-width: 1200px)
+ {
+  .navbar-form .form-group{
+    margin-top: -5px;
+  }
+}
 @media (min-width: 992px) {
   #primary.main-content-area{
     padding-left:0%;
     padding-right: 0%;
   }
+
     .featurette-heading {
         margin-top: 120px;
     }
@@ -528,7 +542,7 @@ and (max-width : 610px) {
   display: inline-block;
   top: -10px;
   width: 150px;
-  left: 140px;
+  left: 212px;
   overflow: hidden;
   z-index: 9;
     input{
@@ -972,6 +986,7 @@ a{color:#50978B}
 }
 
 .menu{
+
   a{text-decoration: none;}
   li:hover{
     background-color: #e5e5e5;
@@ -1741,4 +1756,22 @@ LOADER
   .btn-settings{
     display: none;
   }
+}
+.navbar-toggle{
+  float: left;
+  padding-top: 16px;
+padding-left: 25px;
+}
+.menu-activated{
+  margin-left:210px;
+  width:100%;
+  overflow-x: hidden;
+  .box-head{
+    margin-left:-10px;
+  }
+}
+.menu.toggle-active{
+  display:block!important;
+  width:200px;
+  margin-left: -210px;
 }

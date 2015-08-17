@@ -20,18 +20,5 @@
               <span class="fa fa-search form-control-feedback"></span>
             </div>
         </form>
-        <div class="navbar-collapse collapse">
-         <?php /* Primary navigation */
-   wp_nav_menu( array(
-        'menu'              => 'top_menu',
-        'theme_location'    => 'primary',
-        'depth'             => 2,
-        'container'         => false,
-        'container_class'   => 'collapse navbar-collapse navbar-ex1-collapse',
-        'menu_class'        => 'nav navbar-nav',
-        'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-        'walker'            => new wp_bootstrap_navwalker())
-    );?>
 
-        </div><!--/.nav-collapse -->
     </div>

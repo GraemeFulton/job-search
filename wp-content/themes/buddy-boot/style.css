@@ -25,7 +25,12 @@ and open the template in the editor.
 /* Padding below the footer and lighter body text */
 body {
   color: #5a5a5a;
-  padding-top: 32px; }
+  padding-top: 32px;
+  -webkit-transition: margin-left 0.08s linear;
+  -moz-transition: margin-left 0.08s linear;
+  -o-transition: margin-left 0.08s linear;
+  -ms-transition: margin-left 0.08s linear;
+  transition: margin-left 0.08s linear; }
 
 footer {
   visibility: hidden;
@@ -239,12 +244,14 @@ table.profile-fields {
     position: fixed; } }
 
 @media (min-width: 768px) and (max-width: 991px) {
+  .navbar .navbar-toggle {
+    display: block !important; }
   .navbar-form.navbar-left {
     position: fixed;
     display: inline-block;
     top: 0px;
     width: 300px;
-    right: 15px;
+    left: 195px;
     overflow: hidden;
     z-index: 9; }
     .navbar-form.navbar-left input {
@@ -258,7 +265,7 @@ table.profile-fields {
     display: inline-block;
     top: -10px;
     width: 300px;
-    left: 140px;
+    left: 212px;
     overflow: hidden;
     z-index: 9; }
     .navbar-form.navbar-left input {
@@ -304,6 +311,10 @@ table.profile-fields {
     line-height: 1.4; }
   .featurette-heading {
     font-size: 50px; } }
+
+@media (min-width: 1200px) {
+  .navbar-form .form-group {
+    margin-top: -5px; } }
 
 @media (min-width: 992px) {
   #primary.main-content-area {
@@ -406,7 +417,7 @@ table.profile-fields {
     display: inline-block;
     top: -10px;
     width: 150px;
-    left: 140px;
+    left: 212px;
     overflow: hidden;
     z-index: 9; }
     .navbar-form.navbar-left input {
@@ -1368,3 +1379,20 @@ LOADER
 
 .registration .btn-settings {
   display: none; }
+
+.navbar-toggle {
+  float: left;
+  padding-top: 16px;
+  padding-left: 25px; }
+
+.menu-activated {
+  margin-left: 210px;
+  width: 100%;
+  overflow-x: hidden; }
+  .menu-activated .box-head {
+    margin-left: -10px; }
+
+.menu.toggle-active {
+  display: block !important;
+  width: 200px;
+  margin-left: -210px; }
