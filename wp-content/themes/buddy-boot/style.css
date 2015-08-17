@@ -916,8 +916,6 @@ a {
     padding: 0px;
     position: relative;
     width: 100%; }
-  .post.container a {
-    padding: 15px; }
   .post.container p:hover, .post.container a:hover, .post.container span:hover {
     text-decoration: none; }
   .post.container p {
@@ -935,6 +933,8 @@ a {
   max-width: 100%; }
   .container.list-container .post.container {
     padding: 0px; }
+    .container.list-container .post.container a {
+      padding: 15px; }
   .container.list-container .post.container:hover {
     cursor: pointer;
     background: #f3f3f3; }

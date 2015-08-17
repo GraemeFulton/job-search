@@ -17,7 +17,7 @@ $location= $this->get_jobs_location($tree);
                     }
                     ?>
 
-                    <p>This is <?php echo $sentance; ?> advertised by <?php echo $institution;?>.</p>
+                    <p>This is <?php echo $sentance; ?> advertised by <?php echo $institution_with_link;?>.</p>
                     <p>The role is in the <?php echo strtolower($subject) ?> industry, and is <?php echo $location?> based.</p>
                     <p> <?php echo $desc;?> </p>
                     <p> A summary of the job is provided below. Click the 'Apply Now' button to find out more.</p>
@@ -28,7 +28,7 @@ $location= $this->get_jobs_location($tree);
                   <hr>
                     <table class="pop-out-tbl">
                         <tr><th><h5 class="small-title">Job details</h5></th></tr>
-                        <tr><th>Company: </th><td><?php echo $institution;?></td></tr>
+                        <tr><th>Company: </th><td><?php echo $institution_with_link;?></td></tr>
                         <tr class="alt"><th>Profession: </th><td><?php echo $subject;?></td></tr>
                         <tr><th>Location: </th><td><?php echo $location;?></td></tr>
                         <tr class="alt"><th>Job Type: </th><td><?php echo $post_type;?></td></tr>

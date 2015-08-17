@@ -473,7 +473,7 @@ class Display_Taxonomy{
   *
   * if the tag doesn't belong to a group, it builds the url for just the one tag
   */
- public function get_linked_taggroup_or_tag($post_id, $object_id, $group_parent_id){
+ public function get_linked_taggroup_or_tag($post_id, $object_id, $group_parent_id, $link){
 
      // $object_id = wp_get_post_terms($post_id, 'uni', array("fields" => "ids"));
 
@@ -497,9 +497,14 @@ class Display_Taxonomy{
 
                $list = implode ( ',', $slugs );
 
-               if($names[0])
-               //return '<a href="'.$url.'/?'.$this->grouped_taxonomy_short.'='.$list.'">'.$names[0].'</a>';
+               if($names[0]){
+                 if($link==1){
+                   return '<a href="'.$url.'/?'.$this->grouped_taxonomy_short.'='.$list.'">'.$names[0].'</a>';
+                 }
+                 else{
                return $names[0];
+                }
+             }
 
             }
      }
@@ -508,8 +513,12 @@ class Display_Taxonomy{
          $term_name = wp_get_post_terms($post_id, $this->grouped_taxonomy_short, array("fields" => "names"));
          $term_slug = wp_get_post_terms($post_id, $this->grouped_taxonomy_short, array("fields" => "slugs"));
 
-        // if($term_name[0])return '<a href="'.$url.'/?'.$this->grouped_taxonomy_short.'='.$term_slug[0].'">'.$term_name[0].'</a>';
+         if($link==1){
+         if($term_name[0])return '<a href="'.$url.'/?'.$this->grouped_taxonomy_short.'='.$term_slug[0].'">'.$term_name[0].'</a>';
+        }
+        else{
         if($term_name[0])return $term_name[0];
+        }
 
      }
  }
