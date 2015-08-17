@@ -223,6 +223,21 @@ table.profile-fields {
   .col-xs-0 {
     display: block; } }
 
+@media (min-width: 772px) and (max-width: 782px) {
+  .btn-settings {
+    position: fixed;
+    top: 60px;
+    right: 15px;
+    z-index: 10; }
+  .box-head {
+    margin-bottom: 20px;
+    max-width: 100%;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+    background: #fff;
+    height: 48px;
+    position: fixed; } }
+
 @media (min-width: 768px) and (max-width: 991px) {
   .navbar-form.navbar-left {
     position: fixed;
@@ -693,7 +708,7 @@ a {
 
 .btn-settings {
   position: fixed;
-  top: 63px;
+  top: 59.5px;
   right: 15px;
   z-index: 10; }
 
@@ -739,12 +754,18 @@ a {
   /* border: 1px solid #eaeaea; */
   font-weight: 100; }
 
+.welcome-profile i {
+  vertical-align: bottom; }
+
 .menu a {
   text-decoration: none; }
 
 .menu li:hover {
   background-color: #e5e5e5;
   background-color: rgba(0, 0, 0, 0.05); }
+
+.btn-settings .material-icons {
+  font-size: 22px; }
 
 .box-head > li:first-child {
   margin-left: 6.2%; }

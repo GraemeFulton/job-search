@@ -55,7 +55,7 @@
 
             if ($page_number>0){ ?>
 <div class='container'>
-    <h3><i class="fa fa-cog"></i> Your search preferences </h3>
+    <h3><i class="material-icons">settings</i> Your search preferences </h3>
 <div class="selections-table-container">
 	<table class="selections-table">
 		<tr>
@@ -118,7 +118,7 @@
     <div class='container-fluid no-pad sign-up-panel'>
 
             <div class='welcome-profile'>
-                <h4><i class="fa fa-cog"></i> Profile settings</h4>
+                <h4><i class="material-icons">settings</i> Profile settings</h4>
                 <a href="<?php echo bp_loggedin_user_domain()?>/profile/change-avatar/">
                 <div class='avatar-circle'>
 					<?php global $userdata; get_currentuserinfo(); echo get_avatar( $userdata->ID, 46 ); ?>
@@ -127,7 +127,7 @@
                 <p>Job recommendations are based on the selections you make. </p>
 
                <div class="refine">
-                           <a href="<?php echo bp_loggedin_user_domain().'/profile/edit';?>" class='btn-success btn-outlined btn'>Refine your settings</a>
+                           <a href="<?php echo bp_loggedin_user_domain().'/profile/edit';?>" class='btn-success btn-raised btn-outlined btn'>Refine your settings</a>
                </div>
             </div>
 
@@ -136,7 +136,7 @@
 
 <section class="selected-box no-pad col-xs-12">
     <div class='welcome-profile no-pad margin-b-25'>
-        <h4><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;What</h4>
+        <h4><i class="material-icons">work</i>&nbsp;What</h4>
         <div class="vertical-align">
            <div class="selected-options">
                        <?php
@@ -155,12 +155,12 @@
 
    </div>
     <div class="refine">
-         <a href = "<?php echo bp_loggedin_user_domain().'/profile/edit/group/1/#edit-Profession'?>"class="btn-success btn-outlined btn">+</a>
+         <a href = "<?php echo bp_loggedin_user_domain().'/profile/edit/group/1/#edit-Profession'?>"class="btn-success btn-raised btn-outlined btn"><i class="material-icons">add</i></a>
                 </div>
      </div>
 
            <div class='no-pad welcome-profile margin-b-25'>
-               <h4><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Where</h4>
+               <h4><i class="material-icons">location_on</i>&nbsp;Where</h4>
              <div class="vertical-align">
              <div class="selected-options">
 
@@ -181,7 +181,7 @@
 
          </div>
               <div class="refine">
-         <a href = "<?php echo bp_loggedin_user_domain().'/profile/edit/group/1/#edit-Location'?>"class="btn-success btn-outlined btn">+</a>
+         <a href = "<?php echo bp_loggedin_user_domain().'/profile/edit/group/1/#edit-Location'?>"class="btn-success btn-raised btn-outlined btn"><i class="material-icons">add</i></a>
             </div>
       </div>
     </section>
