@@ -279,7 +279,7 @@ and (max-width:782px){
     -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
     background: #fff;
-    height: 48px;
+    height: 52px;
     position: fixed;
   }
 }
@@ -695,6 +695,9 @@ and (max-width : 610px) {
   z-index: 4;
 }
 .navbar{
+  .material-icons{
+  vertical-align: sub;
+  }
   z-index: 5;
 }
 .paginating{
@@ -988,7 +991,7 @@ a{color:#50978B}
   -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.05);
   box-shadow: 0 1px 0 rgba(0,0,0,0.05);
   background: #fff;
-  height: 48px;
+  height: 52px;
   position: fixed;
 
   .current{

@@ -235,7 +235,7 @@ table.profile-fields {
     -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
     background: #fff;
-    height: 48px;
+    height: 52px;
     position: fixed; } }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -530,6 +530,8 @@ table.profile-fields {
 
 .navbar {
   z-index: 5; }
+  .navbar .material-icons {
+    vertical-align: sub; }
 
 .paginating {
   padding: 30px;
@@ -780,7 +782,7 @@ a {
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
   background: #fff;
-  height: 48px;
+  height: 52px;
   position: fixed; }
   .box-head .current {
     border-bottom-style: solid;
