@@ -1613,7 +1613,7 @@ h4, .h4{
     float: left;
     width: 100%;
     padding-bottom: 25px;
-    border-bottom: 1px solid #e4e4e4;
+    border-bottom: 1px solid #EFEFEF;
     .welcome-profile{
       padding:0px;
     }
@@ -1813,4 +1813,8 @@ padding-left: 25px;
 }
 .post.error{
   margin-bottom: 40px;
+}
+.open>.dropdown-menu{
+  width: 500px;
+  float: left;
 }

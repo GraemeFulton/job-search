@@ -1262,7 +1262,7 @@ h4, .h4 {
   float: left;
   width: 100%;
   padding-bottom: 25px;
-  border-bottom: 1px solid #e4e4e4; }
+  border-bottom: 1px solid #EFEFEF; }
   #buddypress .sign-up-panel .welcome-profile {
     padding: 0px; }
   #buddypress .sign-up-panel .container {
@@ -1428,3 +1428,7 @@ LOADER
 
 .post.error {
   margin-bottom: 40px; }
+
+.open > .dropdown-menu {
+  width: 500px;
+  float: left; }
