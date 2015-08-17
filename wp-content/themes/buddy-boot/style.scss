@@ -600,6 +600,8 @@ and (max-width : 610px) {
     .sign-up-panel{
         h3{
           margin-top: 30px!important;
+          margin-left: -15px !important;
+          margin-bottom: -15px !important;
         }
     }
 }
@@ -684,6 +686,9 @@ and (max-width : 610px) {
     padding-bottom:0px;
     .search-criteria{
         max-width:100%;
+    }
+    h3{
+      margin-left: 38px;
     }
 }
 .sign-up-page.card{

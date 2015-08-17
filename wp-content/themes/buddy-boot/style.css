@@ -450,7 +450,9 @@ table.profile-fields {
   h4, .h4 {
     font-size: 16px; }
   .sign-up-panel h3 {
-    margin-top: 30px !important; } }
+    margin-top: 30px !important;
+    margin-left: -15px !important;
+    margin-bottom: -15px !important; } }
 
 .spacer {
   height: 100px; }
@@ -520,6 +522,8 @@ table.profile-fields {
   padding-bottom: 0px; }
   .sign-up-page.sign-up-panel .search-criteria {
     max-width: 100%; }
+  .sign-up-page.sign-up-panel h3 {
+    margin-left: 38px; }
 
 .sign-up-page.card {
   z-index: 4; }
