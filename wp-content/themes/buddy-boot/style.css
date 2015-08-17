@@ -1181,14 +1181,19 @@ h4, .h4 {
   z-index: 1; }
   .menu .menu-group {
     position: relative; }
+    .menu .menu-group .material-icons {
+      vertical-align: bottom;
+      padding-right: 5px; }
+  .menu ul.sub-menu {
+    margin-left: 15px; }
   .menu ul {
     padding-left: 0px; }
     .menu ul a {
       color: #888; }
     .menu ul li {
       list-style: none;
-      padding: 14px 0 14px 50px;
-      font-size: 15px;
+      padding: 14px 0 14px 15px;
+      font-size: 18px;
       font-weight: normal;
       cursor: pointer; }
     .menu ul li.active {
@@ -1196,8 +1201,16 @@ h4, .h4 {
       color: #f8f8f8;
       position: relative; }
     .menu ul .sub-menu li.active {
-      background-color: #dedede;
-      color: inherit; }
+      background-color: #f4f4f4;
+      color: inherit;
+      color: green; }
+
+.sub-menu a li {
+  font-size: 14px;
+  margin-left: 0px;
+  margin-left: 13px;
+  border-left: 1px solid #e4e4e4;
+  padding-left: 15px; }
 
 .width-100 {
   width: 100%; }

@@ -1488,7 +1488,23 @@ h4, .h4{
 {
   .menu-group{
     position:relative;
+    .material-icons{
+      vertical-align: bottom;
+      padding-right: 5px;
+    }
   }
+  ul.sub-menu{
+    margin-left: 15px;
+  }
+
+  // ul.sub-menu{
+  //   background-color: #fff;
+  //       padding-left: 0;
+  //       margin-left: 0;
+  //   li{
+  //     background: #f4f4f4;
+  //   }
+
     padding-left:0px;
     box-shadow: 0 1px 6px rgba(0,0,0,0.1);
     -webkit-user-select: none;
@@ -1504,8 +1520,8 @@ h4, .h4{
        }
        li {
         list-style: none;
-        padding: 14px 0 14px 50px;
-        font-size: 15px;
+        padding: 14px 0 14px 15px;
+        font-size: 18px;
         font-weight: normal;
         cursor: pointer;
         }
@@ -1516,14 +1532,23 @@ h4, .h4{
         }
         .sub-menu{
           li.active {
-          background-color: #dedede;
+          background-color: #f4f4f4;
           color:inherit;
+          color:green;
           }
+
         }
        }
 
 
 
+}
+.sub-menu a li{
+  font-size: 14px;
+  margin-left: 0px;
+  margin-left: 13px;
+  border-left: 1px solid #e4e4e4;
+  padding-left: 15px;
 }
 .width-100{
   width:100%;
