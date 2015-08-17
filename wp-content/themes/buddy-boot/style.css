@@ -462,8 +462,10 @@ table.profile-fields {
     font-size: 16px; }
   .sign-up-panel h3 {
     margin-top: 30px !important;
-    margin-left: -15px !important;
-    margin-bottom: -15px !important; } }
+    margin-left: -60px !important;
+    margin-bottom: 15px !important; }
+  .panel.panel-default.flex-col {
+    margin-bottom: 40px; } }
 
 .spacer {
   height: 100px; }
@@ -866,7 +868,6 @@ a {
   border-color: #eaeaea; }
 
 .flex-col.panel {
-  padding: 28px;
   margin-bottom: 0px;
   border-radius: 0px;
   box-shadow: none; }
