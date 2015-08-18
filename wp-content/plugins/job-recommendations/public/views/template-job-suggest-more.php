@@ -12,7 +12,7 @@
      //First do the primary loop to grab the first few
      if ( $wp_query->have_posts() ) :
       if($paged==1){
-          echo '<div class="pagi-top container no-pad"><h3><i class="material-icons icon-large">thumb_up</i> Found '.$found.' jobs in your preferred location</h3></div>';
+          echo '<div class="pagi-top container no-pad"><h3><i class="material-icons icon-large">thumb_up</i> Found '.number_format($found).' jobs in your preferred location</h3></div>';
         }
 
       global $wp_query;

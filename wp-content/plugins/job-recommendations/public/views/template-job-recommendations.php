@@ -11,7 +11,7 @@
 
          echo '<div class="pagi-top container no-pad">';
          if($paged==1){
-           echo '<h3><i class="material-icons icon-large">thumb_up</i> Found '.$found.' jobs for you</h3>';
+           echo '<h3><i class="material-icons icon-large">thumb_up</i> Found '.number_format($found).' jobs for you</h3>';
          }
         echo '<p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span>'.$message.'</p>';?>
         <?php include('partials/selections-tags.php') ;

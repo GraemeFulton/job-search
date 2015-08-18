@@ -22,7 +22,7 @@ global $wp_query;
                     $term = ' results';
                   }else $term = ' result';
                 ?>
-              Found <?php echo $results.$term.' for "'.$_GET['s'].'"'; ?>
+              Found <?php echo number_format($results).$term.' for "'.$_GET['s'].'"'; ?>
             </h3>
 			<?php if ( have_posts() ) :
 
@@ -77,6 +77,7 @@ global $wp_query;
 <!--		</div> #content .site-content -->
 <?php
 if(is_user_logged_in()){
+  echo'</section>';
  include(get_stylesheet_directory().'/partials/pagination.php');
  }
 else {

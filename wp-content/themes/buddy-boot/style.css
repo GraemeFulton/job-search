@@ -715,7 +715,7 @@ a {
   margin-bottom: 20px; }
 
 .wpuf-submit .btn {
-  margin-top: -52px;
+  margin-top: -45px;
   float: left;
   clear: both; }
 
@@ -1488,3 +1488,9 @@ LOADER
 
 .profile-edit .btn-settings {
   display: none; }
+
+.wpuf-form {
+  padding-left: 0px; }
+
+.wpuf-form-add {
+  margin-bottom: 25px; }
