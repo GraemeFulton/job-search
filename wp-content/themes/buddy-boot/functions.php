@@ -119,20 +119,26 @@ function myplugin_registration_save(  $user_id, $userdata, $form_id, $form_setti
 
      //@TODO: filter cookies before inserting into db
 
-    //grab the professions the user has selected from the cookies
-    $selected_professions= StripSlashes($_COOKIE["profession"]);
-    //unserialize them
-    $professions = unserialize($selected_professions);
+		 $selected_professions= StripSlashes($_COOKIE["profession"]);
+ 		//unserialize them
+ 		$professions = unserialize($selected_professions);
 
 
-    foreach ($professions as $profession){
+ 		foreach ($professions as $profession){
 
-        $field_id = xprofile_get_field_id_from_name($profession);
-
-        //xprofile_set_field_data must take an array
-        //we're only ever dealing with one category per checkbox group,e.g. ['Computing'])
-        xprofile_set_field_data($field_id, $user_id,[$profession]);
-    }
+ 				$parent_term = get_term_by('slug', $profession, 'profession');
+ 				$parent_field_id = xprofile_get_field_id_from_name($parent_term->name);
+ 				//computing = 561
+ 				$child_terms = get_term_children( $parent_term->term_id, 'profession' );
+ 				$options_selected = [$parent_term->name];
+ 				foreach($child_terms as $child_term){
+ 					$child_term= get_term_by('id', $child_term, 'profession');
+ 					array_push($options_selected, $child_term->name);
+ 				}
+ 				//xprofile_set_field_data must take an array
+ 				//we're only ever dealing with one category per checkbox group,e.g. ['Computing'])
+ 			xprofile_set_field_data($parent_field_id,$user_id,$options_selected);
+ 		}
 
      $selected_locations= StripSlashes($_COOKIE["location"]);
     //unserialize them

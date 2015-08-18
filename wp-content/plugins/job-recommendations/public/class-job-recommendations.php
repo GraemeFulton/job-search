@@ -322,6 +322,8 @@ class Job_Recommendations{
          $args['tax_query'][0]['terms']=$professions_arr;
          $args['tax_query'][0]['taxonomy']='profession';
          $args['tax_query'][0]['field']='slug';
+				 $args['tax_query'][0]['include_children']=0;
+
         }
 
         $locations_arr = array();
