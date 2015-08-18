@@ -15,7 +15,7 @@ get_header();
 
 <div class="container-fluid content-container" id="fullpage">
 
-    <form method='POST' action='sign-up'>
+    <form method='GET' action='sign-up'>
 
       <!---------- Page 1 ---------->
       <section class="animatedParent welcome-row row section" id="section0">

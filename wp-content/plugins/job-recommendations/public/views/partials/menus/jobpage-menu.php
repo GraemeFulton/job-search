@@ -34,7 +34,7 @@ if($jobmenu==true){
          {
             $childprofession = get_term_by( 'id', $child, 'profession');
             $active='';
-            if(strpos($_SERVER['REQUEST_URI'],$childprofession->slug)){
+            if(strpos($_SERVER['REQUEST_URI'],$childprofession->slug) && !strpos($_SERVER['REQUEST_URI'],'?')){
               $active='active';
               $current_page='<span class="archive-menu-active">'.$childprofession->name.'</span>';
             }
@@ -51,7 +51,7 @@ if($jobmenu==true){
          if(!$termchildren)
               {
                 $active='';
-                if(strpos($_SERVER['REQUEST_URI'],$profession->slug)){
+                if(strpos($_SERVER['REQUEST_URI'],$profession->slug)&& !strpos($_SERVER['REQUEST_URI'],'?')){
                   $active='active';
                   $current_page='<span class="archive-menu-active">'.$name.'</span>';
                 }

@@ -66,8 +66,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
     <?php if(!is_user_logged_in()){
       ?>
       <article class="post error container" style="padding:20px;">
-        <h3 style="margin-top:0px;"><a href="<?php echo get_site_url; ?>/register">Sign up</a> to see all <?php echo $results?> jobs @ <?php echo $term->name;?></h3>
-                                      <p>There are more jobs @ <?php echo $term->name; ?> - sign up to see them all.</p>
+        <h3 style="margin-top:18px;"><a style="float:none" href="<?php echo get_site_url(); ?>/register">Sign up now</a> to see all <?php echo $results?> <?php echo $term->name;?> jobs</h3>
       </article>
       <?php
     }

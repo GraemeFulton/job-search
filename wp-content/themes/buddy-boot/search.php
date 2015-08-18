@@ -15,7 +15,7 @@ global $wp_query;
     <section class="col-md-9 main-content-area  col-md-offset-2  col-xs-12">
       <?php  include(get_stylesheet_directory().'/partials/loader.php');?>
 
-              <h3 style='margin-bottom:15px;'>
+              <h3 class="pagi-top container no-pad-bottom no-pad" style='margin-bottom:15px;'>
                 <?php
                   $results = $wp_query->found_posts;
                   if($results>1){
@@ -24,8 +24,6 @@ global $wp_query;
                 ?>
               Found <?php echo $results.$term.' for "'.$_GET['s'].'"'; ?>
             </h3>
-<!--		<div id="content" role="main" class="span12">-->
-
 			<?php if ( have_posts() ) :
 
       global $wp_query;
@@ -39,6 +37,7 @@ global $wp_query;
 
 			// Do we have any posts/pages in the databse that match our query?
 			?>
+      <section class="container list-container">
 
 
 				<?php
@@ -54,10 +53,12 @@ global $wp_query;
           }
           elseif($post_count==5){
             ?>
-            <article class="post error container" style="padding:20px;">
-    					<h3 style="margin-top:0px;"><a href="<?php echo get_site_url; ?>/register">Sign up</a> to see all <?php echo $results?> results</h3>
-                                            <p>There were <?php echo $results?> found for this search. To see them all, sign up for free:</p>
+          </section>
+          <section class="container list-container post error container" style="padding:20px;">
+            <article >
+    					<h3 style="margin-top:18px;"><a href="<?php echo get_site_url(); ?>/register" style="float:none;">Sign up now</a> to see all <?php echo $results?> results</h3>
             </article>
+          </section>
             <?php
           }
         }else do_action('job_search_results_loop');
@@ -69,12 +70,11 @@ global $wp_query;
 				<article class="post error container" style="padding:20px;">
 					<h3 style="margin-top:0px;">Sorry, nothing found</h3>
                                         <p>Try searching for something else, or browse recommended jobs:</p>
-                                        <a class="btn-success btn-outlined btn" href="<?php echo get_site_url; ?>/job-roll">Recommended Jobs</a>
+                                        <a class="btn-success btn-outlined btn" href="<?php echo get_site_url(); ?>/job-roll">Recommended Jobs</a>
 				</article>
 
 			<?php endif; // OK, I think that takes care of both scenarios (having a page or not having a page to show) ?>
 <!--		</div> #content .site-content -->
-
 <?php
 if(is_user_logged_in()){
  include(get_stylesheet_directory().'/partials/pagination.php');
