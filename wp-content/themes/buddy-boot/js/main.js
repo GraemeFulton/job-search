@@ -107,6 +107,8 @@ function stickyNavbars(){
   var num = 20; //number of pixels before modifying styles
 
     $(window).bind('scroll', function () {
+      if($('.box-head').hasClass('menu-activated'))return false;
+
         if ($(window).scrollTop() > num) {
             $('.menu, .box-head').addClass('fixed');
         } else {
@@ -117,7 +119,12 @@ function stickyNavbars(){
 
 function navbar_toggle(){
   $('.navbar-toggle').click(function(){
-    $('.menu').toggleClass('toggle-active');
     $('body').toggleClass('menu-activated');
+
+    $('.menu').toggleClass('toggle-active').css('top', '0px');
+    if($('.box-head').hasClass('fixed')){
+      $('.boxhead').removeClass('fixed');
+    }
+    $('.box-head').toggleClass('fixed menu-activated')
   })
 }
