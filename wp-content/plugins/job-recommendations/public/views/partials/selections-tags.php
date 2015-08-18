@@ -1,70 +1,76 @@
-<?php 
+<?php
 if(!is_user_logged_in()){
-	
+
 	?>
-	
-	
-		            <?php 
-		            if(isset($_GET['Profession'])) {
-		            	foreach ($_GET["Profession"] as $selected_profession) {
-		            
+
+
+		            <?php
+		            if(isset($_COOKIE["profession"])) {
+									$selected_professions= StripSlashes($_COOKIE["profession"]);
+									//unserialize them
+									$professions = unserialize($selected_professions);
+		            	foreach ($professions as $selected_profession) {
+
 		            		?>
-		                                     <div class='selected profession'><?php echo ucfirst(str_replace("-jobs","",$selected_profession));?>
+		                           <div class='selected profession'><?php echo ucfirst(str_replace("-jobs","",$selected_profession));?>
 		                          </div>
 		                                  <?php
-		                          
+
 		                                  }
 		                              }
 		                              else{
-		                              	
+
 		                              	?>
 		                              	  <div class='selected profession'>
 		                              	  No profession selected
 		                          </div>
-		                              	
-		                              	<?php 
-		                              }
-		               
-		               ?>	
 
-               <?php 
+		                              	<?php
+		                              }
+
+		               ?>
+
+               <?php
 
 
                //Locations
-               if(isset($_GET['Location'])){
-               	foreach ($_GET["Location"] as $selected_location){
-               
+               if(isset($_COOKIE['location'])){
+								 $selected_locations= StripSlashes($_COOKIE["location"]);
+ 								//unserialize them
+ 								$locations = unserialize($selected_locations);
+               	foreach ($locations as $selected_location){
+
                		?>
                				     <div class='selected location'> <?php echo $selected_location;?>
                				       </div>
                				        <?php
-               				
+
                				        }
                				    }
     else{
-		                              	
+
 		                              	?>
 		                              	  <div class='selected profession'>
 		                              	  No location selected
 		                          </div>
-		                              	
-		                              	<?php 
+
+		                              	<?php
 		                              }
-    ?>          
-	<?php 
-	
+    ?>
+	<?php
+
 }
 else {
 ?>
-           
-            <?php 
+
+            <?php
             $user_ID = get_current_user_id();
-            
-           $parent_id= xprofile_get_field_id_from_name('Profession');      
+
+           $parent_id= xprofile_get_field_id_from_name('Profession');
           global $bp;
               global $wpdb;
-        
-        
+
+
                     $args = array(
                'taxonomy'      => 'profession',
                'parent'        => 0, // get top level categories
@@ -73,14 +79,14 @@ else {
                'hierarchical'  => 1,
                'pad_counts'    => 0
            );
-            
+
             $categories = get_categories( $args );
-                        
+
             $subjects=array();
             foreach ( $categories as $category ){
             	array_push($subjects, xprofile_get_field_data($category->name, $user_ID));
             }
-            
+
 			$args = array(
                'taxonomy'      => 'location',
                'child_of'        => 292, // make sure they're a child of united kingdon
@@ -89,13 +95,13 @@ else {
                'hierarchical'  => 1,
                'pad_counts'    => 0
            );
-			
-			
-            
+
+
+
             $categories = get_categories( $args );
-			$locations = array(); 
+			$locations = array();
             foreach ( $categories as $category ){
-            	
+
             	$sub_args = array(
             			'taxonomy'      => 'location',
             			'parent'        => $category->term_id, // get child categories
@@ -105,27 +111,27 @@ else {
             	);
             	$sub_categories = get_categories( $sub_args );
             	array_push($locations, xprofile_get_field_data($category->name, $user_ID));
-            	 
+
             }
-	
-                        
+
+
  ?>
     </h3>
-		            <?php 
-		    
+		            <?php
+
 		               foreach ($subjects as $subject){
 		               	foreach($subject as $s){
-		
+
 		               ?>
 		              <div class='selected profession'><?php echo $s;?> </div>
-		
+
 		               <?php
 		               	}
-		
+
 		               }
-		               
-		               ?>	
-               <?php 
+
+		               ?>
+               <?php
 
 
                //Locations
@@ -135,12 +141,11 @@ else {
 
                ?>
 		           <div class='selected location'><?php echo $l;?> </div>
-               
+
                <?php
                	}
 
                }
     ?>
-    
+
 <?php } ?>
-          
