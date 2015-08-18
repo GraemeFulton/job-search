@@ -630,6 +630,29 @@ and (max-width : 610px) {
     .panel.panel-default.flex-col{
       margin-bottom: 40px;
     }
+    .open > .dropdown-menu {
+    width: 312px!important;
+    margin-left: -11px;
+    float: left;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    }
+    .box-head .submenu-group {
+    width: 75px!important;
+    height: 121px!important;
+  }
+  .box-head .submenu-group li {
+    padding-left: 5px!important;
+  }
+  .box-head .submenu-group li.submenu-header a {
+    font-size: 10px!important;
+  }
+  .box-head {
+    z-index: 11!important;
+  }
+  .archive-menu-active {
+    font-size: 12px!important;
+  }
 }
 
 .spacer{height:100px;}
