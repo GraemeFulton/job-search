@@ -24,7 +24,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
       <?php  include(get_stylesheet_directory().'/partials/loader.php');?>
 
 	<div class="archive-title">
-		<h3>Jobs @ <?php  echo $term->name; ?></h3>
+		<h3><?php  echo $term->name; ?> jobs</h3>
 	</div>
      	<div id="primary" class="">
         <?php   global $wp_query;
@@ -32,7 +32,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
           	$paged=1;
        	 }
 
-           echo '<div class="pagi-top container no-pad no-pad-bottom"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span> for jobs @ '.$term->name.'</p>';?>
+           echo '<div class="pagi-top container no-pad no-pad-bottom"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span> for '.$term->name.' jobs</p>';?>
                  <?php include('partials/selections-tags.php') ;
                  echo '</div>';
                   ?>

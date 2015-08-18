@@ -192,5 +192,13 @@ function myplugin_registration_save(  $user_id, $userdata, $form_id, $form_setti
          else
          return $active = 2;
     }
-
+		/**
+		*Function for returning profession name
+		*/
+		function get_profession_name($name){
+		  if($name=='Business &amp; Management'){
+		    return $name = 'Business';
+		  }
+			return $name;
+		}
 ?>
