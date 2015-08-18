@@ -121,7 +121,7 @@ function navbar_toggle(){
   $('.navbar-toggle').click(function(){
     $('body').toggleClass('menu-activated');
 
-    $('.menu').toggleClass('toggle-active').css('top', '0px');
+    $('.menu').toggleClass('toggle-active');
     if($('.box-head').hasClass('fixed')){
       $('.boxhead').removeClass('fixed');
     }
