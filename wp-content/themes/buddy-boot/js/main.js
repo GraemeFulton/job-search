@@ -120,11 +120,12 @@ function stickyNavbars(){
 function navbar_toggle(){
   $('.navbar-toggle').click(function(){
     $('body').toggleClass('menu-activated');
-
     $('.menu').toggleClass('toggle-active');
     if($('.box-head').hasClass('fixed')){
       $('.boxhead').removeClass('fixed');
     }
     $('.box-head').toggleClass('fixed menu-activated')
+    $('.btn-settings').toggleClass('hidden');
+
   })
 }
