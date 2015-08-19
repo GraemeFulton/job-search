@@ -134,6 +134,14 @@ function navbar_toggle(){
 function filter_listener(){
   $('.filter-button').on('click', function(event, ui) {
     var selected_option = $("#filter-select option:selected").data('sort');
-    window.location.search ='order_by='+selected_option;
+
+    var url = window.location.href;
+
+     if (url.indexOf("?") < 0)
+         url += "?" + 'order_by' + "=" + selected_option;
+     else
+         url += "&" + 'order_by' + "=" + selected_option;
+     
+     window.location.href = url;
   });
 }
