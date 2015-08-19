@@ -261,6 +261,22 @@ table.profile-fields{
             font-size:28px;
         }
     }
+
+    .menu-sort-filter{
+      margin-right:113px;
+      padding-top:8px;
+      select.form-control{
+        float:left;
+        margin-top:0px;
+        margin-right:5px;
+        width:135px;
+      }
+      .filter-button{
+        float:left;
+        margin-top:0px;
+        padding:5px;
+      }
+    }
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 @media (min-width: 1120px) {
@@ -327,6 +343,13 @@ and (max-width:767px){
     .fa-search{
       display: none;
     }
+
+  }
+
+}
+@media(max-width:611px){
+  .menu-sort-filter{
+    margin-right:15px;
   }
 }
 @media (min-width: 768px) {
@@ -523,6 +546,18 @@ and (max-width : 510px) {
     padding: 0px 5px!important;
     text-align: left;
     width: 100%;
+  }
+  .menu-sort-filter{
+    select.form-control{
+      font-size: 10px;
+      width:120px;
+    }
+    .filter-button{
+      margin-top:5px;
+      .material-icons{
+        font-size: 18px;
+      }
+    }
   }
   .btn-settings{
     position: fixed;

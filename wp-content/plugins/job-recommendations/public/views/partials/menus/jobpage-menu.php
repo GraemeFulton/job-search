@@ -91,4 +91,7 @@ if($jobmenu==true){
   <li class='submenu-main <?php echo $active;?>'><a href="<?php echo get_site_url();?>/job-roll">Recommended</a></li>
 
 <?php
+
+  include('sort-filter.php');
+
 }

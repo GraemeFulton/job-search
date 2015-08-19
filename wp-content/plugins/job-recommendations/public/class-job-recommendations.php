@@ -166,7 +166,7 @@ class Job_Recommendations{
 				}
 				elseif($order_by == 'closing'){
 					$args['date_query']=	 array(
-																    'after'     => '50 days ago',  // or '-2 days'
+																    'after'     => '31 days ago',  // or '-2 days'
 																    'inclusive' => true,
 																  );
           $args['orderby']='date';

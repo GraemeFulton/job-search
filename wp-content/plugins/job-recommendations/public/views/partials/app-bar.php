@@ -4,32 +4,17 @@
 }else{
     $link = get_site_url() .'/members/'.bp_core_get_username( get_current_user_id() ) . '/profile/edit/group/14';
 }
-
-
-if($suggest_more == true){
-    ?>
-  <div class='no-pad box-head col-xs-12  col-md-offset-2  col-md-10'>
+?>
+<div class='no-pad box-head col-xs-12 col-md-offset-2 col-md-10'>
     <?php
-    include('menus/buddypress-menu.php');
-    include('menus/jobpage-menu.php');
+    include_once('menus/buddypress-menu.php');
+    include_once('menus/jobpage-menu.php');
     ?>
-
-    </div>
-    <a href="<?php echo $link;?>" class="btn-primary btn-raised btn pull-right btn-settings"><i class="material-icons">settings</i></a>
+</div>
 
 <?php
-}
-else{
+  include_once('menus/settings-button.php');
 ?>
-   <div class='no-pad box-head col-xs-12 col-md-offset-2 col-md-10'>
-
-    <?php
-    include('menus/buddypress-menu.php');
-    include('menus/jobpage-menu.php');
-    ?>
-
-    </div>
-    <a href="<?php echo $link;?>" class="btn-primary btn-raised btn pull-right btn-settings"><i class="material-icons">settings</i></a>
 
 <?php
 if($nothing_found==true){
@@ -42,6 +27,5 @@ if($nothing_found==true){
     <?php } ?>
 
 <?php
-}
 }
 ?>
