@@ -207,4 +207,38 @@ function myplugin_registration_save(  $user_id, $userdata, $form_id, $form_setti
 		  }
 			return $name;
 		}
+
+
+		/**
+		*custom filter
+		**/
+	//	add_filter('posts_orderby','my_sort_custom',10,2);
+		function my_sort_custom( $orderby, $query ){
+				if(isset($_GET['order_by'])){
+					if($_GET['order_by']=='closing'){
+						global $wpdb;
+
+						if(is_search()){
+								$orderby =  $wpdb->prefix."posts.post_type DESC, {$wpdb->prefix}posts.post_date DESC";
+							}
+					}
+
+				}
+		    return  $orderby;
+		}
+
+		function filter_where($where = '') {
+				if(is_search() || is_archive()){
+					//posts in the last 14 days
+					if(isset($_GET['order_by'])){
+						if($_GET['order_by']=='closing'){
+							$where .= " AND post_date > '" . date('Y-m-d', strtotime('-31 days')) . "'";
+						}
+						return $where;
+					}
+			}
+			return $where;
+		}
+		add_filter('posts_where', 'filter_where');
+
 ?>
