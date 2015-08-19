@@ -154,6 +154,30 @@ class Job_Recommendations{
 
 	}
 
+	private function set_user_order_by($args){
+
+		if(isset($_GET['order_by'])){
+
+				$order_by = $_GET['order_by'];
+
+				if($order_by=='latest'){
+					$args['orderby']='date';
+				 	$args['order']='DESC';
+				}
+				elseif($order_by == 'closing'){
+					$args['date_query']=	 array(
+																    'after'     => '50 days ago',  // or '-2 days'
+																    'inclusive' => true,
+																  );
+          $args['orderby']='date';
+					$args['order'] = 'ASC';
+
+				}
+		}
+		return $args;
+
+	}
+
 
      public function recommend_jobs(){
 
@@ -181,6 +205,7 @@ class Job_Recommendations{
          $args['tax_query'][0]['terms']=$professions;
          $args['tax_query'][0]['taxonomy']='profession';
          $args['tax_query'][0]['field']='slug';
+
         }
 
         if(isset($_COOKIE["location"])){
@@ -194,7 +219,10 @@ class Job_Recommendations{
         }
         //clear tax args if both none set
         $args = $this->clear_tax_args($args);
-
+				$args = $this->set_user_order_by($args);
+				if(isset($this->user_order_by)){
+					array_merge($args, $this->user_order_by);
+				}
         //show 4 results on first page
         if(!is_user_logged_in() && $paged==1){
         	$args['posts_per_page']=4;
@@ -347,6 +375,9 @@ class Job_Recommendations{
 
         //clear tax args if both none set
        $args = $this->clear_tax_args($args);
+
+				//order the posts depending on orderby $_GET parameter
+			 $args = $this->set_user_order_by($args);
 
           //show 4 results on first page
         if( $paged==1){

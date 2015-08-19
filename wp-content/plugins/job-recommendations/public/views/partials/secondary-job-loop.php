@@ -37,7 +37,22 @@ echo '<div class="pagi-top container no-pad"><p>Page <span class="page-num">'.$p
 			<?php else : // Well, if there are no posts to display and loop through, let's apologize to the reader (also your 404 error)
 			$nothing_found = true;
                         $message = 'jobs in other locations matching your preferences';
-                        include('app-bar.php');
+                        ?>
+                        <div class='container no-pad'>
+                          <div class= "post">
+                            <h4>Unfortunately, there are no results.</h4>
+                            <?php
+                            if(!is_user_logged_in()){
+                                $link = get_site_url().'/register';
+                            }else{
+                                $link = get_site_url() .'/members/'.bp_core_get_username( get_current_user_id() ) . '/profile/edit/group/14';
+                            }
+                             ?>
+                            <p>Try <a href="<?php echo $link; ?>">changing your search preferences</a></p>
+                          </div>
+                        </div>
+                        <?php
+                      //  include('app-bar.php');
 
 			endif; // OK, I think that takes care of both scenarios (having a page or not having a page to show)
 
