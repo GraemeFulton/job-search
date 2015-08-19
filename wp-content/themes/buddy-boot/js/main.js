@@ -1,6 +1,7 @@
 $(document).ready(function(){
   pageLoaded();
   navbar_toggle();
+  filter_listener();
   stickyNavbars();
   window.onbeforeunload = showProgress;
 
@@ -128,4 +129,11 @@ function navbar_toggle(){
     $('.btn-settings').toggleClass('hidden');
 
   })
+}
+
+function filter_listener(){
+  $('.filter-button').on('click', function(event, ui) {
+    var selected_option = $("#filter-select option:selected").data('sort');
+    window.location.search ='order_by='+selected_option;
+  });
 }
