@@ -141,7 +141,7 @@ function filter_listener(){
          url += "?" + 'order_by' + "=" + selected_option;
      else
          url += "&" + 'order_by' + "=" + selected_option;
-     
+
      window.location.href = url;
   });
 }
