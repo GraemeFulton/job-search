@@ -48,7 +48,7 @@ echo '<div class="pagi-top container no-pad"><p>Page <span class="page-num">'.$p
                                 $link = get_site_url() .'/members/'.bp_core_get_username( get_current_user_id() ) . '/profile/edit/group/14';
                             }
                              ?>
-                            <p>Try <a href="<?php echo $link; ?>">changing your search preferences</a></p>
+                            <p>Try <a href="<?php echo $link; ?>">changing your search preferences</a> or filter settings.</p>
                           </div>
                         </div>
                         <?php
