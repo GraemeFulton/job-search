@@ -17,6 +17,7 @@
 
             <div class="input-field form-group  has-feedback">
               <input style="padding-right:32px; width:350px;"type="text" class="form-control col-lg-8" placeholder="Search" value="<?php echo get_search_query(); ?>" name="s" id="s" >
+              <input type="hidden" name="post_type" value="graduate-job">
               <span class="fa fa-search form-control-feedback"></span>
             </div>
         </form>
