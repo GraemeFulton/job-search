@@ -12,10 +12,10 @@ Author URI: http://gfulton.me.uk
     function wpt_setup() {
     	register_nav_menu( 'primary', __( 'Primary navigation', 'wptuts' ) );
     } endif;
-    
+
     /*include the nav bar class*/
     require_once('templates/wp_bootstrap_navwalker.php');
-    
+
     add_action('bp_after_header', 'gray_bootstrap_navbar');
     function gray_bootstrap_navbar(){
     	global $wp;
@@ -29,29 +29,29 @@ Author URI: http://gfulton.me.uk
     	//include template
     	require_once('templates/template_navbar.php');
     }
-    
+
    /*
    * Action: enqueue css
    */
     function bootstrap_walker()
     {
         //css
-        wp_register_style( 'bootstrap_walker', plugins_url('/css/bootstrap-walker.css', __FILE__) );
-        wp_enqueue_style( 'bootstrap_walker' );
+        // wp_register_style( 'bootstrap_walker', plugins_url('/css/bootstrap-walker.css', __FILE__) );
+        // wp_enqueue_style( 'bootstrap_walker' );
     }
-    
+
     add_action( 'wp_enqueue_scripts', 'bootstrap_walker' );
-    
+
     Class NavBarSettings{
-    	
+
     	//set defaults as homepage
     	public $header_css_class='home';
     	public $placeholder_text='';
     	public $mobile_nav_toggle_icon='';
     	public $colour='';
     	public $search=false;
-    	
-    	
+
+
     	public function __construct($wp){
     		global $wp;
     	$id=get_the_ID();
@@ -59,13 +59,13 @@ Author URI: http://gfulton.me.uk
 
     	//set up variables
     	$this->set_properties($page->post_title);
-    		
-    		
+
+
     	}
-    	
+
     	private function set_properties($post_title){
-    		
-    		
+
+
     		if($post_title=='Work'){
     			$this->header_css_class='graduatejob';
     			$this->placeholder_text='Work';
@@ -73,13 +73,13 @@ Author URI: http://gfulton.me.uk
     			$this->colour='rgba(255, 134, 39, 1)';
     			$this->search=true;
     		}
-    		elseif($post_title=='Learn'){	
+    		elseif($post_title=='Learn'){
     			$this->header_css_class='course';
     			$this->placeholder_text='Courses';
     			$this->mobile_nav_toggle_icon='book';
     			$this->colour='rgb(23, 171, 255)';
     			$this->search=true;
-    			 
+
     		}
                 elseif($post_title=='Travel'){
     			$this->header_css_class='travel';
@@ -87,7 +87,7 @@ Author URI: http://gfulton.me.uk
     			$this->mobile_nav_toggle_icon='plane';
     			$this->colour='rgb(87, 189, 87)';
     			$this->search=true;
-    			 
+
     		}
     		elseif($post_title=='Experience'){
     			$this->header_css_class='work-experience';
@@ -95,7 +95,7 @@ Author URI: http://gfulton.me.uk
     			$this->mobile_nav_toggle_icon='cogs';
     			$this->colour='rgb(228, 104, 228)';
     			$this->search=true;
-    			 
+
     		}
     		elseif($post_title=='Inspire'){
     			$this->header_css_class='inspire';
@@ -103,26 +103,26 @@ Author URI: http://gfulton.me.uk
     			$this->mobile_nav_toggle_icon='lightbulb-o';
     			$this->colour='goldenrod';
     			$this->search=true;
-    			 
-    			
+
+
     		}
                 else{
-                    
+
                     $this->set_alternate_properties();
-                
+
                 }
-    		
+
     	}
-        
+
         function set_alternate_properties(){
-            
+
         global $wp;
     	$id=get_the_ID();
         $post = get_post($id);
         $post_type= $post->post_type;
-         
-         
-         
+
+
+
         if($post_type=='course'){
             $this->header_css_class='course';
     			$this->placeholder_text='Courses';
@@ -158,10 +158,10 @@ Author URI: http://gfulton.me.uk
     			$this->colour='golden-rod';
     			//$this->search=true;
         }
-        
+
         }
-    	
-    	
+
+
     }
-    
+
 ?>

@@ -70,7 +70,7 @@ fp-slidesNav {
 .box-image {
   cursor: pointer;
   margin-top: -5px;
-  height: 80px; }
+  height: 70px; }
 
 .btn.box-container {
   width: 95%;
@@ -79,7 +79,7 @@ fp-slidesNav {
     display: none; }
 
 .image-box {
-  height: 110px; }
+  height: 103px; }
 
 .check {
   position: absolute;
@@ -103,10 +103,18 @@ fp-slidesNav {
   margin: -20px auto -35px auto;
   position: relative !important;
   width: auto !important;
-  height: auto !important;
+  height: 26% !important;
   overflow: hidden;
   left: auto !important;
   top: auto !important; }
+  #map svg {
+    display: inline-block;
+    border-radius: 2px;
+    color: rgba(0, 0, 0, 0.84);
+    background: #fff;
+    padding: 25px;
+    width: 31%;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
 
 .btn {
   border-radius: 0px; }
@@ -193,7 +201,11 @@ fp-slidesNav {
   display: none; }
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-width: 320px) and (max-width: 480px) {
+@media only screen and (min-width: 100px) and (max-width: 480px) {
+  #map {
+    height: 23% !important; }
+    #map svg {
+      width: 70%; }
   /* Styles */
   .navbar-form.navbar-left {
     display: none !important; }
@@ -221,9 +233,8 @@ fp-slidesNav {
   .image-box {
     margin-bottom: 5px !important; }
     .image-box p {
-      font-size: 12px;
       padding-top: 5px;
-      font-size: 12px !important; }
+      font-size: 10px !important; }
   .navbar-form {
     display: none; }
   .btn.box-container {
@@ -267,7 +278,7 @@ div#slide1 {
     left: -5%;
     top: 15%; }
   svg {
-    height: 26% !important;
+    height: 92% !important;
     margin-top: 20px; }
   #section3 .fp-section.active .text-center {
     margin-top: -20px; }
@@ -379,3 +390,6 @@ body {
 
 .image-box {
   margin-bottom: 10px; }
+
+.navbar-inverse.navbar {
+  background-color: #fff; }

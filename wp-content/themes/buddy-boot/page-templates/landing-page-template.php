@@ -36,7 +36,7 @@ get_header();
       <!---------- Page 2 ---------->
       <section class='animatedParent row interest-row section' id="section1">
 
-        <div class='text-center'>
+        <div class='text-center animated fadeInUp'>
           <h2 class='margin-b'>What interests you?</h2>
             <div class="container" data-anchor="slide1" id="slide1">
               <div class='side'>
@@ -49,7 +49,7 @@ get_header();
                   if($profession->name=='Business &amp; Management')
                     $profession->name = 'Business';
                 ?>
-                  <div class='col-xs-4 image-box animated bounceIn'>
+                  <div class='col-xs-4 image-box'>
                     <div class="btn btn-sup btn-default btn-raised box-container">
                       <div class='check'>
                         <input type="checkbox" name="Profession[]" value="<?php echo $profession->slug; ?>">
@@ -119,7 +119,7 @@ get_header();
     <script src="<?php echo get_template_directory_uri()?>/libs/fullpage/vendors/jquery.easings.min.js"></script>
     <script src="<?php echo get_template_directory_uri()?>/libs/fullpage/jquery.fullPage.min.js"></script>
     <script src="<?php echo get_template_directory_uri()?>/page-templates/landing-page-libs/js/landing-page.js"></script>
-    <script src="<?php echo get_template_directory_uri()?>/page-templates/landing-page-libs/js//css3-animate-it.js"></script>
+    <script src="<?php echo get_template_directory_uri()?>/page-templates/landing-page-libs/js/css3-animate-it.js"></script>
     <script src="<?php echo get_template_directory_uri()?>/js/map.js"></script>
   </body>
 </html>

@@ -1,38 +1,35 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
     $(document).ready(function() {
-    	
+
     	fullPageScroll();
-    	
+
     	highlightCheckBoxOptions();
-    	
-    	
+
+
     	hookButtons();
 
-    	
+
     	//nextButtonTextUpdater();
 
-
-
-
     });
-    
-    
+
+
     /*
      * Activate full page scroll
      */
     function fullPageScroll(){
-    	
+
         $('#fullpage').fullpage({
             verticalCentered:false,
             anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
 
-					
-			        
+
+
 			        //Scrolling
 			        css3: true,
 			        autoScrolling: true,
@@ -47,12 +44,12 @@
 			        scrollOverflow: false,
 			        touchSensitivity: 15,
 			        normalScrollElementTouchThreshold: 5,
-			        
+
 			        //Accessibility
 			        keyboardScrolling: true,
 			        animateAnchor: true,
 			        recordHistory: true,
-			        
+
 			        //Design
 			        controlArrows: true,
 			        resize : false,
@@ -66,36 +63,36 @@
 		        resize : true,
 		        menu: '#pagi-menu'
         });
-        
+
     }
-    
+
     /*
      * When check box is clicked, highlight it
      */
     function highlightCheckBoxOptions(){
         $('.box-container').click(function(){
             var chk = $(this).closest('.image-box').find('[type=checkbox]')
-            chk.prop("checked", !chk.prop("checked"));        
-            
+            chk.prop("checked", !chk.prop("checked"));
+
             $(this).toggleClass('box-active')
-    
+
         })
     }
-    
-    
-    
+
+
+
    /*
     * Hook up buttons
     */
-    
+
     function hookButtons(){
-    	
-    	
+
+
     	//Scroll down button
     	$('.btn-scroll-down').click(function(){
     		$.fn.fullpage.moveSectionDown();
-    		
+
     	})
-    	
-    	
+
+
     }

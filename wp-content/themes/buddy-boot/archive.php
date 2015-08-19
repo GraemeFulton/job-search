@@ -24,7 +24,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
       <?php  include(get_stylesheet_directory().'/partials/loader.php');?>
 
 	<div class="archive-title pagi-top container no-pad no-pad-bottom">
-		<h3><?php  echo $term->name; ?> jobs</h3>
+		<h3><?php  echo $term->name; ?> graduate jobs</h3>
 	</div>
      	<div id="primary" class="">
         <?php   global $wp_query;
@@ -66,7 +66,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
     <?php if(!is_user_logged_in()){
       ?>
       <article class="post error container" style="padding:20px;">
-        <h3 style="margin-top:10px;"><a style="float:none" href="<?php echo get_site_url(); ?>/register">Sign up now</a> to see all <?php echo $results?> <?php echo $term->name;?> jobs</h3>
+        <h3 style="margin-top:10px;"><a style="float:none" href="<?php echo get_site_url(); ?>/register">Sign up now</a> to see all <?php echo $results?> <?php echo $term->name;?> graduate jobs</h3>
       </article>
       <?php
     }

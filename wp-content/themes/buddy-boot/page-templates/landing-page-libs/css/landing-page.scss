@@ -74,7 +74,7 @@ fp-slidesNav{display:none}
     .box-image{
         cursor: pointer;
         margin-top: -5px;
-        height:80px;
+        height:70px;
     }
     .btn.box-container{
       width: 95%;
@@ -84,7 +84,7 @@ fp-slidesNav{display:none}
       }
     }
     .image-box{
-    height:110px;}
+    height:103px;}
 
     .check{
         position:absolute;right:12px
@@ -110,7 +110,17 @@ fp-slidesNav{display:none}
 #map{
     overflow:hidden;
     margin:-20px auto -35px auto;
-    position: relative!important; width:auto!important; height:auto!important; overflow: hidden; left: auto!important; top: auto!important;
+    position: relative!important; width:auto!important; height:26%!important; overflow: hidden; left: auto!important; top: auto!important;
+
+    svg{
+      display: inline-block;
+      border-radius: 2px;
+      color: rgba(0,0,0,.84);
+      background: #fff;
+      padding:25px;
+      width:31%;
+      box-shadow: 0 8px 17px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
+    }
 }
 
 .btn{border-radius: 0px;}
@@ -208,8 +218,14 @@ body {
 }
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
-and (min-width : 320px)
+and (min-width : 100px)
 and (max-width : 480px) {
+  #map{
+    height:23%!important;
+    svg{
+      width:70%;
+    }
+  }
 /* Styles */
 .navbar-form.navbar-left {
     display: none!important;
@@ -247,9 +263,8 @@ h2.margin-b{
     .image-box{
       margin-bottom: 5px!important;
       p{
-         font-size:12px;
          padding-top:5px;
-         font-size: 12px!important;
+         font-size: 10px!important;
      }
     }
     .navbar-form {
@@ -310,7 +325,7 @@ and (min-width : 550px) and (max-width:1280px) {
         left: -5%;
         top: 15%;
      }
-    svg { height: 26%!important;
+    svg { height: 92%!important;
     margin-top:20px
     }
 
@@ -453,4 +468,7 @@ body{
 }
 .image-box{
   margin-bottom: 10px;
+}
+.navbar-inverse.navbar{
+  background-color:#fff;
 }
