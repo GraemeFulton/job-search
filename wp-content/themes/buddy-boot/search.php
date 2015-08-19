@@ -56,7 +56,7 @@ global $wp_query;
           </section>
           <section class="container list-container post error container" style="padding:20px;">
             <article >
-    					<h3 style="margin-top:18px;"><a href="<?php echo get_site_url(); ?>/register" style="float:none;">Sign up now</a> to see all <?php echo $results?> results</h3>
+    					<h3 style="margin-top:10px;"><a href="<?php echo get_site_url(); ?>/register" style="float:none;">Sign up now</a> to see all <?php echo $results?> results</h3>
             </article>
           </section>
             <?php

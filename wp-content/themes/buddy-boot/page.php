@@ -40,8 +40,8 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 
 			<?php else : // Well, if there are no posts to display and loop through, let's apologize to the reader (also your 404 error) ?>
 
-				<article class="post error">
-					<h1 class="404">Nothing posted yet</h1>
+        <article class="post error" style="margin-bottom: 0; padding-bottom: 23px;">
+					<h3 class="404">Nothing posted yet</h3>
 				</article>
 
 			<?php endif; // OK, I think that takes care of both scenarios (having a page or not having a page to show) ?>

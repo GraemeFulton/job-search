@@ -536,11 +536,9 @@ table.profile-fields {
   padding: 0px;
   margin: 0px; }
 
-#primary {
-  min-height: 70%; }
-  #primary h1.title {
-    margin-top: 0px;
-    margin-bottom: 20px; }
+#primary h1.title {
+  margin-top: 0px;
+  margin-bottom: 20px; }
 
 .bp-widget h4 {
   margin-top: 0px; }

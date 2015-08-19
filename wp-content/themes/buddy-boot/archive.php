@@ -55,8 +55,8 @@ get_header(); // This fxn gets the header.php file and renders it ?>
                 </section>
 			<?php else : // Well, if there are no posts to display and loop through, let's apologize to the reader (also your 404 error) ?>
 
-				<article class="post error">
-					<h1 class="404">Nothing posted yet</h1>
+				<article class="post error" style="margin-bottom: 0; padding-bottom: 23px;">
+					<h3 class="404">Nothing posted yet</h3>
 				</article>
 
 			<?php endif; // OK, I think that takes care of both scenarios (having a page or not having a page to show) ?>
@@ -66,7 +66,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
     <?php if(!is_user_logged_in()){
       ?>
       <article class="post error container" style="padding:20px;">
-        <h3 style="margin-top:18px;"><a style="float:none" href="<?php echo get_site_url(); ?>/register">Sign up now</a> to see all <?php echo $results?> <?php echo $term->name;?> jobs</h3>
+        <h3 style="margin-top:10px;"><a style="float:none" href="<?php echo get_site_url(); ?>/register">Sign up now</a> to see all <?php echo $results?> <?php echo $term->name;?> jobs</h3>
       </article>
       <?php
     }
