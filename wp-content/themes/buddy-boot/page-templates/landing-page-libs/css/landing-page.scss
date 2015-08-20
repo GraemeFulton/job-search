@@ -244,6 +244,15 @@ and (max-width : 767px) {
 @media only screen
 and (min-width : 100px)
 and (max-width : 480px) {
+  #section1{
+    a.btn-primary.btn-next.btn.btn-scroll-down{
+      margin-top: 25%!important;
+    }
+  }
+  .to-next-step{
+    margin-top:10%;
+  }
+
   #map{
     height:23%!important;
     svg{
