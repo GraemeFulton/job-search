@@ -9,47 +9,46 @@
     .material-icons.large-arrow{
       font-size:32px!important;
     }
-
+    .img.col-md-1.text-center{
+      margin-top:2%;
+    }
     #section0{
-      // background-color: #fff!important;
-      // // background-image: url(https://pixabay.com/get/a450eca1f6a3c3600c3b/1440078193/people-516378_1920.jpg?direct);
-      // background-size: contain;
-      // background-repeat: no-repeat;
-      // background-position: center;
-      // background-position-y: -15%;
-      // margin-top:-60px;
-      // .text-center{
-      //   padding-top: 30%;
-      // }
         margin-top: -62px;
+        overflow: hidden;
         background-color: #fff!important;
         h1{
           font-size: 32px;
         }
         .row1{
-          background:url(../../../images/header.jpg);
-          height: 40%;
+          background: url(../../../images/header.jpg);
+          height: 75vh;
           background-size: cover;
           background-position: center;
           background-position: bottom;
-          margin-top: -5%;
-          padding-top: 10%;
-
+          margin-top: 0vh;
+          padding-top: 12vh;
+          h1{
+            text-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+          }
         }
 
     }
     .container.slide1content{
       width: 90%;
       text-align: left;
-      margin-top: -24%;
-      height: 45%;
+      margin-top: -50vh;
+      height: 150vh;
       h1{
         font-size: 28px;
         color:#444;
       }
       h2{
-        font-size: 1.4rem;
+        font-size: 1.8rem;
         color:#444;
+      }
+      p{
+        font-size: 1.4rem;
+        color:#36373E;
       }
     }
 
@@ -173,7 +172,7 @@ fp-slidesNav{display:none}
     z-index: 3;
     overflow:hidden;
     margin:-20px auto -35px auto;
-    position: relative!important; width:auto!important; height:26%!important; overflow: hidden; left: auto!important; top: auto!important;
+    position: relative!important; width:auto!important; height:65vh!important; overflow: hidden; left: auto!important; top: auto!important;
 
     svg{
       display: inline-block;
@@ -181,7 +180,7 @@ fp-slidesNav{display:none}
       color: rgba(0,0,0,.84);
       background: #fff;
       padding:15px;
-      width:31%;
+      width:62vh;
       box-shadow: 0 8px 17px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
     }
 }
@@ -275,6 +274,12 @@ body {
     padding-top: 18px!important;
 }
 }
+
+@media (max-width: 551px) and (min-width: 481px){
+
+
+}
+
 .navbar-toggle{
   display: none;
 }
@@ -300,9 +305,9 @@ and (max-width : 480px) {
   }
 
   #map{
-    height:23%!important;
+    height:55vh!important;
     svg{
-      width:70%;
+      width:45vh;
     }
   }
 /* Styles */
@@ -329,7 +334,6 @@ h2.margin-b{
    }
    #map{
         margin-top:5px;
-        margin-bottom:-15px
     }
     .tag-selected{
         font-size:10px;
@@ -398,7 +402,7 @@ and (max-width : 1024px) {
         cursor: pointer;
     }
         #selection, .spacey{display:none}
-            svg { height: 35%!important;}
+            svg { height: 60vh!important;}
 
 
 }
@@ -426,7 +430,7 @@ and (min-width : 550px) and (max-width:1280px) {
         left: -5%;
         top: 15%;
      }
-    svg { height: 90%!important;
+    svg { height: 60vh!important;
     margin-top:20px
     }
 
@@ -475,7 +479,7 @@ and (min-width : 1281px) {
         left: 5%;
         top: 18%;
      }
-    svg { height: 35%!important;}
+    svg { height: 60vh!important;}
 
 
 }
@@ -501,7 +505,7 @@ and (max-width : 1224px){
         left: -12%;
         top: 20%;
      }
-    svg { height: 30%!important;}
+    svg { height: 60vh!important;}
 
 
 }

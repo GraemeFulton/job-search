@@ -33,6 +33,8 @@ get_header();
         <div class="col-md-3 text-center" style="margin-left:4.17%;">
             <h2 class=""><i class="material-icons icon-large">work</i></h2>
             <h2>Choose any industry</h2>
+            <p>Find jobs from over 30 categories, within 12 industries.</p>
+            <p>Use the search to pinpoint specific requirements.</p>
         </div>
          <div class="img col-md-1 text-center">
             <i class="material-icons large-arrow">keyboard_arrow_right</i>
@@ -40,17 +42,19 @@ get_header();
          <div class="col-md-3 text-center">
            <h2 class=""><i class="material-icons icon-large">location_on</i></h2>
            <h2>Choose your location</h2>
+           <p>Target roles throughout the entire UK, from Yorkshire to London.</p>
          </div>
          <div class="img col-md-1 text-center">
             <i class="material-icons large-arrow">keyboard_arrow_right</i>
          </div>
          <div class="col-md-3 text-center">
            <h2 class=""><i class="material-icons icon-large">mood</i></h2>
-           <h2>Get tailored job recommendations</h2>
+           <h2>Get job recommendations</h2>
+           <p>Jobs range from entry level to graduate schemes at large companies such as <b>Ernst &amp; Young</b>, the <b>BBC</b> and even <b>BMW</b>.</p>
          </div>
 
-            <div class="row text-center">
-              <a class="btn-primary btn-next btn-raised btn btn-scroll-down">Get a grad job now</a>
+            <div style="clear:both"class="row text-center">
+              <a class="btn-primary btn-next btn-raised btn btn-scroll-down animated materialInUpShort delay-3500">Start now</a>
             </div>
           </div>
           <div class="row text-center" style="display:none">
@@ -96,7 +100,7 @@ get_header();
             </div>
             <div class="row text-center ">
                 <div class="to-next-step">
-                  <a class="btn-primary btn-next btn-raised btn btn-scroll-down">To the next step</a>
+                  <a class="btn-primary btn-next btn-raised btn btn-scroll-down">To the final step</a>
                 </div>
               </div>
 
@@ -122,22 +126,11 @@ get_header();
             <div class="spacey"></div>
             <div class="row text-center">
               <div class="to-next-step">
-                <a class="btn-primary btn-next btn-raised btn btn-scroll-down">To the next step</a>
+                <input type="submit" name="submit" Value="View Jobs" class='btn-primary btn-next btn btn-submit'>
               </div>
             </div>
           </div>
 
-        </section>
-
-        <!--------- Section 4 ---------->
-        <section class='container degree-row section' id="section4">
-          <div class='text-center'>
-
-          </div>
-
-          <div class="row text-center">
-            <input type="submit" name="submit" Value="Show me the jobs!" class='btn-primary btn-next btn btn-submit'>
-          </div>
         </section>
       </form>
     </div>

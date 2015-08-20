@@ -52,6 +52,24 @@
     -o-animation-delay:1.4s;
     animation-delay:1.4s;
 }
+.delay-3000 {
+    -webkit-animation-delay:3s;
+    -moz-animation-delay:3s;
+    -o-animation-delay:3s;
+    animation-delay:3s;
+}
+.delay-3250 {
+    -webkit-animation-delay:3.25s;
+    -moz-animation-delay:3.25s;
+    -o-animation-delay:3.25s;
+    animation-delay:3.25s;
+}
+.delay-3500 {
+    -webkit-animation-delay:3.5s;
+    -moz-animation-delay:3.5;
+    -o-animation-delay:3.5;
+    animation-delay:3.5;
+}
 
 /* Added by Andy Meetan */
 .delay-250 {

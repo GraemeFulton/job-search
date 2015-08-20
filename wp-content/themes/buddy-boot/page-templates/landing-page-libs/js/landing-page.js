@@ -12,11 +12,11 @@
 
 
     	hookButtons();
-      $(window).resize(function () {
-          //in order to call the functions only when the resize is finished
-          $('html').addClass('hidden');
-          location.reload();
-      });
+      // $(window).resize(function () {
+      //     //in order to call the functions only when the resize is finished
+      //     $('html').addClass('hidden');
+      //     location.reload();
+      // });
 
     	//nextButtonTextUpdater();
 
