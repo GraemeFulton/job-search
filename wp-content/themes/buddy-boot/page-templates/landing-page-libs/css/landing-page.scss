@@ -310,6 +310,30 @@ h2.margin-b{
 
 
 }
+@media only screen
+and (min-width : 100px)
+and (max-width : 330px) {
+  #section1{
+    a.btn-primary.btn-next.btn.btn-scroll-down{
+      margin-top: 10%!important;
+    }
+  }
+  .to-next-step{
+    margin-top:1%;
+  }
+}
+
+@media only screen
+and (max-width : 331px)
+and (max-height : 481px) {
+  #section1{
+    a.btn-primary.btn-next.btn.btn-scroll-down{
+      display: none;
+    }
+  }
+  .to-next-step{
+display: none; }
+}
 
 #section3{
     padding-top:16px;
