@@ -1711,24 +1711,73 @@ h4, .h4{
 /**
 LOADER
 **/
-.circle {
-  width: 80px;
-  height: 80px;
-  border-radius: 40px;
-  -webkit-box-sizing: border-box;
-  border: solid 10px #ccc;
-  border-top-color: #0dc5c1;
-  -webkit-animation: spin 1s infinite linear;
-}@-webkit-keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
+$green: #00E676;
+$blue: #00E676;
+$red: #00E676;
+$yellow: #00E676;
+$white: #00E676;
+
+$width: 100px;
+$zoom: 1.7;
+
 .loader {
   position: relative;
   margin: 0px auto;
-  width: 100px;
-  height: 100px;
+  width: $width;
+  height: $width;
+  zoom: $zoom;
+}
+
+.circular {
+ animation: rotate 2s linear infinite;
+ height: $width;
+ position: relative;
+ width: $width;
+}
+
+
+.path {
+  stroke-dasharray: 1,200;
+  stroke-dashoffset: 0;
+  animation:
+   dash 1.5s ease-in-out infinite,
+   color 6s ease-in-out infinite
+  ;
+  stroke-linecap: round;
+}
+
+@keyframes rotate{
+ 100%{
+  transform: rotate(360deg);
+ }
+}
+@keyframes dash{
+ 0%{
+  stroke-dasharray: 1,200;
+  stroke-dashoffset: 0;
+ }
+ 50%{
+  stroke-dasharray: 89,200;
+  stroke-dashoffset: -35;
+ }
+ 100%{
+  stroke-dasharray: 89,200;
+  stroke-dashoffset: -124;
+ }
+}
+@keyframes color{
+  100%, 0%{
+    stroke: $red;
+  }
+  40%{
+    stroke: $blue;
+  }
+  66%{
+    stroke: $green;
+  }
+  80%, 90%{
+    stroke: $yellow;
+  }
 }
 .loader-container{
   display: none;
@@ -1737,7 +1786,7 @@ LOADER
   z-index: 1;
   width: 100%;
   height: 100%;
-  top: 40%;
+  top: 40vh;
   left: 0;
 }
 .btn.btn-primary.btn-large.btn-raised{

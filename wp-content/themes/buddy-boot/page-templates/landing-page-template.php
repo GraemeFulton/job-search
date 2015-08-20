@@ -12,6 +12,7 @@ get_header();
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri()?>/libs/fullpage/jquery.fullPage.css">
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri()?>/page-templates/landing-page-libs/css/landing-page.css">
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri()?>/page-templates/landing-page-libs/css/animations.css">
+<?php include(get_stylesheet_directory().'/partials/loader.php');?>
 
 <div class="container-fluid content-container" id="fullpage">
 
@@ -109,6 +110,7 @@ get_header();
 
         <!---------- Page 3 --------->
         <section class='row location-row section animatedParent' id="section3">
+
           <div class='row text-center materialInUpShort animated'>
             <div class="animatedParent">
               <h2 class="">Choose your location</h2>

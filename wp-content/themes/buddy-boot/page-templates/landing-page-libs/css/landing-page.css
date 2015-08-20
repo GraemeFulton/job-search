@@ -5,6 +5,9 @@
   .image-box p {
     margin-top: -10px; }
 
+.circular {
+  height: 100px !important; }
+
 .material-icons.large-arrow {
   font-size: 32px !important; }
 
@@ -26,13 +29,15 @@
     margin-top: 0vh;
     padding-top: 12vh; }
     #section0 .row1 h1 {
-      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1); }
+      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+      width: 100vw;
+      padding-left: 2vw; }
 
 .container.slide1content {
   width: 90%;
   text-align: left;
   margin-top: -50vh;
-  height: 150vh; }
+  height: 80vh; }
   .container.slide1content h1 {
     font-size: 28px;
     color: #444; }
@@ -290,6 +295,12 @@ fp-slidesNav {
     width: 90%; }
     .btn.box-container .check {
       display: none; } }
+
+#section1 h2 {
+  margin-top: 5vh !important; }
+
+#section3 h2 {
+  margin-top: 2vh !important; }
 
 @media only screen and (min-width: 100px) and (max-width: 330px) {
   #section1 a.btn-primary.btn-next.btn.btn-scroll-down {

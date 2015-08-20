@@ -12,13 +12,8 @@
 
 
     	hookButtons();
-      // $(window).resize(function () {
-      //     //in order to call the functions only when the resize is finished
-      //     $('html').addClass('hidden');
-      //     location.reload();
-      // });
 
-    	//nextButtonTextUpdater();
+
 
     });
 
@@ -98,5 +93,11 @@
 
     	})
 
+      $('.btn-submit').click(function(){
+
+          $('.container-fluid').children().css('opacity', '0.5');
+          $('.loader-container').show().css('opacity', '0.9');
+
+      })
 
     }
