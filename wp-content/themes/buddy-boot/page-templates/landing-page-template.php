@@ -19,17 +19,43 @@ get_header();
 
       <!---------- Page 1 ---------->
       <section class="animatedParent welcome-row row section" id="section0">
-        <div class="row">
-
-          <div class='text-center'>
-              <h1 class="animated bounceIn delay-250">Hello</h1>
-              <h4 class="animated bounceIn delay-500">Already a member?</h4>
-              <a href="login" class='delay-1000 animated bounceIn btn-primary btn-next btn btn-login'>Log In</a>
+        <div class="row row1 animated shadow-z-1 materialInTop delay-250 text-center">
+          <div class="animatedParent">
+            <h1 class="materialInTop animated delay-750">Find more graduate jobs here than any other site</h1>
           </div>
         </div>
+        <div class="container animated materialInBottomGrowLarge delay-2500 text-center">
+          <div class="card container slide1content">
+            <div class="row text-center">
+            <h1>How it works</h1>
+          </div>
 
-        <div class="row text-center">
-            <div class="to-next-step"><a class="btn-primary btn-next btn btn-scroll-down">Find me a job!</a></div>
+        <div class="col-md-3 text-center" style="margin-left:4.17%;">
+            <h2 class=""><i class="material-icons icon-large">work</i></h2>
+            <h2>Choose any industry</h2>
+        </div>
+         <div class="img col-md-1 text-center">
+            <i class="material-icons large-arrow">keyboard_arrow_right</i>
+         </div>
+         <div class="col-md-3 text-center">
+           <h2 class=""><i class="material-icons icon-large">location_on</i></h2>
+           <h2>Choose your location</h2>
+         </div>
+         <div class="img col-md-1 text-center">
+            <i class="material-icons large-arrow">keyboard_arrow_right</i>
+         </div>
+         <div class="col-md-3 text-center">
+           <h2 class=""><i class="material-icons icon-large">mood</i></h2>
+           <h2>Get tailored job recommendations</h2>
+         </div>
+
+            <div class="row text-center">
+              <a class="btn-primary btn-next btn-raised btn btn-scroll-down">Get a grad job now</a>
+            </div>
+          </div>
+          <div class="row text-center" style="display:none">
+            <a href="login" style="font-size:13px;" class='pull-right btn-primary btn-next btn btn-login'>Log In</a>
+          </div>
         </div>
       </section>
 
@@ -37,7 +63,7 @@ get_header();
       <section class='row interest-row section animatedParent' id="section1">
 <div class="materialInUpShort animated animatedParent">
         <div class='text-center animatedParent'>
-            <h2 class='margin-b'>What interests you?</h2>
+            <h2 class='margin-b'>Choose your industry</h2>
             <div class="container animated materialInBottomGrow delay-1000 background-white" data-anchor="slide1" id="slide1">
               <div class='side'>
               <?php
@@ -81,7 +107,7 @@ get_header();
         <section class='row location-row section animatedParent' id="section3">
           <div class='row text-center materialInUpShort animated'>
             <div class="animatedParent">
-              <h2 class="">Where would you like to work?</h2>
+              <h2 class="">Choose your location</h2>
             </div>
             <div class="container">You have selected:
               <div id="selected">

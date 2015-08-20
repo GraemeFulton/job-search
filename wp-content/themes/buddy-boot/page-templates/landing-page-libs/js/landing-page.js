@@ -12,7 +12,11 @@
 
 
     	hookButtons();
-
+      $(window).resize(function () {
+          //in order to call the functions only when the resize is finished
+          $('html').addClass('hidden');
+          location.reload();
+      });
 
     	//nextButtonTextUpdater();
 
@@ -60,7 +64,7 @@
 					navigationPosition: 'right',
 					css3: true,
 			        controlArrows: true,
-		        resize : true,
+		        resize : false,
 		        menu: '#pagi-menu'
         });
 

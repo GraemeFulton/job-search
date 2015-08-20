@@ -6,6 +6,52 @@
         	margin-top:-10px;
         }
     }
+    .material-icons.large-arrow{
+      font-size:32px!important;
+    }
+
+    #section0{
+      // background-color: #fff!important;
+      // // background-image: url(https://pixabay.com/get/a450eca1f6a3c3600c3b/1440078193/people-516378_1920.jpg?direct);
+      // background-size: contain;
+      // background-repeat: no-repeat;
+      // background-position: center;
+      // background-position-y: -15%;
+      // margin-top:-60px;
+      // .text-center{
+      //   padding-top: 30%;
+      // }
+        margin-top: -62px;
+        background-color: #fff!important;
+        h1{
+          font-size: 32px;
+        }
+        .row1{
+          background:url(../../../images/header.jpg);
+          height: 40%;
+          background-size: cover;
+          background-position: center;
+          background-position: bottom;
+          margin-top: -5%;
+          padding-top: 10%;
+
+        }
+
+    }
+    .container.slide1content{
+      width: 90%;
+      text-align: left;
+      margin-top: -24%;
+      height: 45%;
+      h1{
+        font-size: 28px;
+        color:#444;
+      }
+      h2{
+        font-size: 1.4rem;
+        color:#444;
+      }
+    }
 
     .box-container:hover{
     background:#9ED4C9;
@@ -127,7 +173,7 @@ fp-slidesNav{display:none}
     z-index: 3;
     overflow:hidden;
     margin:-20px auto -35px auto;
-    position: relative!important; width:auto!important; height:32%!important; overflow: hidden; left: auto!important; top: auto!important;
+    position: relative!important; width:auto!important; height:26%!important; overflow: hidden; left: auto!important; top: auto!important;
 
     svg{
       display: inline-block;
@@ -528,5 +574,6 @@ body{
 .image-box{
 }
 .navbar-inverse.navbar{
-  background-color:#fff;
+  background-color:#1976D2;
+      box-shadow: 0 8px 17px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
 }

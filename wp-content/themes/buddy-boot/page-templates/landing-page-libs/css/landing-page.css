@@ -5,6 +5,35 @@
   .image-box p {
     margin-top: -10px; }
 
+.material-icons.large-arrow {
+  font-size: 32px !important; }
+
+#section0 {
+  margin-top: -62px;
+  background-color: #fff !important; }
+  #section0 h1 {
+    font-size: 32px; }
+  #section0 .row1 {
+    background: url(../../../images/header.jpg);
+    height: 40%;
+    background-size: cover;
+    background-position: center;
+    background-position: bottom;
+    margin-top: -5%;
+    padding-top: 10%; }
+
+.container.slide1content {
+  width: 90%;
+  text-align: left;
+  margin-top: -24%;
+  height: 45%; }
+  .container.slide1content h1 {
+    font-size: 28px;
+    color: #444; }
+  .container.slide1content h2 {
+    font-size: 1.4rem;
+    color: #444; }
+
 .box-container:hover {
   background: #9ED4C9;
   cursor: pointer; }
@@ -114,7 +143,7 @@ fp-slidesNav {
   margin: -20px auto -35px auto;
   position: relative !important;
   width: auto !important;
-  height: 32% !important;
+  height: 26% !important;
   overflow: hidden;
   left: auto !important;
   top: auto !important; }
@@ -414,4 +443,5 @@ body {
   font-size: 14px; }
 
 .navbar-inverse.navbar {
-  background-color: #fff; }
+  background-color: #1976D2;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }

@@ -10,7 +10,7 @@
             <span class="icon-bar"></span>
           </button>
 
-        <a class="navbar-brand" style="color:#fff; background:#51968B" href="<?php bloginfo('url')?>">Grad Jobs</a>
+        <a class="navbar-brand" style="" href="<?php bloginfo('url')?>">Grad Jobs</a>
 
         </div>
         <form class="navbar-form navbar-left" action="<?php echo home_url( '/' ); ?>">
