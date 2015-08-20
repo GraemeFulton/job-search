@@ -1888,7 +1888,7 @@
 @keyframes materialInBottomGrow {
   0% {
       opacity: 1;
-      -webkit-transform:scale(0.7) translateY(700px);
+      -webkit-transform:scale(0.7) translateY(550px);
 
   }
 

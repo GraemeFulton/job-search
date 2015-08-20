@@ -34,11 +34,11 @@ get_header();
       </section>
 
       <!---------- Page 2 ---------->
-      <section class='row interest-row section' id="section1">
-
+      <section class='row interest-row section animatedParent' id="section1">
+<div class="materialInUpShort animated animatedParent">
         <div class='text-center animatedParent'>
-            <h2 class='margin-b animated materialInBottom'>What interests you?</h2>
-            <div class="container animatedParent animated materialInBottomGrow delay-750 background-white" data-anchor="slide1" id="slide1">
+            <h2 class='margin-b'>What interests you?</h2>
+            <div class="container animated materialInBottomGrow delay-1000 background-white" data-anchor="slide1" id="slide1">
               <div class='side'>
               <?php
               $professions = get_terms('profession');
@@ -53,7 +53,7 @@ get_header();
                     $profession->name = 'Business';
                     if($counter<4){$delay='001';} elseif($counter<7){$delay='002';} elseif($counter<10){$delay='003';}elseif($counter<13){$delay='004';}
                 ?>
-                  <div class='<?php echo 'count'.$counter;?> col-xs-4 image-box  delay-<?php echo $delay; ?>'>
+                  <div class='<?php echo 'count'.$counter;?> col-xs-4 image-box   delay-<?php echo $delay; ?>'>
                     <div class="btn btn-sup btn-default box-container">
                       <div class='check'>
                         <input type="checkbox" name="Profession[]" value="<?php echo $profession->slug; ?>">
@@ -68,13 +68,13 @@ get_header();
               ?>
               </div>
             </div>
-            <div class="animatedParent">
-              <div class="row text-center  animated materialInBottom delay-2000">
+            <div class="row text-center ">
                 <div class="to-next-step">
                   <a class="btn-primary btn-next btn-raised btn btn-scroll-down">To the next step</a>
                 </div>
               </div>
-            </div>
+
+    </div>
         </section>
 
         <!---------- Page 3 --------->
