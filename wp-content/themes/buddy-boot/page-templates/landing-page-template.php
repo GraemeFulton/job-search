@@ -37,8 +37,8 @@ get_header();
       <section class='row interest-row section' id="section1">
 
         <div class='text-center animatedParent'>
-            <h2 class='margin-b'>What interests you?</h2>
-            <div class="container animatedParent animated materialInBottom background-white" data-anchor="slide1" id="slide1">
+            <h2 class='margin-b animated materialInBottom'>What interests you?</h2>
+            <div class="container animatedParent animated materialInBottomGrow delay-750 background-white" data-anchor="slide1" id="slide1">
               <div class='side'>
               <?php
               $professions = get_terms('profession');
@@ -53,7 +53,7 @@ get_header();
                     $profession->name = 'Business';
                     if($counter<4){$delay='001';} elseif($counter<7){$delay='002';} elseif($counter<10){$delay='003';}elseif($counter<13){$delay='004';}
                 ?>
-                  <div class='<?php echo 'count'.$counter;?> col-xs-4 image-box animated materialInUpShort delay-<?php echo $delay; ?>'>
+                  <div class='<?php echo 'count'.$counter;?> col-xs-4 image-box  delay-<?php echo $delay; ?>'>
                     <div class="btn btn-sup btn-default box-container">
                       <div class='check'>
                         <input type="checkbox" name="Profession[]" value="<?php echo $profession->slug; ?>">
@@ -69,18 +69,20 @@ get_header();
               </div>
             </div>
             <div class="animatedParent">
-              <div class="row text-center  animated bounce delay-1250">
+              <div class="row text-center  animated materialInBottom delay-2000">
                 <div class="to-next-step">
-                  <a class="btn-primary btn-next btn btn-scroll-down">To the next step</a>
+                  <a class="btn-primary btn-next btn-raised btn btn-scroll-down">To the next step</a>
                 </div>
               </div>
             </div>
         </section>
 
         <!---------- Page 3 --------->
-        <section class='row location-row section' id="section3">
-          <div class='row text-center '>
-            <h2>Where would you like to work?</h2>
+        <section class='row location-row section animatedParent' id="section3">
+          <div class='row text-center materialInUpShort animated'>
+            <div class="animatedParent">
+              <h2 class="">Where would you like to work?</h2>
+            </div>
             <div class="container">You have selected:
               <div id="selected">
                 <span class='nowhere'>Nothing</span>
@@ -89,29 +91,22 @@ get_header();
             <div class="spacey"></div>
             <div id="selection" class="container"></div>
             <div class="animatedParent">
-            <div id="map"class="animated materialInBottom" style='position:relative;'></div>
+            <div id="map"class="animated materialInBottom delay-001" style='position:relative;'></div>
           </div>
             <div class="spacey"></div>
-          </div>
-          <div class="row text-center">
-            <div class="to-next-step">
-              <a class="btn-primary btn-next btn btn-scroll-down">To the next step</a>
+            <div class="row text-center">
+              <div class="to-next-step">
+                <a class="btn-primary btn-next btn-raised btn btn-scroll-down">To the next step</a>
+              </div>
             </div>
           </div>
+
         </section>
 
         <!--------- Section 4 ---------->
         <section class='container degree-row section' id="section4">
           <div class='text-center'>
-            <h2 class='margin-b'>What's your degree classification?</h2>
-            <p>This can be you predicted grade, or what you've already achieved</p>
-            <div class="btn-group" role="group" aria-label="...">
-              <button type="button" class="btn btn-degree btn-default">2:2</button>
-              <button type="button" class="btn btn-degree btn-default">2:1</button>
-              <button type="button" class="btn btn-degree btn-default">1:1</button>
-            </div>
-            <p style='margin-top:20px;'> <small>Don't worry, you can change these again later!</small></p>
-            <br>
+
           </div>
 
           <div class="row text-center">

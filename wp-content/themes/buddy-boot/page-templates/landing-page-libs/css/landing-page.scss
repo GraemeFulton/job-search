@@ -23,13 +23,7 @@
     .animated.go{
         visibility:visible;
     }
-    #section1,
-#section1 .fp-slide,
-#section1 .fp-tableCell{
-    height: 101% !important;
-    animation-timing-function: cubic-bezier(.61,.58,0,.6)!important;
 
-}
 #section1{
   a.btn-primary.btn-next.btn.btn-scroll-down{
     margin-top: 50px!important;
@@ -133,20 +127,19 @@ fp-slidesNav{display:none}
     z-index: 3;
     overflow:hidden;
     margin:-20px auto -35px auto;
-    position: relative!important; width:auto!important; height:26%!important; overflow: hidden; left: auto!important; top: auto!important;
+    position: relative!important; width:auto!important; height:32%!important; overflow: hidden; left: auto!important; top: auto!important;
 
     svg{
       display: inline-block;
       border-radius: 2px;
       color: rgba(0,0,0,.84);
       background: #fff;
-      padding:25px;
+      padding:15px;
       width:31%;
       box-shadow: 0 8px 17px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
     }
 }
 
-.btn{border-radius: 0px;}
 .btn-custom {
   background-color: hsl(0, 0%, 38%) !important;
   background-repeat: repeat-x;
@@ -354,7 +347,7 @@ and (min-width : 550px) and (max-width:1280px) {
         left: -5%;
         top: 15%;
      }
-    svg { height: 92%!important;
+    svg { height: 90%!important;
     margin-top:20px
     }
 
