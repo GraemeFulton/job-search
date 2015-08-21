@@ -28,10 +28,11 @@ function ajax_save(){
 	get_currentuserinfo();
 
 		//@TODO: filter cookies before inserting into db
-		
+
 	 		$selected_profession= StripSlashes($_POST["selected"]);
 			$selected_profession=str_replace('&', '&amp;', $selected_profession);
 
+			if($_POST['type']=='profession'){
 			//$current_selections = xprofile_get_field_data()
 			//we always need the parent id so we can add chosen options to the parent group
 			$parent = get_term_top_most_parent($selected_profession, 'profession');
@@ -55,7 +56,25 @@ function ajax_save(){
 				}
 
 				xprofile_set_field_data($field_id,$current_user->id,$current_professions);
+			}
 
+			elseif($_POST['type']=='location'){
+
+				$selected_location= StripSlashes($_POST["selected"]);
+				$selected_location=str_replace('&', '&amp;', $selected_location);
+
+				$parent_field_id = xprofile_get_field_id_from_name($selected_location);
+
+				$currently_selected = xprofile_get_field_data($selected_location, $current_user->id);
+
+				if($currently_selected==$selected_location){
+					xprofile_set_field_data($parent_field_id,$current_user->id,['']);
+
+				}
+				else
+				xprofile_set_field_data($parent_field_id,$current_user->id,$selected_location);
+
+			}
 
 
 
