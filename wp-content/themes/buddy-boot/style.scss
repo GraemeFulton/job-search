@@ -7,11 +7,15 @@ and open the template in the editor.
     Created on : 03-Dec-2014, 14:19:07
     Author     : Graeme
 */
+@import "css/colours/colours";
 .multiselect-container.dropdown-menu{
     background:#ffffff!important;
 }
 $green: #50978B;
-
+.navbar-inverse.navbar {
+    background-color: $primary-dark!important;
+    color: rgba(255,255,255,.84);
+}
 /*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -45,7 +49,7 @@ footer{
     position: relative;
     width: 100%;
     z-index: 0;
-        background-color: #03a9f4;
+        background-color: $primary ;
         padding:40px;
 }
 #profile-edit-form{
@@ -837,7 +841,7 @@ and (max-width : 610px) {
     margin-bottom: 15px;
     border:1px solid #e7e7e7;
 }
-a{color:#50978B}
+a{color:$primary-dark}
 
 .current-selections{
     padding:10px;
@@ -999,10 +1003,22 @@ a{color:#50978B}
 
 }
 .btn-settings{
+  background-color: $accent!important;
+  color:#fff;
   position: fixed;
-      top: 59.5px;
+      top: 87px;
       right: 15px;
       z-index: 10;
+      margin: 0;
+      border-radius: 100%;
+      padding: 15px;
+      font-size: 26px;
+      width: 56px;
+      height: 56px;
+      .material-icons{
+      font-size: 24px!important;
+      color:#fff!important;
+      }
 }
 .pager li>a, .pager li>span {
     width: 100;
@@ -1011,9 +1027,21 @@ a{color:#50978B}
 .pager {
    margin:0 0;
 }
-
+a, a:hover, a:focus {
+    color: $primary;
+}
+.has-success .form-control-feedback{
+  color:$primary-dark;
+}
+.form-control{
+  background-image: linear-gradient($accent,$accent),linear-gradient(#d2d2d2,#d2d2d2)!important;
+}
+.form-control:focus, .form-control.focus {
+    outline: none;
+    background-image: linear-gradient($accent,$accent),linear-gradient(#d2d2d2,#d2d2d2);
+  }
 .selected{
-    color: rgb(68, 168, 151);
+    color:$primary;
     margin-bottom:6px;
 
 }
@@ -1091,7 +1119,7 @@ a{color:#50978B}
   .current{
     border-bottom-style: solid;
     border-bottom-width: 3px;
-    color: #4caf50;
+    color: $primary;
     font-weight: 500;
   }
   h4{
@@ -1142,7 +1170,7 @@ a{color:#50978B}
     color: #888;
 }
 .wp-pagenavi a:hover, .wp-pagenavi span.current {
-    border-color: #50978B;
+    border-color: $primary-dark;
 }
 .page-num{
 
@@ -1208,6 +1236,9 @@ a{color:#50978B}
     left: 37%;
     color: #fafafa;
 }
+.btn-primary:not(.btn-link):not(.btn-flat){
+  background:$primary;
+}
 
 .post.container{
     position:relative;
@@ -1215,12 +1246,12 @@ a{color:#50978B}
     margin-bottom:0px;
     max-width: 100%;
     h4{
-        margin-top: 0px;
-        margin-bottom: 10px;
-        font-size:16px;
-        max-height: 17.5px;
-        overflow: hidden;
-        color:#55827A;
+      margin-top: 0px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      max-height: 15px;
+      overflow: hidden;
+        color:$primary-dark;
     }
     p, a{
         font-size:14px;
@@ -1643,7 +1674,7 @@ h4, .h4{
         cursor: pointer;
         }
         li.active {
-        background-color: rgb(104, 159, 56);
+        background-color: $primary;
         color:#f8f8f8;
         position: relative;
         }
@@ -1651,7 +1682,7 @@ h4, .h4{
           li.active {
           background-color: #f4f4f4;
           color:inherit;
-          color:green;
+          color:$primary;
           }
 
         }
@@ -1706,16 +1737,18 @@ h4, .h4{
     }
 }
 
-
+.time.pull-right{
+  padding-right: 0px!important;
+}
+.list-main-content{
+  .col-xs-4.pull-right{
+    padding-right: 0px!important;
+  }
+}
 
 /**
 LOADER
 **/
-$green: #00E676;
-$blue: #00E676;
-$red: #00E676;
-$yellow: #00E676;
-$white: #00E676;
 
 $width: 100px;
 $zoom: 1.7;
@@ -1767,16 +1800,10 @@ $zoom: 1.7;
 }
 @keyframes color{
   100%, 0%{
-    stroke: $red;
-  }
-  40%{
-    stroke: $blue;
-  }
-  66%{
-    stroke: $green;
+    stroke: $primary;
   }
   80%, 90%{
-    stroke: $yellow;
+    stroke: $primary;
   }
 }
 .loader-container{
@@ -1975,7 +2002,7 @@ padding-left: 25px;
         width:100px;
       }
       li.active a{
-        color:green;
+        color:$primary;
       }
       li.submenu-header a{
         display: block;

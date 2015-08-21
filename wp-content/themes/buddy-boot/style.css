@@ -10,6 +10,10 @@ and open the template in the editor.
 .multiselect-container.dropdown-menu {
   background: #ffffff !important; }
 
+.navbar-inverse.navbar {
+  background-color: #0D47A1 !important;
+  color: rgba(255, 255, 255, 0.84); }
+
 /*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -41,7 +45,7 @@ footer {
   position: relative;
   width: 100%;
   z-index: 0;
-  background-color: #03a9f4;
+  background-color: #1E88E5;
   padding: 40px; }
 
 #profile-edit-form {
@@ -636,7 +640,7 @@ table.profile-fields {
   border: 1px solid #e7e7e7; }
 
 a {
-  color: #50978B; }
+  color: #0D47A1; }
 
 .current-selections {
   padding: 10px;
@@ -775,10 +779,21 @@ a {
   width: 75px; }
 
 .btn-settings {
+  background-color: #FFAB00 !important;
+  color: #fff;
   position: fixed;
-  top: 59.5px;
+  top: 87px;
   right: 15px;
-  z-index: 10; }
+  z-index: 10;
+  margin: 0;
+  border-radius: 100%;
+  padding: 15px;
+  font-size: 26px;
+  width: 56px;
+  height: 56px; }
+  .btn-settings .material-icons {
+    font-size: 24px !important;
+    color: #fff !important; }
 
 .pager li > a, .pager li > span {
   width: 100;
@@ -787,8 +802,21 @@ a {
 .pager {
   margin: 0 0; }
 
+a, a:hover, a:focus {
+  color: #1E88E5; }
+
+.has-success .form-control-feedback {
+  color: #0D47A1; }
+
+.form-control {
+  background-image: linear-gradient(#FFAB00, #FFAB00), linear-gradient(#d2d2d2, #d2d2d2) !important; }
+
+.form-control:focus, .form-control.focus {
+  outline: none;
+  background-image: linear-gradient(#FFAB00, #FFAB00), linear-gradient(#d2d2d2, #d2d2d2); }
+
 .selected {
-  color: #44a897;
+  color: #1E88E5;
   margin-bottom: 6px; }
 
 .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open .dropdown-toggle.btn-success {
@@ -852,7 +880,7 @@ a {
   .box-head .current {
     border-bottom-style: solid;
     border-bottom-width: 3px;
-    color: #4caf50;
+    color: #1E88E5;
     font-weight: 500; }
   .box-head h4 {
     float: left; }
@@ -892,7 +920,7 @@ a {
   color: #888; }
 
 .wp-pagenavi a:hover, .wp-pagenavi span.current {
-  border-color: #50978B; }
+  border-color: #0D47A1; }
 
 .page-num {
   padding: 2px 4px 2px 4px;
@@ -944,6 +972,9 @@ a {
   left: 37%;
   color: #fafafa; }
 
+.btn-primary:not(.btn-link):not(.btn-flat) {
+  background: #1E88E5; }
+
 .post.container {
   position: relative;
   border-top: 0px;
@@ -952,10 +983,10 @@ a {
   .post.container h4 {
     margin-top: 0px;
     margin-bottom: 10px;
-    font-size: 16px;
-    max-height: 17.5px;
+    font-size: 14px;
+    max-height: 15px;
     overflow: hidden;
-    color: #55827A; }
+    color: #0D47A1; }
   .post.container p, .post.container a {
     font-size: 14px;
     overflow: hidden;
@@ -1281,13 +1312,13 @@ h4, .h4 {
       font-weight: normal;
       cursor: pointer; }
     .menu ul li.active {
-      background-color: #689f38;
+      background-color: #1E88E5;
       color: #f8f8f8;
       position: relative; }
     .menu ul .sub-menu li.active {
       background-color: #f4f4f4;
       color: inherit;
-      color: green; }
+      color: #1E88E5; }
 
 .sub-menu a li {
   font-size: 14px;
@@ -1324,6 +1355,12 @@ h4, .h4 {
   padding: 20px; }
   .bp-widget table.profile-fields .label {
     background-color: #fff; }
+
+.time.pull-right {
+  padding-right: 0px !important; }
+
+.list-main-content .col-xs-4.pull-right {
+  padding-right: 0px !important; }
 
 /**
 LOADER
@@ -1364,13 +1401,9 @@ LOADER
 
 @keyframes color {
   100%, 0% {
-    stroke: #00E676; }
-  40% {
-    stroke: #00E676; }
-  66% {
-    stroke: #00E676; }
+    stroke: #1E88E5; }
   80%, 90% {
-    stroke: #00E676; } }
+    stroke: #1E88E5; } }
 
 .loader-container {
   display: none;
@@ -1542,7 +1575,7 @@ LOADER
     width: 100%;
     width: 100px; }
   .box-head .submenu-group li.active a {
-    color: green; }
+    color: #1E88E5; }
   .box-head .submenu-group li.submenu-header a {
     display: block;
     font-size: 12px;
