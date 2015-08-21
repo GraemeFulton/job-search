@@ -1433,6 +1433,9 @@ LOADER
 .avatar-page .standard-form {
   border: 0px; }
 
+form.profession #profile-group-edit-submit, form.location #profile-group-edit-submit {
+  display: none; }
+
 .single_datagrid h1 {
   font-size: 22px;
   margin-top: 2px;

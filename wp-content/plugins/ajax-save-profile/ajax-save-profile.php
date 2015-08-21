@@ -80,7 +80,6 @@ function ajax_save(){
 
 }
 
-
 // determine the topmost parent of a term
 function get_term_top_most_parent($term_id, $taxonomy){
     // start from the current term
@@ -93,75 +92,5 @@ function get_term_top_most_parent($term_id, $taxonomy){
     }
     return $parent;
 }
-
-
-
-// function ajax_save(){
-//
-// 		global $current_user;
-// 		global $bp;
-// 		get_currentuserinfo();
-//
-// 		$obj = stripslashes($_POST['selected']);
-// 		$object = json_decode($obj);
-//
-// 		foreach ($object as $item) {
-//
-// 			$item->value = str_replace('&', '&amp;', $item->value);
-//
-//
-// 				//set the data
-// 				if($item->value=='blank'){
-// 					$item->value='';
-// 				}
-// 				$grp = explode(" ", $item->group);
-// 				$id = explode("_", $grp[1]);
-// 				$item->group = $id[1];
-//
-// 				if($item->group==null){
-// 					$grp = explode('_', $item->id);
-// 					$item->group=$grp[1];
-// 				}
-//
-// 			//xprofile_set_field_data($field_id, $current_user->id, $item->value);
-//
-//
-//
-// 		}
-//
-// 		$new_array = array();
-// 		foreach ($object as $item)
-// 		    $new_array[$item->group][] = $item;
-//
-//
-//
-// 		foreach($new_array as $key => $items){
-//
-// 			$insert= array();
-// 			foreach($items as $item){
-//
-// 				array_push($insert, $item->value);
-//
-// 			}
-//
-// 			$putin=array();
-// 			foreach($insert as $ins){
-// 				array_push($putin,$ins);
-//
-//
-// 			}
-//
-// 							//    var_dump($key);
-// 	            //    var_dump($putin);
-// 						//	var_dump($putin);
-// 						var_dump($current_user->id);
-// 		//	xprofile_set_field_data($key, $current_user->id,$putin);
-//
-// 		}
-//
-// 		echo 'done';
-//
-// 		exit();
-// }
 
 ?>

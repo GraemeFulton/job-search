@@ -1839,6 +1839,12 @@ $zoom: 1.7;
   }
 }
 
+form.profession, form.location{
+  #profile-group-edit-submit{
+    display:none;
+  }
+}
+
 .single_datagrid{
   h1{
     font-size: 22px;
