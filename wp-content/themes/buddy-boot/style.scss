@@ -315,7 +315,7 @@ and (max-width:782px){
     -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
     background: #fff;
-    height: 52px;
+    height: 53.4px;
     position: fixed;
   }
 }
@@ -829,7 +829,7 @@ and (max-width : 610px) {
     border: 1px solid #F3EFEF;
     padding: 10px;
     float:left;
-    margin-bottom:12px;
+    margin-bottom:5px;
     padding-bottom:4px;
 
 }
@@ -1081,7 +1081,9 @@ a, a:hover, a:focus {
     h2{margin-top:0px;}
 
     .selected{
-      color: #A9A9A9;
+      color: #fff;
+      background-color: $accent;
+      border-radius: 2px;
           /* padding: 5px; */
           font-size: 13px;
           margin-right: 8px;
@@ -1118,7 +1120,7 @@ a, a:hover, a:focus {
   -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.05);
   box-shadow: 0 1px 0 rgba(0,0,0,0.05);
   background: #fff;
-  height: 52px;
+  height: 53.4px;
   position: fixed;
 
   .current{
@@ -1142,8 +1144,8 @@ a, a:hover, a:focus {
     display: inline-block;
     font-size: 14px;
     font-weight: 400;
-    height: 52px;
-    line-height: 52px;
+    height: 53.4px;
+    line-height: 53.4px;
     text-decoration: none;
     vertical-align: top;
     a{
@@ -1872,8 +1874,22 @@ $zoom: 1.7;
 }
 
 .avatar-page{
+  margin-bottom: 50px;
+  #avatar-upload-form{
+    padding:15px;
+    border-top: 1px solid #eaeaea;
+  }
+  input[type=file] {
+    margin-bottom: 15px;
+  }
   .post{
     border:0px;
+    p,a{
+      font-size: 14px;
+    }
+    a{
+      float:none;
+    }
   }
   .standard-form{
     border:0px;
@@ -2116,4 +2132,7 @@ label{
 
   .settings-input.small{width:45%;}
 
+}
+#buddypress .standard-form textarea, #buddypress .standard-form input[type=text], #buddypress .standard-form input[type=text], #buddypress .standard-form input[type=color], #buddypress .standard-form input[type=date], #buddypress .standard-form input[type=datetime], #buddypress .standard-form input[type=datetime-local], #buddypress .standard-form input[type=email], #buddypress .standard-form input[type=month], #buddypress .standard-form input[type=number], #buddypress .standard-form input[type=range], #buddypress .standard-form input[type=search], #buddypress .standard-form input[type=tel], #buddypress .standard-form input[type=time], #buddypress .standard-form input[type=url], #buddypress .standard-form input[type=week], #buddypress .standard-form select, #buddypress .standard-form input[type=password], #buddypress .dir-search input[type=search], #buddypress .dir-search input[type=text]{
+  margin-bottom:15px;
 }

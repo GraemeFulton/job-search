@@ -265,7 +265,7 @@ table.profile-fields {
     -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
     background: #fff;
-    height: 52px;
+    height: 53.4px;
     position: fixed; } }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -629,7 +629,7 @@ table.profile-fields {
   border: 1px solid #F3EFEF;
   padding: 10px;
   float: left;
-  margin-bottom: 12px;
+  margin-bottom: 5px;
   padding-bottom: 4px; }
 
 .vertical-align {
@@ -847,7 +847,9 @@ a, a:hover, a:focus {
   margin-top: 0px; }
 
 .welcome-profile .selected {
-  color: #A9A9A9;
+  color: #fff;
+  background-color: #FF4081;
+  border-radius: 2px;
   /* padding: 5px; */
   font-size: 13px;
   margin-right: 8px;
@@ -879,7 +881,7 @@ a, a:hover, a:focus {
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
   background: #fff;
-  height: 52px;
+  height: 53.4px;
   position: fixed; }
   .box-head .current {
     border-bottom-style: solid;
@@ -900,8 +902,8 @@ a, a:hover, a:focus {
     display: inline-block;
     font-size: 14px;
     font-weight: 400;
-    height: 52px;
-    line-height: 52px;
+    height: 53.4px;
+    line-height: 53.4px;
     text-decoration: none;
     vertical-align: top; }
     .box-head li a {
@@ -1465,11 +1467,21 @@ LOADER
   .post.error.container h3 a {
     font-size: 23px; }
 
-.avatar-page .post {
-  border: 0px; }
-
-.avatar-page .standard-form {
-  border: 0px; }
+.avatar-page {
+  margin-bottom: 50px; }
+  .avatar-page #avatar-upload-form {
+    padding: 15px;
+    border-top: 1px solid #eaeaea; }
+  .avatar-page input[type=file] {
+    margin-bottom: 15px; }
+  .avatar-page .post {
+    border: 0px; }
+    .avatar-page .post p, .avatar-page .post a {
+      font-size: 14px; }
+    .avatar-page .post a {
+      float: none; }
+  .avatar-page .standard-form {
+    border: 0px; }
 
 form.profession #profile-group-edit-submit, form.location #profile-group-edit-submit {
   display: none; }
@@ -1669,3 +1681,6 @@ form.profession .editfield.col-md-3.col-xs-12.no-pad, form.location .editfield.c
 
 #settings-form .settings-input.small {
   width: 45%; }
+
+#buddypress .standard-form textarea, #buddypress .standard-form input[type=text], #buddypress .standard-form input[type=text], #buddypress .standard-form input[type=color], #buddypress .standard-form input[type=date], #buddypress .standard-form input[type=datetime], #buddypress .standard-form input[type=datetime-local], #buddypress .standard-form input[type=email], #buddypress .standard-form input[type=month], #buddypress .standard-form input[type=number], #buddypress .standard-form input[type=range], #buddypress .standard-form input[type=search], #buddypress .standard-form input[type=tel], #buddypress .standard-form input[type=time], #buddypress .standard-form input[type=url], #buddypress .standard-form input[type=week], #buddypress .standard-form select, #buddypress .standard-form input[type=password], #buddypress .dir-search input[type=search], #buddypress .dir-search input[type=text] {
+  margin-bottom: 15px; }

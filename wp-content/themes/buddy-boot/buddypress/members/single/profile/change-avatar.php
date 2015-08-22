@@ -1,13 +1,13 @@
-<div class="col-md-12 copy-card avatar-page">
+<div class="col-md-12 copy-card avatar-page no-pad">
 
-<div style="margin-top:20px;"class="container post">
-	<h4 style="margin-top:5px;"><?php _e( 'Change Avatar', 'buddypress' ); ?></h4>
-	<br>
+<div class="container post">
+	<h3 style="margin-top:5px;"><?php _e( 'Change Avatar', 'buddypress' ); ?></h3>
 	<?php do_action( 'bp_before_profile_avatar_upload_content' ); ?>
 
 	<?php if ( !(int)bp_get_option( 'bp-disable-avatar-uploads' ) ) : ?>
 
 	<p><?php _e( 'Your avatar will be used on your profile and throughout the site. If there is a <a href="http://gravatar.com">Gravatar</a> associated with your account email we will use that, or you can upload an image from your computer.', 'buddypress' ); ?></p>
+
 </div>
 
 	<form action="" method="post" id="avatar-upload-form" class="standard-form" enctype="multipart/form-data">
