@@ -1323,8 +1323,8 @@ vertical-align: sub;
           color: #fff;
           background: #FF4081;
           border-radius: 2px;
-          padding-left: 3px;
-          padding-right: 3px;
+          padding-left: 4px!important;
+          padding-right: 4px!important;
     }
     .page-num{
         margin-right:2px;
@@ -2108,4 +2108,12 @@ padding-left: 25px;
 }
 #buddypress .standard-form div.checkbox label, #buddypress .standard-form div.radio label{
   font-size: 15px;
+}
+#settings-form{
+label{
+    font-size: 18px!important;
+  }
+
+  .settings-input.small{width:45%;}
+
 }
