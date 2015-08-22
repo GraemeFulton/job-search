@@ -28,12 +28,17 @@ get_header();
         <div class="container animated materialInBottomGrowLarge delay-2500 text-center">
           <div class="card container slide1content">
             <div class="row text-center">
-            <h1>How it works</h1>
+              <h2 class="">Discover 100s of roles you didn't know existed</h2>
+              <a class="btn-primary btn-next btn-raised btn btn-scroll-down" style="font-size:20px;">Start now</a>
+            </div>
+            <hr>
+            <div class="row text-center animated fadeInUp delay-4500">
+            <h2 class="how-it-works-title">How it works</h2>
           </div>
 
-        <section class="how-to col-md-12 text-center">
+        <section class="how-to col-md-12 text-center animated fadeInUp delay-4500">
         <div class="col-md-3 text-center">
-            <h2 class=""><i class="material-icons icon-large">work</i></h2>
+            <h2 class="icon-title"><i class="material-icons icon-large">work</i></h2>
             <h2>Choose your industry</h2>
             <p>Find jobs from over 30 categories, within 12 industries.</p>
         </div>
@@ -42,7 +47,7 @@ get_header();
             <i class="material-icons arrow-down large-arrow">keyboard_arrow_down</i>
          </div>
          <div class="col-md-3 text-center">
-           <h2 class=""><i class="material-icons icon-large">location_on</i></h2>
+           <h2 class="icon-title"><i class="material-icons icon-large">location_on</i></h2>
            <h2>Choose your location</h2>
            <p>Target roles throughout the entire UK, from Yorkshire to London.</p>
          </div>
@@ -51,16 +56,13 @@ get_header();
             <i class="material-icons arrow-down large-arrow">keyboard_arrow_down</i>
          </div>
          <div class="col-md-3 text-center">
-           <h2 class=""><i class="material-icons icon-large">mood</i></h2>
+           <h2 class="icon-title"><i class="material-icons icon-large">mood</i></h2>
            <h2>Get job recommendations</h2>
            <p>Companies such as <span class="highlight">Ernst &amp; Young</span>, the <span class="highlight">BBC</span> and even <span class="highlight">BMW</span>.</p>
          </div>
 
          </section>
 
-           <div class="row text-center">
-             <a class="btn-primary btn-next btn-raised btn btn-scroll-down animated materialInUpShort delay-3500">Start now</a>
-           </div>
           </div>
           <div class="row text-center" style="display:none">
             <a href="login" style="font-size:13px;" class='pull-right btn-primary btn-next btn btn-login'>Log In</a>

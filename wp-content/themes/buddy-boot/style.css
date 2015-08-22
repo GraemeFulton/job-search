@@ -430,7 +430,7 @@ table.profile-fields {
     width: 100%; }
   .menu-sort-filter select.form-control {
     font-size: 10px;
-    width: 120px; }
+    width: 88px !important; }
   .menu-sort-filter .filter-button {
     margin-top: 5px; }
     .menu-sort-filter .filter-button .material-icons {
@@ -457,7 +457,7 @@ table.profile-fields {
     display: inline-block;
     top: -10px;
     width: 150px;
-    left: 212px;
+    left: 200px;
     overflow: hidden;
     z-index: 9; }
     .navbar-form.navbar-left input {

@@ -563,7 +563,7 @@ and (max-width : 510px) {
   .menu-sort-filter{
     select.form-control{
       font-size: 10px;
-      width:120px;
+      width:88px!important;
     }
     .filter-button{
       margin-top:5px;
@@ -598,7 +598,7 @@ and (max-width : 610px) {
   display: inline-block;
   top: -10px;
   width: 150px;
-  left: 212px;
+  left: 200px;
   overflow: hidden;
   z-index: 9;
     input{
