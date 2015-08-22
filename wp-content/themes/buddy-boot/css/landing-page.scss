@@ -47,6 +47,7 @@
           background-position: bottom;
           margin-top: 0vh;
           padding-top: 12vh;
+          margin-bottom: -55vh;
           h1{
             text-shadow: 2px 2px 3px rgba(0,0,0,0.1);
             width: 100vw;
@@ -66,8 +67,7 @@
     .container.slide1content{
       width: 80vw;
       text-align: left;
-      margin-top: -54vh;
-      height: 80vh;
+      height: 90vh;
       h1{
         font-size: 28px;
         color:#444;
@@ -317,6 +317,7 @@ padding-right: 8px;
 body {
     padding-top: 18px!important;
 }
+
 }
 
 @media (max-width: 551px) and (min-width: 481px){
@@ -335,6 +336,33 @@ body {
   }
 }
 /* Smartphones (portrait and landscape) ----------- */
+
+@media only screen
+and (min-width:767px)
+and (max-width:991px){
+  #section0{
+  h2{
+    font-size: 18px!important;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .col-md-3{
+    h2{
+      font-size: 13px!important;
+    }
+  }
+  hr{
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  .slide1content p{
+    font-size: 12px!important;
+    margin-bottom: 0px;
+  }
+}
+
+}
+
 @media only screen
 and (min-width : 100px)
 and (max-width : 767px) {
@@ -359,7 +387,13 @@ and (max-width : 767px) {
   }
 }
   .container.slide1content {
-      margin-top: -53vh!important;
+      // margin-top: -53vh!important;
+  }
+  #section0 .row1{
+    margin-bottom: -53vh!important;
+  }
+  #section0 .row1 h1 {
+    padding-left: 5vw;
   }
   .background-white{
     width:98%!important;
@@ -409,7 +443,17 @@ and (max-width : 991px){
     font-size: 22px;
   }
   .container.slide1content {
-    margin-top: -56vh;
+    // margin-top: -56vh;
+  }
+  #section0 .row1{
+    margin-bottom: -56vh;
+  }
+  .material-icons.large-arrow{
+    font-size: 24px!important;
+    margin-bottom: -15px!important;
+  }
+  section.how-to.col-md-12.text-center.animated.fadeInUp.delay-4500.go{
+    border-bottom:0px;
   }
 
   .slide1content{
@@ -526,8 +570,10 @@ and (max-height:570px){
     margin-top: 15px;
   }
   .container.slide1content {
-    margin-top: -48vh !important;
-
+    // margin-top: -48vh !important;
+}
+#section0 .row1{
+  margin-bottom: -50vh;
 }
 }
 
@@ -563,8 +609,11 @@ and (max-width : 330px) and (max-height:480px){
     }
   }
   .container.slide1content {
-    margin-top: -48vh !important;
+    // margin-top: -48vh !important;
 
+}
+#section0 .row1{
+  margin-bottom: 50vh;
 }
   .to-next-step{
     margin-top:1%;
