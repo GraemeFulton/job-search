@@ -111,6 +111,8 @@
         </div>
             <?php }
             else { ?>
+<h3><i class="material-icons icon-large">account_circle</i> Profile</h3>
+
 <div class="container profile-card copy-card max-width">
 
 <section class="welcome-selected-box no-pad col-xs-12">
@@ -118,17 +120,13 @@
     <div class='container-fluid no-pad sign-up-panel'>
 
             <div class='welcome-profile'>
-                <h4><i class="material-icons">settings</i> Profile settings</h4>
                 <a href="<?php echo bp_loggedin_user_domain()?>/profile/change-avatar/">
                 <div class='avatar-circle'>
 					<?php global $userdata; get_currentuserinfo(); echo get_avatar( $userdata->ID, 46 ); ?>
                 </div>
                 </a>
-                <p>Job recommendations are based on the selections you make. </p>
+                <p>Welcome. </p>
 
-               <div class="refine">
-                           <a href="<?php echo bp_loggedin_user_domain().'/profile/edit';?>" class='btn-success btn-raised btn-outlined btn'>Refine your settings</a>
-               </div>
             </div>
 
     </div>
@@ -136,7 +134,7 @@
 
 <section class="selected-box no-pad col-xs-12">
     <div class='welcome-profile no-pad margin-b-25'>
-        <h4><i class="material-icons">work</i>&nbsp;What</h4>
+        <h4><i class="material-icons">assignment_ind</i>&nbsp;Profession</h4>
         <div class="vertical-align">
            <div class="selected-options">
                        <?php
@@ -160,7 +158,7 @@
      </div>
 
            <div class='no-pad welcome-profile margin-b-25'>
-               <h4><i class="material-icons">location_on</i>&nbsp;Where</h4>
+               <h4><i class="material-icons">location_on</i>&nbsp;Location</h4>
              <div class="vertical-align">
              <div class="selected-options">
 

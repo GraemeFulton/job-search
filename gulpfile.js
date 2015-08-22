@@ -18,7 +18,7 @@ gulp.task('watch:css', ['landingpage', 'mainstyles'], function(){
 
 	livereload.listen();
 
-	gulp.watch('./wp-content/themes/buddy-boot/page-templates/landing-page-libs/css/*.scss', ['landingpage']);
+	gulp.watch('./wp-content/themes/buddy-boot/css/*.scss', ['landingpage']);
 	gulp.watch('./wp-content/themes/buddy-boot/*.scss', ['mainstyles']);
 
 })

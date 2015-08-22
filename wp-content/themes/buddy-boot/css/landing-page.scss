@@ -1,3 +1,9 @@
+
+@import "colours/colours";
+
+.btn-primary:hover:not(.btn-link):not(.btn-flat) {
+    background-color: $primary-lighter;
+}
     .image-box{
         padding:0px;
         overflow:hidden;
@@ -23,7 +29,7 @@
           font-size: 32px;
         }
         .row1{
-          background: url(../../../images/header.jpg);
+          background: url(../images/header.jpg);
           height: 75vh;
           background-size: cover;
           background-position: center;
@@ -34,13 +40,20 @@
             text-shadow: 2px 2px 3px rgba(0,0,0,0.1);
             width: 100vw;
             padding-left: 2vw ;
+            margin-top:5px;
           }
         }
 
     }
+    .btn-primary.btn-next.btn.btn-submit{
+      font-size: 16px;
+    }
+    #fp-nav.right {
+      right: 3px;
+    }
 
     .container.slide1content{
-      width: 90%;
+      width: 80vw;
       text-align: left;
       margin-top: -50vh;
       height: 80vh;
@@ -57,9 +70,10 @@
         color:#36373E;
       }
 
+
     }
     span.highlight{
-      color:$primary;
+      color:$accent;
       font-weight: 600;
     }
     .box-container:hover{
@@ -68,8 +82,8 @@
 
     }
     .box-active{
-     background:#9ED4C9!important;
-
+     border-bottom:2.5px solid $accent!important;
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18),0 4px 15px 0 rgba(0,0,0,.15);
     }
 
     .animated{
@@ -162,7 +176,7 @@ fp-slidesNav{display:none}
     }
     #selection{
         height: 20px;
-        color:#52c1ae;
+        color:$accent;
     }
 
     .next-action{
@@ -239,15 +253,24 @@ color: #fff;
 background-color: #52c1ae;
 border-color: #52c1ae;
 }
+.arrow-down{
+  display:none;
+}
 
 .tag-selected{
     margin-top: 5px;
     display: inline-block;
-    color: #444;
-    background-color: #9ED4C9;
-    border:1px solid #ccc;
-    padding:3px;
+    color: #fff;
+    background-color: $accent;
+    padding:2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 2px;
     margin-right:5px;
+}
+
+.how-to{
+  margin-left:5.5vh;
 }
 
 .select2-container-multi .select2-choices .select2-search-choice {
@@ -300,14 +323,79 @@ and (max-width : 767px) {
   .background-white{
     width:98%!important;
   }
-}
+  .slide1content{
 
+    .arrow-right{
+      display:none;
+    }
+    .arrow-down{
+      display:block;
+      margin-bottom: -2.3vh;
+      margin-top:-0.5vh;
+    }
+    .btn-primary:not(.btn-link):not(.btn-flat){
+      font-size: 16px;
+    }
+  }
+}
+@media only screen
+and (min-width : 100px)
+and (max-width : 991px){
+
+  .material-icons.icon-large{
+    font-size: 26px;
+    color:#555;
+    margin-bottom: -2vh;
+  }
+
+  .how-to{
+    margin-left:0vh;
+    margin-top:-2vh;
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 15px;
+
+    h2{
+      font-size: 15px !important;
+      font-weight: 500;
+    }
+  }
+  #section0 .row1 h1 {
+    font-size: 26px;
+  }
+  #section0 h1 {
+    font-size: 22px;
+  }
+  .container.slide1content {
+    margin-top: -53vh;
+  }
+
+  .slide1content{
+    p{
+      font-size: 13px!important;
+    }
+    .arrow-right{
+      display:none;
+    }
+    .arrow-down{
+      display:block;
+    }
+  }
+}
+@media only screen
+and (min-width : 100px)
+and (max-width : 480px) {
+
+  .slide1content .arrow-down{
+
+    font-size: 20px!important;
+  }
+}
 @media only screen
 and (min-width : 100px)
 and (max-width : 480px) {
   #section1{
     a.btn-primary.btn-next.btn.btn-scroll-down{
-      margin-top: 25%!important;
+      margin-top: 10vh!important;
     }
   }
   .to-next-step{
@@ -435,6 +523,12 @@ only screen and (min-device-pixel-ratio : 1.5) {
         #selection, .spacey{display:none}
 }
 
+@media only screen
+and (min-width : 991px) and (max-width:1280px) {
+  #selection{
+     left: 35vw!important;
+  }
+}
 /**small laptop screen**/
 @media only screen
 and (min-width : 550px) and (max-width:1280px) {
@@ -445,10 +539,12 @@ and (min-width : 550px) and (max-width:1280px) {
 
      #selection, .spacey{display:inline-block}
      #selection{
-         display: inline-block;
+       display: inline-block;
         position: absolute;
-        left: -5%;
-        top: 15%;
+        left: 31vw;
+        top: 25vh;
+        z-index: 4;
+        width: 20vh;
      }
     svg { height: 60vh!important;
     margin-top:20px
@@ -520,10 +616,12 @@ and (max-width : 1224px){
     }
      #selection, .spacey{display:inline-block}
           #selection{
-         display: inline-block;
+            display: inline-block;
         position: absolute;
-        left: -12%;
-        top: 20%;
+        left: 66vh;
+        top: 22vh;
+        z-index: 4;
+        width: 20vh;
      }
     svg { height: 60vh!important;}
 

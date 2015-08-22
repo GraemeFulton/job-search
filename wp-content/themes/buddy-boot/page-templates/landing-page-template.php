@@ -10,7 +10,7 @@ if(is_user_logged_in()==true){
 get_header();
 ?>
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri()?>/libs/fullpage/jquery.fullPage.css">
-<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri()?>/page-templates/landing-page-libs/css/landing-page.css">
+<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri()?>/css/landing-page.css">
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri()?>/page-templates/landing-page-libs/css/animations.css">
 <?php include(get_stylesheet_directory().'/partials/loader.php');?>
 
@@ -31,14 +31,15 @@ get_header();
             <h1>How it works</h1>
           </div>
 
-        <div class="col-md-3 text-center" style="margin-left:4.17%;">
+        <section class="how-to col-md-12 text-center">
+        <div class="col-md-3 text-center">
             <h2 class=""><i class="material-icons icon-large">work</i></h2>
-            <h2>Choose any industry</h2>
+            <h2>Choose your industry</h2>
             <p>Find jobs from over 30 categories, within 12 industries.</p>
-            <p>Use the search to pinpoint specific requirements.</p>
         </div>
          <div class="img col-md-1 text-center">
-            <i class="material-icons large-arrow">keyboard_arrow_right</i>
+            <i class="material-icons arrow-right large-arrow">keyboard_arrow_right</i>
+            <i class="material-icons arrow-down large-arrow">keyboard_arrow_down</i>
          </div>
          <div class="col-md-3 text-center">
            <h2 class=""><i class="material-icons icon-large">location_on</i></h2>
@@ -46,17 +47,20 @@ get_header();
            <p>Target roles throughout the entire UK, from Yorkshire to London.</p>
          </div>
          <div class="img col-md-1 text-center">
-            <i class="material-icons large-arrow">keyboard_arrow_right</i>
+            <i class="material-icons arrow-right large-arrow">keyboard_arrow_right</i>
+            <i class="material-icons arrow-down large-arrow">keyboard_arrow_down</i>
          </div>
          <div class="col-md-3 text-center">
            <h2 class=""><i class="material-icons icon-large">mood</i></h2>
            <h2>Get job recommendations</h2>
-           <p>Jobs range from entry level to graduate schemes at large companies such as <span class="highlight">Ernst &amp; Young</span>, the <span class="highlight">BBC</span> and even <span class="highlight">BMW</span>.</p>
+           <p>Companies such as <span class="highlight">Ernst &amp; Young</span>, the <span class="highlight">BBC</span> and even <span class="highlight">BMW</span>.</p>
          </div>
 
-            <div style="clear:both"class="row text-center">
-              <a class="btn-primary btn-next btn-raised btn btn-scroll-down animated materialInUpShort delay-3500">Start now</a>
-            </div>
+         </section>
+
+           <div class="row text-center">
+             <a class="btn-primary btn-next btn-raised btn btn-scroll-down animated materialInUpShort delay-3500">Start now</a>
+           </div>
           </div>
           <div class="row text-center" style="display:none">
             <a href="login" style="font-size:13px;" class='pull-right btn-primary btn-next btn btn-login'>Log In</a>

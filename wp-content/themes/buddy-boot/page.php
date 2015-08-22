@@ -23,7 +23,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 
 					<section>
 					<?php if(!bp_is_my_profile()){?>
-						<h1 class="title"><?php the_title(); // Display the title of the page ?></h1>
+						<h1 class="title container"><?php the_title(); // Display the title of the page ?></h1>
 					<?php }?>
 						<div class="the-content">
 							<?php the_content();

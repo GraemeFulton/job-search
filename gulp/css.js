@@ -5,9 +5,9 @@ var livereload = require('gulp-livereload');
 
 gulp.task('landingpage', function(){
 
-	gulp.src('./wp-content/themes/buddy-boot/page-templates/landing-page-libs/css/*.scss')
+	gulp.src('./wp-content/themes/buddy-boot/css/*.scss')
 	.pipe(sass().on('error', sass.logError))
-	.pipe(gulp.dest('wp-content/themes/buddy-boot/page-templates/landing-page-libs/css'))
+	.pipe(gulp.dest('wp-content/themes/buddy-boot/css'))
   .pipe(livereload());
 })
 
