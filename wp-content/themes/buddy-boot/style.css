@@ -225,7 +225,11 @@ table.profile-fields {
     font-size: 23px;
     font-weight: 100; }
   .col-md-9.col-xs-12 .icon-large {
-    font-size: 28px; }
+    font-size: 28px;
+    vertical-align: bottom; }
+  .col-md-9.col-xs-12 .icon-med {
+    font-size: 22px;
+    vertical-align: bottom; }
 
 .menu-sort-filter {
   margin-right: 113px;
@@ -1030,12 +1034,13 @@ a, a:hover, a:focus {
     margin-right: 5px; }
   .pagi-top div.selected {
     font-size: 12px;
-    background: transparent;
-    padding: 3px;
+    padding: 2px !important;
     margin-top: -3px;
     color: #fff;
     background: #FF4081;
-    border-radius: 2px; }
+    border-radius: 2px;
+    padding-left: 3px;
+    padding-right: 3px; }
   .pagi-top .page-num {
     margin-right: 2px; }
 
@@ -1173,6 +1178,13 @@ div.selected {
 .profession #profile-group-edit-submit, .location #profile-group-edit-submit {
   margin-left: 10px; }
 
+.profession i.material-icons, .location i.material-icons {
+  vertical-align: sub;
+  margin-right: 3px !important; }
+
+.settings-colour {
+  color: #888; }
+
 #buddypress .standard-form div.submit {
   padding: 0 0 0 0; }
 
@@ -1270,7 +1282,7 @@ div.selected {
 
 #buddypress input[type=submit], #buddypress a.button {
   font-size: 15px;
-  margin-top: 25px;
+  margin-top: 0px;
   border: 0px;
   padding: 10px;
   margin-bottom: 0px;
@@ -1281,7 +1293,17 @@ div.selected {
 
 #buddypress input[type=submit]:hover, #buddypress a.button:hover {
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-  background: inherit !important; }
+  background: #42A5F5 !important;
+  color: #fff; }
+
+#buddypress .standard-form textarea, #buddypress .standard-form input[type=text], #buddypress .standard-form input[type=text], #buddypress .standard-form input[type=color], #buddypress .standard-form input[type=date], #buddypress .standard-form input[type=datetime], #buddypress .standard-form input[type=datetime-local], #buddypress .standard-form input[type=email], #buddypress .standard-form input[type=month], #buddypress .standard-form input[type=number], #buddypress .standard-form input[type=range], #buddypress .standard-form input[type=search], #buddypress .standard-form input[type=tel], #buddypress .standard-form input[type=time], #buddypress .standard-form input[type=url], #buddypress .standard-form input[type=week], #buddypress .standard-form select, #buddypress .standard-form input[type=password], #buddypress .dir-search input[type=search], #buddypress .dir-search input[type=text] {
+  background: #fff;
+  color: #333;
+  padding: 3px;
+  width: 100%; }
+
+.editfield.col-md-3.col-xs-12.no-pad {
+  clear: both; }
 
 h4, .h4 {
   font-size: 18px; }
@@ -1451,6 +1473,9 @@ LOADER
 
 form.profession #profile-group-edit-submit, form.location #profile-group-edit-submit {
   display: none; }
+
+form.profession .editfield.col-md-3.col-xs-12.no-pad, form.location .editfield.col-md-3.col-xs-12.no-pad {
+  clear: none; }
 
 .single_datagrid h1 {
   font-size: 22px;
@@ -1631,5 +1656,10 @@ form.profession #profile-group-edit-submit, form.location #profile-group-edit-su
   color: #2196F3; }
 
 .btn-success:not(.btn-link):not(.btn-flat) {
-  background-color: #2196F3;
-  color: rgba(255, 255, 255, 0.84); }
+  background-color: #2196F3; }
+
+.btn-success:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #42A5F5; }
+
+#buddypress .standard-form div.checkbox label, #buddypress .standard-form div.radio label {
+  font-size: 15px; }

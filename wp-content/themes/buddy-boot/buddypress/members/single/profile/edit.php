@@ -4,13 +4,28 @@
 <?php
 if ( bp_has_profile( 'profile_group_id=' . bp_get_current_profile_group_id() ) ) :
 	while ( bp_profile_groups() ) : bp_the_profile_group(); ?>
-
+<h4 class="settings-colour"><i class="material-icons icon-med">settings</i> Refine preferences</h4>
 <form action="<?php bp_the_profile_group_edit_form_action(); ?>" method="post" id="profile-edit-form" class="standard-form copy-card <?php bp_the_profile_group_slug(); ?>">
 
 	<?php do_action( 'bp_before_profile_field_content' ); ?>
 
-		<h4><?php printf( __( "Editing '%s' Profile Group", "buddypress" ), bp_get_the_profile_group_name() ); ?></h4>
 
+			<?php
+			$icon='';
+			$text=' Edit your ';
+			if(bp_get_the_profile_group_name()=='Location'){
+				$text = ' Choose your ';
+				$icon = 'place';
+			}
+			elseif(bp_get_the_profile_group_name()=='Profession'){
+				$icon = 'work';
+				$text = ' Choose your ';
+			}
+			?>
+			<h3>
+				<icon class="material-icons"><?php echo $icon; ?></i>
+				<?php echo $text.strtolower(bp_get_the_profile_group_name()); ?>
+			</h3>
 		<div class="clear"></div>
 
 		<?php while ( bp_profile_fields() ) : bp_the_profile_field(); ?>
