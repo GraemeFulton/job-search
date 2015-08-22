@@ -1179,8 +1179,8 @@ div.selected {
   margin-left: 10px; }
 
 .profession i.material-icons, .location i.material-icons {
-  vertical-align: sub;
-  margin-right: 3px !important; }
+  vertical-align: text-top;
+  margin-right: -3px !important; }
 
 .settings-colour {
   color: #888; }
