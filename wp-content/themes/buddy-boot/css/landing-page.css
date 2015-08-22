@@ -46,7 +46,7 @@
 .container.slide1content {
   width: 80vw;
   text-align: left;
-  margin-top: -50vh;
+  margin-top: -54vh;
   height: 80vh; }
   .container.slide1content h1 {
     font-size: 28px;
@@ -276,6 +276,8 @@ fp-slidesNav {
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-width: 100px) and (max-width: 767px) {
+  .container.slide1content {
+    margin-top: -53vh !important; }
   .background-white {
     width: 98% !important; }
   .slide1content .arrow-right {
@@ -305,7 +307,7 @@ fp-slidesNav {
   #section0 h1 {
     font-size: 22px; }
   .container.slide1content {
-    margin-top: -53vh; }
+    margin-top: -56vh; }
   .slide1content p {
     font-size: 13px !important; }
   .slide1content .arrow-right {

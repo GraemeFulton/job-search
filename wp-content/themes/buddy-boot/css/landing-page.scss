@@ -55,7 +55,7 @@
     .container.slide1content{
       width: 80vw;
       text-align: left;
-      margin-top: -50vh;
+      margin-top: -54vh;
       height: 80vh;
       h1{
         font-size: 28px;
@@ -316,10 +316,14 @@ body {
 .navbar-toggle{
   display: none;
 }
+
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
 and (min-width : 100px)
 and (max-width : 767px) {
+  .container.slide1content {
+      margin-top: -53vh!important;
+  }
   .background-white{
     width:98%!important;
   }
@@ -366,7 +370,7 @@ and (max-width : 991px){
     font-size: 22px;
   }
   .container.slide1content {
-    margin-top: -53vh;
+    margin-top: -56vh;
   }
 
   .slide1content{
