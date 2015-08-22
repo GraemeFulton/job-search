@@ -15,11 +15,11 @@
                <div class="refine">
        <!--SOCIAL MEDIA-->
                             <div class="register-pg-social">
-                                <button class='btn-success btn-outlined btn'>Sign in with email</button>
+                                <a href="<?php echo site_url();?>/register" class='btn btn-raised'> Sign up with email</a>
                                 <br>
-                                <button class='btn btn-large btn-fb'><a href="http://lostgrad.com/login/?loginFacebook=1&amp;redirect=http://localhost/LGWP" onclick="window.location = 'http://lostgrad.com/login/?loginFacebook=1&amp;redirect='+window.location.href; return false;">Sign in with facebook</a></button>
+                                <button class='btn btn-large btn-fb btn-raised'><a href="http://lostgrad.com/login/?loginFacebook=1&amp;redirect=http://localhost/LGWP" onclick="window.location = 'http://lostgrad.com/login/?loginFacebook=1&amp;redirect='+window.location.href; return false;">Sign in with facebook</a></button>
                                 <br>
-                                <button class='btn btn-large btn-twitter'><a href="http://lostgrad.com/login/?loginTwitter=1&amp;redirect=http://localhost/LGWP" onclick="window.location = 'http://lostgrad.com/login/?loginTwitter=1&amp;redirect='+window.location.href; return false;">Sign in with twitter</a></button>
+                                <button class='btn btn-large btn-twitter btn-raised'><a href="http://lostgrad.com/login/?loginTwitter=1&amp;redirect=http://localhost/LGWP" onclick="window.location = 'http://lostgrad.com/login/?loginTwitter=1&amp;redirect='+window.location.href; return false;">Sign in with twitter</a></button>
                             </div>               </div>
             </div>
             </div>

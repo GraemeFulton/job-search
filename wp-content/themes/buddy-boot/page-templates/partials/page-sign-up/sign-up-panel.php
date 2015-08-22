@@ -3,7 +3,7 @@
 
         <section class='search-criteria container'>
 
-            <div class='col-md-4 col-xs-12'>
+            <div class='col-md-4 col-xs-12' style="padding-right:50px;">
                 <div class="panel panel-default flex-col">
                     <h2 class=""><i class="material-icons icon-large">trending_up</i></h2>
                 <h4>Get better recommendations</h4>
@@ -11,7 +11,7 @@
                 <?php  echo get_avatar( '', $size = '60' );?>
                 </div><?php include('partials/selected-options.php');?>
                     </p>
-                    <p>Signing up gives you access to more specific job categories, giving you more tailored recommendations.</p>
+                    <p>Signing up for more categories.</p>
                <div class="refine">
                		<a class='btn-raised btn' href="<?php echo site_url();?>/register">
                            Refine your preferences
@@ -21,7 +21,7 @@
             </div>
 
 
-     <div class='col-md-4 col-xs-12'>
+     <div class='col-md-4 col-xs-12' style="padding-right:50px;">
          <div class="panel panel-default flex-col">
             <h2 class=""><i class="material-icons icon-large">mood</i></h2>
 
@@ -42,7 +42,7 @@
            </div>
       </div>
 
-            <div class='col-md-4 col-xs-12'>
+            <div class='col-md-4 col-xs-12' style="padding-right:50px;">
                 <div class="panel panel-default flex-col">
                     <h2 class=""><i class="material-icons icon-large">search</i></h2>
 
@@ -51,7 +51,7 @@
                 <br>
                     <?php get_search_form(); ?>
                 <br>
-                <p>Members can see full sets of results from their searches, so <a href="<?php echo site_url();?>/register">sign up</a> now.</p>
+                <p><a href="<?php echo site_url();?>/register">Sign up now</a> to use the full search.</p>
 
             </div>
           </div>
