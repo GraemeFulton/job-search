@@ -124,8 +124,9 @@
                 <div class='avatar-circle'>
 					<?php global $userdata; get_currentuserinfo(); echo get_avatar( $userdata->ID, 46 ); ?>
                 </div>
-                </a>
-                <p>Welcome. </p>
+              </a><br>
+                <p>Hi <?php echo bp_get_displayed_user_username();?>, see your current preferences below. </p>
+                <p>
 
             </div>
 

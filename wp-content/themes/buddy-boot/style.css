@@ -1289,6 +1289,7 @@ div.selected {
 #buddypress input[type=submit], #buddypress a.button {
   font-size: 15px;
   margin-top: 0px;
+  border-radius: 2px;
   border: 0px;
   padding: 10px;
   margin-bottom: 0px;
@@ -1296,6 +1297,15 @@ div.selected {
   color: rgba(255, 255, 255, 0.84);
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1); }
+
+#buddypress div.item-list-tabs ul li.selected a, #buddypress div.item-list-tabs ul li.current a {
+  font-weight: normal; }
+
+#members-all {
+  display: none; }
+
+#buddypress label {
+  font-weight: normal; }
 
 #buddypress input[type=submit]:hover, #buddypress a.button:hover {
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
