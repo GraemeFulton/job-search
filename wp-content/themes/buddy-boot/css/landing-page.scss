@@ -317,6 +317,13 @@ body {
   display: none;
 }
 
+@media only screen and (min-width:991px){
+  #section0{
+  .btn-primary:not(.btn-link):not(.btn-flat) {
+    margin-top: 10vh;
+  }
+  }
+}
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
 and (min-width : 100px)
