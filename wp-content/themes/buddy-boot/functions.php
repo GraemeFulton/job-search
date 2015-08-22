@@ -240,5 +240,4 @@ function myplugin_registration_save(  $user_id, $userdata, $form_id, $form_setti
 			return $where;
 		}
 		add_filter('posts_where', 'filter_where');
-
 ?>
