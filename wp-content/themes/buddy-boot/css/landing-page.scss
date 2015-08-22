@@ -4,6 +4,9 @@
 .btn-primary:hover:not(.btn-link):not(.btn-flat) {
     background-color: $primary-lighter;
 }
+.how-it-works-container{
+  margin-top:15px; padding-top:15px; border-top:1px solid #f8f8f8;
+}
     .image-box{
         padding:0px;
         overflow:hidden;
@@ -14,6 +17,7 @@
     }
     h2.how-it-works-title{
       margin-top: 5px;
+      font-size: 26px;
     }
     .circular{
       height:100px!important;
@@ -32,7 +36,7 @@
           font-size: 32px;
         }
         h2{
-          font-size: 22px;
+          font-size: 26px;
         }
         .col-md-3{
           h2{
@@ -325,8 +329,8 @@ body {
 
 }
 
-.navbar-toggle{
-  display: none;
+.page-template-page-templateslanding-page-template-php .navbar .navbar-toggle{
+  display: none!important;
 }
 
 @media only screen and (min-width:991px){
@@ -366,6 +370,10 @@ and (max-width:991px){
 @media only screen
 and (min-width : 100px)
 and (max-width : 767px) {
+
+  .how-it-works-container{
+      margin-top:5px; padding-top:5px;
+  }
   #section0{
   h2{
     font-size: 18px!important;

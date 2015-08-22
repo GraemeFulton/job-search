@@ -1,6 +1,11 @@
 .btn-primary:hover:not(.btn-link):not(.btn-flat) {
   background-color: #42A5F5; }
 
+.how-it-works-container {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #f8f8f8; }
+
 .image-box {
   padding: 0px;
   overflow: hidden;
@@ -9,7 +14,8 @@
     margin-top: -10px; }
 
 h2.how-it-works-title {
-  margin-top: 5px; }
+  margin-top: 5px;
+  font-size: 26px; }
 
 .circular {
   height: 100px !important; }
@@ -27,7 +33,7 @@ h2.how-it-works-title {
   #section0 h1 {
     font-size: 32px; }
   #section0 h2 {
-    font-size: 22px; }
+    font-size: 26px; }
   #section0 .col-md-3 h2 {
     font-size: 1.8rem; }
   #section0 .row1 {
@@ -278,8 +284,8 @@ fp-slidesNav {
   body {
     padding-top: 18px !important; } }
 
-.navbar-toggle {
-  display: none; }
+.page-template-page-templateslanding-page-template-php .navbar .navbar-toggle {
+  display: none !important; }
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-width: 767px) and (max-width: 991px) {
@@ -297,6 +303,9 @@ fp-slidesNav {
     margin-bottom: 0px; } }
 
 @media only screen and (min-width: 100px) and (max-width: 767px) {
+  .how-it-works-container {
+    margin-top: 5px;
+    padding-top: 5px; }
   #section0 h2 {
     font-size: 18px !important;
     padding-left: 15px;

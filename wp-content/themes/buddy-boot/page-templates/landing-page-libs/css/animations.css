@@ -1951,11 +1951,11 @@
 @-webkit-keyframes materialInBottomGrowLarge {
   0% {
       opacity: 1;
-      -webkit-transform:scale(0.7) translateY(650px);
+      -webkit-transform:scale(0.7) translateY(750px);
   }
   20% {
       opacity: 1;
-      -webkit-transform:scale(0.7) translateY(650px);
+      -webkit-transform:scale(0.7) translateY(750px);
   }
   80%{
     -webkit-transform:scale(0.6)translateY(0px);
@@ -1972,11 +1972,11 @@
 @keyframes materialInBottomGrowLarge {
   0% {
       opacity: 1;
-      transform:scale(0.6) translateY(650px);
+      transform:scale(0.6) translateY(750px);
   }
   20% {
       opacity: 1;
-      transform:scale(0.6) translateY(650px);
+      transform:scale(0.6) translateY(750px);
   }
   80%{
     transform:scale(0.6)translateY(5px);

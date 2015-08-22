@@ -28,11 +28,10 @@ get_header();
         <div class="container animated materialInBottomGrowLarge delay-2500 text-center">
           <div class="card container slide1content">
             <div class="row text-center">
-              <h2 class="">Discover 100s of roles you didn't know existed</h2>
+              <h2 class="">1000s of live jobs closing soon</h2>
               <a class="btn-primary btn-next btn-raised btn btn-scroll-down" style="font-size:20px;">Start now</a>
             </div>
-            <hr>
-            <div class="row text-center animated fadeInUp delay-4500">
+          <div class="how-it-works-container row text-center animated fadeInUp delay-4500">
             <h2 class="how-it-works-title">How it works</h2>
           </div>
 
