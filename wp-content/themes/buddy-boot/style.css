@@ -4,7 +4,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /*
-    Created on : 03-Dec-2014, 14:19:07
+  Created on : 03-Dec-2014, 14:19:07
     Author     : Graeme
 */
 .multiselect-container.dropdown-menu {
@@ -45,7 +45,7 @@ footer {
   position: relative;
   width: 100%;
   z-index: 0;
-  background-color: #1E88E5;
+  background-color: #1565C0;
   padding: 40px; }
 
 #profile-edit-form {
@@ -779,7 +779,7 @@ a {
   width: 75px; }
 
 .btn-settings {
-  background-color: #FFAB00 !important;
+  background-color: #FF4081 !important;
   color: #fff;
   position: fixed;
   top: 87px;
@@ -803,20 +803,20 @@ a {
   margin: 0 0; }
 
 a, a:hover, a:focus {
-  color: #1E88E5; }
+  color: #1565C0; }
 
 .has-success .form-control-feedback {
   color: #0D47A1; }
 
 .form-control {
-  background-image: linear-gradient(#FFAB00, #FFAB00), linear-gradient(#d2d2d2, #d2d2d2) !important; }
+  background-image: linear-gradient(#FF4081, #FF4081), linear-gradient(#d2d2d2, #d2d2d2) !important; }
 
 .form-control:focus, .form-control.focus {
   outline: none;
-  background-image: linear-gradient(#FFAB00, #FFAB00), linear-gradient(#d2d2d2, #d2d2d2); }
+  background-image: linear-gradient(#FF4081, #FF4081), linear-gradient(#d2d2d2, #d2d2d2); }
 
 .selected {
-  color: #1E88E5;
+  color: #1565C0;
   margin-bottom: 6px; }
 
 .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open .dropdown-toggle.btn-success {
@@ -880,7 +880,7 @@ a, a:hover, a:focus {
   .box-head .current {
     border-bottom-style: solid;
     border-bottom-width: 3px;
-    color: #1E88E5;
+    color: #2196F3;
     font-weight: 500; }
   .box-head h4 {
     float: left; }
@@ -973,7 +973,7 @@ a, a:hover, a:focus {
   color: #fafafa; }
 
 .btn-primary:not(.btn-link):not(.btn-flat) {
-  background: #1E88E5; }
+  background: #2196F3; }
 
 .post.container {
   position: relative;
@@ -988,21 +988,26 @@ a, a:hover, a:focus {
     overflow: hidden;
     color: #0D47A1; }
   .post.container p, .post.container a {
-    font-size: 14px;
+    font-size: 13px;
     overflow: hidden;
     float: left;
     padding: 0px;
     position: relative;
     width: 100%; }
+  .post.container p {
+    margin-bottom: 10px !important; }
   .post.container p:hover, .post.container a:hover, .post.container span:hover {
     text-decoration: none; }
   .post.container p {
     margin-bottom: 3px;
     color: #444; }
   .post.container span, .post.container i {
-    font-size: 12px !important; }
+    font-size: 13px !important; }
     .post.container span a, .post.container i a {
-      font-size: 12px !important; }
+      font-size: 13px !important; }
+  .post.container i.material-icons {
+    font-size: 16px !important;
+    vertical-align: sub; }
 
 .container.list-container {
   padding-left: 0px;
@@ -1024,9 +1029,12 @@ a, a:hover, a:focus {
     float: left;
     margin-right: 5px; }
   .pagi-top div.selected {
-    padding: 0px;
     font-size: 13px;
-    background: #e7e7e7; }
+    background: transparent;
+    padding: 3px;
+    color: #fff;
+    background: #FF4081;
+    border-radius: 3px; }
   .pagi-top .page-num {
     margin-right: 2px; }
 
@@ -1255,13 +1263,17 @@ div.selected {
   margin-top: 20px;
   padding-left: 5px; }
 
+#item-body {
+  margin-top: 25px;
+  margin-bottom: 50px; }
+
 #buddypress input[type=submit], #buddypress a.button {
   font-size: 15px;
   margin-top: 25px;
   border: 0px;
   padding: 10px;
   margin-bottom: 0px;
-  background: #4caf50;
+  background: #2196F3;
   color: rgba(255, 255, 255, 0.84);
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -1273,8 +1285,11 @@ div.selected {
 h4, .h4 {
   font-size: 18px; }
 
-.meta-info span, .meta-info i, .meta-info a {
-  color: #999; }
+.meta-info {
+  float: left;
+  margin-bottom: -3px; }
+  .meta-info span, .meta-info i, .meta-info a {
+    color: #999; }
 
 .btn-flat.plain {
   color: #26a69a; }
@@ -1312,13 +1327,13 @@ h4, .h4 {
       font-weight: normal;
       cursor: pointer; }
     .menu ul li.active {
-      background-color: #1E88E5;
+      background-color: #1565C0;
       color: #f8f8f8;
       position: relative; }
     .menu ul .sub-menu li.active {
       background-color: #f4f4f4;
       color: inherit;
-      color: #1E88E5; }
+      color: #1565C0; }
 
 .sub-menu a li {
   font-size: 14px;
@@ -1401,9 +1416,9 @@ LOADER
 
 @keyframes color {
   100%, 0% {
-    stroke: #1E88E5; }
+    stroke: #1565C0; }
   80%, 90% {
-    stroke: #1E88E5; } }
+    stroke: #1565C0; } }
 
 .loader-container {
   display: none;
@@ -1578,7 +1593,7 @@ form.profession #profile-group-edit-submit, form.location #profile-group-edit-su
     width: 100%;
     width: 100px; }
   .box-head .submenu-group li.active a {
-    color: #1E88E5; }
+    color: #1565C0; }
   .box-head .submenu-group li.submenu-header a {
     display: block;
     font-size: 12px;
@@ -1598,3 +1613,22 @@ form.profession #profile-group-edit-submit, form.location #profile-group-edit-su
 
 .pagi-top h3 i.material-icons {
   vertical-align: bottom; }
+
+.checkbox input[type=checkbox]:checked + .checkbox-material .check, .checkbox-default input[type=checkbox]:checked + .checkbox-material .check {
+  color: #2196F3; }
+
+.checkbox input[type=checkbox]:checked + .checkbox-material .check:before, .checkbox-default input[type=checkbox]:checked + .checkbox-material .check:before {
+  color: #2196F3; }
+
+.checkbox input[type=checkbox]:checked + .checkbox-material .check:before, .checkbox-default input[type=checkbox]:checked + .checkbox-material .check:before {
+  color: #2196F3; }
+
+.checkbox input[type=checkbox]:checked + .checkbox-material .check:before, .checkbox-default input[type=checkbox]:checked + .checkbox-material .check:before {
+  color: #2196F3; }
+
+.checkbox input[type=checkbox]:checked + .checkbox-material .check:before, .checkbox-default input[type=checkbox]:checked + .checkbox-material .check:before {
+  color: #2196F3; }
+
+.btn-success:not(.btn-link):not(.btn-flat) {
+  background-color: #2196F3;
+  color: rgba(255, 255, 255, 0.84); }

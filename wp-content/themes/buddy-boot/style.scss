@@ -4,7 +4,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /*
-    Created on : 03-Dec-2014, 14:19:07
+  Created on : 03-Dec-2014, 14:19:07
     Author     : Graeme
 */
 @import "css/colours/colours";
@@ -49,7 +49,7 @@ footer{
     position: relative;
     width: 100%;
     z-index: 0;
-        background-color: $primary ;
+        background-color: $primary;
         padding:40px;
 }
 #profile-edit-form{
@@ -1119,7 +1119,7 @@ a, a:hover, a:focus {
   .current{
     border-bottom-style: solid;
     border-bottom-width: 3px;
-    color: $primary;
+    color: $primary-light ;
     font-weight: 500;
   }
   h4{
@@ -1237,7 +1237,7 @@ a, a:hover, a:focus {
     color: #fafafa;
 }
 .btn-primary:not(.btn-link):not(.btn-flat){
-  background:$primary;
+  background:$primary-light ;
 }
 
 .post.container{
@@ -1254,12 +1254,15 @@ a, a:hover, a:focus {
         color:$primary-dark;
     }
     p, a{
-        font-size:14px;
+        font-size:13px;
         overflow: hidden;
         float: left;
         padding:0px;
         position: relative;
         width: 100%;
+    }
+    p{
+      margin-bottom:10px!important
     }
 
     p:hover,a:hover,span:hover{
@@ -1271,11 +1274,16 @@ a, a:hover, a:focus {
     }
     span, i{
 
-        font-size:12px!important;
+        font-size:13px!important;
         a{
-                    font-size:12px!important;
+                    font-size:13px!important;
 
         }
+
+    }
+    i.material-icons{
+      font-size: 16px!important;
+vertical-align: sub;
     }
 }
 .container.list-container{
@@ -1304,9 +1312,12 @@ a, a:hover, a:focus {
      margin-right: 5px;
     }
     div.selected{
-        padding:0px;
         font-size:13px;
-        background:#e7e7e7;
+        background:transparent;
+        padding:3px;
+        color:#fff;
+        background: $accent;
+        border-radius: 3px;
     }
     .page-num{
         margin-right:2px;
@@ -1595,14 +1606,17 @@ div.selected{
   margin-top:20px;
   padding-left: 5px;
 }
-
+#item-body{
+  margin-top:25px;
+  margin-bottom: 50px;
+}
 #buddypress input[type=submit], #buddypress a.button{
   font-size: 15px;
       margin-top: 25px;
       border: 0px;
       padding: 10px;
     margin-bottom: 0px;
-    background: #4caf50;
+    background: $primary-light;
     color: rgba(255,255,255,.84);
     box-shadow: 0 1px 6px 0 rgba(0,0,0,.12),0 1px 6px 0 rgba(0,0,0,.12);
     transition: box-shadow .28s cubic-bezier(.4,0,.2,1);
@@ -1615,6 +1629,8 @@ h4, .h4{
     font-size:18px;
 }
 .meta-info{
+  float:left;
+  margin-bottom: -3px;
     span, i, a{
         color:#999;
     }
@@ -2040,4 +2056,23 @@ padding-left: 25px;
       vertical-align: bottom;
     }
   }
+}
+.checkbox input[type=checkbox]:checked+.checkbox-material .check, .checkbox-default input[type=checkbox]:checked+.checkbox-material .check{
+  color:$primary-light;
+}
+.checkbox input[type=checkbox]:checked+.checkbox-material .check:before, .checkbox-default input[type=checkbox]:checked+.checkbox-material .check:before {
+    color: $primary-light;
+}
+.checkbox input[type=checkbox]:checked+.checkbox-material .check:before, .checkbox-default input[type=checkbox]:checked+.checkbox-material .check:before {
+    color: $primary-light;
+}
+.checkbox input[type=checkbox]:checked+.checkbox-material .check:before, .checkbox-default input[type=checkbox]:checked+.checkbox-material .check:before {
+    color: $primary-light;
+}
+.checkbox input[type=checkbox]:checked+.checkbox-material .check:before, .checkbox-default input[type=checkbox]:checked+.checkbox-material .check:before {
+    color: $primary-light;
+}
+.btn-success:not(.btn-link):not(.btn-flat) {
+    background-color: $primary-light;
+    color: rgba(255,255,255,.84);
 }

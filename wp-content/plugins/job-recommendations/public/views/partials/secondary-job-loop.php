@@ -17,10 +17,11 @@ if($current_post_number ==-1){
         $nothing_found = true;
         $message = 'jobs in other locations matching your preferences';
 }
-
+if($start_second_loop!==true){
 echo '<div class="pagi-top container no-pad"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span>'.$message.'</p>';?>
       <?php include('selections-tags.php');
       echo '</div>';
+}
 ?>
 <section class="container list-container">
 

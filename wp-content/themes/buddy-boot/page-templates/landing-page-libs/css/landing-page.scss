@@ -56,8 +56,12 @@
         font-size: 1.4rem;
         color:#36373E;
       }
-    }
 
+    }
+    span.highlight{
+      color:$primary;
+      font-weight: 600;
+    }
     .box-container:hover{
     background:#9ED4C9;
             cursor: pointer;

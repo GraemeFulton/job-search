@@ -44,8 +44,8 @@ if(is_user_logged_in()==false) {
 <div class="container no-pad">
    <? echo $excerpt;?>
     <div class="meta-info">
-         <i class="fa fa-building-o"></i> <span><?php echo $institution;?></span>&nbsp;
-    <i class="fa fa-map-marker"></i> <span><?php echo $location;?></span>&nbsp;
+      <i class="material-icons">business</i> <span><?php echo $institution;?></span>&nbsp;
+  <i class="material-icons">place</i><span><?php echo $location;?></span>&nbsp;
     </div>
 </div>
 </a>

@@ -66,13 +66,12 @@ function ajax_save(){
 				$parent_field_id = xprofile_get_field_id_from_name($selected_location);
 
 				$currently_selected = xprofile_get_field_data($selected_location, $current_user->id);
-
-				if($currently_selected==$selected_location){
+				if($currently_selected==$selected_location|| $currently_selected[0]==$selected_location){
 					xprofile_set_field_data($parent_field_id,$current_user->id,['']);
 
 				}
 				else
-				xprofile_set_field_data($parent_field_id,$current_user->id,$selected_location);
+				xprofile_set_field_data($parent_field_id,$current_user->id,[$selected_location]);
 
 			}
 

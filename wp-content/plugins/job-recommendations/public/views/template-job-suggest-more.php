@@ -24,7 +24,7 @@ include('partials/app-bar.php');
          	$paged=1;
       }
       echo '<div class="pagi-top container no-pad"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span>'.$message.'</p>';?>
-      <?php include('selections-tags.php');
+      <?php include('partials/selections-tags.php');
       echo '</div>';
       ?>
 

@@ -904,9 +904,17 @@ jq(document).ready( function() {
 		});
 
 		window.onbeforeunload = function(e) {
-			if ( shouldconfirm ) {
-			//	return BP_DTheme.unsaved_changes;
+
+			if($('form').hasClass('location')){
+				shouldconfirm=false;
 			}
+			else if($('form').hasClass('profession')){
+				shouldconfirm=false;
+			}
+
+			if ( shouldconfirm ) {
+					return BP_DTheme.unsaved_changes;
+				}
 		};
 	});
 

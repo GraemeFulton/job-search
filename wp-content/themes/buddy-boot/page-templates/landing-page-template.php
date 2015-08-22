@@ -51,7 +51,7 @@ get_header();
          <div class="col-md-3 text-center">
            <h2 class=""><i class="material-icons icon-large">mood</i></h2>
            <h2>Get job recommendations</h2>
-           <p>Jobs range from entry level to graduate schemes at large companies such as <b>Ernst &amp; Young</b>, the <b>BBC</b> and even <b>BMW</b>.</p>
+           <p>Jobs range from entry level to graduate schemes at large companies such as <span class="highlight">Ernst &amp; Young</span>, the <span class="highlight">BBC</span> and even <span class="highlight">BMW</span>.</p>
          </div>
 
             <div style="clear:both"class="row text-center">
