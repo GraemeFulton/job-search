@@ -239,13 +239,13 @@ class Job_Recommendations{
 
 
         if( $wp_query->found_posts > 22){
-            $message='for your selections';
+            $message='for';
             require_once 'views/partials/app-bar.php';
             require_once 'views/template-job-recommendations.php';
         }
         else{
                 $suggest_more = true;
-                $message='for your selections';
+                $message='for';
                 include_once('partials/app-bar.php');
         	require_once 'views/template-job-suggest-more.php';
         }
@@ -396,13 +396,13 @@ class Job_Recommendations{
 
         if( $wp_query->found_posts > 30){
 
-            $message='for your selections';
+            $message='for';
             require_once 'views/partials/app-bar.php';
             require_once 'views/template-job-recommendations.php';
         }
         else{
                  $suggest_more = true;
-                $message='for your selections';
+                $message='for';
                 include('views/partials/app-bar.php');
         	require_once 'views/template-job-suggest-more.php';
         }

@@ -1312,12 +1312,13 @@ vertical-align: sub;
      margin-right: 5px;
     }
     div.selected{
-        font-size:13px;
+        font-size:12px;
         background:transparent;
         padding:3px;
+        margin-top: -3px;
         color:#fff;
         background: $accent;
-        border-radius: 3px;
+        border-radius: 2px;
     }
     .page-num{
         margin-right:2px;
