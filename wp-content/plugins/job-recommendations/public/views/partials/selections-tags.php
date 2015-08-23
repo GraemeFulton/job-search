@@ -137,13 +137,15 @@ else {
                //Locations
 
                foreach ($locations as $location){
+								 if(isset($location)){
                	foreach($location as $l){
 
                ?>
 		           <div class='selected location'><?php echo $l;?> </div>
 
                <?php
-               	}
+						 }
+					 }
 
                }
     ?>
