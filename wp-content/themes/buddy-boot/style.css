@@ -47,6 +47,8 @@ footer {
   z-index: 0;
   background-color: #1565C0;
   padding: 40px; }
+  footer a, footer p {
+    color: #eaeaea; }
 
 #profile-edit-form {
   margin-bottom: 100px !important; }
@@ -1724,3 +1726,9 @@ form.profession .editfield.col-md-3.col-xs-12.no-pad, form.location .editfield.c
 
 #buddypress .standard-form textarea, #buddypress .standard-form input[type=text], #buddypress .standard-form input[type=text], #buddypress .standard-form input[type=color], #buddypress .standard-form input[type=date], #buddypress .standard-form input[type=datetime], #buddypress .standard-form input[type=datetime-local], #buddypress .standard-form input[type=email], #buddypress .standard-form input[type=month], #buddypress .standard-form input[type=number], #buddypress .standard-form input[type=range], #buddypress .standard-form input[type=search], #buddypress .standard-form input[type=tel], #buddypress .standard-form input[type=time], #buddypress .standard-form input[type=url], #buddypress .standard-form input[type=week], #buddypress .standard-form select, #buddypress .standard-form input[type=password], #buddypress .dir-search input[type=search], #buddypress .dir-search input[type=text] {
   margin-bottom: 15px; }
+
+.single_datagrid p {
+  font-size: 14px; }
+
+.single_datagrid .pop-out-tbl td {
+  font-size: 14px; }
