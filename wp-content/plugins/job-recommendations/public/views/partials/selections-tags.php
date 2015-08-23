@@ -120,6 +120,7 @@ else {
 		            <?php
 
 		               foreach ($subjects as $subject){
+										 if(is_array($subject)){
 		               	foreach($subject as $s){
 
 		               ?>
@@ -127,6 +128,7 @@ else {
 
 		               <?php
 		               	}
+									}
 
 		               }
 
