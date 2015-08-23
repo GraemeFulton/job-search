@@ -1,25 +1,24 @@
-<div class="post container">
 <?php
 if(is_user_logged_in()==false) {
     if ($paged == 1) {
-    echo  $ahref = '<a class="job-link post-link" href="'. $link.'">';
+      $ahref = '<a class="job-link post-link" href="'. $link.'">';
     }
     else{
-    echo  $ahref = '<a data-toggle="modal" class="post-link" id="add-cover-photo" data-target="#myModal" data-href="'.get_permalink().'">';
+      $ahref = '<a data-toggle="modal" class="post-link" id="add-cover-photo" data-target="#myModal" data-href="'.get_permalink().'">';
     }
   }
   else {
-    echo $ahref= '<a class="post-link" href="'.get_permalink().'">';
+    $ahref= '<a class="post-link" href="'.get_permalink().'">';
   }
 ?>
 
+<?php echo $ahref; ?>
 <div class="container list-main-content">
     <div class="pull-left col-xs-8">
-      <h4 class="title">
-        <?php the_title(); ?>
-      </h4>
+      <h4 class="title"><?php the_title(); // Display the title of the page ?></h4>
     </div>
     <div class="col-xs-4 pull-right">
+        <!--<div id="youtube_player-<?php //echo $this->post_id?>"><?php //echo $video?></div>-->
         <?php
         $post_date=get_the_time('Y-m-d', $this->post_id);
            $now = time(); // or your date as well
@@ -50,4 +49,3 @@ if(is_user_logged_in()==false) {
     </div>
 </div>
 </a>
-</div>
