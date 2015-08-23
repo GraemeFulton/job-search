@@ -8,9 +8,7 @@ elseif(strpos($_SERVER['REQUEST_URI'],'sign-up')){
     $jobmenu = true;
 }
 
-if($jobmenu!==true){
-
-}else{
+if($jobmenu == true){
 
   $professions = get_terms('profession');
   $current_page='Categories';
@@ -36,7 +34,8 @@ if($jobmenu!==true){
          {
             $childprofession = get_term_by( 'id', $child, 'profession');
             $active='';
-            if(strpos($_SERVER['REQUEST_URI'],$childprofession->slug) && !strpos($_SERVER['REQUEST_URI'],'?')){
+            if(strpos($_SERVER['REQUEST_URI'],$childprofession->slug) && !strpos($_SERVER['REQUEST_URI'],'?'))
+            {
               $active='active';
               $current_page='<span class="archive-menu-active">'.$childprofession->name.'</span>';
             }
@@ -85,17 +84,16 @@ if($jobmenu!==true){
   echo $outer.$output;
 
   //recommended link
-  if(strpos($_SERVER['REQUEST_URI'],'job-roll')||strpos($_SERVER['REQUEST_URI'],'sign-up')){
+  if(strpos($_SERVER['REQUEST_URI'],'job-roll') || strpos($_SERVER['REQUEST_URI'],'sign-up')){
     $active = 'current';
   }
   else {
     $active='';
   }
-  ?>
-  <li class='submenu-main <?php echo $active;?>'><a href="<?php echo get_site_url();?>/job-roll">Recommended</a></li>
-<?php
-  include('sort-filter.php');
 
 }
-
+  ?>
+  <li class='submenu-main <?php echo $active; ?>'><a href="<?php echo get_site_url();?>/job-roll">Recommended</a></li>
+<?php
+  include('sort-filter.php');
 ?>
