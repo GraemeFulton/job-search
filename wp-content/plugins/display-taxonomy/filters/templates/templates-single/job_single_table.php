@@ -5,7 +5,7 @@ $location= $this->get_jobs_location($tree);
                   <h1>
                     <?php the_title(); ?>
                   </h1>
-                  <?
+                  <?php
                   if(strpos($provider['src'],'indeed')!==false){
                     if($post_type=='Entry Level'){
                       $sentance = 'an entry level position';
