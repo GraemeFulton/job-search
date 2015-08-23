@@ -154,7 +154,7 @@
 
    </div>
     <div class="refine">
-         <a href = "<?php echo bp_loggedin_user_domain().'/profile/edit/group/1/#edit-Profession'?>"class="btn-success btn-raised btn-outlined btn"><i class="material-icons">add</i></a>
+         <a href = "<?php echo bp_loggedin_user_domain().'/profile/edit/group/4/'?>"class="btn-success btn-raised btn-outlined btn"><i class="material-icons">add</i></a>
                 </div>
      </div>
 
@@ -180,7 +180,7 @@
 
          </div>
               <div class="refine">
-         <a href = "<?php echo bp_loggedin_user_domain().'/profile/edit/group/1/#edit-Location'?>"class="btn-success btn-raised btn-outlined btn"><i class="material-icons">add</i></a>
+         <a href = "<?php echo bp_loggedin_user_domain().'/profile/edit/group/5/'?>"class="btn-success btn-raised btn-outlined btn"><i class="material-icons">add</i></a>
             </div>
       </div>
     </section>
