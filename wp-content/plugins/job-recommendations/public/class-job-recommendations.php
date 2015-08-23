@@ -338,11 +338,13 @@ class Job_Recommendations{
 
         	$professions_arr = array();
         	foreach ($this->subjects as $subject){
+						if(is_array($subject)){
+
         		foreach($subject as $s){
         			array_push($professions_arr, $this->create_search_param($s, 'profession'));
 
         		}
-
+						}
 
         }
 
@@ -359,10 +361,12 @@ class Job_Recommendations{
         if(isset($this->locations)){
 
         	foreach ($this->locations as $location){
+						if(is_array($location)){
         		foreach($location as $l){
         			array_push($locations_arr, $this->create_search_param($l, 'location'));
 
         		}
+					}
         	}
 
         }
