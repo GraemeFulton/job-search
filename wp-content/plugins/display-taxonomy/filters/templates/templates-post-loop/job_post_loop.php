@@ -18,7 +18,6 @@ if(is_user_logged_in()==false) {
       <h4 class="title"><?php the_title(); // Display the title of the page ?></h4>
     </div>
     <div class="col-xs-4 pull-right">
-        <!--<div id="youtube_player-<?php //echo $this->post_id?>"><?php //echo $video?></div>-->
         <?php
         $post_date=get_the_time('Y-m-d', $this->post_id);
            $now = time(); // or your date as well
