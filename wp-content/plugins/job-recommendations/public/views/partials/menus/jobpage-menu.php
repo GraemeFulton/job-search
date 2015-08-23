@@ -86,13 +86,12 @@ if($jobmenu==true){
   if(strpos($_SERVER['REQUEST_URI'],'job-roll')||strpos($_SERVER['REQUEST_URI'],'sign-up')){
     $active = 'current';
   }
-  else $active='';
+  else {
+    $active='';
+  }
   ?>
   <li class='submenu-main <?php echo $active;?>'><a href="<?php echo get_site_url();?>/job-roll">Recommended</a></li>
-
 <?php
-
   include('sort-filter.php');
-
 }
 ?>
