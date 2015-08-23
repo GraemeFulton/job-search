@@ -30,15 +30,14 @@ if(is_user_logged_in()==false) {
   }
 ?>
 
-<div>
 <div class="container list-main-content">
+  <?php echo $ahref; ?>
     <div class="pull-left col-xs-8">
       <h4 class="title"><?php the_title(); ?></h4>
     </div>
     <div class="col-xs-4 pull-right">
         <span><?php echo $days_ago; ?></span>
     </div>
-</div>
 <div class="container no-pad">
    <?php echo $excerpt;?>
     <div class="meta-info">
@@ -46,4 +45,5 @@ if(is_user_logged_in()==false) {
   <i class="material-icons">place</i><span><?php echo $location;?></span>&nbsp;
     </div>
 </div>
+</a>
 </div>
