@@ -376,7 +376,7 @@ fp-slidesNav {
   #section1 a.btn-primary.btn-next.btn.btn-scroll-down {
     margin-top: 0vh !important; }
   .to-next-step {
-    margin-top: 2vh; }
+    margin-top: -1vh; }
   #map {
     height: 55vh !important; }
     #map svg {
