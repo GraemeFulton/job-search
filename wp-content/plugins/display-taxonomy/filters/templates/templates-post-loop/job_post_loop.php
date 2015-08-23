@@ -16,7 +16,7 @@ if(is_user_logged_in()==false) {
 <div class="container list-main-content">
     <div class="pull-left col-xs-8">
       <h4 class="title">
-        <?php the_title(); ?>
+        <?php //the_title(); ?>
       </h4>
     </div>
     <div class="col-xs-4 pull-right">
@@ -43,7 +43,7 @@ if(is_user_logged_in()==false) {
     $location= $this->get_jobs_location($tree);
     ?>
 <div class="container no-pad">
-   <?php //echo $excerpt;?>
+   <?php echo $excerpt;?>
     <div class="meta-info">
       <i class="material-icons">business</i> <span><?php echo $institution;?></span>&nbsp;
   <i class="material-icons">place</i><span><?php echo $location;?></span>&nbsp;
