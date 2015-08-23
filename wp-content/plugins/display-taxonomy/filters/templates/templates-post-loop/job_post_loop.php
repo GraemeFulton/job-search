@@ -1,3 +1,4 @@
+<div class="post container">
 <?php
 if(is_user_logged_in()==false) {
     if ($paged == 1) {
@@ -8,15 +9,14 @@ if(is_user_logged_in()==false) {
     }
   }
   else {
-//    $ahref= '<a class="post-link" href="'.get_permalink().'">';
+    $ahref= '<a class="post-link" href="'.get_permalink().'">';
   }
 ?>
 
 <?php echo $ahref; ?>
 <div class="container list-main-content">
     <div class="pull-left col-xs-8">
-      <h4 class="title">
-        <?php the_title(); ?></h4>
+      <h4 class="title"><?php the_title(); // Display the title of the page ?></h4>
     </div>
     <div class="col-xs-4 pull-right">
         <?php
@@ -49,3 +49,4 @@ if(is_user_logged_in()==false) {
     </div>
 </div>
 </a>
+</div>
