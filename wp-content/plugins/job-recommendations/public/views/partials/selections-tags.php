@@ -120,7 +120,6 @@ else {
 		            <?php
 
 		               foreach ($subjects as $subject){
-										 if(is_array($subject)){
 		               	foreach($subject as $s){
 
 		               ?>
@@ -128,7 +127,6 @@ else {
 
 		               <?php
 		               	}
-									}
 
 		               }
 
@@ -139,15 +137,13 @@ else {
                //Locations
 
                foreach ($locations as $location){
-								 if(is_array($location)){
                	foreach($location as $l){
 
                ?>
 		           <div class='selected location'><?php echo $l;?> </div>
 
                <?php
-						 }
-					 }
+					 			}
 
                }
     ?>
