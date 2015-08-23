@@ -137,7 +137,7 @@ else {
                //Locations
 
                foreach ($locations as $location){
-								 if(isset($location)){
+								 if(is_array($location)){
                	foreach($location as $l){
 
                ?>
