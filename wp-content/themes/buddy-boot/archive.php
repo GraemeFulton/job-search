@@ -33,7 +33,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
        	 }
 
            echo '<div class="pagi-top container no-pad no-pad-bottom"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span> for '.$term->name.' jobs</p>';
-           include(plugin_dir_path().'/job-recommendations/public/views/partials/selections-tags.php') ;
+           include(WP_PLUGIN_DIR.'/job-recommendations/public/views/partials/selections-tags.php') ;
           echo '</div>';
                   ?>
 <!--		<div id="content" role="main" class="span12">-->

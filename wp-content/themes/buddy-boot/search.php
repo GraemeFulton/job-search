@@ -32,7 +32,7 @@ global $wp_query;
      	 }
 
          echo '<div class="pagi-top container no-pad-bottom no-pad"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span> for your search</p>';?>
-               <?php  include(plugin_dir_path().'/job-recommendations/public/views/partials/selections-tags.php');
+               <?php  include(WP_PLUGIN_DIR.'/job-recommendations/public/views/partials/selections-tags.php');
 
                echo '</div>';
 
