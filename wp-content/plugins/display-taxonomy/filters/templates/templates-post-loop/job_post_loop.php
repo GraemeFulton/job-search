@@ -1,4 +1,22 @@
 <?php
+//get location
+$location= $this->get_jobs_location($tree);
+
+//get date
+$post_date=get_the_time('Y-m-d', $this->post_id);
+   $now = time(); // or your date as well
+    $your_date = strtotime($post_date);
+    $datediff = $now - $your_date;
+    $total_days= floor($datediff/(60*60*24));
+    $days_ago = '';
+    if ($total_days>30){
+        $days_ago = '<div class="time pull-right">30+ days ago</div>';
+    }
+    else{
+       '<div class="time pull-right">'. $days_ago = ''.$total_days.' days ago</div>';
+    }
+
+
 if(is_user_logged_in()==false) {
     if ($paged == 1) {
       $ahref = '<a class="job-link post-link" href="'. $link.'">';
@@ -12,33 +30,15 @@ if(is_user_logged_in()==false) {
   }
 ?>
 
-<?php echo '<div class="padding">'; ?>
+<?php echo $ahref; ?>
 <div class="container list-main-content">
     <div class="pull-left col-xs-8">
-      <h4 class="title"><?php the_title(); // Display the title of the page ?></h4>
+      <h4 class="title"><?php the_title(); ?></h4>
     </div>
     <div class="col-xs-4 pull-right">
-        <!--<div id="youtube_player-<?php //echo $this->post_id?>"><?php //echo $video?></div>-->
-        <?php
-        $post_date=get_the_time('Y-m-d', $this->post_id);
-           $now = time(); // or your date as well
-            $your_date = strtotime($post_date);
-            $datediff = $now - $your_date;
-            $total_days= floor($datediff/(60*60*24));
-            $days_ago = '';
-            if ($total_days>30){
-                $days_ago = '<div class="time pull-right">30+ days ago</div>';
-            }
-            else{
-               '<div class="time pull-right">'. $days_ago = ''.$total_days.' days ago</div>';
-            }
-            echo $days_ago;
-            ?>
+        <span><?php echo $days_ago; ?></span>
     </div>
 </div>
-    <?php
-    $location= $this->get_jobs_location($tree);
-    ?>
 <div class="container no-pad">
    <?php echo $excerpt;?>
     <div class="meta-info">
@@ -46,4 +46,4 @@ if(is_user_logged_in()==false) {
   <i class="material-icons">place</i><span><?php echo $location;?></span>&nbsp;
     </div>
 </div>
-</div>
+</a>
