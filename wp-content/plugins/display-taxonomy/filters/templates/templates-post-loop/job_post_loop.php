@@ -2,21 +2,22 @@
 <?php
 if(is_user_logged_in()==false) {
     if ($paged == 1) {
-      $ahref = '<a class="job-link post-link" href="'. $link.'">';
+    echo  $ahref = '<a class="job-link post-link" href="'. $link.'">';
     }
     else{
-      $ahref = '<a data-toggle="modal" class="post-link" id="add-cover-photo" data-target="#myModal" data-href="'.get_permalink().'">';
+    echo  $ahref = '<a data-toggle="modal" class="post-link" id="add-cover-photo" data-target="#myModal" data-href="'.get_permalink().'">';
     }
   }
   else {
-    $ahref= '<a class="post-link" href="'.get_permalink().'">';
+    echo $ahref= '<a class="post-link" href="'.get_permalink().'">';
   }
 ?>
 
-<?php echo $ahref; ?>
 <div class="container list-main-content">
     <div class="pull-left col-xs-8">
-      <h4 class="title"><?php the_title(); // Display the title of the page ?></h4>
+      <h4 class="title">
+        <?php the_title(); ?>
+      </h4>
     </div>
     <div class="col-xs-4 pull-right">
         <?php
