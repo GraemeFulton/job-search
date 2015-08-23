@@ -12,7 +12,7 @@ if(is_user_logged_in()==false) {
   }
 ?>
 
-<?php echo '<a>'; ?>
+<?php echo '<div class="padding">'; ?>
 <div class="container list-main-content">
     <div class="pull-left col-xs-8">
       <h4 class="title"><?php the_title(); // Display the title of the page ?></h4>
@@ -46,4 +46,4 @@ if(is_user_logged_in()==false) {
   <i class="material-icons">place</i><span><?php echo $location;?></span>&nbsp;
     </div>
 </div>
-</a>
+</div>

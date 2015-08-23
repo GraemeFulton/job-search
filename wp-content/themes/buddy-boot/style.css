@@ -1030,6 +1030,8 @@ a, a:hover, a:focus {
     padding: 0px; }
     .container.list-container .post.container a {
       padding: 15px; }
+    .container.list-container .post.container div.padding {
+      padding: 15px; }
   .container.list-container .post.container:hover {
     cursor: pointer;
     background: #f3f3f3; }
