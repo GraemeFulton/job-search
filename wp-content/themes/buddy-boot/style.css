@@ -1031,6 +1031,10 @@ a, a:hover, a:focus {
   .container.list-container .post.container:hover {
     cursor: pointer;
     background: #f3f3f3; }
+  .container.list-container .pull-right {
+    text-align: right;
+    font-size: 12px !important;
+    color: #b7b7b7 !important; }
 
 .pagi-top {
   font-size: 13px;
