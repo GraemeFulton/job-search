@@ -8,7 +8,7 @@ if(is_user_logged_in()==false) {
     }
   }
   else {
-    $ahref= '<a class="post-link" href="'.get_permalink().'">';
+//    $ahref= '<a class="post-link" href="'.get_permalink().'">';
   }
 ?>
 
@@ -16,8 +16,7 @@ if(is_user_logged_in()==false) {
 <div class="container list-main-content">
     <div class="pull-left col-xs-8">
       <h4 class="title">
-        <?php //the_title(); ?>
-      </h4>
+        <?php the_title(); ?></h4>
     </div>
     <div class="col-xs-4 pull-right">
         <?php
