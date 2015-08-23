@@ -22,4 +22,9 @@
             </div>
         </form>
 
+        <?php if(!is_user_logged_in()){ ?>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="<?php echo site_url(); ?>/login">Log in</a></li>
+          </ul>
+        <?php } ?>
     </div>

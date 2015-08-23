@@ -233,9 +233,13 @@ table.profile-fields{
     margin-top:5px;
   }
 }
-  .navbar-nav{
-     display:none;
-    }
+.navbar-right{
+    li>a{
+    padding-top:15px!important;
+    padding-bottom: 0px!important;
+    margin-right: 15px!important;
+  }
+}
     #wpadminbar{
         display:none;
     }
@@ -448,9 +452,7 @@ and (max-width:767px){
     .col-md-2.menu,.navbar-form{
       display:block!important;
     }
-    .navbar-toggle, .navbar-nav{
-      display: none!important;
-    }
+
 
 }
 
@@ -2013,9 +2015,6 @@ form.profession, form.location{
 }
 .col-md-2.menu, .navbar-form{
   display:none;
-}
-.navbar-toggle, .navbar-nav{
-  display: block;
 }
 .copy-card, .container.list-container{
     -webkit-border-radius: 2px;

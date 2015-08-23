@@ -244,4 +244,15 @@ function myplugin_registration_save(  $user_id, $userdata, $form_id, $form_setti
 			return $where;
 		}
 		add_filter('posts_where', 'filter_where');
+
+
+		/**WORDPRESS LOGIN PAGE**/
+		//https://codex.wordpress.org/Customizing_the_Login_Form
+		function restrict_admin()
+	{
+		if ( ! current_user_can( 'manage_options' ) && '/wp-admin/admin-ajax.php' != $_SERVER['PHP_SELF'] ) {
+	                wp_redirect( site_url() );
+		}
+	}
+	add_action( 'admin_init', 'restrict_admin', 1 );
 ?>

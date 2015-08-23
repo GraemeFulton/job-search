@@ -1,0 +1,153 @@
+/**
+ * TURQUOISE PRESET
+ *
+ * @package Klein
+ * @since 1.0
+ *
+ */
+.bx-wrapper .bx-controls-direction a,
+.bbp-pagination-links span.current, 
+.woocommerce span.onsale,.woocommerce-page span.onsale,.woocommerce .widget_layered_nav ul li,.woocommerce-page .widget_layered_nav ul li,.woocommerce ul.products li.product .onsale,.woocommerce-page ul.products li.product .onsale,.item-list-tabs li a,.activity-type-tabs li a {
+    background: #1ABC9C;
+}
+
+a {
+    color: #16A085;
+}
+
+.desktop-menu ul.sub-menu li a:hover,.desktop-menu ul.children li a:hover {
+    background: #333;
+}
+
+.widget-title {
+    border-bottom: 1px solid #16A085;
+    color: #16A085;
+}
+
+#footer {
+    background: #16A085;
+}
+
+.item-list-tabs li a span:after {
+    border-top-color: #34495E;
+}
+
+#klein-top-updates-badge {
+    background: #E74C3C;
+}
+
+#klein-top-updates-badge:after {
+    border-top-color: #E74C3C;
+}
+
+.desktop-menu ul.sub-menu > li > ul.sub-menu > li:first-child:before,.desktop-menu ul.children > li > ul.children > li:first-child:before {
+    border-right-color: #222;
+}
+
+.desktop-menu ul.sub-menu li:first-child:before,.desktop-menu ul.children li:first-child:before {
+    border-bottom-color: #222;
+}
+
+.desktop-menu ul.sub-menu li a,.desktop-menu ul.children li a,#header,.woocommerce .widget_price_filter .ui-slider .ui-slider-range,.woocommerce-page .widget_price_filter .ui-slider .ui-slider-range,#footer-widgets {
+    background: #222;
+}
+
+
+a.fp-controls,.front-page-highlights-nav-left,.front-page-highlights-nav-right,.bx-wrapper .bx-pager .bx-pager-item,.bx-wrapper .bx-controls-auto .bx-controls-auto-item,span.page-numbers,a.page-numbers,#bp-klein-top-bar {
+    background: #1ABC9C;
+    border-bottom: 5px solid #16A085;
+}
+
+span.page-numbers,a.page-numbers,.front-page-highlights-nav-left,.front-page-highlights-nav-right,.bx-wrapper .bx-pager .bx-pager-item,.bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+    border-right: 1px solid #16A085;
+}
+
+.woocommerce .widget_layered_nav ul small.count,.woocommerce-page .widget_layered_nav ul small.count,.bx-wrapper .bx-pager.bx-default-pager a:hover,.bx-wrapper .bx-pager.bx-default-pager a.active,.item-list-tabs li.selected a,.item-list-tabs li.current a,.activity-type-tabs li.selected a {
+    background: #16A085;
+}
+
+.woocommerce ul.cart_list li dl,.woocommerce-page ul.cart_list li dl,.woocommerce ul.product_list_widget li dl,.woocommerce-page ul.product_list_widget li dl {
+    border-left: 1px solid #BDC3C7;
+}
+
+.woocommerce .widget_shopping_cart .total,.woocommerce-page .widget_shopping_cart .total {
+    border-top: 1px solid #BDC3C7;
+}
+
+.widget,.widget a {
+    color: #2C3E50;
+}
+
+#footer-widgets .widget,#footer-widgets .widget a {
+    color: #ECF0F1;
+}
+
+.woocommerce .widget_layered_nav ul small.count,.woocommerce-page .widget_layered_nav ul small.count,.widget.widget_bp_groups_widget a,.widget.widget_bp_groups_widget,.widget.widget_bp_core_members_widget a,.widget.widget_bp_core_members_widget {
+    color: #ECF0F1;
+}
+
+.widget {
+    background: #ECF0F1;
+    border-bottom: none;
+}
+
+#front-page-widgets-section-a .widget-title {
+    color: #ECF0F1;
+}
+
+.widget.widget_bp_groups_widget .widget-title a,
+.widget.widget_bp_core_members_widget .widget-title a{
+	color: #222;
+}
+
+#whats-new:focus {
+    border: 2px solid #1ABC9C;
+}
+
+.entry-content-thumbnail-zoom {
+    background: #1ABC9C;
+}
+
+.widget_layered_nav li a {
+    color: #ECF0F1;
+}
+
+.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,.woocommerce-page .widget_price_filter .ui-slider .ui-slider-handle {
+    background: #16A085;
+    border: 1px solid #16A085;
+}
+
+.woocommerce .woocommerce-pagination li a.page-numbers:hover,.woocommerce .woocommerce-pagination li span.page-numbers.current:hover,.woocommerce .widget_price_filter .ui-slider .ui-slider-range,.woocommerce-page .widget_price_filter .ui-slider .ui-slider-range {
+    background: #1ABC9C;
+}
+
+.item-list-tabs li.loading{
+	background: #16A085;
+}
+.item-list-tabs li.loading a{
+	background: url(../../images/preloaders/bp_loader.gif) no-repeat #16A085 right center !important;
+}
+
+/*
+ * Mobile Navigation
+ * 
+ * Added @version 2.0.7
+ * @package klein
+ * @version 2.0.7
+ * */
+.menu.mobile li a{
+	background: #1ABC9C;
+	
+}
+.menu.mobile .sub-menu li a:hover,
+.menu.mobile li a:hover{
+	background: #1ABC9C;
+}
+.menu.mobile .sub-menu li a,
+.menu.mobile li a .sub-menu-toggle
+{	
+	background: #16A085;
+}
+.menu.mobile li a {
+	border-bottom: 1px solid #16A085;
+}

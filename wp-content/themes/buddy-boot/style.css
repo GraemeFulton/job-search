@@ -194,8 +194,10 @@ table.profile-fields {
 .archive-title h3 {
   margin-top: 5px; }
 
-.navbar-nav {
-  display: none; }
+.navbar-right li > a {
+  padding-top: 15px !important;
+  padding-bottom: 0px !important;
+  margin-right: 15px !important; }
 
 #wpadminbar {
   display: none; }
@@ -356,9 +358,7 @@ table.profile-fields {
   .col-md-9.main-content-area {
     margin-left: 20.66666667%; }
   .col-md-2.menu, .navbar-form {
-    display: block !important; }
-  .navbar-toggle, .navbar-nav {
-    display: none !important; } }
+    display: block !important; } }
 
 @media (min-width: 100px) and (max-width: 771px) {
   #buddypress.container {
@@ -1576,9 +1576,6 @@ form.profession .editfield.col-md-3.col-xs-12.no-pad, form.location .editfield.c
 
 .col-md-2.menu, .navbar-form {
   display: none; }
-
-.navbar-toggle, .navbar-nav {
-  display: block; }
 
 .copy-card, .container.list-container {
   -webkit-border-radius: 2px;
