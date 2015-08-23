@@ -319,7 +319,7 @@ fp-slidesNav {
     font-size: 12px !important;
     margin-bottom: 0px; }
   #section0 .row1 {
-    margin-bottom: -53vh !important; }
+    margin-bottom: -50vh !important; }
   #section0 .row1 h1 {
     padding-left: 5vw; }
   .background-white {
@@ -374,9 +374,9 @@ fp-slidesNav {
 
 @media only screen and (min-width: 100px) and (max-width: 480px) {
   #section1 a.btn-primary.btn-next.btn.btn-scroll-down {
-    margin-top: 10vh !important; }
+    margin-top: 0vh !important; }
   .to-next-step {
-    margin-top: 10%; }
+    margin-top: 2vh; }
   #map {
     height: 55vh !important; }
     #map svg {

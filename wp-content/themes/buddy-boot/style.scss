@@ -458,6 +458,15 @@ and (max-width:767px){
 
 @media  (min-width : 100px)
 and (max-width : 771px) {
+  .navbar-header{
+    width:50%!important;
+    float:left;
+  }
+  .navbar-right{
+    li{
+      float:right;
+    }
+  }
   #buddypress.container{
     padding-left: 0px;
     padding-right: 0px;
