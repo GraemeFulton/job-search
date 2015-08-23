@@ -15,7 +15,7 @@ if(is_user_logged_in()!==true){
 ?>
 <?php get_header(); ?>
 
-    <? include(get_stylesheet_directory().'/partials/side-nav.php');?>
+    <?php include(get_stylesheet_directory().'/partials/side-nav.php');?>
 
         <?php  do_action('profile_job_recommendation_loop')?>
 <?php get_footer(); ?>

@@ -8,7 +8,7 @@ get_header(); // This fxn gets the header.php file and renders it
 global $paged;
 global $wp_query;
 ?>
- <? include(get_stylesheet_directory().'/partials/side-nav.php');?>
+ <?php include(get_stylesheet_directory().'/partials/side-nav.php');?>
  <?php require(JOB_RECOMMENDATIONS.'/public/views/partials/app-bar.php'); ?>
 
 

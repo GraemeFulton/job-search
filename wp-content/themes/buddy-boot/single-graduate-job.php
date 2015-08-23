@@ -8,7 +8,7 @@
 
 get_header(); ?>
 <?php global $post; ?>
-	<? include(get_stylesheet_directory().'/partials/side-nav.php');?>
+	<?php include(get_stylesheet_directory().'/partials/side-nav.php');?>
 	<?php require(JOB_RECOMMENDATIONS.'/public/views/partials/app-bar.php'); ?>
 
 <div id="primary" class="col-md-9 main-content-area  col-md-offset-2  col-xs-12">

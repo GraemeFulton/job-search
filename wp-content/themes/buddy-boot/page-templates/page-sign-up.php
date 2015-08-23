@@ -13,7 +13,7 @@ $page_number = get_query_var('paged');
 if($page_number==0){
 } ?>
 
-<? include(get_stylesheet_directory().'/partials/side-nav.php');?>
+<?php include(get_stylesheet_directory().'/partials/side-nav.php');?>
 
     <?php  do_action('job_recommendation_loop')?>
 
