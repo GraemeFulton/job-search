@@ -157,6 +157,8 @@ function myplugin_registration_save(  $user_id, $userdata, $form_id, $form_setti
 }
     function check_active_link($link){
 
+			$link=str_replace('grad-jobs', '', $link);
+
 			if(strpos($_SERVER['REQUEST_URI'],'members')&& strpos($_SERVER['REQUEST_URI'],'?s')){
 				return $active=2;
 			}

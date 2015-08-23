@@ -46,7 +46,7 @@ echo '<div class="pagi-top container no-pad"><p>Page <span class="page-num">'.$p
                             if(!is_user_logged_in()){
                                 $link = get_site_url().'/register';
                             }else{
-                                $link = get_site_url() .'/members/'.bp_core_get_username( get_current_user_id() ) . '/profile/edit/group/14';
+                                $link = get_site_url() .'/members/'.bp_core_get_username( get_current_user_id() ) . '/profile/edit/group/4';
                             }
                              ?>
                             <p>Try <a href="<?php echo $link; ?>">changing your search preferences</a> or filter settings.</p>
