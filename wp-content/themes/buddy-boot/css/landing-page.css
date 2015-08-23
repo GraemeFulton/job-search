@@ -375,7 +375,7 @@ fp-slidesNav {
 @media only screen and (min-width: 100px) and (max-width: 480px) {
   #section1 a.btn-primary.btn-next.btn.btn-scroll-down {
     margin-top: 0vh !important; }
-  .to-next-step {
+  .btn-submit {
     margin-top: -1vh; }
   #map {
     height: 55vh !important; }
