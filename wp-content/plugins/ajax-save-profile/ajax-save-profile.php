@@ -54,6 +54,7 @@ function ajax_save(){
 				else{
 					array_push($current_professions, $selected_profession);
 				}
+				var_dump($parent);
 
 				xprofile_set_field_data($field_id,$current_user->id,$current_professions);
 			}
