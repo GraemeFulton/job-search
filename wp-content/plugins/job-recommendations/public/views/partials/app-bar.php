@@ -17,6 +17,7 @@
 ?>
 
 <?php
+if(isset($nothing_found)){
 if($nothing_found==true){
     ?>
      <?php
@@ -28,5 +29,6 @@ if($nothing_found==true){
     </div>
     <?php
   }
+}
 }
 ?>
