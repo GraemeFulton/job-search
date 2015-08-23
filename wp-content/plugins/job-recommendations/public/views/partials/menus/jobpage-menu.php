@@ -1,4 +1,4 @@
-<?
+<?php
 $jobmenu=false;
 if(strpos($_SERVER['REQUEST_URI'],'company')||strpos($_SERVER['REQUEST_URI'],'job-roll')||strpos($_SERVER['REQUEST_URI'],'graduate-job')||strpos($_SERVER['REQUEST_URI'],'?s=')||strpos($_SERVER['REQUEST_URI'],'profession') ){
 
@@ -8,7 +8,7 @@ elseif(strpos($_SERVER['REQUEST_URI'],'sign-up')){
     $jobmenu = true;
 }
 
-if($jobmenu == true){
+if($jobmenu==true){
 
   $professions = get_terms('profession');
   $current_page='Categories';
@@ -90,10 +90,9 @@ if($jobmenu == true){
   else {
     $active='';
   }
-
-}
   ?>
-  <li class='submenu-main <?php echo $active; ?>'><a href="<?php echo get_site_url();?>/job-roll">Recommended</a></li>
+  <li class='submenu-main <?php echo $active;?>'><a href="<?php echo get_site_url();?>/job-roll">Recommended</a></li>
 <?php
   include('sort-filter.php');
+}
 ?>
