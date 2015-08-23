@@ -12,7 +12,7 @@ if(is_user_logged_in()==false) {
   }
 ?>
 
-<?php echo $ahref; ?>
+<?php echo '<a>'; ?>
 <div class="container list-main-content">
     <div class="pull-left col-xs-8">
       <h4 class="title"><?php the_title(); // Display the title of the page ?></h4>
@@ -36,8 +36,6 @@ if(is_user_logged_in()==false) {
             ?>
     </div>
 </div>
-
-
     <?php
     $location= $this->get_jobs_location($tree);
     ?>
