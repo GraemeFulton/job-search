@@ -151,11 +151,8 @@ class Job_Recommendations{
 
 	public function archive_loop(){
 
-		ob_start();
 		include('views/partials/primary-job-loop.php');
-		$output .= ob_get_contents();
-		ob_end_clean();
-		echo $output;
+		
 	}
 
 	private function set_user_order_by($args){

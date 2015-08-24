@@ -30,21 +30,12 @@ if(is_user_logged_in()==false) {
     $ahref= '<a class="post-link" href="'.get_permalink().'">';
   }
 ?>
-<?php echo $ahref; ?>
-
-<div class="container list-main-content">
-    <div class="pull-left col-xs-8">
-      <h4 class="title"><?php the_title(); ?></h4>
-    </div>
-    <div class="col-xs-4 pull-right">
-        <span><?php echo $days_ago; ?></span>
-    </div>
-<div class="container no-pad">
-   <?php echo $excerpt;?>
-    <div class="meta-info">
-      <i class="material-icons">business</i> <span><?php echo $institution;?></span>&nbsp;
-  <i class="material-icons">place</i><span><?php echo $location;?></span>&nbsp;
-    </div>
-</div>
-</div>
-</a>
+<?php
+$output = '<div class="container list-main-content">';
+$output.=$ahref;
+$output.='<div class="pull-left col-xs-8"><h4 class="title">'.get_the_title().'</h4></div>';
+$output.='<div class="col-xs-4 pull-right"><span>'.$days_ago.'</span></div>';
+$output.='<div class="container no-pad">'.$excerpt.'<div class="meta-info"><i class="material-icons">business</i> <span>'.$institution.'</span>&nbsp;';
+$output.='<i class="material-icons">place</i><span>'.$location.'</span>&nbsp;</div></div></a></div>';
+echo $output;
+?>
