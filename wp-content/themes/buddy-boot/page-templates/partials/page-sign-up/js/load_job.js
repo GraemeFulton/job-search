@@ -1,32 +1,32 @@
 $(document).ready(function(){
 
     //get the height and width
-    var height = "innerHeight" in window
-               ? window.innerHeight
-               : document.documentElement.offsetHeight;
-
-    var width = $(window).width();
-    var win = window;
-
-    //set the output html for popup:
-
-     var output='';
-     //bootstrap
-     output+='<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">'
-     output+='<style>.redirect{margin-top:'+(height/4-100)+';} h4{color:#888; margin-bottom:0px; padding-bottom:0px;}.loader{width:150px; margin-top:-10px;</style>';
-
-     //content
-     output+= '<div class="container text-center redirect"><h4>We are forwarding you to the job advert site.</h4><br>';
-     output+= '<img class="loader" src="'+url+'js/ajax-loader.gif"/>';
-     output+= '</div>';
-
-
-     //set the click counter
-     var y = 0;
+    // var height = "innerHeight" in window
+    //            ? window.innerHeight
+    //            : document.documentElement.offsetHeight;
+    //
+    // var width = $(window).width();
+    // var win = window;
+    //
+    // //set the output html for popup:
+    //
+    //  var output='';
+    //  //bootstrap
+    //  output+='<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">'
+    //  output+='<style>.redirect{margin-top:'+(height/4-100)+';} h4{color:#888; margin-bottom:0px; padding-bottom:0px;}.loader{width:150px; margin-top:-10px;</style>';
+    //
+    //  //content
+    //  output+= '<div class="container text-center redirect"><h4>We are forwarding you to the job advert site.</h4><br>';
+    //  output+= '<img class="loader" src="'+url+'js/ajax-loader.gif"/>';
+    //  output+= '</div>';
+    //
+    //
+    //  //set the click counter
+    //  var y = 0;
 
 
     //listen for click on job link
-    $('.job-link').mousedown(function(event) {
+    $('.list-container').mousedown(function(event) {
       e.preventDefault();
       $('#myModal').modal('show');
       return;
@@ -48,7 +48,7 @@ $(document).ready(function(){
 
 
       //job link click triggered from mousedown
-      $(".job-link").on("click", function(e)
+      $(".list-container").on("click", function(e)
       {
 
           //allow 2 clicks

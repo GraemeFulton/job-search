@@ -33,7 +33,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
        	 }
 
            echo '<div class="pagi-top container no-pad no-pad-bottom"><p>Page <span class="page-num">'.$paged.' of '.$wp_query->max_num_pages.'</span> for '.$term->name.' jobs</p>';
-           include_once(WP_PLUGIN_DIR.'/job-recommendations/public/views/partials/selections-tags.php') ;
+           include(WP_PLUGIN_DIR.'/job-recommendations/public/views/partials/selections-tags.php') ;
           echo '</div>';
                   ?>
 		<section class="container list-container">
@@ -68,14 +68,19 @@ get_header(); // This fxn gets the header.php file and renders it ?>
     ?>
     <?php
     if(is_user_logged_in()){
-     include_once(get_stylesheet_directory().'/partials/pagination.php');
+     include(get_stylesheet_directory().'/partials/pagination.php');
      }
      ?>
     </section>
 
     <?php if(!is_user_logged_in()){
+      include('page-templates/partials/page-sign-up/sign-up-modal.php');
+       include('page-templates/partials/page-sign-up/sign-up-panel.php');
 
-       include_once('page-templates/partials/page-sign-up/sign-up-panel.php');
+       ?>
+       <script src="<?php echo get_template_directory_uri()?>/page-templates/partials/page-sign-up/js/load_job.js"></script>
 
+       <?php
      }?>
+
     <?php get_footer(); // This fxn gets the footer.php file and renders it ?>

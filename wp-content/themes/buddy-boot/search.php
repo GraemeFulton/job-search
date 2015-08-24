@@ -84,8 +84,13 @@ if(is_user_logged_in()){
 else {
   echo '</section>';
    include('page-templates/partials/page-sign-up/sign-up-panel.php');
+   include('page-templates/partials/page-sign-up/sign-up-modal.php');
 
-    include('page-templates/partials/page-sign-up/sign-up-modal.php');
+          ?>
+          <script src="<?php echo get_template_directory_uri()?>/page-templates/partials/page-sign-up/js/load_job.js"></script>
+
+          <?php
+
  }?>
 
 </section>
