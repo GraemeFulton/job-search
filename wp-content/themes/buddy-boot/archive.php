@@ -37,15 +37,12 @@ get_header(); // This fxn gets the header.php file and renders it ?>
            include(WP_PLUGIN_DIR.'/job-recommendations/public/views/partials/selections-tags.php') ;
           echo '</div>';
                   ?>
-<!--		<div id="content" role="main" class="span12">-->
 		<section class="container list-container">
 
       <?php if ( have_posts() ) :
-			// Do we have any posts/pages in the databse that match our query?
 			?>
 
 				<?php while ( have_posts() ) : the_post();
-				// If we have a page to show, start a loop that will display it
 
 				do_action('archive_job_loop');
 				?>
@@ -53,7 +50,8 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 
 
 				<?php endwhile; // OK, let's stop the page loop once we've displayed it ?>
-                </section>
+
+      </section>
 			<?php else : // Well, if there are no posts to display and loop through, let's apologize to the reader (also your 404 error) ?>
 
 				<article class="post error" style="margin-bottom: 0; padding-bottom: 23px;">
@@ -62,8 +60,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 
 			<?php endif; // OK, I think that takes care of both scenarios (having a page or not having a page to show) ?>
 
-<!--		</div> #content .site-content -->
-	</div><!-- #primary .content-area -->
+	</div>
     <?php if(!is_user_logged_in()){
       ?>
       <article class="post error container" style="padding:20px;">

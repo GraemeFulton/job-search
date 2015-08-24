@@ -30,9 +30,9 @@ if(is_user_logged_in()==false) {
     $ahref= '<a class="post-link" href="'.get_permalink().'">';
   }
 ?>
+<?php echo $ahref; ?>
 
 <div class="container list-main-content">
-  <?php echo $ahref; ?>
     <div class="pull-left col-xs-8">
       <h4 class="title"><?php the_title(); ?></h4>
     </div>
@@ -46,5 +46,5 @@ if(is_user_logged_in()==false) {
   <i class="material-icons">place</i><span><?php echo $location;?></span>&nbsp;
     </div>
 </div>
-</a>
 </div>
+</a>

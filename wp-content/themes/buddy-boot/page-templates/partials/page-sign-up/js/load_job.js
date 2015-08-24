@@ -27,20 +27,23 @@ $(document).ready(function(){
 
     //listen for click on job link
     $('.job-link').mousedown(function(event) {
-            switch (event.which) {
-
-                case 2:
-                    //Middle mouse button pressed
-                    $('.job-link').click()
-                    break;
-                case 3:
-                    //Right mouse button pressed
-                    $('.job-link').click()
-                    break;
-                default:
-                    //strange mouse
-                    $(this).attr('target','_self"');
-            }
+      e.preventDefault();
+      $('#myModal').modal('show');
+      return;
+            // switch (event.which) {
+            //
+            //     case 2:
+            //         //Middle mouse button pressed
+            //         $('.job-link').click()
+            //         break;
+            //     case 3:
+            //         //Right mouse button pressed
+            //         $('.job-link').click()
+            //         break;
+            //     default:
+            //         //strange mouse
+            //         $(this).attr('target','_self"');
+            // }
         });
 
 
@@ -49,33 +52,33 @@ $(document).ready(function(){
       {
 
           //allow 2 clicks
-          if(y>1){
+          // if(y>1){
                e.preventDefault();
                $('#myModal').modal('show');
                return;
-           }
+          //  }
        //increment the counter so we can allow an extra click
-       y+=1;
+      //  y+=1;
 
           //if the counter is greater than 1, the modeal is shown, so set the window contents
-          var link = this;
-          var wind= window.open('', '', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width='+width/2+',height='+height/2+',left=40,top=150');
-          wind.document.body.innerHTML = '';
-          wind.document.write(output);
-
-          setTimeout(function(){
-          wind.focus();
-          }, 150)
-
-
-       e.preventDefault();
-
-        //could just set timeout and load url:
-        setTimeout(function(){
-
-            wind.location.href=(link.href)
-
-        }, 1200)
+      //     var link = this;
+      //     var wind= window.open('', '', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width='+width/2+',height='+height/2+',left=40,top=150');
+      //     wind.document.body.innerHTML = '';
+      //     wind.document.write(output);
+       //
+      //     setTimeout(function(){
+      //     wind.focus();
+      //     }, 150)
+       //
+       //
+      //  e.preventDefault();
+       //
+      //   //could just set timeout and load url:
+      //   setTimeout(function(){
+       //
+      //       wind.location.href=(link.href)
+       //
+      //   }, 1200)
 
 
 });
