@@ -1,5 +1,6 @@
 <?php
 //get location
+global $paged;
 $location= $this->get_jobs_location($tree);
 
 //get date
