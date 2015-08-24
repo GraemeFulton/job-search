@@ -5,6 +5,7 @@
 ?>
     <?php
         global $wp_query;
+        global $paged;
         if ($paged==0){
           $paged=1;
        }

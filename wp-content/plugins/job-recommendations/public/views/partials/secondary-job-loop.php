@@ -7,7 +7,7 @@
 //location
 unset($args['tax_query'][1]);
 //message used in app-bar.php
-
+global $paged;
 $wp_query->query($args);
 
 if ( $wp_query->have_posts() ) :
