@@ -27,7 +27,8 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 		<h3><?php  echo $term->name; ?> graduate jobs</h3>
 	</div>
      	<div id="primary" class="">
-        <?php   global $wp_query;
+        <?php
+        global $wp_query;
           if ($paged==0){
           	$paged=1;
        	 }
