@@ -43,8 +43,7 @@ get_header(); // This fxn gets the header.php file and renders it ?>
 			?>
 
 				<?php while ( have_posts() ) : the_post();
-
-				do_action('archive_job_loop');
+        include(WP_PLUGIN_DIR.'/job-recommendations/public/views/partials/primary-job-loop.php');
 				?>
 
 
