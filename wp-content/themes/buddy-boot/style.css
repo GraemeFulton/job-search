@@ -399,7 +399,7 @@ table.profile-fields {
     .container.list-main-content a p {
       color: #222; }
   .mobile-show {
-    display: block !important;
+    display: none;
     text-align: center;
     padding-top: 20px;
     clear: both; }
