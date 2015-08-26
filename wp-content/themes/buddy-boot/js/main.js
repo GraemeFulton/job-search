@@ -127,7 +127,7 @@ function navbar_toggle(){
     }
     $('.box-head').toggleClass('fixed menu-activated')
     $('.main-content-area').toggleClass('fixed menu-activated')
-    $('footer').toggleClass('hidden')
+    $('footer, .sign-up-panel').toggleClass('hidden')
     $('.btn-settings').toggleClass('hidden');
 
   })
