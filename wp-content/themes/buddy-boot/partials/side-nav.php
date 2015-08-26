@@ -43,9 +43,18 @@
              $output.='<ul class="sub-menu">';
            endif;
 
+           if ( strpos($title,'Account') !== false ){
+             $output.=  '<a href="'.bp_loggedin_user_domain().'profile/edit/group/4'.'" class="title">';
+             $output.='<li class="withripple '.$activeClass.'">'.'Edit';
+             $output.='<div class="ripple-wrapper"></div></li></a>';
+
+           }
            $output.=  '<a href="'.$link.'" class="title">';
            $output.='<li class="withripple '.$activeClass.'">'.$title;
            $output.='<div class="ripple-wrapper"></div></li></a>';
+
+
+
 
            if ( $menuitems[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ):
              $output.='</ul>';
