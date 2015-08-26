@@ -1623,7 +1623,6 @@ form.profession .editfield.col-md-3.col-xs-12.no-pad, form.location .editfield.c
 
 .menu-activated {
   margin-left: 210px;
-  width: 100%;
   overflow-x: hidden; }
   .menu-activated .box-head {
     margin-left: -10px; }
