@@ -10,10 +10,11 @@
 
     	highlightCheckBoxOptions();
 
+      touchSwipe();
 
     	hookButtons();
 
-      touchSwipe();
+
 
     });
 
@@ -41,7 +42,7 @@
 			        loopHorizontal: true,
 			        continuousVertical: false,
 			        scrollOverflow: false,
-			        touchSensitivity: 500,
+			        touchSensitivity: 15,
 			        normalScrollElementTouchThreshold: 5,
 
 			        //Accessibility
@@ -51,13 +52,15 @@
 
 			        //Design
 			        controlArrows: true,
-			        resize : true,
+			        resize : false,
+			        responsive: 0,
 
 			        menu: '#menu',
 		        	navigation: true,
 					navigationPosition: 'right',
 					css3: true,
 			        controlArrows: true,
+		        resize : false,
 		        menu: '#pagi-menu'
         });
 
@@ -78,15 +81,19 @@
 
     function touchSwipe(){
         $(".container-fluid").touchwipe({
-         wipeLeft: function() { alert("left"); },
-         wipeRight: function() { alert("right"); },
-         wipeUp: function() { alert("up"); },
-         wipeDown: function() { alert("down"); },
+         wipeUp: function() {
+           $.fn.fullpage.moveSectionUp();
+
+         },
+         wipeDown: function() {
+           $.fn.fullpage.moveSectionUp();
+        },
          min_move_x: 20,
          min_move_y: 20,
          preventDefaultEvents: true
         });
     }
+
 
    /*
     * Hook up buttons
