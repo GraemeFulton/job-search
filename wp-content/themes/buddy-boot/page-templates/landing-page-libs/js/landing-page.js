@@ -82,11 +82,11 @@
     function touchSwipe(){
         $(".container-fluid").touchwipe({
          wipeUp: function() {
-           $.fn.fullpage.moveSectionDown();
+           $.fn.fullpage.moveSectionUp();
 
          },
          wipeDown: function() {
-           $.fn.fullpage.moveSectionUp();
+           $.fn.fullpage.moveSectionDown();
         },
          min_move_x: 20,
          min_move_y: 20,
