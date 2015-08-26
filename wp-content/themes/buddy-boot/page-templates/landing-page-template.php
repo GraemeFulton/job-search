@@ -28,14 +28,14 @@ get_header();
         <div class="container animated materialInBottomGrowLarge delay-2500 text-center">
           <div class="card container slide1content">
             <div class="row text-center">
-              <h2 class="">1000s of live jobs closing soon</h2>
+              <h2 class="">Get job recommendations in location that suits you</h2>
               <a class="btn-primary btn-next btn-raised btn btn-scroll-down" style="font-size:20px;">Start now</a>
             </div>
-          <div class="how-it-works-container row text-center animated fadeInUp delay-4500">
+          <div class="how-it-works-container row text-center">
             <h2 class="how-it-works-title">How it works</h2>
           </div>
 
-        <section class="how-to col-md-12 text-center animated fadeInUp delay-4500">
+        <section class="how-to col-md-12 text-center">
         <div class="col-md-3 text-center">
             <h2 class="icon-title"><i class="material-icons icon-large">work</i></h2>
             <h2>Choose your industry</h2>
@@ -143,7 +143,7 @@ get_header();
     </div>
     <?php get_footer(); ?>
     <script src="<?php echo get_template_directory_uri()?>/js/scaleRaphael.js"></script>
-    <script src="<?php echo get_template_directory_uri()?>/js/jquery.touchwipe.min.js"></script>    
+    <script src="<?php echo get_template_directory_uri()?>/js/jquery.touchwipe.min.js"></script>
     <script src="<?php echo get_template_directory_uri()?>/libs/fullpage/vendors/jquery.slimscroll.min.js"></script>
     <script src="<?php echo get_template_directory_uri()?>/libs/fullpage/vendors/jquery.easings.min.js"></script>
     <script src="<?php echo get_template_directory_uri()?>/libs/fullpage/jquery.fullPage.min.js"></script>

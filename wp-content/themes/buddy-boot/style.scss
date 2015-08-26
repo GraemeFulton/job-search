@@ -606,6 +606,15 @@ and (max-width : 610px) {
   #profile-edit-form{
     margin-bottom: 50px!important;
   }
+  .btn-next{
+    display:none;
+  }
+  #section0{
+    .btn-next{
+      display:inline-block;
+    }
+  }
+
   .navbar-form.navbar-left{
     position: fixed;
   display: inline-block;
