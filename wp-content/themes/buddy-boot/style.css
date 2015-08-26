@@ -1742,3 +1742,6 @@ form.profession .editfield.col-md-3.col-xs-12.no-pad, form.location .editfield.c
 
 .single-graduate-job .copy-card #primary {
   margin-bottom: 0px; }
+
+.page-template-page-templatespage-sign-up-php .navbar-right {
+  display: none; }
