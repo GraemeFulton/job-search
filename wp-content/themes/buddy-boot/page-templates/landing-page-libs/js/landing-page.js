@@ -82,7 +82,7 @@
     function touchSwipe(){
         $(".container-fluid").touchwipe({
          wipeUp: function() {
-           $.fn.fullpage.moveSectionUp();
+           $.fn.fullpage.moveSectionDown();
 
          },
          wipeDown: function() {
