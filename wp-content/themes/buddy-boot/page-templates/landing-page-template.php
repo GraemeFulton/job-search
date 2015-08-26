@@ -143,11 +143,13 @@ get_header();
     </div>
     <?php get_footer(); ?>
     <script src="<?php echo get_template_directory_uri()?>/js/scaleRaphael.js"></script>
+    <script src="<?php echo get_template_directory_uri()?>/js/jquery.touchwipe.min.js"></script>    
     <script src="<?php echo get_template_directory_uri()?>/libs/fullpage/vendors/jquery.slimscroll.min.js"></script>
     <script src="<?php echo get_template_directory_uri()?>/libs/fullpage/vendors/jquery.easings.min.js"></script>
     <script src="<?php echo get_template_directory_uri()?>/libs/fullpage/jquery.fullPage.min.js"></script>
     <script src="<?php echo get_template_directory_uri()?>/page-templates/landing-page-libs/js/landing-page.js"></script>
     <script src="<?php echo get_template_directory_uri()?>/page-templates/landing-page-libs/js/css3-animate-it.js"></script>
     <script src="<?php echo get_template_directory_uri()?>/js/map.js"></script>
+
   </body>
 </html>
