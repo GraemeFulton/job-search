@@ -31,11 +31,11 @@
          <p>Or sign up using a social media account: </p>
           <!--SOCIAL MEDIA-->
              <div class="register-pg-social">
-                 <a href="http://lostgrad.com/login/?loginFacebook=1&amp;redirect=http://localhost/LGWP" onclick="window.location = 'http://lostgrad.com/login/?loginFacebook=1&amp;redirect='+window.location.href; return false;">
+                 <a href="http://grad-jobs.com/login/?loginFacebook=1&amp;redirect=http://grad-jobs.com" onclick="window.location = 'http://grad-jobs.com/login/?loginFacebook=1&amp;redirect='+window.location.href; return false;">
                  	<button class='btn btn-raised btn-fb'>Sign up with facebook</button>
                  </a>
                  <br>
-                 <a href="http://lostgrad.com/login/?loginTwitter=1&amp;redirect=http://localhost/LGWP" onclick="window.location = 'http://lostgrad.com/login/?loginTwitter=1&amp;redirect='+window.location.href; return false;">
+                 <a href="http://grad-jobs.com/login/?loginTwitter=1&amp;redirect=http://grad-jobs.com" onclick="window.location = 'http://grad-jobs.com/login/?loginTwitter=1&amp;redirect='+window.location.href; return false;">
                  	<button class='btn btn-raised btn-twitter'>Sign up with twitter</button>
                  </a>
              </div>

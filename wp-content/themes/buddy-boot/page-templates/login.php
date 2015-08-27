@@ -14,11 +14,11 @@
     <div class="row custom-tax-single copy-card col-md-8 col-sm-8">
 
       <div class="register-pg-social" style="clear:both;">
-         <a href="http://lostgrad.com/login/?loginFacebook=1&amp;redirect=http://localhost/LGWP" onclick="window.location = 'http://lostgrad.com/login/?loginFacebook=1&amp;redirect='+window.location.href; return false;">
+         <a href="http://grad-jobs.com/login/?loginFacebook=1&amp;redirect=http://grad-jobs.com" onclick="window.location = 'http://grad-jobs.com/login/?loginFacebook=1&amp;redirect='+window.location.href; return false;">
                             <button class="btn btn-fb">Sign in with facebook<div class="ripple-wrapper"></div></button>
                      </a>
                      <br>
-                     <a href="http://lostgrad.com/login/?loginTwitter=1&amp;redirect=http://localhost/LGWP" onclick="window.location = 'http://lostgrad.com/login/?loginTwitter=1&amp;redirect='+window.location.href; return false;">
+                     <a href="http://grad-jobs.com/login/?loginTwitter=1&amp;redirect=http://grad-jobs.com" onclick="window.location = 'http://grad-jobs.com/login/?loginTwitter=1&amp;redirect='+window.location.href; return false;">
                             <button class="btn btn-twitter">Sign in with twitter</button>
                      </a>
       </div>

@@ -17,9 +17,9 @@
                             <div class="register-pg-social">
                                 <a href="<?php echo site_url();?>/register" class='btn btn-raised'> Sign up with email</a>
                                 <br>
-                                <button class='btn btn-large btn-fb btn-raised'><a href="http://lostgrad.com/login/?loginFacebook=1&amp;redirect=http://localhost/LGWP" onclick="window.location = 'http://lostgrad.com/login/?loginFacebook=1&amp;redirect='+window.location.href; return false;">Sign up with facebook</a></button>
+                                <button class='btn btn-large btn-fb btn-raised'><a href="http://grad-jobs.com/login/?loginFacebook=1&amp;redirect=http://grad-jobs.com" onclick="window.location = 'http://grad-jobs.com/login/?loginFacebook=1&amp;redirect='+window.location.href; return false;">Sign up with facebook</a></button>
                                 <br>
-                                <button class='btn btn-large btn-twitter btn-raised'><a href="http://lostgrad.com/login/?loginTwitter=1&amp;redirect=http://localhost/LGWP" onclick="window.location = 'http://lostgrad.com/login/?loginTwitter=1&amp;redirect='+window.location.href; return false;">Sign up with twitter</a></button>
+                                <button class='btn btn-large btn-twitter btn-raised'><a href="http://grad-jobs.com/login/?loginTwitter=1&amp;redirect=http://grad-jobs.com" onclick="window.location = 'http://grad-jobs.com/login/?loginTwitter=1&amp;redirect='+window.location.href; return false;">Sign up with twitter</a></button>
                             </div>               </div>
             </div>
             </div>
