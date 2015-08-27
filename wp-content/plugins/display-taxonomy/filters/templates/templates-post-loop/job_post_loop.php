@@ -5,6 +5,9 @@ $location= $this->get_jobs_location($tree);
 if(!isset($institution)){
   $institution='N/A';
 }
+if(!isset($location)){
+  $location='N/A';
+}
 //get date
 $post_date=get_the_time('Y-m-d', $this->post_id);
    $now = time(); // or your date as well

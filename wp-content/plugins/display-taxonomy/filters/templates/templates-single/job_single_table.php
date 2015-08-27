@@ -1,5 +1,12 @@
 <?php
 $location= $this->get_jobs_location($tree);
+
+if(!isset($institution)){
+  $institution='N/A';
+}
+if(!isset($location)){
+  $location='N/A';
+}
 ?>
                 <div class="single_datagrid">
                   <h1>
@@ -17,9 +24,15 @@ $location= $this->get_jobs_location($tree);
                       $sentance = 'a graduate training scheme position';
                       $desc = 'Joining a training scheme such as this would provide you with a guided route into the '.strtolower($subject).' industry, enabling you to develop both your skills and understanding.';
                     }
+                    if(isset($institution_with_link)){
+                      $advertised_by = ' advertised by '.$institution_with_link;
+                    }
+                    else{
+                      $advertised_by = '';
+                    }
                     ?>
 
-                    <p>This is <?php echo $sentance; ?> advertised by <?php echo $institution_with_link;?>.</p>
+                    <p>This is <?php echo $sentance.$advertised_by; ?>.</p>
                     <p>The role is in the <?php echo strtolower($subject) ?> industry, and is <?php echo $location?> based.</p>
                     <p> <?php echo $desc;?> </p>
                     <p> A summary of the job is provided below. Click the 'Apply Now' button to find out more.</p>
