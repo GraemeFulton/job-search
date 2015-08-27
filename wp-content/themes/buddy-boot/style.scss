@@ -2266,3 +2266,19 @@ label{
      padding: 10px;
     width:  auto;
 }
+.login-form{
+  #wp-submit{
+    position: relative;
+    padding: 8px 30px;
+    border: 0;
+    margin: 10px 1px;
+    cursor: pointer;
+    border-radius: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255,255,255,.84);
+    transition: background-color .2s ease,box-shadow .28s cubic-bezier(.4,0,.2,1);
+    outline: none!important;
+    background-color: $primary-dark;
+  }
+}

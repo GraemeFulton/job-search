@@ -1776,3 +1776,17 @@ form.profession .editfield.col-md-3.col-xs-12.no-pad, form.location .editfield.c
   float: none;
   padding: 10px;
   width: auto; }
+
+.login-form #wp-submit {
+  position: relative;
+  padding: 8px 30px;
+  border: 0;
+  margin: 10px 1px;
+  cursor: pointer;
+  border-radius: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.84);
+  transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none !important;
+  background-color: #0D47A1; }

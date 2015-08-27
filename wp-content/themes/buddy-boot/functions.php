@@ -257,4 +257,21 @@ function myplugin_registration_save(  $user_id, $userdata, $form_id, $form_setti
 		}
 	}
 	add_action( 'admin_init', 'restrict_admin', 1 );
+
+	/**redirect login page**/
+	function redirect_login_page(){
+
+    // Store for checking if this page equals wp-login.php
+    $page_viewed = basename( $_SERVER['REQUEST_URI'] );
+
+    // permalink to the custom login page
+    $login_page  = site_url()."/login";
+
+	    if( $page_viewed == "wp-login.php" || $page_viewed = "wp-login.php?loggedout=true" ) {
+	        wp_redirect( $login_page );
+	        //exit();
+	    }
+		}
+
+		add_action( 'init','redirect_login_page' );
 ?>
