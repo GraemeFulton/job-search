@@ -71,7 +71,7 @@ global $wp_query;
 				<article class="post error container" style="padding:20px;">
 					<h3 style="margin-top:0px;">Sorry, nothing found</h3>
                                         <p>Try searching for something else, or browse recommended jobs:</p>
-                                        <div class="btn-success btn-outlined btn" href="<?php echo get_site_url(); ?>/job-roll">Recommended Jobs</div>
+                                        <a class="btn-success btn-outlined btn" href="<?php echo get_site_url(); ?>/job-roll">Recommended Jobs</a>
 				</article>
 
 			<?php endif; // OK, I think that takes care of both scenarios (having a page or not having a page to show) ?>

@@ -1770,3 +1770,9 @@ form.profession .editfield.col-md-3.col-xs-12.no-pad, form.location .editfield.c
 
 .btn-primary:hover:not(.btn-link):not(.btn-flat) {
   background-color: #42A5F5; }
+
+.post.container a.btn {
+  font-size: 16px;
+  float: none;
+  padding: 10px;
+  width: auto; }
