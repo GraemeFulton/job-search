@@ -2254,3 +2254,9 @@ label{
     }
   }
 }
+.btn-primary:active:not(.btn-link):not(.btn-flat) {
+    background-color: $primary-lighter;
+}
+.btn-primary:hover:not(.btn-link):not(.btn-flat) {
+  background-color: $primary-lighter;
+}

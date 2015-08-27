@@ -7,3 +7,7 @@
 
      include(get_stylesheet_directory().'/partials/pagination.php');
 </section>
+<div class="container-margin-bottom">
+  <h3><i class="fa fa-thumbs-o-up"></i> We've found <?php echo $wp_query->found_posts; ?> related jobs within the UK</h3>
+   <p><i class="fa fa-info-circle"></i> There are no more jobs in the location you selected</p>
+  </div>

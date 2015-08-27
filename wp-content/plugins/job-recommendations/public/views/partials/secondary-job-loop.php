@@ -10,6 +10,22 @@ unset($args['tax_query'][1]);
 global $paged;
 $wp_query->query($args);
 
+if(isset($nothing_found)){
+if($nothing_found==true){
+    ?>
+     <?php
+     if ($paged<3) {
+       ?>
+	<div class="container-margin-bottom container">
+		<h3><i class="fa fa-thumbs-o-up"></i> We've found <?php echo $wp_query->found_posts; ?> related jobs within the UK</h3>
+	   <p><i class="fa fa-info-circle"></i> There are no more jobs in the location you selected</p>
+    </div>
+    <?php
+  }
+}
+}
+
+
 if ( $wp_query->have_posts() ) :
 // Do we have any posts/pages in the databse that match our query?
 

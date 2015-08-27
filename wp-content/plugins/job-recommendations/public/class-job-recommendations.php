@@ -152,7 +152,7 @@ class Job_Recommendations{
 	public function archive_loop(){
 
 		include('views/partials/primary-job-loop.php');
-		
+
 	}
 
 	private function set_user_order_by($args){
@@ -246,8 +246,11 @@ class Job_Recommendations{
         }
         else{
                 $suggest_more = true;
+								if($wp_query->found_posts<1){
+									$nothing_found=true;
+								}
                 $message='for';
-                include_once('partials/app-bar.php');
+                include_once('views/partials/app-bar.php');
         	require_once 'views/template-job-suggest-more.php';
         }
          //reset query
