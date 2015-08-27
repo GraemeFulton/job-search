@@ -265,7 +265,7 @@ function myplugin_registration_save(  $user_id, $userdata, $form_id, $form_setti
     $page_viewed = basename( $_SERVER['REQUEST_URI'] );
 
     // permalink to the custom login page
-    $login_page  = site_url()."/login";
+    $login_page  = site_url()."/log-in";
 
 	    if( $page_viewed == "wp-login.php" || $page_viewed = "wp-login.php?loggedout=true" ) {
 				if(!is_admin()){
