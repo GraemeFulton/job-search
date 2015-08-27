@@ -275,5 +275,26 @@ function myplugin_registration_save(  $user_id, $userdata, $form_id, $form_setti
 	    }
 		}
 
-		add_action( 'init','redirect_login_page' );
+		//add_action( 'init','redirect_login_page' );
+
+		function my_login_logo() {
+			wp_head();
+			 ?>
+
+			<div class="navbar wide-nav navbar-inverse navbar-fixed-top mobile-menu" role="navigation">
+
+        <div class="navbar-header">
+
+        <a class="navbar-brand" style="" href="http://localhost:8888/lostgrad">Grad Jobs</a>
+
+        </div>
+            </div>
+    <style type="text/css">
+
+        .login h1 a {
+            display:none;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
 ?>
