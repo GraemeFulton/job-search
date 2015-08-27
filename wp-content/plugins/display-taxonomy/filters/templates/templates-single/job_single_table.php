@@ -1,8 +1,8 @@
 <?php
 $location= $this->get_jobs_location($tree);
 
-if(!isset($institution)){
-  $institution='N/A';
+if(!isset($institution_with_link)){
+  $institution_with_link='N/A';
 }
 if(!isset($location)){
   $location='N/A';
