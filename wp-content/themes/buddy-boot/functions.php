@@ -268,7 +268,9 @@ function myplugin_registration_save(  $user_id, $userdata, $form_id, $form_setti
     $login_page  = site_url()."/login";
 
 	    if( $page_viewed == "wp-login.php" || $page_viewed = "wp-login.php?loggedout=true" ) {
+				if(!is_admin()){
 	        wp_redirect( $login_page );
+				}
 	        //exit();
 	    }
 		}

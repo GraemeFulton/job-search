@@ -10,7 +10,7 @@
 
     <?php include(get_stylesheet_directory().'/partials/side-nav.php');?>
     <section class="col-md-9 main-content-area  col-md-offset-2  col-xs-12" style="margin-top:0px;">
-      <h2><i class="material-icons">lock</i> Log In</h2>
+      <div class="container"><h2><i class="material-icons">lock</i> Log In</h2></div>
     <div class="row custom-tax-single copy-card col-md-8 col-sm-8">
 
       <div class="register-pg-social" style="clear:both;">
