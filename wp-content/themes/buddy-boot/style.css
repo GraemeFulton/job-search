@@ -462,6 +462,8 @@ table.profile-fields {
     display: none; }
   #section0 .btn-next {
     display: inline-block; }
+  #section3 .btn-next {
+    display: inline-block !important; }
   .navbar-form.navbar-left {
     position: fixed;
     display: inline-block;
@@ -1317,7 +1319,7 @@ div.selected {
   display: none; }
 
 .flex-col.panel {
-  height: 60vh; }
+  margin-bottom: 3vh; }
 
 #buddypress label {
   font-weight: normal; }

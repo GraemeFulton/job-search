@@ -28,7 +28,7 @@ get_header();
         <div class="container animated materialInBottomGrowLarge delay-2500 text-center">
           <div class="card container slide1content">
             <div class="row text-center">
-              <h2 class="">Get job recommendations in location that suits you</h2>
+              <h2 class="">Get job recommendations in a location that suits you</h2>
               <a class="btn-primary btn-next btn-raised btn btn-scroll-down" style="font-size:20px;">Start now</a>
             </div>
           <div class="how-it-works-container row text-center">
