@@ -6,15 +6,22 @@
 
     $(document).ready(function() {
 
-    	fullPageScroll();
-
-    	highlightCheckBoxOptions();
-
-      touchSwipe();
-
-    	hookButtons();
+      $('.loader-container').show().css('opacity', '0.8');
 
 
+      $('<img/>').attr('src', 'http://188.226.151.147/grad-jobs/wp-content/themes/buddy-boot/images/header.jpg').load(function() {
+
+         $(this).remove(); // prevent memory leaks as @benweet suggested
+         $('.loader-container').hide();
+
+         fullPageScroll();
+
+         highlightCheckBoxOptions();
+
+          touchSwipe();
+
+         hookButtons();
+      });
 
     });
 
