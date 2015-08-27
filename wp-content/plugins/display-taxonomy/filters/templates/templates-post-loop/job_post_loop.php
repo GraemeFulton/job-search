@@ -14,7 +14,13 @@ $post_date=get_the_time('Y-m-d', $this->post_id);
         $days_ago = '<div class="time pull-right">30+ days ago</div>';
     }
     else{
-       '<div class="time pull-right">'. $days_ago = ''.$total_days.' days ago</div>';
+      if($total_days==1){
+        $lang = ' day ago';
+      }
+      else{
+        $lang = ' days ago';
+      }
+       '<div class="time pull-right">'. $days_ago = ''.$total_days.$lang.'</div>';
     }
 
 

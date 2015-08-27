@@ -6,7 +6,9 @@ $location= $this->get_jobs_location($tree);
                     <?php the_title(); ?>
                   </h1>
                   <?php
+                  $image='';
                   if(strpos($provider['src'],'indeed')!==false){
+                    $image = 'http://www.indeed.co.uk/images/job_search_indeed_en_GB.png';
                     if($post_type=='Entry Level'){
                       $sentance = 'an entry level position';
                       $desc = $subject.' entry level roles often equip you with valuable hands on experience that may not be possible on larger graduate schemes in the '.strtolower($subject).' industry';
@@ -32,8 +34,8 @@ $location= $this->get_jobs_location($tree);
                         <tr class="alt"><th>Profession: </th><td><?php echo $subject;?></td></tr>
                         <tr><th>Location: </th><td><?php echo $location;?></td></tr>
                         <tr class="alt"><th>Job Type: </th><td><?php echo $post_type;?></td></tr>
-                        <tr><th>Provider:</th><td><img style="float:left; position:relative; max-height:35px; max-width:80px;" src="<?php echo $provider['src']?>"/></td></tr>
-                        <tr class="alt"><th>Excerpt: </td><td><?php echo $excerpt;?></td></tr>
+                        <tr><th>Provider:</th><td><img style="width:100px;" src="<?php echo $image; ?>"/></td></tr>
+                        <tr class="alt"><th>Excerpt: </td><td><?php echo $the_content;?></td></tr>
                          <tr><th>Date Posted: </th><td><?php echo $post_date=get_the_time('d-m-Y', $this->post_id);?></td></tr>
             <?php
         //get post date and add 30 days
