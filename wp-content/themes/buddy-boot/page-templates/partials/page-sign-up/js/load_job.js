@@ -26,7 +26,7 @@ $(document).ready(function(){
 
 
     //listen for click on job link
-    $('.list-container').mousedown(function(event) {
+    $('.list-container').mousedown(function(e) {
       e.preventDefault();
       $('#myModal').modal('show');
       return;

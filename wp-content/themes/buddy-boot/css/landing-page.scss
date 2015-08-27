@@ -369,6 +369,7 @@ and (max-width : 767px) {
   .how-it-works-container{
       margin-top:5px; padding-top:5px;
   }
+
   #section0{
   h2{
     font-size: 18px!important;
@@ -565,6 +566,7 @@ h2.margin-b{
 
 @media only screen and (min-width:300px)
 and (max-height:570px){
+
   #section0{
     p{display:none;}
   }

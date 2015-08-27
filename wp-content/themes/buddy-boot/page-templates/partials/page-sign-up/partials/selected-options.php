@@ -4,9 +4,10 @@
     <?php
     if(isset($_GET['Profession'])) {
         foreach ($_GET["Profession"] as $selected_profession) {
-
+          $name = ucfirst(str_replace("-jobs","",$selected_profession));
+          $name = ucfirst(str_replace("-management","",$name));
             ?>
-            <span class='selected'><?php echo ucfirst(str_replace("-jobs","",$selected_profession));?></span>
+            <span class='selected'><?php echo $name;?></span>
 
         <?php
 
@@ -32,4 +33,3 @@
     else echo 'none';
 ?>
     </p>
-

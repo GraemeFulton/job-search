@@ -11,8 +11,11 @@ if(!is_user_logged_in()){
 									$professions = unserialize($selected_professions);
 		            	foreach ($professions as $selected_profession) {
 
+										$name = ucfirst(str_replace("-jobs","",$selected_profession));
+										$name = ucfirst(str_replace("-management","",$name));
+
 		            		?>
-		                           <div class='selected profession'><?php echo ucfirst(str_replace("-jobs","",$selected_profession));?>
+		                           <div class='selected profession'><?php echo $name;?>
 		                          </div>
 		                                  <?php
 

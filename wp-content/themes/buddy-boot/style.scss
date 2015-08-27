@@ -461,6 +461,10 @@ and (max-width : 771px) {
   .navbar-header{
     float:left;
   }
+  .pagi-top.container.no-pad{
+    margin-bottom: 15px!important;
+    margin-top: -20px;
+  }
   .navbar-right{
     li{
       float:right;
@@ -1119,6 +1123,8 @@ a, a:hover, a:focus {
           padding-right: 4px;
           /* border: 1px solid #eaeaea; */
           font-weight: 100;
+          padding-top: 2px;
+    padding-bottom: 2px;
     }
     i{
         vertical-align: bottom;
