@@ -7,6 +7,9 @@ if(!isset($institution_with_link)){
 if(!isset($location)){
   $location='N/A';
 }
+if(!isset($post_type)){
+  $post_type='N/A';
+}
 ?>
                 <div class="single_datagrid">
                   <h1>
