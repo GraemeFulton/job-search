@@ -294,10 +294,15 @@ function myplugin_registration_save(  $user_id, $userdata, $form_id, $form_setti
         .login h1 a {
             display:none;
         }
+				.login form{
+					box-shadow: none;
+				}
+				.login{
+					padding-top:100px;
+				}
 				#login{
 					padding: 15px;
 					background: #fff;
-					margin: 100px;
 				}
     </style>
 <?php }
