@@ -294,6 +294,11 @@ function myplugin_registration_save(  $user_id, $userdata, $form_id, $form_setti
         .login h1 a {
             display:none;
         }
+				#login{
+					padding: 15px;
+					background: #fff;
+					margin: 100px;
+				}
     </style>
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
