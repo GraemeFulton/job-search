@@ -2224,7 +2224,7 @@ label{
     display: none;
   }
 }
-#secondary.widget-area{
+#secondary{
   .side-title{
     margin-top:2px;
   }
@@ -2235,8 +2235,8 @@ label{
     padding-left: 2px;
     li{
       border-bottom: 1px solid #F1F0F0;
-padding-bottom: 2px;
-padding-top: 2px;
+      padding-bottom: 2px;
+      padding-top: 2px;
     }
   }
 }

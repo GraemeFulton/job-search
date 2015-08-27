@@ -1745,15 +1745,15 @@ form.profession .editfield.col-md-3.col-xs-12.no-pad, form.location .editfield.c
 .page-template-page-templatespage-sign-up-php .navbar-right {
   display: none; }
 
-#secondary.widget-area .side-title {
+#secondary .side-title {
   margin-top: 2px; }
 
-#secondary.widget-area ul {
+#secondary ul {
   list-style-type: none;
   margin-left: 0;
   font-size: 14px;
   padding-left: 2px; }
-  #secondary.widget-area ul li {
+  #secondary ul li {
     border-bottom: 1px solid #F1F0F0;
     padding-bottom: 2px;
     padding-top: 2px; }
