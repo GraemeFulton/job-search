@@ -361,7 +361,11 @@ and (max-width:991px){
 }
 
 }
-
+.textwidget{
+  text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
 @media only screen
 and (min-width : 100px)
 and (max-width : 767px) {

@@ -301,6 +301,11 @@ fp-slidesNav {
     font-size: 12px !important;
     margin-bottom: 0px; } }
 
+.textwidget {
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px; }
+
 @media only screen and (min-width: 100px) and (max-width: 767px) {
   .container.slide1content {
     width: 80vw; }
