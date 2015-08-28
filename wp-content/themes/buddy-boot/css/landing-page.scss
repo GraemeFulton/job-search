@@ -69,7 +69,7 @@
     }
 
     .container.slide1content{
-      width: 80vw;
+      // width: 80vw;
       text-align: left;
       height: 90vh;
       h1{
@@ -366,6 +366,9 @@ and (max-width:991px){
 and (min-width : 100px)
 and (max-width : 767px) {
 
+  .container.slide1content{
+    width: 80vw;
+  }
   .how-it-works-container{
       margin-top:5px; padding-top:5px;
   }

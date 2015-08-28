@@ -58,7 +58,6 @@ h2.how-it-works-title {
   right: 3px; }
 
 .container.slide1content {
-  width: 80vw;
   text-align: left;
   height: 90vh; }
   .container.slide1content h1 {
@@ -303,6 +302,8 @@ fp-slidesNav {
     margin-bottom: 0px; } }
 
 @media only screen and (min-width: 100px) and (max-width: 767px) {
+  .container.slide1content {
+    width: 80vw; }
   .how-it-works-container {
     margin-top: 5px;
     padding-top: 5px; }
