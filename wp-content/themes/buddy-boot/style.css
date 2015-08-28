@@ -1790,3 +1790,8 @@ form.profession .editfield.col-md-3.col-xs-12.no-pad, form.location .editfield.c
   transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none !important;
   background-color: #0D47A1; }
+
+.textwidget {
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px; }
