@@ -1,5 +1,5 @@
 <?php
-include('wp-load.php');
+include('../wp-load.php');
 
 
 
