@@ -418,6 +418,9 @@ and (max-width : 767px) {
     .btn-primary:not(.btn-link):not(.btn-flat){
       font-size: 16px;
     }
+    .btn-next{
+      display: inline-block;
+    }
   }
 }
 @media only screen
