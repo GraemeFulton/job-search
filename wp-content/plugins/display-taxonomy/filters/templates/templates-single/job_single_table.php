@@ -60,10 +60,11 @@ if(!isset($post_type)){
         }else{ ?><tr class="alt"><th>Notice: </th><td><span class="job-expiry">Older than 30 days</span></td></tr><?php } ?>
                     </table>
 <?php echo ' <a class="btn-success btn-outlined btn apply" target="_blank" href="'.$link.'">Apply Now</a>';?>
-
+<style>
+.IN-widget{float:left;margin-right:10px;}
+</style>
+<script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+<script type="IN/Share" data-counter="top"></script>
 
 
                 </div>
-                <h4>Share this on LinkedIn</h4>
-                <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
-<script type="IN/Share" data-counter="top"></script>
