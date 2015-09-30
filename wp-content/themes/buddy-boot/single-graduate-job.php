@@ -27,8 +27,16 @@ get_header(); ?>
 	    	$post_id= get_the_ID();
 	    	$popup= new Popup_Filter($post_id, 'graduate-job', 'profession', 'company');
 				$popup->template_response('table');
-				the_content();
+		
+?>
+<hr>
+<div class="cont">
+<style>.cont p{display:none}</style>
+<h3 style="margin-bottom:-5px;">Here's a question for you</h4>
+<?php
+		the_content();
 				?>
+</div>
 		</div>
 	</div>
 	<div id="secondary" class="shadow-z-1 widget-area col-md-4 col-sm-4 pull-right" role="complementary">
