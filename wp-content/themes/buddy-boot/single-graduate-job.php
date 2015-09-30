@@ -27,12 +27,15 @@ get_header(); ?>
 	    	$post_id= get_the_ID();
 	    	$popup= new Popup_Filter($post_id, 'graduate-job', 'profession', 'company');
 				$popup->template_response('table');
-		
+
 ?>
+<style>
+.yasr-custom-text-before-visitor-rating{font-size:22px;}
+</style>
 <hr>
 <div class="cont">
 <style>.cont p{display:none}</style>
-<h3 style="margin-bottom:-5px;">Here's a question for you</h4>
+<h3 style="margin-bottom:-5px;">Have your say</h4>
 <?php
 		the_content();
 				?>
