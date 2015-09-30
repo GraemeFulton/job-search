@@ -30,12 +30,12 @@ get_header(); ?>
 
 ?>
 <style>
-.yasr-custom-text-before-visitor-rating{font-size:22px;}
+#yasr-custom-text-before-visitor-rating{font-size:22px;}
 </style>
 <hr>
 <div class="cont">
 <style>.cont p{display:none}</style>
-<h3 style="margin-bottom:-5px;">Have your say</h4>
+<h3 style="margin-bottom:-5px;">Have your say</h3>
 <?php
 		the_content();
 				?>
