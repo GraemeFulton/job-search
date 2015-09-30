@@ -35,7 +35,6 @@ get_header(); ?>
 <hr>
 <div class="cont">
 <style>.cont p{display:none}</style>
-<h3 style="margin-bottom:-5px;">Have your say</h3>
 <?php
 		the_content();
 				?>
