@@ -62,6 +62,7 @@ if(!isset($post_type)){
 <?php echo ' <a class="btn-success btn-outlined btn apply" target="_blank" href="'.$link.'">Apply Now</a>';?>
 <style>
 .IN-widget{float:left;margin-right:10px;}
+.yasr-custom-text-before-visitor-rating{font-size:22px;}
 </style>
 <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
 <script type="IN/Share" data-counter="top"></script>
