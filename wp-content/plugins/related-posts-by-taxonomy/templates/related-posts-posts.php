@@ -22,19 +22,17 @@
  * Note: global $post; is used before this template by the widget and the shortcode.
  */
 ?>
-
 <?php if ( $related_posts ) : ?>
 	<?php foreach ( $related_posts as $post ) :
 		setup_postdata( $post ); ?>
 
-		<a href="<?php the_permalink() ?>"><?php if ( get_the_title() ) the_title(); else the_ID(); ?></a>
-		<?php the_content(); ?>
+		<a style="font-size:14px;"href="<?php the_permalink() ?>"><?php if ( get_the_title() ) the_title(); else the_ID(); ?></a>
+		<?php echo '</br><div style="border-bottom:1px solid #eaeaea;margin-bottom:10px;margin-top:6px; color:#666;font-size:13px;padding-bottom:10px;">'.substr(get_the_content(),0,100).'</div></hr>'; ?>
 
 	<?php endforeach; ?>
 <?php else : ?>
 <p><?php _e( 'No related posts found', 'related-posts-by-taxonomy' ); ?></p>
 <?php endif ?>
-
 <?php
 /**
  * note: wp_reset_postdata(); is used after this template by the widget and the shortcode

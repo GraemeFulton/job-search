@@ -35,11 +35,6 @@ if(!isset($post_type)){
                     }
                     ?>
 
-                    <p>This is <?php echo $sentance.$advertised_by; ?>.</p>
-                    <p>The role is in the <?php echo strtolower($subject) ?> industry, and is <?php echo $location?> based.</p>
-                    <p> <?php echo $desc;?> </p>
-                    <p> A summary of the job is provided below. Click the 'Apply Now' button to find out more.</p>
-
                     <?php
                   }
                   ?>
@@ -51,7 +46,7 @@ if(!isset($post_type)){
                         <tr><th>Location: </th><td><?php echo $location;?></td></tr>
                         <tr class="alt"><th>Job Type: </th><td><?php echo $post_type;?></td></tr>
                         <tr><th>Provider:</th><td><img style="width:100px;" src="<?php echo $image; ?>"/></td></tr>
-                        <tr class="alt"><th>Excerpt: </td><td><?php echo $the_content;?></td></tr>
+                        <tr class="alt"><th>Excerpt: </td><td><?php echo $excerpt;?></td></tr>
                          <tr><th>Date Posted: </th><td><?php echo $post_date=get_the_time('d-m-Y', $this->post_id);?></td></tr>
             <?php
         //get post date and add 30 days
@@ -69,3 +64,6 @@ if(!isset($post_type)){
 
 
                 </div>
+                <h4>Share this on LinkedIn</h4>
+                <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+<script type="IN/Share" data-counter="top"></script>
