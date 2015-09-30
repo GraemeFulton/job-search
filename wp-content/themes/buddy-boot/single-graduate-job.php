@@ -35,7 +35,7 @@ get_header(); ?>
 <hr>
 <div class="cont">
 <style>.cont p{display:none}</style>
-<h3 style="margin-bottom:15px;">Have your say</h3>
+<h2 style="margin-bottom:15px;">Have your say</h2>
 <?php
 		the_content();
 				?>
